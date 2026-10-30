@@ -1,0 +1,10 @@
+{
+  "content_commit": "39fa45b68aeb00defe986aae96bc8d1383df68c8",
+  "checks": [
+    "package validation",
+    "19 unit tests",
+    "three executable example checks",
+    "canonical file layout"
+  ],
+  "passed": true
+}

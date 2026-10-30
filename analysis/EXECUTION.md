@@ -18,7 +18,7 @@ The user approved execution of REVIEW-PROMPT.md on 2026-10-30, including final G
 - [x] Run static and negative tests, executable examples, and behavioral evaluations.
 - [x] Review failures, revise guidance, rerun affected checks, and assess held-out cases.
 - [x] Record source/requirement coverage, actual results, context sizes, and limitations.
-- [ ] Commit, validate committed content, push, and verify the remote commit.
+- [x] Commit, validate committed content, push, and verify the remote commit.
 
 ## Evaluation boundaries
 
@@ -28,4 +28,4 @@ Reference audits and author review are separate from fresh model generation. Gen
 
 The validation report records 128 accepted core outputs after targeted repairs, 26 style regressions, eight final acceptance cases, matched baseline comparisons, risk trials, and separate package/example checks. The first failed outputs and grader repairs remain documented. The current file-layout check confirms issue.md/user_story.md and the absence of work_item.md/reference.md/requirements.md. Superseded drafts remain in Git history, not in the active package.
 
-Final commit validation and remote delivery are the remaining completion checkpoint. Record the verified GitHub commit in validation/delivery.json after pushing; access and dry-run checks alone do not complete delivery.
+The committed export passed package checks, all 19 unit tests, executable examples, and the canonical file-layout check. Remote main matched the pushed content commit, and its actual file tree and SKILL.md routes were checked. validation/delivery.json records that checkpoint. The completion receipt is delivered in a following evidence-only commit and its remote HEAD is verified again.
