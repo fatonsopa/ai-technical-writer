@@ -1,0 +1,496 @@
+{
+  "purpose": "Reusable writing-style regression requests based on the supplied conversation and exports. These are inputs and review criteria, not a report of completed independent model evaluations.",
+  "created": "2026-10-30",
+  "target": "technical-writer/references/writing-style.md",
+  "evaluation_status": "Not executed in independent model sessions.",
+  "instructions": "Give an evaluator the request, input, relevant context, and writing guide without the expected_properties. Review the returned prose against those properties and the source. Evaluate issue-specific structure separately when issue.md is written.",
+  "cases": [
+    {
+      "id": "meaning-unknown",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Rewrite this for a developer new to the project. No other facts are available.",
+      "input": "The process aligns the task with the available execution context.",
+      "expected_properties": [
+        "Identifies that the action and relationship are not explained",
+        "Does not invent a scheduler, queue, assignment rule, or test result"
+      ],
+      "guide_sections": [
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "id": "missing-context",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Explain this to a new colleague.",
+      "input": "After the gate passes, the worker starts.",
+      "context": "In this document, gate means the required tests and worker means a coding agent. No other checks are specified.",
+      "expected_properties": [
+        "Names the required tests and the coding agent",
+        "Preserves that the agent starts after the tests pass",
+        "Adds no approval or scheduling condition"
+      ],
+      "guide_sections": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "noun-stack",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Make this explanation natural without changing its meaning.",
+      "input": "The scheduler performs a task eligibility assessment before task assignment.",
+      "expected_properties": [
+        "Uses a direct explanation of checking eligibility before assignment",
+        "Preserves the scheduler and the order of the actions",
+        "Adds no specific eligibility test"
+      ],
+      "guide_sections": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "id": "technical-term",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 16
+      },
+      "request": "Improve this wording for developers.",
+      "input": "A flaky test is a test that passes on some runs and fails on others without a relevant change to the code or environment.",
+      "expected_properties": [
+        "Keeps or clearly defines the established term flaky test",
+        "Does not substitute lucky pass or imply a verified cause",
+        "Does not force an edit if the original already reads clearly"
+      ],
+      "guide_sections": [
+        3,
+        5
+      ]
+    },
+    {
+      "id": "valid-passive",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Review this sentence. The actor is unknown and irrelevant to this record.",
+      "input": "The file was deleted before the backup started.",
+      "expected_properties": [
+        "Accepts the passive construction",
+        "Keeps the order of deletion and backup",
+        "Does not invent an actor"
+      ],
+      "guide_sections": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "responsibility",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Clarify who is responsible.",
+      "input": "The deployment must be approved before it starts.",
+      "context": "The release owner is the person responsible for approval.",
+      "expected_properties": [
+        "Identifies the release owner as the approver",
+        "Keeps approval mandatory and before deployment",
+        "Does not substitute a developer, agent, or automatic check"
+      ],
+      "guide_sections": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "connected-prose",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Turn these sentences into a connected explanation.",
+      "input": "The API receives an event. The API adds a job to the queue. A worker reads the job. The worker sends the email.",
+      "expected_properties": [
+        "Preserves all four actions and their actors",
+        "Uses natural connected prose",
+        "Adds no retry, storage, or delivery guarantee"
+      ],
+      "guide_sections": [
+        5
+      ]
+    },
+    {
+      "id": "ambiguous-pronoun",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Clarify this sentence. Do not guess missing behavior.",
+      "input": "The API sends the worker an error, and it retries.",
+      "context": "The source does not say whether the API or the worker retries.",
+      "expected_properties": [
+        "Identifies the unresolved actor",
+        "Does not choose an actor merely to produce a smoother sentence"
+      ],
+      "guide_sections": [
+        1,
+        5,
+        8
+      ]
+    },
+    {
+      "id": "exception",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 6
+      },
+      "request": "Simplify this instruction.",
+      "input": "Operators must retain the logs for 30 days unless an approved investigation requires them to be kept longer.",
+      "expected_properties": [
+        "Preserves the operator's obligation",
+        "Preserves 30 days",
+        "Preserves the approved-investigation exception"
+      ],
+      "guide_sections": [
+        5,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "obligation-and-permission",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 6
+      },
+      "request": "Rewrite this in plain English.",
+      "input": "The client may retry after a timeout, but it must not retry after an explicit rejection.",
+      "expected_properties": [
+        "Keeps retry after timeout optional",
+        "Keeps retry after explicit rejection prohibited",
+        "Does not turn either clause into a universal retry rule"
+      ],
+      "guide_sections": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": "proposed-behavior",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 12
+      },
+      "request": "Make this architecture note clear.",
+      "input": "The proposed worker would record failed deliveries in PostgreSQL. This change has not been approved or implemented.",
+      "expected_properties": [
+        "Keeps the behavior proposed",
+        "Keeps the storage technology",
+        "Does not imply deployment or approval"
+      ],
+      "guide_sections": [
+        8
+      ]
+    },
+    {
+      "id": "no-invented-target",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Make this precise. No performance measurement or approved target is available.",
+      "input": "Improve dashboard performance.",
+      "expected_properties": [
+        "Identifies the missing behavior, measurement, or target",
+        "Does not invent seconds, record counts, or an optimization"
+      ],
+      "guide_sections": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "no-invented-remedy",
+      "source": {
+        "file": "/Users/faton/Downloads/technical-writer 2/references/writing-style.md",
+        "section": "Examples: unclear to useful"
+      },
+      "request": "Rewrite this clearly. No failure or recovery procedure is described.",
+      "input": "Initiate the required remediation procedures.",
+      "expected_properties": [
+        "Identifies that the actual procedure is missing",
+        "Does not prescribe a worker restart, database change, or queue check without a source"
+      ],
+      "guide_sections": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "repeated-rationale",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Remove repetition while retaining the requirement.",
+      "input": "Every request must include a token because a token is required for every request.",
+      "expected_properties": [
+        "Preserves the token requirement",
+        "Removes the circular reason",
+        "Does not add a 401 response or another authentication contract"
+      ],
+      "guide_sections": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": "valid-heading",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Review this section heading for an API reference.",
+      "input": "Authentication errors",
+      "context": "The section lists authentication errors.",
+      "expected_properties": [
+        "Accepts a meaningful noun phrase",
+        "Does not force a complete-sentence heading, actor, or number"
+      ],
+      "guide_sections": [
+        6
+      ]
+    },
+    {
+      "id": "heading-scope",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 19
+      },
+      "request": "Improve the title.",
+      "input": "System status",
+      "context": "The document explains how workers record when tasks start and finish. It does not describe the health of the whole system.",
+      "expected_properties": [
+        "Identifies workers and task status or start/finish events",
+        "Does not broaden the scope to whole-system health",
+        "Does not introduce unsupported lifecycle states"
+      ],
+      "guide_sections": [
+        2,
+        6,
+        8
+      ]
+    },
+    {
+      "id": "literal-technical-name",
+      "source": {
+        "issue_id": "CG-474",
+        "file": "/Users/faton/Downloads/Clarigram › All issues (1).csv"
+      },
+      "request": "Explain this to a new developer.",
+      "input": "Call website_review_state(websites) to obtain the website review state.",
+      "context": "website_review_state(websites) is the exact interface named in the supplied source. Its accepted states are not provided.",
+      "expected_properties": [
+        "Keeps the exact interface name",
+        "Explains its purpose in ordinary words",
+        "Does not invent returned states"
+      ],
+      "guide_sections": [
+        2,
+        3,
+        8
+      ]
+    },
+    {
+      "id": "format-and-flow",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 7
+      },
+      "request": "Review these instructions for layout.",
+      "input": "Open Settings. Select Workspace. Change the name. Save the change.",
+      "expected_properties": [
+        "Uses a readable ordered sequence if formatted as steps",
+        "Does not add bold opening labels to every step",
+        "Does not add a mandatory rationale, summary, or diagram"
+      ],
+      "guide_sections": [
+        5,
+        7,
+        9
+      ]
+    },
+    {
+      "id": "source-CG-3031",
+      "source": {
+        "issue_id": "CG-3031",
+        "file": "/Users/faton/Downloads/Clarigram › All issues.csv"
+      },
+      "request": "Explain the observation and uncertainty in two or three natural sentences. Do not write an issue template.",
+      "input": "The monitor sent nine notifications between 11:19 and 11:45 on 30 October 2026 while production was paused and the readings did not change. Increasing elapsed seconds was checked and ruled out as the explanation. The cause remains unknown.",
+      "expected_properties": [
+        "Preserves the nine notifications and paused environment",
+        "Keeps the ruled-out explanation separate from the unknown cause",
+        "Does not claim that appearing or disappearing fields caused the notifications"
+      ],
+      "guide_sections": [
+        2,
+        5,
+        8
+      ]
+    },
+    {
+      "id": "source-CG-3006",
+      "source": {
+        "issue_id": "CG-3006",
+        "file": "/Users/faton/Downloads/Clarigram › All issues.csv"
+      },
+      "request": "Simplify this requirement without weakening it.",
+      "input": "When a merge is rejected after a test group passes, a retry must reuse that result only if the group's relevant inputs have not changed. Groups whose inputs changed must run again.",
+      "expected_properties": [
+        "Preserves the rejected-merge context",
+        "Preserves the relevant-input condition",
+        "Requires rerunning changed groups",
+        "Does not replace this with unconditional reuse"
+      ],
+      "guide_sections": [
+        5,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "source-CG-3029",
+      "source": {
+        "issue_id": "CG-3029",
+        "file": "/Users/faton/Downloads/Clarigram › All issues (1).csv"
+      },
+      "request": "Explain this requirement to a developer.",
+      "input": "When origin uses HTTPS, the design-system download must use HTTPS without requiring an SSH key. If DS_REPO is set, the download must continue using DS_REPO.",
+      "expected_properties": [
+        "Preserves HTTPS, origin, SSH, and DS_REPO accurately",
+        "Keeps the DS_REPO override",
+        "Does not generalize this into always using HTTPS"
+      ],
+      "guide_sections": [
+        3,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "source-CG-3033",
+      "source": {
+        "issue_id": "CG-3033",
+        "file": "/Users/faton/Downloads/Clarigram › All issues (1).csv"
+      },
+      "request": "Summarize the report's evidence without claiming an independent investigation.",
+      "input": "The report says 1,716 answers are past their stage limit. For one awaiting_extract answer, it reports a total wait of 2,767,681 seconds against a 2,340-second limit, with 0 seconds of capacity wait and 106,585 seconds of processing pauses subtracted before judging the overrun. Why the oldest answers were not selected is not established.",
+      "expected_properties": [
+        "Attributes the measurements to the report",
+        "Preserves units and the distinction between total wait and adjusted wait",
+        "Keeps the cause unknown",
+        "Does not call the backlog a confirmed explanation"
+      ],
+      "guide_sections": [
+        2,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "tone-overformal",
+      "source": {
+        "url": "https://developers.google.com/style/tone",
+        "accessed": "2026-10-30"
+      },
+      "request": "Rewrite this instruction in a natural, helpful tone.",
+      "input": "Please note that downloading the report requires you to click Download.",
+      "expected_properties": [
+        "Gives the action directly",
+        "Removes the ceremonial introduction",
+        "Keeps Download as the control name",
+        "Adds no output format or success guarantee"
+      ],
+      "guide_sections": [
+        3,
+        4,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "tone-overcasual",
+      "source": {
+        "url": "https://developers.google.com/style/tone",
+        "accessed": "2026-10-30"
+      },
+      "request": "Rewrite this instruction for technical documentation.",
+      "input": "Awesome! Just click Save to save your changes. It's that easy!",
+      "expected_properties": [
+        "Keeps the save action and control name",
+        "Removes hype and the claim that the step is easy",
+        "Remains helpful without becoming bureaucratic"
+      ],
+      "guide_sections": [
+        4,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "tone-global-audience",
+      "source": {
+        "url": "https://developers.google.com/style/tone",
+        "accessed": "2026-10-30"
+      },
+      "request": "Make this suitable for readers from different cultural backgrounds.",
+      "input": "When the migration finishes, you're home free. Please check the summary.",
+      "expected_properties": [
+        "Uses literal language rather than the idiom",
+        "Preserves the instruction to check the summary after migration",
+        "Does not invent a guarantee that the migration succeeded"
+      ],
+      "guide_sections": [
+        2,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "tone-binding-rule",
+      "source": {
+        "url": "https://chatgpt.com/share/6ae4aa3e-532c-83eb-bdcb-b2ba78303bfd",
+        "turn": 10
+      },
+      "request": "Make this standard sound approachable while keeping its obligations.",
+      "input": "Operators must review the backup before deployment. They must not deploy if the backup is incomplete.",
+      "expected_properties": [
+        "Keeps review mandatory and before deployment",
+        "Keeps the prohibition when the backup is incomplete",
+        "Does not soften either obligation into a suggestion",
+        "Uses direct respectful language without scolding"
+      ],
+      "guide_sections": [
+        4,
+        8
+      ]
+    }
+  ],
+  "input_provenance": "Inputs are constructed examples or condensed source excerpts, not verbatim quotations. The source identifies the discussion or exported issue that motivates the case. Exported measurements have not been independently checked against the application."
+}

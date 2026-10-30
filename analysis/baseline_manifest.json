@@ -1,0 +1,198 @@
+{
+  "MIGRATION.md": {
+    "sha256": "89b089c225470cb96a522f6ee5fdf1417e9ead545119f0d083352cb4cf93dd0a",
+    "bytes": 9201,
+    "words": 1248,
+    "tokens_estimate": 2299,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "SKILL.md": {
+    "sha256": "56ce008d3b4e2ec627177af170d493d67efc2e4ab8d2651cf82d86e7c0a7ed7f",
+    "bytes": 5083,
+    "words": 691,
+    "tokens_estimate": 1271,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "evals/evals.json": {
+    "sha256": "94b29d7dfc0e5bbdbad76052d10b7394d9d3246b23c54c2571f94e248dd2bf72",
+    "bytes": 10412,
+    "words": 1198,
+    "tokens_estimate": 2603,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "evals/README.md": {
+    "sha256": "af3e2ecabaf58cacec73a97a52ea03d8dfe44e6add148309fa617bddf7d83495",
+    "bytes": 1197,
+    "words": 175,
+    "tokens_estimate": 299,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/how-to.md": {
+    "sha256": "aa42be80988d9835cc7029a553d8c9cbabb866dff8c431d5d858addde1c9d82f",
+    "bytes": 3058,
+    "words": 442,
+    "tokens_estimate": 762,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/requirements.md": {
+    "sha256": "50b573caa776335a7da97414a5790c45e77cf74324838d939a4e842c9774ace1",
+    "bytes": 3632,
+    "words": 498,
+    "tokens_estimate": 898,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/reference.md": {
+    "sha256": "31980524a03d871711d85dab48b7bbe69cbe7996d576e8f77c82592ebaae3eb7",
+    "bytes": 3577,
+    "words": 528,
+    "tokens_estimate": 894,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/architecture.md": {
+    "sha256": "caceaa034dbbf2e23cc64b0e779e78dd573ae0cbecdf8e621b0988f2c72b789c",
+    "bytes": 5597,
+    "words": 819,
+    "tokens_estimate": 1398,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/incident-report.md": {
+    "sha256": "826f202cc10c42c6ca7b1d1fa1657bb724304b8bc579642fc59d586847adda11",
+    "bytes": 4169,
+    "words": 600,
+    "tokens_estimate": 1042,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/explanation.md": {
+    "sha256": "3204116a8cc1fe10287eff15c6c12c9c848370eaabfa4e7a978364563dc3008e",
+    "bytes": 3428,
+    "words": 521,
+    "tokens_estimate": 856,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/visuals.md": {
+    "sha256": "47437be685fb9377b71804fbf31d0a7869886237f801e6929e9d6bca2cb7679a",
+    "bytes": 3263,
+    "words": 492,
+    "tokens_estimate": 816,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/issue.md": {
+    "sha256": "9b09b3b499e1fe9cb01914c80c06e8e4304b82a75bf121b1c7edbb3e5e489620",
+    "bytes": 5779,
+    "words": 840,
+    "tokens_estimate": 1445,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/bug-report.md": {
+    "sha256": "c4fb0498a8e36bdb6011efabe4054a87d69e15cbae7580fdc7080a3782d298c9",
+    "bytes": 10440,
+    "words": 1531,
+    "tokens_estimate": 2603,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/readme.md": {
+    "sha256": "95b54b38d9d97e90654f4dfe4d502aabaa60439dd7a42d08aff5e08dc2ee304e",
+    "bytes": 3304,
+    "words": 460,
+    "tokens_estimate": 826,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/tutorial.md": {
+    "sha256": "79a4e416e14ad87bea090acfb17f16976dd1f19d011abbf654b258fda191f77d",
+    "bytes": 2818,
+    "words": 442,
+    "tokens_estimate": 704,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/writing-style.md": {
+    "sha256": "4ae7226e60bc75abb532c72ce43c699a6afd22a0908fc59e19f77fa78c68eba7",
+    "bytes": 12578,
+    "words": 1868,
+    "tokens_estimate": 3120,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/plan.md": {
+    "sha256": "a8ea6a5da5680481d9a3d96ad25b9c439eaea6388577ae58877bfbca9198f028",
+    "bytes": 5577,
+    "words": 771,
+    "tokens_estimate": 1394,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/spec.md": {
+    "sha256": "191380a8d601632a56feb6c71110adfcc078008a97c9967e3ba1e8e29789af71",
+    "bytes": 6022,
+    "words": 869,
+    "tokens_estimate": 1506,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/decision-record.md": {
+    "sha256": "7d2556639c9372591ec193f16359d361547c08afce861e6581bdfb02b777c44b",
+    "bytes": 2795,
+    "words": 391,
+    "tokens_estimate": 697,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/standard.md": {
+    "sha256": "ff441061703e285ca5ebd9035ce46346ab07a553a6910b3422c4ad1bb2fd1201",
+    "bytes": 3787,
+    "words": 543,
+    "tokens_estimate": 947,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "references/agents-and-skills.md": {
+    "sha256": "b780c0ae7e9b8bcd2b287944eaa4a0cc29e7ced4163591db81da24d89fc42d56",
+    "bytes": 4891,
+    "words": 717,
+    "tokens_estimate": 1223,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "workflows/improve-references.md": {
+    "sha256": "9c5ad6e80a4e6d97f8c8f90335d504d4b784dfa781cb7a8b6460196974515af3",
+    "bytes": 3891,
+    "words": 540,
+    "tokens_estimate": 972,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "workflows/rewrite.md": {
+    "sha256": "c6bc649604434b0f7e0001bf75a5c48149a814d57a02795956b529cbd1580a26",
+    "bytes": 3777,
+    "words": 511,
+    "tokens_estimate": 944,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "scripts/validate_skill.py": {
+    "sha256": "c479b79dc994ad1d266f663235b8a637d2c542a1df78e2397afa48643bbd58c8",
+    "bytes": 2315,
+    "words": 230,
+    "tokens_estimate": 579,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "scripts/zero_loss.test.py": {
+    "sha256": "165a4efe0afb380df8a0541743b8f6ce4037e4aacfc528d8fc0e683a5791a91e",
+    "bytes": 26235,
+    "words": 3804,
+    "tokens_estimate": 6550,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "scripts/plain_words.py": {
+    "sha256": "ee3bf7a87a4506122b805fea31862c63a77191af38be050071e8489660398023",
+    "bytes": 3748,
+    "words": 409,
+    "tokens_estimate": 937,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "scripts/zero_loss.py": {
+    "sha256": "9e556a154e5f953c09f6890a7d5141496986622fe650566ef8db16d571ad7c8f",
+    "bytes": 38643,
+    "words": 5024,
+    "tokens_estimate": 9649,
+    "token_method": "characters/4 estimate, not model usage"
+  },
+  "scripts/plain_words.test.py": {
+    "sha256": "64192ced7e22e4ea44ceb2404e3fa870075eb4c8b6385e2e2bb873190e746912",
+    "bytes": 1474,
+    "words": 170,
+    "tokens_estimate": 368,
+    "token_method": "characters/4 estimate, not model usage"
+  }
+}
