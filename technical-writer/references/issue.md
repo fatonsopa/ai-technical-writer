@@ -1,6 +1,8 @@
-# Development issues
+# Development issue (Issue / Work Item)
 
-Use this reference to write a unit of development work in Linear, GitHub Issues, Jira, or a Markdown document. An issue explains what needs attention, why it matters, and how completion will be checked. Apply `references/writing-style.md` to its language.
+Use this reference to write a unit of development work in Linear, GitHub Issues, Jira, or a Markdown document. An issue explains what needs attention, why it matters, and how completion will be checked. Apply `references/writing_style.md` to its language.
+
+Create a task when work needs tracking; update its scope, progress, and evidence as the work changes. The six types below are this package's convention, not a universal tracker schema. A task need not already exist, and writing a task does not authorize posting it or changing its status.
 
 An issue may trigger a specification, or a specification and plan may produce several issues. For a small change, the issue's expected behavior and acceptance criteria can be the specification. Larger work links to the governing spec and plan instead of copying them.
 
@@ -17,9 +19,9 @@ An issue may trigger a specification, or a specification and plan may produce se
 
 | Type | Title and description |
 | --- | --- |
-| Bug | Name the observed failure and important condition. Also read `references/bug-report.md`. |
+| Bug | Name the observed failure and important condition. Also read `references/bug_report.md`. |
 | Chore | Name the maintenance work, its reason, relevant constraints, and completion checks. |
-| Decision | State the question to resolve. Explain options, constraints, and decision criteria; record the chosen answer and reason when decided. |
+| Decision | Name the situation requiring a choice; use [Decision records](decision_record.md) for proposals and outcomes. |
 | Feature | Name the new capability. Describe its users, behavior, limits, and acceptance criteria or governing spec. |
 | Improvement | Name the change to existing behavior. Explain the current limitation and desired result; use measurements when available. |
 | Release | Name the release and destination when known. Link its contents, preparation, deployment procedure, verification, and recovery requirements. |
@@ -32,7 +34,9 @@ Include a title, issue type, description, and verifiable completion conditions. 
 
 Relevant files must be verified or clearly attributed to a supplied source; distinguish a reported path from a file you inspected. Keep the current decision or status understandable without reproducing the whole conversation.
 
-For a Decision issue, replace implementation acceptance criteria with the question, known options, selection criteria, and the decision to record. For a Release issue, identify what verification remains before it can be called deployed. Bugs use the specialized structure in the bug reference.
+Route specialized content rather than copying its structure here: [Bug reports](bug_report.md), [User stories](user_story.md), and [Decision records](decision_record.md), with [ADR](architecture_decision_record.md)/[DDR](design_decision_record.md) guidance when appropriate. A choice inside a Bug or plan usually needs a comment, not a separate Decision task. For a Release, identify which checks remain before it can be called deployed.
+
+Tests and verification can be sections or comments in the task: use [Test specification](test_specification.md) for checks and [Test completion report](test_completion_report.md) for outcomes. Larger efforts can link a [test plan](test_plan.md) or [status report](test_status_report.md). Keep the task focused; those references own the specialized formats.
 
 ## Template
 

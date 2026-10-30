@@ -1,61 +1,59 @@
-# Explanation: how a system works and why
+# Explanation (EXP)
 
-An explanation helps someone understand concepts, choices, causes, and tradeoffs. It connects related facts into a useful mental model. Follow Diátaxis: start with the reader's question, give the relevant context, explain the relationships, and acknowledge what is uncertain.
+An explanation helps a reader understand a concept, causal relationship, or design choice. Create it when the subject needs context; update it when evidence, the design, or the intended audience changes. Use [How-to Guide](how_to_guide.md) for procedures and [Tutorial](tutorial.md) for a learning exercise.
 
 ## Principles
 
-1. **Answer one central question.** The title should identify the concept or question clearly.
-2. **Start with a plain description.** Explain what the subject is and why a reader would care before discussing internals.
-3. **Connect causes and effects.** Explain why a choice exists, how components interact, and what changes when an assumption changes.
-4. **Distinguish evidence from interpretation.** A historical decision needs a source. A possible explanation must be marked as a hypothesis.
-5. **Use a small example when useful.** A concrete scenario often explains the concept better than additional definitions.
-6. **Discuss tradeoffs fairly.** Explain what a choice gains, what it costs, and where its limits are.
-7. **Avoid a hidden tutorial or reference manual.** Link to exact procedures and field definitions when the reader needs them.
-8. **Give the reader enough context to follow the argument.** Define project-specific terms once and use them consistently.
+- Answer a clear central question and give the reader enough project context to follow it.
+- Explain relationships: what causes what, which assumptions matter, and where the reasoning stops.
+- Separate observed behavior, requirements, design choices, and hypotheses. Attribute project decisions to their real sources.
+- Use a concrete example when it clarifies a relationship. Explain unfamiliar terms before relying on them.
+- Discuss meaningful benefits, costs, and limits. Avoid slogans that merely repeat the choice.
+- Link detailed procedures and contracts instead of turning the explanation into a runbook or catalog.
 
-## Template
+## Structure and template
+
+Give a direct answer, relevant background, causal explanation/example, reasons and tradeoffs, limits, and source links. A diagram is useful only if it helps readers follow the relationships.
 
 ```md
 # Why / How [subject]
-
-[Direct answer in one paragraph.]
-
-## Background
-[What readers need to know about the system.]
-
-## How it works
-[Main parts and relationships, with an example or diagram if useful.]
-
-## Why this approach
-[Reasoning and tradeoffs supported by known decisions.]
-
-## Limits and open questions
-[Where this explanation stops; uncertainties.]
-
-## Related documentation
-[How-to guides, reference, decisions, sources.]
+[Direct answer]
+## Context
+[Terms, current system, source/status]
+## How it works and why
+[Cause/effect, example, decision reasoning]
+## Tradeoffs and limits
+[Costs, assumptions, failure behavior, unknowns]
+## Related sources
+[Verified design/decision/procedure links]
 ```
 
-## Completed example: why a queue sits between an API and an email service
+## Completed example
 
-This is a general architecture example.
+General hypothetical explanation, not a claim about an existing implementation.
 
-### Why background jobs use a queue
+```md
+# Why an API sends email through a worker
 
-Sending email can be slow or fail temporarily because the mail service is outside the application. A queue allows the API to accept a request and hand the email job to a worker, which sends the message separately.
+A worker lets the API accept mail work without keeping the original request open while an outside provider responds. A queue holds the work until a worker can process it.
 
-**Background.** Without a queue, the request may remain open until the mail service replies. Slow delivery can cause timeouts even when the application itself works normally.
+## Context
+The API receives the user's request. The mail provider is an external service whose response time and availability are outside the API's direct control. This example assumes the product distinguishes accepting work from completing delivery.
 
-**How it works.** When a user requests a password reset, the API creates a job containing the information needed to send the message. A worker reads the job, contacts the mail service, and records success or failure. If delivery fails temporarily, the worker can retry according to a defined policy.
+## How it works and why
+After recording an accepted job, the API can respond. The worker retrieves the job, contacts the provider, and records the outcome. If the provider is temporarily unavailable, a defined retry policy can allow later attempts. The example has no agreed retry limit.
 
-**Why this approach.** Moving delivery to a worker can reduce how long the user waits for the API. It also introduces new responsibilities: monitoring the queue, handling duplicate jobs, deciding how many times to retry, and making sure jobs do not disappear silently.
+## Tradeoffs and limits
+The API no longer waits for the provider, but the team must operate the queue, detect stuck jobs, and handle duplicate delivery attempts. Queueing does not prove the provider accepted the message or that the recipient read it. The behavioral specification must define which outcome the product promises.
 
-**Limits.** The queue does not guarantee that the recipient reads the email or that the mail provider accepts every request. The team's chosen delivery and retry contract determines what a successful operation means.
+## Related sources
+Use the project's HLD and accepted mail-delivery decision to explain its actual arrangement. This hypothetical example supplies no verified project links.
+```
 
 ## Quality check
 
-A new colleague can describe the concept in plain language and explain the significant reasons, consequences, and limits. The explanation neither invents architectural decisions nor buries the reader in field-by-field reference material.
+Can a new colleague explain the mechanism, reasons, assumptions, and limits? Check source support and uncertainty. Clear prose should make the causal relationship easier to understand, not conceal missing evidence with a confident story.
 
 ## Source
 
-- Diátaxis, explanation: https://diataxis.fr/explanation/
+- [Diátaxis: explanation](https://diataxis.fr/explanation/)

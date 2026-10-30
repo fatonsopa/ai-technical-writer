@@ -21,12 +21,26 @@ Repeat steps 3–6 while a concrete failure remains. After three unsuccessful at
 
 ## Validate the whole skill
 
-Run `python3 scripts/validate_skill.py`, the validator's tests, and the existing wording and preservation regression suites from the skill directory. Test executable examples in isolated temporary folders. Check relative links, routing, deleted references, and consistency between shared and specialized guidance.
+From the skill directory, run:
 
-Use realistic source fixtures to evaluate language, document structure, missing information, requirement traceability, and changes of operation. For substantial changes, use an independent evaluator when delegation is authorized and available; provide the skill, the request, and raw inputs without the expected answer. Keep generated evaluation artifacts isolated. Evaluate any failures against the source before changing the reference.
+```bash
+python3 scripts/validate_skill.py
+python3 -m unittest discover -s scripts -p 'test_*.py'
+python3 scripts/plain_words.test.py
+python3 scripts/zero_loss.test.py
+python3 scripts/check_examples.py
+```
+
+Check relative links, routing, retired paths, and consistency between shared and specialized guidance. Review each warning; a size budget prompts a content review rather than automatic deletion. Record bytes, words, and the method used to estimate tokens before and after revision. Measure the references actually read for representative requests as well as the total package.
+
+Use the cases, fixtures, rubric, and coverage map described in [Evaluation instructions](../evals/README.md). Evaluate language, document structure, missing information, requirement traceability, and all supported operations. Keep expected properties and rubrics out of the generator's workspace. Calibrate grading with labeled good and flawed samples, including claims about tools and unavailable evidence. Record whether labels come from the author or independent reviewers.
+
+After each substantive reference change, run its affected development cases and relevant shared regressions. Compare important cases with the preserved baseline using the same model and inputs. Use protected acceptance cases after the guidance is stable; if a failure informs a repair, retain it as a regression and add a fresh acceptance case. Record every attempt, including failures and infrastructure errors. A model grader's explanation must be checked against the source and actual tool evidence before it drives a revision.
+
+Use the available independent evaluator only within the authorized scope. Keep raw tool logs and transient workspaces isolated from distributable results. Record model/settings, source and skill hashes, actual outputs, grades, and checks performed. Do not substitute author-written examples for claimed model runs.
 
 A static check can enforce structure and literal preservation; it cannot prove clarity, semantic equivalence, or future model reliability. Record which kind of check produced each result. Do not confuse an example's hypothetical scenario with a verified project fact.
 
 ## Finish
 
-Report the requirement coverage, changed references, important removed or relocated content, checks performed, observed failures and repairs, and remaining limitations. Keep the reusable instructions free of the maintenance log. Update the specification and acceptance cases when the user changes the intended behavior.
+Report requirement coverage, changed references, important removed or relocated content, checks performed, observed failures and repairs, and remaining limitations. Update the specification and cases when the user changes the intended behavior. Keep maintenance evidence and reusable lessons outside normal writing context. Distinguish design choices from improvements supported by observed results, and recheck vendor documentation before reusing platform-specific advice in a later skill.

@@ -2,7 +2,7 @@
 
 Write as an experienced developer explaining the subject to a colleague. Use natural English, precise technical terms, and enough context to make sense without the original conversation.
 
-Apply this guide to all prose, including instructions, titles, headings, templates, and examples. The document reference defines the structure and required information. For issue titles and descriptions, also use `references/issue.md`.
+Apply this guide to all prose, including instructions, titles, headings, templates, and examples. The document reference defines the structure and required information. For issue titles and descriptions, also use [Work items](issue.md).
 
 ## 1. Understand the subject before choosing words
 
@@ -58,7 +58,7 @@ A title identifies the document's subject or purpose; a heading describes its se
 
 Use sentence case unless the project requires another convention. Choose a natural noun phrase, question, or instruction that fits the content. Headings do not all need to be complete sentences, numbered claims, or commands.
 
-Preserve the subject and important scope. Do not introduce an unverified cause or result in a title. Conventions for different issue titles belong in `references/issue.md`.
+Preserve the subject and important scope. Do not introduce an unverified cause or result in a title. Conventions for different issue titles belong in [Work items](issue.md).
 
 ## 7. Remove text that adds no information
 
@@ -72,7 +72,7 @@ Shorten by removing repetition and irrelevant detail. Keep every condition, exce
 
 Distinguish observed behavior, requirements, proposals, assumptions, and possible explanations. Use tense and wording that preserve their status: a proposed change has not already happened, and an observed symptom does not establish its cause.
 
-Keep obligations and permissions intact. Changing “may” to “must,” dropping “only,” or omitting an exception can change a requirement. Detailed requirement conventions belong in the document reference.
+Keep obligations and permissions intact. Changing “may” to “must,” dropping “only,” or omitting an exception can change a requirement. The [SDD guide](spec_driven_development.md) owns requirement wording. A specification states intended behavior; a plan states implementation; a test report states observed results. Keep those roles and their certainty intact.
 
 Preserve material values, units, dates, commands, identifiers, and exact error messages. Distinguish what a source reports from what you independently checked. Never invent evidence, measurements, file paths, test results, or approval.
 
@@ -116,7 +116,7 @@ These suggestions use the full descriptions in the supplied exports. They show h
 | CG-3029: Lint fails when the design-system download needs an SSH key this machine lacks | Lint fails to download the design system without a GitHub SSH key |
 | CG-3033: Answers wait weeks in the read stage past the declared limit | Some answers wait weeks for extraction despite the stage time limit |
 
-The IDs identify the source issues; they are not part of the suggested titles. These are wording examples, not complete issue rewrites. Keep the supporting facts, conditions, and unresolved questions in the description. Use `references/issue.md` for the detailed issue-writing conventions.
+The IDs identify the source issues; they are not part of the suggested titles. These are wording examples, not complete issue rewrites. Keep the supporting facts, conditions, and unresolved questions in the description. Use [Work items](issue.md) for the detailed issue-writing conventions.
 
 ## Review before delivery
 

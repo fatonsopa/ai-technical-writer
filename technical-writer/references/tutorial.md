@@ -1,71 +1,77 @@
-# Tutorial: learn by completing a small exercise
+# Tutorial (TUT)
 
-A tutorial is for someone learning a skill for the first time. It takes the learner through a controlled, successful exercise and explains what they have just learned. Follow Diátaxis: keep the lesson focused, make each step safe, and avoid turning the exercise into a reference manual.
+A tutorial helps someone learn by completing a controlled exercise. Create it when a learning path is needed; update it when the tools, starting conditions, or exercise change. Use [How-to Guide](how_to_guide.md) for a reader trying to complete an existing task and [Explanation](explanation.md) for deeper understanding.
 
 ## Principles
 
-1. Pick one learning goal and a realistic small example. The reader should be able to finish within the stated environment.
-2. Give a working starting point, prerequisites, and expected time when it is known. Avoid untested setup assumptions.
-3. Present actions in the order they are performed. Show exact commands, file names, and expected results.
-4. Explain one concept after the learner sees it in action. Keep deeper theory linked to an explanation page.
-5. Build toward a visible success, then summarize what the learner now knows and where to go next.
-6. Test the exercise from a clean starting environment, or mark it unverified.
+- Choose one learning goal and a small result the learner can reach.
+- State the required environment and starting files. Avoid unsupported time estimates.
+- Present actions in executable order, with visible expected results.
+- Explain a concept after the reader uses it; keep unrelated alternatives out of the lesson.
+- Include a completion check and a useful next step.
+- Test from a clean start, or identify what remains unverified.
 
 ## Structure and template
 
+Include the learning goal, prerequisites, complete exercise, observed/expected results, completion check, and what the learner has learned.
+
 ```md
-# Create your first [small result]
-
-[One paragraph: what you will build and learn.]
-
+# Learn [skill] by creating [result]
+[Learning goal and outcome]
 ## Before you begin
-- [Required tool and verified version]
-- [Account, access, or sample files]
-
-## 1. [First action]
-[Exact action and command.]
-[What the learner should see and why it matters.]
-
-## 2. [Next action]
-[Action, expected output, short explanation.]
-
+[Tools, access, starting files]
+## Steps
+1. [Action; expected result; short explanation]
 ## Check your result
-[How to confirm the completed exercise works.]
-
+[Observable completion check and relevant troubleshooting]
 ## What you learned
-[Two or three concrete takeaways and an appropriate next link.]
+[Concrete takeaways and useful next step]
 ```
 
-## Completed example: read a JSON file with Python
+## Completed example
 
-This example assumes Python 3 is installed. Commands are illustrative and should be tested in the user's environment before publication.
+Self-contained Python 3 exercise with a terminal and an empty local folder.
 
-### Read your first JSON settings file
+````md
+# Read a JSON setting with Python
 
-You will create a small settings file and read one value with Python. JSON stores structured information using named fields.
+Create a settings file and read its site name. You will learn how a JSON object stores named values.
 
-**Before you begin.** Open a terminal in an empty folder with Python 3 available.
+## Before you begin
+Use a terminal in an empty folder with Python 3 installed.
 
-**1. Create `settings.json`.** Save the following text:
+## Steps
+1. Create settings.json containing:
 
 ```json
 {"site_name": "Example App", "debug": false}
 ```
 
-**2. Read the file.** Run:
+2. Run:
 
-```bash
+```sh
 python3 -c 'import json; print(json.load(open("settings.json"))["site_name"])'
 ```
 
-**Check your result.** The terminal should print `Example App`. If it reports that the file cannot be found, check that the terminal is open in the folder containing `settings.json`.
+The terminal prints:
 
-**What you learned.** A JSON object stores named fields, and Python's `json` module can read those fields. Next, try adding a `port` field and printing its value.
+```text
+Example App
+```
+
+Python's json module reads the object. The site_name key selects the value to print.
+
+## Check your result
+Confirm that the output is Example App. If the file cannot be found, check the terminal's folder and the filename.
+
+## What you learned
+You created a JSON object and read a named value. Next, add a port field and use the same approach to print it.
+````
 
 ## Quality check
 
-A new learner should know where to start, what to do next, what success looks like, and what was learned. Every command and expected result must be checked or marked unverified.
+Can a learner start from the stated prerequisites, perform every step, observe success, and explain the concept learned? Check the commands in an isolated folder and keep validation results separate from expected output.
 
 ## Source
 
-- Diátaxis, tutorials: https://diataxis.fr/tutorials/
+- [Diátaxis: tutorials](https://diataxis.fr/tutorials/)

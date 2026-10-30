@@ -1,6 +1,6 @@
-# Diagrams, screenshots, and other visuals
+# Visual Guidance (VG)
 
-Use a visual when it makes relationships, sequences, structure, or observed appearance easier to understand than prose alone. Every visual must answer a reader question and agree with the accompanying text. Do not require a diagram for every document.
+Use a visual when it makes relationships, sequences, structure, or observed appearance easier to understand than prose alone. Every visual must answer a reader question and agree with the accompanying text. Create a visual when a reader needs those relationships or evidence; update it when the represented facts change. Do not require a diagram for every document.
 
 ## Choose the format
 
@@ -23,7 +23,7 @@ Use a visual when it makes relationships, sequences, structure, or observed appe
 4. Match detail to the reader. Start with the whole system if the reader first needs orientation; zoom in only where useful.
 5. Describe in prose what the visual demonstrates. Explain important branches, boundary crossings, and failure paths.
 6. Use diagrams as code when the repository can render them reliably; otherwise use the supported local diagram format. Keep sources editable.
-7. Verify diagrams against actual code and deployment information. Label proposals and hypothetical examples explicitly.
+7. Verify diagrams against actual code, deployment information, and governing requirements. Keep source-reported facts distinct from independently checked ones. Label proposals and hypothetical examples explicitly.
 8. Use a screenshot when appearance matters. For API, data, or performance problems, logs, tables, or measurements may communicate the evidence better.
 9. Make visuals accessible: meaningful alternative text, readable labels, and a textual description of critical information.
 
@@ -55,7 +55,7 @@ The API places a job on the queue after accepting a request. A worker retrieves 
 
 ## Quality check
 
-The reader can identify what each box represents, why the connections exist, and whether the diagram describes current or proposed behavior. The visual adds information and is readable without relying on color.
+The reader can identify what each box represents, why the connections exist, and whether the diagram describes current or proposed behavior. The visual adds information and is readable without relying on color. Check rendering in the target format and provide enough text for someone who cannot see the image. A diagram of engineering stages explains relationships; it does not authorize performing those stages.
 
 ## Sources
 

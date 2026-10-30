@@ -1,8 +1,8 @@
-# Behavioral specifications
+# Spec Driven Development document (SDD)
 
 Use this reference to define what a finished system or change must do. A specification records behavior, business rules, constraints, and acceptance criteria. It is the source of truth for expected behavior; an implementation plan explains how to satisfy it.
 
-Read `references/requirements.md` when writing or reviewing individual requirements. Use `references/plan.md` for implementation work. A spec can follow an issue or generate several issues after planning. Small changes can keep their specification in explicit issue requirements and acceptance criteria.
+This package uses SDD for the behavioral document as well as the development method. Create it when behavior needs explicit agreement; update it when intended behavior changes. Use [Implementation plan](implementation_plan.md) for delivery, [PRD](product_requirements_document.md) for product intent, and [User Story](user_story.md) for a user-value summary. A specification can follow a work item or generate several items after planning. Small changes can keep their specification in explicit task requirements and acceptance criteria.
 
 ## Principles
 
@@ -12,6 +12,24 @@ Read `references/requirements.md` when writing or reviewing individual requireme
 - Separate agreed requirements from assumptions, proposals, and unanswered questions. Do not invent product decisions to make the document appear complete.
 - Keep one maintained statement of intended behavior. Link downstream designs, plans, issues, and tests to it instead of maintaining competing copies.
 - Change the spec explicitly when intended behavior changes. A plan or implementation cannot silently override it. Record the reason and update affected acceptance checks.
+
+## Writing an individual requirement
+
+State one independently verifiable obligation with its actor/system, relevant condition or trigger, outcome, and exception. Keep stable IDs when rewording the same requirement; do not reuse a retired ID for different behavior. Record the source and whether the statement is agreed, proposed, or unresolved. A useful optional pattern is “When [event], the [system] must [response].” Natural equivalent wording is valid.
+
+Distinguish behavior, measurable quality constraints, and mandated design constraints. A quality target needs units and operating conditions, such as load, dataset, and measurement point. An unknown threshold is an open decision, not a number to invent. Preserve obligation strength: must expresses an obligation, should a recommendation, and may permission. Adopt RFC 2119/8174 uppercase terms only when the governing document explicitly uses that convention.
+
+An entry can use this compact template:
+
+```md
+### [ID]: [Subject]
+Status/source: [Agreed/proposed; exact source]
+Statement: [Condition, obligation, and exception]
+Verification: [Setup/input, action, observable expected result]
+Rationale: [Only if it helps interpretation]
+```
+
+Complete fictional entry: **REN-01: Retain a saved name.** Status/source: agreed in the workspace rename SDD for this example. Statement: after an authorized name update succeeds, a fresh workspace read must return the saved name. Verification: rename Marketing Team to Growth Team, then make a new read; it returns Growth Team. Rationale: a success response must correspond to a change later reads can observe.
 
 ## Document structure
 
@@ -84,9 +102,10 @@ An analyst filters the table, selects columns, and downloads the matching record
 - REQ-02: CSV columns must match the selected columns and their order.
 - REQ-03: If export fails, the application must show an error without showing a success confirmation.
 - REQ-04: If no records match, export must produce the selected column headings and no data rows.
+- REQ-05: Export must apply the caller's existing view permissions and must not include records the caller cannot view.
 
 ## Quality and interface constraints
-The export must use the caller's existing permission to view the results. It must not expose records the caller cannot view. Performance and maximum row count remain open.
+REQ-05 governs visibility. Performance and maximum row count remain open; neither is an agreed threshold.
 
 ## Acceptance
 | Requirement | Check and expected result |
@@ -95,6 +114,7 @@ The export must use the caller's existing permission to view the results. It mus
 | REQ-02 | Select and reorder columns; the CSV matches that order. |
 | REQ-03 | Simulate a failed export; an error appears and no success confirmation appears. |
 | REQ-04 | Use a filter matching nothing; the CSV contains headings only. |
+| REQ-05 | Use a caller who cannot view a known record; the export excludes it. Check access denial separately when the caller has no permission to view results. |
 
 ## Open decisions
 The product owner must decide the maximum export size before implementation is marked ready. Measure likely data volumes to inform that choice; no limit is assumed here.
@@ -111,4 +131,6 @@ Every required behavior has a source, clear conditions, and an acceptance check.
 
 - [GitHub Spec Kit: specification through planning and tasks](https://github.com/github/spec-kit)
 - [EARS: structured requirement wording](https://alistairmavin.com/ears/)
+- [RFC 2119: requirement levels](https://www.rfc-editor.org/rfc/rfc2119)
+- [RFC 8174: uppercase requirement terms](https://www.rfc-editor.org/rfc/rfc8174)
 

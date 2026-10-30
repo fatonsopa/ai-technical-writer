@@ -16,7 +16,7 @@ Load the destination document-type reference. Propose a structure suited to the 
 
 ## 3. Rewrite without losing information
 
-Use the document reference for structure and `references/writing-style.md` for prose. Consolidate repetition, but keep each unique requirement, boundary, exception, measured claim, warning, and relevant example. Keep quotations and generated blocks byte-for-byte when their exact wording or bytes matter; otherwise preserve their substance and source. Use links when another maintained document is the source of truth.
+Use the document reference for structure and `references/writing_style.md` for prose. Consolidate repetition, but keep each unique requirement, boundary, exception, measured claim, warning, and relevant example. Keep quotations and generated blocks byte-for-byte when their exact wording or bytes matter; otherwise preserve their substance and source. Use links when another maintained document is the source of truth.
 
 Do not replace an accurate requirement with a shorter statement that changes its conditions. If the rewrite corrects an error, document the correction separately from the style changes.
 
@@ -31,6 +31,8 @@ python3 scripts/zero_loss.py check --all --old original.md --new rewritten.md --
 ```
 
 Read `python3 scripts/zero_loss.py --help` for the actual accepted flags before running them; remove unsupported flags and provide related files with `--also` when needed. The script checks coverage but cannot decide whether a rewrite retained the full meaning. Review every suggested mapping and every deliberate deletion manually. Check changed file paths, links, headings consumed by scripts, and exact literals. Run available project tests that cover generated sections or documentation parsing.
+
+Describe each check at the scope it actually covered. Reading an inventory establishes that the source was inventoried; it does not establish that the rewrite preserves every meaning. Listing workspace files does not establish that none link to the document. Claim that links were searched only after searching their contents, and limit the claim to the files available. If a check was not run, say so.
 
 If a dropped rule or changed decision lacks approval, stop and ask about that change. If verification cannot be run, state that limitation.
 
