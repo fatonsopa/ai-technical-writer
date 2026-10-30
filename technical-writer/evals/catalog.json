@@ -1,0 +1,396 @@
+{
+  "output_kinds": [
+    {
+      "id": "issue_bug",
+      "acronym": "Bug issue",
+      "full_name": "Bug issue",
+      "reference": "references/issue.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "issue_chore",
+      "acronym": "Chore issue",
+      "full_name": "Chore issue",
+      "reference": "references/issue.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "issue_decision",
+      "acronym": "Decision issue",
+      "full_name": "Decision issue",
+      "reference": "references/issue.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "issue_feature",
+      "acronym": "Feature issue",
+      "full_name": "Feature issue",
+      "reference": "references/issue.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "issue_improvement",
+      "acronym": "Improvement issue",
+      "full_name": "Improvement issue",
+      "reference": "references/issue.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "issue_release",
+      "acronym": "Release issue",
+      "full_name": "Release issue",
+      "reference": "references/issue.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "user_story",
+      "acronym": "US",
+      "full_name": "User Story",
+      "reference": "references/user_story.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "prd",
+      "acronym": "PRD",
+      "full_name": "Product Requirements Document",
+      "reference": "references/product_requirements_document.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "sdd",
+      "acronym": "SDD",
+      "full_name": "Spec Driven Development document",
+      "reference": "references/spec_driven_development.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "requirement",
+      "acronym": "requirement",
+      "full_name": "individual testable requirement",
+      "reference": "references/spec_driven_development.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "hld",
+      "acronym": "HLD",
+      "full_name": "High Level Document",
+      "reference": "references/high_level_document.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "lld",
+      "acronym": "LLD",
+      "full_name": "Low Level Design",
+      "reference": "references/low_level_design.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "decision",
+      "acronym": "DR",
+      "full_name": "Decision Record",
+      "reference": "references/decision_record.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "adr",
+      "acronym": "ADR",
+      "full_name": "Architecture Decision Record",
+      "reference": "references/architecture_decision_record.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "ddr",
+      "acronym": "DDR",
+      "full_name": "Design Decision Record",
+      "reference": "references/design_decision_record.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "plan",
+      "acronym": "IP",
+      "full_name": "Implementation Plan",
+      "reference": "references/implementation_plan.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "policy",
+      "acronym": "POL",
+      "full_name": "Policy",
+      "reference": "references/policy.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "standard",
+      "acronym": "STD",
+      "full_name": "Technical Standard",
+      "reference": "references/technical_standard.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "tp",
+      "acronym": "TP",
+      "full_name": "Test Plan",
+      "reference": "references/test_plan.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "ts",
+      "acronym": "TS",
+      "full_name": "Test Specification",
+      "reference": "references/test_specification.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "tsr",
+      "acronym": "TSR",
+      "full_name": "Test Status Report",
+      "reference": "references/test_status_report.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "tcr",
+      "acronym": "TCR",
+      "full_name": "Test Completion Report",
+      "reference": "references/test_completion_report.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "tutorial",
+      "acronym": "TUT",
+      "full_name": "Tutorial",
+      "reference": "references/tutorial.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "howto",
+      "acronym": "HTG",
+      "full_name": "How-to Guide",
+      "reference": "references/how_to_guide.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "explanation",
+      "acronym": "EXP",
+      "full_name": "Explanation",
+      "reference": "references/explanation.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "readme",
+      "acronym": "README",
+      "full_name": "Repository readme",
+      "reference": "references/readme.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "incident",
+      "acronym": "IR",
+      "full_name": "Incident Report",
+      "reference": "references/incident_report.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "agent",
+      "acronym": "AI",
+      "full_name": "Claude Code agent instructions",
+      "reference": "references/agents_and_skills.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "skill",
+      "acronym": "SKILL",
+      "full_name": "Reusable Skill",
+      "reference": "references/agents_and_skills.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "output_style",
+      "acronym": "OS",
+      "full_name": "Claude Code output style",
+      "reference": "references/agents_and_skills.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "visual",
+      "acronym": "diagram",
+      "full_name": "flowchart and explanation",
+      "reference": "references/visuals.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "bug_report",
+      "acronym": "BR",
+      "full_name": "Bug Report",
+      "reference": "references/bug_report.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    }
+  ],
+  "shared_references": [
+    "references/writing_style.md",
+    "references/visuals.md"
+  ],
+  "workflows": [
+    "workflows/rewrite.md",
+    "workflows/improve_references.md"
+  ]
+}

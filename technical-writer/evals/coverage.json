@@ -1,0 +1,2125 @@
+{
+  "schema_version": 1,
+  "required_operations": [
+    "create",
+    "edit",
+    "review",
+    "rewrite"
+  ],
+  "output_kinds": {
+    "issue_bug": {
+      "create": [
+        "issue_bug-create"
+      ],
+      "edit": [
+        "issue_bug-edit"
+      ],
+      "review": [
+        "issue_bug-review"
+      ],
+      "rewrite": [
+        "issue_bug-rewrite"
+      ]
+    },
+    "issue_chore": {
+      "create": [
+        "issue_chore-create"
+      ],
+      "edit": [
+        "issue_chore-edit"
+      ],
+      "review": [
+        "issue_chore-review"
+      ],
+      "rewrite": [
+        "issue_chore-rewrite"
+      ]
+    },
+    "issue_decision": {
+      "create": [
+        "issue_decision-create"
+      ],
+      "edit": [
+        "issue_decision-edit"
+      ],
+      "review": [
+        "issue_decision-review"
+      ],
+      "rewrite": [
+        "issue_decision-rewrite"
+      ]
+    },
+    "issue_feature": {
+      "create": [
+        "issue_feature-create"
+      ],
+      "edit": [
+        "issue_feature-edit"
+      ],
+      "review": [
+        "issue_feature-review"
+      ],
+      "rewrite": [
+        "issue_feature-rewrite"
+      ]
+    },
+    "issue_improvement": {
+      "create": [
+        "issue_improvement-create"
+      ],
+      "edit": [
+        "issue_improvement-edit"
+      ],
+      "review": [
+        "issue_improvement-review"
+      ],
+      "rewrite": [
+        "issue_improvement-rewrite"
+      ]
+    },
+    "issue_release": {
+      "create": [
+        "issue_release-create"
+      ],
+      "edit": [
+        "issue_release-edit"
+      ],
+      "review": [
+        "issue_release-review"
+      ],
+      "rewrite": [
+        "issue_release-rewrite"
+      ]
+    },
+    "user_story": {
+      "create": [
+        "user_story-create"
+      ],
+      "edit": [
+        "user_story-edit"
+      ],
+      "review": [
+        "user_story-review"
+      ],
+      "rewrite": [
+        "user_story-rewrite"
+      ]
+    },
+    "prd": {
+      "create": [
+        "prd-create"
+      ],
+      "edit": [
+        "prd-edit"
+      ],
+      "review": [
+        "prd-review"
+      ],
+      "rewrite": [
+        "prd-rewrite"
+      ]
+    },
+    "sdd": {
+      "create": [
+        "sdd-create"
+      ],
+      "edit": [
+        "sdd-edit"
+      ],
+      "review": [
+        "sdd-review"
+      ],
+      "rewrite": [
+        "sdd-rewrite"
+      ]
+    },
+    "requirement": {
+      "create": [
+        "requirement-create"
+      ],
+      "edit": [
+        "requirement-edit"
+      ],
+      "review": [
+        "requirement-review"
+      ],
+      "rewrite": [
+        "requirement-rewrite"
+      ]
+    },
+    "hld": {
+      "create": [
+        "hld-create"
+      ],
+      "edit": [
+        "hld-edit"
+      ],
+      "review": [
+        "hld-review"
+      ],
+      "rewrite": [
+        "hld-rewrite"
+      ]
+    },
+    "lld": {
+      "create": [
+        "lld-create"
+      ],
+      "edit": [
+        "lld-edit"
+      ],
+      "review": [
+        "lld-review"
+      ],
+      "rewrite": [
+        "lld-rewrite"
+      ]
+    },
+    "decision": {
+      "create": [
+        "decision-create"
+      ],
+      "edit": [
+        "decision-edit"
+      ],
+      "review": [
+        "decision-review"
+      ],
+      "rewrite": [
+        "decision-rewrite"
+      ]
+    },
+    "adr": {
+      "create": [
+        "adr-create"
+      ],
+      "edit": [
+        "adr-edit"
+      ],
+      "review": [
+        "adr-review"
+      ],
+      "rewrite": [
+        "adr-rewrite"
+      ]
+    },
+    "ddr": {
+      "create": [
+        "ddr-create"
+      ],
+      "edit": [
+        "ddr-edit"
+      ],
+      "review": [
+        "ddr-review"
+      ],
+      "rewrite": [
+        "ddr-rewrite"
+      ]
+    },
+    "plan": {
+      "create": [
+        "plan-create"
+      ],
+      "edit": [
+        "plan-edit"
+      ],
+      "review": [
+        "plan-review"
+      ],
+      "rewrite": [
+        "plan-rewrite"
+      ]
+    },
+    "policy": {
+      "create": [
+        "policy-create"
+      ],
+      "edit": [
+        "policy-edit"
+      ],
+      "review": [
+        "policy-review"
+      ],
+      "rewrite": [
+        "policy-rewrite"
+      ]
+    },
+    "standard": {
+      "create": [
+        "standard-create"
+      ],
+      "edit": [
+        "standard-edit"
+      ],
+      "review": [
+        "standard-review"
+      ],
+      "rewrite": [
+        "standard-rewrite"
+      ]
+    },
+    "tp": {
+      "create": [
+        "tp-create"
+      ],
+      "edit": [
+        "tp-edit"
+      ],
+      "review": [
+        "tp-review"
+      ],
+      "rewrite": [
+        "tp-rewrite"
+      ]
+    },
+    "ts": {
+      "create": [
+        "ts-create"
+      ],
+      "edit": [
+        "ts-edit"
+      ],
+      "review": [
+        "ts-review"
+      ],
+      "rewrite": [
+        "ts-rewrite"
+      ]
+    },
+    "tsr": {
+      "create": [
+        "tsr-create"
+      ],
+      "edit": [
+        "tsr-edit"
+      ],
+      "review": [
+        "tsr-review"
+      ],
+      "rewrite": [
+        "tsr-rewrite"
+      ]
+    },
+    "tcr": {
+      "create": [
+        "tcr-create"
+      ],
+      "edit": [
+        "tcr-edit"
+      ],
+      "review": [
+        "tcr-review"
+      ],
+      "rewrite": [
+        "tcr-rewrite"
+      ]
+    },
+    "tutorial": {
+      "create": [
+        "tutorial-create"
+      ],
+      "edit": [
+        "tutorial-edit"
+      ],
+      "review": [
+        "tutorial-review"
+      ],
+      "rewrite": [
+        "tutorial-rewrite"
+      ]
+    },
+    "howto": {
+      "create": [
+        "howto-create"
+      ],
+      "edit": [
+        "howto-edit"
+      ],
+      "review": [
+        "howto-review"
+      ],
+      "rewrite": [
+        "howto-rewrite"
+      ]
+    },
+    "explanation": {
+      "create": [
+        "explanation-create"
+      ],
+      "edit": [
+        "explanation-edit"
+      ],
+      "review": [
+        "explanation-review"
+      ],
+      "rewrite": [
+        "explanation-rewrite"
+      ]
+    },
+    "readme": {
+      "create": [
+        "readme-create"
+      ],
+      "edit": [
+        "readme-edit"
+      ],
+      "review": [
+        "readme-review"
+      ],
+      "rewrite": [
+        "readme-rewrite"
+      ]
+    },
+    "incident": {
+      "create": [
+        "incident-create"
+      ],
+      "edit": [
+        "incident-edit"
+      ],
+      "review": [
+        "incident-review"
+      ],
+      "rewrite": [
+        "incident-rewrite"
+      ]
+    },
+    "agent": {
+      "create": [
+        "agent-create"
+      ],
+      "edit": [
+        "agent-edit"
+      ],
+      "review": [
+        "agent-review"
+      ],
+      "rewrite": [
+        "agent-rewrite"
+      ]
+    },
+    "skill": {
+      "create": [
+        "skill-create"
+      ],
+      "edit": [
+        "skill-edit"
+      ],
+      "review": [
+        "skill-review"
+      ],
+      "rewrite": [
+        "skill-rewrite"
+      ]
+    },
+    "output_style": {
+      "create": [
+        "output_style-create"
+      ],
+      "edit": [
+        "output_style-edit"
+      ],
+      "review": [
+        "output_style-review"
+      ],
+      "rewrite": [
+        "output_style-rewrite"
+      ]
+    },
+    "visual": {
+      "create": [
+        "visual-create"
+      ],
+      "edit": [
+        "visual-edit"
+      ],
+      "review": [
+        "visual-review"
+      ],
+      "rewrite": [
+        "visual-rewrite"
+      ]
+    },
+    "bug_report": {
+      "create": [
+        "bug_report-create"
+      ],
+      "edit": [
+        "bug_report-edit"
+      ],
+      "review": [
+        "bug_report-review"
+      ],
+      "rewrite": [
+        "bug_report-rewrite"
+      ]
+    }
+  },
+  "shared_guidance": {
+    "references/writing_style.md": [
+      "issue_bug-create",
+      "issue_bug-edit",
+      "issue_bug-review",
+      "issue_bug-rewrite",
+      "issue_chore-create",
+      "issue_chore-edit",
+      "issue_chore-review",
+      "issue_chore-rewrite",
+      "issue_decision-create",
+      "issue_decision-edit",
+      "issue_decision-review",
+      "issue_decision-rewrite",
+      "issue_feature-create",
+      "issue_feature-edit",
+      "issue_feature-review",
+      "issue_feature-rewrite",
+      "issue_improvement-create",
+      "issue_improvement-edit",
+      "issue_improvement-review",
+      "issue_improvement-rewrite",
+      "issue_release-create",
+      "issue_release-edit",
+      "issue_release-review",
+      "issue_release-rewrite",
+      "user_story-create",
+      "user_story-edit",
+      "user_story-review",
+      "user_story-rewrite",
+      "prd-create",
+      "prd-edit",
+      "prd-review",
+      "prd-rewrite",
+      "sdd-create",
+      "sdd-edit",
+      "sdd-review",
+      "sdd-rewrite",
+      "requirement-create",
+      "requirement-edit",
+      "requirement-review",
+      "requirement-rewrite",
+      "hld-create",
+      "hld-edit",
+      "hld-review",
+      "hld-rewrite",
+      "lld-create",
+      "lld-edit",
+      "lld-review",
+      "lld-rewrite",
+      "decision-create",
+      "decision-edit",
+      "decision-review",
+      "decision-rewrite",
+      "adr-create",
+      "adr-edit",
+      "adr-review",
+      "adr-rewrite",
+      "ddr-create",
+      "ddr-edit",
+      "ddr-review",
+      "ddr-rewrite",
+      "plan-create",
+      "plan-edit",
+      "plan-review",
+      "plan-rewrite",
+      "policy-create",
+      "policy-edit",
+      "policy-review",
+      "policy-rewrite",
+      "standard-create",
+      "standard-edit",
+      "standard-review",
+      "standard-rewrite",
+      "tp-create",
+      "tp-edit",
+      "tp-review",
+      "tp-rewrite",
+      "ts-create",
+      "ts-edit",
+      "ts-review",
+      "ts-rewrite",
+      "tsr-create",
+      "tsr-edit",
+      "tsr-review",
+      "tsr-rewrite",
+      "tcr-create",
+      "tcr-edit",
+      "tcr-review",
+      "tcr-rewrite",
+      "tutorial-create",
+      "tutorial-edit",
+      "tutorial-review",
+      "tutorial-rewrite",
+      "howto-create",
+      "howto-edit",
+      "howto-review",
+      "howto-rewrite",
+      "explanation-create",
+      "explanation-edit",
+      "explanation-review",
+      "explanation-rewrite",
+      "readme-create",
+      "readme-edit",
+      "readme-review",
+      "readme-rewrite",
+      "incident-create",
+      "incident-edit",
+      "incident-review",
+      "incident-rewrite",
+      "agent-create",
+      "agent-edit",
+      "agent-review",
+      "agent-rewrite",
+      "skill-create",
+      "skill-edit",
+      "skill-review",
+      "skill-rewrite",
+      "output_style-create",
+      "output_style-edit",
+      "output_style-review",
+      "output_style-rewrite",
+      "visual-create",
+      "visual-edit",
+      "visual-review",
+      "visual-rewrite",
+      "bug_report-create",
+      "bug_report-edit",
+      "bug_report-review",
+      "bug_report-rewrite"
+    ],
+    "references/visuals.md": [
+      "hld-create",
+      "hld-edit",
+      "hld-review",
+      "hld-rewrite",
+      "visual-create",
+      "visual-edit",
+      "visual-review",
+      "visual-rewrite"
+    ]
+  },
+  "requirements": {
+    "TW-001": {
+      "files": [
+        "SKILL.md"
+      ],
+      "case_ids": [
+        "accept-bug-once",
+        "accept-incident-review",
+        "accept-tiny-readme",
+        "routing-alias-lifecycle",
+        "routing-title-only"
+      ],
+      "checks": "Selective routing and operation scope; package links plus real tool traces."
+    },
+    "TW-002": {
+      "files": [
+        "references/writing_style.md"
+      ],
+      "case_ids": [
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "agent-create",
+        "agent-edit",
+        "agent-review",
+        "agent-rewrite",
+        "bug_report-create",
+        "bug_report-edit",
+        "bug_report-review",
+        "bug_report-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "decision-create",
+        "decision-edit",
+        "decision-review",
+        "decision-rewrite",
+        "explanation-create",
+        "explanation-edit",
+        "explanation-review",
+        "explanation-rewrite",
+        "hld-create",
+        "hld-edit",
+        "hld-review",
+        "hld-rewrite",
+        "howto-create",
+        "howto-edit",
+        "howto-review",
+        "howto-rewrite",
+        "incident-create",
+        "incident-edit",
+        "incident-review",
+        "incident-rewrite",
+        "issue_bug-create",
+        "issue_bug-edit",
+        "issue_bug-review",
+        "issue_bug-rewrite",
+        "issue_chore-create",
+        "issue_chore-edit",
+        "issue_chore-review",
+        "issue_chore-rewrite",
+        "issue_decision-create",
+        "issue_decision-edit",
+        "issue_decision-review",
+        "issue_decision-rewrite",
+        "issue_feature-create",
+        "issue_feature-edit",
+        "issue_feature-review",
+        "issue_feature-rewrite",
+        "issue_improvement-create",
+        "issue_improvement-edit",
+        "issue_improvement-review",
+        "issue_improvement-rewrite",
+        "issue_release-create",
+        "issue_release-edit",
+        "issue_release-review",
+        "issue_release-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "output_style-create",
+        "output_style-edit",
+        "output_style-review",
+        "output_style-rewrite",
+        "plan-create",
+        "plan-edit",
+        "plan-review",
+        "plan-rewrite",
+        "policy-create",
+        "policy-edit",
+        "policy-review",
+        "policy-rewrite",
+        "prd-create",
+        "prd-edit",
+        "prd-review",
+        "prd-rewrite",
+        "readme-create",
+        "readme-edit",
+        "readme-review",
+        "readme-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite",
+        "skill-create",
+        "skill-edit",
+        "skill-review",
+        "skill-rewrite",
+        "standard-create",
+        "standard-edit",
+        "standard-review",
+        "standard-rewrite",
+        "style-ambiguous-pronoun",
+        "style-connected-prose",
+        "style-exception",
+        "style-format-and-flow",
+        "style-heading-scope",
+        "style-literal-technical-name",
+        "style-meaning-unknown",
+        "style-missing-context",
+        "style-no-invented-remedy",
+        "style-no-invented-target",
+        "style-noun-stack",
+        "style-obligation-and-permission",
+        "style-proposed-behavior",
+        "style-repeated-rationale",
+        "style-responsibility",
+        "style-source-CG-3006",
+        "style-source-CG-3029",
+        "style-source-CG-3031",
+        "style-source-CG-3033",
+        "style-technical-term",
+        "style-tone-binding-rule",
+        "style-tone-global-audience",
+        "style-tone-overcasual",
+        "style-tone-overformal",
+        "style-valid-heading",
+        "style-valid-passive",
+        "tcr-create",
+        "tcr-edit",
+        "tcr-review",
+        "tcr-rewrite",
+        "tp-create",
+        "tp-edit",
+        "tp-review",
+        "tp-rewrite",
+        "ts-create",
+        "ts-edit",
+        "ts-review",
+        "ts-rewrite",
+        "tsr-create",
+        "tsr-edit",
+        "tsr-review",
+        "tsr-rewrite",
+        "tutorial-create",
+        "tutorial-edit",
+        "tutorial-review",
+        "tutorial-rewrite",
+        "user_story-create",
+        "user_story-edit",
+        "user_story-review",
+        "user_story-rewrite",
+        "visual-create",
+        "visual-edit",
+        "visual-review",
+        "visual-rewrite",
+        "mixed-evidence-report"
+      ],
+      "checks": "Reference prose audited with the shared guide; generated language graded separately."
+    },
+    "TW-003": {
+      "files": [
+        "references/",
+        "../analysis/RESEARCH.md"
+      ],
+      "case_ids": [],
+      "checks": "Primary-source research and explicit distinction between adopted conventions and external guidance."
+    },
+    "TW-004": {
+      "files": [
+        "references/"
+      ],
+      "case_ids": [
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "agent-create",
+        "agent-edit",
+        "agent-review",
+        "agent-rewrite",
+        "bug_report-create",
+        "bug_report-edit",
+        "bug_report-review",
+        "bug_report-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "decision-create",
+        "decision-edit",
+        "decision-review",
+        "decision-rewrite",
+        "explanation-create",
+        "explanation-edit",
+        "explanation-review",
+        "explanation-rewrite",
+        "hld-create",
+        "hld-edit",
+        "hld-review",
+        "hld-rewrite",
+        "howto-create",
+        "howto-edit",
+        "howto-review",
+        "howto-rewrite",
+        "incident-create",
+        "incident-edit",
+        "incident-review",
+        "incident-rewrite",
+        "issue_bug-create",
+        "issue_bug-edit",
+        "issue_bug-review",
+        "issue_bug-rewrite",
+        "issue_chore-create",
+        "issue_chore-edit",
+        "issue_chore-review",
+        "issue_chore-rewrite",
+        "issue_decision-create",
+        "issue_decision-edit",
+        "issue_decision-review",
+        "issue_decision-rewrite",
+        "issue_feature-create",
+        "issue_feature-edit",
+        "issue_feature-review",
+        "issue_feature-rewrite",
+        "issue_improvement-create",
+        "issue_improvement-edit",
+        "issue_improvement-review",
+        "issue_improvement-rewrite",
+        "issue_release-create",
+        "issue_release-edit",
+        "issue_release-review",
+        "issue_release-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "output_style-create",
+        "output_style-edit",
+        "output_style-review",
+        "output_style-rewrite",
+        "plan-create",
+        "plan-edit",
+        "plan-review",
+        "plan-rewrite",
+        "policy-create",
+        "policy-edit",
+        "policy-review",
+        "policy-rewrite",
+        "prd-create",
+        "prd-edit",
+        "prd-review",
+        "prd-rewrite",
+        "readme-create",
+        "readme-edit",
+        "readme-review",
+        "readme-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite",
+        "skill-create",
+        "skill-edit",
+        "skill-review",
+        "skill-rewrite",
+        "standard-create",
+        "standard-edit",
+        "standard-review",
+        "standard-rewrite",
+        "tcr-create",
+        "tcr-edit",
+        "tcr-review",
+        "tcr-rewrite",
+        "tp-create",
+        "tp-edit",
+        "tp-review",
+        "tp-rewrite",
+        "ts-create",
+        "ts-edit",
+        "ts-review",
+        "ts-rewrite",
+        "tsr-create",
+        "tsr-edit",
+        "tsr-review",
+        "tsr-rewrite",
+        "tutorial-create",
+        "tutorial-edit",
+        "tutorial-review",
+        "tutorial-rewrite",
+        "user_story-create",
+        "user_story-edit",
+        "user_story-review",
+        "user_story-rewrite",
+        "visual-create",
+        "visual-edit",
+        "visual-review",
+        "visual-rewrite"
+      ],
+      "checks": "Complete templates/examples inspected, including composed decision overlays. Package checks plus type-specific output grading."
+    },
+    "TW-005": {
+      "files": [
+        "references/policy.md",
+        "references/technical_standard.md"
+      ],
+      "case_ids": [
+        "accept-standard-exception",
+        "policy-create",
+        "policy-edit",
+        "policy-review",
+        "policy-rewrite",
+        "standard-create",
+        "standard-edit",
+        "standard-review",
+        "standard-rewrite"
+      ],
+      "checks": "Real Definitions/Principles content; standard Rules/Verification; hard output section gates and exception preservation."
+    },
+    "TW-006": {
+      "files": [
+        "references/issue.md",
+        "references/writing_style.md"
+      ],
+      "case_ids": [
+        "issue_bug-create",
+        "issue_bug-edit",
+        "issue_bug-review",
+        "issue_bug-rewrite",
+        "issue_chore-create",
+        "issue_chore-edit",
+        "issue_chore-review",
+        "issue_chore-rewrite",
+        "issue_decision-create",
+        "issue_decision-edit",
+        "issue_decision-review",
+        "issue_decision-rewrite",
+        "issue_feature-create",
+        "issue_feature-edit",
+        "issue_feature-review",
+        "issue_feature-rewrite",
+        "issue_improvement-create",
+        "issue_improvement-edit",
+        "issue_improvement-review",
+        "issue_improvement-rewrite",
+        "issue_release-create",
+        "issue_release-edit",
+        "issue_release-review",
+        "issue_release-rewrite",
+        "routing-title-only"
+      ],
+      "checks": "Six types, compact shared ownership, specialized routes, and six source-backed title pairs."
+    },
+    "TW-007": {
+      "files": [
+        "references/bug_report.md"
+      ],
+      "case_ids": [
+        "accept-bug-once",
+        "bug_report-create",
+        "bug_report-edit",
+        "bug_report-review",
+        "bug_report-rewrite",
+        "issue_bug-create",
+        "issue_bug-edit",
+        "issue_bug-review",
+        "issue_bug-rewrite",
+        "mixed-evidence-report"
+      ],
+      "checks": "API and once-observed failures, missing evidence, no invented cause/path/result."
+    },
+    "TW-008": {
+      "files": [
+        "SKILL.md",
+        "references/spec_driven_development.md",
+        "references/implementation_plan.md"
+      ],
+      "case_ids": [
+        "accept-sdd-plan-tasks",
+        "hld-create",
+        "hld-edit",
+        "hld-review",
+        "hld-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "plan-create",
+        "plan-edit",
+        "plan-review",
+        "plan-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite"
+      ],
+      "checks": "Requirements-to-design/work/check traceability; explicit requirements conflict handling."
+    },
+    "TW-009": {
+      "files": [
+        "references/spec_driven_development.md",
+        "../analysis/path_migrations.json"
+      ],
+      "case_ids": [
+        "decision-create",
+        "decision-edit",
+        "decision-review",
+        "decision-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite"
+      ],
+      "checks": "Retired generic/requirements guides absent; owners and callers migrated; legacy case migration indexed."
+    },
+    "TW-010": {
+      "files": [
+        "scripts/",
+        "evals/"
+      ],
+      "case_ids": [
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "agent-create",
+        "agent-edit",
+        "agent-review",
+        "agent-rewrite",
+        "bug_report-create",
+        "bug_report-edit",
+        "bug_report-review",
+        "bug_report-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "decision-create",
+        "decision-edit",
+        "decision-review",
+        "decision-rewrite",
+        "explanation-create",
+        "explanation-edit",
+        "explanation-review",
+        "explanation-rewrite",
+        "hld-create",
+        "hld-edit",
+        "hld-review",
+        "hld-rewrite",
+        "howto-create",
+        "howto-edit",
+        "howto-review",
+        "howto-rewrite",
+        "incident-create",
+        "incident-edit",
+        "incident-review",
+        "incident-rewrite",
+        "issue_bug-create",
+        "issue_bug-edit",
+        "issue_bug-review",
+        "issue_bug-rewrite",
+        "issue_chore-create",
+        "issue_chore-edit",
+        "issue_chore-review",
+        "issue_chore-rewrite",
+        "issue_decision-create",
+        "issue_decision-edit",
+        "issue_decision-review",
+        "issue_decision-rewrite",
+        "issue_feature-create",
+        "issue_feature-edit",
+        "issue_feature-review",
+        "issue_feature-rewrite",
+        "issue_improvement-create",
+        "issue_improvement-edit",
+        "issue_improvement-review",
+        "issue_improvement-rewrite",
+        "issue_release-create",
+        "issue_release-edit",
+        "issue_release-review",
+        "issue_release-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "output_style-create",
+        "output_style-edit",
+        "output_style-review",
+        "output_style-rewrite",
+        "plan-create",
+        "plan-edit",
+        "plan-review",
+        "plan-rewrite",
+        "policy-create",
+        "policy-edit",
+        "policy-review",
+        "policy-rewrite",
+        "prd-create",
+        "prd-edit",
+        "prd-review",
+        "prd-rewrite",
+        "readme-create",
+        "readme-edit",
+        "readme-review",
+        "readme-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite",
+        "skill-create",
+        "skill-edit",
+        "skill-review",
+        "skill-rewrite",
+        "standard-create",
+        "standard-edit",
+        "standard-review",
+        "standard-rewrite",
+        "tcr-create",
+        "tcr-edit",
+        "tcr-review",
+        "tcr-rewrite",
+        "tp-create",
+        "tp-edit",
+        "tp-review",
+        "tp-rewrite",
+        "ts-create",
+        "ts-edit",
+        "ts-review",
+        "ts-rewrite",
+        "tsr-create",
+        "tsr-edit",
+        "tsr-review",
+        "tsr-rewrite",
+        "tutorial-create",
+        "tutorial-edit",
+        "tutorial-review",
+        "tutorial-rewrite",
+        "user_story-create",
+        "user_story-edit",
+        "user_story-review",
+        "user_story-rewrite",
+        "visual-create",
+        "visual-edit",
+        "visual-review",
+        "visual-rewrite",
+        "mixed-evidence-report"
+      ],
+      "checks": "Separate package tests, executable examples, author audits, model outputs, and grading."
+    },
+    "TW-011": {
+      "files": [
+        "workflows/improve_references.md",
+        "../analysis/REVIEW-LEDGER.md"
+      ],
+      "case_ids": [],
+      "checks": "Per-reference research/audit/proposal loop and documented observed failure repairs."
+    },
+    "TW-012": {
+      "files": [
+        "MIGRATION.md",
+        "../README.md"
+      ],
+      "case_ids": [
+        "readme-create",
+        "readme-edit",
+        "readme-review",
+        "readme-rewrite"
+      ],
+      "checks": "Local links and runnable examples checked; actual installation/testing limits stated."
+    },
+    "TW-013": {
+      "files": [
+        "SKILL.md",
+        "workflows/rewrite.md"
+      ],
+      "case_ids": [
+        "accept-decided-option",
+        "accept-small-chore",
+        "accept-tiny-readme"
+      ],
+      "checks": "Source instructions are evidence; no invented tracker/implementation/deployment authority."
+    },
+    "TW-014": {
+      "files": [
+        "../analysis/source_manifest.json",
+        "../analysis/SKILL-SPEC.md"
+      ],
+      "case_ids": [],
+      "checks": "Updated transcript versions and cached full-conversation provenance disclosed; later user corrections govern."
+    },
+    "TW-015": {
+      "files": [
+        "references/writing_style.md",
+        "workflows/rewrite.md",
+        "scripts/zero_loss.py"
+      ],
+      "case_ids": [
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "agent-create",
+        "agent-edit",
+        "agent-review",
+        "agent-rewrite",
+        "bug_report-create",
+        "bug_report-edit",
+        "bug_report-review",
+        "bug_report-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "decision-create",
+        "decision-edit",
+        "decision-review",
+        "decision-rewrite",
+        "explanation-create",
+        "explanation-edit",
+        "explanation-review",
+        "explanation-rewrite",
+        "hld-create",
+        "hld-edit",
+        "hld-review",
+        "hld-rewrite",
+        "howto-create",
+        "howto-edit",
+        "howto-review",
+        "howto-rewrite",
+        "incident-create",
+        "incident-edit",
+        "incident-review",
+        "incident-rewrite",
+        "issue_bug-create",
+        "issue_bug-edit",
+        "issue_bug-review",
+        "issue_bug-rewrite",
+        "issue_chore-create",
+        "issue_chore-edit",
+        "issue_chore-review",
+        "issue_chore-rewrite",
+        "issue_decision-create",
+        "issue_decision-edit",
+        "issue_decision-review",
+        "issue_decision-rewrite",
+        "issue_feature-create",
+        "issue_feature-edit",
+        "issue_feature-review",
+        "issue_feature-rewrite",
+        "issue_improvement-create",
+        "issue_improvement-edit",
+        "issue_improvement-review",
+        "issue_improvement-rewrite",
+        "issue_release-create",
+        "issue_release-edit",
+        "issue_release-review",
+        "issue_release-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "output_style-create",
+        "output_style-edit",
+        "output_style-review",
+        "output_style-rewrite",
+        "plan-create",
+        "plan-edit",
+        "plan-review",
+        "plan-rewrite",
+        "policy-create",
+        "policy-edit",
+        "policy-review",
+        "policy-rewrite",
+        "prd-create",
+        "prd-edit",
+        "prd-review",
+        "prd-rewrite",
+        "readme-create",
+        "readme-edit",
+        "readme-review",
+        "readme-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite",
+        "skill-create",
+        "skill-edit",
+        "skill-review",
+        "skill-rewrite",
+        "standard-create",
+        "standard-edit",
+        "standard-review",
+        "standard-rewrite",
+        "style-ambiguous-pronoun",
+        "style-connected-prose",
+        "style-exception",
+        "style-format-and-flow",
+        "style-heading-scope",
+        "style-literal-technical-name",
+        "style-meaning-unknown",
+        "style-missing-context",
+        "style-no-invented-remedy",
+        "style-no-invented-target",
+        "style-noun-stack",
+        "style-obligation-and-permission",
+        "style-proposed-behavior",
+        "style-repeated-rationale",
+        "style-responsibility",
+        "style-source-CG-3006",
+        "style-source-CG-3029",
+        "style-source-CG-3031",
+        "style-source-CG-3033",
+        "style-technical-term",
+        "style-tone-binding-rule",
+        "style-tone-global-audience",
+        "style-tone-overcasual",
+        "style-tone-overformal",
+        "style-valid-heading",
+        "style-valid-passive",
+        "tcr-create",
+        "tcr-edit",
+        "tcr-review",
+        "tcr-rewrite",
+        "tp-create",
+        "tp-edit",
+        "tp-review",
+        "tp-rewrite",
+        "ts-create",
+        "ts-edit",
+        "ts-review",
+        "ts-rewrite",
+        "tsr-create",
+        "tsr-edit",
+        "tsr-review",
+        "tsr-rewrite",
+        "tutorial-create",
+        "tutorial-edit",
+        "tutorial-review",
+        "tutorial-rewrite",
+        "user_story-create",
+        "user_story-edit",
+        "user_story-review",
+        "user_story-rewrite",
+        "visual-create",
+        "visual-edit",
+        "visual-review",
+        "visual-rewrite",
+        "mixed-evidence-report"
+      ],
+      "checks": "Source comparisons, literal preservation, governance exceptions, writing-guide inventory/mapping, and regression tests."
+    },
+    "TW-016": {
+      "files": [
+        "SKILL.md",
+        "workflows/improve_references.md"
+      ],
+      "case_ids": [
+        "accept-tiny-readme",
+        "routing-alias-lifecycle",
+        "routing-title-only"
+      ],
+      "checks": "Generator excludes evals/answers; traces demonstrate selective loading; maintenance records outside runtime."
+    },
+    "TW-017": {
+      "files": [
+        "references/spec_driven_development.md",
+        "references/implementation_plan.md"
+      ],
+      "case_ids": [
+        "plan-create",
+        "plan-edit",
+        "plan-review",
+        "plan-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite"
+      ],
+      "checks": "SDD owns behavior and individual requirements; plan owns delivery."
+    },
+    "TW-018": {
+      "files": [
+        "SKILL.md",
+        "references/high_level_document.md"
+      ],
+      "case_ids": [
+        "accept-sdd-plan-tasks",
+        "accept-small-chore",
+        "routing-alias-lifecycle"
+      ],
+      "checks": "Issue-led/spec-led entry points, small-task specification, living architecture, no universal sequence."
+    },
+    "TW-019": {
+      "files": [
+        "references/issue.md"
+      ],
+      "case_ids": [
+        "accept-small-chore",
+        "routing-alias-lifecycle"
+      ],
+      "checks": "Issue is a typed unit of work; no seventh type or automatic record/file creation."
+    },
+    "TW-020": {
+      "files": [
+        "references/decision_record.md",
+        "references/architecture_decision_record.md",
+        "references/design_decision_record.md"
+      ],
+      "case_ids": [
+        "accept-decided-option",
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "decision-create",
+        "decision-edit",
+        "decision-review",
+        "decision-rewrite",
+        "issue_decision-create",
+        "issue_decision-edit",
+        "issue_decision-review",
+        "issue_decision-rewrite"
+      ],
+      "checks": "Context title, real options, recommendation/reasons, honest separate outcome; comment placement."
+    },
+    "TW-021": {
+      "files": [
+        "SKILL.md",
+        "../analysis/validation/sizes.json",
+        "../analysis/validation/context.json"
+      ],
+      "case_ids": [
+        "routing-title-only"
+      ],
+      "checks": "Bytes/words/char4 estimates, role budgets, justified growth, and actual reference-read traces."
+    },
+    "TW-022": {
+      "files": [
+        "evals/catalog.json",
+        "evals/coverage.json"
+      ],
+      "case_ids": [
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "agent-create",
+        "agent-edit",
+        "agent-review",
+        "agent-rewrite",
+        "bug_report-create",
+        "bug_report-edit",
+        "bug_report-review",
+        "bug_report-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "decision-create",
+        "decision-edit",
+        "decision-review",
+        "decision-rewrite",
+        "explanation-create",
+        "explanation-edit",
+        "explanation-review",
+        "explanation-rewrite",
+        "hld-create",
+        "hld-edit",
+        "hld-review",
+        "hld-rewrite",
+        "howto-create",
+        "howto-edit",
+        "howto-review",
+        "howto-rewrite",
+        "incident-create",
+        "incident-edit",
+        "incident-review",
+        "incident-rewrite",
+        "issue_bug-create",
+        "issue_bug-edit",
+        "issue_bug-review",
+        "issue_bug-rewrite",
+        "issue_chore-create",
+        "issue_chore-edit",
+        "issue_chore-review",
+        "issue_chore-rewrite",
+        "issue_decision-create",
+        "issue_decision-edit",
+        "issue_decision-review",
+        "issue_decision-rewrite",
+        "issue_feature-create",
+        "issue_feature-edit",
+        "issue_feature-review",
+        "issue_feature-rewrite",
+        "issue_improvement-create",
+        "issue_improvement-edit",
+        "issue_improvement-review",
+        "issue_improvement-rewrite",
+        "issue_release-create",
+        "issue_release-edit",
+        "issue_release-review",
+        "issue_release-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "output_style-create",
+        "output_style-edit",
+        "output_style-review",
+        "output_style-rewrite",
+        "plan-create",
+        "plan-edit",
+        "plan-review",
+        "plan-rewrite",
+        "policy-create",
+        "policy-edit",
+        "policy-review",
+        "policy-rewrite",
+        "prd-create",
+        "prd-edit",
+        "prd-review",
+        "prd-rewrite",
+        "readme-create",
+        "readme-edit",
+        "readme-review",
+        "readme-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "routing-alias-lifecycle",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite",
+        "skill-create",
+        "skill-edit",
+        "skill-review",
+        "skill-rewrite",
+        "standard-create",
+        "standard-edit",
+        "standard-review",
+        "standard-rewrite",
+        "style-ambiguous-pronoun",
+        "style-connected-prose",
+        "style-exception",
+        "style-format-and-flow",
+        "style-heading-scope",
+        "style-literal-technical-name",
+        "style-meaning-unknown",
+        "style-missing-context",
+        "style-no-invented-remedy",
+        "style-no-invented-target",
+        "style-noun-stack",
+        "style-obligation-and-permission",
+        "style-proposed-behavior",
+        "style-repeated-rationale",
+        "style-responsibility",
+        "style-source-CG-3006",
+        "style-source-CG-3029",
+        "style-source-CG-3031",
+        "style-source-CG-3033",
+        "style-technical-term",
+        "style-tone-binding-rule",
+        "style-tone-global-audience",
+        "style-tone-overcasual",
+        "style-tone-overformal",
+        "style-valid-heading",
+        "style-valid-passive",
+        "tcr-create",
+        "tcr-edit",
+        "tcr-review",
+        "tcr-rewrite",
+        "tp-create",
+        "tp-edit",
+        "tp-review",
+        "tp-rewrite",
+        "ts-create",
+        "ts-edit",
+        "ts-review",
+        "ts-rewrite",
+        "tsr-create",
+        "tsr-edit",
+        "tsr-review",
+        "tsr-rewrite",
+        "tutorial-create",
+        "tutorial-edit",
+        "tutorial-review",
+        "tutorial-rewrite",
+        "user_story-create",
+        "user_story-edit",
+        "user_story-review",
+        "user_story-rewrite",
+        "visual-create",
+        "visual-edit",
+        "visual-review",
+        "visual-rewrite"
+      ],
+      "checks": "32 output kinds times four operations; all 25 references covered directly or as shared guidance."
+    },
+    "TW-023": {
+      "files": [
+        "evals/run.py",
+        "evals/README.md",
+        "evals/fixtures/",
+        "evals/rubrics/quality.md"
+      ],
+      "case_ids": [
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "agent-create",
+        "agent-edit",
+        "agent-review",
+        "agent-rewrite",
+        "bug_report-create",
+        "bug_report-edit",
+        "bug_report-review",
+        "bug_report-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "decision-create",
+        "decision-edit",
+        "decision-review",
+        "decision-rewrite",
+        "explanation-create",
+        "explanation-edit",
+        "explanation-review",
+        "explanation-rewrite",
+        "hld-create",
+        "hld-edit",
+        "hld-review",
+        "hld-rewrite",
+        "howto-create",
+        "howto-edit",
+        "howto-review",
+        "howto-rewrite",
+        "incident-create",
+        "incident-edit",
+        "incident-review",
+        "incident-rewrite",
+        "issue_bug-create",
+        "issue_bug-edit",
+        "issue_bug-review",
+        "issue_bug-rewrite",
+        "issue_chore-create",
+        "issue_chore-edit",
+        "issue_chore-review",
+        "issue_chore-rewrite",
+        "issue_decision-create",
+        "issue_decision-edit",
+        "issue_decision-review",
+        "issue_decision-rewrite",
+        "issue_feature-create",
+        "issue_feature-edit",
+        "issue_feature-review",
+        "issue_feature-rewrite",
+        "issue_improvement-create",
+        "issue_improvement-edit",
+        "issue_improvement-review",
+        "issue_improvement-rewrite",
+        "issue_release-create",
+        "issue_release-edit",
+        "issue_release-review",
+        "issue_release-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "output_style-create",
+        "output_style-edit",
+        "output_style-review",
+        "output_style-rewrite",
+        "plan-create",
+        "plan-edit",
+        "plan-review",
+        "plan-rewrite",
+        "policy-create",
+        "policy-edit",
+        "policy-review",
+        "policy-rewrite",
+        "prd-create",
+        "prd-edit",
+        "prd-review",
+        "prd-rewrite",
+        "readme-create",
+        "readme-edit",
+        "readme-review",
+        "readme-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite",
+        "skill-create",
+        "skill-edit",
+        "skill-review",
+        "skill-rewrite",
+        "standard-create",
+        "standard-edit",
+        "standard-review",
+        "standard-rewrite",
+        "tcr-create",
+        "tcr-edit",
+        "tcr-review",
+        "tcr-rewrite",
+        "tp-create",
+        "tp-edit",
+        "tp-review",
+        "tp-rewrite",
+        "ts-create",
+        "ts-edit",
+        "ts-review",
+        "ts-rewrite",
+        "tsr-create",
+        "tsr-edit",
+        "tsr-review",
+        "tsr-rewrite",
+        "tutorial-create",
+        "tutorial-edit",
+        "tutorial-review",
+        "tutorial-rewrite",
+        "user_story-create",
+        "user_story-edit",
+        "user_story-review",
+        "user_story-rewrite",
+        "visual-create",
+        "visual-edit",
+        "visual-review",
+        "visual-rewrite",
+        "mixed-evidence-report"
+      ],
+      "checks": "Runnable isolated CLI harness, complete sources, hidden criteria, pinned model, and reproducible commands."
+    },
+    "TW-024": {
+      "files": [
+        "evals/rubrics/",
+        "evals/cases/acceptance.jsonl",
+        "scripts/test_eval_runner.py"
+      ],
+      "case_ids": [
+        "accept-decided-option",
+        "accept-diagram-contract",
+        "accept-incident-review",
+        "accept-missing-results",
+        "accept-sdd-plan-tasks",
+        "accept-small-chore",
+        "accept-standard-exception",
+        "accept-tiny-readme",
+        "cal-fabricated-passes",
+        "cal-good-narrow-edit",
+        "cal-good-policy",
+        "cal-good-report",
+        "cal-invented-project-tests",
+        "cal-policy-exception-lost",
+        "cal-real-inventory",
+        "cal-short-incomplete",
+        "cal-verbose-empty",
+        "cal-workflow-description"
+      ],
+      "checks": "Calibrated author labels, deterministic critical gates, protected cases, and failed holdout retained as regression."
+    },
+    "TW-025": {
+      "files": [
+        "../analysis/validation/",
+        "../analysis/VALIDATION.md"
+      ],
+      "case_ids": [
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "agent-create",
+        "agent-edit",
+        "agent-review",
+        "agent-rewrite",
+        "bug_report-create",
+        "bug_report-edit",
+        "bug_report-review",
+        "bug_report-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "decision-create",
+        "decision-edit",
+        "decision-review",
+        "decision-rewrite",
+        "explanation-create",
+        "explanation-edit",
+        "explanation-review",
+        "explanation-rewrite",
+        "hld-create",
+        "hld-edit",
+        "hld-review",
+        "hld-rewrite",
+        "howto-create",
+        "howto-edit",
+        "howto-review",
+        "howto-rewrite",
+        "incident-create",
+        "incident-edit",
+        "incident-review",
+        "incident-rewrite",
+        "issue_bug-create",
+        "issue_bug-edit",
+        "issue_bug-review",
+        "issue_bug-rewrite",
+        "issue_chore-create",
+        "issue_chore-edit",
+        "issue_chore-review",
+        "issue_chore-rewrite",
+        "issue_decision-create",
+        "issue_decision-edit",
+        "issue_decision-review",
+        "issue_decision-rewrite",
+        "issue_feature-create",
+        "issue_feature-edit",
+        "issue_feature-review",
+        "issue_feature-rewrite",
+        "issue_improvement-create",
+        "issue_improvement-edit",
+        "issue_improvement-review",
+        "issue_improvement-rewrite",
+        "issue_release-create",
+        "issue_release-edit",
+        "issue_release-review",
+        "issue_release-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "output_style-create",
+        "output_style-edit",
+        "output_style-review",
+        "output_style-rewrite",
+        "plan-create",
+        "plan-edit",
+        "plan-review",
+        "plan-rewrite",
+        "policy-create",
+        "policy-edit",
+        "policy-review",
+        "policy-rewrite",
+        "prd-create",
+        "prd-edit",
+        "prd-review",
+        "prd-rewrite",
+        "readme-create",
+        "readme-edit",
+        "readme-review",
+        "readme-rewrite",
+        "requirement-create",
+        "requirement-edit",
+        "requirement-review",
+        "requirement-rewrite",
+        "sdd-create",
+        "sdd-edit",
+        "sdd-review",
+        "sdd-rewrite",
+        "skill-create",
+        "skill-edit",
+        "skill-review",
+        "skill-rewrite",
+        "standard-create",
+        "standard-edit",
+        "standard-review",
+        "standard-rewrite",
+        "tcr-create",
+        "tcr-edit",
+        "tcr-review",
+        "tcr-rewrite",
+        "tp-create",
+        "tp-edit",
+        "tp-review",
+        "tp-rewrite",
+        "ts-create",
+        "ts-edit",
+        "ts-review",
+        "ts-rewrite",
+        "tsr-create",
+        "tsr-edit",
+        "tsr-review",
+        "tsr-rewrite",
+        "tutorial-create",
+        "tutorial-edit",
+        "tutorial-review",
+        "tutorial-rewrite",
+        "user_story-create",
+        "user_story-edit",
+        "user_story-review",
+        "user_story-rewrite",
+        "visual-create",
+        "visual-edit",
+        "visual-review",
+        "visual-rewrite",
+        "mixed-evidence-report"
+      ],
+      "checks": "Full output suite, targeted repairs, matched baseline/revision, all attempts retained, and predeclared risk trials."
+    },
+    "TW-026": {
+      "files": [
+        "SKILL.md"
+      ],
+      "case_ids": [
+        "routing-alias-lifecycle"
+      ],
+      "checks": "Twenty acronym/full-name pairs plus four aliases and lifecycle scenarios exercised against the catalog."
+    },
+    "TW-027": {
+      "files": [
+        "references/",
+        "../analysis/path_migrations.json"
+      ],
+      "case_ids": [
+        "routing-alias-lifecycle"
+      ],
+      "checks": "Canonical full-name underscore paths; issue.md retained by latest correction; no stale active routes."
+    },
+    "TW-028": {
+      "files": [
+        "references/product_requirements_document.md",
+        "references/low_level_design.md",
+        "references/architecture_decision_record.md",
+        "references/design_decision_record.md"
+      ],
+      "case_ids": [
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "prd-create",
+        "prd-edit",
+        "prd-review",
+        "prd-rewrite"
+      ],
+      "checks": "Separate scope and complete examples, with decision composition and behavior/design boundaries."
+    },
+    "TW-029": {
+      "files": [
+        "SKILL.md",
+        "references/high_level_document.md",
+        "references/low_level_design.md"
+      ],
+      "case_ids": [
+        "adr-create",
+        "adr-edit",
+        "adr-review",
+        "adr-rewrite",
+        "ddr-create",
+        "ddr-edit",
+        "ddr-review",
+        "ddr-rewrite",
+        "hld-create",
+        "hld-edit",
+        "hld-review",
+        "hld-rewrite",
+        "lld-create",
+        "lld-edit",
+        "lld-review",
+        "lld-rewrite",
+        "routing-alias-lifecycle"
+      ],
+      "checks": "Create/update triggers, proposed/current design, supersession/history, no mandatory artifact set."
+    },
+    "TW-030": {
+      "files": [
+        "SKILL.md",
+        "references/visuals.md",
+        "../analysis/validation/diagrams/"
+      ],
+      "case_ids": [
+        "accept-diagram-contract",
+        "routing-alias-lifecycle",
+        "visual-create",
+        "visual-edit",
+        "visual-review",
+        "visual-rewrite"
+      ],
+      "checks": "Three diagrams syntax checked, rendered in Chrome, and visually inspected; supporting map covers all references."
+    },
+    "TW-031": {
+      "files": [
+        "references/user_story.md",
+        "references/issue.md"
+      ],
+      "case_ids": [
+        "routing-alias-lifecycle",
+        "user_story-create",
+        "user_story-edit",
+        "user_story-review",
+        "user_story-rewrite"
+      ],
+      "checks": "Optional story content with actor/need/value/acceptance; own guide and no seventh type."
+    },
+    "TW-032": {
+      "files": [
+        "references/test_plan.md",
+        "references/test_specification.md",
+        "references/test_status_report.md",
+        "references/test_completion_report.md"
+      ],
+      "case_ids": [
+        "routing-alias-lifecycle",
+        "tcr-create",
+        "tcr-edit",
+        "tcr-review",
+        "tcr-rewrite",
+        "tp-create",
+        "tp-edit",
+        "tp-review",
+        "tp-rewrite",
+        "ts-create",
+        "ts-edit",
+        "ts-review",
+        "ts-rewrite",
+        "tsr-create",
+        "tsr-edit",
+        "tsr-review",
+        "tsr-rewrite"
+      ],
+      "checks": "Four distinct testing formats, full examples, lifecycle and routing; TS owns optional case/procedure depth."
+    },
+    "TW-033": {
+      "files": [
+        "references/issue.md",
+        "references/test_completion_report.md"
+      ],
+      "case_ids": [
+        "accept-missing-results",
+        "accept-small-chore",
+        "tcr-create",
+        "tcr-edit",
+        "tcr-review",
+        "tcr-rewrite",
+        "tp-create",
+        "tp-edit",
+        "tp-review",
+        "tp-rewrite",
+        "ts-create",
+        "ts-edit",
+        "ts-review",
+        "ts-rewrite",
+        "tsr-create",
+        "tsr-edit",
+        "tsr-review",
+        "tsr-rewrite"
+      ],
+      "checks": "Proportionate embedded content, exact result categories/counts, logs as evidence, no invented release approval."
+    },
+    "TW-034": {
+      "files": [
+        "../analysis/EXECUTION.md",
+        "../analysis/validation/delivery.json"
+      ],
+      "case_ids": [],
+      "checks": "Git access checked; final delivery verified against remote main after commit/push. Delivery evidence records the checkpoint."
+    }
+  },
+  "routing_cases": [
+    "routing-alias-lifecycle",
+    "routing-title-only"
+  ],
+  "observed_regressions": [
+    "accept-bug-once"
+  ]
+}

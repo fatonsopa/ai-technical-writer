@@ -1,0 +1,37 @@
+{
+  "source_export_rows": 130,
+  "unique_issue_ids": 127,
+  "checks": [
+    {
+      "id": "CG-474",
+      "title": "Add one rule for where a website stands for a person",
+      "preserved_in_guide": true
+    },
+    {
+      "id": "CG-276",
+      "title": "Ask the database who is staff in every staff edge function",
+      "preserved_in_guide": true
+    },
+    {
+      "id": "CG-3031",
+      "title": "Watch tells the session the same unchanged condition every tick",
+      "preserved_in_guide": true
+    },
+    {
+      "id": "CG-3006",
+      "title": "Refused merge throws away every test result it had already proven",
+      "preserved_in_guide": true
+    },
+    {
+      "id": "CG-3029",
+      "title": "Lint fails when the design-system download needs an SSH key this machine lacks",
+      "preserved_in_guide": true
+    },
+    {
+      "id": "CG-3033",
+      "title": "Answers wait weeks in the read stage past the declared limit",
+      "preserved_in_guide": true
+    }
+  ],
+  "raw_exports_distributed": false
+}

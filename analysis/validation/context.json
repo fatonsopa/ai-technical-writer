@@ -1,0 +1,468 @@
+{
+  "method": "Unique runtime Markdown named in successful read commands. UTF-8 bytes and characters/4 estimates exclude sources, shell wrappers, system context, and repeated reads. Actual host usage is reported separately.",
+  "runs": [
+    {
+      "variant": "baseline",
+      "kind": "decision",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 5083,
+          "tokens_estimate": 1271
+        },
+        {
+          "file": "references/decision-record.md",
+          "bytes": 2795,
+          "tokens_estimate": 697
+        },
+        {
+          "file": "references/issue.md",
+          "bytes": 5779,
+          "tokens_estimate": 1445
+        },
+        {
+          "file": "references/writing-style.md",
+          "bytes": 12578,
+          "tokens_estimate": 3120
+        }
+      ],
+      "unique_bytes": 26235,
+      "tokens_estimate": 6533,
+      "host_usage": [
+        {
+          "input_tokens": 88785,
+          "cached_input_tokens": 51840,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 467,
+          "reasoning_output_tokens": 17
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "kind": "issue_bug",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 5083,
+          "tokens_estimate": 1271
+        },
+        {
+          "file": "references/bug-report.md",
+          "bytes": 10440,
+          "tokens_estimate": 2603
+        },
+        {
+          "file": "references/issue.md",
+          "bytes": 5779,
+          "tokens_estimate": 1445
+        },
+        {
+          "file": "references/writing-style.md",
+          "bytes": 12578,
+          "tokens_estimate": 3120
+        }
+      ],
+      "unique_bytes": 33880,
+      "tokens_estimate": 8439,
+      "host_usage": [
+        {
+          "input_tokens": 70226,
+          "cached_input_tokens": 59136,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 684,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "kind": "plan",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 5083,
+          "tokens_estimate": 1271
+        },
+        {
+          "file": "references/plan.md",
+          "bytes": 5577,
+          "tokens_estimate": 1394
+        },
+        {
+          "file": "references/writing-style.md",
+          "bytes": 12578,
+          "tokens_estimate": 3120
+        }
+      ],
+      "unique_bytes": 23238,
+      "tokens_estimate": 5785,
+      "host_usage": [
+        {
+          "input_tokens": 68473,
+          "cached_input_tokens": 47232,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1273,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "kind": "policy",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 5083,
+          "tokens_estimate": 1271
+        }
+      ],
+      "unique_bytes": 5083,
+      "tokens_estimate": 1271,
+      "host_usage": [
+        {
+          "input_tokens": 70328,
+          "cached_input_tokens": 50432,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 419,
+          "reasoning_output_tokens": 10
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "kind": "sdd",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 5083,
+          "tokens_estimate": 1271
+        },
+        {
+          "file": "references/architecture.md",
+          "bytes": 5597,
+          "tokens_estimate": 1398
+        },
+        {
+          "file": "references/requirements.md",
+          "bytes": 3632,
+          "tokens_estimate": 898
+        },
+        {
+          "file": "references/spec.md",
+          "bytes": 6022,
+          "tokens_estimate": 1506
+        },
+        {
+          "file": "references/writing-style.md",
+          "bytes": 12578,
+          "tokens_estimate": 3120
+        }
+      ],
+      "unique_bytes": 32912,
+      "tokens_estimate": 8193,
+      "host_usage": [
+        {
+          "input_tokens": 70534,
+          "cached_input_tokens": 47232,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1227,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "kind": "tcr",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 5083,
+          "tokens_estimate": 1271
+        },
+        {
+          "file": "references/writing-style.md",
+          "bytes": 12578,
+          "tokens_estimate": 3120
+        }
+      ],
+      "unique_bytes": 17661,
+      "tokens_estimate": 4391,
+      "host_usage": [
+        {
+          "input_tokens": 67785,
+          "cached_input_tokens": 47616,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 777,
+          "reasoning_output_tokens": 37
+        }
+      ]
+    },
+    {
+      "variant": "revised",
+      "kind": "decision",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 9928,
+          "tokens_estimate": 2479
+        },
+        {
+          "file": "references/decision_record.md",
+          "bytes": 3844,
+          "tokens_estimate": 961
+        },
+        {
+          "file": "references/writing_style.md",
+          "bytes": 12740,
+          "tokens_estimate": 3160
+        }
+      ],
+      "unique_bytes": 26512,
+      "tokens_estimate": 6600,
+      "host_usage": [
+        {
+          "input_tokens": 71390,
+          "cached_input_tokens": 49152,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 419,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "variant": "revised",
+      "kind": "issue_bug",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 9928,
+          "tokens_estimate": 2479
+        },
+        {
+          "file": "references/bug_report.md",
+          "bytes": 4725,
+          "tokens_estimate": 1181
+        },
+        {
+          "file": "references/issue.md",
+          "bytes": 6566,
+          "tokens_estimate": 1642
+        },
+        {
+          "file": "references/writing_style.md",
+          "bytes": 12740,
+          "tokens_estimate": 3160
+        }
+      ],
+      "unique_bytes": 33959,
+      "tokens_estimate": 8462,
+      "host_usage": [
+        {
+          "input_tokens": 72995,
+          "cached_input_tokens": 49280,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 526,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "variant": "revised",
+      "kind": "plan",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 9928,
+          "tokens_estimate": 2479
+        },
+        {
+          "file": "references/implementation_plan.md",
+          "bytes": 4764,
+          "tokens_estimate": 1191
+        },
+        {
+          "file": "references/writing_style.md",
+          "bytes": 12740,
+          "tokens_estimate": 3160
+        }
+      ],
+      "unique_bytes": 27432,
+      "tokens_estimate": 6830,
+      "host_usage": [
+        {
+          "input_tokens": 72200,
+          "cached_input_tokens": 64000,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1228,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "variant": "revised",
+      "kind": "policy",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 9928,
+          "tokens_estimate": 2479
+        },
+        {
+          "file": "references/policy.md",
+          "bytes": 4283,
+          "tokens_estimate": 1071
+        },
+        {
+          "file": "references/writing_style.md",
+          "bytes": 12740,
+          "tokens_estimate": 3160
+        }
+      ],
+      "unique_bytes": 26951,
+      "tokens_estimate": 6710,
+      "host_usage": [
+        {
+          "input_tokens": 70771,
+          "cached_input_tokens": 48640,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 517,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "variant": "revised",
+      "kind": "sdd",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 9928,
+          "tokens_estimate": 2479
+        },
+        {
+          "file": "references/spec_driven_development.md",
+          "bytes": 8257,
+          "tokens_estimate": 2063
+        },
+        {
+          "file": "references/writing_style.md",
+          "bytes": 12740,
+          "tokens_estimate": 3160
+        }
+      ],
+      "unique_bytes": 30925,
+      "tokens_estimate": 7702,
+      "host_usage": [
+        {
+          "input_tokens": 72952,
+          "cached_input_tokens": 34304,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1100,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "variant": "revised",
+      "kind": "tcr",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 9928,
+          "tokens_estimate": 2479
+        },
+        {
+          "file": "references/test_completion_report.md",
+          "bytes": 3758,
+          "tokens_estimate": 938
+        },
+        {
+          "file": "references/writing_style.md",
+          "bytes": 12740,
+          "tokens_estimate": 3160
+        }
+      ],
+      "unique_bytes": 26426,
+      "tokens_estimate": 6577,
+      "host_usage": [
+        {
+          "input_tokens": 71731,
+          "cached_input_tokens": 49152,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 758,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    },
+    {
+      "variant": "title-baseline",
+      "kind": "title_routing",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 5083,
+          "tokens_estimate": 1271
+        },
+        {
+          "file": "references/bug-report.md",
+          "bytes": 10440,
+          "tokens_estimate": 2603
+        },
+        {
+          "file": "references/issue.md",
+          "bytes": 5779,
+          "tokens_estimate": 1445
+        },
+        {
+          "file": "references/writing-style.md",
+          "bytes": 12578,
+          "tokens_estimate": 3120
+        }
+      ],
+      "unique_bytes": 33880,
+      "tokens_estimate": 8439,
+      "host_usage": [
+        {
+          "input_tokens": 87334,
+          "cached_input_tokens": 64256,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 266,
+          "reasoning_output_tokens": 8
+        }
+      ]
+    },
+    {
+      "variant": "title-revised",
+      "kind": "title_routing",
+      "runtime_markdown_reads": [
+        {
+          "file": "SKILL.md",
+          "bytes": 10017,
+          "tokens_estimate": 2501
+        },
+        {
+          "file": "references/issue.md",
+          "bytes": 6566,
+          "tokens_estimate": 1642
+        },
+        {
+          "file": "references/writing_style.md",
+          "bytes": 12740,
+          "tokens_estimate": 3160
+        }
+      ],
+      "unique_bytes": 29323,
+      "tokens_estimate": 7303,
+      "host_usage": [
+        {
+          "input_tokens": 71946,
+          "cached_input_tokens": 49280,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 214,
+          "reasoning_output_tokens": 0
+        }
+      ]
+    }
+  ]
+}

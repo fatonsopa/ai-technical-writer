@@ -1,0 +1,5 @@
+flowchart LR
+    A[API] -->|Adds email job| B[Queue]
+    B -->|Delivers job| C[Worker]
+    C -->|Sends message| D[Mail provider]
+    C -->|Records result| E[(Database)]

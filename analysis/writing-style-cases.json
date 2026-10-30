@@ -492,5 +492,6 @@
       ]
     }
   ],
-  "input_provenance": "Inputs are constructed examples or condensed source excerpts, not verbatim quotations. The source identifies the discussion or exported issue that motivates the case. Exported measurements have not been independently checked against the application."
+  "input_provenance": "Inputs are constructed examples or condensed source excerpts, not verbatim quotations. The source identifies the discussion or exported issue that motivates the case. Exported measurements have not been independently checked against the application.",
+  "archive_note": "Historical case-design record. Current executable cases are in technical-writer/evals/cases/style_regressions.jsonl; actual results are in analysis/VALIDATION.md. Original target/status fields are retained as provenance."
 }

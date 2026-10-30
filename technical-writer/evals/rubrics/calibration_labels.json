@@ -1,0 +1,46 @@
+{
+  "label_source": "author-assigned, not independent human labels",
+  "labels": {
+    "cal-good-report": {
+      "passed": true,
+      "critical_expected": false
+    },
+    "cal-fabricated-passes": {
+      "passed": false,
+      "critical_expected": true
+    },
+    "cal-policy-exception-lost": {
+      "passed": false,
+      "critical_expected": true
+    },
+    "cal-good-policy": {
+      "passed": true,
+      "critical_expected": false
+    },
+    "cal-verbose-empty": {
+      "passed": false,
+      "critical_expected": false
+    },
+    "cal-short-incomplete": {
+      "passed": false,
+      "critical_expected": false
+    },
+    "cal-good-narrow-edit": {
+      "passed": true,
+      "critical_expected": false
+    },
+    "cal-real-inventory": {
+      "passed": true,
+      "critical_expected": false
+    },
+    "cal-invented-project-tests": {
+      "passed": false,
+      "critical_expected": true
+    },
+    "cal-workflow-description": {
+      "passed": true,
+      "critical_expected": false
+    }
+  },
+  "critical_expected_meaning": "True requires at least one critical failure; false does not require an exact empty critical-failure list. Pass/fail is the calibrated label."
+}

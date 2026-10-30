@@ -1,0 +1,19 @@
+flowchart TD
+    WI["Issue"] --> SDD["SDD: expected behavior"]
+    PRD["PRD: product intent"] --> SDD
+    SDD --> HLD["HLD: review existing or propose architecture"]
+    HLD -. "Architectural choice" .-> ADR["ADR"]
+    HLD --> LLD["LLD: when needed"]
+    HLD -->|No separate LLD needed| IP["Implementation Plan"]
+    LLD -. "Component choice" .-> DDR["DDR"]
+    LLD --> IP
+    IP -. "Create tasks when needed" .-> WI
+    IP --> CODE["Implementation"]
+    CODE --> VERIFY["Verification"]
+    VERIFY --> UPDATE["Update affected documentation"]
+    IP -. "Testing approach" .-> TP["Test Plan"]
+    SDD -. "Acceptance behavior" .-> TS["Test Specification"]
+    TP -.-> TS
+    TS -. "Defined checks" .-> VERIFY
+    VERIFY -. "During testing" .-> TSR["Test Status Report"]
+    VERIFY -. "Milestone outcome" .-> TCR["Test Completion Report"]

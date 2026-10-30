@@ -1,0 +1,23 @@
+{
+  "renamed": {
+    "references/spec.md": "references/spec_driven_development.md",
+    "references/architecture.md": "references/high_level_document.md",
+    "references/plan.md": "references/implementation_plan.md",
+    "references/decision-record.md": "references/decision_record.md",
+    "references/bug-report.md": "references/bug_report.md",
+    "references/standard.md": "references/technical_standard.md",
+    "references/how-to.md": "references/how_to_guide.md",
+    "references/writing-style.md": "references/writing_style.md",
+    "references/incident-report.md": "references/incident_report.md",
+    "references/agents-and-skills.md": "references/agents_and_skills.md",
+    "workflows/improve-references.md": "workflows/improve_references.md"
+  },
+  "retired": [
+    "references/reference.md",
+    "references/requirements.md"
+  ],
+  "requirements_owner": "references/spec_driven_development.md",
+  "retained_name_corrections": {
+    "work_item.md": "issue.md (shared six-type task guidance; user correction during execution)"
+  }
+}

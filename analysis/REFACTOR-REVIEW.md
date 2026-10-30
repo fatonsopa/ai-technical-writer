@@ -1,8 +1,8 @@
-# Technical Writer refactor review
+# Historical Technical Writer draft review
 
 Date: 30 October 2026
 
-This review records the decisions behind the rebuilt `technical-writer/SKILL.md` and `technical-writer/references/writing-style.md`. The other package files are still the supplied versions. The working folder is a staged package, not a completed replacement for the installed skill.
+This is the historical review from the file-by-file drafting phase. References to missing files, pending work, old filenames, and unrun tests describe that earlier state. The current implementation and results are recorded in [VALIDATION.md](VALIDATION.md) and [REVIEW-LEDGER.md](REVIEW-LEDGER.md). The original analysis below is retained for provenance.
 
 ## Sources and their limits
 

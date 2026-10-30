@@ -1,0 +1,20 @@
+{
+  "checked_on": "2026-10-31",
+  "package": "technical-writer/references",
+  "actual_files": {
+    "issue.md": true,
+    "user_story.md": true,
+    "work_item.md": false,
+    "work-item.md": false,
+    "work item.md": false,
+    "reference.md": false,
+    "requirements.md": false,
+    "decision_record.md": true
+  },
+  "active_routes_to_retired_names": [],
+  "history_note": "Superseded drafts remain in the baseline Git commit; they are not active package files.",
+  "canonical_issue_heading": "# Issue",
+  "link_labels": "Issue; no Work Item/Work items labels link to issue.md in runtime guidance.",
+  "runtime_markdown_files_checked": 28,
+  "retired_filename_scan": "No matches in SKILL.md, references/*.md, or workflows/*.md."
+}

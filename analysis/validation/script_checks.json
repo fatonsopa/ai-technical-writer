@@ -1,0 +1,218 @@
+{
+  "python": "3.14.4",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "technical-writer/scripts/validate_skill.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "report": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "references/spec_driven_development.md exceeds role budget; inspect useful content and selective loading"
+        ],
+        "reference_count": 25,
+        "case_count": 176,
+        "sizes": {
+          "SKILL.md": {
+            "bytes": 9996,
+            "words": 1299,
+            "tokens_estimate": 2496
+          },
+          "references/agents_and_skills.md": {
+            "bytes": 5537,
+            "words": 760,
+            "tokens_estimate": 1384
+          },
+          "references/architecture_decision_record.md": {
+            "bytes": 3081,
+            "words": 417,
+            "tokens_estimate": 770
+          },
+          "references/bug_report.md": {
+            "bytes": 4883,
+            "words": 682,
+            "tokens_estimate": 1221
+          },
+          "references/decision_record.md": {
+            "bytes": 3844,
+            "words": 530,
+            "tokens_estimate": 961
+          },
+          "references/design_decision_record.md": {
+            "bytes": 3151,
+            "words": 433,
+            "tokens_estimate": 787
+          },
+          "references/explanation.md": {
+            "bytes": 3194,
+            "words": 468,
+            "tokens_estimate": 798
+          },
+          "references/high_level_document.md": {
+            "bytes": 4027,
+            "words": 534,
+            "tokens_estimate": 1007
+          },
+          "references/how_to_guide.md": {
+            "bytes": 3007,
+            "words": 422,
+            "tokens_estimate": 752
+          },
+          "references/implementation_plan.md": {
+            "bytes": 4764,
+            "words": 647,
+            "tokens_estimate": 1191
+          },
+          "references/incident_report.md": {
+            "bytes": 3855,
+            "words": 584,
+            "tokens_estimate": 964
+          },
+          "references/issue.md": {
+            "bytes": 6534,
+            "words": 931,
+            "tokens_estimate": 1634
+          },
+          "references/low_level_design.md": {
+            "bytes": 3753,
+            "words": 491,
+            "tokens_estimate": 937
+          },
+          "references/policy.md": {
+            "bytes": 4283,
+            "words": 562,
+            "tokens_estimate": 1071
+          },
+          "references/product_requirements_document.md": {
+            "bytes": 3946,
+            "words": 526,
+            "tokens_estimate": 986
+          },
+          "references/readme.md": {
+            "bytes": 3084,
+            "words": 417,
+            "tokens_estimate": 771
+          },
+          "references/spec_driven_development.md": {
+            "bytes": 8257,
+            "words": 1174,
+            "tokens_estimate": 2063
+          },
+          "references/technical_standard.md": {
+            "bytes": 4497,
+            "words": 625,
+            "tokens_estimate": 1124
+          },
+          "references/test_completion_report.md": {
+            "bytes": 3758,
+            "words": 508,
+            "tokens_estimate": 938
+          },
+          "references/test_plan.md": {
+            "bytes": 3946,
+            "words": 542,
+            "tokens_estimate": 986
+          },
+          "references/test_specification.md": {
+            "bytes": 4171,
+            "words": 606,
+            "tokens_estimate": 1042
+          },
+          "references/test_status_report.md": {
+            "bytes": 3435,
+            "words": 485,
+            "tokens_estimate": 856
+          },
+          "references/tutorial.md": {
+            "bytes": 2530,
+            "words": 384,
+            "tokens_estimate": 632
+          },
+          "references/user_story.md": {
+            "bytes": 3162,
+            "words": 447,
+            "tokens_estimate": 790
+          },
+          "references/visuals.md": {
+            "bytes": 3653,
+            "words": 549,
+            "tokens_estimate": 913
+          },
+          "references/writing_style.md": {
+            "bytes": 12725,
+            "words": 1888,
+            "tokens_estimate": 3156
+          },
+          "workflows/improve_references.md": {
+            "bytes": 5250,
+            "words": 724,
+            "tokens_estimate": 1312
+          },
+          "workflows/rewrite.md": {
+            "bytes": 4181,
+            "words": 577,
+            "tokens_estimate": 1045
+          }
+        },
+        "limits": "Static integrity/coverage only. Semantic quality and host behavior need separate evaluation. Tokens estimated as characters/4."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "technical-writer/scripts",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": "Ran 19 tests; OK. Includes stale issue label and canonical issue title negative cases."
+    },
+    {
+      "command": [
+        "python3",
+        "technical-writer/scripts/plain_words.test.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": "Advisory positive controls emitted expected suggestions; plain_words tests passed."
+    },
+    {
+      "command": [
+        "python3",
+        "technical-writer/scripts/zero_loss.test.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": "PASS  existing_contract\nPASS  f1_quotes_are_literals\nPASS  f2_facts_and_numbers\nPASS  f3_kept_names_the_place\nPASS  f4_cited_section_numbers\nPASS  f5_added_claims_are_listed\nPASS  f6_growth_is_reported\nPASS  self_comparison_reports_nothing_missing\nPASS  self_comparison_holds_for_the_repositorys_own_documents\nzero_loss.test.py: 9 groups passed"
+    },
+    {
+      "command": [
+        "python3",
+        "technical-writer/scripts/check_examples.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": "{\n  \"passed\": [\n    \"tutorial: JSON input and expected output verified\",\n    \"how-to: backup, isolated edit, preservation, check, and recovery verified\",\n    \"README: commands verified against the explicitly stated fictional repository contract\"\n  ],\n  \"limits\": \"These local examples do not test a real application, host activation, production system, or every generated command.\"\n}"
+    },
+    {
+      "command": [
+        "python3",
+        "SYSTEM_SKILL_CREATOR/quick_validate.py",
+        "technical-writer"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": "Skill is valid!",
+      "note": "Temporary PyYAML dependency outside repository."
+    }
+  ]
+}

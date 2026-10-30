@@ -1,4 +1,4 @@
-# Development issue (Issue / Work Item)
+# Issue
 
 Use this reference to write a unit of development work in Linear, GitHub Issues, Jira, or a Markdown document. An issue explains what needs attention, why it matters, and how completion will be checked. Apply `references/writing_style.md` to its language.
 

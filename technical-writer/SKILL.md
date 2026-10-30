@@ -1,6 +1,6 @@
 ---
 name: technical-writer
-description: Create, edit, review, and rewrite technical documents and development work items. Accept document acronyms or full names; select relevant references and apply shared writing guidance.
+description: Create, edit, review, and rewrite technical documents and development issues. Accept document acronyms or full names; select relevant references and apply shared writing guidance.
 ---
 
 # Technical writer
@@ -11,7 +11,7 @@ Write for a colleague who has not seen the conversation. Follow project conventi
 
 Identify the operation, reader, sources, document type, and destination. Read existing content first. Inspect code/configuration when technical claims depend on it; distinguish reported facts from independently verified ones. Ask only when an unresolved choice materially affects the result.
 
-Read [Writing style](references/writing_style.md) for prose work. A title-only issue edit also needs [Work items](references/issue.md); load specialized guides for their content or structure. A small grammar edit needs the writing guide and nearby context, not the whole library.
+Read [Writing style](references/writing_style.md) for prose work. A title-only issue edit also needs [Issue](references/issue.md); load specialized guides for their content or structure. A small grammar edit needs the writing guide and nearby context, not the whole library.
 
 Accept acronyms, full names, case/hyphen variants, and familiar aliases such as issue, spec, architecture, and plan. Local abbreviations below are package conveniences. Resolve ambiguity from context: “explain SDD” can mean the method; “write an SDD for this feature” requests a behavioral specification.
 
@@ -25,7 +25,7 @@ Accept acronyms, full names, case/hyphen variants, and familiar aliases such as 
 | Design Decision Record (DDR) | Reasons for a component design choice | Significant internal choice; proposal/status/supersession changes | [DDR](references/design_decision_record.md) |
 | Decision Record (DR, local) | General proposal and confirmed outcome | Choice needs discussion; outcome becomes known | [DR](references/decision_record.md) |
 | Implementation Plan (IP, local; plan) | Delivery work and verification | Work needs planning; approach/dependencies change | [IP](references/implementation_plan.md) |
-| Work Item (WI, local; issue/task) | One tracked unit of work | Tracking needed; scope/progress/evidence change | [WI](references/issue.md) |
+| Issue (task; WI / Work Item alias) | One tracked unit of work | Tracking needed; scope/progress/evidence change | [Issue](references/issue.md) |
 | User Story (US) | User, need, value, acceptance | User-value slice needed; need/criteria change | [US](references/user_story.md) |
 | Bug Report (BR, local; defect report) | Failure and investigation evidence | Failure observed; evidence/fix status changes | [BR](references/bug_report.md) |
 | Policy (POL, local) | Direction, obligations, accountability | Governance needed; approved policy changes | [POL](references/policy.md) |
@@ -53,7 +53,7 @@ The SDD document owns WHAT; HLD/LLD explain design; the plan explains HOW to del
 
 ```mermaid
 flowchart TD
-    WI["Issue / Work Item"] --> SDD["SDD: expected behavior"]
+    WI["Issue"] --> SDD["SDD: expected behavior"]
     PRD["PRD: product intent"] --> SDD
     SDD --> HLD["HLD: review existing or propose architecture"]
     HLD -. "Architectural choice" .-> ADR["ADR"]
@@ -73,11 +73,11 @@ flowchart TD
     VERIFY -. "Milestone outcome" .-> TCR["Test Completion Report"]
 ```
 
-Arrows describe common handoffs, not a compulsory sequence. Start with a work item, PRD, or SDD. Design/planning can develop together; decisions can arise at any point. A small issue's expected behavior and acceptance criteria can serve as its specification. Consult the living architecture for relevant planning; update it after significant verified changes. Failed verification leads to repair or explicit conflict resolution, not an automatic requirements rewrite.
+Arrows describe common handoffs, not a compulsory sequence. Start with an issue, PRD, or SDD. Design/planning can develop together; decisions can arise at any point. A small issue's expected behavior and acceptance criteria can serve as its specification. Consult the living architecture for relevant planning; update it after significant verified changes. Failed verification leads to repair or explicit conflict resolution, not an automatic requirements rewrite.
 
 | Supporting guidance | Connection |
 | --- | --- |
-| Work items, bugs, stories | Exactly six task types: Bug, Chore, Decision, Feature, Improvement, Release. Stories are optional content. Bugs combine WI and BR; stories use US. |
+| Issues, bugs, stories | Exactly six task types: Bug, Chore, Decision, Feature, Improvement, Release. Stories are optional content. Bugs combine Issue and BR; stories use US. |
 | General decisions, ADR, DDR | DR owns context/options/recommendation/outcome; ADR/DDR add scope. Usually draft a comment in the existing task. |
 | Individual requirements | SDD owns entries and acceptance mapping; there is no separate requirements guide. |
 | Policy and standard | Policy direction informs precise standards; applicable obligations constrain requirements, design, and checks. |

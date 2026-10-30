@@ -1,0 +1,158 @@
+[
+  {
+    "id": "meaning-unknown",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "missing-context",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "noun-stack",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "technical-term",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "valid-passive",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "responsibility",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "connected-prose",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "ambiguous-pronoun",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "exception",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "obligation-and-permission",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "proposed-behavior",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "no-invented-target",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "no-invented-remedy",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "repeated-rationale",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "valid-heading",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "heading-scope",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "literal-technical-name",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "format-and-flow",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "source-CG-3031",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "source-CG-3006",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "source-CG-3029",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "source-CG-3033",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "tone-overformal",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "tone-overcasual",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "tone-global-audience",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  },
+  {
+    "id": "tone-binding-rule",
+    "input_preserved": true,
+    "context_preserved": true,
+    "expected_properties_preserved": true
+  }
+]

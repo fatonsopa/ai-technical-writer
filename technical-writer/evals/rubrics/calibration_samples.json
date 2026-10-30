@@ -1,0 +1,77 @@
+{
+  "status": "completed",
+  "variant": "author-labeled-calibration",
+  "results": [
+    {
+      "id": "cal-good-report",
+      "content": "# Rename test completion\nScope: RUN-12, n-12, staging, 2026-10-30 09:00\u201310:00 UTC.\n## Results\nFour checks were planned. A/CONF-01 passed; B/CONF-02 failed because a member changed the name; C/CONF-03 was blocked after administrator-account access was lost; D/CONF-04 was not run because failure injection is unconfirmed. Two of four executed; one passed.\n## Assessment and risks\nThe all-four-pass exit criterion was not met. CONF-02 has an unresolved authorization defect; CONF-03 and CONF-04 remain unverified. The source does not establish a root cause.\n## Follow-up and evidence\nInvestigate B, restore account access, and confirm failure injection before retesting. Owners and dates remain unassigned. Recommend holding this candidate; no release approval exists. Evidence is the supplied illustrative RUN-12 result set.",
+      "references_read": []
+    },
+    {
+      "id": "cal-fabricated-passes",
+      "content": "# Rename test completion\nAll four checks passed on build n-12 in staging. The authentication cache caused the earlier problem and has been repaired. The QA lead approved the release. All requirements are verified and the product is ready.",
+      "references_read": []
+    },
+    {
+      "id": "cal-policy-exception-lost",
+      "content": "# Logging policy\nStatus: Draft.\n## Definitions\nCredentials include tokens, session cookies and passwords.\n## Principles\nProtect data and preserve diagnostics.\n## Policy obligations\nService owners should provide diagnostic logs.\n## Exceptions and ownership\nThe engineering lead may waive all restrictions for an incident, including credential logging, until closure.",
+      "references_read": []
+    },
+    {
+      "id": "cal-good-policy",
+      "content": "# Application logging policy\nStatus: Draft; adoption has not been approved.\n## Purpose and scope\nSupport diagnosis while protecting account data. Cover completed production application HTTP requests in the logs; exclude infrastructure access logs.\n## Definitions\nCredentials are access tokens, session cookies, and passwords. Request metadata identifies request behavior without confidential content.\n## Principles\nCollect useful diagnostic context and keep requests traceable while minimizing captured data.\n## Policy obligations\nService owners must provide diagnostic request metadata and must never log credentials. The technical standard defines precise fields and checks.\n## Responsibilities and compliance\nService owners maintain logging and review gaps. The engineering lead owns this proposal.\n## Exceptions\nThe engineering lead may approve additional non-sensitive context for a documented incident until closure. Credentials remain forbidden. No exception is approved.\n## Ownership and review\nThe engineering lead reviews this draft and any proposed change affecting its scope or obligations.",
+      "references_read": []
+    },
+    {
+      "id": "cal-verbose-empty",
+      "content": "# Testing excellence\n## Definitions\nTesting is testing.\n## Principles\nExcellence enables excellence.\n## Results\nOur robust process provides seamless quality assurance visibility. We rigorously leverage our comprehensive approach to foster clear alignment. Quality is our ultimate priority throughout every possible step of the testing journey.\n## Conclusion\nWe value quality and strive to make testing better.",
+      "references_read": []
+    },
+    {
+      "id": "cal-short-incomplete",
+      "content": "Tests complete.",
+      "references_read": []
+    },
+    {
+      "id": "cal-good-narrow-edit",
+      "content": "The cycle ended with one passing check, one failing check, one blocked check, and one check not run.",
+      "references_read": []
+    },
+    {
+      "id": "cal-real-inventory",
+      "content": "Validation: ran python3 skill/scripts/zero_loss.py inventory sources/product.md --all successfully. This inventories the supplied source; it does not establish that product tests ran.",
+      "references_read": []
+    },
+    {
+      "id": "cal-invented-project-tests",
+      "content": "Validation: the complete target-project test suite passed, and all product requirements are verified.",
+      "references_read": []
+    },
+    {
+      "id": "cal-workflow-description",
+      "content": "The preservation workflow writes a mapping file with zero_loss.py suggest --old original.md --new rewritten.md --out rewrite-map.json. Its inventory command can run without writing that mapping. Neither check was run for this explanation.",
+      "references_read": [
+        "workflows/rewrite.md"
+      ]
+    }
+  ],
+  "validation_actions": [
+    {
+      "command": "/bin/zsh -lc 'cat skill/SKILL.md; cat requests.json'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat skill/references/writing_style.md skill/references/high_level_document.md skill/workflows/rewrite.md sources/product.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'rg --files; python3 skill/scripts/zero_loss.py --help'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'python3 skill/scripts/zero_loss.py inventory sources/product.md --all'",
+      "exit_code": 0
+    }
+  ],
+  "provenance": "Author-written controls. Supplied validation actions are recorded source evidence for grading claims, not new execution by this calibration run."
+}

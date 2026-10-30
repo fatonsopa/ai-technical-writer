@@ -1,174 +1,199 @@
 {
-  "skill_name": "technical-writer",
-  "description": "Behavioral test prompts for a human or agent evaluator. These are not claims of a completed model evaluation.",
-  "evals": [
+  "schema_version": 2,
+  "purpose": "Migration index; executable requests are in cases/*.jsonl. Original prompts remain in baseline commit 3a65c56.",
+  "legacy_migrations": [
     {
-      "id": 1,
+      "original_id": 1,
       "name": "bug-report-data-evidence-no-screenshot",
-      "prompt": "Create a bug report: the API says a workspace name saved, but a fresh GET returns the old name. Here is a sanitized request/response pair. No screenshot exists.",
-      "expected_output": "A specific title, relevant environment, actual versus expected values, reproduction steps when supported, evidence from the API data, severity rationale, relevant files only if inspected, and verification criteria. No screenshot demand.",
-      "assertions": ["Uses bug-report.md", "Does not invent source paths or attempt counts", "Uses API data as evidence", "Clearly marks unknowns"]
+      "case_ids": [
+        "bug_report-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 2,
+      "original_id": 2,
       "name": "unreproducible-bug",
-      "prompt": "Yesterday a customer saw duplicate invoices once. No trace survives. Please document it for investigation.",
-      "expected_output": "A report of the original observation, known conditions, missing information, risk, safe follow-up checks, and explicit unknown reproduction status.",
-      "assertions": ["Does not fabricate a screenshot or logs", "Does not reject the report solely because it is unreproducible"]
+      "case_ids": [
+        "accept-bug-once"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 3,
+      "original_id": 3,
       "name": "bug-relevant-files-not-invented",
-      "prompt": "Write a bug report about login failures. You have no repository access. Include the relevant files.",
-      "expected_output": "States repository was not inspected; names likely search areas without invented repo-relative paths.",
-      "assertions": ["No asserted file path without verification"]
+      "case_ids": [
+        "bug_report-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 4,
+      "original_id": 4,
       "name": "rewrite-with-preservation",
-      "prompt": "Rewrite this long authentication standard so it is readable, preserving all existing rules, exceptions, limits, links, and code consumed headings.",
-      "expected_output": "Loads rewrite workflow and standards reference; inventories content, checks dependencies, and accounts for requirements. Asks for approval of any material change in obligations.",
-      "assertions": ["Does not silently drop a binding requirement", "Uses zero_loss.py or explains why unavailable", "Keeps the audit separate from final doc"]
+      "case_ids": [
+        "standard-rewrite"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 5,
+      "original_id": 5,
       "name": "tiny-edit-does-not-audit",
-      "prompt": "Correct the grammar in the second sentence of this README only.",
-      "expected_output": "Changes only the specified sentence without creating an audit, new file structure, or extra documentation.",
-      "assertions": ["No full rewrite workflow", "Preserves other content"]
+      "case_ids": [
+        "accept-tiny-readme"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 6,
+      "original_id": 6,
       "name": "tutorial-one-learning-goal",
-      "prompt": "Write a beginner tutorial that creates a JSON file and reads one field using Python.",
-      "expected_output": "Prerequisites, followable small exercise, commands, expected output, quick concept explanation, completion check.",
-      "assertions": ["Uses tutorial.md", "No lengthy API catalog"]
+      "case_ids": [
+        "tutorial-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 7,
+      "original_id": 7,
       "name": "how-to-safety-and-check",
-      "prompt": "Document how an operator rotates a staging service credential. The exact command is in the repo.",
-      "expected_output": "Commands verified in repo, prerequisites, risk, ordered steps, success check and recovery path.",
-      "assertions": ["Uses how-to.md", "Does not invent commands", "Explains when to stop"]
+      "case_ids": [
+        "howto-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 8,
+      "original_id": 8,
       "name": "reference-api-accuracy",
-      "prompt": "Document this pagination endpoint from its router and schema definitions.",
-      "expected_output": "Neutral lookup reference with exact path, input fields, defaults, responses, error cases, and runnable example.",
-      "assertions": ["Uses reference.md", "Verifies schema before claiming defaults"]
+      "case_ids": [],
+      "status": "retired with generic technical-reference output; exact interface facts remain covered in SDD/LLD/source grounding"
     },
     {
-      "id": 9,
+      "original_id": 9,
       "name": "explanation-causes-not-steps",
-      "prompt": "Explain why our application uses a queue between the API and the mail provider.",
-      "expected_output": "Explains what the queue does and why, tradeoffs, failure modes, and source decisions; not a deployment runbook.",
-      "assertions": ["Uses explanation.md", "Explains project-specific terms"]
+      "case_ids": [
+        "explanation-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 10,
+      "original_id": 10,
       "name": "requirements-verifiable",
-      "prompt": "Write requirements for allowing workspace administrators to rename workspaces.",
-      "expected_output": "Scope, actor and trigger conditions, permissions, stable IDs, failure behavior, acceptance checks, and open product decisions.",
-      "assertions": ["Uses requirements.md", "Every requirement is checkable", "Unknown limits are not invented"]
+      "case_ids": [
+        "requirement-create",
+        "sdd-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 11,
+      "original_id": 11,
       "name": "architecture-current-versus-proposed",
-      "prompt": "Write an architecture document for the proposed webhook ingestion service. The existing code contains only an HTTP receiver.",
-      "expected_output": "Shows present receiver separately from proposed queue, worker, persistence and failure paths; only verified components claimed current.",
-      "assertions": ["Uses architecture.md", "Diagrams correspond to prose", "Unknowns labeled"]
+      "case_ids": [
+        "hld-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 12,
+      "original_id": 12,
       "name": "plan-with-tests-and-recovery",
-      "prompt": "Plan migration of a 12GB PostgreSQL database with minimal downtime.",
-      "expected_output": "Current facts, assumptions, ordered work, test phase, cutover verification, rollback and risks; no invented downtime estimates.",
-      "assertions": ["Uses plan.md", "Validation before cutover", "Explicit unknowns"]
+      "case_ids": [
+        "plan-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 13,
+      "original_id": 13,
       "name": "standard-unique-rules",
-      "prompt": "Write a binding standard for API logs with request IDs, forbidden secrets, and how it is checked.",
-      "expected_output": "Scope, clear distinct obligations, checks, exceptions if approved and no incident story inside the rules.",
-      "assertions": ["Uses standard.md", "No invented approval"]
+      "case_ids": [
+        "standard-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 14,
+      "original_id": 14,
       "name": "readme-starting-point",
-      "prompt": "Create a README from package.json and the folder structure of this repository.",
-      "expected_output": "Purpose, real setup and test commands, project layout and links to existing docs.",
-      "assertions": ["Uses readme.md", "Commands match real scripts"]
+      "case_ids": [
+        "readme-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 15,
+      "original_id": 15,
       "name": "agent-skills-format",
-      "prompt": "Create a skill that reviews SQL migrations but cannot execute destructive changes.",
-      "expected_output": "Valid SKILL.md frontmatter, clear trigger, short workflow, explicit read-only behavior and test cases.",
-      "assertions": ["Uses agents-and-skills.md", "No undocumented frontmatter", "Check vendor compatibility"]
+      "case_ids": [
+        "agent-create",
+        "skill-create",
+        "output_style-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 16,
+      "original_id": 16,
       "name": "incident-unknown-root-cause",
-      "prompt": "Write a postmortem from these verified events. We restored service but do not yet know why the worker exited.",
-      "expected_output": "Impact and timeline, response, confirmed trigger, root cause marked unknown, blameless follow-up tasks.",
-      "assertions": ["Uses incident-report.md", "Does not invent a cause or owner"]
+      "case_ids": [
+        "incident-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 17,
+      "original_id": 17,
       "name": "adr-proposed-not-approved",
-      "prompt": "Record a proposed decision to use PostgreSQL for event storage. It has not been approved yet.",
-      "expected_output": "Proposed ADR with context, decision, consequences and undecided status preserved.",
-      "assertions": ["Uses decision-record.md", "Does not say accepted"]
+      "case_ids": [
+        "adr-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 18,
+      "original_id": 18,
       "name": "plain-heading",
-      "prompt": "Rewrite the title 'Execution Lifecycle State Synchronization Strategy' to mean that workers record when tasks start and finish.",
-      "expected_output": "A familiar direct title, such as 'How workers track task status'.",
-      "assertions": ["No invented or inflated terms", "Title identifies the subject"]
+      "case_ids": [
+        "style-valid-heading"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 19,
+      "original_id": 19,
       "name": "remove-padding-without-losing-facts",
-      "prompt": "Simplify: 'The application is responsible for ensuring that all updates to workspace names are appropriately persisted in the underlying database.'",
-      "expected_output": "A direct equivalent that keeps the database persistence fact.",
-      "assertions": ["No meaningless jargon", "No lost storage requirement"]
+      "case_ids": [
+        "style-repeated-rationale"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 20,
+      "original_id": 20,
       "name": "zero-context-reader",
-      "prompt": "Explain 'The gate releases held jobs when coordinator awareness converges' to a developer new to the project. The gate means required tests and coordinator means scheduler.",
-      "expected_output": "Introduces required tests and scheduler in familiar language and explains the action precisely.",
-      "assertions": ["No unexplained invented terms", "Readable without prior meeting context"]
+      "case_ids": [
+        "style-missing-context"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 21,
+      "original_id": 21,
       "name": "natural-paragraphs",
-      "prompt": "Rewrite these four choppy sentences into a connected explanation: The API receives an event. The API writes a job. The worker reads it. The worker calls the partner service.",
-      "expected_output": "Natural prose with clear order and no lost step.",
-      "assertions": ["Not forced into one-sentence paragraphs", "No missing interaction"]
+      "case_ids": [
+        "style-connected-prose"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 22,
+      "original_id": 22,
       "name": "diagram-only-when-useful",
-      "prompt": "Improve this README heading and one paragraph. It describes a simple CLI flag with no architecture.",
-      "expected_output": "Focuses on heading and explanation; does not introduce a diagram.",
-      "assertions": ["Does not load visuals.md unnecessarily"]
+      "case_ids": [
+        "visual-create"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 23,
+      "original_id": 23,
       "name": "avoid-duplicated-rationale",
-      "prompt": "Edit this standards paragraph that repeats the same justification three times. Preserve the unique requirements.",
-      "expected_output": "One clear rationale with every distinct obligation still present.",
-      "assertions": ["No repeated meaning", "No missing rule"]
+      "case_ids": [
+        "style-repeated-rationale"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     },
     {
-      "id": 24,
+      "original_id": 24,
       "name": "mixed-evidence-data-and-performance",
-      "prompt": "Report an API bug with two sanitized SQL results, response times from five requests, and no image.",
-      "expected_output": "Reproduction context, before/after data and performance measurements with units and conditions; evidence is not restricted to visuals.",
-      "assertions": ["Shows provenance", "Does not invent baselines", "Screenshot optional"]
+      "case_ids": [
+        "mixed-evidence-report"
+      ],
+      "status": "migrated to runnable fixtures and property-based grading"
     }
   ]
 }

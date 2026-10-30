@@ -1,0 +1,322 @@
+{
+  "method": "UTF-8 bytes; whitespace-separated words; tokens estimated as Unicode characters/4, not actual model tokenization or usage. Runtime Markdown excludes evals and MIGRATION.",
+  "baseline": {
+    "SKILL.md": {
+      "bytes": 5083,
+      "words": 691,
+      "tokens_estimate": 1271,
+      "sha256": "56ce008d3b4e2ec627177af170d493d67efc2e4ab8d2651cf82d86e7c0a7ed7f"
+    },
+    "references/agents-and-skills.md": {
+      "bytes": 4891,
+      "words": 717,
+      "tokens_estimate": 1223,
+      "sha256": "b780c0ae7e9b8bcd2b287944eaa4a0cc29e7ced4163591db81da24d89fc42d56"
+    },
+    "references/architecture.md": {
+      "bytes": 5597,
+      "words": 819,
+      "tokens_estimate": 1398,
+      "sha256": "caceaa034dbbf2e23cc64b0e779e78dd573ae0cbecdf8e621b0988f2c72b789c"
+    },
+    "references/bug-report.md": {
+      "bytes": 10440,
+      "words": 1531,
+      "tokens_estimate": 2603,
+      "sha256": "c4fb0498a8e36bdb6011efabe4054a87d69e15cbae7580fdc7080a3782d298c9"
+    },
+    "references/decision-record.md": {
+      "bytes": 2795,
+      "words": 391,
+      "tokens_estimate": 697,
+      "sha256": "7d2556639c9372591ec193f16359d361547c08afce861e6581bdfb02b777c44b"
+    },
+    "references/explanation.md": {
+      "bytes": 3428,
+      "words": 521,
+      "tokens_estimate": 856,
+      "sha256": "3204116a8cc1fe10287eff15c6c12c9c848370eaabfa4e7a978364563dc3008e"
+    },
+    "references/how-to.md": {
+      "bytes": 3058,
+      "words": 442,
+      "tokens_estimate": 762,
+      "sha256": "aa42be80988d9835cc7029a553d8c9cbabb866dff8c431d5d858addde1c9d82f"
+    },
+    "references/incident-report.md": {
+      "bytes": 4169,
+      "words": 600,
+      "tokens_estimate": 1042,
+      "sha256": "826f202cc10c42c6ca7b1d1fa1657bb724304b8bc579642fc59d586847adda11"
+    },
+    "references/issue.md": {
+      "bytes": 5779,
+      "words": 840,
+      "tokens_estimate": 1445,
+      "sha256": "9b09b3b499e1fe9cb01914c80c06e8e4304b82a75bf121b1c7edbb3e5e489620"
+    },
+    "references/plan.md": {
+      "bytes": 5577,
+      "words": 771,
+      "tokens_estimate": 1394,
+      "sha256": "a8ea6a5da5680481d9a3d96ad25b9c439eaea6388577ae58877bfbca9198f028"
+    },
+    "references/readme.md": {
+      "bytes": 3304,
+      "words": 460,
+      "tokens_estimate": 826,
+      "sha256": "95b54b38d9d97e90654f4dfe4d502aabaa60439dd7a42d08aff5e08dc2ee304e"
+    },
+    "references/reference.md": {
+      "bytes": 3577,
+      "words": 528,
+      "tokens_estimate": 894,
+      "sha256": "31980524a03d871711d85dab48b7bbe69cbe7996d576e8f77c82592ebaae3eb7"
+    },
+    "references/requirements.md": {
+      "bytes": 3632,
+      "words": 498,
+      "tokens_estimate": 898,
+      "sha256": "50b573caa776335a7da97414a5790c45e77cf74324838d939a4e842c9774ace1"
+    },
+    "references/spec.md": {
+      "bytes": 6022,
+      "words": 869,
+      "tokens_estimate": 1506,
+      "sha256": "191380a8d601632a56feb6c71110adfcc078008a97c9967e3ba1e8e29789af71"
+    },
+    "references/standard.md": {
+      "bytes": 3787,
+      "words": 543,
+      "tokens_estimate": 947,
+      "sha256": "ff441061703e285ca5ebd9035ce46346ab07a553a6910b3422c4ad1bb2fd1201"
+    },
+    "references/tutorial.md": {
+      "bytes": 2818,
+      "words": 442,
+      "tokens_estimate": 704,
+      "sha256": "79a4e416e14ad87bea090acfb17f16976dd1f19d011abbf654b258fda191f77d"
+    },
+    "references/visuals.md": {
+      "bytes": 3263,
+      "words": 492,
+      "tokens_estimate": 816,
+      "sha256": "47437be685fb9377b71804fbf31d0a7869886237f801e6929e9d6bca2cb7679a"
+    },
+    "references/writing-style.md": {
+      "bytes": 12578,
+      "words": 1868,
+      "tokens_estimate": 3120,
+      "sha256": "4ae7226e60bc75abb532c72ce43c699a6afd22a0908fc59e19f77fa78c68eba7"
+    },
+    "workflows/improve-references.md": {
+      "bytes": 3891,
+      "words": 540,
+      "tokens_estimate": 972,
+      "sha256": "9c5ad6e80a4e6d97f8c8f90335d504d4b784dfa781cb7a8b6460196974515af3"
+    },
+    "workflows/rewrite.md": {
+      "bytes": 3777,
+      "words": 511,
+      "tokens_estimate": 944,
+      "sha256": "c6bc649604434b0f7e0001bf75a5c48149a814d57a02795956b529cbd1580a26"
+    }
+  },
+  "revised": {
+    "SKILL.md": {
+      "bytes": 9996,
+      "words": 1299,
+      "tokens_estimate": 2496,
+      "sha256": "6d909505458a274bde95c587ead4cbd59c17c9e6ea6dee65d420949381f16ebf"
+    },
+    "references/agents_and_skills.md": {
+      "bytes": 5537,
+      "words": 760,
+      "tokens_estimate": 1384,
+      "sha256": "b8c689e0ec9a1bd087313fceb72f3be57cc01e0646f42e5143066ff854b620f6"
+    },
+    "references/architecture_decision_record.md": {
+      "bytes": 3081,
+      "words": 417,
+      "tokens_estimate": 770,
+      "sha256": "6b789ac8101a11413f90b64d70528aed1c7a0f4e176f28c31f335a34ee138913"
+    },
+    "references/bug_report.md": {
+      "bytes": 4883,
+      "words": 682,
+      "tokens_estimate": 1221,
+      "sha256": "cf58a046e10a8fa415ca020ea9bc94d99516eb85d2db521dc658a5ae7a65c77a"
+    },
+    "references/decision_record.md": {
+      "bytes": 3844,
+      "words": 530,
+      "tokens_estimate": 961,
+      "sha256": "71d64dcc775b4aa248b5d7a6251b9c73051d642a282af7c5183a24d3d7716e91"
+    },
+    "references/design_decision_record.md": {
+      "bytes": 3151,
+      "words": 433,
+      "tokens_estimate": 787,
+      "sha256": "1e82a4e7a4ff75edc5793bfe484e89e6f988a86b2b49d2b7e64ada0109241caf"
+    },
+    "references/explanation.md": {
+      "bytes": 3194,
+      "words": 468,
+      "tokens_estimate": 798,
+      "sha256": "5b2580820650c99b4d239bde9238532493ba735ce4e540cdda70a2175258c097"
+    },
+    "references/high_level_document.md": {
+      "bytes": 4027,
+      "words": 534,
+      "tokens_estimate": 1007,
+      "sha256": "a1a4059add60912514131a1ee61b1b71f016bf383da625abf9a6a118df4d98bb"
+    },
+    "references/how_to_guide.md": {
+      "bytes": 3007,
+      "words": 422,
+      "tokens_estimate": 752,
+      "sha256": "fd80772af5be7e05d3ed7c2683ce6e8076e5be5ce06a79d89c2481874343c7c2"
+    },
+    "references/implementation_plan.md": {
+      "bytes": 4764,
+      "words": 647,
+      "tokens_estimate": 1191,
+      "sha256": "6e4330a7beba306580ba04e1457c5e5282d05b8739e230a427dc8c33cc9254cd"
+    },
+    "references/incident_report.md": {
+      "bytes": 3855,
+      "words": 584,
+      "tokens_estimate": 964,
+      "sha256": "5a94b4c5104f3b60488bfd0e34273f41792f8e9b4a45934f1107f5bc1f5acd85"
+    },
+    "references/issue.md": {
+      "bytes": 6534,
+      "words": 931,
+      "tokens_estimate": 1634,
+      "sha256": "30b21d07ac514d2d468965009b479b9a49f69a7093adc648c218e17a4828f139"
+    },
+    "references/low_level_design.md": {
+      "bytes": 3753,
+      "words": 491,
+      "tokens_estimate": 937,
+      "sha256": "34730a7f05890c93f754544cf443586af34d896ef43536d6203e7a6ca3338a83"
+    },
+    "references/policy.md": {
+      "bytes": 4283,
+      "words": 562,
+      "tokens_estimate": 1071,
+      "sha256": "35319a9acb176b84912d04c0acd34d63f7432a45776e06772b101332c6838d5d"
+    },
+    "references/product_requirements_document.md": {
+      "bytes": 3946,
+      "words": 526,
+      "tokens_estimate": 986,
+      "sha256": "1626fd06f904ecd83c9fb3bb2089edc7f2c8f32b0508da0c6333115a3514316c"
+    },
+    "references/readme.md": {
+      "bytes": 3084,
+      "words": 417,
+      "tokens_estimate": 771,
+      "sha256": "223283ecf6e40ad23952e4e6bf84656a37d8298c65fcb5de93b6eeaa62082ceb"
+    },
+    "references/spec_driven_development.md": {
+      "bytes": 8257,
+      "words": 1174,
+      "tokens_estimate": 2063,
+      "sha256": "5fd4213e3cac77a12619bc995c186e3b7cdbf22372ed8a0f6d7987b4a1ceae48"
+    },
+    "references/technical_standard.md": {
+      "bytes": 4497,
+      "words": 625,
+      "tokens_estimate": 1124,
+      "sha256": "87409c36f847acf35a261ab9000277f00a1bd65e4da55429bdabc8d38ad06873"
+    },
+    "references/test_completion_report.md": {
+      "bytes": 3758,
+      "words": 508,
+      "tokens_estimate": 938,
+      "sha256": "496e91ef3a19bf580b3678148d7243843f9e56102a89e91f1fd27a7b7219ca76"
+    },
+    "references/test_plan.md": {
+      "bytes": 3946,
+      "words": 542,
+      "tokens_estimate": 986,
+      "sha256": "970674a0b75a63e0dbdb3d7c728cf1f4cbeb093c3837176cc0f7c8763a5a8ec0"
+    },
+    "references/test_specification.md": {
+      "bytes": 4171,
+      "words": 606,
+      "tokens_estimate": 1042,
+      "sha256": "7342f8e4d80ec56347975a7d3d4a9f7c6905254a9c591bb33c06065cf6b3af98"
+    },
+    "references/test_status_report.md": {
+      "bytes": 3435,
+      "words": 485,
+      "tokens_estimate": 856,
+      "sha256": "1fe214f9bbc934766ce88ee691b83c9d0c2b07f98c763417053ac2fc7bf374dd"
+    },
+    "references/tutorial.md": {
+      "bytes": 2530,
+      "words": 384,
+      "tokens_estimate": 632,
+      "sha256": "ae30ab13967073c725382ba6aada945f7cf8ef1e03180153670320dce15761f6"
+    },
+    "references/user_story.md": {
+      "bytes": 3162,
+      "words": 447,
+      "tokens_estimate": 790,
+      "sha256": "6be7f718763fb66d5a827f832ccf780d4673f8a1d336c8948b3b2f3f7bdf4eb5"
+    },
+    "references/visuals.md": {
+      "bytes": 3653,
+      "words": 549,
+      "tokens_estimate": 913,
+      "sha256": "8cca0fa8ad939186cebf0b4aa0dc305d386ce1506e66df9abfff42baa23ae9a6"
+    },
+    "references/writing_style.md": {
+      "bytes": 12725,
+      "words": 1888,
+      "tokens_estimate": 3156,
+      "sha256": "ac9894d75fadf1b9c1aed9c1f0d82476e0cde701018131f9ff4b0047543bd851"
+    },
+    "workflows/improve_references.md": {
+      "bytes": 5250,
+      "words": 724,
+      "tokens_estimate": 1312,
+      "sha256": "95e8b4640ed06d94dd4390d0f30eb22d129fb531ea37b961cdea5ed7e03ac7e7"
+    },
+    "workflows/rewrite.md": {
+      "bytes": 4181,
+      "words": 577,
+      "tokens_estimate": 1045,
+      "sha256": "f7da70c7fc3d5589bdd8e07393c69d9402495854d8ede80a8181efd0230a8261"
+    }
+  },
+  "totals": {
+    "baseline": {
+      "bytes": 97466,
+      "words": 14074,
+      "tokens_estimate": 24318
+    },
+    "revised": {
+      "bytes": 130504,
+      "words": 18212,
+      "tokens_estimate": 32587
+    }
+  },
+  "budgets_bytes": {
+    "entrypoint": 11264,
+    "writing_style": 14336,
+    "other_runtime_guides": 8192
+  },
+  "reviewed_exceptions": {
+    "references/spec_driven_development.md": "8257 bytes, 65 over the soft budget. Combines the former spec and individual-requirement guides, keeps traceability/complete examples, and loads only when needed.",
+    "SKILL.md": "Growth from the execution baseline supplies the explicitly requested full catalog, create/update triggers, diagram and supporting relationships. Required information remains in one entry point."
+  },
+  "original_supplied_entrypoint": {
+    "bytes": 4367,
+    "words": 598,
+    "tokens_estimate": 1092,
+    "sha256": "53af8a62da0229b2763951d1e01be697c258137d27501e7c04344b6b567d76f5"
+  }
+}

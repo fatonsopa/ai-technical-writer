@@ -1,6 +1,6 @@
 # User Story (US)
 
-A user story describes a small, useful outcome from a person's perspective. Create one when a user need needs discussion or tracking; update it when the need, scope, value, or acceptance criteria change. It can live in a Feature/Improvement [work item](issue.md) or a [PRD](product_requirements_document.md)/[SDD](spec_driven_development.md) before tasks exist. Its reference filename does not require a standalone story file or a new tracker type.
+A user story describes a small, useful outcome from a person's perspective. Create one when a user need needs discussion or tracking; update it when the need, scope, value, or acceptance criteria change. It can live in a Feature/Improvement [issue](issue.md) or a [PRD](product_requirements_document.md)/[SDD](spec_driven_development.md) before tasks exist. Its reference filename does not require a standalone story file or a new tracker type.
 
 ## Principles
 

@@ -2,7 +2,7 @@
 
 Write as an experienced developer explaining the subject to a colleague. Use natural English, precise technical terms, and enough context to make sense without the original conversation.
 
-Apply this guide to all prose, including instructions, titles, headings, templates, and examples. The document reference defines the structure and required information. For issue titles and descriptions, also use [Work items](issue.md).
+Apply this guide to all prose, including instructions, titles, headings, templates, and examples. The document reference defines the structure and required information. For issue titles and descriptions, also use [Issue](issue.md).
 
 ## 1. Understand the subject before choosing words
 
@@ -58,7 +58,7 @@ A title identifies the document's subject or purpose; a heading describes its se
 
 Use sentence case unless the project requires another convention. Choose a natural noun phrase, question, or instruction that fits the content. Headings do not all need to be complete sentences, numbered claims, or commands.
 
-Preserve the subject and important scope. Do not introduce an unverified cause or result in a title. Conventions for different issue titles belong in [Work items](issue.md).
+Preserve the subject and important scope. Do not introduce an unverified cause or result in a title. Conventions for different issue titles belong in [Issue](issue.md).
 
 ## 7. Remove text that adds no information
 
@@ -116,7 +116,7 @@ These suggestions use the full descriptions in the supplied exports. They show h
 | CG-3029: Lint fails when the design-system download needs an SSH key this machine lacks | Lint fails to download the design system without a GitHub SSH key |
 | CG-3033: Answers wait weeks in the read stage past the declared limit | Some answers wait weeks for extraction despite the stage time limit |
 
-The IDs identify the source issues; they are not part of the suggested titles. These are wording examples, not complete issue rewrites. Keep the supporting facts, conditions, and unresolved questions in the description. Use [Work items](issue.md) for the detailed issue-writing conventions.
+The IDs identify the source issues; they are not part of the suggested titles. These are wording examples, not complete issue rewrites. Keep the supporting facts, conditions, and unresolved questions in the description. Use [Issue](issue.md) for the detailed issue-writing conventions.
 
 ## Review before delivery
 
