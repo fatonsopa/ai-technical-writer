@@ -53,3 +53,5 @@ Generation used authenticated Codex CLI sessions pinned to gpt-6.1-sol with read
 No source-application commands, database queries, migrations, tracker writes, deployments or host-skill activation were performed. The source project remains read-only. The authored example test reports are not evidence of application testing.
 
 The first delivery and its older counts remain in the unprefixed validation artifacts. They did not catch the later user-reported structural losses and are not final compliance evidence. Current artifacts use the final_ prefix. GitHub delivery is verified through committed-tree checks and the final delivery receipt; the remote branch must match the delivered commit.
+
+The clean export of content commit a896aa4 passed all seven committed-tree checks. It was pushed to main and fetched again; remote and local commits matched, as did the validated skill tree. The [delivery receipt](validation/final_delivery.json) records that checkpoint. The following evidence-only commit adds the receipt and exported-tree checks while preserving the package tree, and its remote HEAD is verified before the final response.

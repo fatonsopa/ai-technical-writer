@@ -1,0 +1,401 @@
+{
+  "validated_commit": "a896aa4ab7cb4a3ed0e139f1e4c4627e4797dad7",
+  "technical_writer_tree_sha": "9d41650f0638a0d770bb947f584df9fb3f6af8f7",
+  "checked_utc": "2026-10-31T00:36:13.320852+00:00",
+  "method": "git archive of the actual commit, extracted to a clean temporary directory; all commands ran there.",
+  "references": [
+    "agents_and_skills.md",
+    "architecture_decision_record.md",
+    "bug_report.md",
+    "decision_record.md",
+    "design_decision_record.md",
+    "explanation.md",
+    "high_level_document.md",
+    "how_to_guide.md",
+    "implementation_plan.md",
+    "incident_report.md",
+    "issue.md",
+    "low_level_design.md",
+    "policy.md",
+    "product_requirements_document.md",
+    "readme.md",
+    "spec_driven_development.md",
+    "technical_standard.md",
+    "test_completion_report.md",
+    "test_plan.md",
+    "test_specification.md",
+    "test_status_report.md",
+    "tutorial.md",
+    "user_story.md",
+    "visuals.md",
+    "writing_style.md"
+  ],
+  "examples": [
+    "agents_and_skills.md",
+    "architecture_decision_record.md",
+    "bug_report.md",
+    "decision_record.md",
+    "design_decision_record.md",
+    "explanation.md",
+    "high_level_document.md",
+    "how_to_guide.md",
+    "implementation_plan.md",
+    "incident_report.md",
+    "issue.md",
+    "low_level_design.md",
+    "policy.md",
+    "product_requirements_document.md",
+    "readme.md",
+    "spec_driven_development.md",
+    "technical_standard.md",
+    "test_completion_report.md",
+    "test_plan.md",
+    "test_specification.md",
+    "test_status_report.md",
+    "tutorial.md",
+    "user_story.md",
+    "visuals.md"
+  ],
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "technical-writer/scripts/validate_skill.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "report": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "reference_count": 25,
+        "example_count": 24,
+        "case_count": 188,
+        "sizes": {
+          "SKILL.md": {
+            "bytes": 10847,
+            "words": 1415,
+            "tokens_estimate": 2709
+          },
+          "references/agents_and_skills.md": {
+            "bytes": 3985,
+            "words": 504,
+            "tokens_estimate": 996
+          },
+          "references/architecture_decision_record.md": {
+            "bytes": 2237,
+            "words": 287,
+            "tokens_estimate": 559
+          },
+          "references/bug_report.md": {
+            "bytes": 6137,
+            "words": 849,
+            "tokens_estimate": 1534
+          },
+          "references/decision_record.md": {
+            "bytes": 2963,
+            "words": 392,
+            "tokens_estimate": 741
+          },
+          "references/design_decision_record.md": {
+            "bytes": 2421,
+            "words": 311,
+            "tokens_estimate": 605
+          },
+          "references/explanation.md": {
+            "bytes": 2105,
+            "words": 291,
+            "tokens_estimate": 526
+          },
+          "references/high_level_document.md": {
+            "bytes": 2795,
+            "words": 355,
+            "tokens_estimate": 699
+          },
+          "references/how_to_guide.md": {
+            "bytes": 2106,
+            "words": 293,
+            "tokens_estimate": 526
+          },
+          "references/implementation_plan.md": {
+            "bytes": 3199,
+            "words": 410,
+            "tokens_estimate": 800
+          },
+          "references/incident_report.md": {
+            "bytes": 2478,
+            "words": 349,
+            "tokens_estimate": 620
+          },
+          "references/issue.md": {
+            "bytes": 6164,
+            "words": 870,
+            "tokens_estimate": 1541
+          },
+          "references/low_level_design.md": {
+            "bytes": 2558,
+            "words": 314,
+            "tokens_estimate": 640
+          },
+          "references/policy.md": {
+            "bytes": 2914,
+            "words": 379,
+            "tokens_estimate": 728
+          },
+          "references/product_requirements_document.md": {
+            "bytes": 2738,
+            "words": 353,
+            "tokens_estimate": 684
+          },
+          "references/readme.md": {
+            "bytes": 2307,
+            "words": 301,
+            "tokens_estimate": 577
+          },
+          "references/spec_driven_development.md": {
+            "bytes": 5998,
+            "words": 796,
+            "tokens_estimate": 1498
+          },
+          "references/technical_standard.md": {
+            "bytes": 2918,
+            "words": 395,
+            "tokens_estimate": 730
+          },
+          "references/test_completion_report.md": {
+            "bytes": 2764,
+            "words": 363,
+            "tokens_estimate": 690
+          },
+          "references/test_plan.md": {
+            "bytes": 2618,
+            "words": 344,
+            "tokens_estimate": 654
+          },
+          "references/test_specification.md": {
+            "bytes": 3003,
+            "words": 408,
+            "tokens_estimate": 751
+          },
+          "references/test_status_report.md": {
+            "bytes": 2512,
+            "words": 334,
+            "tokens_estimate": 626
+          },
+          "references/tutorial.md": {
+            "bytes": 1862,
+            "words": 268,
+            "tokens_estimate": 465
+          },
+          "references/user_story.md": {
+            "bytes": 2678,
+            "words": 369,
+            "tokens_estimate": 670
+          },
+          "references/visuals.md": {
+            "bytes": 3501,
+            "words": 516,
+            "tokens_estimate": 875
+          },
+          "references/writing_style.md": {
+            "bytes": 12725,
+            "words": 1888,
+            "tokens_estimate": 3156
+          },
+          "workflows/improve_references.md": {
+            "bytes": 5479,
+            "words": 756,
+            "tokens_estimate": 1369
+          },
+          "workflows/rewrite.md": {
+            "bytes": 4357,
+            "words": 599,
+            "tokens_estimate": 1089
+          },
+          "examples/agents_and_skills.md": {
+            "bytes": 3655,
+            "words": 469,
+            "tokens_estimate": 914
+          },
+          "examples/architecture_decision_record.md": {
+            "bytes": 3256,
+            "words": 460,
+            "tokens_estimate": 814
+          },
+          "examples/bug_report.md": {
+            "bytes": 2730,
+            "words": 391,
+            "tokens_estimate": 682
+          },
+          "examples/decision_record.md": {
+            "bytes": 1452,
+            "words": 207,
+            "tokens_estimate": 363
+          },
+          "examples/design_decision_record.md": {
+            "bytes": 3121,
+            "words": 447,
+            "tokens_estimate": 780
+          },
+          "examples/explanation.md": {
+            "bytes": 1933,
+            "words": 286,
+            "tokens_estimate": 483
+          },
+          "examples/high_level_document.md": {
+            "bytes": 6355,
+            "words": 867,
+            "tokens_estimate": 1588
+          },
+          "examples/how_to_guide.md": {
+            "bytes": 2583,
+            "words": 401,
+            "tokens_estimate": 646
+          },
+          "examples/implementation_plan.md": {
+            "bytes": 10627,
+            "words": 1419,
+            "tokens_estimate": 2653
+          },
+          "examples/incident_report.md": {
+            "bytes": 4488,
+            "words": 681,
+            "tokens_estimate": 1122
+          },
+          "examples/issue.md": {
+            "bytes": 2162,
+            "words": 265,
+            "tokens_estimate": 538
+          },
+          "examples/low_level_design.md": {
+            "bytes": 6647,
+            "words": 937,
+            "tokens_estimate": 1659
+          },
+          "examples/policy.md": {
+            "bytes": 3270,
+            "words": 418,
+            "tokens_estimate": 818
+          },
+          "examples/product_requirements_document.md": {
+            "bytes": 9048,
+            "words": 1310,
+            "tokens_estimate": 2262
+          },
+          "examples/readme.md": {
+            "bytes": 2508,
+            "words": 313,
+            "tokens_estimate": 626
+          },
+          "examples/spec_driven_development.md": {
+            "bytes": 8869,
+            "words": 1269,
+            "tokens_estimate": 2214
+          },
+          "examples/technical_standard.md": {
+            "bytes": 3976,
+            "words": 562,
+            "tokens_estimate": 992
+          },
+          "examples/test_completion_report.md": {
+            "bytes": 4316,
+            "words": 605,
+            "tokens_estimate": 1074
+          },
+          "examples/test_plan.md": {
+            "bytes": 5185,
+            "words": 683,
+            "tokens_estimate": 1294
+          },
+          "examples/test_specification.md": {
+            "bytes": 8110,
+            "words": 1341,
+            "tokens_estimate": 2025
+          },
+          "examples/test_status_report.md": {
+            "bytes": 3247,
+            "words": 480,
+            "tokens_estimate": 809
+          },
+          "examples/tutorial.md": {
+            "bytes": 2736,
+            "words": 301,
+            "tokens_estimate": 684
+          },
+          "examples/user_story.md": {
+            "bytes": 1573,
+            "words": 233,
+            "tokens_estimate": 392
+          },
+          "examples/visuals.md": {
+            "bytes": 1577,
+            "words": 228,
+            "tokens_estimate": 394
+          }
+        },
+        "limits": "Static integrity/coverage only. Semantic quality and host behavior need separate evaluation. Tokens estimated as characters/4."
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "technical-writer/scripts",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": "............................\n----------------------------------------------------------------------\nRan 28 tests in 1.087s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "technical-writer/scripts/plain_words.test.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": "/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:2: 'In order to': Usually 'to' is enough.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:2: 'provides visibility into': Describe exactly what people can see.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:7: 'robust': Name the concrete reliability property or check.\n3 wording suggestion(s) in 1 file(s). Review in context.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:2: 'In order to': Usually 'to' is enough.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:2: 'provides visibility into': Describe exactly what people can see.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:7: 'robust': Name the concrete reliability property or check.\n3 wording suggestion(s) in 1 file(s). Review in context.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:2: 'In order to': Usually 'to' is enough.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:2: 'provides visibility into': Describe exactly what people can see.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:7: 'robust': Name the concrete reliability property or check.\n3 wording suggestion(s) in 1 file(s). Review in context.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:2: 'In order to': Usually 'to' is enough.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:2: 'provides visibility into': Describe exactly what people can see.\n/var/folders/v5/mpjgk6j94y13fg259mx8jjt00000gn/T/tmp0m2pgs3z/document.md:7: 'robust': Name the concrete reliability property or check.\n3 wording suggestion(s) in 1 file(s). Review in context.\nplain_words tests passed\n"
+    },
+    {
+      "command": [
+        "python3",
+        "technical-writer/scripts/zero_loss.test.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": "PASS  existing_contract\nPASS  f1_quotes_are_literals\nPASS  f2_facts_and_numbers\nPASS  f3_kept_names_the_place\nPASS  f4_cited_section_numbers\nPASS  f5_added_claims_are_listed\nPASS  f6_growth_is_reported\nPASS  self_comparison_reports_nothing_missing\nPASS  self_comparison_holds_for_the_repositorys_own_documents\nzero_loss.test.py: 9 groups passed\n"
+    },
+    {
+      "command": [
+        "python3",
+        "technical-writer/scripts/check_examples.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": "{\n  \"passed\": [\n    \"Tutorial commands match both displayed outputs in a clean temporary directory\",\n    \"README first command matches its documented output\",\n    \"Nine-state fixture retains the uncited Review row and deleted-row distinction\"\n  ],\n  \"limits\": \"Offline Python teaching exercise only. Application, UI how-to, SQL, actual reports, and host activation are not executed by this check.\"\n}\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "py_compile",
+        "technical-writer/evals/run.py",
+        "technical-writer/evals/audit_examples.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output": ""
+    },
+    {
+      "command": "System quick_validate.py technical-writer (temporary PyYAML dependency)",
+      "exit_code": 0,
+      "passed": true,
+      "output": "Skill is valid!\n"
+    }
+  ],
+  "limits": "Package validation and offline exercise only; no host activation or source application execution."
+}

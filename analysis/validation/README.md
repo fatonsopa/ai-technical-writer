@@ -12,3 +12,5 @@ The final follow-up evidence uses the `final_` prefix. Files without that prefix
 - [Source manifest](example_source_manifest.json) and [source checks](final_source_checks.json): selected project inputs, authorized teaching additions and unchanged source documents.
 
 The teaching reports under the skill's examples directory are authored examples. Actual skill-validation results live here. Raw CLI events, temporary workspaces and unrelated source attachments remain outside the committed deliverables.
+
+[Committed-tree checks](final_committed_tree.json) and the [GitHub delivery receipt](final_delivery.json) record the validated content commit and verified package tree.
