@@ -1,76 +1,94 @@
 # Bug Report (BR)
 
-A bug report explains an observed failure so a developer can investigate it, reproduce it when possible, and verify a fix. Create it when a failure needs recording; update it as evidence, reproduction, or fix verification changes. Combine this guide with [Issue](issue.md); the report can be the content of its Bug task.
+A bug report records an observed failure so a developer can investigate it, reproduce it when possible, assess its impact, and verify a fix. Create it to record a failure; update it as investigation or verification progresses. Combine this guide with [Issue](issue.md). It can live in a Bug task.
 
 ## Principles
 
-- Name the symptom and useful condition in the title. A suspected cause belongs in a labeled hypothesis, not an asserted explanation.
-- Describe one problem that can be investigated coherently. Keep related symptoms together and link separate work.
-- Separate expected behavior and its source from what was observed. If the expectation needs a product decision, say so.
-- Give known prerequisites, actions, inputs, timing, and real attempt counts. A once-observed or unreproducible failure can still be useful.
-- Use evidence appropriate to the failure: data rows, request/response pairs, timings, traces, logs, tests, observations, or images. A screenshot is optional.
-- Explain what each item demonstrates and how it was obtained. Keep supplied evidence distinct from checks you performed.
-- Include useful source paths only when inspected or explicitly attributed to the source. Otherwise describe investigation areas without inventing repository files.
-- Describe impact and workarounds accurately. Use the project's severity scale when one exists; priority and workflow status follow project rules.
-- Define verification against the requirement and original symptom. A planned regression check is not a completed test.
+- Name the observed failure and useful condition in the title. Keep possible causes labeled as hypotheses until evidence establishes them.
+- Keep related symptoms together when they describe one failure; link separate problems.
+- Keep expected behavior separate from actual observations. Cite the requirement or contract; flag an uncertain expectation for confirmation.
+- Give precise actions, inputs, setup, order, timing, and real attempt counts. A once-observed or unreproducible failure can still be reported.
+- Use evidence suited to the failure: request/response pairs, database rows, logs, traces, timings, tests, observations, or images. Screenshots are optional. Explain provenance and what each item establishes.
+- Include inspected paths and symbols with their relationship to the failure. Attribute paths supplied by another investigator. A relevant file is not automatically the cause. When access is unavailable, say so and identify search areas without inventing paths.
+- Explain known impact and workarounds. Follow the project's severity scale; assignment, priority, status, and release decisions remain with its task-management process.
+- Protect sensitive evidence and preserve exact material values, units, identifiers, and errors. Planned verification is not a passing test.
 
 ## Structure
 
-Include title/summary, relevant environment and prerequisites, reproduction or observation sequence, expected/actual results, frequency, impact, evidence, useful files, and verification. Combine short sections naturally and mark material unknowns. Missing logs or images should not prevent recording the observation.
+Use the following sections for a complete report. Keep **Expected result** and **Actual result** separate, name the reproduction section **How to reproduce**, and include **Relevant files** even when the repository has not been inspected. Do not merge these fields into a general supporting-information section. A narrow edit or review still follows the requested operation.
 
-For data evidence, show input/expected/actual values with provenance. For performance, preserve units, sample count, conditions, and any supplied baseline. Redact sensitive values according to the project's evidence-handling rules.
+| Section | What to record |
+| --- | --- |
+| Title | Observed failure and important condition. |
+| Description | What fails, where it occurs, and the context needed to understand it. |
+| Environment | Relevant environment/build, role, screen/endpoint, device/OS/browser, flags, and time; mark material unknowns. |
+| Prerequisites | Required permissions, starting state, or sanitized data; omit only when no setup is needed. |
+| How to reproduce | Numbered steps when known. Otherwise record the observed sequence and explain that repeatable reproduction is unknown. |
+| Expected result | Intended behavior and its source, or the expectation needing confirmation. |
+| Actual result | Observed behavior, exact values/errors, and measurements with units and conditions. |
+| Reproduction frequency | Actual attempts/results or a clear once/intermittent/unknown status. |
+| Severity and impact | Known affected users/operations, scope, workaround, and a supported severity assessment; do not invent a rating or priority. |
+| Evidence | Available artifacts or observations, their provenance, and what they demonstrate; state when nothing was captured. |
+| Relevant files | Verified or attributed paths/symbols and why they matter, or an explicit repository-access limitation. |
+| Verification | Planned original-failure and regression checks linked to expected behavior; distinguish completed results from checks still needed. |
+| Additional context | Optional related work, open questions, or clearly labeled hypotheses. |
+
+For data failures, show a small input/expected/actual comparison. For performance, retain sample counts, units, conditions, and any supplied baseline; measurements alone do not establish a regression. A missing screenshot, log, source path, or reproduction must remain an honest gap rather than invented evidence.
 
 ## Template
 
 ```md
 # [Observed failure and important condition]
-## Summary and environment
-[Affected behavior/users; build, role, endpoint/device/time when relevant]
-## Reproduction or observed sequence
-[Known setup, actions, inputs; real frequency or unknown]
-## Expected and actual results
-[Expected behavior/source; observed result and evidence]
-## Impact and supporting information
-[Scope/workaround, evidence provenance, verified or attributed files, hypotheses]
+
+## Description
+[What fails and the context needed to understand it.]
+
+## Environment
+[Relevant build/environment, role, location, device, and timing; material unknowns.]
+
+## Prerequisites
+[Required setup, permissions, starting state, and sanitized data, when applicable.]
+
+## How to reproduce
+1. [Known action and input.]
+2. [Next action and observation point.]
+
+[If repeatable steps are unknown, give the reported sequence and say what is missing.]
+
+## Expected result
+[Required behavior and source, or expectation needing confirmation.]
+
+## Actual result
+[Observed output, error, data, or timing.]
+
+## Reproduction frequency
+[Actual count and conditions, or once/intermittent/unknown.]
+
+## Severity and impact
+[Supported impact, affected scope, workaround, and severity assessment or uncertainty.]
+
+## Evidence
+[Available evidence, provenance, and what it establishes; otherwise none captured.]
+
+## Relevant files
+[Inspected or attributed paths/symbols with their role; otherwise repository not inspected.]
+
 ## Verification
-[Original failure check and relevant regressions; current test status]
+[Original failure and relevant regression checks; actual execution status.]
+
+## Additional context
+[Optional related work, open questions, or labeled hypotheses.]
 ```
 
 ## Completed example
 
-Fictional report using explicitly supplied API data; no repository or test execution is claimed.
-
-```md
-# Workspace name reverts after a successful save
-## Summary and environment
-In staging build demo-4, an administrator's saved workspace name does not appear in a fresh read. Production impact is unknown.
-
-## Reproduction or observed sequence
-For workspace 42, submit Growth Team in place of Marketing Team. The update returns success, then a separate workspace read returns the previous name. The reporter supplied one sequence; repetition has not been checked.
-
-## Expected and actual results
-The illustrative rename SDD, REN-01, requires a successful update to be visible in a fresh read.
-
-| Observation | Supplied value |
-| --- | --- |
-| Submitted name | Growth Team |
-| Update response | HTTP 200, name: Growth Team |
-| Fresh read | HTTP 200, name: Marketing Team |
-
-The data comes from the reporter's sanitized request/response transcript. No screenshot is needed to show this mismatch.
-
-## Impact and supporting information
-The administrator cannot rely on the success response. A workaround and the affected population are unknown. The repository has not been inspected; investigate the update handler, persistence, and fresh-read path without asserting file names or a root cause.
-
-## Verification
-Repeat the authorized update and fresh read; both should show Growth Team. Check failure handling and denied updates against the SDD. No fix or passing test is recorded.
-```
+Read the [complete Websites Review example](../examples/bug_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 
-Can a new developer understand the failure, evidence, uncertainty, and expected outcome? Check that useful conditions and exact values survived editing. Do not invent paths, attempts, attachments, causes, severity, or verification results.
+Can a new developer understand the failure, try the known sequence, distinguish required behavior from observations, locate relevant evidence/code, and verify a fix? Check every required section and its content. Preserve exact values and uncertainty; do not invent paths, attempts, attachments, causes, severity, or test results.
 
-For a review request, identify gaps and suggest focused corrections. The template helps assess completeness; it does not require rewriting the whole report.
+For a review, return gaps and focused corrections; give a full replacement only when requested. A narrow edit does not require the full report structure.
 
 ## Sources
 

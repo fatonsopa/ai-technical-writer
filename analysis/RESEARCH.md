@@ -18,3 +18,17 @@ Sources were checked during the approved refactor on 2026-10-30–31. Each refer
 | Diagrams | [Mermaid usage](https://mermaid.js.org/config/usage.html): parse and render syntax rather than assuming a fenced block works. | Three diagrams were parsed, rendered in Chrome, and visually inspected. Other host renderers remain untested. |
 
 The later Desktop transcript replaces the former file contents; source versions and cached-conversation provenance are recorded in source_manifest.json and EXECUTION.md. Historical assistant instructions were treated as evidence and reconciled with the latest user requests.
+
+## Recheck after user review, 2026-10-31
+
+Reopened the original shared chat's first bug-report answer and compared it with the first preserved bug guide. Separate expected/actual fields and the complete reporting scaffold were present; the refactor had over-consolidated them. The user now requires the reproduction heading How to reproduce.
+
+Rechecked Agent Skills naming/frontmatter/progressive disclosure, Claude subagent tools and output-style fields, Mermaid accessible titles/descriptions, and [Atlassian's acceptance-criteria/Definition of Done distinction](https://www.atlassian.com/agile/project-management/definition-of-done). Acceptance criteria describe item-specific outcomes; a shared Definition of Done is a different concept. This supports restoring the established issue heading rather than replacing it with Completion criteria.
+
+The second audit records each reference's actual fields, template, example, source/status boundaries, and terminology in REFERENCE-AUDIT-2026-10-31.md. Naming or source claims are not accepted merely because the guide has a plausible heading.
+
+## Complete-example design
+
+The user selected Websites Review tabs and category editing from the project knowledge folder. The six selected source documents were read; their hashes, reported historical status and realistic additions are recorded in validation/example_source_manifest.json. Candidate-family inventory is not claimed as complete reading of those other initiatives.
+
+[Anthropic skill best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) and the [Agent Skills specification](https://agentskills.io/specification) support focused guidance and conditional supporting resources. The user approved external complete examples and testing substantial outputs on another scenario. Twenty-four examples share one initiative; eight new substantial eval requests use edition-source imports instead. These counts, filename matching, and local size budgets are package choices, not vendor requirements.

@@ -45,7 +45,7 @@ Accept acronyms, full names, case/hyphen variants, and familiar aliases such as 
 | Writing Style (WS, local) | Shared language principles | Prose written/reviewed; evidence warrants guide revision | [WS](references/writing_style.md) |
 | Visual Guidance (VG, local) | Diagrams and visual evidence | Visual helps; represented facts change | [VG](references/visuals.md) |
 
-Apply the selected reference's principles, structure, template, example, and checks. Adapt detail to the requested artifact; omit irrelevant optional sections. A reference teaches a format, not a mandatory separate file. Load [Visual guidance](references/visuals.md) only when useful.
+Apply the selected reference's principles, structure, template, example, and checks. For full creation or substantial rewriting, also read the complete worked example at `examples/` with the same filename as the selected reference. Agent, skill, and output-style examples share `examples/agents_and_skills.md`; Writing Style has no separate example. Read only relevant examples. Narrow edits and located reviews can stay with the guide and nearby context unless an example is needed to judge completeness. Examples demonstrate appropriate substance, not a length limit, and are not evidence about the requested project. Use established terminology and required section names. Adapt optional detail to the artifact; keep required fields distinct. A reference teaches a format, not a mandatory separate file. Load [Visual guidance](references/visuals.md) only when useful.
 
 ## Document relationships
 
@@ -53,6 +53,8 @@ The SDD document owns WHAT; HLD/LLD explain design; the plan explains HOW to del
 
 ```mermaid
 flowchart TD
+    accTitle: Technical documentation workflow
+    accDescr: Work may start with an issue or specification. Design and planning lead to implementation, verification, and documentation updates. Decision records and test documents support those activities as needed.
     WI["Issue"] --> SDD["SDD: expected behavior"]
     PRD["PRD: product intent"] --> SDD
     SDD --> HLD["HLD: review existing or propose architecture"]

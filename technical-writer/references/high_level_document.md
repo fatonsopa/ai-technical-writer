@@ -34,27 +34,7 @@ Status and sources: [Current/proposed, version/environment, inspected sources]
 
 ## Completed example
 
-Fictional proposed architecture; no code or deployment is claimed.
-
-```md
-# Workspace rename architecture
-Status and sources: Proposed; illustrative rename SDD.
-
-## Scope, terms, and drivers
-The workspace API lets authorized administrators change a name. REN-01 requires a fresh read to return a successfully saved name; REN-02 denies non-administrators. A workspace administrator is the role authorized to manage that workspace.
-
-## Context and components
-The settings screen sends HTTPS requests to the workspace API. The API checks the caller's workspace role and reads/writes workspace records in the existing database. The proposed design adds no separate rename service.
-
-## Runtime and data flow
-An administrator submits a name. The API checks permission and validates the agreed naming rules, then persists the change. It returns success only after persistence succeeds. Later reads obtain the stored name. A denied or failed update preserves the previous name.
-
-## Deployment and operations
-The proposed change remains inside the existing API deployment. Use the project's established request tracing to investigate failures. Verify actual deployment and storage details before describing them as current.
-
-## Decisions and risks
-An ADR is needed only if implementation introduces an architecturally significant choice. Naming limits and current source paths remain unconfirmed. This proposal cannot establish implementation readiness until those constraints are resolved.
-```
+Read the [complete Websites Review example](../examples/high_level_document.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

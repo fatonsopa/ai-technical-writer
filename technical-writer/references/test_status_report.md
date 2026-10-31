@@ -18,7 +18,10 @@ Include period/scope, progress/results, coverage/deviations, blockers/risks, nex
 
 ```md
 # [Scope] testing status
-Period/build/environment: [Verified values]
+Reporting period: [Time bounds and timezone]
+Build: [Verified version]
+Environment: [Where testing ran]
+Status: [Current testing status]
 ## Progress and results
 [Counts, denominators, cases, evidence]
 ## Blockers and risks
@@ -31,24 +34,7 @@ Period/build/environment: [Verified values]
 
 ## Completed example
 
-Fictional report based on an explicit four-case result set, not a claim of real testing.
-
-```md
-# Workspace rename testing status
-Period/build/environment: Illustrative 2026-10-30, 09:00–10:00 UTC; demo-7; staging.
-
-## Progress and results
-Of four planned checks, N1 passed, N2 failed, N3 was blocked, and N4 was not run. Two of four checks executed; one of four passed. N1 verified persistence after a fresh read. N2 observed that a member could change the name, contrary to REN-02. Acceptance is not complete.
-
-## Blockers and risks
-The administrator test account became unavailable before N3. N4 still needs a confirmed failure-injection method. The N2 result presents an unresolved authorization defect; this report does not establish its root cause or release priority.
-
-## Next work
-Record the N2 evidence in the existing Bug task, restore the N3 account access, and confirm the N4 test facility. Owners and dates are unassigned. Retest affected checks against the next candidate build without merging its results into this run.
-
-## Sources
-Illustrative run R-7: N1 passed, N2 failed, N3 blocked after administrator account access was lost, N4 not run. Rename test specification N1–N4; proposed test plan. No live tracker link or attached log is claimed.
-```
+Read the [complete Websites Review example](../examples/test_status_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

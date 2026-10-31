@@ -43,3 +43,7 @@ The current `zero_loss.py` and `plain_words.py` retain their execution-baseline 
 5. Run representative writing requests with real project sources. Check facts, obligation strength, scoped edits, and reference loading before switching the active installation.
 
 The refactor's [validation report](../analysis/VALIDATION.md) records actual model runs, script tests, example checks, and limits. Claude Code activation and a real project's integrations require their own verification; a valid Markdown package does not establish either.
+
+## Complete worked examples
+
+Keep the examples directory when copying the package. References retain principles, structures, templates, and checks; their complete Websites Review examples live under examples/ with matching full-name filenames. Agent/skill/output-style examples share one file. Writing Style remains the shared guide with its accepted wording examples. Full creation or substantial rewriting reads the relevant example, while narrow edits and located reviews load it only when useful. Examples teach structure and depth and do not supply facts about a new requested document.

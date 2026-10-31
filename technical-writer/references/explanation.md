@@ -25,30 +25,12 @@ Give a direct answer, relevant background, causal explanation/example, reasons a
 ## Tradeoffs and limits
 [Costs, assumptions, failure behavior, unknowns]
 ## Related sources
-[Verified design/decision/procedure links]
+[Verified design/decision/procedure links, when available]
 ```
 
 ## Completed example
 
-General hypothetical explanation, not a claim about an existing implementation.
-
-```md
-# Why an API sends email through a worker
-
-A worker lets the API accept mail work without keeping the original request open while an outside provider responds. A queue holds the work until a worker can process it.
-
-## Context
-The API receives the user's request. The mail provider is an external service whose response time and availability are outside the API's direct control. This example assumes the product distinguishes accepting work from completing delivery.
-
-## How it works and why
-After recording an accepted job, the API can respond. The worker retrieves the job, contacts the provider, and records the outcome. If the provider is temporarily unavailable, a defined retry policy can allow later attempts. The example has no agreed retry limit.
-
-## Tradeoffs and limits
-The API no longer waits for the provider, but the team must operate the queue, detect stuck jobs, and handle duplicate delivery attempts. Queueing does not prove the provider accepted the message or that the recipient read it. The behavioral specification must define which outcome the product promises.
-
-## Related sources
-Use the project's HLD and accepted mail-delivery decision to explain its actual arrangement. This hypothetical example supplies no verified project links.
-```
+Read the [complete Websites Review example](../examples/explanation.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

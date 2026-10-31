@@ -1,59 +1,49 @@
 #!/usr/bin/env python3
-"""Exercise the authored local Python examples in disposable directories."""
+"""Execute the offline teaching exercise; never run the source application."""
 import importlib.util
 import json
 from pathlib import Path
 import shlex
 import subprocess
 import tempfile
+import textwrap
 
 HERE = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location('validator', HERE / 'validate_skill.py')
-validator = importlib.util.module_from_spec(spec); spec.loader.exec_module(validator)
-
-
-def example(name):
-    docs = [body for tag, body in validator.blocks((HERE.parent / 'references' / name).read_text())[0] if tag == 'md']
-    return docs[-1]
-
-
-def execute(command, cwd):
-    args = shlex.split(command)
-    if not (args[:2] == ['python3', '-c'] or args[0] == 'cp'): raise ValueError('Unexpected example command')
-    result = subprocess.run(args, cwd=cwd, capture_output=True, text=True, check=True, timeout=15)
-    return result.stdout.strip()
+validator = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(validator)
 
 
 def check():
-    results = []
+    example = HERE.parent / 'examples/tutorial.md'
+    blocks, broken = validator.blocks(example.read_text())
+    assert not broken
+    fixture = next(body for tag, body in blocks if tag == 'json')
+    commands = [body for tag, body in blocks if tag == 'sh']
+    expected = [body for tag, body in blocks if tag == 'text']
+    assert len(commands) == len(expected) == 2
     with tempfile.TemporaryDirectory(prefix='writer-example-') as directory:
-        cwd = Path(directory)
-        blocks = validator.blocks(example('tutorial.md'))[0]
-        (cwd / 'settings.json').write_text(next(body for tag, body in blocks if tag == 'json'))
-        outputs = [execute(body, cwd) for tag, body in blocks if tag == 'sh']
-        assert outputs == ['Example App'], outputs
-        results.append('tutorial: JSON input and expected output verified')
-    with tempfile.TemporaryDirectory(prefix='writer-example-') as directory:
-        cwd = Path(directory); blocks = validator.blocks(example('how_to_guide.md'))[0]
-        (cwd / 'settings.json').write_text(next(body for tag, body in blocks if tag == 'json'))
-        commands = [body for tag, body in blocks if tag == 'sh']
-        outputs = [execute(body, cwd) for body in commands[:3]]
-        assert outputs[-1] == 'Port updated'
-        assert json.loads((cwd / 'settings.json').read_text()) == {'port':3100, 'debug':False}
-        execute(commands[3], cwd)
-        assert json.loads((cwd / 'settings.json').read_text()) == {'port':3000, 'debug':False}
-        results.append('how-to: backup, isolated edit, preservation, check, and recovery verified')
-    with tempfile.TemporaryDirectory(prefix='writer-example-') as directory:
-        cwd = Path(directory); (cwd / 'tests').mkdir()
-        (cwd / 'sample.json').write_text('{"project":"Example App"}')
-        (cwd / 'report.py').write_text('import json,sys\nprint(json.load(open(sys.argv[1]))["project"])\n')
-        (cwd / 'tests/test_report.py').write_text('import subprocess,unittest\nclass Report(unittest.TestCase):\n def test_name(self):\n  self.assertEqual(subprocess.check_output(["python3","report.py","sample.json"],text=True).strip(),"Example App")\n')
-        start = subprocess.run(['python3','report.py','sample.json'],cwd=cwd,capture_output=True,text=True,check=True)
-        assert start.stdout.strip() == 'Example App'
-        subprocess.run(['python3','-m','unittest','discover','-s','tests'],cwd=cwd,capture_output=True,text=True,check=True)
-        results.append('README: commands verified against the explicitly stated fictional repository contract')
-    return results
+        work = Path(directory)
+        (work / 'websites.json').write_text(fixture)
+        for command, output in zip(commands, expected):
+            args = shlex.split(command)
+            assert args[:2] == ['python3', '-c']
+            result = subprocess.run(args, cwd=work, capture_output=True, text=True, check=True, timeout=15)
+            assert result.stdout.strip() == textwrap.dedent(output).strip(), result.stdout
+        readme_blocks = validator.blocks((HERE.parent / 'examples/readme.md').read_text())[0]
+        readme_command = next(body for tag, body in readme_blocks if tag == 'sh')
+        args = shlex.split(readme_command)
+        assert args[:2] == ['python3', '-c']
+        result = subprocess.run(args, cwd=work, capture_output=True, text=True, check=True, timeout=15)
+        assert result.stdout.strip() == 'U3, U3H, US'
+        rows = json.loads(fixture)
+        assert len(rows) == 9
+        assert next(row for row in rows if row['id'] == 'U3H')['cited'] is False
+        assert next(row for row in rows if row['id'] == 'UD')['active'] is False
+    return ['Tutorial commands match both displayed outputs in a clean temporary directory',
+            'README first command matches its documented output',
+            'Nine-state fixture retains the uncited Review row and deleted-row distinction']
 
 
 if __name__ == '__main__':
-    print(json.dumps({'passed':check(),'limits':'These local examples do not test a real application, host activation, production system, or every generated command.'},indent=2))
+    print(json.dumps({'passed': check(), 'limits': 'Offline Python teaching exercise only. Application, UI how-to, SQL, actual reports, and host activation are not executed by this check.'}, indent=2))

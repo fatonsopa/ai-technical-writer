@@ -4,7 +4,7 @@ Use this process when the user requests a major restructure, consolidation, simp
 
 ## 1. Audit the original
 
-Read the complete original and linked documents needed to understand it. Record the audience, purpose, current sections, binding rules, factual claims, numbers, commands, file paths, decisions, source citations, examples, open questions, and references from other files. Find generated blocks or parser-dependent headings before changing them. Search for other files that link to the document when a repository is available.
+Read the complete original and linked documents needed to understand it. Record the audience, purpose, current sections, binding rules, factual claims, numbers, commands, file paths, decisions, source citations, examples, open questions, and references from other files. Identify required section names, field boundaries, and established document terminology as well as generated blocks and parser-dependent headings. Search for other files that link to the document when a repository is available.
 
 Identify contradictions, obsolete material, duplicated content, and project-specific rules that belong elsewhere. Classify disputed facts as questions; do not silently resolve them by writing confidently.
 
@@ -16,7 +16,7 @@ Load the destination document-type reference. Propose a structure suited to the 
 
 ## 3. Rewrite without losing information
 
-Use the document reference for structure and `references/writing_style.md` for prose. Consolidate repetition, but keep each unique requirement, boundary, exception, measured claim, warning, and relevant example. Keep quotations and generated blocks byte-for-byte when their exact wording or bytes matter; otherwise preserve their substance and source. Use links when another maintained document is the source of truth.
+Use the document reference for structure and `references/writing_style.md` for prose. Preserve required section boundaries and agreed terminology while shortening the content within them. Consolidate repetition, but keep each unique requirement, boundary, exception, measured claim, warning, and relevant example. Keep quotations and generated blocks byte-for-byte when their exact wording or bytes matter; otherwise preserve their substance and source. Use links when another maintained document is the source of truth.
 
 Do not replace an accurate requirement with a shorter statement that changes its conditions. If the rewrite corrects an error, document the correction separately from the style changes.
 

@@ -4,11 +4,13 @@ A reusable skill for creating, editing, reviewing, and rewriting technical docum
 
 Start with [SKILL.md](technical-writer/SKILL.md) for the document catalog and workflow diagram. [Writing style](technical-writer/references/writing_style.md) governs the prose of both the guides and their outputs. The package has 25 references covering 32 evaluated output kinds, including six task types, specifications, design, decisions, governance, testing, and instructional documents.
 
+The package includes 24 [complete worked examples](technical-writer/examples/readme.md) from one Websites Review initiative. Each reference links to its matching example. Full creation and substantial rewriting load the relevant example; narrow edits stay focused. The examples demonstrate appropriate substance and connected requirements, design, delivery, and testing without imposing a fixed document length.
+
 The specification defines expected behavior; design and implementation plans explain how to achieve it. Small tasks can carry their own expected behavior and acceptance criteria. The skill does not require a separate file for every format or one universal development sequence.
 
 ## Use the skill
 
-Place the entire `technical-writer/` directory in a skill location supported by your host. For a Codex project, use `.agents/skills/technical-writer/`; for a Claude Code project, use `.claude/skills/technical-writer/`. Keep references and workflows beside SKILL.md. These locations follow the [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills) and [Claude Code skill documentation](https://code.claude.com/docs/en/skills), checked on 2026-10-31. This repository does not install the skill automatically.
+Place the entire `technical-writer/` directory in a skill location supported by your host. For a Codex project, use `.agents/skills/technical-writer/`; for a Claude Code project, use `.claude/skills/technical-writer/`. Keep references, examples, scripts, and workflows beside SKILL.md. These locations follow the [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills) and [Claude Code skill documentation](https://code.claude.com/docs/en/skills), checked on 2026-10-31. This repository does not install the skill automatically.
 
 Ask by acronym, full name, or a familiar alias, and supply the source facts or files:
 

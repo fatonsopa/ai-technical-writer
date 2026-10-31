@@ -14,26 +14,7 @@ Use the shared decision template to explain the context, compare the options, an
 
 ## Completed example
 
-Fictional proposal in a workspace-renaming plan.
-
-```md
-# A workspace rename could be saved without its audit record
-
-The proposed rename component must save the new name and audit entry together or save neither (AUD-01). The LLD needs a transaction boundary.
-
-## Options considered
-### Option A: Write both records in one database transaction
-A failed audit insert rolls back the name change. The service must keep both writes within the same transaction boundary.
-
-### Option B: Save the name and enqueue the audit write
-The audit work can run separately, but a later audit failure could leave a changed name without its required history.
-
-## Recommended option (A)
-Use one transaction because it directly satisfies AUD-01. Keep failure propagation explicit: a failed transaction returns a failure response and leaves both records unchanged. Test a forced audit-write failure.
-
-## Outcome
-Pending design review. No schema, source path, owner, approval, or passing test is claimed.
-```
+Read the [complete Websites Review example](../examples/design_decision_record.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

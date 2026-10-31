@@ -6,7 +6,7 @@ A technical standard defines precise rules and how to verify them. Create it whe
 
 - Define purpose, authority, scope, and the terms needed to interpret each rule.
 - Explain the guiding principles, then state distinct rules with their conditions and exceptions.
-- Make compliance observable. Give each material rule a concrete test, inspection, or measurement.
+- Make compliance observable. Give each material rule a concrete test, inspection, or measurement. If the source has no method, propose one derived from the existing rule and label it proposed. Preserve unknown tooling and approval; a proposed check is not a new product obligation or a claim that testing occurred.
 - Preserve obligation strength and exact contracts when editing. Use RFC uppercase terms only when the document explicitly adopts them.
 - Keep useful rationale near a difficult rule; remove repeated justification and incident history.
 - Record actual exception authority and limits. Link the governing policy and owned procedures rather than repeating them.
@@ -40,41 +40,7 @@ Status/authority: [Source and adoption state]
 
 ## Completed example
 
-Fictional standard proposed under the logging policy example; its values are illustrative agreements, not universal recommendations.
-
-```md
-# Application request logging standard
-Status/authority: Proposed under the application logging policy.
-
-## Purpose and scope
-These rules cover completed production HTTP requests recorded by the application. Infrastructure access logs follow separate rules.
-
-## Definitions
-A request ID links one request's records. A route pattern is the matched route template, not a URL containing user-supplied values. Duration is elapsed processing time in milliseconds.
-
-## Principles
-Make failures traceable while minimizing captured data. Use consistent fields so automated checks can identify missing information.
-
-## Rules
-- LOG-01: Each completed request must record its request ID, method, route pattern, response status, and duration in milliseconds.
-- LOG-02: Application logs must not contain access tokens, session cookies, or plaintext passwords.
-- LOG-03: Recorded timestamps must identify UTC.
-- LOG-04: A user-visible API error must include the request ID needed to find its server record.
-
-## Verification
-| Rule | Method and compliant result |
-| --- | --- |
-| LOG-01 | Send a successful and failed request; each record contains all five fields with the stated duration unit. |
-| LOG-02 | Send distinctive synthetic credential values; none appears in captured application logs. |
-| LOG-03 | Inspect those records; every timestamp explicitly identifies UTC. |
-| LOG-04 | Trigger an API error; its request ID locates the corresponding server record. |
-
-## Responsibilities and exceptions
-Service owners maintain the checks. The policy's incident exception permits additional non-sensitive context only; it cannot waive LOG-02. No exception has been approved in this example.
-
-## Ownership, review, and related policy
-The engineering lead owns this proposal. Review it when logging contracts change. The proposed application logging policy supplies its direction; neither document is claimed as adopted.
-```
+Read the [complete Websites Review example](../examples/technical_standard.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

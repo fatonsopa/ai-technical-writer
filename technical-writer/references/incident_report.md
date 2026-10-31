@@ -9,7 +9,7 @@ An incident report records impact, events, response, recovery, and lessons. Crea
 - Separate the initiating event, contributing conditions, and root cause. Recovery can be verified while the cause remains unknown.
 - Explain detection, investigation, mitigation, recovery, and how recovery was checked.
 - Write without personal blame. Focus on conditions and decisions visible to responders at the time.
-- Give follow-up work a measurable completion check and an owner/link when assigned. Unknown ownership and dates remain open.
+- Give follow-up work observable acceptance criteria and an owner/link when assigned. Unknown ownership and dates remain open.
 - Preserve incident facts. Proposed preventive changes link to [issues](issue.md), decisions, and affected requirements rather than becoming binding policy inside the timeline.
 
 ## Structure and template
@@ -29,44 +29,14 @@ Include status/impact, evidence-backed timeline, response/recovery checks, cause
 ## Causes and lessons
 [Known trigger/contributing conditions, unknown cause, useful lessons]
 ## Follow-up
-| Action | Owner | Completion check / link |
+| Action | Owner | Acceptance criteria / link |
 | --- | --- | --- |
 | [Action] | [Assigned or unassigned] | [Observable result] |
 ```
 
 ## Completed example
 
-Fictional event with explicitly supplied observations; no live service or attached log is claimed.
-
-```md
-# Email delivery worker stopped processing jobs
-
-## Status and impact
-Recovered after a worker restart. The illustrative queue grew from 09:10 to 09:42 UTC on 2026-10-20. Messages were delayed; the number of affected recipients and any message loss are unknown.
-
-## Timeline and evidence
-| Time UTC | Event | Source |
-| --- | --- | --- |
-| 09:10 | Successful processing stopped. | Supplied worker metric |
-| 09:18 | Queue-growth alert fired. | Supplied alert event |
-| 09:25 | Responder found a stopped worker process. | Responder observation |
-| 09:30 | Worker restarted. | Supplied action record |
-| 09:42 | Queue returned to its prior range. | Supplied queue metric |
-
-## Response and recovery
-The responder restarted the worker. Processing resumed and queue growth reversed. These checks establish queue recovery; they do not establish that every recipient read a message.
-
-## Causes and lessons
-The worker had stopped, but its exit reason remains unknown. Queue growth exposed the problem; the supplied evidence contains no earlier process-liveness signal. Preserve the exit evidence before selecting a code fix.
-
-## Follow-up
-| Action | Owner | Completion check / link |
-| --- | --- | --- |
-| Investigate worker exit | Unassigned | Evidence supports an explanation or records the remaining uncertainty. |
-| Review liveness detection | Unassigned | A disposable worker-stop exercise demonstrates detection against an agreed threshold. |
-
-No follow-up issue, deadline, or threshold has been approved in this example.
-```
+Read the [complete Websites Review example](../examples/incident_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

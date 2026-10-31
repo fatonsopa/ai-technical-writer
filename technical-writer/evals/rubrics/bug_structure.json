@@ -1,0 +1,23 @@
+{
+  "output_kinds": [
+    "bug_report",
+    "issue_bug"
+  ],
+  "required_sections": [
+    "Description",
+    "Environment",
+    "How to reproduce",
+    "Expected result",
+    "Actual result",
+    "Reproduction frequency",
+    "Severity and impact",
+    "Evidence",
+    "Relevant files",
+    "Verification"
+  ],
+  "optional_sections": [
+    "Prerequisites",
+    "Additional context"
+  ],
+  "scope": "Complete create/rewrite outputs. Narrow edits and reviews keep their requested scope. The reproduction heading is exact; expected and actual must be separate."
+}

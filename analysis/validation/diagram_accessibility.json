@@ -1,0 +1,14 @@
+[
+  {
+    "file": "analysis/validation/diagrams/workflow.svg",
+    "title": "Technical documentation workflow",
+    "description": "Work may start with an issue or specification. Design and planning lead to implementation, verification, and documentation updates. Decision records and test documents support those activities as needed.",
+    "accessible_labels_present": true
+  },
+  {
+    "file": "analysis/validation/diagrams/visual_example.svg",
+    "title": "Queued email delivery",
+    "description": "The API adds a job to a queue. A worker retrieves it, contacts the mail provider, and records the result in a database.",
+    "accessible_labels_present": true
+  }
+]

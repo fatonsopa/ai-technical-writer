@@ -1,5 +1,17 @@
-flowchart LR
-    A[API] -->|Adds email job| B[Queue]
-    B -->|Delivers job| C[Worker]
-    C -->|Sends message| D[Mail provider]
-    C -->|Records result| E[(Database)]
+sequenceDiagram
+    accTitle: Partial category change with a lost response
+    accDescr: Batch one confirms 500 changes. Batch two commits but its response is lost. The client stops before the final ID, reports uncertainty, and reads current state before offering an explicit retry.
+    actor A as Administrator
+    participant UI as Bulk dialog
+    participant DB as Database API
+    A->>UI: Assign category to 1,001 IDs
+    UI->>DB: Batch 1: 500 IDs
+    DB-->>UI: 500 changes committed
+    UI->>DB: Batch 2: 500 IDs
+    Note over DB: Changes and history commit
+    DB--xUI: Response lost
+    Note over UI: Stop, do not send batch 3
+    UI-->>A: 500 confirmed, 500 unresolved, 1 unattempted
+    UI->>DB: Authorized reconciliation read
+    DB-->>UI: Current values and relevant history
+    UI-->>A: Show state before an explicit retry

@@ -37,26 +37,7 @@ Use the template for general decisions, including choices discussed within bugs,
 
 ## Completed example
 
-Fictional proposed comment in an existing Bug task; no decision or posting is claimed.
-
-```md
-# Notifications repeat while the monitored condition stays unchanged
-
-The monitor emits the same condition on each tick. The task requires a new notification when the condition changes. The team needs to choose where to detect those changes.
-
-## Options considered
-### Option A: Compare conditions in the monitor
-Store the last emitted condition in the monitor and emit on change. Every consumer benefits, but the monitor must retain that state correctly.
-
-### Option B: Filter repeats in the display
-Keep every monitor event and suppress matching notifications in the interface. This preserves the event stream, but each consumer needs filtering.
-
-## Recommended option (A)
-Compare in the monitor because the requested behavior applies to notifications for every consumer. This avoids separate filters. Define restart behavior before implementation so a new monitor does not suppress the first relevant condition.
-
-## Outcome
-Pending. The recommendation has not been accepted; restart behavior remains an open requirement question.
-```
+Read the [complete Websites Review example](../examples/decision_record.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

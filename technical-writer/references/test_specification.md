@@ -2,6 +2,8 @@
 
 A test specification defines the checks and procedures used to assess required behavior. Create it before the relevant tests run; update it when behavior, coverage, data, or execution procedures change. The result can be a task section, a test-management record, a table linked to executable tests, or a standalone document.
 
+The test basis is the requirements, acceptance criteria, and other sources used to define the checks.
+
 ## Principles
 
 - Trace checks to [SDD](spec_driven_development.md) requirements or exact acceptance criteria. Expected results come from those sources, not from whatever the current code happens to do.
@@ -20,7 +22,8 @@ Identify the test item/version, behavior source, coverage and cases, necessary d
 
 ```md
 # [Capability] test specification
-Test basis/item: [Requirements, target version or pending build]
+Test basis: [Requirements and source version]
+Test item: [System/component and target build or pending version]
 ## Coverage and setup
 [Included behavior, exclusions, roles/data/environment]
 ## Cases
@@ -35,29 +38,7 @@ Test basis/item: [Requirements, target version or pending build]
 
 ## Completed example
 
-Fictional specification. The illustrative SDD explicitly requires persistence, administrator-only updates, empty-name rejection, and safe save failure.
-
-```md
-# Workspace rename checks
-Test basis/item: REN-01–REN-04; target staging build to be supplied.
-
-## Coverage and setup
-Use an isolated workspace named Marketing Team, its administrator, and a non-administrator member. The illustrative interface has a Name field and Save control. Billing and ownership are outside scope.
-
-## Cases
-| ID / requirement | Preconditions and action/input | Expected outcome |
-| --- | --- | --- |
-| N1 / REN-01 | Administrator saves Growth Team, then makes a fresh workspace read. | Success is reported and the read returns Growth Team. |
-| N2 / REN-02 | Member attempts the same change. | Access is denied and the saved name is unchanged. |
-| N3 / REN-03 | Administrator submits an empty Name field. | Input is rejected and the saved name is unchanged. |
-| N4 / REN-04 | In a disposable environment, force a save failure during an administrator's change. | Failure is reported and the old name remains saved. |
-
-## Procedure and cleanup
-Restore Marketing Team before each case and verify the active account role. For N1–N3, use the settings form and a fresh read of the workspace. For N4, use a confirmed failure-injection facility; block the case if none is available. Restore the isolated workspace afterward. Do not simulate failure in production.
-
-## Open prerequisites
-Confirm the target build and failure-injection method before execution. These cases have not been run.
-```
+Read the [complete Websites Review example](../examples/test_specification.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

@@ -29,7 +29,7 @@ Verification: [Setup/input, action, observable expected result]
 Rationale: [Only if it helps interpretation]
 ```
 
-Complete fictional entry: **REN-01: Retain a saved name.** Status/source: agreed in the workspace rename SDD for this example. Statement: after an authorized name update succeeds, a fresh workspace read must return the saved name. Verification: rename Marketing Team to Growth Team, then make a new read; it returns Growth Team. Rationale: a success response must correspond to a change later reads can observe.
+For a complete requirement entry, see WEB-07 and its acceptance mapping in the [worked specification](../examples/spec_driven_development.md).
 
 ## Document structure
 
@@ -65,7 +65,7 @@ Source: [Request, issue, or product decision]
 ## Quality and interface constraints
 [Measurable qualities, permissions, compatibility, inputs/outputs; sources.]
 
-## Acceptance
+## Acceptance criteria
 | Requirement | Check and expected result |
 | --- | --- |
 | REQ-01 | [Observable verification] |
@@ -79,49 +79,7 @@ Source: [Request, issue, or product decision]
 
 ## Completed example
 
-This fictional draft supplies its own product assumptions. Its row limit is deliberately unresolved, so it does not claim implementation readiness.
-
-```md
-# Filtered results export specification
-
-Status: Draft
-Source: Analyst request to review results outside the application
-
-## Purpose and scope
-Analysts can download the current results as CSV. This covers the results table and excludes charts.
-
-## Definitions
-Current results: records matching the active filters at the moment export starts.
-Selected columns: the visible columns in their displayed order.
-
-## Scenarios
-An analyst filters the table, selects columns, and downloads the matching records. An empty result produces a CSV with column headings and no data rows.
-
-## Requirements and business rules
-- REQ-01: An export must contain only the current results.
-- REQ-02: CSV columns must match the selected columns and their order.
-- REQ-03: If export fails, the application must show an error without showing a success confirmation.
-- REQ-04: If no records match, export must produce the selected column headings and no data rows.
-- REQ-05: Export must apply the caller's existing view permissions and must not include records the caller cannot view.
-
-## Quality and interface constraints
-REQ-05 governs visibility. Performance and maximum row count remain open; neither is an agreed threshold.
-
-## Acceptance
-| Requirement | Check and expected result |
-| --- | --- |
-| REQ-01 | Filter to one known subset; every exported record belongs to it. |
-| REQ-02 | Select and reorder columns; the CSV matches that order. |
-| REQ-03 | Simulate a failed export; an error appears and no success confirmation appears. |
-| REQ-04 | Use a filter matching nothing; the CSV contains headings only. |
-| REQ-05 | Use a caller who cannot view a known record; the export excludes it. Check access denial separately when the caller has no permission to view results. |
-
-## Open decisions
-The product owner must decide the maximum export size before implementation is marked ready. Measure likely data volumes to inform that choice; no limit is assumed here.
-
-## Related design and work
-A plan will identify the existing query and export components after repository inspection. No new implementation is claimed.
-```
+Read the [complete Websites Review example](../examples/spec_driven_development.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

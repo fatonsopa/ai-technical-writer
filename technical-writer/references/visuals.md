@@ -25,7 +25,7 @@ Use a visual when it makes relationships, sequences, structure, or observed appe
 6. Use diagrams as code when the repository can render them reliably; otherwise use the supported local diagram format. Keep sources editable.
 7. Verify diagrams against actual code, deployment information, and governing requirements. Keep source-reported facts distinct from independently checked ones. Label proposals and hypothetical examples explicitly.
 8. Use a screenshot when appearance matters. For API, data, or performance problems, logs, tables, or measurements may communicate the evidence better.
-9. Make visuals accessible: meaningful alternative text, readable labels, and a textual description of critical information.
+9. Make visuals accessible: meaningful alternative text, readable labels, and a textual description of critical information. For Mermaid, add accTitle and accDescr where supported; keep the accompanying prose as well.
 
 ## Template
 
@@ -39,19 +39,9 @@ Use a visual when it makes relationships, sequences, structure, or observed appe
 [Paragraph explaining the key connections and any conditions the diagram alone cannot convey.]
 ```
 
-## Completed example: a queued notification
+## Completed example
 
-This is a proposed, simplified flow, not an existing implementation.
-
-```mermaid
-flowchart LR
-    A[API] -->|Adds email job| B[Queue]
-    B -->|Delivers job| C[Worker]
-    C -->|Sends message| D[Mail provider]
-    C -->|Records result| E[(Database)]
-```
-
-The API places a job on the queue after accepting a request. A worker retrieves it, sends the message through the mail provider, and records the outcome. The diagram leaves out retries and error handling because the example has no approved retry policy; a production diagram should include those paths once defined.
+Read the [complete Websites Review example](../examples/visuals.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 
@@ -61,3 +51,5 @@ The reader can identify what each box represents, why the connections exist, and
 
 - C4 diagrams: https://c4model.com/diagrams
 - Google accessibility guidance: https://developers.google.com/style/accessibility
+
+- [Mermaid: accessible diagram titles and descriptions](https://mermaid.js.org/config/accessibility.html)

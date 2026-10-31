@@ -30,43 +30,7 @@ Include the learning goal, prerequisites, complete exercise, observed/expected r
 
 ## Completed example
 
-Self-contained Python 3 exercise with a terminal and an empty local folder.
-
-````md
-# Read a JSON setting with Python
-
-Create a settings file and read its site name. You will learn how a JSON object stores named values.
-
-## Before you begin
-Use a terminal in an empty folder with Python 3 installed.
-
-## Steps
-1. Create settings.json containing:
-
-```json
-{"site_name": "Example App", "debug": false}
-```
-
-2. Run:
-
-```sh
-python3 -c 'import json; print(json.load(open("settings.json"))["site_name"])'
-```
-
-The terminal prints:
-
-```text
-Example App
-```
-
-Python's json module reads the object. The site_name key selects the value to print.
-
-## Check your result
-Confirm that the output is Example App. If the file cannot be found, check the terminal's folder and the filename.
-
-## What you learned
-You created a JSON object and read a named value. Next, add a port field and use the same approach to print it.
-````
+Read the [complete Websites Review example](../examples/tutorial.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

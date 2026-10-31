@@ -29,51 +29,7 @@ Use a goal-oriented title, prerequisites, ordered actions, success checks, and a
 
 ## Completed example
 
-Self-contained local-file example for macOS/Linux with Python 3. It changes a JSON setting; it makes no claim about an application's live port.
-
-````md
-# Change a port value in a local JSON file
-
-## Before you begin
-Work in a disposable local folder. Create settings.json containing:
-
-```json
-{"port": 3000, "debug": false}
-```
-
-Confirm settings.json.bak does not already contain a backup you need.
-
-## Steps
-1. Back up the file:
-
-```sh
-cp settings.json settings.json.bak
-```
-
-2. Change only the port:
-
-```sh
-python3 -c 'import json; from pathlib import Path; p=Path("settings.json"); d=json.loads(p.read_text()); d["port"]=3100; p.write_text(json.dumps(d)+chr(10))'
-```
-
-3. Check the saved value:
-
-```sh
-python3 -c 'import json; d=json.load(open("settings.json")); assert d["port"] == 3100; assert d["debug"] is False; print("Port updated")'
-```
-
-## Confirm success
-The check prints Port updated. The file retains debug: false and contains port: 3100.
-
-## If it fails
-Stop and read the reported error. To restore this exercise's original file, run:
-
-```sh
-cp settings.json.bak settings.json
-```
-
-Verify the restored JSON before trying again.
-````
+Read the [complete Websites Review example](../examples/how_to_guide.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

@@ -11,11 +11,11 @@ Map each reference to the document it teaches. Decide which file owns shared wri
 ## Work on one reference at a time
 
 1. Research the document type using primary sources. Identify its reader, purpose, common practices, and genuinely binding constraints. Record source links and the date checked.
-2. Audit the complete reference, its template, and its completed example. Compare them with the specification and research. Identify missing content, contradictions, duplicate responsibilities, factual gaps, and unclear language. Inspect callers before changing paths, markers, or sections.
+2. Audit the complete reference, its template, and its completed example. Compare them with the specification and research. Identify missing content, contradictions, duplicate responsibilities, factual gaps, and unclear language. Record required section names, distinct fields, and established domain terms before rewriting. Inspect callers before changing paths, markers, or sections.
 3. Research the specific questions exposed by the audit. Distinguish an external requirement from an organizational convention and an editorial choice. Do not keep searching merely to repeat what is already established.
 4. Propose the change in a review ledger: the target structure, important content to preserve, additions, removals, and reasons. Resolve choices within the user's authorized scope. Ask only for a material decision that cannot be inferred or left explicitly open.
 5. Revise the reference. Keep its purpose, principles, structure, adaptable template, useful completed example, and quality checks. Apply the writing guide to all of them. Give governance templates real Definitions and Principles sections, not just instructions mentioning those words.
-6. Validate the revised file, then use it for a realistic writing request. Check the resulting document's meaning, structure, sources, and preservation. Record actual findings and revise the instruction responsible for each failure.
+6. Validate the revised file, then use it for a realistic writing request. Check the resulting document's meaning, structure, sources, and preservation. Enforce required sections in the real template, completed example, and generated output; content somewhere in the file is not enough. Record actual findings and revise the instruction responsible for each failure.
 
 Repeat steps 3–6 while a concrete failure remains. After three unsuccessful attempts on the same unresolved problem, document what prevents verification and continue unaffected work. Do not invent evidence, weaken criteria, or claim completion for the affected requirement.
 

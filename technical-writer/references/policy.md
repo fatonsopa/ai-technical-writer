@@ -38,33 +38,7 @@ Status/authority: [Draft or confirmed adoption source]
 
 ## Completed example
 
-Fictional governance proposal. Its role assignments and obligations are assumptions for this example, not rules adopted by the user's project.
-
-```md
-# Application logging policy
-Status/authority: Draft for review by the engineering lead.
-
-## Purpose and scope
-Application logs support diagnosis while protecting account data. This proposal covers production application logs; infrastructure access logs are outside its scope.
-
-## Definitions
-Request metadata describes a request without its confidential contents. Credentials include access tokens, session cookies, and passwords.
-
-## Principles
-Collect only information needed to diagnose service behavior. Keep requests traceable without exposing credentials.
-
-## Policy obligations
-Service teams must provide enough request metadata to investigate failures. Credentials must not appear in application logs. Detailed field and verification rules belong in the application logging standard.
-
-## Responsibilities and compliance
-Service owners review their logging behavior and remedy gaps found through tests and operational reviews. The engineering lead reviews policy changes.
-
-## Exceptions
-The engineering lead may approve additional non-sensitive diagnostic context for a documented incident. That approval does not permit logging credentials. The incident record must state the scope and end condition.
-
-## Ownership, review, and related standards
-The engineering lead owns this draft. Review it when logging architecture or data handling changes. The proposed application logging standard defines exact fields and checks; approval remains pending.
-```
+Read the [complete Websites Review example](../examples/policy.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

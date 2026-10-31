@@ -1,0 +1,15 @@
+{
+  "output_kinds": [
+    "issue_chore",
+    "issue_decision",
+    "issue_feature",
+    "issue_improvement",
+    "issue_release"
+  ],
+  "required_sections": [
+    "Description",
+    "Expected outcome",
+    "Acceptance criteria"
+  ],
+  "scope": "Complete issues only; Bug reports use their specialized structure. Description/title-only requests remain narrow."
+}

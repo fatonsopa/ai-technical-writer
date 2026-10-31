@@ -14,26 +14,7 @@ Use the shared decision template. In the context section, identify the part of t
 
 ## Completed example
 
-Fictional architecture proposal, using the shared structure.
-
-```md
-# A slow mail provider keeps account requests open
-
-The proposed account service must acknowledge accepted mail requests without waiting for provider delivery (MAIL-01). The current design calls the provider during the HTTP request. HLD: account service proposal, mail flow.
-
-## Options considered
-### Option A: Add a queue and delivery worker
-The API records accepted work and the worker contacts the provider. This separates request duration from delivery but introduces queue operation, monitoring, and duplicate handling.
-
-### Option B: Keep synchronous delivery
-The API waits for the provider. This has fewer components but cannot satisfy MAIL-01 during a slow provider response.
-
-## Recommended option (A)
-Use a queue and worker to satisfy MAIL-01. The HLD should show the new boundary and distinguish accepted work from delivered mail. Retry and duplicate-handling behavior need explicit requirements before the design is ready.
-
-## Outcome
-Proposed. No approval, deployed queue, provider choice, or test result is established.
-```
+Read the [complete Websites Review example](../examples/architecture_decision_record.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

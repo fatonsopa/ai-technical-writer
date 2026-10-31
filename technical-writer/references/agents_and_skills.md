@@ -14,12 +14,12 @@ Choose the instruction type before writing. Agent instructions define a role and
 
 ## Agent format
 
-For general project instructions such as AGENTS.md, follow the target host's Markdown conventions. For a Claude Code subagent, use the documented frontmatter and role body. The minimal template is:
+For general project instructions such as AGENTS.md, follow the target host's Markdown conventions. For a Claude Code subagent, use the documented frontmatter and role body. Replace bracketed placeholders before use. The minimal template is:
 
 ```md
 ---
-name: [lowercase-name]
-description: [Role and when to use it]
+name: "[lowercase-name]"
+description: "[Role and when to use it]"
 ---
 # [Role]
 [Inputs, actions, authority boundaries, and result]
@@ -27,20 +27,7 @@ description: [Role and when to use it]
 
 ### Completed agent example
 
-Claude Code example for an existing project; tools are a host-specific allowlist. Its actual enforcement requires host testing.
-
-```md
----
-name: migration-reviewer
-description: Review SQL migrations for data-loss risks and missing recovery checks.
-tools: Read, Glob, Grep
----
-# Migration reviewer
-
-Read the proposed migration and relevant schema and tests. Report concrete risks with paths, evidence, and a way to verify them.
-
-Do not edit files, execute SQL, or apply migrations. Distinguish a verified problem from a question requiring project context. Report which files you inspected and which checks you could not perform. If no migration is supplied, identify that missing input.
-```
+See the [Websites Review agent configuration](../examples/agents_and_skills.md#claude-code-subagent). Review the host-specific format and keep its authority within the actual request.
 
 ## Skill format
 
@@ -48,8 +35,8 @@ A portable skill is a named folder containing SKILL.md with name and description
 
 ```md
 ---
-name: [skill-folder-name]
-description: [Capability and matching requests]
+name: "[skill-folder-name]"
+description: "[Capability and matching requests]"
 ---
 # [Capability]
 [Sources, focused workflow, conditional resources, and delivery checks]
@@ -57,21 +44,7 @@ description: [Capability and matching requests]
 
 ### Completed skill example
 
-```md
----
-name: release-summary
-description: Write release summaries from a specified release boundary and verified merged changes.
----
-# Release summary
-
-Read the requested version or commit range and the supplied change records. Confirm the release boundary before claiming a change shipped.
-
-Describe user-visible additions, fixes, removals, and known limitations in familiar language. Link supplied or verified issues and pull requests. Separate planned work from released work.
-
-Return the requested summary. Do not publish it, tag a release, or alter tracker records unless the user authorizes that action. Check each item against the release evidence and identify missing information.
-```
-
-Save this example in a folder named release-summary with its entry point named SKILL.md. Select the installation location from the actual host's documentation, not from another vendor's example.
+See the [Websites Review skill configuration](../examples/agents_and_skills.md#portable-reusable-skill). Review the host-specific format and keep its authority within the actual request.
 
 ## Output-style format
 
@@ -79,26 +52,15 @@ Use an output style for session-wide role, voice, and format. Verify host-specif
 
 ```md
 ---
-name: [Style name]
-description: [Communication purpose]
+name: "[Style name]"
+description: "[Communication purpose]"
 ---
 [Desired voice, detail, formatting, and limits]
 ```
 
 ### Completed output-style example
 
-Claude Code example intended to retain coding guidance where the host supports that field.
-
-```md
----
-name: Clear technical
-description: Explain technical work in direct, connected prose.
-keep-coding-instructions: true
----
-State the result first. Explain unfamiliar project terms and connect actions to their purpose. Use precise technical names and preserve requirements, uncertainty, and evidence.
-
-Use examples when they help the reader. Keep routine updates concise and report actual checks and limitations. This style does not authorize code changes, tool use, or external actions.
-```
+See the [Websites Review output-style configuration](../examples/agents_and_skills.md#claude-code-output-style). Review the host-specific format and keep its authority within the actual request.
 
 ## Quality check
 

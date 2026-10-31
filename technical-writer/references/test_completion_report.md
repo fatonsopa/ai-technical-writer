@@ -18,7 +18,10 @@ Include scope/basis/build, actual testing and results, coverage/deviations, defe
 
 ```md
 # [Milestone] test completion report
-Scope/build/environment: [Known values and period]
+Scope: [Cycle, milestone, or release being assessed]
+Build: [Tested version]
+Environment: [Where testing ran]
+Reporting period: [Time bounds and timezone]
 ## Testing and results
 [Executed scope, result counts, evidence, requirement coverage]
 ## Deviations and remaining risks
@@ -31,24 +34,7 @@ Scope/build/environment: [Known values and period]
 
 ## Completed example
 
-Fictional assessment using the same explicit result set as the status-report example.
-
-```md
-# Workspace rename candidate demo-7 assessment
-Scope/build/environment: Rename acceptance cycle; demo-7; staging; illustrative 2026-10-30.
-
-## Testing and results
-The cycle ended with N1 passed, N2 failed, N3 blocked, and N4 not run. Two of four planned checks executed, and one passed. N1 supports REN-01 persistence. N2 contradicts REN-02 administrator-only updates. REN-03 and REN-04 remain unverified by this run.
-
-## Deviations and remaining risks
-The plan's four passing checks were not achieved. N3 lost access to the administrator test account; N4 lacked confirmed failure injection. The authorization failure remains unresolved. This evidence cannot establish that the release meets its acceptance requirements.
-
-## Assessment and follow-up
-Recommend holding this candidate until the authorization defect is fixed and N2–N4 are successfully checked on the appropriate build, with relevant regression coverage. The release decision is pending; no approver or sign-off is recorded. This report marks the end of this cycle, not release approval.
-
-## Sources
-Illustrative run R-7 and rename test specification N1–N4; proposed test plan. The result set is supplied within this fictional example, with no live attachments or claimed production tests.
-```
+Read the [complete Websites Review example](../examples/test_completion_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

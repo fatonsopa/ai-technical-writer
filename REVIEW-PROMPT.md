@@ -229,3 +229,11 @@ Base the work on the repository's existing default-branch history and preserve u
 Include the final skill and supporting resources, this prompt, the reconciled specification, review ledger, reusable eval cases/fixtures/rubrics/runner, coverage map, and reproducible validation and size/context results. Keep source attachments, local caches, and transient run files outside the committed deliverables. Include the evidence needed to substantiate results without publishing unrelated raw inputs.
 
 Run the required checks against the final committed content. Push the final commits, then verify that the intended remote branch resolves to the delivered commit and contains the final authored files. Report the repository link, branch, commit, validation outcomes, and any remaining delivery limitation. A local commit or a dry run does not satisfy the final push requirement.
+
+## Approved follow-up: complete connected examples
+
+Use the Websites Review tabs and category-editing initiative from the selected project's knowledge documents. Create the PRD first, implementation plan second, then the remaining examples one by one. Keep reference principles, structures, templates and checks concise; place complete worked documents under examples/ with matching full-name filenames and conditional loading for full creation or substantial rewriting. Preserve focused operations for narrow edits and reviews. A complete example demonstrates appropriate substance, not a maximum or minimum word count.
+
+The user permits realistic additions where source material or document types are missing. Write the examples as finished documents without labels distinguishing sourced and invented details. Keep source hashes, historical status and additions in maintenance evidence outside the runtime. This exception applies to teaching examples only; ordinary requested documents still need source support or explicit unknowns.
+
+Audit all examples as complete documents, including shared requirement meanings, cases, report arithmetic and lifecycle consistency. Run substantial-output evals on a different initiative and check for copied example facts as well as missing structure, failure paths and traceability. Retain failures, repair the responsible guidance and validate again.

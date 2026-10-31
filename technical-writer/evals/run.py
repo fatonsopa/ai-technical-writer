@@ -26,6 +26,17 @@ def fingerprint(skill):
         for p in sorted(skill.rglob('*')) if p.is_file() and p.suffix == '.md' and 'evals' not in p.parts and p.name != 'MIGRATION.md').encode()).hexdigest()
 
 
+def required_sections(case):
+    if case['operation'] not in ('create', 'rewrite') or case.get('artifact_scope', 'complete') != 'complete':
+        return []
+    kind = case.get('intended_output_kind', case['kind'])
+    for name in ('bug_structure.json', 'issue_structure.json'):
+        contract = json.loads((ROOT / 'rubrics' / name).read_text())
+        if kind in contract['output_kinds']:
+            return contract['required_sections']
+    return []
+
+
 def schema(grading=False):
     if grading:
         fields = {'id': {'type': 'string'}, 'scores': {'type': 'array', 'items': {'type': 'integer'}},
@@ -63,7 +74,8 @@ def invoke(work, output, prompt, model, grading=False):
             if event.get('type') == 'item.completed' and item.get('type') == 'command_execution':
                 commands.append(item.get('command', ''))
         record.update(status='completed', results=data['results'], usage=usage,
-                      references_in_commands=sorted(set(re.findall(r'references/[a-z_\-]+\.md', '\n'.join(commands)))))
+                      references_in_commands=sorted(set(re.findall(r'references/[a-z_\-]+\.md', '\n'.join(commands)))),
+                      runtime_resources_in_commands=sorted(set(re.findall(r'(?:references|examples|workflows)/[a-z_\-]+\.md', '\n'.join(commands)))))
     except (subprocess.TimeoutExpired, RuntimeError, ValueError, OSError, KeyError) as error:
         record.update(status='infrastructure_error', error=str(error))
     record['elapsed_seconds'] = round(time.monotonic() - started, 2)
@@ -120,8 +132,11 @@ def grade(group, args):
             if (args.skill / ref).exists():
                 packet['guides'][ref] = (args.skill / ref).read_text()
         packet['sources'][case['fixture']] = (ROOT / case['fixture']).read_text()
-        packet['cases'].append({'case': case, 'source_key': case['fixture'],
-                               'output': by_id[case['id']]['content'], 'guide_keys': case['references']})
+        entry = {'case': case, 'source_key': case['fixture'],
+                 'output': by_id[case['id']]['content'], 'guide_keys': case['references']}
+        if required_sections(case):
+            entry['required_sections'] = required_sections(case)
+        packet['cases'].append(entry)
     with tempfile.TemporaryDirectory(prefix='writer-grade-', dir=args.temp_root) as directory:
         work = Path(directory)
         (work / 'packet.json').write_text(json.dumps(packet, indent=2))
@@ -133,7 +148,9 @@ def grade(group, args):
                   'Source paths fixtures/name.md and sources/name.md are harness aliases for the same content. '
                   'Do not rewrite outputs. Return seven 0-3 scores in this order: grounding, preservation, completeness, usefulness, language, scope/routing, traceability. '
                   'Use 3 for a dimension that does not apply and explain that in reasons. Require actual useful content, not heading words alone. '
-                  'Narrow edits should preserve the excerpt; reviews should give findings, not a full rewrite. Create/rewrite outputs should fit the requested type. '
+                  'Honor the explicit response format and case-specific expected properties before generic operation defaults. Some style reviews explicitly ask to return prose or a title; a correct unchanged sentence, heading, or formatted instructions can satisfy them without added findings. '
+                  'Otherwise, narrow edits preserve the excerpt and reviews give findings, not a full rewrite. Create/rewrite outputs should fit the requested type. '
+                  'Apply any required_sections to complete outputs and check useful content. Bug reports must keep expected and actual results separate. '
                   'For policy/standard create or rewrite, explicit sections named Definitions and Principles with useful content are required; a standard also needs Rules and Verification. '
                   'For decisions, require prior-context title, real options, recommendation and honest outcome. '
                   'Flag fabricated facts, results, approval, or materially changed obligations as critical failures. '
@@ -146,6 +163,14 @@ def grade(group, args):
         for item in result['results']:
             case = next(c for c in selected if c['id'] == item['id'])
             output_kind = case.get('intended_output_kind', case['kind'])
+            if required_sections(case):
+                body = by_id[item['id']]['content']
+                label = 'bug' if output_kind in ('bug_report', 'issue_bug') else 'issue'
+                for heading in required_sections(case):
+                    pattern = r'^##\s+' + re.escape(heading) + r'\s*\n(.*?)(?=^#{1,2}\s|\Z)'
+                    section = re.search(pattern, body, re.I | re.M | re.S)
+                    if not section or not section[1].strip():
+                        item['critical_failures'].append('Missing/empty required ' + label + ' section: ' + heading)
             if output_kind == 'sdd' and case['operation'] in ('create', 'rewrite'):
                 title = next((line for line in by_id[item['id']]['content'].splitlines() if line.startswith('# ')), '')
                 if re.search(r'\bsoftware design document\b', title, re.I):

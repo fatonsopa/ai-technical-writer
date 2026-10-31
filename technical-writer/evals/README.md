@@ -9,6 +9,8 @@ Evaluate the reference instructions and the documents they produce separately. A
 - `cases/core.jsonl` contains 128 development cases: four operations per output kind.
 - `cases/style_regressions.jsonl` retains 26 language regressions from the user's conversation and issue examples.
 - `cases/acceptance.jsonl` contains separately selected acceptance requests. Once a failure informs a repair, retain that case as a regression and use a fresh case for acceptance.
+- `cases/acceptance_fresh.jsonl` adds protected bug/feature structure requests and a fresh Decision-destination edit after the older case exposed a failure.
+- `cases/substantial.jsonl` adds eight complete-document requests on a different edition-source import initiative: PRD, plan, SDD, HLD, LLD, TP, TS, and TCR. Their criteria check substance, exceptional paths, traceability, evidence, and example-fact contamination.
 - `cases/routing.jsonl` checks acronym/full-name/lifecycle routing and title-only context loading.
 - `cases/observed_regressions.jsonl` retains acceptance failures used for repairs.
 - `cases/calibration.jsonl` and `rubrics/calibration_labels.json` test the grader against labeled good and flawed outputs. Labels are author-assigned, not independent human judgments.
@@ -40,10 +42,24 @@ The `calibrate` command grades the committed author-written controls and checks 
 
 Run affected development cases after a change, relevant shared language/preservation regressions, and the supported-output suite for a substantial release. Compare baseline and revision on identical selected requests. Report sample counts and each operation, rather than calling a few examples universal coverage.
 
-Run artifacts contain the selected model, settings, runtime Markdown hash, case IDs, outputs, grades, usage, reference traces, and errors. Keep raw CLI logs under ignored `runs/` or another private folder; publish sanitized outputs, scores, provenance hashes, and limitations. Usage counts describe host token accounting; file-size token estimates describe context size. They are different measurements.
+Run artifacts contain the selected model, settings, runtime Markdown hash, case IDs, outputs, grades, usage, reference traces, runtime-resource command mentions, and errors. Command mentions are trace evidence, not a claim that every byte was read. Keep raw CLI logs under ignored `runs/` or another private folder; publish sanitized outputs, scores, provenance hashes, and limitations. Usage counts describe host token accounting; file-size token estimates describe context size. They are different measurements.
 
 A model score is evidence for the sampled requests, not proof of future reliability. Human acceptance and actual host integration need separate checks. See the repository's [validation report](../../analysis/VALIDATION.md) for observed results and limitations.
 
 ## Sources
 
 The design follows [OpenAI evaluation guidance](https://developers.openai.com/api/docs/guides/evaluation-best-practices): define the objective and metrics, use representative data, inspect traces, and calibrate automated judgments. Our local case counts, seven-dimension threshold, and critical-failure gates are package choices. Independent human calibration remains a separate requirement when reviewers are available.
+
+## Worked examples and artifact audits
+
+The 24 complete examples share Websites Review. Full-create/substantial-rewrite cases include the matching example among grading resources, while generator requests still contain only the request and raw fixture. Check actual read actions as well as self-reported references. Do not accept copied example limits, roles, approvals or results as facts about an evaluation fixture. Narrow edits and reviews can remain focused without reading the full example.
+
+Audit the authored examples separately from generated outputs. Check their complete structure and shared requirement/case mappings, repeatable procedures, report arithmetic, status boundaries, and language. The user authorized realistic teaching details and finished examples without source-versus-addition labels; that exception does not allow fabricated facts in normal writing requests. Internal provenance stays in the maintenance audit, outside the skill runtime.
+
+To reproduce the separate authored-example audit from the repository root, use a new result directory:
+
+```bash
+python3 technical-writer/evals/audit_examples.py --model AVAILABLE_MODEL --out analysis/local/new-example-audit
+```
+
+Use repeatable --document options to select filenames. The command reviews current examples against their guides, shared SDD/test specification and the stated teaching-result basis; update that basis when the initiative changes. It returns scores and findings, with actual judgments in record.json. A completed command does not imply that every document passed. This runnable wrapper preserves the procedure used by the local audit; historical records identify the original invocations.

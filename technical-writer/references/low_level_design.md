@@ -32,24 +32,7 @@ Status/sources: [Proposed/current, inspected inputs]
 
 ## Completed example
 
-Fictional design proposal with an explicitly assumed requirement.
-
-```md
-# Workspace rename and audit design
-Status/sources: Proposed; illustrative workspace service HLD and agreed AUD-01.
-
-## Scope and requirements
-The service changes a workspace name and records who changed it. AUD-01 requires the name update and audit insert to succeed together or leave neither change saved. The actor is the authenticated administrator of the target workspace.
-
-## Internal design
-The handler checks workspace administration permission before changing data. Within one database transaction, it updates the name and inserts an audit entry containing the workspace, actor, previous/new names, and event time. Commit completes before the handler reports success. Exact tables and function names require repository inspection.
-
-## Failure and compatibility behavior
-If either write fails, roll back the transaction and return a failure response. Keep the previous name and omit the audit entry. Concurrent rename behavior and repeated-request handling remain open; the design does not assume a locking or idempotency mechanism.
-
-## Decisions and verification
-DDR proposal: “A rename could be saved without its audit record” recommends a single transaction. For AUD-01, force the audit write to fail and verify that the name remains unchanged and no audit entry exists. No test has run. Resolve concurrency and naming constraints before implementation.
-```
+Read the [complete Websites Review example](../examples/low_level_design.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

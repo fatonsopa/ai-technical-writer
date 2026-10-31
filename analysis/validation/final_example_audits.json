@@ -1,0 +1,984 @@
+[
+  {
+    "run": "worked-example-audit/batch-00",
+    "model": "gpt-6.1-sol",
+    "status": "completed",
+    "input_kind": "Author-written worked examples; independent model audit, not independent generation or human review",
+    "results": [
+      {
+        "id": "agents_and_skills",
+        "scores": [
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          2
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "The configurations clearly separate review, summarization, and communication authority, including explicit restrictions on writes and external actions.",
+          "Host-specific fields are supplied, but current schema verification is deferred to installation without identifying the documentation/version used. Add those references to complete the guide's host-format validation requirement."
+        ],
+        "passed": true
+      },
+      {
+        "id": "architecture_decision_record",
+        "scores": [
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Meaningful alternatives explain classification ownership, pagination, synchronization costs, compatibility, and performance verification without claiming implementation.",
+          "The accepted outcome has a date and baseline reference but does not identify the decision-maker required by the shared decision-record guide."
+        ],
+        "passed": true
+      },
+      {
+        "id": "bug_report",
+        "scores": [
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          2
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "The report preserves the baseline context, separates observations from the proposed cause, and links verification to the expected queue populations.",
+          "The reproduction refers to an unspecified 'existing review selection' and fixture namespace; naming the actual control and search value would make it independently repeatable.",
+          "Relevant files are listed without saying whether they were inspected or supplied by another investigator. The impact section also omits whether any workaround is known."
+        ],
+        "passed": true
+      },
+      {
+        "id": "decision_record",
+        "scores": [
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          2
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "The alternatives and recommendation clearly explain the discoverability-versus-toolbar-space tradeoff and agree with WEB-11.",
+          "The accepted outcome lacks a decision date and decision-maker. WEB-03, WEB-11, and T18 are named but have no links to their governing documents."
+        ],
+        "passed": true
+      },
+      {
+        "id": "design_decision_record",
+        "scores": [
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          2
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "The design correctly distinguishes per-request atomicity, definite rejection, uncertain commits, confirmed changed-row counts, reconciliation, and explicit retries.",
+          "The accepted record has a date but no decision-maker. It links the LLD but leaves the governing SDD and T16\u2013T17 as unlinked references despite the guide's linking requirement."
+        ],
+        "passed": true
+      },
+      {
+        "id": "explanation",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "The explanation directly answers why totals differ, uses uncited and deleted websites as concrete examples, and accurately separates classification from visibility.",
+          "Manual assignment, clearing, and server-side population agreement are explained with appropriate scope and links to the governing behavior and architectural reasoning."
+        ],
+        "passed": true
+      }
+    ],
+    "raw_record_sha256": "74f12672227ddd635fd180cd728b9b10c0c3b3535b65d2dce66015752fa89dba"
+  },
+  {
+    "run": "worked-example-audit/batch-06",
+    "model": "gpt-6.1-sol",
+    "status": "completed",
+    "input_kind": "Author-written worked examples; independent model audit, not independent generation or human review",
+    "results": [
+      {
+        "id": "high_level_document",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Clearly distinguishes the existing foundation from target architecture and explains component responsibilities, database authorization, transaction boundaries, partial failure, and recovery consistently with the SDD."
+        ],
+        "passed": true
+      },
+      {
+        "id": "how_to_guide",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Provides actionable administrator steps, observable save checks, clear-versus-assign outcomes, and recovery instructions that preserve confirmed progress and require reconciliation before retrying uncertain writes."
+        ],
+        "passed": true
+      },
+      {
+        "id": "implementation_plan",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Sequences prerequisites, migrations, measurements, interface work, and verification coherently; maps all twelve requirements to checks and preserves compatibility, committed history, and release approval boundaries."
+        ],
+        "passed": true
+      },
+      {
+        "id": "incident_report",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Matches the staging incident baseline and correctly accounts for 500 committed, 500 rejected, and one unattempted website. Separates immediate display recovery from the candidate-2 fix and supplies evidence references and verifiable follow-up work without claiming production deployment."
+        ],
+        "passed": true
+      },
+      {
+        "id": "issue",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Functions as a focused parent Feature with a clear problem, expected outcome, requirement-linked acceptance criteria, implementation dependencies, and explicit exclusions. Delegating detailed checks to the SDD and plan is appropriate for this document type."
+        ],
+        "passed": true
+      },
+      {
+        "id": "low_level_design",
+        "scores": [
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Defines classification, mutation validation, attribution, atomicity, browser state, and partial-write handling consistently with the governing behavior.",
+          "The read-contract detail needs minor completion: it says to normalize domain endings without specifying trimming whitespace and surrounding dots or lowercasing, and does not explicitly define unsupported queue rejection or Pending/Review's Added-descending default. These behaviors remain recoverable from the linked SDD and test specification, but spelling them out would make this internal contract more directly implementable."
+        ],
+        "passed": true
+      }
+    ],
+    "raw_record_sha256": "2b56822d70748977c51da53b9e1092c2277d28383ad91881073bea45e63fa2a9"
+  },
+  {
+    "run": "worked-example-audit/batch-12",
+    "model": "gpt-6.1-sol",
+    "status": "completed",
+    "input_kind": "Author-written worked examples; independent model audit, not independent generation or human review",
+    "results": [
+      {
+        "id": "policy",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Defines authority, accountability, compliance, and bounded exceptions, consistently with the shared behavior baseline. Links detailed enforcement and usage guidance without duplicating their scope."
+        ],
+        "passed": true
+      },
+      {
+        "id": "product_requirements_document",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Explains administrator problems, prioritized capabilities, journeys, exclusions, dependencies, and observable release outcomes. Keeps unknown adoption targets explicit and delegates detailed behavior to WEB-01\u2013WEB-12."
+        ],
+        "passed": true
+      },
+      {
+        "id": "readme",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Provides an appropriate entry point for a documentation collection, with tutorial prerequisites, expected outputs, audience-specific starting points, and maintained-document navigation. Clearly distinguishes tutorial completion from application acceptance."
+        ],
+        "passed": true
+      },
+      {
+        "id": "spec_driven_development",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Matches the approved baseline and supplies stable requirements with acceptance mappings. Preserves queue populations, administrator permissions, atomic request boundaries, uncertain-write recovery, compatibility, and measurable database limits."
+        ],
+        "passed": true
+      },
+      {
+        "id": "technical_standard",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Provides substantive definitions, principles, enforceable rules, verification methods, responsibilities, and exception limits.",
+          "CAT-03's verification row cites T11\u2013T12 for deleted-row protection, but that check belongs to T13. Add T13 to that mapping."
+        ],
+        "passed": true
+      },
+      {
+        "id": "test_completion_report",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Preserves R2's complete rerun boundary and correctly reconciles R1's 15 passed, 2 failed, 1 blocked, and 2 not-run cases. Maps all requirements to results, describes closed evidence gaps and remaining limits, and separates the rollout recommendation from release authorization."
+        ],
+        "passed": true
+      }
+    ],
+    "raw_record_sha256": "1d024abd22aac2820332dfe1a941dd367ce96c03202d0c28833a1a7925d96491"
+  },
+  {
+    "run": "worked-example-audit/batch-18",
+    "model": "gpt-6.1-sol",
+    "status": "completed",
+    "input_kind": "Author-written worked examples; independent model audit, not independent generation or human review",
+    "results": [
+      {
+        "id": "test_plan",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Defines risk-based testing, dependencies, observable entry and exit criteria, responsibilities, and reporting. Preserves request atomicity, uncertain-write reconciliation, compatibility, and performance obligations without claiming execution."
+        ],
+        "passed": true
+      },
+      {
+        "id": "test_specification",
+        "scores": [
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          2
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Fixtures, population totals, permission checks, batching arithmetic, and expected outcomes agree with the baseline.",
+          "Repeatability needs minor clarification: T02 references undefined migration M1, and setup names an established test helper without a locator.",
+          "T20 should explicitly require recording query text, sort, and measurement conditions, as WEB-12 requires."
+        ],
+        "passed": true
+      },
+      {
+        "id": "test_status_report",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Counts reconcile with R1: 15 passed, 2 failed, 1 blocked, and 2 not run. Clearly separates observed failures from persistence conclusions, identifies incomplete coverage, and preserves candidate-specific results and unmet release criteria."
+        ],
+        "passed": true
+      },
+      {
+        "id": "tutorial",
+        "scores": [
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Provides a focused, self-contained exercise with consistent fixture data, correct expected IDs and totals, troubleshooting, and useful next steps.",
+          "The guide requires clean-start validation or identification of what remains unverified; the tutorial provides expected output but no validation status."
+        ],
+        "passed": true
+      },
+      {
+        "id": "user_story",
+        "scores": [
+          3,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Defines a focused administrator outcome with observable success, failure, attribution, and refresh criteria, while explicitly separating bulk work.",
+          "The first acceptance criterion says any parked active website appears in Review; it should also require unverified status. WEB-01 excludes verified and other-status websites even when the parked predicate holds."
+        ],
+        "passed": true
+      },
+      {
+        "id": "visuals",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "The accessible sequence and accompanying prose correctly distinguish 500 confirmed, 500 unresolved, and 1 unattempted ID. They preserve per-request atomicity, reconciliation before retry, and explicit administrator retry behavior, with links to the decision record and T16."
+        ],
+        "passed": true
+      }
+    ],
+    "raw_record_sha256": "cb0fcd470283af7c76dc94e0224dfc4d7c67af70e852dda53d6fe94b29fddecd"
+  },
+  {
+    "run": "worked-example-audit-v2/batch-00",
+    "model": "gpt-6.1-sol",
+    "status": "completed",
+    "input_kind": "Author-written worked examples; independent model audit, not independent generation or human review",
+    "results": [
+      {
+        "id": "agents_and_skills",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "The three configurations distinguish their purposes, inputs, outputs, and authority boundaries. The skill preserves confirmed versus uncertain results without authorizing writes or external actions.",
+          "Validation appropriately distinguishes static format inspection from host activation and permission enforcement; it does not claim those checks have run."
+        ],
+        "passed": true
+      },
+      {
+        "id": "architecture_decision_record",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Compares meaningful architectural alternatives and explains consequences for database ownership, pagination, synchronization, compatibility, and performance.",
+          "The narrow classifier preserves separate deletion and citation visibility rules. Acceptance is explicitly distinguished from implementation and verification, with links to governing requirements and designs."
+        ],
+        "passed": true
+      },
+      {
+        "id": "bug_report",
+        "scores": [
+          3,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Includes the required report sections, separates expected behavior from observations, attributes relevant code locations, and keeps the suspected join cause provisional.",
+          "The reproduction searches for `__test_wrs`, but neither its prerequisites nor the shared fixture specification assigns that prefix to U3 and U3H. Specify matching fixture domains or instruct the reader to seed that prefix so the reproduction reliably selects both rows."
+        ],
+        "passed": true
+      },
+      {
+        "id": "decision_record",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Explains the toolbar constraint, compares two viable placements, and connects the recommendation to discoverability and available space.",
+          "Records decision authority and date, and traces the accepted placement to WEB-11 and the T18 layout checks without claiming implementation."
+        ],
+        "passed": true
+      },
+      {
+        "id": "design_decision_record",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Correctly distinguishes request atomicity from partial completion across sequential batches, including possible commits after response loss.",
+          "Compares stopping, automatic retries, and continuing; explains concurrent-edit and history risks; and requires reconciliation before an explicit retry. Links connect the decision to WEB-09, the LLD, and T16\u2013T17."
+        ],
+        "passed": true
+      },
+      {
+        "id": "explanation",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Directly explains why All is not the union of Pending and Review, using uncited and deleted websites to distinguish classification from visibility.",
+          "Connects assignment and clearing to their different queue transitions and explains why filtering must precede pagination. Its focused scope and design links provide sufficient depth for an explanation."
+        ],
+        "passed": true
+      }
+    ],
+    "raw_record_sha256": "edc497b9753ba77f579e0e53bf092961d60eb9df1ef26e51d5ad259341708289"
+  },
+  {
+    "run": "worked-example-audit-v2/batch-06",
+    "model": "gpt-6.1-sol",
+    "status": "completed",
+    "input_kind": "Author-written worked examples; independent model audit, not independent generation or human review",
+    "results": [
+      {
+        "id": "high_level_document",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Clearly separates existing foundations from target architecture and explains component responsibilities, database authorization, data ownership, transaction boundaries, and recovery.",
+          "Preserves All membership, uncited queue visibility, and uncertain-write handling; links behavior and detailed design to their governing documents. No concrete material issue found."
+        ],
+        "passed": true
+      },
+      {
+        "id": "how_to_guide",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Provides actionable administrator steps for finding Review websites, assigning categories, bulk clearing, checking results, and recovering from interrupted batches.",
+          "Accurately distinguishes committed, unresolved, and unattempted work and warns against repeating the entire selection. Its depth fits the user procedure. No concrete material issue found."
+        ],
+        "passed": true
+      },
+      {
+        "id": "implementation_plan",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Sequences prerequisite checks, compatible database contracts, index measurements, attributed mutation, interface changes, and acceptance verification with concrete outcomes.",
+          "Maps all twelve requirements to checks and addresses rollout, compatibility removal, monitoring, and preservation of committed history. Implementation readiness remains conditional on explicit prerequisite checks rather than assumed execution. No concrete material issue found."
+        ],
+        "passed": true
+      },
+      {
+        "id": "incident_report",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Matches the supplied staging incident: 500 committed, 500 rejected, one unattempted, and stale counts corrected by refresh and candidate-2 invalidation changes.",
+          "Includes a UTC timeline, evidence references, mitigation, verified recovery, contributing test gaps, and owned follow-up actions without implying production deployment. No concrete material issue found."
+        ],
+        "passed": true
+      },
+      {
+        "id": "issue",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Functions as a focused parent Feature with a clear problem, expected outcome, governing acceptance criteria, relevant implementation locations, and explicit exclusions.",
+          "Delegates detailed behavior and sequencing to the SDD and plan while requiring T01\u2013T20 evidence on the final candidate. No concrete material issue found."
+        ],
+        "passed": true
+      },
+      {
+        "id": "low_level_design",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Defines classification, shared read filtering, mutation inputs and errors, verification metadata, atomic journaling, concurrency, editor state, and sequential batch coordination.",
+          "Correctly validates supplied ID count before deduplication, distinguishes rejection from response loss, and requires reconciliation before explicit retry. Links migration compatibility and verification to the shared requirements. No concrete material issue found."
+        ],
+        "passed": true
+      }
+    ],
+    "raw_record_sha256": "1a9f0e1cc742387add5da4287823aa04b218c02904d5c0b70065da10c2a4b8a6"
+  },
+  {
+    "run": "worked-example-audit-v2/batch-12",
+    "model": "gpt-6.1-sol",
+    "status": "completed",
+    "input_kind": "Author-written worked examples; independent model audit, not independent generation or human review",
+    "results": [
+      {
+        "id": "policy",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Defines substantive principles, obligations, accountable roles, compliance review, and bounded exception authority. Its adopted example roles are permitted by the shared context, and its obligations agree with the SDD and technical standard."
+        ],
+        "passed": true
+      },
+      {
+        "id": "product_requirements_document",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Explains the administrator problem, required capabilities, exclusions, journeys, dependencies, and assessment methods. Keeps unknown adoption targets explicit and delegates detailed behavior to WEB-01\u2013WEB-12 without contradicting them."
+        ],
+        "passed": true
+      },
+      {
+        "id": "readme",
+        "scores": [
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Clearly identifies the documentation collection, audiences, navigation, and distinction between tutorial completion and application acceptance.",
+          "The Start section refers to a supplied fixture and 'the two commands' but includes neither a runnable first command nor the fixture. Readers must leave the README to obtain the working start required by its guide; adding a minimal first command would resolve this minor gap."
+        ],
+        "passed": true
+      },
+      {
+        "id": "spec_driven_development",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Matches the approved shared behavior baseline. Provides stable requirement IDs, observable acceptance mappings, permissions, boundary conditions, atomic request behavior, uncertain-outcome recovery, compatibility, and measurable database limits."
+        ],
+        "passed": true
+      },
+      {
+        "id": "technical_standard",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Establishes policy authority, definitions, substantive principles, distinct checkable rules, responsibilities, and exception limits. Each CAT rule maps to relevant acceptance checks, while behavioral authority remains with the SDD."
+        ],
+        "passed": true
+      },
+      {
+        "id": "test_completion_report",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Preserves R2's build, environment, reporting boundary, and complete-rerun identity. Its 20 passing cases and candidate 1's 15/2/1/2 disposition reconcile with the shared evidence baseline.",
+          "Maps requirements to results and evidence identifiers, explains closure of earlier failures and blocked testing, states measurement limits and residual risks, and separates the rollout recommendation from release authorization."
+        ],
+        "passed": true
+      }
+    ],
+    "raw_record_sha256": "917324ff544ef9161972b21702688afd2bdabe87ee40660961e4003ec55b1509"
+  },
+  {
+    "run": "worked-example-audit-v2/batch-18",
+    "model": "gpt-6.1-sol",
+    "status": "completed",
+    "input_kind": "Author-written worked examples; independent model audit, not independent generation or human review",
+    "results": [
+      {
+        "id": "test_plan",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Defines risk-based scope, environments, responsibilities, dependencies, observable entry/exit criteria, and reporting. Preserves all-20-case final-candidate acceptance, transaction uncertainty, and database performance requirements. Clearly separates planned assessment from execution evidence."
+        ],
+        "passed": true
+      },
+      {
+        "id": "test_specification",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Provides consistent fixtures, requirement-linked cases, expected outcomes, execution dependencies, and cleanup. Population totals and batch arithmetic reconcile. Covers direct authorization, atomic rollback, response loss, explicit retry, compatibility, and measured database limits without presenting planned checks as passed results."
+        ],
+        "passed": true
+      },
+      {
+        "id": "test_status_report",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Accurately preserves R1's build, period, and results: 15 passed, 2 failed, 1 blocked, and 2 not run; 17 executed. Explains acceptance gaps, risks, evidence, and next work while keeping later candidate results separate. Performance observations are appropriately scoped to the example snapshot."
+        ],
+        "passed": true
+      },
+      {
+        "id": "tutorial",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Supplies a complete local exercise with prerequisites, executable commands, expected output, troubleshooting, and a completion check. Fixture membership correctly produces All=6, Pending=4, and Review=3. Explains classification, active visibility, and citation membership without pretending to implement the parked rule."
+        ],
+        "passed": true
+      },
+      {
+        "id": "user_story",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "States a focused administrator need and benefit with observable acceptance criteria. Preserves uncited Review membership, save progress, attributable persistence, failure retention, permission enforcement, and count refresh. Explicitly places bulk changes and clearing in separate slices and traces the journey to requirements and tests."
+        ],
+        "passed": true
+      },
+      {
+        "id": "visuals",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "The accessible sequence diagram and accompanying prose consistently explain 500 confirmed, 500 unresolved, and 1 unattempted ID. Correctly distinguishes request atomicity from selection-wide transactions and requires reconciliation before an explicit retry. Identifies the design scenario and links its decision rationale and acceptance check."
+        ],
+        "passed": true
+      }
+    ],
+    "raw_record_sha256": "1df444921bfc2ad088e3c32ed1c0c2b356adc161d46cd62239b609793d820fe1"
+  },
+  {
+    "run": "worked-example-audit-v3/batch-00",
+    "model": "gpt-6.1-sol",
+    "status": "completed",
+    "input_kind": "Author-written worked examples; independent model audit, not independent generation or human review",
+    "results": [
+      {
+        "id": "bug_report",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Clearly identifies the pre-change baseline and contrasts cited U3 with uncited U3H without changing the intended All population.",
+          "Includes reproducible steps, expected and actual results, three reproduction attempts, bounded impact, attributed investigation locations, and planned verification.",
+          "Keeps the citation join as a candidate cause and traces verification to WEB-02, T03, and T06."
+        ],
+        "passed": true
+      },
+      {
+        "id": "readme",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Provides an appropriate entry point for a documentation collection, with prerequisites, a concrete tutorial command, expected output, and links organized by reader need.",
+          "Preserves the distinct All, Pending, and Review totals and clearly separates tutorial completion from application acceptance.",
+          "Uses concise, connected prose and keeps application setup outside the documentation collection's scope."
+        ],
+        "passed": true
+      },
+      {
+        "id": "test_specification",
+        "scores": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "critical_failures": [],
+        "reasons": [
+          "Traces T01\u2013T20 to WEB-01\u2013WEB-12 and supplies fixture data, roles, expected populations, execution dependencies, reset procedures, and cleanup.",
+          "Covers authorization, atomic rollback, concurrent attribution, supplied-ID limits, partial completion, and uncertain responses without implying that missing responses prove rollback.",
+          "Fixture totals and 500/500/1 batch arithmetic agree with the shared baseline; performance checks preserve database timing and buffer limits.",
+          "Keeps expected outcomes separate from run evidence and requires blocked reporting when essential test facilities are unavailable."
+        ],
+        "passed": true
+      }
+    ],
+    "raw_record_sha256": "4fa89e1375c32adddb711c8d33a507e00c6a15b5eef8b91f9a4fdb398d2cbfd0"
+  }
+]

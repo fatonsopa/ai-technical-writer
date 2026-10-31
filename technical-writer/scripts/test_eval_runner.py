@@ -50,6 +50,7 @@ class RunnerTests(unittest.TestCase):
     def test_generation_hides_grader_inputs(self):
         def fake(work, output, prompt, model, grading=False):
             self.assertFalse((work / 'skill/evals').exists())
+            self.assertTrue((work / 'skill/examples/user_story.md').is_file())
             request = json.loads((work / 'requests.json').read_text())[0]
             self.assertEqual(set(request), {'id','request','source'})
             self.assertNotIn('expected_properties', request)
@@ -133,6 +134,30 @@ class RunnerTests(unittest.TestCase):
         with patch.object(runner, 'invoke', fake): runner.grade(('sdd',[self.case]), self.args)
         record = json.loads((self.args.out / 'sdd/record.json').read_text())
         self.assertFalse(record['results'][0]['passed'])
+
+    def test_complete_bug_cannot_combine_results_or_omit_files(self):
+        self.case = next(c for c in runner.cases() if c['id'] == 'bug_report-create')
+        folder = self.args.generated / 'bug_report'; folder.mkdir(parents=True)
+        (folder / 'record.json').write_text(json.dumps({'status':'completed','results':[
+            {'id':self.case['id'],'content':'# Bug\n\n## Expected and actual results\nA mismatch.'}]}))
+        def fake(work, output, *args, **kwargs):
+            packet=json.loads((work / 'packet.json').read_text())
+            self.assertIn('How to reproduce', packet['cases'][0]['required_sections'])
+            output.mkdir(parents=True)
+            return {'status':'completed','results':[{'id':self.case['id'],'scores':[3]*7,
+                    'critical_failures':[],'reasons':['Missed required structure.']}]}
+        with patch.object(runner, 'invoke', fake): runner.grade(('bug_report',[self.case]), self.args)
+        record = json.loads((self.args.out / 'bug_report/record.json').read_text())
+        failures = record['results'][0]['critical_failures']
+        self.assertFalse(record['results'][0]['passed'])
+        self.assertIn('Missing/empty required bug section: Relevant files', failures)
+        self.assertIn('Missing/empty required bug section: How to reproduce', failures)
+
+    def test_issue_contract_respects_description_only_scope(self):
+        complete = next(c for c in runner.cases() if c['id'] == 'issue_chore-create')
+        narrow = next(c for c in runner.cases() if c['id'] == 'accept-small-chore')
+        self.assertIn('Acceptance criteria', runner.required_sections(complete))
+        self.assertEqual(runner.required_sections(narrow), [])
 
 
 if __name__ == '__main__': unittest.main()

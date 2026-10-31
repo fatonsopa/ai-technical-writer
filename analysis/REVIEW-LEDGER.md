@@ -49,3 +49,25 @@ Grader protocol repair: initial grading omitted actual tool actions and confused
 - Baseline SDD output was titled “software design document.” Its behavioral content received passing model scores, but that title contradicts the user's explicit SDD convention. Added a variant-independent title check for this known acronym confusion. This deterministic contract check is reported separately from the original model scores.
 
 - Final naming audit: the issue links used the correct path but retained visible “Work items” labels and a Work Item catalog heading. Renamed the guide heading and active link labels to Issue, kept the accepted term only as an alias, and checked all active titles and paths. Added negative tests for a stale issue label and mismatched guide heading. Historical filenames remain only in migration/history records and deliberate negative tests.
+
+## Bug structure correction from the user's review
+
+The user found that the refactor merged expected and actual results, used an alternative reproduction heading, and omitted a dedicated Relevant files section. The original shared conversation's first answer and the preserved first bug guide were reread on 2026-10-31. The current Desktop file contains only the later taxonomy discussion, so the original shared page supplied the earlier structure. Historical proposals were reconciled with the user's current exact heading requirement.
+
+The previous content-oriented evaluations accepted merged fields and therefore missed a required structure. Restored Description, Environment, Prerequisites when applicable, How to reproduce, separate Expected result and Actual result, Reproduction frequency, Severity and impact, Evidence, Relevant files, and Verification; Additional context remains optional. Both template and completed example use the structure. Added deterministic section gates and negative tests for merged results, missing Relevant files, and the reproduction heading. Added an attributed-file fixture as well as the repository-unavailable cases. Do not treat the earlier passing scores as evidence that these structural requirements were already satisfied.
+
+## Connected examples and new observed failures
+
+The user selected Websites Review and asked for finished examples without source/addition labels. Created the PRD first and plan second, then the other complete formats. References now load their matching external example for full writing while keeping narrow operations focused. Internal provenance is in validation/example_source_manifest.json.
+
+Independent model audit found useful refinements: qualify the story with unverified status, include T13 in deleted-row verification, make LLD normalization/defaults explicit, improve bug reproduction and source context, add decision authorities/links, identify TS setup/M1, and report the actual offline tutorial check. These refinements were applied and the collection re-audited. Rendering found semicolon-sensitive Mermaid sequence syntax; the corrected diagram was rendered and visually inspected.
+
+The new full regression run exposed two additional failures. issue_decision-edit retained an obsolete Feature-comment drafting direction despite the current Decision destination. The Issue guide now explains how to resolve stale author directions during a narrow edit. standard-rewrite left every verification method unspecified, so it did not produce a usable standard. The standard guide now permits clearly proposed checks derived from existing rules while preserving unknown tools, approval and execution. Retain the failed outputs and all targeted retests; do not replace the first scores with repaired ones.
+
+### Grader correction for explicit review output format
+
+The full run initially marked three language samples failed because they returned prose instead of findings. Direct inspection showed that all three requests explicitly said “Return the requested prose or title,” and the predefined properties/permitted actions also requested that form. The outputs preserved the valid passive sentence, valid heading and ordered instructions. This was a grader error, not a writing failure. Correct the grader to honor explicit requested response form before generic operation defaults, keep the first grades, regrade the saved 26 outputs, and recalibrate against all controls. No source or expected property was relaxed.
+
+An initial local patch command failed before changing the grader; its following regrade/calibration commands had already started using the old prompt. Preserve those attempts and use new result directories after applying the actual correction.
+
+The duplicate regrade that started before the patch also accepted all 26 saved style outputs. This exposes grader variance as well as the original instruction-precedence error; the later pass is not evidence that prompt wording alone caused a score improvement. The corrected grader explicitly matches the already defined request format, and all labeled controls were checked again. Original and duplicate attempts remain in the run registry.

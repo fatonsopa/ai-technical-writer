@@ -30,31 +30,7 @@ Use identity/purpose, prerequisites, getting started, verification/tests, useful
 
 ## Completed example
 
-Fictional repository contract: Python 3, no external packages; report.py reads sample.json and prints its project field; tests/test_report.py checks that behavior. These names and commands are assumptions of this example.
-
-```md
-# Project name reader
-
-This small Python command reads a project's name from JSON and prints it. It demonstrates a local report without a server or database.
-
-## Start
-Install Python 3 and open a terminal in the repository folder. The supplied sample.json contains {"project": "Example App"}. Run:
-
-    python3 report.py sample.json
-
-The command prints Example App.
-
-## Check the result
-Run the supplied tests:
-
-    python3 -m unittest discover -s tests
-
-## Find your way around
-report.py contains the command. sample.json is the starting input. tests/test_report.py checks the expected output.
-
-## Limits and help
-The input must contain the project field. This example makes no license or support-channel claim. Its maintained behavior source is the command contract described above.
-```
+Read the [complete Websites Review example](../examples/readme.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 
