@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "domains": [
+    {
+      "name": "writing-guidance",
+      "purpose": "Document intent, format, language and coordinated writing procedures.",
+      "owned_paths": [
+        "SKILL.md",
+        "references/",
+        "examples/",
+        "workflows/"
+      ],
+      "depends_on": []
+    },
+    {
+      "name": "document-validation",
+      "purpose": "Mechanical output structures and exact data checks.",
+      "owned_paths": [
+        "contracts/",
+        "scripts/document_contracts.py",
+        "scripts/plain_words.py",
+        "scripts/zero_loss.py"
+      ],
+      "depends_on": [
+        "writing-guidance"
+      ]
+    },
+    {
+      "name": "document-delivery",
+      "purpose": "Freeze source inputs, review judgments and deliver accepted bytes.",
+      "owned_paths": [
+        "scripts/validate_document.py"
+      ],
+      "depends_on": [
+        "document-validation"
+      ]
+    },
+    {
+      "name": "behavioral-evaluation",
+      "purpose": "Cases, fixtures, grades, bounded handoffs and honest quality summaries.",
+      "owned_paths": [
+        "evals/run.py",
+        "evals/evaluation.py",
+        "evals/grades.py",
+        "evals/audit_examples.py",
+        "evals/cases/",
+        "evals/fixtures/",
+        "evals/rubrics/"
+      ],
+      "depends_on": [
+        "document-validation",
+        "document-delivery",
+        "host-adapters"
+      ]
+    },
+    {
+      "name": "host-adapters",
+      "purpose": "Transport optional provider invocations without owning acceptance rules.",
+      "owned_paths": [
+        "evals/adapters/"
+      ],
+      "depends_on": []
+    },
+    {
+      "name": "repository",
+      "purpose": "Root layout, dependency declarations, installation and integrity.",
+      "owned_paths": [
+        "scripts/repository_files.py",
+        "scripts/repository_layout.py",
+        "scripts/install_skill.py",
+        "scripts/validate_skill.py",
+        "scripts/smoke_check.py",
+        "scripts/requirements.txt",
+        "scripts/requirements-lock.txt"
+      ],
+      "depends_on": [
+        "document-validation",
+        "document-delivery"
+      ]
+    }
+  ]
+}

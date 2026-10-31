@@ -1,0 +1,1125 @@
+{
+  "schema_version": 1,
+  "policy": "These are output contracts, not the headings of the reference guide. Full create/rewrite/edit documents use their complete contract; title/excerpt edits and reviews retain scope. Semantic review remains required. Approved aliases identify equivalent section roles; optional/conditional sections are explicit.",
+  "profiles": {
+    "issue": {
+      "format": "document",
+      "sections": [
+        {
+          "id": "Description",
+          "level": 2,
+          "labels": [
+            "Description"
+          ],
+          "required": true
+        },
+        {
+          "id": "Expected outcome",
+          "level": 2,
+          "labels": [
+            "Expected outcome"
+          ],
+          "required": true
+        },
+        {
+          "id": "Scope",
+          "level": 2,
+          "labels": [
+            "Scope"
+          ],
+          "required": false
+        },
+        {
+          "id": "Specification",
+          "level": 2,
+          "labels": [
+            "Specification"
+          ],
+          "required": false
+        },
+        {
+          "id": "Acceptance criteria",
+          "level": 2,
+          "labels": [
+            "Acceptance criteria"
+          ],
+          "required": true
+        },
+        {
+          "id": "Relevant files",
+          "level": 2,
+          "labels": [
+            "Relevant files"
+          ],
+          "required": false
+        },
+        {
+          "id": "Additional context",
+          "level": 2,
+          "labels": [
+            "Additional context"
+          ],
+          "required": false
+        }
+      ]
+    },
+    "bug": {
+      "format": "document",
+      "sections": [
+        {
+          "id": "Description",
+          "level": 2,
+          "labels": [
+            "Description"
+          ],
+          "required": true
+        },
+        {
+          "id": "Environment",
+          "level": 2,
+          "labels": [
+            "Environment"
+          ],
+          "required": true
+        },
+        {
+          "id": "How to reproduce",
+          "level": 2,
+          "labels": [
+            "How to reproduce"
+          ],
+          "required": true
+        },
+        {
+          "id": "Expected result",
+          "level": 2,
+          "labels": [
+            "Expected result"
+          ],
+          "required": true
+        },
+        {
+          "id": "Actual result",
+          "level": 2,
+          "labels": [
+            "Actual result"
+          ],
+          "required": true
+        },
+        {
+          "id": "Reproduction frequency",
+          "level": 2,
+          "labels": [
+            "Reproduction frequency"
+          ],
+          "required": true
+        },
+        {
+          "id": "Severity and impact",
+          "level": 2,
+          "labels": [
+            "Severity and impact"
+          ],
+          "required": true
+        },
+        {
+          "id": "Evidence",
+          "level": 2,
+          "labels": [
+            "Evidence"
+          ],
+          "required": true
+        },
+        {
+          "id": "Relevant files",
+          "level": 2,
+          "labels": [
+            "Relevant files"
+          ],
+          "required": true
+        },
+        {
+          "id": "Verification",
+          "level": 2,
+          "labels": [
+            "Verification"
+          ],
+          "required": true
+        },
+        {
+          "id": "Prerequisites",
+          "level": 2,
+          "labels": [
+            "Prerequisites"
+          ],
+          "required": false
+        },
+        {
+          "id": "Additional context",
+          "level": 2,
+          "labels": [
+            "Additional context"
+          ],
+          "required": false
+        }
+      ]
+    },
+    "decision": {
+      "format": "document",
+      "sections": [
+        {
+          "id": "Options considered",
+          "level": 2,
+          "labels": [
+            "Options considered"
+          ],
+          "required": true,
+          "children": [
+            {
+              "id": "At least two named options",
+              "level": 3,
+              "pattern": "Option [A-Za-z0-9]+: .+",
+              "minimum": 2
+            }
+          ]
+        },
+        {
+          "id": "Recommended option",
+          "level": 2,
+          "pattern": "Recommended option \\([A-Za-z0-9]+\\)",
+          "required": true
+        },
+        {
+          "id": "Outcome",
+          "level": 2,
+          "labels": [
+            "Outcome"
+          ],
+          "required": false,
+          "when": "decision_made"
+        }
+      ],
+      "ordered": true
+    },
+    "instructions": {
+      "format": "frontmatter",
+      "sections": []
+    }
+  },
+  "documents": {
+    "issue_chore": {
+      "reference": "references/issue.md",
+      "task_type": "Chore",
+      "profile": "issue"
+    },
+    "issue_decision": {
+      "reference": "references/issue.md",
+      "task_type": "Decision",
+      "profile": "issue"
+    },
+    "issue_feature": {
+      "reference": "references/issue.md",
+      "task_type": "Feature",
+      "profile": "issue"
+    },
+    "issue_improvement": {
+      "reference": "references/issue.md",
+      "task_type": "Improvement",
+      "profile": "issue"
+    },
+    "issue_release": {
+      "reference": "references/issue.md",
+      "task_type": "Release",
+      "profile": "issue"
+    },
+    "issue_bug": {
+      "reference": "references/bug_report.md",
+      "task_type": "Bug",
+      "profile": "bug"
+    },
+    "bug_report": {
+      "reference": "references/bug_report.md",
+      "profile": "bug"
+    },
+    "user_story": {
+      "reference": "references/user_story.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Acceptance criteria",
+          "level": 2,
+          "labels": [
+            "Acceptance criteria"
+          ],
+          "required": true
+        },
+        {
+          "id": "Scope and sources",
+          "level": 2,
+          "labels": [
+            "Scope and sources",
+            "Context and scope"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "prd": {
+      "reference": "references/product_requirements_document.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Problem and users",
+          "level": 2,
+          "labels": [
+            "Problem and users"
+          ],
+          "required": true
+        },
+        {
+          "id": "Goals and success criteria",
+          "level": 2,
+          "labels": [
+            "Goals and success criteria"
+          ],
+          "required": true
+        },
+        {
+          "id": "Scope and capabilities",
+          "level": 2,
+          "labels": [
+            "Scope and capabilities",
+            "Scope and priorities"
+          ],
+          "required": true
+        },
+        {
+          "id": "User journeys",
+          "level": 2,
+          "labels": [
+            "User journeys"
+          ],
+          "required": true
+        },
+        {
+          "id": "Dependencies, risks, and open decisions",
+          "level": 2,
+          "labels": [
+            "Dependencies, risks, and open decisions",
+            "Dependencies, risks, and decisions"
+          ],
+          "required": true
+        },
+        {
+          "id": "Related specifications",
+          "level": 2,
+          "labels": [
+            "Related specifications",
+            "Acceptance and follow-up"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "sdd": {
+      "reference": "references/spec_driven_development.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Purpose and scope",
+          "level": 2,
+          "labels": [
+            "Purpose and scope"
+          ],
+          "required": true
+        },
+        {
+          "id": "Definitions",
+          "level": 2,
+          "labels": [
+            "Definitions"
+          ],
+          "required": true
+        },
+        {
+          "id": "Scenarios",
+          "level": 2,
+          "labels": [
+            "Scenarios"
+          ],
+          "required": true
+        },
+        {
+          "id": "Requirements and business rules",
+          "level": 2,
+          "labels": [
+            "Requirements and business rules"
+          ],
+          "required": true
+        },
+        {
+          "id": "Quality and interface constraints",
+          "level": 2,
+          "labels": [
+            "Quality and interface constraints"
+          ],
+          "required": true
+        },
+        {
+          "id": "Acceptance criteria",
+          "level": 2,
+          "labels": [
+            "Acceptance criteria"
+          ],
+          "required": true
+        },
+        {
+          "id": "Open decisions",
+          "level": 2,
+          "labels": [
+            "Open decisions",
+            "Open decisions and changes"
+          ],
+          "required": true
+        },
+        {
+          "id": "Related design and work",
+          "level": 2,
+          "labels": [
+            "Related design and work"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "requirement": {
+      "reference": "references/spec_driven_development.md",
+      "format": "requirement",
+      "sections": []
+    },
+    "hld": {
+      "reference": "references/high_level_document.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Scope, terms, and drivers",
+          "level": 2,
+          "labels": [
+            "Scope, terms, and drivers"
+          ],
+          "required": true
+        },
+        {
+          "id": "Context and components",
+          "level": 2,
+          "labels": [
+            "Context and components",
+            "Target components and responsibilities"
+          ],
+          "required": true
+        },
+        {
+          "id": "Runtime and data flow",
+          "level": 2,
+          "labels": [
+            "Runtime and data flow"
+          ],
+          "required": true
+        },
+        {
+          "id": "Deployment and operations",
+          "level": 2,
+          "labels": [
+            "Deployment and operations"
+          ],
+          "required": true
+        },
+        {
+          "id": "Decisions and risks",
+          "level": 2,
+          "labels": [
+            "Decisions and risks"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "lld": {
+      "reference": "references/low_level_design.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Scope and requirements",
+          "level": 2,
+          "labels": [
+            "Scope and requirements"
+          ],
+          "required": true
+        },
+        {
+          "id": "Internal design",
+          "level": 2,
+          "labels": [
+            "Internal design",
+            "Classification and read contracts"
+          ],
+          "required": true
+        },
+        {
+          "id": "Failure and compatibility behavior",
+          "level": 2,
+          "labels": [
+            "Failure and compatibility behavior",
+            "Browser state and failure handling"
+          ],
+          "required": true
+        },
+        {
+          "id": "Decisions and verification",
+          "level": 2,
+          "labels": [
+            "Decisions and verification"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "decision": {
+      "reference": "references/decision_record.md",
+      "profile": "decision"
+    },
+    "adr": {
+      "reference": "references/architecture_decision_record.md",
+      "profile": "decision"
+    },
+    "ddr": {
+      "reference": "references/design_decision_record.md",
+      "profile": "decision"
+    },
+    "plan": {
+      "reference": "references/implementation_plan.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Goal and specification",
+          "level": 2,
+          "labels": [
+            "Goal and specification"
+          ],
+          "required": true
+        },
+        {
+          "id": "Current context and approach",
+          "level": 2,
+          "labels": [
+            "Current context and approach"
+          ],
+          "required": true
+        },
+        {
+          "id": "Work sequence",
+          "level": 2,
+          "labels": [
+            "Work sequence"
+          ],
+          "required": true
+        },
+        {
+          "id": "Requirement coverage",
+          "level": 2,
+          "labels": [
+            "Requirement coverage"
+          ],
+          "required": true
+        },
+        {
+          "id": "Rollout and recovery",
+          "level": 2,
+          "labels": [
+            "Rollout and recovery"
+          ],
+          "required": true
+        },
+        {
+          "id": "Risks and open decisions",
+          "level": 2,
+          "labels": [
+            "Risks and open decisions",
+            "Risks and readiness limits"
+          ],
+          "required": true
+        }
+      ],
+      "ordered": true
+    },
+    "policy": {
+      "reference": "references/policy.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Purpose and scope",
+          "level": 2,
+          "labels": [
+            "Purpose and scope"
+          ],
+          "required": true
+        },
+        {
+          "id": "Definitions",
+          "level": 2,
+          "labels": [
+            "Definitions"
+          ],
+          "required": true
+        },
+        {
+          "id": "Principles",
+          "level": 2,
+          "labels": [
+            "Principles"
+          ],
+          "required": true
+        },
+        {
+          "id": "Policy obligations",
+          "level": 2,
+          "labels": [
+            "Policy obligations"
+          ],
+          "required": true
+        },
+        {
+          "id": "Responsibilities and compliance",
+          "level": 2,
+          "labels": [
+            "Responsibilities and compliance"
+          ],
+          "required": true
+        },
+        {
+          "id": "Exceptions",
+          "level": 2,
+          "labels": [
+            "Exceptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "Ownership, review, and related standards",
+          "level": 2,
+          "labels": [
+            "Ownership, review, and related standards"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "standard": {
+      "reference": "references/technical_standard.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Purpose and scope",
+          "level": 2,
+          "labels": [
+            "Purpose and scope"
+          ],
+          "required": true
+        },
+        {
+          "id": "Definitions",
+          "level": 2,
+          "labels": [
+            "Definitions"
+          ],
+          "required": true
+        },
+        {
+          "id": "Principles",
+          "level": 2,
+          "labels": [
+            "Principles"
+          ],
+          "required": true
+        },
+        {
+          "id": "Rules",
+          "level": 2,
+          "labels": [
+            "Rules"
+          ],
+          "required": true
+        },
+        {
+          "id": "Verification",
+          "level": 2,
+          "labels": [
+            "Verification"
+          ],
+          "required": true
+        },
+        {
+          "id": "Responsibilities and exceptions",
+          "level": 2,
+          "labels": [
+            "Responsibilities and exceptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "Ownership, review, and related policy",
+          "level": 2,
+          "labels": [
+            "Ownership, review, and related policy"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "tp": {
+      "reference": "references/test_plan.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Objectives and scope",
+          "level": 2,
+          "labels": [
+            "Objectives and scope"
+          ],
+          "required": true
+        },
+        {
+          "id": "Approach and resources",
+          "level": 2,
+          "labels": [
+            "Approach and resources"
+          ],
+          "required": true
+        },
+        {
+          "id": "Entry and exit criteria",
+          "alternatives": [
+            [
+              {
+                "id": "Entry and exit criteria",
+                "level": 2,
+                "labels": [
+                  "Entry and exit criteria"
+                ],
+                "required": true
+              }
+            ],
+            [
+              {
+                "id": "Entry criteria",
+                "level": 2,
+                "labels": [
+                  "Entry criteria"
+                ],
+                "required": true
+              },
+              {
+                "id": "Exit criteria",
+                "level": 2,
+                "labels": [
+                  "Exit criteria"
+                ],
+                "required": true
+              }
+            ]
+          ]
+        },
+        {
+          "id": "Reporting and follow-up",
+          "level": 2,
+          "labels": [
+            "Reporting and follow-up"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "ts": {
+      "reference": "references/test_specification.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Coverage and setup",
+          "level": 2,
+          "labels": [
+            "Coverage and setup"
+          ],
+          "required": true
+        },
+        {
+          "id": "Cases",
+          "alternatives": [
+            [
+              {
+                "id": "Cases",
+                "level": 2,
+                "labels": [
+                  "Cases"
+                ],
+                "required": true
+              }
+            ],
+            [
+              {
+                "id": "Read and authorization cases",
+                "level": 2,
+                "labels": [
+                  "Read and authorization cases"
+                ],
+                "required": true
+              },
+              {
+                "id": "Editing and mutation cases",
+                "level": 2,
+                "labels": [
+                  "Editing and mutation cases"
+                ],
+                "required": true
+              },
+              {
+                "id": "Interface, compatibility, and performance cases",
+                "level": 2,
+                "labels": [
+                  "Interface, compatibility, and performance cases"
+                ],
+                "required": true
+              }
+            ]
+          ]
+        },
+        {
+          "id": "Procedure and cleanup",
+          "level": 2,
+          "labels": [
+            "Procedure and cleanup"
+          ],
+          "required": true
+        },
+        {
+          "id": "Open prerequisites",
+          "level": 2,
+          "labels": [
+            "Open prerequisites"
+          ],
+          "required": false,
+          "when": "open_prerequisites"
+        }
+      ]
+    },
+    "tsr": {
+      "reference": "references/test_status_report.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Progress and results",
+          "level": 2,
+          "labels": [
+            "Progress and results"
+          ],
+          "required": true
+        },
+        {
+          "id": "Blockers and risks",
+          "level": 2,
+          "labels": [
+            "Blockers and risks",
+            "Coverage, blockers, and risks"
+          ],
+          "required": true
+        },
+        {
+          "id": "Next work",
+          "level": 2,
+          "labels": [
+            "Next work"
+          ],
+          "required": true
+        },
+        {
+          "id": "Sources",
+          "level": 2,
+          "labels": [
+            "Sources"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "tcr": {
+      "reference": "references/test_completion_report.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Testing and results",
+          "level": 2,
+          "labels": [
+            "Testing and results"
+          ],
+          "required": true
+        },
+        {
+          "id": "Deviations and remaining risks",
+          "level": 2,
+          "labels": [
+            "Deviations and remaining risks",
+            "Defect disposition and deviations"
+          ],
+          "required": true
+        },
+        {
+          "id": "Assessment and follow-up",
+          "level": 2,
+          "labels": [
+            "Assessment and follow-up"
+          ],
+          "required": true
+        },
+        {
+          "id": "Sources",
+          "level": 2,
+          "labels": [
+            "Sources"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "tutorial": {
+      "reference": "references/tutorial.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Before you begin",
+          "level": 2,
+          "labels": [
+            "Before you begin"
+          ],
+          "required": true
+        },
+        {
+          "id": "Steps",
+          "level": 2,
+          "labels": [
+            "Steps"
+          ],
+          "required": true
+        },
+        {
+          "id": "Check your result",
+          "level": 2,
+          "labels": [
+            "Check your result"
+          ],
+          "required": true
+        },
+        {
+          "id": "What you learned",
+          "level": 2,
+          "labels": [
+            "What you learned"
+          ],
+          "required": true
+        }
+      ],
+      "ordered": true
+    },
+    "howto": {
+      "reference": "references/how_to_guide.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Before you begin",
+          "level": 2,
+          "labels": [
+            "Before you begin"
+          ],
+          "required": true
+        },
+        {
+          "id": "Steps",
+          "level": 2,
+          "labels": [
+            "Steps",
+            "Find the websites"
+          ],
+          "required": true
+        },
+        {
+          "id": "Confirm success",
+          "level": 2,
+          "labels": [
+            "Confirm success"
+          ],
+          "required": true
+        },
+        {
+          "id": "If it fails",
+          "level": 2,
+          "labels": [
+            "If it fails",
+            "Recover from an interrupted bulk change"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "explanation": {
+      "reference": "references/explanation.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Context",
+          "level": 2,
+          "labels": [
+            "Context",
+            "Classification and visibility"
+          ],
+          "required": true
+        },
+        {
+          "id": "How it works and why",
+          "level": 2,
+          "labels": [
+            "How it works and why",
+            "What a manual decision changes"
+          ],
+          "required": true
+        },
+        {
+          "id": "Tradeoffs and limits",
+          "level": 2,
+          "labels": [
+            "Tradeoffs and limits"
+          ],
+          "required": true
+        },
+        {
+          "id": "Related sources",
+          "level": 2,
+          "labels": [
+            "Related sources",
+            "Why counts must come from the same rules"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "readme": {
+      "reference": "references/readme.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Start",
+          "level": 2,
+          "labels": [
+            "Start",
+            "Installation",
+            "Getting started"
+          ],
+          "required": true
+        },
+        {
+          "id": "Check the result",
+          "level": 2,
+          "labels": [
+            "Check the result",
+            "Verification",
+            "Tests"
+          ],
+          "required": true
+        },
+        {
+          "id": "Find your way around",
+          "level": 2,
+          "labels": [
+            "Find your way around",
+            "Documentation"
+          ],
+          "required": true
+        },
+        {
+          "id": "Limits and help",
+          "level": 2,
+          "labels": [
+            "Limits and help",
+            "Limits and maintenance",
+            "Support"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "incident": {
+      "reference": "references/incident_report.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Status and impact",
+          "level": 2,
+          "labels": [
+            "Status and impact"
+          ],
+          "required": true
+        },
+        {
+          "id": "Timeline and evidence",
+          "level": 2,
+          "labels": [
+            "Timeline and evidence"
+          ],
+          "required": true
+        },
+        {
+          "id": "Response and recovery",
+          "level": 2,
+          "labels": [
+            "Response and recovery"
+          ],
+          "required": true
+        },
+        {
+          "id": "Causes and lessons",
+          "level": 2,
+          "labels": [
+            "Causes and lessons"
+          ],
+          "required": true
+        },
+        {
+          "id": "Follow-up",
+          "level": 2,
+          "labels": [
+            "Follow-up"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "agent": {
+      "reference": "references/agents_and_skills.md",
+      "profile": "instructions"
+    },
+    "skill": {
+      "reference": "references/agents_and_skills.md",
+      "profile": "instructions"
+    },
+    "output_style": {
+      "reference": "references/agents_and_skills.md",
+      "profile": "instructions"
+    },
+    "visual": {
+      "reference": "references/visuals.md",
+      "format": "visual",
+      "sections": [],
+      "title_levels": [
+        1,
+        3
+      ]
+    }
+  }
+}

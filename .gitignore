@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 .venv/
-technical-writer/evals/runs/
-analysis/local/
+evals/runs/
 node_modules/
+runs/
+/dist/
