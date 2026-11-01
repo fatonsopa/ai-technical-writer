@@ -48,9 +48,10 @@ This view shows responsibilities and data relationships, not the order of a requ
 
 ```text
 %% Diagram: Architecture diagram
-%% Subtitle: The page uses shared filters to load and select websites. Each category update also records who changed what.
+%% View: detail
+%% Subtitle: Read filters, category changes and their audit history.
 flowchart LR
-    accTitle: How the Websites page reads and saves data
+    accTitle: Website data access
     accDescr: The administrator uses the Websites page. Shared read rules keep rows, counts and matching IDs consistent. An authorized mutation commits category changes with their history.
     A("1. Administrator") -->|Browse and edit| UI["2. Websites page"]
     UI -->|Request filtered rows, counts or IDs| R["3. Administration reads"]
@@ -75,78 +76,37 @@ The classifier decides queue state; the shared predicate adds active-row visibil
 
 Opening a tab requests its first page and the corresponding counts. The server applies administrator authorization and shared filters. Matching-ID selection uses the same population as the visible page and count. Tab or filter changes discard the previous keyset cursor.
 
-### Save a category change
+### Website review workflow
 
-For an inline assignment, the browser submits one ID to the same mutation used by the bulk dialog. The database validates the caller and category, updates category and verification state in one transaction, and writes change history through the existing journal mechanism. Only a committed response permits the interface to confirm success.
+For inline and bulk assignments, the browser submits website IDs and the chosen category to the same mutation. The API validates the request and commits category changes and history together. This overview shows the confirmed-success path; the [Low Level Design (LLD)](low_level_design.md) separates rejection, rollback and response loss for implementation review.
 
-![How the system saves a category change](diagrams/category_save_sequence.svg)
+![Website review workflow](diagrams/website_review_overview.svg)
 
-Read this sequence from top to bottom. It separates rejection, transaction failure, confirmed success and a lost response, because those outcomes support different claims about saved data.
+This view covers a successful category save. Failed or uncertain saves need different handling; keep that explanation in the document or a separately scoped view. Do not infer who reconciles saved state when the source leaves that responsibility unknown.
 
 | Component | Explanation |
 | --- | --- |
-| 1. Administrator | The administrator chooses a category and starts the save. No additional confirmation modal is implied by this diagram. |
-| 2. Websites page | The page submits the selected IDs and category, shows progress, and interprets the returned result. |
-| 3. Database API | The API owns authorization, input checks and the transaction that writes both website state and history. |
-| 4. Save selected category | Click Save or press Enter after choosing a category. This starts the request; it is no longer the pre-submission cancellation path. |
-| 5. Submit IDs and category | Send the selected website IDs and chosen category. A bulk operation splits the IDs into requests of at most 500. |
-| 6. Check access and input | Verify that the current user is an administrator and that IDs and category values are valid before writing. |
-| [7. Request denied or invalid] | Follow this branch if access or input checks fail. The API rejects the request before any website or history writes. |
-| 8. Reject without writes | Return the rejection to the page. The database has not changed any selected website for this request. |
-| 9. Show error and retain selection | Explain why saving failed and keep the selected value available for the administrator’s next action. |
-| [10. Request accepted] | Follow this branch only after access and input checks pass. Acceptance here permits the transaction to begin; it is not yet a committed save. |
-| 11. Update websites and history together | Apply the category changes and their history entries within the same transaction. |
-| [12. Update or history write fails] | A failure in either write prevents a partial commit for this request. |
-| 13. Roll back this request | Roll back the website and history writes for the failed request and return an error. Earlier successful bulk batches are separate requests and remain committed. |
-| 14. Show error and retain selection | Tell the administrator that this request failed and keep the selection. Do not silently resubmit it. |
-| [15. Transaction commits] | Both website changes and history have committed. Whether the page can confirm this depends on the response path below. |
-| [16. Page receives committed response] | The page receives usable confirmation of the committed result and can refresh the affected data. |
-| 17. Return changed-row count | Return the number of rows changed by the request. A count is confirmation of this request’s result, not evidence about unattempted bulk batches. |
-| 18. Refresh affected rows and counts | Reload the affected rows and counts so that tab membership and totals reflect the saved category. |
-| 19. Return current results | Return the updated list and count information using the shared filtering and classification rules. |
-| 20. Confirm the result | Show the completed save to the administrator after confirmation and refresh. |
-| [21. Response is lost] | The database committed, but the page did not receive usable confirmation. This branch illustrates an uncertain client outcome. |
-| 22. No usable response | The crossed response arrow represents a lost response in this example. It does not mean that the database rolled back. |
-| 23. Outcome uncertain, reconcile before bulk retry | Explain the uncertainty and read current values and relevant history before offering a bulk retry. Do not retry automatically. |
+| 1. Submit category change | The administrator submits the selected website IDs and the chosen category. This does not prescribe particular controls or clicks. |
+| 2. Validate and save changes | The API validates access and input, then saves the category change and its history. The subprocess keeps those internal steps out of the overview. |
+| 3. Refresh rows and counts | After the page receives confirmation of the save, it refreshes both the website rows and their counts. |
+| 4. Show confirmation | The page confirms the result to the administrator. A lost response does not follow this confirmed-success path. |
 
 **Mermaid source**
 
 ```text
-%% Diagram: Sequence diagram
-%% Subtitle: The database saves the category and history together. A lost response leaves the page uncertain about the result.
-sequenceDiagram
-    accTitle: Save a website category
-    accDescr: The API checks administrator access and input before writing. Valid changes and history commit together. The page refreshes only after confirmation and reports uncertainty when the committed response is lost.
-    actor A as 1. Administrator
-    participant UI as 2. Websites page
-    participant DB as 3. Database API
-    A->>UI: 4. Save selected category
-    UI->>DB: 5. Submit IDs and category
-    DB->>DB: 6. Check access and input
-    alt 7. Request denied or invalid
-        DB-->>UI: 8. Reject without writes
-        UI-->>A: 9. Show error and retain selection
-    else 10. Request accepted
-        DB->>DB: 11. Update websites and history together
-        alt 12. Update or history write fails
-            DB-->>UI: 13. Roll back this request
-            UI-->>A: 14. Show error and retain selection
-        else 15. Transaction commits
-            alt 16. Page receives committed response
-                DB-->>UI: 17. Return changed-row count
-                UI->>DB: 18. Refresh affected rows and counts
-                DB-->>UI: 19. Return current results
-                UI-->>A: 20. Confirm the result
-            else 21. Response is lost
-                DB--xUI: 22. No usable response
-                Note over UI: 23. Outcome uncertain, reconcile before bulk retry
-            end
-        end
-    end
-%% Legend: lost | Lost response
+%% Diagram: Flowchart
+%% View: overview
+%% Subtitle: Successful category changes, from submission to confirmation.
+flowchart LR
+    accTitle: Website review workflow
+    accDescr: An administrator submits selected websites and a category. The API validates and saves the change. After confirmation, the page refreshes rows and counts and shows the result.
+    SEND["1. Submit category change"] --> API@{ shape: fr-rect, label: "2. Validate and save changes" }
+    API -->|"Save confirmed"| REFRESH["3. Refresh rows and counts"]
+    REFRESH --> SHOW@{ shape: curv-trap, label: "4. Show confirmation" }
+class SEND,REFRESH process
+class API predefined
+class SHOW display
 ```
-
-Numbers identify message order within this scenario. The alternative blocks distinguish rejection, transaction failure, confirmed commit and response loss; the crossed response arrow represents a lost message.
 
 ### Stop and reconcile a partial bulk change
 

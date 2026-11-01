@@ -1,5 +1,7 @@
 # How a partial bulk change stops and recovers
 
+This is a technical-detail example. For a general workflow, start with the [Website review workflow](../references/visuals.md#start-with-an-overview) and add only the detail the reader needs.
+
 This sequence shows the Websites Review design for a 1,001-ID selection when the second request loses its response after committing.
 
 ![Partial category change with a lost response](diagrams/bulk_recovery_sequence.svg)
@@ -27,9 +29,10 @@ This scenario explains why a missing response must be reconciled before a bulk r
 
 ```text
 %% Diagram: Sequence diagram
-%% Subtitle: The second batch commits, but its response is lost. The dialog stops before batch 3 and checks saved state before offering a retry.
+%% View: detail
+%% Subtitle: Confirmed, uncertain and unattempted batches before an explicit retry.
 sequenceDiagram
-    accTitle: Recover a bulk category update
+    accTitle: Bulk category recovery
     accDescr: Of 1,001 selected websites, the first 500 changes are confirmed, the second 500 are unresolved from the client perspective, and one remains unattempted. Read current state and history before an explicit retry.
     actor A as 1. Administrator
     participant UI as 2. Bulk dialog

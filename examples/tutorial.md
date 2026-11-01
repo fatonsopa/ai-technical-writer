@@ -1,4 +1,4 @@
-# Explore the three Websites populations with a local fixture
+# Website category editing tutorial
 
 Learn why All is not the sum of Pending and Review. You will inspect returned queue state and compare active populations without connecting to the application or a database.
 

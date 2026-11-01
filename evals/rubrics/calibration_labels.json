@@ -13,10 +13,6 @@
       "passed": false,
       "critical_expected": true
     },
-    "cal-good-policy": {
-      "passed": true,
-      "critical_expected": false
-    },
     "cal-verbose-empty": {
       "passed": false,
       "critical_expected": false
@@ -40,7 +36,32 @@
     "cal-workflow-description": {
       "passed": true,
       "critical_expected": false
+    },
+    "cal-test-existence-unknown": {
+      "passed": true,
+      "critical_expected": false
+    },
+    "cal-test-existence-invented": {
+      "passed": false,
+      "critical_expected": true
+    },
+    "cal-document-name-complete": {
+      "passed": true,
+      "critical_expected": false
+    },
+    "cal-document-name-bare-acronym": {
+      "passed": false,
+      "critical_expected": true
+    },
+    "cal-good-policy-v2": {
+      "passed": true,
+      "critical_expected": false
+    },
+    "cal-policy-missing-document-name": {
+      "passed": false,
+      "critical_expected": true
     }
   },
-  "critical_expected_meaning": "True requires at least one critical failure; false does not require an exact empty critical-failure list. Pass/fail is the calibrated label."
+  "critical_expected_meaning": "True requires at least one critical failure; false does not require an exact empty critical-failure list. Pass/fail is the calibrated label.",
+  "dataset_version": 2
 }

@@ -253,9 +253,9 @@ def assess_saved(generated_root, grades_root):
             raise ValueError("Duplicate attempts must be reported separately, not silently combined.")
         planned |= ids
         if generated["status"] != "completed":
-            if generated.get("error_kind") == "task_output":
+            if generated.get("error_kind") in {"task_output", "task_timeout"}:
                 evaluated |= ids
-                critical.extend("Malformed task output: " + identifier for identifier in ids)
+                critical.extend(("Timed-out task: " if generated.get("error_kind") == "task_timeout" else "Malformed task output: ") + identifier for identifier in ids)
             continue
         if digest(generated["results"]) != generated.get("output_sha256"):
             raise ValueError("Generated outputs changed after capture.")

@@ -1,4 +1,5 @@
 """Versioned document-output checks, independent of a model's quality score."""
+import title_contract
 import hashlib
 import json
 from pathlib import Path
@@ -183,6 +184,10 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
         if kind == "sdd" and nodes and re.search(r"software design document", nodes[0]["title"], re.I):
             errors.append("Behavioral SDD must not be labeled Software Design Document.")
         errors.extend(visual_errors(text, nodes, context.get("visuals")))
+    if complete or scope == 'title':
+        for node in nodes:
+            if node['level'] == 1:
+                errors.extend(title_contract.title_errors(node['title'], task=bool(contract.get('task_type')) or kind in {'issue', 'bug_report', 'story'}))
     if "discovery" in context:
         errors.extend(check_discovery(text, context["discovery"]))
     for value in context.get("required_literals", []):

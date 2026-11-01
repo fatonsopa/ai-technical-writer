@@ -1,7 +1,8 @@
 %% Diagram: Sequence diagram
-%% Subtitle: The second batch commits, but its response is lost. The dialog stops before batch 3 and checks saved state before offering a retry.
+%% View: detail
+%% Subtitle: Confirmed, uncertain and unattempted batches before an explicit retry.
 sequenceDiagram
-    accTitle: Recover a bulk category update
+    accTitle: Bulk category recovery
     accDescr: Of 1,001 selected websites, the first 500 changes are confirmed, the second 500 are unresolved from the client perspective, and one remains unattempted. Read current state and history before an explicit retry.
     actor A as 1. Administrator
     participant UI as 2. Bulk dialog

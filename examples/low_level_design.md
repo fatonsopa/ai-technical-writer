@@ -48,6 +48,80 @@ For `__clear__`, set category to null, status to pending, attempts to 0, and cle
 
 The mutation and its journal entries commit together. A success response follows commit. A category or permission rejection does not partially update a request. Concurrent transactions follow last-committed-choice behavior; inspect both committed journal records in T12. This design does not add optimistic locking or promise to reject a stale editor.
 
+### Category save results
+
+This technical view supports transaction and failure-path review. Use the [High Level Document (HLD)](high_level_document.md) for the main workflow. Here the individual messages distinguish a rejected request, a rolled-back transaction and a committed save whose response is lost.
+
+![Category save results](diagrams/category_save_sequence.svg)
+
+Read this sequence from top to bottom. It separates rejection, transaction failure, confirmed success and a lost response, because those outcomes support different claims about saved data.
+
+| Component | Explanation |
+| --- | --- |
+| 1. Administrator | The administrator chooses a category and starts the save. No additional confirmation modal is implied by this diagram. |
+| 2. Websites page | The page submits the selected IDs and category, shows progress, and interprets the returned result. |
+| 3. Database API | The API owns authorization, input checks and the transaction that writes both website state and history. |
+| 4. Save selected category | Click Save or press Enter after choosing a category. This starts the request; it is no longer the pre-submission cancellation path. |
+| 5. Submit IDs and category | Send the selected website IDs and chosen category. A bulk operation splits the IDs into requests of at most 500. |
+| 6. Check access and input | Verify that the current user is an administrator and that IDs and category values are valid before writing. |
+| [7. Request denied or invalid] | Follow this branch if access or input checks fail. The API rejects the request before any website or history writes. |
+| 8. Reject without writes | Return the rejection to the page. The database has not changed any selected website for this request. |
+| 9. Show error and retain selection | Explain why saving failed and keep the selected value available for the administrator’s next action. |
+| [10. Request accepted] | Follow this branch only after access and input checks pass. Acceptance here permits the transaction to begin; it is not yet a committed save. |
+| 11. Update websites and history together | Apply the category changes and their history entries within the same transaction. |
+| [12. Update or history write fails] | A failure in either write prevents a partial commit for this request. |
+| 13. Roll back this request | Roll back the website and history writes for the failed request and return an error. Earlier successful bulk batches are separate requests and remain committed. |
+| 14. Show error and retain selection | Tell the administrator that this request failed and keep the selection. Do not silently resubmit it. |
+| [15. Transaction commits] | Both website changes and history have committed. Whether the page can confirm this depends on the response path below. |
+| [16. Page receives committed response] | The page receives usable confirmation of the committed result and can refresh the affected data. |
+| 17. Return changed-row count | Return the number of rows changed by the request. A count is confirmation of this request’s result, not evidence about unattempted bulk batches. |
+| 18. Refresh affected rows and counts | Reload the affected rows and counts so that tab membership and totals reflect the saved category. |
+| 19. Return current results | Return the updated list and count information using the shared filtering and classification rules. |
+| 20. Confirm the result | Show the completed save to the administrator after confirmation and refresh. |
+| [21. Response is lost] | The database committed, but the page did not receive usable confirmation. This branch illustrates an uncertain client outcome. |
+| 22. No usable response | The crossed response arrow represents a lost response in this example. It does not mean that the database rolled back. |
+| 23. Outcome uncertain, reconcile before bulk retry | Explain the uncertainty and read current values and relevant history before offering a bulk retry. Do not retry automatically. |
+
+**Mermaid source**
+
+```text
+%% Diagram: Sequence diagram
+%% View: detail
+%% Subtitle: Category and history commits, including failures and lost responses.
+sequenceDiagram
+    accTitle: Category save results
+    accDescr: The API checks administrator access and input before writing. Valid changes and history commit together. The page refreshes only after confirmation and reports uncertainty when the committed response is lost.
+    actor A as 1. Administrator
+    participant UI as 2. Websites page
+    participant DB as 3. Database API
+    A->>UI: 4. Save selected category
+    UI->>DB: 5. Submit IDs and category
+    DB->>DB: 6. Check access and input
+    alt 7. Request denied or invalid
+        DB-->>UI: 8. Reject without writes
+        UI-->>A: 9. Show error and retain selection
+    else 10. Request accepted
+        DB->>DB: 11. Update websites and history together
+        alt 12. Update or history write fails
+            DB-->>UI: 13. Roll back this request
+            UI-->>A: 14. Show error and retain selection
+        else 15. Transaction commits
+            alt 16. Page receives committed response
+                DB-->>UI: 17. Return changed-row count
+                UI->>DB: 18. Refresh affected rows and counts
+                DB-->>UI: 19. Return current results
+                UI-->>A: 20. Confirm the result
+            else 21. Response is lost
+                DB--xUI: 22. No usable response
+                Note over UI: 23. Outcome uncertain, reconcile before bulk retry
+            end
+        end
+    end
+%% Legend: lost | Lost response
+```
+
+Numbers identify message order within this scenario. The alternative blocks distinguish rejection, transaction failure, confirmed commit and response loss; the crossed response arrow represents a lost message.
+
 ## Browser state and failure handling
 
 The shared edit hook tracks active row, selected category, saving state, and error. Opening a second row closes an unsaved first edit after canceling its local selection. While a save is pending, reject another save for that row. Enter invokes save; Escape cancels only while no save is in flight. A failed save retains the row and selection for retry.
@@ -76,7 +150,8 @@ The states describe the editor’s lifecycle. Numbered transitions identify the 
 
 ```text
 %% Diagram: State diagram
-%% Subtitle: One row can be edited at a time. Cancel applies before submission; a failed save keeps the selected category.
+%% View: detail
+%% Subtitle: Editing, saving and failure states for one website category.
 %% Reference: root_start | 1. Start
 stateDiagram-v2
     direction LR

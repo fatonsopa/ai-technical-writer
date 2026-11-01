@@ -1,4 +1,5 @@
 """Visible context and notation legends carried inside exported diagrams."""
+import title_contract
 import math
 import re
 import textwrap
@@ -40,6 +41,7 @@ def source_context(source, style):
     family = {"graph": "flowchart", "sequenceDiagram": "sequence", "stateDiagram": "state", "stateDiagram-v2": "state"}.get(token, token)
     title = re.search(r"(?m)^[ \t]*accTitle:[ \t]*(\S[^\n]*)", source)
     subtitle = re.search(r"(?mi)^[ \t]*%%[ \t]*Subtitle:[ \t]*(\S[^\n]*)", source)
+    view = re.search(r'(?mi)^[ \t]*%%[ \t]*View:[ \t]*(\S[^\n]*)', source)
     declared_type = re.search(r"(?mi)^[ \t]*%%[ \t]*Diagram:[ \t]*(\S[^\n]*)", source)
     type_label = declared_type[1].strip() if declared_type else DIAGRAM_TYPES.get(family, ("",))[0]
     entries = []
@@ -67,11 +69,13 @@ def source_context(source, style):
     explicit = re.findall(r"(?mi)^[ \t]*%%[ \t]*Legend:[ \t]*(\w+)[ \t]*\|[ \t]*(\S[^\n]*)", source)
     legend = dict(entries)
     legend.update((symbol, label.strip()) for symbol, label in explicit)
-    return {"family": family, "type": type_label, "title": title[1].strip() if title else "", "subtitle": subtitle[1].strip() if subtitle else "", "legend": list(legend.items())}
+    return {"view": view[1].strip().lower() if view else "overview", "family": family, "type": type_label, "title": title[1].strip() if title else "", "subtitle": subtitle[1].strip() if subtitle else "", "legend": list(legend.items())}
 
 
 def context_errors(context):
-    errors = []
+    errors = title_contract.title_errors(context['title']) + title_contract.subtitle_errors(context['subtitle'])
+    if context.get('view', 'overview') not in title_contract.VIEWS:
+        errors.append('Unknown diagram view level.')
     if context["type"] not in DIAGRAM_TYPES.get(context["family"], ()):
         errors.append("Use an established diagram type matching the source notation.")
     if not context["title"]:
@@ -198,6 +202,11 @@ def frame_svg(root, context, style):
     frame = element(root, "g", {"id": "technical-writer-frame"})
     type_group = element(frame, "g", {"id": "technical-writer-type"})
     text(type_group, context["type"], padding, 42, 14, style["stroke"], "bold")
+    view_name = title_contract.VIEWS[context.get('view', 'overview')][0]
+    view_group = element(frame, 'g', {'id': 'technical-writer-view'})
+    view_text = text(view_group, view_name, width - padding, 42, 14, style['stroke'])
+    view_text.set('text-anchor', 'end')
+    root.set('data-view-profile', context.get('view', 'overview'))
     title_group = element(frame, "g", {"id": "technical-writer-title", "data-value": context["title"]})
     y = 52 + 24
     for line in title_lines:
@@ -220,7 +229,7 @@ def frame_svg(root, context, style):
 
 def frame_errors(root, context):
     errors = []
-    for identifier, expected in [("type", context["type"]), ("title", context["title"]), ("subtitle", context["subtitle"])]:
+    for identifier, expected in [("type", context["type"]), ("title", context["title"]), ("subtitle", context["subtitle"]), ("view", title_contract.VIEWS.get(context.get("view", "overview"), ("Invalid",))[0])]:
         group = root.find(".//{" + SVG + "}g[@id='technical-writer-" + identifier + "']")
         actual = " ".join("".join(node.itertext()) for node in group.findall("{" + SVG + "}text")) if group is not None else ""
         if group is None or actual != expected:

@@ -178,3 +178,31 @@ The two tasks in style_cases.json and their rubric test non-document text and ac
 `diagram_cases.json` contains two real `/technical-writer` tasks: a user flow and a save sequence. `rubrics/diagram_behavior.json` owns their criteria. Give the performer only the task and raw brief, retain its public trace and artifacts, and review actual numbering, exact explanation rows, source facts, Writing Style (WS) and checked delivery. Case definitions are not measured passes.
 
 Mechanical controls are in `scripts/test_diagram_components.py`, `scripts/test_diagram_pipeline.py` and `scripts/test_diagram_collection.py`. They cover missing/duplicate/invisible references, mismatched rows, stale exports, skipped/reordered rendering phases and failed inspection. Run the affected checks through `scripts/run_tests.py --execute`; `scripts/check_diagram_collection.py` checks all example consumers recursively. Real renderer/browser observations and readable screenshots remain separate from authored unit controls.
+
+## Check both execution hosts
+
+`config/host_validation.json` declares Codex and Claude Code and68 tasks per host:13 critical workflow/style/retry/diagram cases,3 report-boundary tasks,1 host-readiness task, and51 document-output contexts. The latter include44 complete create/rewrite contexts across22 document types, plus the six Issue types and an individual requirement. These are case definitions, not recorded passes.
+
+Freeze the matrix before execution:
+
+```sh
+.venv/bin/python scripts/host_coverage.py freeze --package . --config config/host_validation.json --output ../writer-host-plan.json
+```
+
+Run the same frozen tasks through the actual skill on each host. Native evaluation packets work with the current host; Skill Builder's optional development runner can collect tool-enabled Codex and Claude Code captures. Keep grader data out of performing contexts. Retain inputs, public tool traces, actual files and requested/observed model identities. Use a renderer preflight under the same permissions for diagram cases.
+
+Review each actual output against its source, structure and Writing Style (WS), then bind that judgment to the report, attempt and public-trace hashes. A bundles file is a JSON array of objects with `report` and `review` paths. Assess it with:
+
+```sh
+.venv/bin/python scripts/host_coverage.py assess --package . --plan ../writer-host-plan.json --bundles ../writer-host-bundles.json --output ../writer-host-results.json
+```
+
+Every declared host/case cell must pass. An absent host, pending judgment, failed task or stale artifact prevents matrix acceptance. Reports retain all supplied attempts and separate host percentages. CLI results do not establish browser/mobile or every model behavior.
+
+The document-output fixtures explicitly authorize internal audit and waive public presentation solely to isolate draft content. They require unknowns to remain visible and do not authorize product decisions. Full audit-before-draft interaction is tested separately by workflow cases. The three report-boundary tasks test an appropriate combined record, a QA-only defect, and an incident whose multiple defect histories should remain linked.
+
+An attempted generation timeout remains a failed task even if the public trace is incomplete. Missing attempts remain not run; missing review remains pending. The optional legacy generation adapter and summary use the same distinction. Drafts retain the same source-preservation and structural duties; use scripts/check_document.py for a structural check and review facts and language separately.
+
+Before comparing hosts, add `profiles` to the run configuration: one `{ "host": "codex", "model": "AVAILABLE_MODEL", "reasoning_effort": "medium" }` object per required host, using the actual chosen settings. Freeze this configuration before execution. Assess each model/effort configuration separately; passing subsets from different configurations cannot establish a complete suite pass. Preserve failures and unknown model identities.
+
+Grader calibration uses deliberately authored good and faulty controls, not generated task observations. The grader receives their source facts and Writing Style (WS), with opaque IDs and a recorded shuffled order; it does not receive the labels. This route never invents a generator guide-read claim. Real generated outputs retain the mandatory guide check, and authored labels are not independent human calibration.

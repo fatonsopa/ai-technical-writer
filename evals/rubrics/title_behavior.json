@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "cases": {
+    "writer-title-and-overview": [
+      "Actually invoke the skill, read mandatory writing/style and visual guidance, and deliver the actual checked document and source-bound rendered image.",
+      "The document and diagram use meaningful short topic titles. Reject the supplied command title, inflated caption, generic substitutes and any title inconsistent with its contents. The visible subtitle states scope briefly. Judge actual meaning, not just word count.",
+      "For the stated unfamiliar reader, produce one overview of the confirmed-success path with a small coherent set of steps at one level. No nested transaction/recovery tree, no technical-detail or reference profile used to bypass the overview request. Legibility and syntax alone cannot establish understanding.",
+      "Keep unique visible numbers, exact matching table labels, contextual natural-language explanations, a visible title/subtitle/Legend, controlled palette/dotted background and exact embedded source.",
+      "Preserve atomicity, rejection, response-loss uncertainty, explicit reconciliation before bulk retry and no automatic retry in prose. Do not assign an unspecified reconciliation owner or invent controls, endpoints, deployed evidence or successful implementation tests.",
+      "Actual final host text matches the reviewed handoff; author self-review remains identified. Missing render/browser checks or a failed publication gate cannot be called accepted."
+    ]
+  }
+}

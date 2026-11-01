@@ -1,7 +1,8 @@
 %% Diagram: Sequence diagram
-%% Subtitle: The database saves the category and history together. A lost response leaves the page uncertain about the result.
+%% View: detail
+%% Subtitle: Category and history commits, including failures and lost responses.
 sequenceDiagram
-    accTitle: Save a website category
+    accTitle: Category save results
     accDescr: The API checks administrator access and input before writing. Valid changes and history commit together. The page refreshes only after confirmation and reports uncertainty when the committed response is lost.
     actor A as 1. Administrator
     participant UI as 2. Websites page

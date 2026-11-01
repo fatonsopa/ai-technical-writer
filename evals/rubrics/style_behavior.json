@@ -18,6 +18,11 @@
       "Diagram and table have matching unique full component references; source facts and exact UI labels are preserved.",
       "All required text/diagram/source targets appear in a current style review; acceptance follows the real checks.",
       "Compare preserved source facts and observe actual output. Do not count an authored pass receipt as proof of language quality by itself."
+    ],
+    "writer-message-convention-gate": [
+      "Load the actual guide before document-specific public text; every observed authored reference uses the approved full document name and acronym.",
+      "Run the actual names/check commands: the original fails explicit conventions, the corrected text passes, and output/message.md preserves the quoted input alias and literal README.md.",
+      "Keep the narrow scope and actual source facts; a checker pass establishes conventions only, not all semantic quality. No invented checks, approval, file changes or external execution."
     ]
   }
 }

@@ -53,5 +53,32 @@
       "scenario": "behavior",
       "covers": []
     }
+  },
+  {
+    "id": "writer-message-convention-gate",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "requirements": [
+      "WS-ALL",
+      "WS-GATE"
+    ],
+    "workflow": {
+      "id": "style-review",
+      "scenario": "behavior",
+      "covers": []
+    },
+    "request": {
+      "instruction": "/technical-writer Correct this authored progress message using the shared Writing Style (WS). Read the guide before your own document-specific messages. Use the installed document-label command and convention checker to check the original and corrected text. Save the corrected message to output/message.md, preserve the inline input alias and literal filename, and report only actual checks. Keep this a narrow message edit; do not rewrite a document or change product decisions.",
+      "source": "I will write the PRD and review it with the Writing Style guide. The accepted input alias is `PRD`; the literal filename is README.md.\n"
+    },
+    "resources": [
+      "SKILL.md",
+      "references/writing_style.md",
+      "scripts/writing_style_contract.py"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
   }
 ]

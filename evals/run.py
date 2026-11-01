@@ -13,6 +13,8 @@ import subprocess
 import sys
 import os
 import signal
+import secrets
+import random
 import tempfile
 import time
 
@@ -101,11 +103,13 @@ def generate(group, args):
     return kind, result['status'], len(selected)
 
 
-def grade(group, args):
+def grade(group, args, authored_controls=False):
     kind, selected = group
     generated = json.loads((args.generated / kind / 'record.json').read_text())
     if generated['status'] != 'completed': return kind, 'generation_unavailable', len(selected)
-    if any(writing_style.REFERENCE not in row.get('references_read', []) for row in generated['results']):
+    if authored_controls and (generated.get('variant') != 'author-labeled-calibration' or any(c.get('split') != 'calibration' or c.get('kind') != 'calibration' for c in selected)):
+        raise ValueError('Authored-control mode is restricted to the labeled calibration set.')
+    if not authored_controls and any(writing_style.REFERENCE not in row.get('references_read', []) for row in generated['results']):
         raise ValueError('Generated output omitted the mandatory Writing Style (WS) guide; it cannot be accepted through grading.')
     by_id = {r['id']: r for r in generated['results']}
     frozen_path = args.generated / kind / 'frozen.json'
@@ -139,6 +143,19 @@ def grade(group, args):
         if required_sections(case):
             entry['required_sections'] = required_sections(case)
         packet['cases'].append(entry)
+    blinding = None
+    if authored_controls:
+        nonce = secrets.token_hex(16)
+        order = list(packet['cases']); random.Random(nonce).shuffle(order)
+        mapping = {}
+        for index, entry in enumerate(order):
+            entry['case'] = dict(entry['case'])
+            blind = 'control-' + str(index + 1).zfill(3)
+            mapping[blind] = entry['case']['id']
+            entry['case']['id'] = blind
+        packet['cases'] = order
+        packet['generator_context']['provenance'] = 'Authored grader controls; no model generation or guide-read observation is claimed.'
+        blinding = {'nonce': nonce, 'blind_to_original': mapping}
     with tempfile.TemporaryDirectory(prefix='writer-grade-', dir=args.temp_root) as directory:
         work = Path(directory)
         (work / 'packet.json').write_text(json.dumps(packet, indent=2))
@@ -156,9 +173,17 @@ def grade(group, args):
                   'For policy/standard create or rewrite, explicit sections named Definitions and Principles with useful content are required; a standard also needs Rules and Verification. '
                   'For decisions, require prior-context title, real options, recommendation and honest outcome. '
                   'Flag fabricated facts, results, approval, or materially changed obligations as critical failures. '
+                  'Explicit mandatory project conventions also block acceptance. In particular, authored references to a document type must use its full name followed by its acronym on every occurrence, including public messages. Treat a bare document acronym as a critical failure when it is a document reference; preserve literal filenames, code identifiers, accepted input aliases, quotations and external publication titles. Do not waive a confirmed mandatory violation because the prose is otherwise usable. '
                   'Use concise source-supported reasons, quote only a short output fragment when needed. Do not reward length or treat exact example wording as required. '
                   'Use only these local inputs; no tools outside reading them and no network or file changes.')
         result = invoke(work, args.out / kind, prompt, args.model, grading=True)
+    if blinding:
+        result['calibration_blinding'] = blinding
+        if result['status'] == 'completed':
+            if any(row.get('id') not in blinding['blind_to_original'] for row in result['results']):
+                result.update(status='infrastructure_error', error='Unknown blinded calibration control ID.')
+            else:
+                result['results'] = [{**row, 'id': blinding['blind_to_original'][row['id']]} for row in result['results']]
     if result['status'] == 'completed' and (set(r['id'] for r in result['results']) != set(c['id'] for c in selected) or len(result['results']) != len(selected)):
         result.update(status='infrastructure_error', error='Grade IDs do not match requested cases')
     if result['status'] == 'completed':
@@ -296,10 +321,10 @@ def main():
             (seed / 'frozen.json').write_text(json.dumps(bundle, indent=2) + '\n')
             captured.update(input_snapshot_sha256=digest(bundle), output_sha256=digest(captured['results']))
             (seed / 'record.json').write_text(json.dumps(captured, indent=2) + '\n')
-            _, status, _ = grade(('calibration', selected), args)
+            _, status, _ = grade(('calibration', selected), args, authored_controls=True)
         record = json.loads((args.out / 'calibration/record.json').read_text())
         labels = json.loads((ROOT / 'rubrics/calibration_labels.json').read_text())['labels']
-        disagreements = calibration_agreement(record.get('results', []), labels)
+        disagreements = calibration_agreement(record.get('results', []), labels) if record['status'] == 'completed' else list(labels)
         summary = {'status':status, 'samples':len(labels), 'disagreements':disagreements,
                    'label_source':'Author-assigned, not independent human calibration.'}
         (args.out / 'calibration_summary.json').write_text(json.dumps(summary, indent=2) + '\n')

@@ -57,6 +57,42 @@ class DocumentDeliveryTests(unittest.TestCase):
         self.assertEqual(receipt["reviewer"]["kind"], "current_host_self_review")
         self.assertEqual(delivery.load(self.session / "delivery.json")["output_sha256"], delivery.digest(self.target.read_bytes()))
 
+    def test_final_message_reports_only_actual_document_validation_and_matches_bytes(self):
+        self.prepare()
+        result = self.judgment()
+        receipt = delivery.finalize(self.session, self.draft, result['review'])
+        message = self.session / 'message.md'
+        self.assertEqual(message.read_text(), receipt['message'])
+        self.assertIn('author self-review', receipt['message'])
+        self.assertIn(str(self.target), receipt['message'])
+        self.assertTrue(delivery.verify_message(self.session, message)['passed'])
+        self.assertNotIn('implementation', receipt['message'])
+        self.assertNotIn('tests passed', receipt['message'])
+        print(json.dumps({'provenance': {'kind': 'authored_control', 'source': 'Actual finalized receipt and verify_message call, not model quality.'}, 'events': [{'phase': 'verify', 'evidence': json.dumps(delivery.verify_message(self.session, message))}]}))
+
+    def test_changed_message_is_rejected_and_a_corrected_copy_can_pass(self):
+        self.prepare()
+        result = self.judgment()
+        receipt = delivery.finalize(self.session, self.draft, result['review'])
+        message = self.session / 'message.md'
+        message.write_text(receipt['message'] + 'No target has been set.\n')
+        self.assertFalse(delivery.verify_message(self.session, message)['passed'])
+        message.write_text(receipt['message'])
+        self.assertTrue(delivery.verify_message(self.session, message)['passed'])
+
+    def test_message_verification_rejects_premature_or_stale_delivery(self):
+        self.prepare()
+        message = self.root / 'message.md'
+        message.write_text('Passed.')
+        with self.assertRaisesRegex(ValueError, 'Finalize'):
+            delivery.verify_message(self.session, message)
+        result = self.judgment()
+        receipt = delivery.finalize(self.session, self.draft, result['review'])
+        message.write_text(receipt['message'])
+        self.target.write_text('Newer document.')
+        with self.assertRaisesRegex(ValueError, 'changed'):
+            delivery.verify_message(self.session, message)
+
     def test_high_semantic_scores_cannot_override_missing_prd_structure(self):
         self.prepare()
         self.draft.write_text("# Product\n\nIdentifier: 0042.\n")

@@ -8,9 +8,49 @@ Inspect sources and identify the reader's question. Use visuals for relationship
 
 Follow [discovery](../workflows/discover.md) for missing choices. Do not invent infrastructure, states, retries, approval, measurements or screen behavior.
 
+## Keep the view understandable
+
+Start with an overview for a reader who does not know the project. Show one question at one level: the main path, not every validation, transaction, rollback and recovery branch together. Collapse internal work into a named subprocess. Explain exceptions in prose or separate technical views only when useful. Do not add more diagrams merely to fill a template.
+
+Use `%% View: overview` (the default), `detail` for a deliberately selected technical view, or `reference` for a catalog such as the symbol guide. The exporter shows this level and enforces the house readability budgets in `scripts/title_contract.py`; these are local guardrails, not industry-standard node limits. A reference view is not a way to bypass an oversized workflow. State why technical detail is needed in the owning document's visual-selection record.
+
+Use a short topic title and one brief scope subtitle. Accessibility descriptions may explain more; keep them in plain language. Keep step labels as actions. Check whether the reader can explain the main path without reading the whole table. A readable layout and passing syntax check do not prove understanding.
+
+A self-message assigns responsibility to that participant. If the source requires an action but leaves its owner unknown, use an explicitly numbered note spanning the relevant participants and state that uncertainty in the explanation. Do not invent an owner or endpoint to finish the diagram.
+
 ## Choose the view
 
 Use [visual selection](../workflows/visual_selection.md) to match the reader’s question to an established view and its owning document. It covers architecture levels, deployment, interactions, user flows, states, entities, data boundaries and evidence. Select only the views needed; inspect available facts before asking for unresolved choices.
+
+## Start with an overview
+
+![Website review workflow](../examples/diagrams/website_review_overview.svg)
+
+This view covers a successful category save. Failed or uncertain saves need different handling; keep that explanation in the document or a separately scoped view. Do not infer who reconciles saved state when the source leaves that responsibility unknown.
+
+| Component | Explanation |
+| --- | --- |
+| 1. Submit category change | The administrator submits the selected website IDs and the chosen category. This does not prescribe particular controls or clicks. |
+| 2. Validate and save changes | The API validates access and input, then saves the category change and its history. The subprocess keeps those internal steps out of the overview. |
+| 3. Refresh rows and counts | After the page receives confirmation of the save, it refreshes both the website rows and their counts. |
+| 4. Show confirmation | The page confirms the result to the administrator. A lost response does not follow this confirmed-success path. |
+
+**Mermaid source**
+
+```text
+%% Diagram: Flowchart
+%% View: overview
+%% Subtitle: Successful category changes, from submission to confirmation.
+flowchart LR
+    accTitle: Website review workflow
+    accDescr: An administrator submits selected websites and a category. The API validates and saves the change. After confirmation, the page refreshes rows and counts and shows the result.
+    SEND["1. Submit category change"] --> API@{ shape: fr-rect, label: "2. Validate and save changes" }
+    API -->|"Save confirmed"| REFRESH["3. Refresh rows and counts"]
+    REFRESH --> SHOW@{ shape: curv-trap, label: "4. Show confirmation" }
+class SEND,REFRESH process
+class API predefined
+class SHOW display
+```
 
 ## Flowchart symbol guide
 
@@ -42,9 +82,10 @@ Use this guide to choose symbols for a flowchart. The pink person box is a local
 
 ```text
 %% Diagram: Flowchart
-%% Subtitle: Choose a shape by its meaning. Fills use this skill’s shared palette; dark text and outlines keep the view readable.
+%% View: reference
+%% Subtitle: Supported symbols, their meanings and the shared color palette.
 flowchart LR
-    accTitle: Flowchart shapes and when to use them
+    accTitle: Flowchart symbols
     accDescr: A numbered guide to supported flowchart symbols. Each shape has one meaning and a shared color. The expanded subprocess contains its own steps.
     N1@{ shape: rect, label: "1. Process" }
 class N1 process
@@ -96,7 +137,7 @@ Keep visuals beside their explanation. Plans and tests link maintained views. Sp
 For a view selected for checked delivery, add an entry to `context.visuals`:
 
 ```json
-{"heading":"Save a category change","notation":"diagram_svg","reason":"Explain commit confirmation and failure outcomes."}
+{"heading":"Category changes","notation":"diagram_svg","reason":"Explain commit confirmation and failure outcomes."}
 ```
 
 Use an empty list when no visual is needed. Use `diagram_svg` for exports or `flowchart_svg` for the flowchart convention. Other notation IDs support source/draft checks; review external artifacts separately.

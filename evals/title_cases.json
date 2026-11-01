@@ -1,0 +1,22 @@
+[
+  {
+    "id": "writer-title-and-overview",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Create review.md as a standalone workflow explanation for a product manager who is new to Websites Review. Include one rendered overview of the normal confirmed-success path, with numbered components, their explanations and embedded source. Keep the supplied failure facts in understandable prose rather than packing every exception into this overview. The supplied proposed title and caption need editing; use clear short topic wording and a brief scope subtitle. Do not invent product behavior or unresolved ownership. Use checked delivery and deliver the accepted document.",
+      "source": {
+        "brief.txt": "Proposed title: Save category for selected website. Proposed caption: This diagram illustrates the comprehensive end to end orchestration of category persistence, transaction recovery and interface synchronization across the complete operational lifecycle. These are wording suggestions to improve, not required literals. Facts: An administrator submits selected website IDs and a category from the Websites page. The API validates administrator access and input before writing. Website category changes and history commit together; either write failing rolls back that request. After receiving a confirmed committed response, the page refreshes rows and counts and confirms the result. A committed response can be lost: then the page reports an uncertain result, not a rollback. Before a bulk retry, reconcile current values and relevant history, and require an explicit user action. Never retry automatically. The owner and exact read mechanism for reconciliation have not been decided."
+      }
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/visuals.md",
+      "workflows/diagram_rendering.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
+  }
+]

@@ -49,6 +49,8 @@ def invoke(work, output, prompt, model, schema_value, budget, grading=False):
                       runtime_resources_in_commands=sorted(set(re.findall(r'(?:references|examples|workflows)/[a-z_\-]+\.md', '\n'.join(commands)))))
     except (subprocess.TimeoutExpired, RuntimeError, ValueError, OSError, KeyError, TypeError) as error:
         record.update(status='infrastructure_error', error=str(error))
+        if process_started and not grading and isinstance(error, subprocess.TimeoutExpired):
+            record.update(status='failed', error_kind='task_timeout')
         if process_started and not grading and isinstance(error, (ValueError, KeyError, TypeError)):
             record['error_kind'] = 'task_output'
     record['elapsed_seconds'] = round(time.monotonic() - started, 2)

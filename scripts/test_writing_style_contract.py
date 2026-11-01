@@ -24,7 +24,7 @@ def style_control(contract):
 
 class WritingStyleTests(unittest.TestCase):
     def test_renderer_does_not_accept_unreviewed_text_or_render_without_guide(self):
-        source = '%% Subtitle: The page confirms the saved category.\nsequenceDiagram\naccTitle: Save a category\naccDescr: The user saves a category and sees the result.\nactor U as 1. Administrator\nparticipant P as 2. Websites page\nU->>P: 3. Save category\nP-->>U: 4. Saved\n'
+        source = '%% Subtitle: The page confirms the saved category.\nsequenceDiagram\naccTitle: Category save results\naccDescr: The user saves a category and sees the result.\nactor U as 1. Administrator\nparticipant P as 2. Websites page\nU->>P: 3. Save category\nP-->>U: 4. Saved\n'
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             path = root / 'source.mmd'
@@ -147,7 +147,7 @@ class WritingStyleTests(unittest.TestCase):
     def test_style_behavior_cases_cover_non_document_text_and_rendered_delivery(self):
         cases = json.loads((ROOT / 'evals/style_cases.json').read_text())
         rubric = json.loads((ROOT / 'evals/rubrics/style_behavior.json').read_text())
-        self.assertEqual({row['id'] for row in cases}, {'style-audit-and-question', 'style-diagram-and-delivery'})
+        self.assertEqual({row['id'] for row in cases}, {'style-audit-and-question', 'style-diagram-and-delivery', 'writer-message-convention-gate'})
         self.assertEqual(set(rubric['cases']), {row['id'] for row in cases})
         for case in cases:
             self.assertIn(style.REFERENCE, case['resources'])

@@ -4,13 +4,13 @@ Use this procedure for diagrams selected by [Visual Guidance (VG)](../references
 
 ## Define the visible context
 
-Keep the editable source beside its SVG. `accTitle` supplies the accessible and visible title; `%% Subtitle:` explains the scope, purpose or status. `accDescr` supplies the accessible description. Use [Writing Style (WS)](../references/writing_style.md) for all of them, including node and legend labels. Name the subject and describe what happens in natural sentences. Preserve uncertainty and distinguish proposals from deployed behavior.
+Keep the editable source beside its SVG. `accTitle` supplies the accessible and visible title; `%% Subtitle:` explains the scope, purpose or status. `accDescr` supplies the accessible description. Use [Writing Style (WS)](../references/writing_style.md) for all of them, including node and legend labels. Use a short topic title and a brief scope subtitle. Keep actions in step labels; explain internal detail in the body. Use `%% View: overview` by default. Select `detail` only for an identified technical reader need; the export shows the chosen level. Follow the readability checks in Visual Guidance (VG). Preserve uncertainty and distinguish proposals from deployed behavior.
 
 ```text
 %% Diagram: Sequence diagram
 %% Subtitle: The administrator sends a category change from the Websites page.
 sequenceDiagram
-    accTitle: Submit a website category change
+    accTitle: Website category submission
     accDescr: The administrator submits the category through the Websites page.
     actor A as 1. Administrator
     participant UI as 2. Websites page

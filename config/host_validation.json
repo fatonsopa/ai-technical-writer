@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "required_hosts": [
+    "codex",
+    "claude-code"
+  ],
+  "case_files": [
+    {
+      "path": "evals/workflow_cases.json"
+    },
+    {
+      "path": "evals/style_cases.json"
+    },
+    {
+      "path": "evals/retry_cases.json"
+    },
+    {
+      "path": "evals/diagram_cases.json",
+      "verify_delivery": true
+    },
+    {
+      "path": "evals/report_boundary_cases.json"
+    },
+    {
+      "path": "evals/document_output_cases.json",
+      "verify_delivery": true
+    },
+    {
+      "path": "evals/host_validation_cases.json"
+    },
+    {
+      "path": "evals/title_cases.json",
+      "verify_delivery": true
+    }
+  ]
+}

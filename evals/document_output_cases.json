@@ -1,0 +1,1132 @@
+[
+  {
+    "id": "document-user_story-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write US from the source facts. Return the artifact, not instructions about how to write it. The story belongs in the PRD; no task exists yet. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/user_story.md",
+      "examples/user_story.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "user_story-create",
+    "output_kind": "user_story",
+    "operation": "create",
+    "source_case_sha256": "7541b3eddbabb2283c6ab8ffad465b16c3c2733531ac947c10b3e751861b4481"
+  },
+  {
+    "id": "document-user_story-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing User Story draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. The story belongs in the PRD; no task exists yet. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/user_story.md",
+      "examples/user_story.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "user_story-rewrite",
+    "output_kind": "user_story",
+    "operation": "rewrite",
+    "source_case_sha256": "5bf0c54c597ab17b378817d5c948f0a31acc78370dd6e14f440ac1a21809305a"
+  },
+  {
+    "id": "document-prd-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write PRD from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/product_requirements_document.md",
+      "examples/product_requirements_document.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "prd-create",
+    "output_kind": "prd",
+    "operation": "create",
+    "source_case_sha256": "1a2ed1af268a5f696d9a9b72ae5ebeddc9cbd0b6c4363dad22acd53e72bb5400"
+  },
+  {
+    "id": "document-prd-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Product Requirements Document draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/product_requirements_document.md",
+      "examples/product_requirements_document.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "prd-rewrite",
+    "output_kind": "prd",
+    "operation": "rewrite",
+    "source_case_sha256": "0b00ead768f4d20fb3cec5c32bf997ab4e340786776217be68818b74eb28855f"
+  },
+  {
+    "id": "document-sdd-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write SDD from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/spec_driven_development.md",
+      "examples/spec_driven_development.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "sdd-create",
+    "output_kind": "sdd",
+    "operation": "create",
+    "source_case_sha256": "0aa0806800f836049b5d160155b469c8a0864dd1de947f3f2a19314944f4627e"
+  },
+  {
+    "id": "document-sdd-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Spec Driven Development document draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/spec_driven_development.md",
+      "examples/spec_driven_development.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "sdd-rewrite",
+    "output_kind": "sdd",
+    "operation": "rewrite",
+    "source_case_sha256": "10743f212a9035f617da44f0a3a440e82ace86e13ce0bcc74f13a88e869b25df"
+  },
+  {
+    "id": "document-hld-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write HLD from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/high_level_document.md",
+      "examples/high_level_document.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "hld-create",
+    "output_kind": "hld",
+    "operation": "create",
+    "source_case_sha256": "d805aec6af37acb0b58a3563abc3365387cb1271a8a981a552fe94409bc946ea"
+  },
+  {
+    "id": "document-hld-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing High Level Document draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/high_level_document.md",
+      "examples/high_level_document.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "hld-rewrite",
+    "output_kind": "hld",
+    "operation": "rewrite",
+    "source_case_sha256": "a2e27491a0f8492f936ae34ae904d36d8a5086360f183180808a5799323ab411"
+  },
+  {
+    "id": "document-lld-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write LLD from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/low_level_design.md",
+      "examples/low_level_design.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "lld-create",
+    "output_kind": "lld",
+    "operation": "create",
+    "source_case_sha256": "dffccfdd6347b9d87fd6f59521c00ea541165acf7e70d7ff19ea9972e2b8ec65"
+  },
+  {
+    "id": "document-lld-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Low Level Design draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/low_level_design.md",
+      "examples/low_level_design.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "lld-rewrite",
+    "output_kind": "lld",
+    "operation": "rewrite",
+    "source_case_sha256": "cb8667da84e9f06bba7cfa90cb046ec9574bc754a69089c4bde0ddc29276082e"
+  },
+  {
+    "id": "document-decision-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write DR from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nDraft a comment in the existing Feature task. Context: slow provider calls hold HTTP requests open. MAIL-01 requires acknowledging accepted work without waiting for provider delivery. Option A adds queue and worker; Option B keeps synchronous calls. Recommend A because it satisfies MAIL-01, with queue operation/duplicate-handling costs. HLD is proposed. No approval, provider choice, retry limit or deployment exists.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nDraft a comment in the existing Feature task. Context: slow provider calls hold HTTP requests open. MAIL-01 requires acknowledging accepted work without waiting for provider delivery. Option A adds queue and worker; Option B keeps synchronous calls. Recommend A because it satisfies MAIL-01, with queue operation/duplicate-handling costs. HLD is proposed. No approval, provider choice, retry limit or deployment exists.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/decision_record.md",
+      "examples/decision_record.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "decision-create",
+    "output_kind": "decision",
+    "operation": "create",
+    "source_case_sha256": "446e6858888226d78c5dce60d68af202460122191c6efeec51a960dbffa2d7fe"
+  },
+  {
+    "id": "document-decision-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Decision Record draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nDraft a comment in the existing Feature task. Context: slow provider calls hold HTTP requests open. MAIL-01 requires acknowledging accepted work without waiting for provider delivery. Option A adds queue and worker; Option B keeps synchronous calls. Recommend A because it satisfies MAIL-01, with queue operation/duplicate-handling costs. HLD is proposed. No approval, provider choice, retry limit or deployment exists.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nDraft a comment in the existing Feature task. Context: slow provider calls hold HTTP requests open. MAIL-01 requires acknowledging accepted work without waiting for provider delivery. Option A adds queue and worker; Option B keeps synchronous calls. Recommend A because it satisfies MAIL-01, with queue operation/duplicate-handling costs. HLD is proposed. No approval, provider choice, retry limit or deployment exists.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/decision_record.md",
+      "examples/decision_record.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "decision-rewrite",
+    "output_kind": "decision",
+    "operation": "rewrite",
+    "source_case_sha256": "4e8ebe07cd569c3fa47195de4ce44b56d8cce642cd198ab0f6a104e9977d4fbe"
+  },
+  {
+    "id": "document-plan-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write IP from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/implementation_plan.md",
+      "examples/implementation_plan.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "plan-create",
+    "output_kind": "plan",
+    "operation": "create",
+    "source_case_sha256": "543110f4af43c6803331e9ebba61e92649cb45ed092784f4018b455959da190b"
+  },
+  {
+    "id": "document-plan-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Implementation Plan draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/implementation_plan.md",
+      "examples/implementation_plan.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "plan-rewrite",
+    "output_kind": "plan",
+    "operation": "rewrite",
+    "source_case_sha256": "149f5aea65bd12ad3f6dcd914c34390f5d5a98bb2abbdfddc65475f1df016136"
+  },
+  {
+    "id": "document-policy-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write POL from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nDraft logging policy and proposed standard, not approved. Scope: completed production application HTTP requests, excluding infrastructure access logs. Credentials mean access tokens, session cookies and passwords; route pattern means matched template rather than raw URL. Principles: trace requests and minimize captured data.\nPolicy: service owners provide diagnostic request metadata and never log credentials. Engineering lead owns proposal and may approve extra non-sensitive context for a documented incident until closure; credentials remain forbidden.\nStandard: LOG-01 each completed request records request ID, method, route pattern, status and duration in milliseconds; LOG-02 never record credentials; LOG-03 timestamps identify UTC. Service owners maintain checks. No exception or adoption approved.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nDraft logging policy and proposed standard, not approved. Scope: completed production application HTTP requests, excluding infrastructure access logs. Credentials mean access tokens, session cookies and passwords; route pattern means matched template rather than raw URL. Principles: trace requests and minimize captured data.\nPolicy: service owners provide diagnostic request metadata and never log credentials. Engineering lead owns proposal and may approve extra non-sensitive context for a documented incident until closure; credentials remain forbidden.\nStandard: LOG-01 each completed request records request ID, method, route pattern, status and duration in milliseconds; LOG-02 never record credentials; LOG-03 timestamps identify UTC. Service owners maintain checks. No exception or adoption approved.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/policy.md",
+      "examples/policy.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "policy-create",
+    "output_kind": "policy",
+    "operation": "create",
+    "source_case_sha256": "ccde30b095ede2b09ad72716ed261b26c35633dc9a204cf47e2355e5dbaacba4"
+  },
+  {
+    "id": "document-policy-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Policy draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nDraft logging policy and proposed standard, not approved. Scope: completed production application HTTP requests, excluding infrastructure access logs. Credentials mean access tokens, session cookies and passwords; route pattern means matched template rather than raw URL. Principles: trace requests and minimize captured data.\nPolicy: service owners provide diagnostic request metadata and never log credentials. Engineering lead owns proposal and may approve extra non-sensitive context for a documented incident until closure; credentials remain forbidden.\nStandard: LOG-01 each completed request records request ID, method, route pattern, status and duration in milliseconds; LOG-02 never record credentials; LOG-03 timestamps identify UTC. Service owners maintain checks. No exception or adoption approved.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nDraft logging policy and proposed standard, not approved. Scope: completed production application HTTP requests, excluding infrastructure access logs. Credentials mean access tokens, session cookies and passwords; route pattern means matched template rather than raw URL. Principles: trace requests and minimize captured data.\nPolicy: service owners provide diagnostic request metadata and never log credentials. Engineering lead owns proposal and may approve extra non-sensitive context for a documented incident until closure; credentials remain forbidden.\nStandard: LOG-01 each completed request records request ID, method, route pattern, status and duration in milliseconds; LOG-02 never record credentials; LOG-03 timestamps identify UTC. Service owners maintain checks. No exception or adoption approved.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/policy.md",
+      "examples/policy.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "policy-rewrite",
+    "output_kind": "policy",
+    "operation": "rewrite",
+    "source_case_sha256": "d0932d4145ad31ad260561b8e275da478d5e5f79db3e331f6bca07d712c9c294"
+  },
+  {
+    "id": "document-standard-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write STD from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nDraft logging policy and proposed standard, not approved. Scope: completed production application HTTP requests, excluding infrastructure access logs. Credentials mean access tokens, session cookies and passwords; route pattern means matched template rather than raw URL. Principles: trace requests and minimize captured data.\nPolicy: service owners provide diagnostic request metadata and never log credentials. Engineering lead owns proposal and may approve extra non-sensitive context for a documented incident until closure; credentials remain forbidden.\nStandard: LOG-01 each completed request records request ID, method, route pattern, status and duration in milliseconds; LOG-02 never record credentials; LOG-03 timestamps identify UTC. Service owners maintain checks. No exception or adoption approved.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nDraft logging policy and proposed standard, not approved. Scope: completed production application HTTP requests, excluding infrastructure access logs. Credentials mean access tokens, session cookies and passwords; route pattern means matched template rather than raw URL. Principles: trace requests and minimize captured data.\nPolicy: service owners provide diagnostic request metadata and never log credentials. Engineering lead owns proposal and may approve extra non-sensitive context for a documented incident until closure; credentials remain forbidden.\nStandard: LOG-01 each completed request records request ID, method, route pattern, status and duration in milliseconds; LOG-02 never record credentials; LOG-03 timestamps identify UTC. Service owners maintain checks. No exception or adoption approved.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/technical_standard.md",
+      "examples/technical_standard.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "standard-create",
+    "output_kind": "standard",
+    "operation": "create",
+    "source_case_sha256": "b0b22bbec26e4df44d3b211083e9a50bee7121bc4b05de1a057aea7b18ea847a"
+  },
+  {
+    "id": "document-standard-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Technical Standard draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nDraft logging policy and proposed standard, not approved. Scope: completed production application HTTP requests, excluding infrastructure access logs. Credentials mean access tokens, session cookies and passwords; route pattern means matched template rather than raw URL. Principles: trace requests and minimize captured data.\nPolicy: service owners provide diagnostic request metadata and never log credentials. Engineering lead owns proposal and may approve extra non-sensitive context for a documented incident until closure; credentials remain forbidden.\nStandard: LOG-01 each completed request records request ID, method, route pattern, status and duration in milliseconds; LOG-02 never record credentials; LOG-03 timestamps identify UTC. Service owners maintain checks. No exception or adoption approved.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nDraft logging policy and proposed standard, not approved. Scope: completed production application HTTP requests, excluding infrastructure access logs. Credentials mean access tokens, session cookies and passwords; route pattern means matched template rather than raw URL. Principles: trace requests and minimize captured data.\nPolicy: service owners provide diagnostic request metadata and never log credentials. Engineering lead owns proposal and may approve extra non-sensitive context for a documented incident until closure; credentials remain forbidden.\nStandard: LOG-01 each completed request records request ID, method, route pattern, status and duration in milliseconds; LOG-02 never record credentials; LOG-03 timestamps identify UTC. Service owners maintain checks. No exception or adoption approved.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/technical_standard.md",
+      "examples/technical_standard.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "standard-rewrite",
+    "output_kind": "standard",
+    "operation": "rewrite",
+    "source_case_sha256": "cafdd24ff2ccb67750630e06889ed13153ee428aaf4805889071e15d518e8e24"
+  },
+  {
+    "id": "document-tp-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write TP from the source facts. Return the artifact, not instructions about how to write it. Plan the next test cycle; prior results are context only. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/test_plan.md",
+      "examples/test_plan.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "tp-create",
+    "output_kind": "tp",
+    "operation": "create",
+    "source_case_sha256": "6eaf3f7fbb345f341ac07218e24b4a2a5b31f2588225eefe1b68c36e96ebe63e"
+  },
+  {
+    "id": "document-tp-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Test Plan draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. Plan the next test cycle; prior results are context only. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/test_plan.md",
+      "examples/test_plan.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "tp-rewrite",
+    "output_kind": "tp",
+    "operation": "rewrite",
+    "source_case_sha256": "3b73ca46d1bf076ac990a1bd559421f2b6c5cedb6db5a3cae2ec957a522a56b8"
+  },
+  {
+    "id": "document-ts-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write TS from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/test_specification.md",
+      "examples/test_specification.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "ts-create",
+    "output_kind": "ts",
+    "operation": "create",
+    "source_case_sha256": "cac78bdad6bb3d229e2e81242b1c82b0561b2849bda7c836a9b4b9670aec0e56"
+  },
+  {
+    "id": "document-ts-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Test Specification draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/test_specification.md",
+      "examples/test_specification.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "ts-rewrite",
+    "output_kind": "ts",
+    "operation": "rewrite",
+    "source_case_sha256": "157d44cc748c793a63edd8153197a66b8186c6b5fb15c858d154a78b47fd37f5"
+  },
+  {
+    "id": "document-tsr-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write TSR from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/test_status_report.md",
+      "examples/test_status_report.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "tsr-create",
+    "output_kind": "tsr",
+    "operation": "create",
+    "source_case_sha256": "e131698359fa1567651029af823cd392b10aab6293d0bf45f421d43b30f9ce20"
+  },
+  {
+    "id": "document-tsr-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Test Status Report draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/test_status_report.md",
+      "examples/test_status_report.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "tsr-rewrite",
+    "output_kind": "tsr",
+    "operation": "rewrite",
+    "source_case_sha256": "676d41fda5b3cbdc32a18a01620b2c45fabcf2f170d2dcbc4115d1d734375752"
+  },
+  {
+    "id": "document-tcr-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write TCR from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/test_completion_report.md",
+      "examples/test_completion_report.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "tcr-create",
+    "output_kind": "tcr",
+    "operation": "create",
+    "source_case_sha256": "9e7776a58f88440f4f5d98460929ffc0ce12402f1472480f7a2951c1e303aae9"
+  },
+  {
+    "id": "document-tcr-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Test Completion Report draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nIllustrative rename testing: CONF-01 persistence, CONF-02 administrator-only writes, CONF-03 empty-name rejection, CONF-04 safe save failure. Interface has Name and Save controls. Isolated workspace Old Team, new name North Team, administrator/member accounts; reset between cases. Billing excluded. Failure injection is unavailable until confirmed. Proposed exit: all four cases pass with no contradicting defect. Owner/schedule/release authority unknown.\nPrior/current supplied cycle RUN-12, build n-12, staging, 2026-10-30 09:00-10:00 UTC: A/CONF-01 passed; B/CONF-02 failed (member changed name); C/CONF-03 blocked (administrator account became unavailable); D/CONF-04 not run (failure-injection facility unconfirmed). Two executed, one passed. No root cause, waiver or release approval. For a Test Plan or Test Specification, plan the next checks without claiming execution. TSR: report while effort is active; TCR: assess this ended cycle. Source is this illustrative supplied result set.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/test_completion_report.md",
+      "examples/test_completion_report.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "tcr-rewrite",
+    "output_kind": "tcr",
+    "operation": "rewrite",
+    "source_case_sha256": "43de966c56d4b31394c79728567c126fd4fd2ab206bda3ab8d843d0c50438bb3"
+  },
+  {
+    "id": "document-tutorial-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write TUT from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/tutorial.md",
+      "examples/tutorial.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "tutorial-create",
+    "output_kind": "tutorial",
+    "operation": "create",
+    "source_case_sha256": "bb4fe7075676ec18652f42c4479973f51eb160cdf277beffd8c5a309391bedcb"
+  },
+  {
+    "id": "document-tutorial-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Tutorial draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/tutorial.md",
+      "examples/tutorial.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "tutorial-rewrite",
+    "output_kind": "tutorial",
+    "operation": "rewrite",
+    "source_case_sha256": "080e07af8ed2e78c5d63a73ac21115208277d2c68745cb3b29652910cf9d0d3b"
+  },
+  {
+    "id": "document-howto-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write HTG from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/how_to_guide.md",
+      "examples/how_to_guide.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "howto-create",
+    "output_kind": "howto",
+    "operation": "create",
+    "source_case_sha256": "ad0ffe03142794ca324bf5ea8f91c9dfb7511123f0e5ba8ffdac13bd2fc196f6"
+  },
+  {
+    "id": "document-howto-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing How-to Guide draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/how_to_guide.md",
+      "examples/how_to_guide.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "howto-rewrite",
+    "output_kind": "howto",
+    "operation": "rewrite",
+    "source_case_sha256": "eb8cbdade9f2809739a7aa5bdfae877b33f29903530e9cf2b09597629e94ac79"
+  },
+  {
+    "id": "document-explanation-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write EXP from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nProposed mail flow: API records accepted work, worker takes it from Queue, contacts external Mail provider and records outcome. A slow provider must not keep the user request open. Queue operation, duplicates and delivery monitoring add work. Retry limits undecided. Accepting work, provider delivery and recipient reading are distinct.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nProposed mail flow: API records accepted work, worker takes it from Queue, contacts external Mail provider and records outcome. A slow provider must not keep the user request open. Queue operation, duplicates and delivery monitoring add work. Retry limits undecided. Accepting work, provider delivery and recipient reading are distinct.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/explanation.md",
+      "examples/explanation.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "explanation-create",
+    "output_kind": "explanation",
+    "operation": "create",
+    "source_case_sha256": "222c613618591fc1c947c7e1642aaf6be0fbddd87592c44b9b7e6c2f084c7ad6"
+  },
+  {
+    "id": "document-explanation-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Explanation draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nProposed mail flow: API records accepted work, worker takes it from Queue, contacts external Mail provider and records outcome. A slow provider must not keep the user request open. Queue operation, duplicates and delivery monitoring add work. Retry limits undecided. Accepting work, provider delivery and recipient reading are distinct.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nProposed mail flow: API records accepted work, worker takes it from Queue, contacts external Mail provider and records outcome. A slow provider must not keep the user request open. Queue operation, duplicates and delivery monitoring add work. Retry limits undecided. Accepting work, provider delivery and recipient reading are distinct.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/explanation.md",
+      "examples/explanation.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "explanation-rewrite",
+    "output_kind": "explanation",
+    "operation": "rewrite",
+    "source_case_sha256": "8eef3713c2c0b1718e806aa09f15220cc98cc0d9e0a5fd4eb24882af140a755c"
+  },
+  {
+    "id": "document-readme-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write README from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/readme.md",
+      "examples/readme.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "readme-create",
+    "output_kind": "readme",
+    "operation": "create",
+    "source_case_sha256": "efbe7198b9fea0d0ebd6e530cdf9cd2f0db7b70ac42ea30926588a35d78b69fe"
+  },
+  {
+    "id": "document-readme-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Repository readme draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional local project, Python 3 standard library, macOS/Linux, disposable folder. settings.json: {\"site_name\":\"Nacre\",\"port\":8000,\"debug\":true}. For a tutorial teach creating JSON and reading site_name, expected output Nacre. For a how-to change only port to 8100, preserve other fields, back up only if no needed backup exists, verify saved JSON and describe recovery.\nFor README: supplied repository contract has report.py reading a JSON filename and printing its site_name; settings.json is supplied. python3 report.py settings.json prints Nacre. python3 -m unittest discover -s tests runs supplied tests/test_report.py. No installer, server, license, support URL or deployment supplied. No independent repository execution is claimed by these source facts.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/readme.md",
+      "examples/readme.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "readme-rewrite",
+    "output_kind": "readme",
+    "operation": "rewrite",
+    "source_case_sha256": "45d050174b68658ea88a3823d17d8a2e7cd05257fa26560e4f73e17b8618134a"
+  },
+  {
+    "id": "document-incident-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write IR from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional supplied events, 2026-10-20 UTC: 09:10 successful worker events stopped (worker metric); 09:18 queue-growth alert (alert event); 09:25 responder saw stopped process (responder note); 09:30 restart (action record); 09:42 queue returned to prior range (queue metric). Messages delayed; count/loss unknown. Exit reason unknown. Follow-ups investigate exit and review liveness detection; owner, threshold and dates unassigned. No live attachments or tracking links.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional supplied events, 2026-10-20 UTC: 09:10 successful worker events stopped (worker metric); 09:18 queue-growth alert (alert event); 09:25 responder saw stopped process (responder note); 09:30 restart (action record); 09:42 queue returned to prior range (queue metric). Messages delayed; count/loss unknown. Exit reason unknown. Follow-ups investigate exit and review liveness detection; owner, threshold and dates unassigned. No live attachments or tracking links.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/incident_report.md",
+      "examples/incident_report.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "incident-create",
+    "output_kind": "incident",
+    "operation": "create",
+    "source_case_sha256": "3dd9dd42fd11e26e1f71c7c5843774d0b96eac65f765fbe5a50ac16050f885ad"
+  },
+  {
+    "id": "document-incident-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Incident Report draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional supplied events, 2026-10-20 UTC: 09:10 successful worker events stopped (worker metric); 09:18 queue-growth alert (alert event); 09:25 responder saw stopped process (responder note); 09:30 restart (action record); 09:42 queue returned to prior range (queue metric). Messages delayed; count/loss unknown. Exit reason unknown. Follow-ups investigate exit and review liveness detection; owner, threshold and dates unassigned. No live attachments or tracking links.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional supplied events, 2026-10-20 UTC: 09:10 successful worker events stopped (worker metric); 09:18 queue-growth alert (alert event); 09:25 responder saw stopped process (responder note); 09:30 restart (action record); 09:42 queue returned to prior range (queue metric). Messages delayed; count/loss unknown. Exit reason unknown. Follow-ups investigate exit and review liveness detection; owner, threshold and dates unassigned. No live attachments or tracking links.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/incident_report.md",
+      "examples/incident_report.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "incident-rewrite",
+    "output_kind": "incident",
+    "operation": "rewrite",
+    "source_case_sha256": "c629b909c60d7266067d96023559ea1a3790759efdbe87b8d0fe9d0e869f9ba4"
+  },
+  {
+    "id": "document-agent-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write AI from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nTarget Claude Code subagent migration-reviewer. Review supplied SQL migrations and relevant schema/tests for data-loss risks; report evidence/paths and proposed verification. Do not edit files, execute SQL or apply migrations. Target supports tools Read, Glob, Grep. No model, hooks, owner or deployment authority requested.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nTarget Claude Code subagent migration-reviewer. Review supplied SQL migrations and relevant schema/tests for data-loss risks; report evidence/paths and proposed verification. Do not edit files, execute SQL or apply migrations. Target supports tools Read, Glob, Grep. No model, hooks, owner or deployment authority requested.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/agents_and_skills.md",
+      "examples/agents_and_skills.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "agent-create",
+    "output_kind": "agent",
+    "operation": "create",
+    "source_case_sha256": "1264a3076028d54069359b30cc89c03947a1d30479ab4d506befb239c65902af"
+  },
+  {
+    "id": "document-agent-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Claude Code agent instructions draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nTarget Claude Code subagent migration-reviewer. Review supplied SQL migrations and relevant schema/tests for data-loss risks; report evidence/paths and proposed verification. Do not edit files, execute SQL or apply migrations. Target supports tools Read, Glob, Grep. No model, hooks, owner or deployment authority requested.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nTarget Claude Code subagent migration-reviewer. Review supplied SQL migrations and relevant schema/tests for data-loss risks; report evidence/paths and proposed verification. Do not edit files, execute SQL or apply migrations. Target supports tools Read, Glob, Grep. No model, hooks, owner or deployment authority requested.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/agents_and_skills.md",
+      "examples/agents_and_skills.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "agent-rewrite",
+    "output_kind": "agent",
+    "operation": "rewrite",
+    "source_case_sha256": "793353cba4f21c6790c107c0df8576faeda214c2ec1156287d6758c5451cfe35"
+  },
+  {
+    "id": "document-skill-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write SKILL from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nPortable Agent Skills entry point, folder json-settings-reviewer. Review supplied JSON settings against supplied schema; report field/type problems and unknowns. Never edit files or run the target application. Supported required frontmatter name and description. No external dependencies, network, delegation or additional capability requested.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nPortable Agent Skills entry point, folder json-settings-reviewer. Review supplied JSON settings against supplied schema; report field/type problems and unknowns. Never edit files or run the target application. Supported required frontmatter name and description. No external dependencies, network, delegation or additional capability requested.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/agents_and_skills.md",
+      "examples/agents_and_skills.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "skill-create",
+    "output_kind": "skill",
+    "operation": "create",
+    "source_case_sha256": "0dcf3c38f2a14c83a43888859533c66349faf44f7ac2bc26a51a1923616ee1dc"
+  },
+  {
+    "id": "document-skill-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Reusable Skill draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nPortable Agent Skills entry point, folder json-settings-reviewer. Review supplied JSON settings against supplied schema; report field/type problems and unknowns. Never edit files or run the target application. Supported required frontmatter name and description. No external dependencies, network, delegation or additional capability requested.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nPortable Agent Skills entry point, folder json-settings-reviewer. Review supplied JSON settings against supplied schema; report field/type problems and unknowns. Never edit files or run the target application. Supported required frontmatter name and description. No external dependencies, network, delegation or additional capability requested.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/agents_and_skills.md",
+      "examples/agents_and_skills.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "skill-rewrite",
+    "output_kind": "skill",
+    "operation": "rewrite",
+    "source_case_sha256": "85193df9053aa2c49d4a07494d168ae45aeb1d629485c128804e1b1c2b5ccfb1"
+  },
+  {
+    "id": "document-output_style-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write OS from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nClaude Code output style Clear technical. Direct connected prose, useful examples, explain unfamiliar project terms, honest checks. Preserve coding guidance in target full-system-prompt host using supported keep-coding-instructions:true. Communication guidance does not authorize implementation, new tools or external actions.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nClaude Code output style Clear technical. Direct connected prose, useful examples, explain unfamiliar project terms, honest checks. Preserve coding guidance in target full-system-prompt host using supported keep-coding-instructions:true. Communication guidance does not authorize implementation, new tools or external actions.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/agents_and_skills.md",
+      "examples/agents_and_skills.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "output_style-create",
+    "output_kind": "output_style",
+    "operation": "create",
+    "source_case_sha256": "67dc6f309f67e3e501c3fd775428ca2e54c01beb8cf0634dd3d1609edf5541d3"
+  },
+  {
+    "id": "document-output_style-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Claude Code output style draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nClaude Code output style Clear technical. Direct connected prose, useful examples, explain unfamiliar project terms, honest checks. Preserve coding guidance in target full-system-prompt host using supported keep-coding-instructions:true. Communication guidance does not authorize implementation, new tools or external actions.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nClaude Code output style Clear technical. Direct connected prose, useful examples, explain unfamiliar project terms, honest checks. Preserve coding guidance in target full-system-prompt host using supported keep-coding-instructions:true. Communication guidance does not authorize implementation, new tools or external actions.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/agents_and_skills.md",
+      "examples/agents_and_skills.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "output_style-rewrite",
+    "output_kind": "output_style",
+    "operation": "rewrite",
+    "source_case_sha256": "eaeae61c973b8e8618f1561f308864cf23d999e4781c4fea49897daea769e835"
+  },
+  {
+    "id": "document-bug_report-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write BR from the source facts. Return the artifact, not instructions about how to write it. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nStaging build n-12: administrator submitted North Team instead of Old Team; update returned HTTP 200 with North Team, then a fresh read returned Old Team. Supplied requirement CONF-01 says a successful update must persist. Reporter supplied one sanitized request/response sequence, no screenshot or logs. Production scope, root cause, source files, owners and fix verification are unknown. Draft only; existing tracker type Bug.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nStaging build n-12: administrator submitted North Team instead of Old Team; update returned HTTP 200 with North Team, then a fresh read returned Old Team. Supplied requirement CONF-01 says a successful update must persist. Reporter supplied one sanitized request/response sequence, no screenshot or logs. Production scope, root cause, source files, owners and fix verification are unknown. Draft only; existing tracker type Bug.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/bug_report.md",
+      "references/issue.md",
+      "examples/bug_report.md",
+      "examples/issue.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "bug_report-create",
+    "output_kind": "bug_report",
+    "operation": "create",
+    "source_case_sha256": "3ac9609ae816d25be85847a6fdcf20e5ae8a604e5adcc24db0381769727d90eb"
+  },
+  {
+    "id": "document-bug_report-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Bug Report draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nStaging build n-12: administrator submitted North Team instead of Old Team; update returned HTTP 200 with North Team, then a fresh read returned Old Team. Supplied requirement CONF-01 says a successful update must persist. Reporter supplied one sanitized request/response sequence, no screenshot or logs. Production scope, root cause, source files, owners and fix verification are unknown. Draft only; existing tracker type Bug.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nStaging build n-12: administrator submitted North Team instead of Old Team; update returned HTTP 200 with North Team, then a fresh read returned Old Team. Supplied requirement CONF-01 says a successful update must persist. Reporter supplied one sanitized request/response sequence, no screenshot or logs. Production scope, root cause, source files, owners and fix verification are unknown. Draft only; existing tracker type Bug.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/bug_report.md",
+      "references/issue.md",
+      "examples/bug_report.md",
+      "examples/issue.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "bug_report-rewrite",
+    "output_kind": "bug_report",
+    "operation": "rewrite",
+    "source_case_sha256": "c0d427a5095be1219d5c31180be2313c7bdf08d82b97bbad35875e767e796813"
+  },
+  {
+    "id": "document-issue_bug-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write Bug issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Bug. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nStaging build n-12: administrator submitted North Team instead of Old Team; update returned HTTP 200 with North Team, then a fresh read returned Old Team. Supplied requirement CONF-01 says a successful update must persist. Reporter supplied one sanitized request/response sequence, no screenshot or logs. Production scope, root cause, source files, owners and fix verification are unknown. Draft only; existing tracker type Bug.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nStaging build n-12: administrator submitted North Team instead of Old Team; update returned HTTP 200 with North Team, then a fresh read returned Old Team. Supplied requirement CONF-01 says a successful update must persist. Reporter supplied one sanitized request/response sequence, no screenshot or logs. Production scope, root cause, source files, owners and fix verification are unknown. Draft only; existing tracker type Bug.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/issue.md",
+      "references/bug_report.md",
+      "examples/issue.md",
+      "examples/bug_report.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "issue_bug-create",
+    "output_kind": "issue_bug",
+    "operation": "create",
+    "source_case_sha256": "481f62e8fd1cdc1097d50a4c97088e36cad8903e5ec1ad1a26e6cefce5342f48"
+  },
+  {
+    "id": "document-issue_chore-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write Chore issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Chore. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nExisting tracker type Chore. Refresh obsolete local test fixtures whose fields no longer match the current schema. Scope is local test data only; production data and product behavior remain unchanged. Completion means current tests can load updated fixtures. Tests have not run; paths, owners and dates are unknown.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nExisting tracker type Chore. Refresh obsolete local test fixtures whose fields no longer match the current schema. Scope is local test data only; production data and product behavior remain unchanged. Completion means current tests can load updated fixtures. Tests have not run; paths, owners and dates are unknown.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/issue.md",
+      "examples/issue.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "issue_chore-create",
+    "output_kind": "issue_chore",
+    "operation": "create",
+    "source_case_sha256": "dc8edfa5159110eb179f9e20b9bab3a9662abd2a46536710e70e03fc50e71250"
+  },
+  {
+    "id": "document-issue_decision-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write Decision issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Decision. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nDraft a comment in the existing Feature task. Context: slow provider calls hold HTTP requests open. MAIL-01 requires acknowledging accepted work without waiting for provider delivery. Option A adds queue and worker; Option B keeps synchronous calls. Recommend A because it satisfies MAIL-01, with queue operation/duplicate-handling costs. HLD is proposed. No approval, provider choice, retry limit or deployment exists.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nDraft a comment in the existing Feature task. Context: slow provider calls hold HTTP requests open. MAIL-01 requires acknowledging accepted work without waiting for provider delivery. Option A adds queue and worker; Option B keeps synchronous calls. Recommend A because it satisfies MAIL-01, with queue operation/duplicate-handling costs. HLD is proposed. No approval, provider choice, retry limit or deployment exists.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/issue.md",
+      "references/decision_record.md",
+      "examples/issue.md",
+      "examples/decision_record.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "issue_decision-create",
+    "output_kind": "issue_decision",
+    "operation": "create",
+    "source_case_sha256": "8f3dbde9792709a3aa89fbdc57fa7c6d71bd68b843834505c353ee82cc764c0c"
+  },
+  {
+    "id": "document-issue_feature-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write Feature issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Feature. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/issue.md",
+      "examples/issue.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "issue_feature-create",
+    "output_kind": "issue_feature",
+    "operation": "create",
+    "source_case_sha256": "2827efb5c5fae6e87fdd6c6cfdf37210a0112a7d4fa6b6e3b007a07cf8363b0e"
+  },
+  {
+    "id": "document-issue_improvement-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write Improvement issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Improvement. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nExisting tracker type Improvement. Rename form allows repeated submissions while saving. Proposed result: prevent repeated submission while pending, restore submission after success or failure. Preserve backend permissions and naming rules. Frequency, code paths, owners and measurements are unknown.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nExisting tracker type Improvement. Rename form allows repeated submissions while saving. Proposed result: prevent repeated submission while pending, restore submission after success or failure. Preserve backend permissions and naming rules. Frequency, code paths, owners and measurements are unknown.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/issue.md",
+      "examples/issue.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "issue_improvement-create",
+    "output_kind": "issue_improvement",
+    "operation": "create",
+    "source_case_sha256": "4a1787050476012e43872ea5d840fe6f31ddf31e1c1359f846009887eed4e6a6"
+  },
+  {
+    "id": "document-issue_release-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write Release issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Release. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nExisting tracker type Release. Candidate n-12 is intended for staging only. Include rename improvement. Verify fresh-read persistence and denied member writes; the member check has not run. Recovery follows an existing release procedure not supplied here. No deployment, release approval, production release or date commitment exists.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nExisting tracker type Release. Candidate n-12 is intended for staging only. Include rename improvement. Verify fresh-read persistence and denied member writes; the member check has not run. Recovery follows an existing release procedure not supplied here. No deployment, release approval, production release or date commitment exists.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/issue.md",
+      "examples/issue.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "issue_release-create",
+    "output_kind": "issue_release",
+    "operation": "create",
+    "source_case_sha256": "fc6a318b0214c09c72a34998836737a7d39ecbd4feab350b68cb9efde29cc5e2"
+  },
+  {
+    "id": "document-requirement-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write requirement from the source facts. Return the artifact, not instructions about how to write it. Write only CONF-03, with its source and verification; do not create a full SDD. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/spec_driven_development.md",
+      "examples/spec_driven_development.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "requirement-create",
+    "output_kind": "requirement",
+    "operation": "create",
+    "source_case_sha256": "9bed1f8a737351fd1d6afa37cb503135a843fa00500a2ca37c2e8709c82374e5"
+  }
+]

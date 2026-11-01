@@ -25,7 +25,9 @@
         "scripts/check_mermaid.mjs",
         "scripts/writing_style_contract.py",
         "scripts/continuation.py",
-        "scripts/mermaid_runtime.mjs"
+        "scripts/mermaid_runtime.mjs",
+        "scripts/check_document.py",
+        "scripts/title_contract.py"
       ],
       "depends_on": [
         "writing-guidance"
@@ -57,12 +59,17 @@
         "evals/workflow_cases.json",
         "evals/style_cases.json",
         "evals/retry_cases.json",
-        "evals/diagram_cases.json"
+        "evals/diagram_cases.json",
+        "scripts/host_coverage.py",
+        "config/host_validation.json",
+        "scripts/provider_results.py",
+        "evals/title_cases.json"
       ],
       "depends_on": [
-        "document-validation",
         "document-delivery",
-        "host-adapters"
+        "document-validation",
+        "host-adapters",
+        "repository"
       ]
     },
     {

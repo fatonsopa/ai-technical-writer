@@ -30,7 +30,7 @@ Avoid invented labels, long strings of nouns, slogans, and metaphors that reader
 
 When referring to a document type, use its full name followed by its acronym in parentheses: “Spec Driven Development document (SDD)” or “High Level Document (HLD).” Use that form each time in prose, headings, tables, link labels and diagrams. Keep the approved names and acronyms consistent with the document catalog or project glossary. Describe the document's purpose separately from its name. If it has no agreed acronym, use its name alone. Preserve literal filenames, code identifiers, accepted input aliases, quotations and external publication titles.
 
-Judge words in context rather than replacing everything a scanner flags.
+Judge words in context.
 
 ## 4. Use a friendly, helpful tone
 
@@ -56,11 +56,11 @@ Do not impose fixed sentence or paragraph lengths, or an actor at the start of e
 
 ## 6. Make titles and headings specific
 
-A title identifies the document's subject or purpose; a heading describes its section. Use enough words to make that meaning clear.
+Document and diagram titles name the topic: “Website review workflow,” not “Save a category for selected websites.” Keep them short and specific. Put scope in a brief subtitle and details in the body.
 
-Use sentence case unless the project requires another convention. Choose a natural noun phrase, question, or instruction that fits the content. Headings do not all need to be complete sentences, numbered claims, or commands.
+Use sentence case. Section headings may ask questions or give instructions. Task titles follow [Issue](issue.md).
 
-Preserve the subject and important scope. Do not introduce an unverified cause or result in a title. Conventions for different issue titles belong in [Issue](issue.md).
+A visible subtitle states what the view covers; it must not narrate every internal step. Preserve source scope and certainty. Keep required technical identifiers and exact user-requested names literal.
 
 ## 7. Remove text that adds no information
 
@@ -72,23 +72,25 @@ Shorten by removing repetition and irrelevant detail. Keep every condition, exce
 
 ## 8. Preserve meaning and be honest about certainty
 
-Distinguish observed behavior, requirements, proposals, assumptions, and possible explanations. Use tense and wording that preserve their status: a proposed change has not already happened, and an observed symptom does not establish its cause.
+Distinguish observations, requirements, proposals, assumptions and hypotheses. Preserve their status: a proposal has not happened, and a symptom does not establish its cause.
 
 Keep obligations and permissions intact. Changing “may” to “must,” dropping “only,” or omitting an exception can change a requirement. The [Spec Driven Development document (SDD) guide](spec_driven_development.md) owns requirement wording. A specification states intended behavior; a plan states implementation; a test report states observed results. Keep those roles and their certainty intact.
 
 Preserve material values, units, dates, commands, identifiers, and exact error messages. Distinguish what a source reports from what you independently checked. Never invent evidence, measurements, file paths, test results, or approval.
 
-Specific wording still needs support. Do not replace “improve performance” with a numerical target unless the source supplies it. Do not turn a vague instruction into a specific fix without evidence. Say what remains unknown and how it affects the explanation.
+Specific claims need source support. Do not turn “improve performance” into an invented target or a vague instruction into a prescribed fix. Explain relevant unknowns.
 
-Quote original wording accurately when it matters and identify its source. Otherwise, explain the relevant decision in the document's own prose. Label illustrative examples once, state the assumptions they need, and make them consistent with the rule they demonstrate.
+Quote accurately and identify the source when original wording matters; otherwise explain the decision in the document's prose. Label illustrative examples once, state needed assumptions and keep them consistent with the rule.
+
+Unknown is not absent or unset. Incomplete work may include passing checks; unrun tests may be written. Don't infer order, ownership or interactions from gaps. A closed window proves neither success nor no errors. Precautions are proposals, not approved policy. Combined records keep primary sections and link shared evidence.
 
 ## 9. Choose a format that helps readers
 
-Use paragraphs to explain connected ideas, numbered lists for ordered actions, bullets for separate items, and tables for information readers need to compare. Use code blocks for commands, code, and literal output. Distinguish placeholders from values to enter exactly.
+Use paragraphs for connected ideas, numbered lists for ordered actions, bullets for separate items and tables for comparisons. Put commands, code and literal output in code blocks. Distinguish placeholders from exact values.
 
-Use bold sparingly and code formatting for literal names and values. Bullets do not need bold opening labels. Follow the project's Markdown formatting conventions; this guide does not impose a line width or a universal page layout.
+Use bold sparingly and code formatting for literals. Bullets need no bold opening labels. Follow project Markdown conventions; this guide imposes no line width or universal layout.
 
-Use examples that help explain the point. Include enough detail to demonstrate it; a useful example may be longer than the rule.
+Include enough detail in examples to demonstrate the point, even when an example exceeds the rule's length.
 
 ## Explain diagrams in the reader’s language
 
@@ -96,7 +98,7 @@ Review diagram titles, subtitles, labels, legends and explanations. Use establis
 
 ## Examples
 
-These wording examples preserve the original information and make no claims about the current project.
+These wording examples preserve the source information; they do not describe the current project.
 
 | Original | Revised |
 | --- | --- |

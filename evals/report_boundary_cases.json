@@ -1,0 +1,83 @@
+[
+  {
+    "id": "writer-combined-incident-bug",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "requirements": [
+      "REPORT-BOUNDARIES"
+    ],
+    "workflow": {
+      "id": "report-boundaries",
+      "scenario": "behavior",
+      "covers": []
+    },
+    "request": {
+      "instruction": "/technical-writer Write one combined record, primarily a Bug Report (BR), from these facts. Keep the defect fields and enough incident information to reconstruct response and recovery. Save it to output/report.md as a draft if information is missing. Do not open tasks, run the project or invent evidence.",
+      "source": "Release build 42 caused website category saves to return HTTP 500 for all three administrators who attempted an edit. On 2026-11-01 at 09:10 UTC, one administrator selected Research on website 17 and clicked Save; the request returned HTTP 500 and a fresh read retained Education. Expected behavior: a successful category edit is persisted and visible on a fresh read. At 09:18 UTC responders rolled back build 42. At 09:22 UTC each of the three administrators completed one save and checked its persisted value on a fresh read. Service recovered. The cause remains unknown, no permanent defect fix was implemented, no repository files have been inspected, and no automated regression test has run. Reported evidence: request log req-17 recorded the HTTP 500; recovery checks recorded the three successful saves. Severity, owners and follow-up dates are unassigned."
+    },
+    "resources": [
+      "SKILL.md",
+      "references/bug_report.md",
+      "references/incident_report.md",
+      "references/writing_style.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
+  },
+  {
+    "id": "writer-qa-bug-without-incident",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "requirements": [
+      "REPORT-BOUNDARIES"
+    ],
+    "workflow": {
+      "id": "report-boundaries",
+      "scenario": "behavior",
+      "covers": []
+    },
+    "request": {
+      "instruction": "/technical-writer Write a Bug Report (BR) from these QA observations. Decide whether the supplied facts warrant incident content, following the relevant references. Save the requested report to output/report.md; do not create unnecessary additional records or invent evidence.",
+      "source": "A tester observed a category-save failure once in a staging QA session. Selecting Research and clicking Save closed the dialog, but a fresh read still showed Education. Expected: the selected category persists after a confirmed successful save. There is no reported production effect, outage, operational response or recovery timeline. Repeatability is unknown; no code or logs were inspected. There are no verified relevant file paths. Original-failure and regression checks remain planned, not run."
+    },
+    "resources": [
+      "SKILL.md",
+      "references/bug_report.md",
+      "references/incident_report.md",
+      "references/writing_style.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
+  },
+  {
+    "id": "writer-incident-linked-defects",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "requirements": [
+      "REPORT-BOUNDARIES"
+    ],
+    "workflow": {
+      "id": "report-boundaries",
+      "scenario": "behavior",
+      "covers": []
+    },
+    "request": {
+      "instruction": "/technical-writer Review this documentation approach. Explain whether a combined record or linked records is more useful; give a concrete recommendation without writing full replacement documents or claiming the incidents or defects are resolved.",
+      "source": "A six-hour outage has a long responder timeline and three independently tracked defects. One older defect has also caused two earlier incidents with different impact and recovery actions. We need to keep operational response history and permanent-defect verification useful to separate teams. Someone proposes merging the Incident Report (IR) and Bug Report (BR) references and copying all evidence into every defect report."
+    },
+    "resources": [
+      "SKILL.md",
+      "references/bug_report.md",
+      "references/incident_report.md",
+      "references/writing_style.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
+  }
+]

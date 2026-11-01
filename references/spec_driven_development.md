@@ -9,7 +9,7 @@ This package uses “SDD” for both the behavioral document and the development
 - Describe observable outcomes before choosing technologies or files. A genuine architectural, regulatory, or product constraint belongs in the spec with its source; a proposed implementation choice belongs in the design or plan.
 - Define scope and terms before relying on them. Include normal behavior, permissions, errors, boundary conditions, and business rules that affect the result.
 - Give requirements stable identifiers and verifiable acceptance conditions. Keep relevant units, limits, exceptions, and sources intact.
-- Separate agreed requirements from assumptions, proposals, and unanswered questions. Do not invent product decisions to make the document appear complete.
+- Separate agreed requirements from assumptions, proposals, and unanswered questions. Do not invent product decisions to make the document appear complete. An unconditional permission rule remains binding across entry points; missing interface details do not make enforcement optional.
 - Keep one maintained statement of intended behavior. Link downstream designs, plans, issues, and tests to it instead of maintaining competing copies.
 - Change the spec explicitly when intended behavior changes. A plan or implementation cannot silently override it. Record the reason and update affected acceptance checks.
 

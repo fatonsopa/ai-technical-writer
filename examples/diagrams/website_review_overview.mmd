@@ -1,0 +1,12 @@
+%% Diagram: Flowchart
+%% View: overview
+%% Subtitle: Successful category changes, from submission to confirmation.
+flowchart LR
+    accTitle: Website review workflow
+    accDescr: An administrator submits selected websites and a category. The API validates and saves the change. After confirmation, the page refreshes rows and counts and shows the result.
+    SEND["1. Submit category change"] --> API@{ shape: fr-rect, label: "2. Validate and save changes" }
+    API -->|"Save confirmed"| REFRESH["3. Refresh rows and counts"]
+    REFRESH --> SHOW@{ shape: curv-trap, label: "4. Show confirmation" }
+class SEND,REFRESH process
+class API predefined
+class SHOW display

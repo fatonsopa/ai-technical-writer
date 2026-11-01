@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Render a self-contained diagram with visible context, a symbol legend and source binding."""
+import title_contract
 import argparse
 import hashlib
 import json
@@ -80,7 +81,7 @@ def style_source(source, style):
 
 
 def renderer_identity():
-    names = ('render_diagram.py', 'diagram_presentation.py', 'diagram_components.py', 'diagram_inventory.mjs', 'mermaid_runtime.mjs', 'audit_diagram.mjs')
+    names = ('render_diagram.py', 'diagram_presentation.py', 'diagram_components.py', 'diagram_inventory.mjs', 'mermaid_runtime.mjs', 'audit_diagram.mjs', 'title_contract.py')
     return sha(json.dumps({name:sha(Path(__file__).with_name(name).read_bytes()) for name in names},sort_keys=True).encode())
 
 
@@ -171,6 +172,9 @@ def check_svg(svg, source, style=None):
         if sealed:
             root.set('data-export-sha256',sealed)
         manifest=components.read_manifest(root)
+        errors.extend(title_contract.readability_errors(source, context, manifest))
+        if root.get('data-view-profile') != context.get('view', 'overview'):
+            errors.append('Diagram view level differs from its source.')
         errors.extend(components.svg_errors(root,manifest,style))
         audit=root.find(".//{"+SVG+"}metadata[@id='technical-writer-design-audit']")
         trace=root.find(".//{"+SVG+"}metadata[@id='technical-writer-render-trace']")
@@ -238,11 +242,14 @@ def render(source_path, output, renderer=None, puppeteer_config=None):
     source_path, output = Path(source_path), Path(output)
     guide = writing_style.guide_packet(writing_style.load_guide(ROOT), include_text=False)
     style, source = load_style(), source_path.read_text()
+    styled=style_source(source,style)
     executable = shutil.which(renderer or os.environ.get("TECHNICAL_WRITER_MERMAID_CLI", "mmdc"))
     if not executable:
         raise ValueError("Mermaid CLI unavailable; no diagram was rendered.")
-    styled=style_source(source,style)
     manifest=components.analyze_source(source,style)
+    density = title_contract.readability_errors(source, source_context(source, style), manifest)
+    if density:
+        raise ValueError(" ".join(density))
     events=[{'phase':'inventory','evidence':sha(json.dumps(manifest,sort_keys=True).encode())}]
     with tempfile.TemporaryDirectory(prefix="writer-diagram-") as folder:
         folder = Path(folder)

@@ -17,7 +17,7 @@ from test_diagram_support import control_export, SEQUENCE_ELEMENTS, table, raw_s
 SEQUENCE = '''%% Diagram: Sequence diagram
 %% Subtitle: The administrator saves a category through the Websites page.
 sequenceDiagram
-accTitle: Save a website category
+accTitle: Category save results
 accDescr: The administrator sends a category change and receives confirmation.
 actor A as 1. Administrator
 participant UI as 2. Websites page
@@ -130,10 +130,10 @@ class DiagramPresentationTests(unittest.TestCase):
             root = Path(folder)
             (root / "save.mmd").write_text(SEQUENCE)
             (root / "save.svg").write_text(self.svg)
-            request = {"kind": "visual", "sources": [{"id": "brief", "text": "Show the administrator's category save."}, {"id": "source", "path": "save.mmd"}, {"id": "svg", "path": "save.svg"}], "destination": "save.md", "context": {"visuals": [{"heading": "Save a category", "notation": "diagram_svg", "reason": "Show who sends and confirms the change."}]}}
+            request = {"kind": "visual", "sources": [{"id": "brief", "text": "Show the administrator's category save."}, {"id": "source", "path": "save.mmd"}, {"id": "svg", "path": "save.svg"}], "destination": "save.md", "context": {"visuals": [{"heading": "Category save results", "notation": "diagram_svg", "reason": "Show who sends and confirms the change."}]}}
             (root / "request.json").write_text(json.dumps(request))
             delivery.prepare(root / "request.json", root / "session")
-            text = '# Save a category\n\n![Category save sequence](save.svg)\n\nThe administrator sends the category through the page.\n\n' + table(SEQUENCE_ELEMENTS) + '\n**Mermaid source**\n\n```text\n' + SEQUENCE + '```\n'
+            text = '# Category save results\n\n![Category save sequence](save.svg)\n\nThe administrator sends the category through the page.\n\n' + table(SEQUENCE_ELEMENTS) + '\n**Mermaid source**\n\n```text\n' + SEQUENCE + '```\n'
             (root / "draft.md").write_text(text)
             with patch.object(delivery, "check_syntax", side_effect=AssertionError("Literal source is not a second rendered diagram.")):
                 result = delivery.check(root / "session", root / "draft.md")
@@ -163,9 +163,9 @@ class DiagramPresentationTests(unittest.TestCase):
         self.assertTrue(embedded_source_errors(image + table + code + code, SEQUENCE))
 
     def test_literal_source_cannot_supply_the_diagram_explanations(self):
-        text = '# Save a category\n\n![Category save](save.svg)\n\n```text\n' + SEQUENCE + '\n| Participant | Meaning |\n| --- | --- |\n| Administrator | Requests the save. |\n```\n'
+        text = '# Category save results\n\n![Category save](save.svg)\n\n```text\n' + SEQUENCE + '\n| Participant | Meaning |\n| --- | --- |\n| Administrator | Requests the save. |\n```\n'
         self.assertEqual(diagram_blocks(text)[0], [])
-        errors = visual_errors(text, headings(text), [{"heading": "Save a category", "notation": "diagram_svg", "reason": "Explain the request."}])
+        errors = visual_errors(text, headings(text), [{"heading": "Category save results", "notation": "diagram_svg", "reason": "Explain the request."}])
         self.assertTrue(any("Missing overview" in error for error in errors))
         self.assertTrue(any("Missing element explanations" in error for error in errors))
 

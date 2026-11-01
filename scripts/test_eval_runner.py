@@ -32,6 +32,54 @@ class RunnerTests(unittest.TestCase):
             {'id':'bad','passed':False,'critical_failures':['Invented result']},
             {'id':'good','passed':True,'critical_failures':[]}], labels), [])
 
+    def test_calibration_cli_uses_authored_controls_without_false_guide_reads_and_blinds_labels(self):
+        samples = json.loads((ROOT/'evals/rubrics/calibration_samples.json').read_text())
+        labels = json.loads((ROOT/'evals/rubrics/calibration_labels.json').read_text())['labels']
+        original = {x['content']:x['id'] for x in samples['results']}
+        before = (ROOT/'evals/rubrics/calibration_samples.json').read_bytes()
+        calls=[]
+        def actual_transport_control(work, output, prompt, model, grading=False):
+            self.assertTrue(grading);calls.append(model)
+            packet=json.loads((work/'packet.json').read_text())
+            self.assertIn('Authored grader controls',packet['generator_context']['provenance'])
+            self.assertNotIn('cal-good-report', json.dumps(packet))
+            self.assertIn('references/writing_style.md',packet['guides'])
+            results=[]
+            for row in packet['cases']:
+                self.assertTrue(row['case']['id'].startswith('control-'))
+                label=labels[original[row['output']]]
+                results.append({'id':row['case']['id'],'scores':[3 if label['passed'] else 0]*7,'critical_failures':['Authored faulty-output control.'] if label['critical_expected'] else [],'reasons':['Authored checker fixture, not actual model quality.']})
+            output.mkdir(parents=True);return {'status':'completed','results':results}
+        argv=['run.py','calibrate','--model','fixture-model','--max-calls','1','--max-seconds','30','--out',str(self.args.out)]
+        with patch.object(sys,'argv',argv),patch.object(runner,'invoke',side_effect=actual_transport_control):
+            with self.assertRaises(SystemExit) as exit_status:runner.main()
+        self.assertEqual(exit_status.exception.code,0);self.assertEqual(calls,['fixture-model'])
+        summary=json.loads((self.args.out/'calibration_summary.json').read_text());self.assertEqual(summary['disagreements'],[])
+        record=json.loads((self.args.out/'calibration/record.json').read_text());self.assertEqual(set(x['id'] for x in record['results']),set(labels));self.assertEqual(len(record['calibration_blinding']['blind_to_original']),len(labels))
+        self.assertEqual(before,(ROOT/'evals/rubrics/calibration_samples.json').read_bytes())
+
+    def test_calibration_cli_rejects_unblinded_ids_and_reports_unavailable_grading(self):
+        labels=json.loads((ROOT/'evals/rubrics/calibration_labels.json').read_text())['labels']
+        for mode in ['unblinded','unavailable']:
+            with self.subTest(mode=mode):
+                out=self.args.out/mode
+                def fake(work, output, *args, **kwargs):
+                    output.mkdir(parents=True)
+                    if mode=='unavailable':return {'status':'infrastructure_error','error':'Authored unavailable-provider control.','results':[]}
+                    return {'status':'completed','results':[{'id':id,'scores':[3]*7,'critical_failures':[],'reasons':['Authored wrong-ID control.']} for id in labels]}
+                argv=['run.py','calibrate','--model','fixture-model','--max-calls','1','--max-seconds','30','--out',str(out)]
+                with patch.object(sys,'argv',argv),patch.object(runner,'invoke',side_effect=fake) as invoke:
+                    with self.assertRaises(SystemExit) as status:runner.main()
+                self.assertEqual(status.exception.code,1);self.assertEqual(invoke.call_count,1)
+                summary=json.loads((out/'calibration_summary.json').read_text());self.assertEqual(summary['status'],'infrastructure_error');self.assertEqual(set(summary['disagreements']),set(labels))
+                record=json.loads((out/'calibration/record.json').read_text());self.assertIn('blinded' if mode=='unblinded' else 'unavailable',record['error'])
+
+    def test_authored_control_exception_cannot_bypass_real_generation_requirements(self):
+        self.seed()
+        with patch.object(runner,'invoke') as invoke:
+            with self.assertRaisesRegex(ValueError,'restricted to the labeled calibration set'):runner.grade(('user_story',[self.case]),self.args,authored_controls=True)
+            invoke.assert_not_called()
+
     def test_cli_preserves_an_existing_attempt(self):
         folder = self.args.out / 'user_story'; folder.mkdir(parents=True)
         record = folder / 'record.json'; record.write_text('original attempt')
@@ -224,6 +272,31 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(first['budget']['cli_invocations'], 1)
         self.assertIn('allowance exhausted', second['error'])
         self.assertEqual(second['budget']['cli_invocations'], 1)
+
+    def test_attempted_generation_timeout_is_failed_even_without_a_complete_trace(self):
+        from adapters import codex
+        from unittest.mock import Mock
+        process = Mock(pid=1234)
+        process.communicate.side_effect = [subprocess.TimeoutExpired('authored-cli', 1), (None, None)]
+        budget = runner.evaluation.CallBudget(1, 10)
+        with patch.object(codex.subprocess, 'Popen', return_value=process), patch.object(codex.os, 'killpg'):
+            record = codex.invoke(self.folder, self.folder / 'timed-out-provider', 'A fixture task.', 'fixture-model', {}, budget)
+        self.assertEqual(record['status'], 'failed')
+        self.assertEqual(record['error_kind'], 'task_timeout')
+        self.assertEqual(record['budget']['cli_invocations'], 1)
+
+    def test_timed_out_attempt_counts_as_failure_instead_of_missing_coverage(self):
+        self.seed()
+        path = self.args.generated / 'user_story/record.json'
+        record = json.loads(path.read_text())
+        record.update(status='failed', error_kind='task_timeout', error='Authored timeout control.')
+        path.write_text(json.dumps(record))
+        result = runner.evaluation.assess_saved(self.args.generated, self.args.out)
+        self.assertFalse(result['accepted'])
+        self.assertEqual(result['evaluated_attempts'], 1)
+        self.assertEqual(result['coverage_percent'], 100)
+        self.assertEqual(result['task_success_percent'], 0)
+        self.assertIn(self.case['id'], result['failed_case_ids'])
 
 
 if __name__ == '__main__': unittest.main()

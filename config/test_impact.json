@@ -482,6 +482,42 @@
         "{python}",
         "scripts/check_diagram_collection.py"
       ]
+    },
+    "host-coverage": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_host_coverage.py"
+      ]
+    },
+    "document-names": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_document_names.py"
+      ]
+    },
+    "title-contract": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_title_contract.py"
+      ]
     }
   },
   "rules": [
@@ -916,6 +952,85 @@
         "flowchart-style",
         "diagram-presentation",
         "writing-style-contract"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/host_coverage.py",
+        "config/host_validation.json",
+        "evals/document_output_cases.json",
+        "evals/report_boundary_cases.json",
+        "evals/rubrics/report_boundary_behavior.json",
+        "references/bug_report.md",
+        "references/incident_report.md"
+      ],
+      "tests": [
+        "host-coverage"
+      ]
+    },
+    {
+      "paths": [
+        "evals/host_validation_cases.json"
+      ],
+      "tests": [
+        "host-coverage"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/check_document.py"
+      ],
+      "tests": [
+        "host-coverage"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/provider_results.py"
+      ],
+      "tests": [
+        "host-coverage"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/writing_style_contract.py",
+        "scripts/test_document_names.py",
+        "SKILL.md"
+      ],
+      "tests": [
+        "document-names"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/title_contract.py",
+        "scripts/test_title_contract.py"
+      ],
+      "tests": [
+        "title-contract",
+        "contracts",
+        "delivery",
+        "diagram-presentation"
+      ]
+    },
+    {
+      "paths": [
+        "evals/title_cases.json",
+        "evals/rubrics/title_behavior.json"
+      ],
+      "tests": [
+        "title-contract",
+        "host-coverage",
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/test_title_contract.py"
+      ],
+      "tests": [
+        "title-contract"
       ]
     }
   ],

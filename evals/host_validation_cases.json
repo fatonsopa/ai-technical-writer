@@ -1,0 +1,26 @@
+[
+  {
+    "id": "writer-required-host-coverage",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "requirements": [
+      "HOST-GUARD"
+    ],
+    "workflow": {
+      "id": "host-matrix",
+      "scenario": "behavior",
+      "covers": []
+    },
+    "request": {
+      "instruction": "/technical-writer Review this validation claim without rewriting a document or running new model tests: \u201cAll document outputs passed on Codex, so Technical Writer is validated on both Codex and Claude Code.\u201d The release matrix explicitly requires both hosts, but no Claude Code results exist. Inspect the installed host_coverage.py interface and explain what is established, what is missing and how the frozen matrix should be assessed. Keep the response source-grounded, distinguish a missing observation from a failed task, and do not invent a validation result or ask for routine retry permission."
+    },
+    "resources": [
+      "SKILL.md",
+      "references/writing_style.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
+  }
+]

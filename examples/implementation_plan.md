@@ -1,4 +1,4 @@
-# Implement Websites Review and category editing
+# Website category delivery plan
 
 Status: Ready for implementation against the agreed behavior baseline
 Scope: Administration lists, category mutation, and supporting database contracts

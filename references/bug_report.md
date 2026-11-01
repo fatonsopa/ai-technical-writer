@@ -7,11 +7,17 @@ A bug report records an observed failure so a developer can investigate it, repr
 - Name the observed failure and useful condition in the title. Keep possible causes labeled as hypotheses until evidence establishes them.
 - Keep related symptoms together when they describe one failure; link separate problems.
 - Keep expected behavior separate from actual observations. Cite the requirement or contract; flag an uncertain expectation for confirmation.
-- Give precise actions, inputs, setup, order, timing, and real attempt counts. A once-observed or unreproducible failure can still be reported.
+- Give precise actions, inputs, setup, order, timing, and real attempt counts. A once-observed or unreproducible failure can still be reported. An unreported reproduction attempt is unknown; do not turn “no further attempts were reported” into “no further attempts occurred.”
 - Use evidence suited to the failure: request/response pairs, database rows, logs, traces, timings, tests, observations, or images. Screenshots are optional. Explain provenance and what each item establishes.
 - Include inspected paths and symbols with their relationship to the failure. Attribute paths supplied by another investigator. A relevant file is not automatically the cause. When access is unavailable, say so and identify search areas without inventing paths.
 - Explain known impact and workarounds. Follow the project's severity scale; assignment, priority, status, and release decisions remain with its task-management process.
 - Protect sensitive evidence and preserve exact material values, units, identifiers, and errors. Planned verification is not a passing test.
+
+## Relationship to an Incident Report (IR)
+
+A Bug Report (BR) investigates defective behavior. If that defect also causes a disruptive event, use [Incident Report (IR)](incident_report.md) for impact, timeline, response, recovery and lessons. A verified recovery is not evidence that the permanent defect was fixed. A bug found during QA may need only a Bug Report (BR).
+
+For one small event tied to one defect, keep a combined record in the same task or document when useful. Preserve every required defect section and add the relevant incident information from the other reference. In particular, Timeline and evidence does not replace Evidence; keep the Evidence section and link the shared timeline or artifacts. Keep shared evidence in one place, and distinguish service recovery from defect verification. Use linked records for longer response histories, multiple defects or repeated events. Keep the two reference files and their responsibilities separate.
 
 ## Structure
 
@@ -28,7 +34,7 @@ Use the following sections for a complete report. Keep **Expected result** and *
 | Actual result | Observed behavior, exact values/errors, and measurements with units and conditions. |
 | Reproduction frequency | Actual attempts/results or a clear once/intermittent/unknown status. |
 | Severity and impact | Known affected users/operations, scope, workaround, and a supported severity assessment; do not invent a rating or priority. |
-| Evidence | Available artifacts or observations, their provenance, and what they demonstrate; state when nothing was captured. |
+| Evidence | Available or inspected artifacts and observations, their provenance, and what they demonstrate. Missing attachments mean none were provided; they do not establish that none were captured. |
 | Relevant files | Verified or attributed paths/symbols and why they matter, or an explicit repository-access limitation. |
 | Verification | Planned original-failure and regression checks linked to expected behavior; distinguish completed results from checks still needed. |
 | Additional context | Optional related work, open questions, or clearly labeled hypotheses. |
@@ -62,13 +68,13 @@ For data failures, show a small input/expected/actual comparison. For performanc
 [Observed output, error, data, or timing.]
 
 ## Reproduction frequency
-[Actual count and conditions, or once/intermittent/unknown.]
+[Reported attempts and conditions, or once/intermittent/unknown. An unreported attempt remains unknown.]
 
 ## Severity and impact
 [Supported impact, affected scope, workaround, and severity assessment or uncertainty.]
 
 ## Evidence
-[Available evidence, provenance, and what it establishes; otherwise none captured.]
+[Provided or inspected evidence, its provenance, and what it establishes. If none was supplied, say that; do not infer that no capture exists.]
 
 ## Relevant files
 [Inspected or attributed paths/symbols with their role; otherwise repository not inspected.]

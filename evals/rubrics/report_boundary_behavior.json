@@ -1,0 +1,18 @@
+{
+  "purpose": "Judge actual report purpose, scope, source grounding and separate recovery/defect status, not just heading words.",
+  "cases": {
+    "writer-combined-incident-bug": [
+      "One useful combined record; complete primary defect fields, supplied impact and UTC timeline, response and actual recovery checks. No duplicate artificial documents.",
+      "Preserve exact build42, HTTP500, website17, Research/Education, times and actual3 checks. Recovery is verified, permanent fix/cause/files/tests remain unresolved/uninspected/not run.",
+      "Natural prose, appropriate structure and no fabricated severity, owner, evidence or execution."
+    ],
+    "writer-qa-bug-without-incident": [
+      "Produce the requested defect report with separate expected/actual results, How to reproduce and Relevant files; retain one observation and unknown repeatability.",
+      "Do not invent an outage, response/recovery timeline or mandatory incident report solely because a staging defect exists. No guessed cause or file path."
+    ],
+    "writer-incident-linked-defects": [
+      "Recommend distinct linked event/defect records for different histories, preserve both references, link rather than duplicate evidence.",
+      "Review stays recommendations, not full replacements or fabricated status/verification."
+    ]
+  }
+}

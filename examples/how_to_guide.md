@@ -1,4 +1,4 @@
-# Resolve website categories in Review
+# Website category review
 
 ## Before you begin
 

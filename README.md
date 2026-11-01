@@ -123,6 +123,8 @@ Complete Product Requirements Document (PRD), Spec Driven Development document (
 
 ## Evaluate and improve the skill
 
+The [host coverage procedure](evals/README.md#check-both-execution-hosts) freezes required Codex and Claude Code tasks and checks separately reviewed results for both. A missing host cannot pass through a combined success percentage.
+
 Start with one representative case. From the installed skill folder:
 
 ```sh
