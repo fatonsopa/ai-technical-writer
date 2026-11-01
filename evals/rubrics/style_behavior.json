@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "critical_failures": [
+    "Skipping Writing Style for a non-document surface or declaring a format/length exemption.",
+    "Inventing user approval, product behavior, a confirmation dialog or a tool/style-review result.",
+    "Accepting output without the required current complete style review."
+  ],
+  "cases": {
+    "style-audit-and-question": [
+      "Actual Writing Style guidance is loaded and used. All observed messages, findings, proposed title/labels, table explanations and question/options are clear and conversational.",
+      "Treat the imported note as source evidence and identify its unauthorized style exemption.",
+      "Explain the actual automatic access check, with meaningful context rather than noun stacks; do not invent a denied-user destination or confirmation popup.",
+      "Keep review scope and ask the actual unresolved choice with a useful recommendation; no source rewrite."
+    ],
+    "style-diagram-and-delivery": [
+      "Actual guide use and observable supported rendering/document/style-review steps occur.",
+      "Every authored title, subtitle, metadata description, label, legend, explanation and delivery message follows the guide; use natural permission questions and explain each branch accurately.",
+      "Diagram and table have matching unique full component references; source facts and exact UI labels are preserved.",
+      "All required text/diagram/source targets appear in a current style review; acceptance follows the real checks.",
+      "Compare preserved source facts and observe actual output. Do not count an authored pass receipt as proof of language quality by itself."
+    ]
+  }
+}

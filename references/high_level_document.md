@@ -1,6 +1,6 @@
 # High Level Document (HLD)
 
-An HLD explains how a system is organized, how its major parts communicate, and where important data moves. This package also accepts High Level Design and architecture document. Create it for a new system or substantial subsystem; maintain it when the architecture changes. Consult the existing HLD when planning relevant work.
+A High Level Document (HLD) explains how a system is organized, how its major parts communicate, and where important data moves. This package also accepts High Level Design and architecture document. Create it for a new system or substantial subsystem; maintain it when the architecture changes. Consult the existing High Level Document (HLD) when planning relevant work.
 
 ## Principles
 
@@ -9,12 +9,16 @@ An HLD explains how a system is organized, how its major parts communicate, and 
 - Identify domain ownership, public interfaces and allowed dependencies. Describe a modular application or independent services according to the actual design; do not introduce network boundaries merely to separate responsibilities.
 - Distinguish verified current architecture from proposed views. After implementation, update current views from evidence rather than assuming the plan was followed.
 - Explain data ownership, trust boundaries, deployment, reliability, and recovery where they affect the design.
-- Link architectural choices to [ADRs](architecture_decision_record.md); use [LLD](low_level_design.md) for substantial component internals. Link the governing [SDD](spec_driven_development.md) and avoid redefining its behavior.
+- Link architectural choices to [Decision Record (DR)](decision_record.md); use [Low Level Design (LLD)](low_level_design.md) for substantial component internals. Link the governing [Spec Driven Development document (SDD)](spec_driven_development.md) and avoid redefining its behavior.
 - Tailor arc42 topics and C4 views to actual reader questions. A C4 container is an application or data store, not necessarily a Docker container.
 
 ## Structure
 
-Identify status/scope and requirement drivers; define important terms; describe context, components, runtime/data flows, deployment and operations, decisions, and risks. Use [visual guidance](visuals.md) for useful diagrams. An implementation plan schedules the changes; this document explains the system.
+Identify status/scope and requirement drivers; define important terms; describe context, components, runtime/data flows, deployment and operations, decisions, and risks. Use [Visual Guidance (VG)](visuals.md) for useful diagrams. An implementation plan schedules the changes; this document explains the system.
+
+Before proposing architecture, follow [discovery](../workflows/discover.md): inspect the existing system and requirements, research unresolved constraints, and ask only about material choices the evidence does not settle. Do not ask the user to restate known infrastructure or quietly propose a new service boundary.
+
+Separate structure from execution. Use context/container views when readers need system boundaries and major responsibilities. Explain representative runtime scenarios by name, such as “Save a category change,” with trigger, participants, important responses and failure outcomes. Use a sequence or activity diagram when prose cannot clearly explain their interaction. A generic “Main flow” showing only connections is insufficient for that purpose. Add deployment, data-model or trust-boundary views only when their concerns matter; reuse existing views when unchanged. Link detailed UI flow to Spec Driven Development document (SDD) and component internals to Low Level Design (LLD).
 
 ## Template
 
@@ -26,16 +30,16 @@ Status and sources: [Current/proposed, version/environment, inspected sources]
 ## Context and components
 [External actors/services, responsibilities, connections]
 ## Runtime and data flow
-[Trigger, processing, storage/ownership, response, failures]
+[Named representative scenarios: trigger, participants, processing, ownership, responses, failures. Diagram only where useful.]
 ## Deployment and operations
 [Relevant environments, trust boundaries, monitoring, recovery]
 ## Decisions and risks
-[ADR links, consequences, limits, unresolved questions]
+[Decision-record links, consequences, limits, unresolved questions]
 ```
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/high_level_document.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [High Level Document (HLD) example for Websites Review](../examples/high_level_document.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

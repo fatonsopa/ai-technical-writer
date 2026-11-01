@@ -1,6 +1,6 @@
-# Policy (POL)
+# Policy (Policy (POL))
 
-A policy states an organization's direction, broad obligations, and accountability. Create it when governance needs an explicit agreement; update it when the authorized direction, scope, or responsibilities change. A [technical standard](technical_standard.md) turns that direction into precise, verifiable rules. Both can be binding; specificity and responsibility distinguish them.
+A policy states an organization's direction, broad obligations, and accountability. Create it when governance needs an explicit agreement; update it when the authorized direction, scope, or responsibilities change. A [Technical Standard (STD)](technical_standard.md) turns that direction into precise, verifiable rules. Both can be binding; specificity and responsibility distinguish them.
 
 ## Principles
 
@@ -38,7 +38,7 @@ Status/authority: [Draft or confirmed adoption source]
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/policy.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Policy (POL) example for Websites Review](../examples/policy.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

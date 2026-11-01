@@ -1,0 +1,2 @@
+# Conversation state
+The user was asked whether failed batches should require explicit recovery or resume automatically. Existing code stops after a failed batch. An improvement to automatic recovery is being considered, but the user has not answered. The first option was preselected by the interface. The question tool timed out; it did not submit a choice. The immediate task is to report what remains needed before finalizing the new recovery behavior.

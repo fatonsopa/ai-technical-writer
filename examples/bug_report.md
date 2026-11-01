@@ -13,7 +13,7 @@ Isolated baseline database and administration build before the new queue contrac
 
 ## Prerequisites
 
-Seed U3 and U3H from the [test specification](test_specification.md). Both are active, unverified, and parked. U3 has a citation aggregate; U3H does not. Confirm both records exist through an authorized database read.
+Seed U3 and U3H from the [Test Specification (TS)](test_specification.md). Both are active, unverified, and parked. U3 has a citation aggregate; U3H does not. Confirm both records exist through an authorized database read.
 
 ## How to reproduce
 
@@ -51,4 +51,4 @@ These locations come from the supplied baseline investigation. The existing inne
 
 ## Verification
 
-T03 must return U3, U3H, and US for active Review, four expected Pending rows, and the six existing All rows. T06 must show matching list/count/ID populations. Repeat after the read-contract change.
+T03 must return U3, U3H, and User Story (US) for active Review, four expected Pending rows, and the six existing All rows. T06 must show matching list/count/ID populations. Repeat after the read-contract change.

@@ -8,7 +8,7 @@ Administrators need to separate websites still awaiting automation from parked w
 
 Add All, Pending, and Review tabs with counts, shared filters, and inline category assignment. Use the existing bulk dialog for assigning or clearing categories. Keep All's existing population and enforce administrator authorization and attributable history.
 
-This is the parent Feature. Focused implementation tasks can follow the [plan](implementation_plan.md); a [user story](user_story.md) captures the single-website review journey.
+This is the parent Feature. Focused implementation tasks can follow the [Implementation Plan (IP)](implementation_plan.md); a [User Story (US)](user_story.md) captures the single-website review journey.
 
 ## Expected outcome
 
@@ -16,7 +16,7 @@ An administrator can find every active website requiring review, understand its 
 
 ## Acceptance criteria
 
-- WEB-01–WEB-04: Classification, active populations, filters, counts, selection, and pagination follow the [SDD](spec_driven_development.md).
+- WEB-01–WEB-04: Classification, active populations, filters, counts, selection, and pagination follow the [Spec Driven Development document (SDD)](spec_driven_development.md).
 - WEB-05–WEB-08: Only administrators can change categories; inline assignment, attribution, and clearing have the specified outcomes.
 - WEB-09–WEB-10: Requests respect the 500-ID boundary; partial or uncertain writes stop and are reported honestly; confirmed rows and counts refresh.
 - WEB-11–WEB-12: Controls, compatible callers, and measured database limits pass the defined checks.
@@ -31,4 +31,4 @@ An administrator can find every active website requiring review, understand its 
 
 ## Additional context
 
-Provider rules, backfills, restarting parked work, and a new Reason filter are outside scope. The parked-state helper is a prerequisite. Consult the [HLD](high_level_document.md) before implementation.
+Provider rules, backfills, restarting parked work, and a new Reason filter are outside scope. The parked-state helper is a prerequisite. Consult the [High Level Document (HLD)](high_level_document.md) before implementation.

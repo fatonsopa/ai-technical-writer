@@ -41,7 +41,7 @@ Use only supplied evidence. If current state has not been reconciled, say what r
 This skill does not authorize category writes, retries, database reads, tracker changes, or external messages. Do not copy numbers from examples into a real operation.
 ````
 
-## Claude Code output style
+## Claude Code output style (OS)
 
 Save in the host's supported output-style location.
 

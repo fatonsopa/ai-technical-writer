@@ -1,6 +1,6 @@
 # Technical Standard (STD)
 
-A technical standard defines precise rules and how to verify them. Create it when a team needs consistent, checkable practice; update it when approved rules, constraints, checks, or exceptions change. A [policy](policy.md) provides direction and accountability. A standard can implement that policy, but must not quietly invent its authority.
+A technical standard defines precise rules and how to verify them. Create it when a team needs consistent, checkable practice; update it when approved rules, constraints, checks, or exceptions change. A [Policy (POL)](policy.md) provides direction and accountability. A standard can implement that policy, but must not quietly invent its authority.
 
 ## Principles
 
@@ -40,7 +40,7 @@ Status/authority: [Source and adoption state]
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/technical_standard.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Technical Standard (STD) example for Websites Review](../examples/technical_standard.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

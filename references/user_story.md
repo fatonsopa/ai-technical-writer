@@ -1,6 +1,6 @@
 # User Story (US)
 
-A user story describes a small, useful outcome from a person's perspective. Create one to clarify or track a user need; update it when the need, scope, value, or acceptance criteria change. It can live in a Feature/Improvement [issue](issue.md) or a [PRD](product_requirements_document.md)/[SDD](spec_driven_development.md) before tasks exist. Its reference filename does not require a standalone story file or a new tracker type.
+A user story describes a small, useful outcome from a person's perspective. Create one to clarify or track a user need; update it when the need, scope, value, or acceptance criteria change. It can live in a Feature/Improvement [issue](issue.md) or a [Product Requirements Document (PRD)](product_requirements_document.md)/[Spec Driven Development document (SDD)](spec_driven_development.md) before tasks exist. Its reference filename does not require a standalone story file or a new tracker type.
 
 ## Principles
 
@@ -12,7 +12,7 @@ A user story describes a small, useful outcome from a person's perspective. Crea
 
 ## Structure
 
-Use a specific title, user/need/value statement, scope, acceptance criteria, and relevant requirement links or open questions. The [SDD](spec_driven_development.md) owns detailed behavior; the [plan](implementation_plan.md) owns delivery. Common task metadata belongs to the issue containing the story.
+Use a specific title, user/need/value statement, scope, acceptance criteria, and relevant requirement links or open questions. The [Spec Driven Development document (SDD)](spec_driven_development.md) owns detailed behavior; the [Implementation Plan (IP)](implementation_plan.md) owns delivery. Common task metadata belongs to the issue containing the story.
 
 ## Template
 
@@ -31,7 +31,7 @@ As a [role], I want [capability], so that [benefit].
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/user_story.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [User Story (US) example for Websites Review](../examples/user_story.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

@@ -50,7 +50,7 @@ class RunnerTests(unittest.TestCase):
     def seed_record(self, folder, case, content):
         generator = getattr(self.args, 'generator_skill', None) or self.args.skill
         bundle = runner.evaluation.capture(generator, [case])
-        values = [{'id': case['id'], 'content': content, 'references_read': []}]
+        values = [{'id': case['id'], 'content': content, 'references_read': ['references/writing_style.md']}]
         (folder / 'frozen.json').write_text(json.dumps(bundle))
         (folder / 'record.json').write_text(json.dumps({'status': 'completed', 'variant': 'unit-test',
             'input_snapshot_sha256': runner.digest(bundle), 'output_sha256': runner.digest(values), 'results': values}))
@@ -65,7 +65,7 @@ class RunnerTests(unittest.TestCase):
             self.assertTrue((work / request['source']).exists())
             self.assertIn('Do not edit files', prompt)
             output.mkdir(parents=True)
-            return {'status':'completed','results':[{'id':self.case['id'],'content':'Story','references_read':[]}]}
+            return {'status':'completed','results':[{'id':self.case['id'],'content':'Story','references_read':['references/writing_style.md']}]}
         with patch.object(runner, 'invoke', fake):
             self.assertEqual(runner.generate(('user_story',[self.case]), self.args)[1], 'completed')
 
@@ -74,6 +74,23 @@ class RunnerTests(unittest.TestCase):
             output.mkdir(parents=True); return {'status':'completed','results':[]}
         with patch.object(runner, 'invoke', fake):
             self.assertEqual(runner.generate(('user_story',[self.case]), self.args)[1], 'infrastructure_error')
+
+    def test_style_guide_omission_fails_batch_generation_and_imported_grading(self):
+        def fake(work, output, *args, **kwargs):
+            output.mkdir(parents=True)
+            return {'status': 'completed', 'results': [{'id': self.case['id'], 'content': 'Story', 'references_read': []}]}
+        with patch.object(runner, 'invoke', fake):
+            self.assertEqual(runner.generate(('user_story', [self.case]), self.args)[1], 'failed')
+        self.seed()
+        path = self.args.generated / 'user_story/record.json'
+        record = json.loads(path.read_text())
+        record['results'][0]['references_read'] = []
+        record['output_sha256'] = runner.digest(record['results'])
+        path.write_text(json.dumps(record))
+        with patch.object(runner, 'invoke') as invoke:
+            with self.assertRaisesRegex(ValueError, 'mandatory Writing Style'):
+                runner.grade(('user_story', [self.case]), self.args)
+            invoke.assert_not_called()
 
     def test_critical_failure_overrides_high_scores(self):
         self.seed()
@@ -104,11 +121,13 @@ class RunnerTests(unittest.TestCase):
         self.seed()
         event = {'type':'item.completed','item':{'type':'command_execution',
                  'command':'python3 inventory.py source.md','exit_code':0}}
-        (self.args.generated / 'user_story/events.jsonl').write_text(json.dumps(event)+'\n')
+        message = {'type': 'item.completed', 'item': {'type': 'agent_message', 'id': 'message-1', 'text': 'The category remains selected after a failed save.'}}
+        (self.args.generated / 'user_story/events.jsonl').write_text(json.dumps(event)+'\n'+json.dumps(message)+'\n')
         def fake(work, output, *args, **kwargs):
             context = json.loads((work / 'packet.json').read_text())['generator_context']
             self.assertEqual(context['available_runtime_files'], ['SKILL.md', 'scripts/helper.py'])
             self.assertEqual(context['tool_actions'][0]['exit_code'], 0)
+            self.assertEqual(context['public_text'][0]['text'], message['item']['text'])
             self.assertIn('sources/name.md', context['source_path_mapping'])
             output.mkdir(parents=True)
             return {'status':'completed','results':[{'id':self.case['id'],'scores':[3]*7,

@@ -1,7 +1,7 @@
 # Website review queries and category mutation design
 
 Status: Agreed component design
-Sources: [HLD](high_level_document.md), [SDD](spec_driven_development.md)
+Sources: [High Level Document (HLD)](high_level_document.md), [Spec Driven Development document (SDD)](spec_driven_development.md)
 
 ## Scope and requirements
 
@@ -52,6 +52,55 @@ The mutation and its journal entries commit together. A success response follows
 
 The shared edit hook tracks active row, selected category, saving state, and error. Opening a second row closes an unsaved first edit after canceling its local selection. While a save is pending, reject another save for that row. Enter invokes save; Escape cancels only while no save is in flight. A failed save retains the row and selection for retry.
 
+### Inline editor states
+
+![Inline editor transitions](diagrams/inline_editor_states.svg)
+
+The states describe the editor’s lifecycle. Numbered transitions identify the user action or result that moves it between states; the note explains what is blocked while saving.
+
+| Component | Explanation |
+| --- | --- |
+| 1. Start | The initial-state symbol marks entry into this editor lifecycle. Its visible reference sits beside the solid circle to preserve state-machine notation. |
+| 2. Idle | No row is currently being edited. The administrator can open a row’s category editor. |
+| 3. Editing | One row has a local category selection that can be changed, saved, or canceled before submission. |
+| 4. Saving | The request is in flight. The editor prevents another save for this row and waits for the result. |
+| 5. Open row | Opening the row moves the editor from Idle to Editing. |
+| 6. Change selection | Choosing another category keeps the editor in Editing; the database has not received a save yet. |
+| 7. Cancel before saving | Click Cancel or press Escape before submission to discard the local selection and return to Idle. |
+| 8. Save | Click Save or press Enter to submit the category and enter Saving. |
+| 9. Save fails | A failed save returns to Editing with the selected category retained, so the administrator can decide the next action. |
+| 10. Save succeeds | A confirmed save closes the editor, refreshes affected data and returns to Idle. |
+| 11. Block duplicate saves; Escape cannot cancel an in-flight request | While saving, reject duplicate submission. Escape does not undo a request already sent to the database. |
+
+**Mermaid source**
+
+```text
+%% Diagram: State diagram
+%% Subtitle: One row can be edited at a time. Cancel applies before submission; a failed save keeps the selected category.
+%% Reference: root_start | 1. Start
+stateDiagram-v2
+    direction LR
+    accTitle: Category editor states
+    accDescr: Opening a row starts editing. Save enters an in-flight state, where duplicate saves and cancellation are blocked. Failure returns to editing with the selection; confirmed success closes the editor and refreshes data.
+    state "2. Idle" as Idle
+    state "3. Editing" as Editing
+    state "4. Saving" as Saving
+    [*] --> Idle
+    Idle --> Editing: 5. Open row
+    Editing --> Editing: 6. Change selection
+    Editing --> Idle: 7. Cancel before saving
+    Editing --> Saving: 8. Save
+    Saving --> Editing: 9. Save fails
+    Saving --> Idle: 10. Save succeeds
+    note right of Saving
+        11. Block duplicate saves; Escape cannot cancel an in-flight request
+    end note
+```
+
+Transition labels identify the triggering action or outcome. The attached note describes restrictions while saving.
+
+### Bulk coordination and recovery
+
 The bulk coordinator snapshots the selected IDs, partitions them into at most 500 IDs per request, and submits sequentially. It tracks:
 
 - Confirmed batches and their returned changed-row counts.
@@ -59,6 +108,8 @@ The bulk coordinator snapshots the selected IDs, partitions them into at most 50
 - IDs not yet attempted.
 
 A definite server rejection rolls back that request. A transport failure may occur after commit, so label that batch unresolved. Stop further submissions in either case. Refresh confirmed progress immediately, then re-read the unresolved IDs through the authorized read path. Show current values and history context before offering an explicit retry. A retry is a new attributable decision and can overwrite a concurrent edit; never perform it silently.
+
+The [Visual Guidance (VG)](visuals.md) illustrates this failure branch for WEB-09 and T16 without duplicating it here.
 
 On full or partial completion, invalidate the affected list and count queries. Preserve the administrator's tab and filters, but reset a cursor that no longer identifies a valid page. Avoid a stale success message that announces the original selection size when fewer active rows changed.
 
@@ -70,8 +121,8 @@ Keep old read calls supported until the next compatibility release. M6 later rem
 
 ## Decisions and verification
 
-The [ADR](architecture_decision_record.md) selects one database classification rule. The [DDR](design_decision_record.md) selects explicit reconciliation rather than automatic bulk retry.
+The [Decision Record (DR): architecture](decision_record_architecture.md) selects one database classification rule. The [Decision Record (DR): component design](decision_record_component_design.md) selects explicit reconciliation rather than automatic bulk retry.
 
-T01–T08 cover reads and authorization. T09–T17 cover editor state, atomic writes, metadata, concurrency, bulk boundaries, response loss, and refreshed state. T18–T20 cover controls, compatibility, and measured database behavior. These checks are defined in the [test specification](test_specification.md).
+T01–T08 cover reads and authorization. T09–T17 cover editor state, atomic writes, metadata, concurrency, bulk boundaries, response loss, and refreshed state. T18–T20 cover controls, compatibility, and measured database behavior. These checks are defined in the [Test Specification (TS)](test_specification.md).
 
 Before implementation, confirm the exact parked-helper signature, journal trigger behavior, and migration tool's concurrent-index support. A mismatch requires design reconciliation; changing the behavior silently is not an acceptable implementation shortcut.

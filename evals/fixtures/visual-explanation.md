@@ -1,0 +1,2 @@
+# Diagram review
+The HLD shows boxes labeled UI, List/count/matching IDs, Helper, Websites and Journal. It has no overview, element descriptions or notation legend. A line labeled Uses connects UI to List/count/matching IDs. The reader cannot tell whether count is visible-page size or the entire filtered population, or whether matching IDs includes off-page rows. The task is to identify missing explanations, not invent the function contracts.

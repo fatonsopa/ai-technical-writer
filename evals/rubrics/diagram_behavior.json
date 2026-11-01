@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "cases": {
+    "writer-numbered-user-flow": [
+      "Read actual skill, mandatory Writing Style, visual guidance and delivery instructions. Preserve the raw brief; no unrequested questionnaire or product changes.",
+      "Choose the requested notation, produce a real parser/render/browser-inspected SVG with light dotted canvas, shared colors, visible title/subtitle/Legend, and a unique visible reference for every meaningful component.",
+      "Provide one row per component with the exact complete visible number and label, an understandable contextual explanation and exact editable text source after the table. No invented confirmation modal, automatic retry or rollback claim for a missing response.",
+      "Capture source and SVG in checked delivery; actual exact-draft validation and honest Writing Style review precede finalization. Preserve attempts and report actual results and limits; do not equate a render with semantic acceptance."
+    ],
+    "writer-numbered-save-sequence": [
+      "Read actual skill, mandatory Writing Style, visual guidance and delivery instructions. Preserve the raw brief; no unrequested questionnaire or product changes.",
+      "Choose the requested notation, produce a real parser/render/browser-inspected SVG with light dotted canvas, shared colors, visible title/subtitle/Legend, and a unique visible reference for every meaningful component.",
+      "Provide one row per component with the exact complete visible number and label, an understandable contextual explanation and exact editable text source after the table. No invented confirmation modal, automatic retry or rollback claim for a missing response.",
+      "Capture source and SVG in checked delivery; actual exact-draft validation and honest Writing Style review precede finalization. Preserve attempts and report actual results and limits; do not equate a render with semantic acceptance."
+    ]
+  }
+}

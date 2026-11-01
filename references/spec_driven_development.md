@@ -2,7 +2,7 @@
 
 Use this reference to define what a finished system or change must do. A specification records behavior, business rules, constraints, and acceptance criteria. It is the source of truth for expected behavior; an implementation plan explains how to satisfy it.
 
-This package uses SDD for the behavioral document as well as the development method. Create it when behavior needs explicit agreement; update it when intended behavior changes. Use [Implementation plan](implementation_plan.md) for delivery, [PRD](product_requirements_document.md) for product intent, and [User Story](user_story.md) for a user-value summary. A specification can follow a work item or generate several items after planning. Small changes can keep their specification in explicit task requirements and acceptance criteria.
+This package uses “SDD” for both the behavioral document and the development method; the document name is a local convention. Create it when behavior needs explicit agreement; update it when intended behavior changes. Use [Implementation Plan (IP)](implementation_plan.md) for delivery, [Product Requirements Document (PRD)](product_requirements_document.md) for product intent, and [User Story (US)](user_story.md) for a user-value summary. A specification can follow a work item or generate several items after planning. Small changes can keep their specification in explicit task requirements and acceptance criteria.
 
 ## Principles
 
@@ -29,7 +29,7 @@ Verification: [Setup/input, action, observable expected result]
 Rationale: [Only if it helps interpretation]
 ```
 
-For a complete requirement entry, see WEB-07 and its acceptance mapping in the [worked specification](../examples/spec_driven_development.md).
+For a complete requirement entry, see WEB-07 and its acceptance mapping in the [Spec Driven Development document (SDD) worked example](../examples/spec_driven_development.md).
 
 ## Document structure
 
@@ -40,6 +40,8 @@ Identify the spec's status, source request, owner or decision authority when kno
 Keep implementation details out unless they are confirmed constraints. An existing codebase can inform feasibility and compatibility, but code is not proof of what the product should do. If current code conflicts with an agreed requirement, document the difference.
 
 A draft can contain open decisions. Identify which decisions block implementation or acceptance. Do not mark it ready by guessing answers.
+
+Follow [discovery](../workflows/discover.md) before settling missing behavior. Inspect existing workflows, then ask about genuine gaps or proposed changes. Use [Visual Guidance (VG)](visuals.md) for user flows when branching makes interactions difficult to follow, wireflows when changing screens matter, and state machines when observable lifecycle rules need agreement. Map relevant paths to requirement IDs and acceptance checks. Keep technical execution in High Level Document (HLD)/Low Level Design (LLD); a small specification may need no diagram.
 
 ## Template
 
@@ -79,7 +81,7 @@ Source: [Request, issue, or product decision]
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/spec_driven_development.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Spec Driven Development document (SDD) example for Websites Review](../examples/spec_driven_development.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

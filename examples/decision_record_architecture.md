@@ -6,7 +6,7 @@ Scope: Websites administration reads and shared confirmation state
 
 The administration interface needs to show the same parked state used by automated confirmation. List, count, matching-ID selection, and other readers can diverge if each reimplements the attempt and reason rules. A browser-only rule also cannot restore uncited websites already excluded by an inner join.
 
-WEB-01 requires consistent classification, WEB-02 requires complete queue populations, and WEB-04 requires agreement between rows, counts, and selected IDs. The [HLD](high_level_document.md) keeps website state in PostgreSQL and the browser as a consumer of that state.
+WEB-01 requires consistent classification, WEB-02 requires complete queue populations, and WEB-04 requires agreement between rows, counts, and selected IDs. The [High Level Document (HLD)](high_level_document.md) keeps website state in PostgreSQL and the browser as a consumer of that state.
 
 ## Options considered
 
@@ -30,10 +30,10 @@ Persist a new flag whenever confirmation state changes. Queries could filter it 
 
 Use the shared database classifier. It fits existing data ownership and supports complete server-side filtering and pagination without creating another stored state.
 
-Keep the helper narrow: it returns Pending, Review, or neither. It must not include deletion or citation visibility, because those are caller-specific population rules. Update the HLD to show the shared classifier and document which readers use it. Test the nine-state fixture and reader equivalence before enabling the tabs.
+Keep the helper narrow: it returns Pending, Review, or neither. It must not include deletion or citation visibility, because those are caller-specific population rules. Update the High Level Document (HLD) to show the shared classifier and document which readers use it. Test the nine-state fixture and reader equivalence before enabling the tabs.
 
 The main tradeoff is stronger coordination around database changes. Preserve compatible signatures during rollout and measure query behavior against WEB-12 rather than assuming the extra helper is free.
 
 ## Outcome
 
-Option A is accepted for this initiative's baseline. The [LLD](low_level_design.md) defines the classifier and shared predicate contracts. The implementation plan deploys them before browser callers. Acceptance of this design does not establish that a migration has run or that its checks have passed.
+Option A is accepted for this initiative's baseline. The [Low Level Design (LLD)](low_level_design.md) defines the classifier and shared predicate contracts. The implementation plan deploys them before browser callers. Acceptance of this design does not establish that a migration has run or that its checks have passed.

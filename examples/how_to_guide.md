@@ -45,4 +45,4 @@ If rows or counts remain inconsistent after refresh, preserve the operation deta
 
 ## Related information
 
-The [explanation](explanation.md) describes queue membership. The [policy](policy.md) covers accountability, and the [specification](spec_driven_development.md) defines expected outcomes.
+The [Explanation (EXP)](explanation.md) describes queue membership. The [Policy (POL)](policy.md) covers accountability, and the [Spec Driven Development document (SDD)](spec_driven_development.md) defines expected outcomes.

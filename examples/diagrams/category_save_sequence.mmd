@@ -1,0 +1,32 @@
+%% Diagram: Sequence diagram
+%% Subtitle: The database saves the category and history together. A lost response leaves the page uncertain about the result.
+sequenceDiagram
+    accTitle: Save a website category
+    accDescr: The API checks administrator access and input before writing. Valid changes and history commit together. The page refreshes only after confirmation and reports uncertainty when the committed response is lost.
+    actor A as 1. Administrator
+    participant UI as 2. Websites page
+    participant DB as 3. Database API
+    A->>UI: 4. Save selected category
+    UI->>DB: 5. Submit IDs and category
+    DB->>DB: 6. Check access and input
+    alt 7. Request denied or invalid
+        DB-->>UI: 8. Reject without writes
+        UI-->>A: 9. Show error and retain selection
+    else 10. Request accepted
+        DB->>DB: 11. Update websites and history together
+        alt 12. Update or history write fails
+            DB-->>UI: 13. Roll back this request
+            UI-->>A: 14. Show error and retain selection
+        else 15. Transaction commits
+            alt 16. Page receives committed response
+                DB-->>UI: 17. Return changed-row count
+                UI->>DB: 18. Refresh affected rows and counts
+                DB-->>UI: 19. Return current results
+                UI-->>A: 20. Confirm the result
+            else 21. Response is lost
+                DB--xUI: 22. No usable response
+                Note over UI: 23. Outcome uncertain, reconcile before bulk retry
+            end
+        end
+    end
+%% Legend: lost | Lost response

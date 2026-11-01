@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "cases": {
+    "writer-routine-validation-retry": [
+      "Read actual skill and fixture code; create the real session with one failed attempt, then use a reasoned bounded continuation without asking for another test approval.",
+      "Validate and review the exact corrected excerpt against command order and mandatory Writing Style guidance, then finalize accepted.md; retain the failed attempt and true automatic-extension receipt.",
+      "Preserve #check before #ship, do not invent approvals/execution, and report only captured outcomes."
+    ],
+    "writer-fifth-validation-round": [
+      "Restore the supplied fixture once and complete a fifth total round with a reasoned continuation, without a new approval request.",
+      "Keep all four extension records; the new record has round:5 and max_rounds:5. Retain the failed attempt and perform actual check/review/finalize against the corrected bytes.",
+      "Identify the supplied prior history as a fixture, preserve source commands and writing guidance, and do not invent previous model runs."
+    ]
+  }
+}

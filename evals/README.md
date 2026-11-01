@@ -4,13 +4,15 @@ Test the documents the skill produces, separately from the tools and reference f
 
 ## What is tested
 
-- `catalog.json` declares 32 output kinds. `coverage.json` maps their create, edit, review, and rewrite cases.
-- The suite currently contains 188 case definitions: 167 development, 11 acceptance, and 10 calibration cases. Definitions are not executed results.
+- `catalog.json` declares 30 output kinds. `coverage.json` maps their create, edit, review, and rewrite cases.
+- The suite currently contains 203 case definitions: 182 development, 11 acceptance, and 10 calibration cases. Definitions are not executed results.
 - `contracts/documents.json` owns executable output structures. The same checks are used by normal document delivery and by grading; a favorable model score cannot waive a missing required section or subheading.
 - `rubrics/quality.md` defines seven 0–3 dimensions. Every dimension must reach 2, with no critical failure. Invalid scores, including 99 or boolean values, are evaluator errors.
 - Existing authored examples are teaching artifacts. Their separate review is not fresh document generation or application testing.
 
 Keep protected acceptance cases out of tuning. If a failure guides a repair, retain it as a regression and select a fresh acceptance case. Report author-assigned calibration labels as such; they are not independent human judgments.
+
+`cases/discovery_visuals.jsonl` covers complete source briefs, scope-first questions, unanswered choices, early drafts, unnecessary diagrams, runtime interactions, incorrect lifecycle models and missing visual explanations. Question-only cases use excerpt scope; the full document template must not force a premature document. Their text-only fixtures assess question content, not whether a host's native question interface was actually invoked. `cases/flowchart_style.jsonl` adds canvas and shape reviews. Mermaid parsing, contrast checks, source-bound SVG rendering and semantic review are separate results. A favorable semantic score cannot establish execution of those tools.
 
 ## Native-host evaluation
 
@@ -108,10 +110,10 @@ The session captures runtime scripts/resources, source fixtures, selected cases,
 
 After a failure, retain the input, output, artifact version, checker result, review, and diagnosis. Decide whether the cause is the skill, missing context, environment, changed requirement, or evaluator. Make a focused repair and rerun the unchanged criteria against a newly captured artifact. Do not weaken a rule merely to pass.
 
-When an allowance is exhausted below target, inspect results and recommend a bounded continuation. Record the actual user authorization before extending:
+Routine testing includes necessary retries. Inspect the failure and record a concrete reason for continuing within the same task; do not ask for each extra test. Use up to five testing rounds, including the initial round and at most four bounded continuations, each adding at most four handoffs or fifteen minutes. Explicit user hard limits remain binding. Stop and report stalled progress or exhausted retry ceilings. For a supported continuation:
 
 ```sh
-.venv/bin/python evals/run.py extend --session WORK/evaluation --handoffs 2 --seconds 300 --authorization-note "ACTUAL_USER_AUTHORIZATION"
+.venv/bin/python evals/run.py extend --session WORK/evaluation --handoffs 2 --seconds 300 --reason "Recheck the corrected judgment against the unchanged case and rubric."
 ```
 
 A budget extension does not change the task, scoring, or earlier attempts. An already-met target needs no extension.
@@ -127,7 +129,7 @@ Native-host evaluation needs no other provider's CLI. For automated Codex sessio
 .venv/bin/python evals/run.py summary --generated WORK/generated --grades WORK/grades
 ```
 
-Each external batch requires explicit total invocation and runtime allowances, shared across parallel jobs. Without filters, the current default development selection has 46 generation contexts and 46 grading contexts; calibration adds one, for 93 planned invocations. It is not a recommended first batch.
+Configure bounded total invocations and runtime for each external batch, shared across parallel jobs. Choose these bounds within the authorized testing task without asking for each extra call; honor explicit user hard limits and the shared retry policy. Without filters, the current default development selection has 44 generation contexts and 44 grading contexts; calibration adds one, for 89 planned invocations. It is not a recommended first batch.
 
 The adapter preserves the generator's full artifact identity and a frozen input record. Grading uses that captured record and rejects unexplained drift. Baseline comparison can use `--skill BASELINE` during generation and `--generator-skill BASELINE` during grading against the same frozen target criteria. Records without captured inputs remain historical evidence; they cannot become new acceptance results by silently supplying today's fixtures.
 
@@ -152,3 +154,27 @@ Use `--document FILENAME` to select examples. A separate Codex route is availabl
 ## Evaluation basis
 
 The [quality rubric](rubrics/quality.md) and the [output contracts](../contracts/documents.json) define the local acceptance rules. [OpenAI's evaluation guidance](https://developers.openai.com/api/docs/guides/evaluation-best-practices) supports representative cases, source-grounded criteria, trace inspection, and calibrated judgments. This package's case counts, score thresholds, and required document headings are project choices. Independent human review and actual host behavior remain separate evidence.
+
+## Evaluate the rewrite process
+
+`workflow_cases.json` and `rubrics/workflow_behavior.json` test the actual workflow separately from the document-output catalog. They cover audit-first rewrites, source-embedded instructions, prior approval, title-only edits, review-only work and explicit user waivers. These seven definitions are not seven executed passes. Run them through the installed skill in fresh native contexts and retain public messages, tools and artifacts. Keep grading criteria out of performer inputs. Review research substance, the visible handoff, authorization and preservation as well as the final format.
+
+The development harness in Skill Builder can run these frozen tasks with a configured exact model, invocation limit and runtime. Native-host task packets can be used without that optional CLI. Mechanical rewrite-session tests are in `scripts/test_rewrite_workflow.py`; their authored controls do not establish model behavior. Report mechanical results, real behavioral coverage, task success and unverified hosts separately.
+
+## Mandatory Writing Style (WS) coverage
+
+Every authored text surface uses the shared guide: documents, titles, tables, diagram text and metadata, examples, questions/options, findings, recommendations and delivery messages. Native and CLI generation require references/writing_style.md even when a custom case omits it. Missing guide-use declarations fail the task; they do not become passing semantic reviews. A declaration is not proof of reading: behavioral review must inspect actual text and available public traces.
+
+Document delivery packets list every style target, including embedded Mermaid source and captured SVG text. Their style_review needs the current guide/output/target hashes, all target IDs exactly once, the actual boolean verdict and a source-grounded rationale. Missing, stale, incomplete or failed style reviews block acceptance. A renderer success means the image was rendered; its wording still needs review. Seven quality scores remain required, and language is assessed for all returned text. Preserve exact literals under the guide’s own rules.
+
+The two tasks in style_cases.json and their rubric test non-document text and accepted diagram/document output. Definitions and authored mechanical controls are not executed model results.
+
+## Test routine validation retries
+
+`retry_cases.json` and `rubrics/retry_behavior.json` define a real checked-delivery retry after a failed attempt. Run the task through the current host and retain the session, public trace, failed attempt, bounded extension and final receipt. The task must continue within the existing writing authorization without asking for each extra test. Mechanical controls separately test explicit hard limits and the retry ceiling. Case definitions are not executed results.
+
+## Test diagram delivery
+
+`diagram_cases.json` contains two real `/technical-writer` tasks: a user flow and a save sequence. `rubrics/diagram_behavior.json` owns their criteria. Give the performer only the task and raw brief, retain its public trace and artifacts, and review actual numbering, exact explanation rows, source facts, Writing Style (WS) and checked delivery. Case definitions are not measured passes.
+
+Mechanical controls are in `scripts/test_diagram_components.py`, `scripts/test_diagram_pipeline.py` and `scripts/test_diagram_collection.py`. They cover missing/duplicate/invisible references, mismatched rows, stale exports, skipped/reordered rendering phases and failed inspection. Run the affected checks through `scripts/run_tests.py --execute`; `scripts/check_diagram_collection.py` checks all example consumers recursively. Real renderer/browser observations and readable screenshots remain separate from authored unit controls.

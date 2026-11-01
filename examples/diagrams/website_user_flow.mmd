@@ -1,0 +1,21 @@
+%% Diagram: User flow
+%% Subtitle: An administrator can save or cancel an edit. If saving fails, the editor keeps the chosen category.
+flowchart TD
+    accTitle: Change a website's category
+    accDescr: Authorized administrators browse a tab, edit a category, and save or cancel. Saving prevents duplicate submission. A confirmed save refreshes rows and counts; failure retains the selection for an explicit further action.
+    A(["1. Open Websites"]) --> B{"2. Is the signed-in user an administrator?"}
+    B -->|No| C(["3. Access denied; no category change"])
+    B -->|Yes| D["4. Choose tab and filters"]
+    D --> E["5. Open one row's category editor"]
+    E --> F["6. Choose category"]
+    F --> G{"7. Save or cancel?"}
+    G -->|Cancel or Escape before saving| H(["8. Discard unsaved selection"])
+    G -->|Save or Enter| I["9. Show saving; prevent duplicate submission"]
+    I --> J{"10. Did the page receive confirmation?"}
+    J -->|Yes| K(["11. Refresh rows and counts; show result"])
+    J -->|Failure or no confirmation| L["12. Show error; retain selected category"]
+    L -->|Administrator chooses next action| F
+
+class A,C,H,K terminator
+class B,G,J decision
+class D,E,F,I,L process

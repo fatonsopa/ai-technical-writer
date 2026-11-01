@@ -1,6 +1,6 @@
-# Explanation (EXP)
+# Explanation (Explanation (EXP))
 
-An explanation helps a reader understand a concept, causal relationship, or design choice. Create it when the subject needs context; update it when evidence, the design, or the intended audience changes. Use [How-to Guide](how_to_guide.md) for procedures and [Tutorial](tutorial.md) for a learning exercise.
+An explanation helps a reader understand a concept, causal relationship, or design choice. Create it when the subject needs context; update it when evidence, the design, or the intended audience changes. Use [How-to Guide (HTG)](how_to_guide.md) for procedures and [Tutorial (TUT)](tutorial.md) for a learning exercise.
 
 ## Principles
 
@@ -30,7 +30,7 @@ Give a direct answer, relevant background, causal explanation/example, reasons a
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/explanation.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Explanation (EXP) example for Websites Review](../examples/explanation.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

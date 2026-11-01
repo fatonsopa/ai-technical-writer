@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "canvas": {
+    "background": "#F7F7F7",
+    "dots": "#D7DCE0",
+    "spacing": 24,
+    "radius": 1
+  },
+  "text": "#17212B",
+  "stroke": "#4B5563",
+  "roles": {
+    "process": {
+      "fill": "#F4FEF8",
+      "shape": "rectangle",
+      "mermaid_shapes": [
+        "rect",
+        "squareRect"
+      ]
+    },
+    "decision": {
+      "fill": "#F7E398",
+      "shape": "diamond",
+      "mermaid_shapes": [
+        "diam",
+        "diamond"
+      ]
+    },
+    "document": {
+      "fill": "#D2D2D2",
+      "shape": "document",
+      "mermaid_shapes": [
+        "doc"
+      ]
+    },
+    "data": {
+      "fill": "#C4B1FB",
+      "shape": "parallelogram",
+      "mermaid_shapes": [
+        "lean-r",
+        "lean_right"
+      ]
+    },
+    "terminator": {
+      "fill": "#C4B1FB",
+      "shape": "stadium",
+      "mermaid_shapes": [
+        "stadium"
+      ]
+    },
+    "subprocess": {
+      "fill": "#F7CD9B",
+      "shape": "expanded subprocess",
+      "mermaid_shapes": [
+        "rect"
+      ]
+    },
+    "predefined": {
+      "fill": "#B3F1C6",
+      "shape": "subroutine",
+      "mermaid_shapes": [
+        "fr-rect"
+      ]
+    },
+    "connector": {
+      "fill": "#FFFFFF",
+      "shape": "circle",
+      "mermaid_shapes": [
+        "circle"
+      ]
+    },
+    "preparation": {
+      "fill": "#FFF9FF",
+      "shape": "hexagon",
+      "mermaid_shapes": [
+        "hex"
+      ]
+    },
+    "display": {
+      "fill": "#F7E398",
+      "shape": "display",
+      "mermaid_shapes": [
+        "curv-trap"
+      ]
+    },
+    "paper": {
+      "fill": "#F7CAFB",
+      "shape": "paper tape",
+      "mermaid_shapes": [
+        "flag"
+      ]
+    },
+    "delay": {
+      "fill": "#B6F6FF",
+      "shape": "delay",
+      "mermaid_shapes": [
+        "delay"
+      ]
+    },
+    "manual": {
+      "fill": "#F4FEF8",
+      "shape": "manual operation",
+      "mermaid_shapes": [
+        "trap-t"
+      ]
+    },
+    "actor": {
+      "fill": "#F4B6B7",
+      "shape": "rounded rectangle",
+      "mermaid_shapes": [
+        "roundedRect",
+        "rounded",
+        "round"
+      ]
+    },
+    "datastore": {
+      "fill": "#C4B1FB",
+      "shape": "cylinder",
+      "mermaid_shapes": [
+        "cyl",
+        "cylinder"
+      ]
+    }
+  },
+  "minimum_text_contrast": 4.5,
+  "minimum_graphic_contrast": 3,
+  "reference": "https://www.flowmapp.com/blog/qa/how-to-design-flowcharts",
+  "notes": "Fills follow the user-selected Flowmapp illustration. Dark text and outlines improve contrast. Dots are decorative. Preserve the notation's semantics; use only the roles needed by a view."
+}

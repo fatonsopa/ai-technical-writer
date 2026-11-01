@@ -22,7 +22,7 @@ def inventory(root, profile=None):
             if path.is_symlink():
                 raise ValueError("Unexpected symbolic link inside the repository: " + str(path))
         for name in sorted(files):
-            if name in {".DS_Store", ".lock"} or name.endswith(".pyc") or relative == Path(".") and (name == "AGENTS.md" or name.startswith(".env")):
+            if name in {".DS_Store", ".lock"} or name.endswith(".pyc") or relative == Path(".") and name.startswith(".env"):
                 continue
             path = Path(folder) / name
             result[path.relative_to(root).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()

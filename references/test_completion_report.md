@@ -14,7 +14,7 @@ A test completion report assesses testing performed for a cycle, release, test l
 
 ## Structure and template
 
-Include scope/basis/build, actual testing and results, coverage/deviations, defects/risks, completion assessment/recommendation, evidence, and follow-up. Use [TSR](test_status_report.md) for ongoing progress.
+Include scope/basis/build, actual testing and results, coverage/deviations, defects/risks, completion assessment/recommendation, evidence, and follow-up. Use [Test Status Report (TSR)](test_status_report.md) for ongoing progress.
 
 ```md
 # [Milestone] test completion report
@@ -34,7 +34,7 @@ Reporting period: [Time bounds and timezone]
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/test_completion_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Test Completion Report (TCR) example for Websites Review](../examples/test_completion_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

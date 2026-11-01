@@ -1,0 +1,18 @@
+%% Diagram: Architecture diagram
+%% Subtitle: The page uses shared filters to load and select websites. Each category update also records who changed what.
+flowchart LR
+    accTitle: How the Websites page reads and saves data
+    accDescr: The administrator uses the Websites page. Shared read rules keep rows, counts and matching IDs consistent. An authorized mutation commits category changes with their history.
+    A("1. Administrator") -->|Browse and edit| UI["2. Websites page"]
+    UI -->|Request filtered rows, counts or IDs| R["3. Administration reads"]
+    R -->|Apply shared rules| C["4. Shared visibility and review rules"]
+    C -->|Evaluate website state| W[("5. Websites")]
+    R -->|Read when required| G[("6. Citation aggregates")]
+    UI -->|Assign or clear a category| M["7. Category mutation"]
+    M -->|Update category and verification| W
+    M -->|Record committed changes| J[("8. Change journal")]
+
+class A actor
+class UI,R,C,M process
+class W,G,J datastore
+%% Legend: flow_arrow | Relationship

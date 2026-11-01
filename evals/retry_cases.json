@@ -1,0 +1,38 @@
+[
+  {
+    "id": "writer-routine-validation-retry",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Finish this already-authorized excerpt edit using the checked-delivery workflow. Read and run input/setup.py once to restore the supplied failed-attempt scenario, then validate the ready corrected.md, review it and deliver accepted.md. Keep the command order and all recorded attempts. Report actual results. No absolute user call/time cap is specified.",
+      "source": {
+        "setup.py": "from pathlib import Path\nimport json, sys\nwork = Path.cwd()\nskill = work / '.agents/skills/technical-writer'\nsys.path.insert(0, str(skill / 'scripts'))\nimport validate_document as delivery\nrequest = {'kind': 'readme', 'operation': 'edit', 'scope': 'excerpt', 'sources': [{'id': 'original', 'text': '# Checks\\n\\nRun #check before #ship.\\n'}], 'destination': 'accepted.md', 'context': {'required_literals': ['#check', '#ship']}, 'requirements': [{'id': 'ORDER', 'text': 'Keep #check before #ship.'}], 'limits': {'max_attempts': 1, 'max_seconds': 600}}\n(work / 'request.json').write_text(json.dumps(request))\ndelivery.prepare(work / 'request.json', work / 'session')\n(work / 'initial.md').write_text('# Checks\\n\\nRun #ship.\\n')\ndelivery.check(work / 'session', work / 'initial.md')\n(work / 'corrected.md').write_text('# Checks\\n\\nRun #check before #ship.\\n')\nprint('One failed attempt is recorded. The corrected excerpt is ready for validation in corrected.md; session is in ./session.')\n"
+      }
+    },
+    "resources": [
+      "workflows/rewrite.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
+  },
+  {
+    "id": "writer-fifth-validation-round",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Finish this already-authorized excerpt edit using the checked-delivery workflow. Read and run input/setup.py once to restore the supplied failed-attempt scenario, then validate the ready corrected.md, review it and deliver accepted.md. Keep the command order and all recorded attempts. Report actual results. No absolute user call/time cap is specified. The fixture restores three prior bounded continuations, so the next continuation is the fifth total round. Preserve that history and use the current limit.",
+      "source": {
+        "setup.py": "from pathlib import Path\nimport json, sys\nwork = Path.cwd()\nskill = work / '.agents/skills/technical-writer'\nsys.path.insert(0, str(skill / 'scripts'))\nimport validate_document as delivery\nrequest = {'kind': 'readme', 'operation': 'edit', 'scope': 'excerpt', 'sources': [{'id': 'original', 'text': '# Checks\\n\\nRun #check before #ship.\\n'}], 'destination': 'accepted.md', 'context': {'required_literals': ['#check', '#ship']}, 'requirements': [{'id': 'ORDER', 'text': 'Keep #check before #ship.'}], 'limits': {'max_attempts': 1, 'max_seconds': 600}}\n(work / 'request.json').write_text(json.dumps(request))\ndelivery.prepare(work / 'request.json', work / 'session')\n(work / 'initial.md').write_text('# Checks\\n\\nRun #ship.\\n')\ndelivery.check(work / 'session', work / 'initial.md')\n(work / 'corrected.md').write_text('# Checks\\n\\nRun #check before #ship.\\n')\nfor index in range(3):\n    delivery.extend(work / 'session', 1, 0, f'Supplied fixture history for bounded round {index + 2}; this is not a model observation.')\nprint('One failed attempt is recorded. The corrected excerpt is ready for validation in corrected.md; session is in ./session.')\n"
+      }
+    },
+    "resources": [
+      "workflows/rewrite.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
+  }
+]

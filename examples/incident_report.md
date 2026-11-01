@@ -50,4 +50,4 @@ The response was helped by retained request order, changed-row counts, and actor
 | Include page state in bulk regression checks | QA | The suite asserts counts and selection as well as dialog text; included in candidate-2 acceptance |
 | Review released smoke evidence | Release owner | Released rows/counts and actor attribution match fresh reads; pending rollout |
 
-The [completion report](test_completion_report.md) records the final candidate's complete results. The [DDR](design_decision_record.md) remains the decision source for partial and uncertain writes.
+The [Test Completion Report (TCR)](test_completion_report.md) records the final candidate's complete results. The [Decision Record (DR): component design](decision_record_component_design.md) remains the decision source for partial and uncertain writes.

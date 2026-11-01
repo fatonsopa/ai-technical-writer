@@ -19,17 +19,18 @@ Map each reference to the document it teaches. Decide which file owns shared wri
 
 Repeat steps 3–6 while a concrete failure remains. After three unsuccessful attempts on the same unresolved problem, document what prevents verification and continue unaffected work. Do not invent evidence, weaken criteria, or claim completion for the affected requirement.
 
-## Validate the whole skill
+## Scope repository tests
 
-From the skill directory, run:
+During edits, preview and run only impacted checks:
 
-```bash
-python3 scripts/validate_skill.py
-python3 -m unittest discover -s scripts -p 'test_*.py'
-python3 scripts/plain_words.test.py
-python3 scripts/zero_loss.test.py
-python3 scripts/check_examples.py
+```sh
+python3 scripts/run_tests.py
+python3 scripts/run_tests.py --execute
 ```
+
+The script owns selection through config/test_impact.json and the previous successful checkpoint or Git HEAD. It reports changed files and a reason for every check. Add an accurate impact rule for an unmapped path; never fall back to full discovery. For an installed folder without Git, pass the exact changed paths with --changed.
+
+Run the full suite only after the user confirms the batch is finished. Use --full --authorization PATH --execute with an external JSON record containing batch_complete: true, user_instruction (the actual confirmation), and artifact_sha256 from the current plan. Do not create this record without that confirmation. Any subsequent edit invalidates it. GitHub publication requires its own explicit approval.
 
 Check relative links, routing, retired paths, and consistency between shared and specialized guidance. Review each warning; a size budget prompts a content review rather than automatic deletion. Record bytes, words, and the method used to estimate tokens before and after revision. Measure the references actually read for representative requests as well as the total package.
 

@@ -18,7 +18,7 @@ def sample(kind):
     if mode == "requirement":
         return "### REQ-01: Preserve identifiers\nStatus/source: Agreed in the supplied request.\nStatement: Preserve the identifier as supplied.\nVerification: Compare the returned identifier with the input.\n"
     if mode == "visual":
-        return "### Request flow\n\nThe supplied example shows a request.\n\n```mermaid\nflowchart LR\naccTitle: Request flow\naccDescr: A caller sends a request to a service.\nA --> B\n```\n\nThe service receives the request.\n"
+        return "### Request flow\n\nThe supplied example shows a request.\n\n```mermaid\nflowchart LR\naccTitle: Request flow\naccDescr: A caller sends a request to a service.\nA --> B\n```\n\nThe service receives the request.\n\n- A: The caller sends the request.\n- B: The service receives it.\n"
     rows = ["# Example document", ""]
     if contract.get("task_type"):
         rows += ["Type: " + contract["task_type"], ""]

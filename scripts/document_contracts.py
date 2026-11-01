@@ -6,6 +6,9 @@ import re
 
 import yaml
 
+from planning_readiness import check_discovery
+from visual_contracts import visual_errors
+
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACTS = ROOT / "contracts/documents.json"
 
@@ -122,6 +125,8 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
     complete = scope == "complete" and operation != "review"
     if complete:
         format_name = contract.get("format", "document")
+        if kind == 'agent' and context.get('instruction_format') == 'project':
+            format_name = 'document'
         if format_name == "frontmatter":
             parts = text.split("---\n", 2)
             try:
@@ -154,23 +159,32 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
             if not titles or (format_name == "document" and len(titles) != 1):
                 errors.append(f"Expected {'one' if format_name == 'document' else 'a'} level-{expected_level} title.")
             if format_name == "visual":
-                if not re.search(r"```(?:mermaid|dot|plantuml)\b|!\[[^\]]+\]\(", text):
+                if not re.search(r"(?:`{3,}|~{3,})(?:mermaid|dot|plantuml)\b|!\[[^\]]+\]\(", text):
                     errors.append("Missing diagram or image with meaningful alternative text.")
-                if "```mermaid" in text and not all(label in text for label in ("accTitle:", "accDescr:")):
-                    errors.append("Mermaid needs accTitle and accDescr.")
         errors.extend(section_errors(nodes, contract.get("sections", []), context, contract.get("ordered", False)))
         for index, node in enumerate(nodes):
             if node["parent"] is not None and node["level"] > nodes[node["parent"]]["level"] + 1:
                 errors.append(f"Heading level skips its parent at line {node['line']}.")
         if contract.get("task_type") and not re.search(r"(?mi)^Type:\s*" + re.escape(contract["task_type"]) + r"\s*$", text):
             errors.append(f"Missing task type: {contract['task_type']}")
-        if kind in {"decision", "adr", "ddr"}:
-            labels = re.findall(r"(?mi)^###\s+Option\s+([A-Za-z0-9]+)\s*:", text)
-            recommended = re.search(r"(?mi)^##\s+Recommended option\s*\(([^)]+)\)", text)
+        if kind == "decision":
+            options = [(node, re.match(r"Option\s+([A-Za-z0-9]+)\s*:", node["title"], re.I)) for node in nodes]
+            options = [(node, match) for node, match in options if match]
+            labels = [match[1] for node, match in options]
+            for node, match in options:
+                parent = nodes[node["parent"]] if node["parent"] is not None else None
+                if node["level"] != 3 or not parent or parent["level"] != 2 or normalized(parent["title"]) != "options considered":
+                    errors.append(f"Option {match[1]} must be a level-3 heading under Options considered.")
+            if len({label.casefold() for label in labels}) != len(labels):
+                errors.append("Decision option labels must be unique.")
+            recommended = next((match for node in nodes if node["level"] == 2 and (match := re.match(r"Recommended option\s*\(([^)]+)\)", node["title"], re.I))), None)
             if recommended and recommended[1].casefold() not in {value.casefold() for value in labels}:
                 errors.append("Recommended option is not among the listed options.")
         if kind == "sdd" and nodes and re.search(r"software design document", nodes[0]["title"], re.I):
             errors.append("Behavioral SDD must not be labeled Software Design Document.")
+        errors.extend(visual_errors(text, nodes, context.get("visuals")))
+    if "discovery" in context:
+        errors.extend(check_discovery(text, context["discovery"]))
     for value in context.get("required_literals", []):
         if not isinstance(value, str) or value not in text:
             errors.append(f"Missing required literal: {value!r}")

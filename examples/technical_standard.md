@@ -1,6 +1,6 @@
 # Website category change standard
 
-Status: Adopted under the [manual review policy](policy.md)
+Status: Adopted under the [Policy (POL)](policy.md)
 Owner: Engineering lead
 
 ## Purpose and scope
@@ -24,7 +24,7 @@ Enforce authority at the data boundary. Keep category state, verification metada
 - CAT-05: Pending and Review must use the common classifier and the same active/filter predicate for list, count, and matching IDs. All retains its existing citation-based population.
 - CAT-06: Bulk callers must stop after the first failed request, retain confirmed progress and unresolved IDs, and reconcile uncertain outcomes before offering an explicit retry.
 - CAT-07: The interface must refresh rows and counts after confirmed full or partial changes and must not report an unresolved operation as fully successful.
-- CAT-08: Release evidence must measure the SDD's database limits with the stated dataset and conditions, including journaling for the maximum-size mutation.
+- CAT-08: Release evidence must measure the Spec Driven Development document (SDD)'s database limits with the stated dataset and conditions, including journaling for the maximum-size mutation.
 
 ## Verification
 
@@ -47,4 +47,4 @@ The policy permits a temporary alternative interface with documented verificatio
 
 ## Ownership, review, and related policy
 
-The engineering lead reviews changes to limits, authorization, attribution, and recovery. Update checks when an approved rule changes. The [policy](policy.md) supplies accountability, the [LLD](low_level_design.md) defines contracts, and the [test specification](test_specification.md) supplies procedures.
+The engineering lead reviews changes to limits, authorization, attribution, and recovery. Update checks when an approved rule changes. The [Policy (POL)](policy.md) supplies accountability, the [Low Level Design (LLD)](low_level_design.md) defines contracts, and the [Test Specification (TS)](test_specification.md) supplies procedures.

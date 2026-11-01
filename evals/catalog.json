@@ -154,30 +154,11 @@
         "edit",
         "review",
         "rewrite"
-      ]
-    },
-    {
-      "id": "adr",
-      "acronym": "ADR",
-      "full_name": "Architecture Decision Record",
-      "reference": "references/architecture_decision_record.md",
-      "operations": [
-        "create",
-        "edit",
-        "review",
-        "rewrite"
-      ]
-    },
-    {
-      "id": "ddr",
-      "acronym": "DDR",
-      "full_name": "Design Decision Record",
-      "reference": "references/design_decision_record.md",
-      "operations": [
-        "create",
-        "edit",
-        "review",
-        "rewrite"
+      ],
+      "examples": [
+        "examples/decision_record.md",
+        "examples/decision_record_architecture.md",
+        "examples/decision_record_component_design.md"
       ]
     },
     {
@@ -363,7 +344,7 @@
     {
       "id": "visual",
       "acronym": "diagram",
-      "full_name": "flowchart and explanation",
+      "full_name": "Diagram, workflow or chart with explanation",
       "reference": "references/visuals.md",
       "operations": [
         "create",
@@ -391,6 +372,9 @@
   ],
   "workflows": [
     "workflows/rewrite.md",
-    "workflows/improve_references.md"
+    "workflows/improve_references.md",
+    "workflows/discover.md",
+    "workflows/flowcharts.md",
+    "workflows/diagram_rendering.md"
   ]
 }

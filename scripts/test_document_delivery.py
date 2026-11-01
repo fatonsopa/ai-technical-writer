@@ -6,7 +6,9 @@ import unittest
 from unittest.mock import patch
 
 import validate_document as delivery
+from continuation import MAX_EXTENSIONS
 from test_document_contracts import sample
+from test_writing_style_contract import style_control
 
 
 class DocumentDeliveryTests(unittest.TestCase):
@@ -17,7 +19,7 @@ class DocumentDeliveryTests(unittest.TestCase):
         self.session = self.root / "session"
         self.draft = self.root / "draft.md"
         self.target = self.root / "accepted.md"
-        self.data = {"kind": "prd", "sources": [{"id": "request", "text": "Preserve identifier 0042. The product goals are not yet agreed."}], "destination": "accepted.md", "context": {"required_literals": ["0042"]}, "requirements": [{"id": "KEEP-ID", "text": "Preserve 0042."}]}
+        self.data = {"kind": "prd", "sources": [{"id": "request", "text": "Preserve identifier 0042. This control's product goals are agreed."}], "destination": "accepted.md", "context": {"required_literals": ["0042"], "discovery": {"status": "ready", "source_ids": ["request"], "decisions": []}}, "requirements": [{"id": "KEEP-ID", "text": "Preserve 0042."}]}
         self.draft.write_text(sample("prd") + "\nIdentifier: 0042.\n")
 
     def tearDown(self):
@@ -25,11 +27,21 @@ class DocumentDeliveryTests(unittest.TestCase):
 
     def prepare(self):
         self.request.write_text(json.dumps(self.data))
-        return delivery.prepare(self.request, self.session)
+        result = delivery.prepare(self.request, self.session)
+        if self.data.get('operation') == 'rewrite' and self.data.get('scope', 'complete') == 'complete':
+            # Actual session transitions using authored evidence, not model behavior.
+            phases = {'research': {'summary': 'Fixture source and local type guide inspected.', 'sources': [{'id': 'fixture', 'source': 'Supplied unit fixture', 'finding': 'Retain identifier 0042.', 'provenance': 'supplied'}], 'gaps': []}, 'audit': {'summary': 'Fixture requirements inventoried.', 'findings': [], 'preserve': ['0042'], 'open_questions': []}, 'proposal': {'summary': 'Preserve all fixture requirements.', 'structure': ['Existing type contract'], 'changes': [], 'additions': []}, 'present': {'summary': 'Fixture audit and unchanged requirements presented.', 'visible': True, 'message_reference': 'Authored unit-control handoff; not a live host message.'}}
+            for phase, data in phases.items():
+                packet = delivery.workflow_packet(self.session)
+                record = self.root / (phase + '.json')
+                record.write_text(json.dumps({'phase': phase, 'objective_sha256': packet['objective_sha256'], 'packet_sha256': packet['packet_sha256'], 'data': data}))
+                delivery.workflow_record(self.session, record)
+        return result
 
     def judgment(self, **updates):
         report = delivery.check(self.session, self.draft)
         data = {"objective_sha256": report["objective_sha256"], "output_sha256": report["output_sha256"], "reviewer": {"kind": "current_host_self_review", "identity": "Authored unit-test control", "model": None, "method": "Test fixture; not a model-performance observation."}, "scores": [3] * 7, "critical_failures": [], "reasons": ["A deliberately authored positive control."], "requirements": [{"id": "KEEP-ID", "accepted": True, "rationale": "The identifier remains 0042.", "source_ids": ["request"]}], **updates}
+        data.setdefault("style_review", style_control(report["writing_style"]))
         path = self.root / ("review-" + delivery.digest(data) + ".json")
         path.write_text(json.dumps(data))
         return delivery.review(self.session, path)
@@ -115,7 +127,7 @@ class DocumentDeliveryTests(unittest.TestCase):
         self.draft.write_text(self.draft.read_text() + "\nRevised draft.\n")
         with self.assertRaisesRegex(ValueError, "attempt allowance exhausted"):
             delivery.check(self.session, self.draft)
-        delivery.extend(self.session, 1, 0, "User explicitly approved one more attempt.")
+        delivery.extend(self.session, 1, 0, "Validate the scoped draft correction against the same requirements.")
         self.assertTrue(delivery.check(self.session, self.draft)["passed"])
 
     def test_unknown_reviewer_or_source_cannot_be_accepted(self):
@@ -124,6 +136,25 @@ class DocumentDeliveryTests(unittest.TestCase):
             self.judgment(reviewer={})
         with self.assertRaisesRegex(ValueError, "source reference"):
             self.judgment(requirements=[{"id": "KEEP-ID", "accepted": True, "rationale": "Invalid source control.", "source_ids": ["invented"]}])
+
+    def test_routine_retries_preserve_user_hard_limit_without_new_approval(self):
+        self.data['limits'] = {'max_attempts': 1, 'max_seconds': 600}
+        self.data['hard_limits'] = {'attempts': 2}
+        self.prepare()
+        before = delivery.load(self.session / 'state.json')['objective_sha256']
+        receipt = delivery.extend(self.session, 1, 0, 'Check the scoped wording correction.')
+        self.assertTrue(receipt['extension']['automatic'])
+        self.assertEqual(delivery.load(self.session / 'state.json')['objective_sha256'], before)
+        with self.assertRaisesRegex(ValueError, 'hard limit'):
+            delivery.extend(self.session, 1, 0, 'Check another correction.')
+        self.assertEqual(len(delivery.load(self.session / 'state.json')['extensions']), 1)
+
+    def test_routine_retries_stop_at_the_cumulative_ceiling(self):
+        self.prepare()
+        for index in range(MAX_EXTENSIONS):
+            delivery.extend(self.session, 1, 0, f'Check scoped correction {index + 1}.')
+        with self.assertRaisesRegex(ValueError, 'ceiling'):
+            delivery.extend(self.session, 1, 0, 'Try another correction.')
 
     def test_crlf_bytes_are_bound_and_delivered_without_normalization(self):
         self.prepare()

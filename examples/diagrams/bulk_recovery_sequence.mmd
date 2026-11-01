@@ -1,0 +1,20 @@
+%% Diagram: Sequence diagram
+%% Subtitle: The second batch commits, but its response is lost. The dialog stops before batch 3 and checks saved state before offering a retry.
+sequenceDiagram
+    accTitle: Recover a bulk category update
+    accDescr: Of 1,001 selected websites, the first 500 changes are confirmed, the second 500 are unresolved from the client perspective, and one remains unattempted. Read current state and history before an explicit retry.
+    actor A as 1. Administrator
+    participant UI as 2. Bulk dialog
+    participant DB as 3. Database API
+    A->>UI: 4. Assign category to 1,001 IDs
+    UI->>DB: 5. Submit batch 1 with 500 IDs
+    DB-->>UI: 6. Confirm 500 committed changes
+    UI->>DB: 7. Submit batch 2 with 500 IDs
+    Note over DB: 8. Commit category changes and history
+    DB--xUI: 9. Response is lost
+    Note over UI: 10. Stop before sending batch 3
+    UI-->>A: 11. Report 500 confirmed, 500 unresolved, 1 unattempted
+    UI->>DB: 12. Read saved state with authorization
+    DB-->>UI: 13. Return current values and relevant history
+    UI-->>A: 14. Show the result before an explicit retry
+%% Legend: lost | Lost response

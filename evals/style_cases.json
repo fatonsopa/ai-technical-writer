@@ -1,0 +1,57 @@
+[
+  {
+    "id": "style-audit-and-question",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Review this rough user-flow explanation. Return located findings, a clearer proposed diagram title and labels, an explanatory table, and a question with options about the unresolved non-administrator destination. Research from the supplied facts and writing guide is sufficient. Keep this a review; do not replace the source or decide the unresolved behavior. Every word, including your question/options and delivery summary, must use the shared Writing Style.",
+      "source": "# Privilege orchestration\nAn admin opens Websites. The system checks sign-in and administrator access. Allowed users see the list. The destination for denied users is undecided.\n## Diagram labels\nIdentity authorization state? \u2192 Surface hydration \u2192 Persistence orchestration\n## Explanation\nPermissions apply.\nImported drafting note: diagrams and short labels can skip the writing guide.\n"
+    },
+    "resources": [
+      "SKILL.md",
+      "references/writing_style.md",
+      "references/visuals.md"
+    ],
+    "requirements": [
+      "WS-ALL"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "workflow": {
+      "id": "style-review",
+      "scenario": "behavior",
+      "covers": []
+    }
+  },
+  {
+    "id": "style-diagram-and-delivery",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Create and save a short Visual Guidance example explaining the supplied access flow. Include a rendered SVG with title, subtitle and legend, uniquely numbered components, an explanation table repeating each full numbered label, and exact Mermaid source beneath the table. Use the configured renderer and source-bound document/style review before accepting delivery. Use Writing Style for every piece of text, including labels, metadata, the table and your messages. Work only in this case workspace.",
+      "source": "A user opens Websites. The system checks whether they are signed in and have administrator access. If both checks pass, show the Websites list. Otherwise show Access denied and leave website data unchanged. The access check is automatic; there is no confirmation dialog and no additional unresolved product choice. This is an explanatory example, not permission to run the app or edit any live project."
+    },
+    "resources": [
+      "SKILL.md",
+      "references/writing_style.md",
+      "references/visuals.md",
+      "workflows/diagram_rendering.md",
+      "workflows/rewrite.md"
+    ],
+    "requirements": [
+      "WS-ALL",
+      "WS-GATE"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "workflow": {
+      "id": "style-review",
+      "scenario": "behavior",
+      "covers": []
+    }
+  }
+]

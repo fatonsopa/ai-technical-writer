@@ -1,13 +1,13 @@
 # Websites Review behavior specification
 
 Status: Approved behavior baseline, version 1 2026-10-27
-Source: [Product requirements](product_requirements_document.md)
+Source: [Product Requirements Document (PRD)](product_requirements_document.md)
 
 ## Purpose and scope
 
 Administrators can distinguish websites still awaiting automation from websites requiring human review, then assign or clear categories reliably. This specification covers the three administration tabs, their filters and selection, category editing, and associated permissions and history.
 
-It excludes changes to categorization rules, restarting parked work, backfills, and a new Review-reason filter. It preserves the existing All population. The [plan](implementation_plan.md) owns delivery order and the [LLD](low_level_design.md) owns SQL and component contracts.
+It excludes changes to categorization rules, restarting parked work, backfills, and a new Review-reason filter. It preserves the existing All population. The [Implementation Plan (IP)](implementation_plan.md) owns delivery order and the [Low Level Design (LLD)](low_level_design.md) owns SQL and component contracts.
 
 ## Definitions
 
@@ -24,6 +24,57 @@ It excludes changes to categorization rules, restarting parked work, backfills, 
 An administrator finds a parked, uncited website in Review, reads its reason, and assigns a category. The saved website becomes verified and leaves Review. Clearing a category through the bulk dialog instead returns the website to Pending.
 
 A failed inline save keeps the selected value available. A bulk operation may finish some requests before a later request fails. Its feedback distinguishes confirmed changes from unresolved work, and the displayed queue data reflects confirmed progress.
+
+### Review and edit a website
+
+This user flow connects access and inline editing outcomes from WEB-05, WEB-06 and WEB-10. It describes visible behavior; database interaction belongs in High Level Document (HLD)/Low Level Design (LLD).
+
+![Administrator category editing flow with access, cancellation, saving and failure branches](diagrams/website_user_flow.svg)
+
+The flow follows an administrator from opening the page to saving or canceling a category edit. Yes and No label outcomes of system checks; they do not add a confirmation modal.
+
+| Component | Explanation |
+| --- | --- |
+| 1. Open Websites | Open the Websites page to browse review tabs and change a website’s category. |
+| 2. Is the signed-in user an administrator? | The system checks the current user’s role. Yes follows the administrator path; No denies access. This is an access check, so the user does not answer a confirmation dialog. |
+| 3. Access denied; no category change | If the user lacks administrator access, the system denies the category operation and leaves the data unchanged. |
+| 4. Choose tab and filters | Choose a review tab and any filters to find the websites that need attention. Rows and counts use the same filtering rules. |
+| 5. Open one row's category editor | Open the category picker for a row. Only one row’s editor is active at a time, so another unsaved edit cannot remain open alongside it. |
+| 6. Choose category | Choose the category to assign. The selection stays local until Save is requested; selecting a value alone does not update the database. |
+| 7. Save or cancel? | Click Save or press Enter to submit the selection. Click Cancel or press Escape before submission to discard it. |
+| 8. Discard unsaved selection | Cancel closes the editor without sending a category update. This path applies before saving starts; it cannot cancel a request already in flight. |
+| 9. Show saving; prevent duplicate submission | While the request is in flight, show that saving is underway and prevent another save for that row. |
+| 10. Did the page receive confirmation? | The page checks whether it received a successful committed response. A definite error and a missing response both need feedback, but a missing response does not prove that the database rolled back. |
+| 11. Refresh rows and counts; show result | After confirmed success, close the edit, refresh the affected rows and counts, and show the result. The website may move to another tab under the shared review rules. |
+| 12. Show error; retain selected category | Keep the chosen category available and explain the failure or uncertainty. The administrator decides the next action. For an unresolved bulk result, reconcile saved state before offering an explicit retry. |
+
+**Mermaid source**
+
+```text
+%% Diagram: User flow
+%% Subtitle: An administrator can save or cancel an edit. If saving fails, the editor keeps the chosen category.
+flowchart TD
+    accTitle: Change a website's category
+    accDescr: Authorized administrators browse a tab, edit a category, and save or cancel. Saving prevents duplicate submission. A confirmed save refreshes rows and counts; failure retains the selection for an explicit further action.
+    A(["1. Open Websites"]) --> B{"2. Is the signed-in user an administrator?"}
+    B -->|No| C(["3. Access denied; no category change"])
+    B -->|Yes| D["4. Choose tab and filters"]
+    D --> E["5. Open one row's category editor"]
+    E --> F["6. Choose category"]
+    F --> G{"7. Save or cancel?"}
+    G -->|Cancel or Escape before saving| H(["8. Discard unsaved selection"])
+    G -->|Save or Enter| I["9. Show saving; prevent duplicate submission"]
+    I --> J{"10. Did the page receive confirmation?"}
+    J -->|Yes| K(["11. Refresh rows and counts; show result"])
+    J -->|Failure or no confirmation| L["12. Show error; retain selected category"]
+    L -->|Administrator chooses next action| F
+
+class A,C,H,K terminator
+class B,G,J decision
+class D,E,F,I,L process
+```
+
+Category clearing uses the bulk dialog under WEB-08. All, Pending and Review are browsing populations, not successive lifecycle states.
 
 ## Requirements and business rules
 
@@ -112,4 +163,4 @@ A change to queue membership, permissions, clearing, or bulk failure handling re
 
 ## Related design and work
 
-The [HLD](high_level_document.md) describes system boundaries. The [LLD](low_level_design.md) defines internal contracts. The [plan](implementation_plan.md) sequences delivery; the [test specification](test_specification.md) supplies procedures.
+The [High Level Document (HLD)](high_level_document.md) describes system boundaries. The [Low Level Design (LLD)](low_level_design.md) defines internal contracts. The [Implementation Plan (IP)](implementation_plan.md) sequences delivery; the [Test Specification (TS)](test_specification.md) supplies procedures.

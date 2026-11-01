@@ -1,4 +1,5 @@
 """Portable evaluation, frozen evidence, invalid outputs and bounded continuation."""
+import ast
 import importlib.util
 import json
 from pathlib import Path
@@ -10,6 +11,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "evals"))
 import evaluation
+from continuation import MAX_EXTENSIONS
 from document_contracts import digest
 from grades import assess_output
 from test_document_contracts import sample
@@ -36,7 +38,7 @@ class EvaluationSessionTests(unittest.TestCase):
         return evaluation.submit(self.session, {"case_id": packet["case_id"], "phase": phase, "packet_sha256": packet["packet_sha256"], "data": data})
 
     def generate(self, content=None):
-        return self.submit("generate", {"content": content if content is not None else sample("prd") + "\nIdentifier 0042.\n", "references_read": ["references/product_requirements_document.md"]})
+        return self.submit("generate", {"content": content if content is not None else sample("prd") + "\nIdentifier 0042.\n", "references_read": ["references/writing_style.md", "references/product_requirements_document.md"]})
 
     def judgment(self, **extra):
         return {"id": self.case["id"], "scores": [3] * 7, "critical_failures": [], "reasons": ["Authored test control; not a real model judgment."], "reviewer": {"kind": "current_host_self_review", "identity": "Unit control", "model": None, "method": "Deterministic harness test."}, **extra}
@@ -80,7 +82,7 @@ class EvaluationSessionTests(unittest.TestCase):
         self.assertEqual(len(list((self.session / "attempts").glob("*.json"))), 2)
         with self.assertRaisesRegex(ValueError, "allowance exhausted"):
             evaluation.packet(self.session, self.case["id"], "grade")
-        evaluation.extend(self.session, 1, 0, "User approved one additional judgment.")
+        evaluation.extend(self.session, 1, 0, "Correct the invalid score against the unchanged rubric.")
         self.assertTrue(self.submit("grade", self.judgment())["accepted"])
 
     def test_unknown_and_critical_reviews_never_accept(self):
@@ -89,6 +91,23 @@ class EvaluationSessionTests(unittest.TestCase):
         result = self.submit("grade", self.judgment(critical_failures=["Invented approval."]))
         self.assertFalse(result["accepted"])
         self.assertEqual(result["task_success_percent"], 0)
+
+    def test_routine_eval_extension_needs_reason_but_no_new_approval(self):
+        self.prepare()
+        before = evaluation.read_state(self.session)['bundle_sha256']
+        result = evaluation.extend(self.session, 1, 60, 'Reassess the malformed judgment against the unchanged rubric.')
+        self.assertTrue(result['extensions'][0]['automatic'])
+        self.assertEqual(evaluation.read_state(self.session)['bundle_sha256'], before)
+        for index in range(MAX_EXTENSIONS - 1):
+            evaluation.extend(self.session, 1, 60, f'Validate scoped correction {index + 1}.')
+        with self.assertRaisesRegex(ValueError, 'ceiling'):
+            evaluation.extend(self.session, 1, 60, 'One more judgment.')
+
+    def test_routine_eval_extension_honors_explicit_hard_limits(self):
+        evaluation.prepare(ROOT, [self.case], self.session, 2, 600, case_root=self.root, hard_limits={'handoffs': 2})
+        with self.assertRaisesRegex(ValueError, 'hard limit'):
+            evaluation.extend(self.session, 1, 0, 'Check the same task.')
+        self.assertEqual(evaluation.read_state(self.session)['extensions'], [])
 
     def test_source_facts_and_executable_changes_are_detected(self):
         self.prepare()
@@ -109,6 +128,23 @@ class EvaluationSessionTests(unittest.TestCase):
         self.assertFalse(result["accepted"])
         self.assertEqual(result["task_success_percent"], 100)
         self.assertEqual(result["coverage_percent"], 50)
+
+    def test_retry_behavior_cases_are_executable_and_have_frozen_rubrics(self):
+        cases = json.loads((ROOT / "evals/retry_cases.json").read_text())
+        rubric = json.loads((ROOT / "evals/rubrics/retry_behavior.json").read_text())
+        self.assertEqual(len(cases), len({c["id"] for c in cases}))
+        self.assertEqual({c["id"] for c in cases}, set(rubric["cases"]))
+        for case in cases:
+            self.assertEqual(case["kind"], "behavior")
+            self.assertIs(case["semantic"], True)
+            self.assertIn("/technical-writer", case["request"]["instruction"])
+            self.assertTrue(case["expect"])
+            self.assertTrue(rubric["cases"][case["id"]])
+            for resource in case.get("resources", []):
+                self.assertTrue((ROOT / resource).is_file(), resource)
+            for name, text in case["request"].get("source", {}).items():
+                if name.endswith(".py"):
+                    ast.parse(text, filename=name)
 
     def test_changed_output_cannot_keep_a_passing_status(self):
         self.prepare()

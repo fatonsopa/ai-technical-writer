@@ -23,7 +23,7 @@ When editing an existing excerpt, use the current request's task type and destin
 | --- | --- |
 | Bug | Name the observed failure and important condition. Also read `references/bug_report.md`. |
 | Chore | Name the maintenance work, its reason, relevant constraints, and acceptance criteria. |
-| Decision | Name the situation requiring a choice; use [Decision records](decision_record.md) for proposals and outcomes. |
+| Decision | Name the situation requiring a choice; use [Decision Record (DR)](decision_record.md) for proposals and outcomes. |
 | Feature | Name the new capability. Describe its users, behavior, limits, and acceptance criteria or governing spec. |
 | Improvement | Name the change to existing behavior. Explain the current limitation and desired result; use measurements when available. |
 | Release | Name the release and destination when known. Link its contents, preparation, deployment procedure, verification, and recovery requirements. |
@@ -36,9 +36,9 @@ Include a title, issue type, description, expected outcome, and verifiable accep
 
 Relevant files must be verified or clearly attributed to a supplied source; distinguish a reported path from a file you inspected. Keep the current decision or status understandable without reproducing the whole conversation.
 
-Route specialized content rather than copying its structure here: [Bug reports](bug_report.md), [User stories](user_story.md), and [Decision records](decision_record.md), with [ADR](architecture_decision_record.md)/[DDR](design_decision_record.md) guidance when appropriate. A choice inside a Bug or plan usually needs a comment, not a separate Decision task. For a Release, identify which checks remain before it can be called deployed.
+Route specialized content rather than copying its structure here: [Bug Report (BR)](bug_report.md), [User Story (US)](user_story.md), and [Decision Record (DR)](decision_record.md). A choice inside a Bug or plan usually needs a comment, not a separate Decision task. For a Release, identify which checks remain before it can be called deployed.
 
-Tests and verification can be sections or comments in the task: use [Test specification](test_specification.md) for checks and [Test completion report](test_completion_report.md) for outcomes. Larger efforts can link a [test plan](test_plan.md) or [status report](test_status_report.md). Keep the task focused; those references own the specialized formats.
+Tests and verification can be sections or comments in the task: use [Test Specification (TS)](test_specification.md) for checks and [Test Completion Report (TCR)](test_completion_report.md) for outcomes. Larger efforts can link a [Test Plan (TP)](test_plan.md) or [Test Status Report (TSR)](test_status_report.md). Keep the task focused; those references own the specialized formats.
 
 ## Template
 

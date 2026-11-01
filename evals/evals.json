@@ -133,9 +133,9 @@
     },
     {
       "original_id": 17,
-      "name": "adr-proposed-not-approved",
+      "name": "decision-architecture-proposed-not-approved",
       "case_ids": [
-        "adr-create"
+        "decision-architecture-create"
       ],
       "status": "migrated to runnable fixtures and property-based grading"
     },

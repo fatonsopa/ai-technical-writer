@@ -40,10 +40,10 @@
     "agents_and_skills.md": [
       "Claude Code subagent",
       "Portable reusable skill",
-      "Claude Code output style",
+      "Claude Code output style (OS)",
       "Validation"
     ],
-    "architecture_decision_record.md": [
+    "decision_record_architecture.md": [
       "Options considered",
       "Recommended option (A)",
       "Outcome"
@@ -66,7 +66,7 @@
       "Recommended option (A)",
       "Outcome"
     ],
-    "design_decision_record.md": [
+    "decision_record_component_design.md": [
       "Options considered",
       "Recommended option (A)",
       "Outcome"

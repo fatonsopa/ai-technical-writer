@@ -1,0 +1,966 @@
+{
+  "schema_version": 1,
+  "tests": {
+    "test-scope": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_test_scope.py"
+      ]
+    },
+    "decision": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_decision_unification.py"
+      ]
+    },
+    "contracts": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_document_contracts.py"
+      ]
+    },
+    "delivery": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_document_delivery.py"
+      ]
+    },
+    "evaluation": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_evaluation_sessions.py"
+      ]
+    },
+    "eval-adapter": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_eval_runner.py"
+      ]
+    },
+    "repository": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_repository_delivery.py"
+      ]
+    },
+    "integrity-regressions": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_validate_skill.py"
+      ]
+    },
+    "integrity": {
+      "argv": [
+        "{python}",
+        "scripts/validate_skill.py"
+      ]
+    },
+    "wording": {
+      "argv": [
+        "{python}",
+        "scripts/plain_words.test.py"
+      ]
+    },
+    "preservation": {
+      "argv": [
+        "{python}",
+        "scripts/zero_loss.test.py"
+      ]
+    },
+    "example-commands": {
+      "argv": [
+        "{python}",
+        "scripts/check_examples.py"
+      ]
+    },
+    "layout": {
+      "argv": [
+        "{python}",
+        "scripts/repository_layout.py"
+      ]
+    },
+    "discovery": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_guided_discovery.py"
+      ]
+    },
+    "visuals": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_visual_contracts.py"
+      ]
+    },
+    "mermaid-hld": {
+      "argv": [
+        "{python}",
+        "scripts/visual_contracts.py",
+        "examples/high_level_document.md",
+        "--require-syntax"
+      ]
+    },
+    "mermaid-lld": {
+      "argv": [
+        "{python}",
+        "scripts/visual_contracts.py",
+        "examples/low_level_design.md",
+        "--require-syntax"
+      ]
+    },
+    "mermaid-sdd": {
+      "argv": [
+        "{python}",
+        "scripts/visual_contracts.py",
+        "examples/spec_driven_development.md",
+        "--require-syntax"
+      ]
+    },
+    "mermaid-bulk": {
+      "argv": [
+        "{python}",
+        "scripts/visual_contracts.py",
+        "examples/visuals.md",
+        "--require-syntax"
+      ]
+    },
+    "decision-compatibility": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_decision_unification.py",
+        "-k",
+        "test_delivery_loads_only_the_shared_decision_and_writing_guides",
+        "-k",
+        "test_option_labels_are_unique_and_code_examples_are_not_choices"
+      ]
+    },
+    "flowchart-style": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_flowchart_rendering.py"
+      ]
+    },
+    "diagram-presentation": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_diagram_presentation.py"
+      ]
+    },
+    "rewrite-workflow": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_rewrite_workflow.py"
+      ]
+    },
+    "rewrite-success": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_rewrite_workflow.py",
+        "-k",
+        "authorized_rewrite_reaches"
+      ]
+    },
+    "rewrite-omission": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_rewrite_workflow.py",
+        "-k",
+        "drafting_is_blocked_before_each",
+        "-k",
+        "final_document_checks_cannot"
+      ]
+    },
+    "rewrite-order": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_rewrite_workflow.py",
+        "-k",
+        "each_adjacent_preflight_swap",
+        "-k",
+        "reordered_and_stale"
+      ]
+    },
+    "rewrite-boundary": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_rewrite_workflow.py",
+        "-k",
+        "hidden_or_empty",
+        "-k",
+        "assistant_approval",
+        "-k",
+        "unresolved_material",
+        "-k",
+        "source_text_cannot"
+      ]
+    },
+    "rewrite-branch": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_rewrite_workflow.py",
+        "-k",
+        "title_edits_and_review",
+        "-k",
+        "explicit_current_user_waiver",
+        "-k",
+        "project_instructions"
+      ]
+    },
+    "rewrite-recovery": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_rewrite_workflow.py",
+        "-k",
+        "changed_source_invalidates",
+        "-k",
+        "audit_record_content_changes"
+      ]
+    },
+    "rewrite-cases": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_rewrite_workflow.py",
+        "-k",
+        "workflow_behavior_cases_have"
+      ]
+    },
+    "writing-style-contract": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_writing_style_contract.py"
+      ]
+    },
+    "style-success": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_writing_style_contract.py",
+        "-k",
+        "short_labels",
+        "-k",
+        "captured_svg",
+        "-k",
+        "renderer_does_not_accept"
+      ]
+    },
+    "style-invalid": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_writing_style_contract.py",
+        "-k",
+        "missing_stale_partial",
+        "-k",
+        "reported_style_failure",
+        "-k",
+        "delivery_rejects"
+      ]
+    },
+    "style-routing": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_writing_style_contract.py",
+        "-k",
+        "every_kind_operation",
+        "-k",
+        "custom_eval_case",
+        "-k",
+        "style_behavior_cases"
+      ]
+    },
+    "continuation": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_continuation.py"
+      ]
+    },
+    "retry-cases": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_evaluation_sessions.py",
+        "-k",
+        "test_retry_behavior_cases_are_executable_and_have_frozen_rubrics"
+      ]
+    },
+    "diagram-components": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_diagram_components.py"
+      ]
+    },
+    "diagram-pipeline": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_diagram_pipeline.py"
+      ]
+    },
+    "diagram-collection": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_diagram_collection.py"
+      ]
+    },
+    "diagram-assets": {
+      "argv": [
+        "{python}",
+        "scripts/check_diagram_collection.py"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "paths": [
+        "scripts/run_tests.py",
+        "config/test_impact.json"
+      ],
+      "tests": [
+        "test-scope"
+      ]
+    },
+    {
+      "paths": [
+        "references/decision_record.md",
+        "examples/decision_record*.md"
+      ],
+      "tests": [
+        "decision",
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "contracts/documents.json",
+        "scripts/document_contracts.py"
+      ],
+      "tests": [
+        "contracts",
+        "decision-compatibility"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/validate_document.py",
+        "workflows/rewrite.md"
+      ],
+      "tests": [
+        "delivery",
+        "decision-compatibility"
+      ]
+    },
+    {
+      "paths": [
+        "evals/evaluation.py",
+        "evals/grades.py"
+      ],
+      "tests": [
+        "evaluation",
+        "decision"
+      ]
+    },
+    {
+      "paths": [
+        "evals/run.py",
+        "evals/adapters/*"
+      ],
+      "tests": [
+        "eval-adapter"
+      ]
+    },
+    {
+      "paths": [
+        "evals/audit_examples.py"
+      ],
+      "tests": [
+        "repository",
+        "decision"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/install_skill.py",
+        "scripts/repository_files.py",
+        "scripts/repository_layout.py",
+        "config/repository_layout.json"
+      ],
+      "tests": [
+        "repository"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/validate_skill.py"
+      ],
+      "tests": [
+        "integrity-regressions",
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "evals/coverage.json"
+      ],
+      "tests": [
+        "decision",
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/plain_words.py",
+        "scripts/plain_words.test.py"
+      ],
+      "tests": [
+        "wording"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/zero_loss.py",
+        "scripts/zero_loss.test.py"
+      ],
+      "tests": [
+        "preservation"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/check_examples.py",
+        "examples/tutorial.md",
+        "examples/readme.md"
+      ],
+      "tests": [
+        "example-commands",
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/smoke_check.py"
+      ],
+      "tests": [
+        "repository"
+      ]
+    },
+    {
+      "paths": [
+        "references/*.md",
+        "examples/*.md",
+        "SKILL.md"
+      ],
+      "tests": [
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "AGENTS.md",
+        "CLAUDE.md"
+      ],
+      "tests": [
+        "repository"
+      ]
+    },
+    {
+      "paths": [
+        "README.md",
+        "evals/README.md",
+        "evals/evals.json",
+        "workflows/improve_references.md",
+        "LICENSE",
+        ".gitignore",
+        ".gitattributes",
+        "scripts/requirements*.txt"
+      ],
+      "tests": [],
+      "reason": "Documentation or configuration-index change: review the changed text; no unrelated behavioral suite."
+    },
+    {
+      "paths": [
+        "config/domains.json"
+      ],
+      "tests": [
+        "layout"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/planning_readiness.py",
+        "workflows/discover.md"
+      ],
+      "tests": [
+        "discovery",
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/visual_contracts.py",
+        "references/visuals.md",
+        "examples/visuals.md"
+      ],
+      "tests": [
+        "visuals",
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "examples/high_level_document.md",
+        "scripts/check_mermaid.mjs"
+      ],
+      "tests": [
+        "mermaid-hld"
+      ]
+    },
+    {
+      "paths": [
+        "examples/low_level_design.md",
+        "scripts/check_mermaid.mjs"
+      ],
+      "tests": [
+        "mermaid-lld"
+      ]
+    },
+    {
+      "paths": [
+        "examples/spec_driven_development.md",
+        "scripts/check_mermaid.mjs"
+      ],
+      "tests": [
+        "mermaid-sdd"
+      ]
+    },
+    {
+      "paths": [
+        "examples/visuals.md",
+        "scripts/check_mermaid.mjs"
+      ],
+      "tests": [
+        "mermaid-bulk"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/check_mermaid.mjs"
+      ],
+      "tests": [
+        "visuals"
+      ]
+    },
+    {
+      "paths": [
+        "evals/cases/*",
+        "evals/fixtures/*",
+        "evals/rubrics/*"
+      ],
+      "tests": [
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/render_flowchart.py",
+        "config/diagram_style.json",
+        "workflows/flowcharts.md",
+        "examples/diagrams/*"
+      ],
+      "tests": [
+        "flowchart-style",
+        "integrity",
+        "diagram-presentation"
+      ]
+    },
+    {
+      "paths": [
+        "evals/catalog.json"
+      ],
+      "tests": [
+        "integrity",
+        "diagram-presentation"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/render_diagram.py",
+        "scripts/diagram_presentation.py",
+        "scripts/render_flowchart.py",
+        "workflows/diagram_rendering.md"
+      ],
+      "tests": [
+        "diagram-presentation",
+        "flowchart-style",
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/rewrite_workflow.py",
+        "scripts/validate_document.py",
+        "scripts/document_contracts.py",
+        "workflows/rewrite.md",
+        "evals/workflow_cases.json",
+        "evals/rubrics/workflow_behavior.json"
+      ],
+      "tests": [
+        "rewrite-workflow"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/rewrite_workflow.py"
+      ],
+      "tests": [
+        "rewrite-success",
+        "rewrite-omission",
+        "rewrite-order",
+        "rewrite-boundary",
+        "rewrite-branch",
+        "rewrite-recovery",
+        "rewrite-cases"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/writing_style_contract.py",
+        "scripts/validate_document.py",
+        "scripts/rewrite_workflow.py",
+        "references/writing_style.md",
+        "SKILL.md",
+        "evals/evaluation.py",
+        "evals/run.py",
+        "evals/rubrics/quality.md"
+      ],
+      "tests": [
+        "writing-style-contract"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/writing_style_contract.py"
+      ],
+      "tests": [
+        "style-success",
+        "style-invalid",
+        "style-routing"
+      ]
+    },
+    {
+      "paths": [
+        "AGENTS.md",
+        "evals/style_cases.json",
+        "evals/rubrics/style_behavior.json"
+      ],
+      "tests": [
+        "writing-style-contract"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/continuation.py"
+      ],
+      "tests": [
+        "continuation",
+        "delivery",
+        "evaluation"
+      ]
+    },
+    {
+      "paths": [
+        "evals/retry_cases.json",
+        "evals/rubrics/retry_behavior.json"
+      ],
+      "tests": [
+        "retry-cases"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/diagram_components.py",
+        "scripts/diagram_inventory.mjs",
+        "scripts/mermaid_runtime.mjs"
+      ],
+      "tests": [
+        "diagram-components",
+        "diagram-pipeline",
+        "diagram-collection"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/audit_diagram.mjs",
+        "scripts/render_diagram.py"
+      ],
+      "tests": [
+        "diagram-pipeline"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/check_diagram_collection.py"
+      ],
+      "tests": [
+        "diagram-collection"
+      ]
+    },
+    {
+      "paths": [
+        "evals/diagram_cases.json",
+        "evals/rubrics/diagram_behavior.json"
+      ],
+      "tests": [
+        "diagram-components"
+      ]
+    },
+    {
+      "paths": [
+        "examples/diagrams/*",
+        "references/visuals.md"
+      ],
+      "tests": [
+        "diagram-assets"
+      ]
+    },
+    {
+      "paths": [
+        "workflows/visual_selection.md"
+      ],
+      "tests": [
+        "integrity"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/test_diagram_support.py"
+      ],
+      "tests": [
+        "diagram-components",
+        "diagram-pipeline",
+        "diagram-collection",
+        "flowchart-style",
+        "diagram-presentation",
+        "writing-style-contract"
+      ]
+    }
+  ],
+  "final_checks": {
+    "full-regression-suite": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_*.py"
+      ]
+    },
+    "integrity": {
+      "argv": [
+        "{python}",
+        "scripts/validate_skill.py"
+      ]
+    },
+    "wording": {
+      "argv": [
+        "{python}",
+        "scripts/plain_words.test.py"
+      ]
+    },
+    "preservation": {
+      "argv": [
+        "{python}",
+        "scripts/zero_loss.test.py"
+      ]
+    },
+    "example-commands": {
+      "argv": [
+        "{python}",
+        "scripts/check_examples.py"
+      ]
+    },
+    "diagram-assets": {
+      "argv": [
+        "{python}",
+        "scripts/check_diagram_collection.py"
+      ]
+    }
+  }
+}

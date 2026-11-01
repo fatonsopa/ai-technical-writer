@@ -1,0 +1,2 @@
+# Early architecture draft request
+The user explicitly requests an early draft. Existing React and PostgreSQL infrastructure is known. Only the product owner can resolve D-01: whether category editing will remain administrator-only or include a new reviewer role. That material permission decision is unanswered and blocks the final design. Existing writes and change history are atomic. Do not invent a new role policy or mark this design ready.

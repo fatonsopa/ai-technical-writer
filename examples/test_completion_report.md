@@ -4,7 +4,7 @@ Scope: First-release staging acceptance cycle
 Build: wr-candidate-2
 Environment: Isolated staging acceptance environment
 Reporting period: 2026-10-29, 09:00–15:00 UTC
-Basis: [Test plan](test_plan.md) and [test specification](test_specification.md), version 1
+Basis: [Test Plan (TP)](test_plan.md) and [Test Specification (TS)](test_specification.md), version 1
 
 ## Testing and results
 
@@ -30,7 +30,7 @@ Candidate 1 ended with 15 passes, 2 failures, 1 blocked case, and 2 not-run case
 
 The missing journal-failure facility was added in the isolated environment. R2-E15 forces history insertion failure and verifies that the entire request leaves website and journal state unchanged. This closes the earlier atomicity evidence gap.
 
-No planned case was waived or substituted. The final run includes the previously unrun layout and compatibility cases. The [incident report](incident_report.md) records the earlier staging interruption associated with partial-progress feedback; its follow-up checks are included here.
+No planned case was waived or substituted. The final run includes the previously unrun layout and compatibility cases. The [Incident Report (IR)](incident_report.md) records the earlier staging interruption associated with partial-progress feedback; its follow-up checks are included here.
 
 ## Remaining risks and limits
 
@@ -46,4 +46,4 @@ After rollout, run the smoke checks on the released version and record any diffe
 
 ## Sources
 
-R2 case register T01–T20; captures R2-E10, R2-E15, R2-E16, and R2-E17; performance record R2-P20; R1 status and defect evidence. The [status report](test_status_report.md) preserves candidate 1's unfinished result set.
+R2 case register T01–T20; captures R2-E10, R2-E15, R2-E16, and R2-E17; performance record R2-P20; R1 status and defect evidence. The [Test Status Report (TSR)](test_status_report.md) preserves candidate 1's unfinished result set.

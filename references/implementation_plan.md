@@ -1,20 +1,22 @@
 # Implementation Plan (IP)
 
-A plan explains how to deliver agreed behavior within the actual system. Create it when work needs sequencing or coordination; update it when the approach, dependencies, risks, or verification change. Read the governing [SDD](spec_driven_development.md), relevant [HLD](high_level_document.md), and decision history before choosing the approach.
+A plan explains how to deliver agreed behavior within the actual system. Create it when work needs sequencing or coordination; update it when the approach, dependencies, risks, or verification change. Read the governing [Spec Driven Development document (SDD)](spec_driven_development.md), relevant [High Level Document (HLD)](high_level_document.md), and decision history before choosing the approach.
 
 ## Principles
 
 - Explain the current problem and desired result, then identify the requirements that define success. If a small issue is the specification, link its exact expected behavior and acceptance criteria.
 - Inspect relevant code, configuration, data, and tests. Mark proposed components and source-reported paths separately from inspected facts.
-- Explain the technical approach and meaningful alternatives. Link substantial internals to [LLD](low_level_design.md) and unresolved choices to [decision guidance](decision_record.md).
+- Explain the technical approach and meaningful alternatives. Link substantial internals to [Low Level Design (LLD)](low_level_design.md) and unresolved choices to [Decision Record (DR)](decision_record.md).
 - Order work by dependency. Each step needs a concrete result and a way to check it; avoid invented owners, dates, paths, or estimates.
-- Map every in-scope requirement to verification. Use [testing guidance](test_plan.md) when the effort needs it, without duplicating the entire test plan.
+- Map every in-scope requirement to verification. Use [Test Plan (TP)](test_plan.md) when the effort needs it, without duplicating the entire test plan.
 - Address rollout, compatibility, data changes, monitoring, and recovery according to impact. Preserve historical data when rollback cannot safely remove it.
 - Resolve conflicts with requirements explicitly before proceeding. Implementation detail cannot silently change the intended outcome.
 
 ## Structure
 
 Include goal/specification, important terms, verified context, approach, ordered steps/dependencies, test coverage, rollout/recovery, and risks/open decisions. A plan is not a policy or a full requirements document. Preserve script-consumed tables and project contracts when editing.
+
+Follow [discovery](../workflows/discover.md) for material choices the requirements and inspected system do not settle. Link maintained High Level Document (HLD)/Low Level Design (LLD) views instead of copying architecture diagrams. Use [Visual Guidance (VG)](visuals.md) for delivery dependencies or rollout steps only when their relationships are difficult to follow in the work sequence.
 
 ## Template
 
@@ -39,7 +41,7 @@ Status/source: [Draft/approved status, governing source, owner/version when know
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/implementation_plan.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Implementation Plan (IP) example for Websites Review](../examples/implementation_plan.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

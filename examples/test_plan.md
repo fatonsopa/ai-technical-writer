@@ -1,7 +1,7 @@
 # Websites Review release test plan
 
 Status: Agreed
-Basis: [SDD](spec_driven_development.md), WEB-01–WEB-12, version 1
+Basis: [Spec Driven Development document (SDD)](spec_driven_development.md), WEB-01–WEB-12, version 1
 
 ## Objectives and scope
 
@@ -15,7 +15,7 @@ The highest risks are silent omissions and incorrect changes: an uncited website
 
 Use database integration tests for classification, population agreement, grants, transaction behavior, and history. Use component tests for edit/cancel/progress state and batch coordination. Use browser tests for complete administrator journeys, combined controls, refreshed counts, and supported desktop layouts.
 
-The [test specification](test_specification.md) defines T01–T20 and the nine website states. Run database cases against a disposable database with isolated fixture rows and refreshed citation aggregates. Use seeded administrator and non-administrator identities, active and deleted categories, and two administrator sessions for concurrency.
+The [Test Specification (TS)](test_specification.md) defines T01–T20 and the nine website states. Run database cases against a disposable database with isolated fixture rows and refreshed citation aggregates. Use seeded administrator and non-administrator identities, active and deleted categories, and two administrator sessions for concurrency.
 
 Use an isolated production-shaped snapshot for performance measurements. Record the snapshot dimensions and index definitions so later results are comparable. Do not infer production readiness from the nine-row functional fixture.
 
@@ -29,7 +29,7 @@ Start with T01–T08, because later UI checks depend on correct populations and 
 
 ## Entry criteria
 
-- The SDD baseline and decision records are available, including partial-failure behavior.
+- The Spec Driven Development document (SDD) baseline and decision records are available, including partial-failure behavior.
 - The parked-state prerequisite and additive read/mutation contracts are installed in the isolated target environment.
 - The target build and schema revision are recorded.
 - The nine-state fixture, roles, active/deleted categories, and citation refresh are verified.
@@ -47,6 +47,6 @@ Browser coverage is desktop-only for this release, including 1,280 px and 1,600 
 
 For each case, retain build, environment, fixture revision, observed outcome, and evidence locator. Record failed expectations as Bug reports and link the affected requirement. Keep raw logs and captures as evidence rather than authoring another execution-log document.
 
-Use a [status report](test_status_report.md) while the cycle is active and a [completion report](test_completion_report.md) at the milestone. Keep results from different builds separate. A final candidate must rerun all 20 cases; prior passes do not automatically transfer to a changed shared predicate.
+Use a [Test Status Report (TSR)](test_status_report.md) while the cycle is active and a [Test Completion Report (TCR)](test_completion_report.md) at the milestone. Keep results from different builds separate. A final candidate must rerun all 20 cases; prior passes do not automatically transfer to a changed shared predicate.
 
 Clean up isolated rows and credentials after testing. Preserve evidence and report any cleanup failure before reusing the environment.

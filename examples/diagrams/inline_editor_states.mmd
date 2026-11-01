@@ -1,0 +1,20 @@
+%% Diagram: State diagram
+%% Subtitle: One row can be edited at a time. Cancel applies before submission; a failed save keeps the selected category.
+%% Reference: root_start | 1. Start
+stateDiagram-v2
+    direction LR
+    accTitle: Category editor states
+    accDescr: Opening a row starts editing. Save enters an in-flight state, where duplicate saves and cancellation are blocked. Failure returns to editing with the selection; confirmed success closes the editor and refreshes data.
+    state "2. Idle" as Idle
+    state "3. Editing" as Editing
+    state "4. Saving" as Saving
+    [*] --> Idle
+    Idle --> Editing: 5. Open row
+    Editing --> Editing: 6. Change selection
+    Editing --> Idle: 7. Cancel before saving
+    Editing --> Saving: 8. Save
+    Saving --> Editing: 9. Save fails
+    Saving --> Idle: 10. Save succeeds
+    note right of Saving
+        11. Block duplicate saves; Escape cannot cancel an in-flight request
+    end note

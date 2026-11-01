@@ -5,12 +5,12 @@ A test status report explains progress during an active testing effort. Create i
 ## Principles
 
 - Identify the reporting period, test scope, build, environment, and source evidence. Separate results from different builds or runs.
-- Compare observed progress with the [test plan](test_plan.md). Explain deviations and their consequences.
+- Compare observed progress with the [Test Plan (TP)](test_plan.md). Explain deviations and their consequences.
 - Distinguish passed, failed, blocked, and not-run cases. A blocked case has no passing result.
 - State meaningful coverage and its denominator. Executed, passing, requirement, and code coverage are different measures.
 - Link defects and evidence instead of inferring root causes from failed checks.
 - Explain blockers, changed risks, and next work. Attribute owners and dates only when assigned.
-- Use [Test Completion Report](test_completion_report.md) for a milestone assessment. “QA report” needs context to determine whether status or completion is intended.
+- Use [Test Completion Report (TCR)](test_completion_report.md) for a milestone assessment. “QA report” needs context to determine whether status or completion is intended.
 
 ## Structure and template
 
@@ -34,7 +34,7 @@ Status: [Current testing status]
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/test_status_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Test Status Report (TSR) example for Websites Review](../examples/test_status_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

@@ -1,4 +1,4 @@
-# Incident Report (IR; postmortem)
+# Incident Report (IR) (Incident Report (IR); postmortem)
 
 An incident report records impact, events, response, recovery, and lessons. Create it when an incident needs a shared record; update it as evidence, recovery status, causes, or follow-up work become clearer. An active-incident update can be short; a later postmortem can explain more.
 
@@ -36,7 +36,7 @@ Include status/impact, evidence-backed timeline, response/recovery checks, cause
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/incident_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Incident Report (IR) example for Websites Review](../examples/incident_report.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

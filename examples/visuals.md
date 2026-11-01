@@ -2,26 +2,52 @@
 
 This sequence shows the Websites Review design for a 1,001-ID selection when the second request loses its response after committing.
 
-```mermaid
+![Partial category change with a lost response](diagrams/bulk_recovery_sequence.svg)
+
+This scenario explains why a missing response must be reconciled before a bulk retry. It keeps server events separate from what the dialog can confirm.
+
+| Component | Explanation |
+| --- | --- |
+| 1. Administrator | The administrator requests one category for all 1,001 selected websites. |
+| 2. Bulk dialog | The dialog sends batches in order and tracks confirmed, unresolved and unattempted IDs separately. |
+| 3. Database API | Each request authorizes the caller and commits category changes with their history entries. |
+| 4. Assign category to 1,001 IDs | Start the bulk operation from the selected IDs. The 500-ID request limit requires three batches. |
+| 5. Submit batch 1 with 500 IDs | Send the first 500 IDs and wait for its result before continuing. |
+| 6. Confirm 500 committed changes | The first response confirms 500 changes, so the dialog records those IDs as completed. |
+| 7. Submit batch 2 with 500 IDs | Send the next 500 IDs. The final remaining ID has not yet been submitted. |
+| 8. Commit category changes and history | The second transaction commits its changes and history. This is known in the illustrated server scenario, but the client has not received confirmation. |
+| 9. Response is lost | The response does not reach the dialog. The client cannot infer rollback or success from the missing response alone. |
+| 10. Stop before sending batch 3 | Stop after the unresolved result. Keep the last ID unattempted and avoid automatically resending the second batch. |
+| 11. Report 500 confirmed, 500 unresolved, 1 unattempted | Tell the administrator what the client can establish: 500 confirmed IDs, 500 with an unknown result, and one never attempted. These groups total 1,001. |
+| 12. Read saved state with authorization | Use an authorized read to reconcile current category values and relevant history for the unresolved IDs. |
+| 13. Return current values and relevant history | Return the available evidence. A current value alone may not establish which request wrote it; preserve any remaining uncertainty. |
+| 14. Show the result before an explicit retry | Show the reconciled state and let the administrator decide whether to retry the appropriate IDs. No automatic retry is implied. |
+
+**Mermaid source**
+
+```text
+%% Diagram: Sequence diagram
+%% Subtitle: The second batch commits, but its response is lost. The dialog stops before batch 3 and checks saved state before offering a retry.
 sequenceDiagram
-    accTitle: Partial category change with a lost response
-    accDescr: Batch one confirms 500 changes. Batch two commits but its response is lost. The client stops before the final ID, reports uncertainty, and reads current state before offering an explicit retry.
-    actor A as Administrator
-    participant UI as Bulk dialog
-    participant DB as Database API
-    A->>UI: Assign category to 1,001 IDs
-    UI->>DB: Batch 1: 500 IDs
-    DB-->>UI: 500 changes committed
-    UI->>DB: Batch 2: 500 IDs
-    Note over DB: Changes and history commit
-    DB--xUI: Response lost
-    Note over UI: Stop, do not send batch 3
-    UI-->>A: 500 confirmed, 500 unresolved, 1 unattempted
-    UI->>DB: Authorized reconciliation read
-    DB-->>UI: Current values and relevant history
-    UI-->>A: Show state before an explicit retry
+    accTitle: Recover a bulk category update
+    accDescr: Of 1,001 selected websites, the first 500 changes are confirmed, the second 500 are unresolved from the client perspective, and one remains unattempted. Read current state and history before an explicit retry.
+    actor A as 1. Administrator
+    participant UI as 2. Bulk dialog
+    participant DB as 3. Database API
+    A->>UI: 4. Assign category to 1,001 IDs
+    UI->>DB: 5. Submit batch 1 with 500 IDs
+    DB-->>UI: 6. Confirm 500 committed changes
+    UI->>DB: 7. Submit batch 2 with 500 IDs
+    Note over DB: 8. Commit category changes and history
+    DB--xUI: 9. Response is lost
+    Note over UI: 10. Stop before sending batch 3
+    UI-->>A: 11. Report 500 confirmed, 500 unresolved, 1 unattempted
+    UI->>DB: 12. Read saved state with authorization
+    DB-->>UI: 13. Return current values and relevant history
+    UI-->>A: 14. Show the result before an explicit retry
+%% Legend: lost | Lost response
 ```
 
-The first successful response confirms 500 changed rows. Losing the second response does not establish rollback, so those 500 IDs remain unresolved until reconciliation. The last ID is unattempted. The client must not report that only 500 rows changed in the database; it can only confirm that many before the read.
+Message numbers identify local interaction order. A crossed arrow represents the lost response; notes explain the commit and stop conditions. Batch numbers identify separate mutation requests, not participant hierarchy.
 
-Each mutation request is atomic, but the entire selection is not one transaction. The [DDR](design_decision_record.md) explains the retry tradeoff, and T16 in the [test specification](test_specification.md) checks this branch.
+Each mutation request is atomic, but the entire selection is not one transaction. The [Decision Record (DR): component design](decision_record_component_design.md) explains the retry tradeoff, and T16 in the [Test Specification (TS)](test_specification.md) checks this branch.

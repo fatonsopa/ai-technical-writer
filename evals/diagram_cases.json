@@ -1,0 +1,40 @@
+[
+  {
+    "id": "writer-numbered-user-flow",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Create flow.md and its rendered diagram for the supplied Websites Review behavior. Use the checked-delivery workflow and deliver an accepted document.",
+      "source": {
+        "brief.txt": "A signed-in administrator can edit one row category. Choosing a category is local until Save or Enter. Cancel or Escape before submission discards the selection without a request. During saving prevent duplicate submission. Confirmed success refreshes rows and counts. A definite failure keeps the selection; a missing response leaves the result uncertain. Administrator access is checked automatically. Do not change product behavior."
+      }
+    },
+    "resources": [
+      "references/visuals.md",
+      "workflows/diagram_rendering.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
+  },
+  {
+    "id": "writer-numbered-save-sequence",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Create save.md with a rendered sequence diagram that explains the supplied category-save scenario. Use checked delivery and deliver an accepted document.",
+      "source": {
+        "brief.txt": "Participants: administrator, Websites page, Database API. The page submits website IDs and category. The API validates administrator access and input before writes, then commits website changes and history together; if either write fails, roll back that request. After a confirmed committed response, the page refreshes rows and counts and confirms the result. In the illustrated alternative the transaction commits but its response is lost: the page reports uncertainty. Before a bulk retry, reconcile saved state and offer an explicit user action; do not retry automatically."
+      }
+    },
+    "resources": [
+      "references/visuals.md",
+      "workflows/diagram_rendering.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    }
+  }
+]

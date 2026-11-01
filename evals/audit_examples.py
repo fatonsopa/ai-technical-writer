@@ -16,11 +16,13 @@ from validate_skill import blocks
 from grades import assess_output, validate_results
 
 
-def kind_for(filename):
-    if filename == 'issue.md':
-        return 'issue_feature'
+def entry_for(filename):
     catalog = json.loads((ROOT / 'evals/catalog.json').read_text())
-    return next(item['id'] for item in catalog['output_kinds'] if item['reference'] == 'references/' + filename)
+    return next(item for item in catalog['output_kinds'] if item['reference'] == 'references/' + filename or 'examples/' + filename in item.get('examples', []))
+
+
+def kind_for(filename):
+    return 'issue_feature' if filename == 'issue.md' else entry_for(filename)['id']
 
 
 def make_packet(paths):
@@ -29,7 +31,7 @@ def make_packet(paths):
     value = {'schema_version': 1, 'artifact_manifest': inventory(ROOT, 'runtime'),
              'context': context, 'writing_style': (ROOT / 'references/writing_style.md').read_text(),
              'basis': 'Teaching documents describe an illustrative initiative. Their scenario statuses and results are not claims that this audit executed the application. Check internal consistency, requirements, arithmetic, depth and language. Do not require source-versus-invention labels within these authorized teaching examples.',
-             'documents': [{'id': path.stem, 'kind': kind_for(path.name), 'content': path.read_text(), 'guide': (ROOT / 'references' / path.name).read_text()} for path in paths],
+             'documents': [{'id': path.stem, 'kind': kind_for(path.name), 'content': path.read_text(), 'guide': (ROOT / entry_for(path.name)['reference']).read_text()} for path in paths],
              'instructions': 'Review every document against its own guide, writing style and shared context. Return packet_sha256, reviewer {kind, identity, model, method} and results [{id, scores (seven integers 0–3: grounding, preservation, completeness, usefulness, language, scope, traceability), critical_failures, reasons}]. Identify self-review honestly. Require useful content, preserve scenario evidence boundaries and do not claim real application execution.'}
     value['packet_sha256'] = digest(value)
     return value

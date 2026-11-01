@@ -121,6 +121,11 @@ def validate(root=ROOT):
                     errors.extend('Example contract '+subtype+': '+error for error in validate_document(body,subtype,contracts=contracts)['findings'])
             else:
                 errors.extend('Example contract '+filename+': '+error for error in validate_document(content,kind,contracts=contracts)['findings'])
+            for variant in item.get('examples', []):
+                if variant == 'examples/'+filename:continue
+                path=root/variant
+                if not path.is_file():errors.append('Missing contextual example: '+variant)
+                else:errors.extend('Example contract '+variant+': '+error for error in validate_document(path.read_text(),kind,contracts=contracts)['findings'])
         requirement_example=re.search(r'(?ms)^### WEB-07:.*?(?=^### WEB-08:)',(root/'examples/spec_driven_development.md').read_text())
         if not requirement_example:errors.append('Missing standalone requirement-entry example')
         else:errors.extend('Requirement example: '+error for error in validate_document(requirement_example[0],'requirement',contracts=contracts)['findings'])

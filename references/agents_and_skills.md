@@ -60,7 +60,7 @@ description: "[Communication purpose]"
 
 ### Completed output-style example
 
-See the [Websites Review output-style configuration](../examples/agents_and_skills.md#claude-code-output-style). Review the host-specific format and keep its authority within the actual request.
+See the [Websites Review output-style configuration](../examples/agents_and_skills.md#claude-code-output-style-os). Review the host-specific format and keep its authority within the actual request.
 
 ## Quality check
 

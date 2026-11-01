@@ -71,6 +71,18 @@ With code/file tools, the skill stages a draft, runs its applicable checks, revi
 
 You receive a complete product document with the required sections and source-supported content. A heading check cannot replace the review of its purpose, facts, and scope.
 
+### Work through an incomplete architecture brief
+
+> $technical-writer Prepare an HLD for this feature. Inspect the existing code, schema and workflows first. Research missing technical information, then guide me through unresolved scope, behavior and design choices using the available question interface. Use diagrams only where they help explain the design.
+
+The skill uses reliable project facts without asking you to repeat them. It asks focused questions in dependency order, explains meaningful options, and accepts written answers. Material unanswered choices remain open; an early document stays a draft. A complete brief needs no questionnaire. Diagrams carry their visible title, scope subtitle and symbol legend inside the image, with detailed element explanations below it. Sequence numbering expresses order; hierarchical IDs require actual decomposition.
+
+### Explain a flow with controlled colors and background
+
+> $technical-writer Explain this user flow using the shared flowchart style. Use the light dotted canvas and appropriate pastel shapes, export an SVG, retain its editable Mermaid source, and explain its elements below the diagram.
+
+The [flowchart workflow](workflows/flowcharts.md) uses a shared palette and a background built into the SVG, so a Markdown theme cannot turn the canvas transparent or dark. Shapes and labels preserve meaning without color. Only needed diagrams are created. Their sources and exports are checked together before accepted delivery.
+
 ### Make a focused edit
 
 > $technical-writer Change only this issue's title to describe the observed failure. Preserve the description and every other field.
@@ -100,12 +112,14 @@ The failure remains recorded. A repaired draft needs new checks and review; a pr
 The host normally runs this workflow for you. Use [the document-gate commands](workflows/rewrite.md#validate-the-actual-output) to inspect it or run it yourself. A request identifies the document type, operation, scope, source inputs, destination, explicit requirements, and material values to preserve.
 
 1. `prepare` captures the source, destination baseline, selected guides, contract, and validator identity.
-2. `check` validates the draft's structure and declared data constraints.
+2. `check` validates structure, declared readiness, data constraints and selected visual requirements. Embedded Mermaid also needs a passing syntax check.
 3. `packet` supplies the actual draft and frozen evidence for review.
 4. `review` validates the submitted judgment, including every explicit requirement.
 5. `finalize` delivers only the exact reviewed bytes when the applicable gates pass.
 
 Missing sections, incorrect hierarchy, failed requirements, stale reviews, changed inputs, and newer destination edits block accepted delivery. Required structure does not authorize inventing content to fill a gap. Narrow edits and reviews use their own scope.
+
+Complete Product Requirements Document (PRD), Spec Driven Development document (SDD), High Level Document (HLD), Low Level Design (LLD) and implementation-plan requests include a source-bound discovery record. See [discovery](workflows/discover.md) for its format. An empty decision list is valid when the sources settle the choices. A known unanswered blocking decision prevents ready delivery.
 
 ## Evaluate and improve the skill
 
@@ -134,7 +148,7 @@ Eight accepted results out of ten evaluated results is 80% task success. If twel
 
 Review failed outputs against their original inputs before changing the skill. Add a faithful regression, make a scoped correction, and rerun unchanged criteria on a new captured version. Use separate acceptance cases to assess generalization. Report the original failure as well as the retest.
 
-The scripts enforce declared attempt/handoff and runtime allowances. When a limit is reached below target, the host reports the gap and requests a bounded extension. Extend only with the user's actual authorization; do not change targets or expected answers to obtain a pass. Native handoffs count phase packets, not hidden provider requests or a billing cap.
+Routine validation includes necessary bounded retries without another approval for each test. Record a concrete reason for an extension; the shared guard limits each batch and the number of extensions. Preserve failed attempts, targets and expected answers. Honor explicit user hard limits, and stop to report stalled progress or exhausted retry ceilings. Native handoffs count phase packets, not hidden provider requests or a billing cap.
 
 ## Troubleshooting and help
 
@@ -148,18 +162,41 @@ For support, [open an issue](https://github.com/fatonsopa/ai-technical-writer/is
 
 ## Development
 
-The repository includes regression tests. From the skill folder with dependencies installed:
+Preview the checks affected by the current changes, then execute that selection:
 
 ```sh
-.venv/bin/python scripts/validate_skill.py
-.venv/bin/python -m unittest discover -s scripts -p 'test_*.py'
-.venv/bin/python scripts/plain_words.test.py
-.venv/bin/python scripts/zero_loss.test.py
-.venv/bin/python scripts/check_examples.py
+.venv/bin/python scripts/run_tests.py
+.venv/bin/python scripts/run_tests.py --execute
 ```
+
+The runner compares the last successfully tested checkpoint or Git HEAD and explains each selection. In a folder without Git or a checkpoint, supply exact `--changed PATH` arguments. New or unmapped paths require an impact rule; they do not trigger the full suite. Changed test files select changed methods, and overlapping selections run once.
+
+Full testing is separate and requires the user's confirmation that the batch is finished, bound to the current artifact. See [repository testing](workflows/improve_references.md#scope-repository-tests). A test authorization does not authorize a GitHub push.
 
 Test actual output contracts and invalid-output controls as well as package integrity. Installation uses the same public repository files, including its tests. Private records, run snapshots and local environments stay outside the installed copy.
 
+For Mermaid source diagnostics, install the parser dependencies outside the repository. Match the target version; the examples use 11.16.0:
+
+```sh
+npm install --prefix ../writer-diagram-tools --no-audit --no-fund mermaid@11.16.0 jsdom@26.1.0
+export TECHNICAL_WRITER_MERMAID_MODULE_ROOT="$(cd ../writer-diagram-tools && pwd)"
+.venv/bin/python scripts/visual_contracts.py WORK/source_draft.md --require-syntax
+```
+
+Use a Markdown source draft containing the Mermaid block for that diagnostic command. A parser pass establishes syntax only. Final diagrams require the rendered export with visible context; unrendered outputs remain drafts. Syntax, rendering and semantic review are separate results. The checker installs nothing.
+
+Final diagrams use the shared SVG renderer. It preserves each notation and adds visible title/subtitle and a symbol legend. All supported diagram exports use the light dotted canvas. Install Mermaid CLI in the same external tool folder:
+
+```sh
+npm install --prefix ../writer-diagram-tools --no-audit --no-fund @mermaid-js/mermaid-cli@11.16.0
+export TECHNICAL_WRITER_MERMAID_CLI="$TECHNICAL_WRITER_MERMAID_MODULE_ROOT/node_modules/.bin/mmdc"
+.venv/bin/python scripts/render_diagram.py WORK/flow.mmd --out WORK/flow.svg
+```
+
+Use `--check` with the same arguments to check an existing export without rendering it again. If a browser configuration is needed, set `TECHNICAL_WRITER_PUPPETEER_CONFIG` to its JSON path. The [shared style](config/diagram_style.json) owns colors, contrast thresholds and dotted canvas. Every exported diagram includes its title/subtitle and legend. Its Mermaid code appears in a `text` code block below the explanation table, so readers can copy and edit it. See [diagram rendering](workflows/diagram_rendering.md). For accepted delivery, use `diagram_svg` (or `flowchart_svg`) in `context.visuals` and capture the SVG and same-named `.mmd` as sources before `prepare`; assets live beside the destination document. Changes invalidate their frozen review.
+
+
+For diagram checks, run `.venv/bin/python scripts/check_diagram_collection.py`. The [diagram evaluation guide](evals/README.md#test-diagram-delivery) explains the real user-flow and sequence tasks, acceptance criteria, mechanical controls and evidence to retain.
 
 ## Repository responsibilities
 

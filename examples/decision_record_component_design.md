@@ -6,7 +6,7 @@ Component: Bulk category dialog and request coordinator
 
 A category request accepts at most 500 website IDs. A selection of 1,001 IDs therefore requires three requests. If the second request fails, the first request may already have committed. If its response is lost, the second request may also have committed even though the browser cannot confirm it.
 
-WEB-09 requires atomicity within each request and honest partial progress across requests. WEB-07 preserves attributable manual decisions, including concurrent edits. The [LLD](low_level_design.md) needs a client failure strategy that respects both requirements.
+WEB-09 requires atomicity within each request and honest partial progress across requests. WEB-07 preserves attributable manual decisions, including concurrent edits. The [Low Level Design (LLD)](low_level_design.md) needs a client failure strategy that respects both requirements.
 
 ## Options considered
 
@@ -34,4 +34,4 @@ Test both rejection and response loss. A mocked error before the request reaches
 
 ## Outcome
 
-Option A is accepted. WEB-09 and the LLD use this behavior. T16 covers failure branches and T17 covers refreshed counts in the [test specification](test_specification.md). The [SDD](spec_driven_development.md) owns the accepted behavior. Automatic write retry remains outside this release and would require a separate behavioral and design decision.
+Option A is accepted. WEB-09 and the Low Level Design (LLD) use this behavior. T16 covers failure branches and T17 covers refreshed counts in the [Test Specification (TS)](test_specification.md). The [Spec Driven Development document (SDD)](spec_driven_development.md) owns the accepted behavior. Automatic write retry remains outside this release and would require a separate behavioral and design decision.

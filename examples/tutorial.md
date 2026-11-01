@@ -62,4 +62,4 @@ All contains cited active websites, including verified V. Pending and Review con
 
 ## What you learned
 
-You separated queue classification from active visibility and citation membership. Next, read [why the totals differ](explanation.md), then follow the [administrator how-to](how_to_guide.md) in an authorized environment.
+You separated queue classification from active visibility and citation membership. Next, read [Explanation (EXP)](explanation.md), then follow the [How-to Guide (HTG)](how_to_guide.md) in an authorized environment.

@@ -2,7 +2,7 @@
 
 Status: Approved product baseline for the first release
 Audience: Product, administration, engineering, and QA
-Related work: [Feature](issue.md), [behavioral specification](spec_driven_development.md), [implementation plan](implementation_plan.md)
+Related work: [Feature](issue.md), [Spec Driven Development document (SDD)](spec_driven_development.md), [Implementation Plan (IP)](implementation_plan.md)
 
 ## Problem and users
 
@@ -71,12 +71,12 @@ Pending and Review default to newest-added order to make the unsettled lists pra
 
 The feature depends on the shared parked-state helper from the confirmation work. Review must use that definition rather than introducing a second interpretation in the browser. The actor-aware category mutation must also be available before the new controls are enabled.
 
-The main risks are missing uncited rows, disagreement between counts and selection, loss of attribution, and misleading feedback after a partial bulk failure. Testing must exercise these cases directly. The [architecture decision](architecture_decision_record.md) keeps classification in one database helper; the [design decision](design_decision_record.md) defines bulk failure handling.
+The main risks are missing uncited rows, disagreement between counts and selection, loss of attribution, and misleading feedback after a partial bulk failure. Testing must exercise these cases directly. The [Decision Record (DR): architecture](decision_record_architecture.md) keeps classification in one database helper; the [Decision Record (DR): component design](decision_record_component_design.md) defines bulk failure handling.
 
 The first release uses parked websites only for Review and places the domain-ending field in More filters. Broader review signals and a Reason filter can be considered later without changing this release's acceptance baseline.
 
 ## Acceptance and follow-up
 
-The [SDD](spec_driven_development.md) owns detailed requirements WEB-01 through WEB-12. QA must demonstrate each requirement against the agreed fixtures and record any residual risk. Product review covers tab language, filter placement, the manual-review journey, and partial-failure feedback. Engineering review covers compatibility, authorization, attribution, and recovery.
+The [Spec Driven Development document (SDD)](spec_driven_development.md) owns detailed requirements WEB-01 through WEB-12. QA must demonstrate each requirement against the agreed fixtures and record any residual risk. Product review covers tab language, filter placement, the manual-review journey, and partial-failure feedback. Engineering review covers compatibility, authorization, attribution, and recovery.
 
 After rollout, collect feedback on review clarity and repeat the queue-completeness checks on the released version. Update product goals only through an explicit scope decision; an implementation shortcut does not change the accepted behavior.

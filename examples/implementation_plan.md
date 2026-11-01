@@ -2,7 +2,7 @@
 
 Status: Ready for implementation against the agreed behavior baseline
 Scope: Administration lists, category mutation, and supporting database contracts
-Sources: [SDD](spec_driven_development.md), [HLD](high_level_document.md), [LLD](low_level_design.md)
+Sources: [Spec Driven Development document (SDD)](spec_driven_development.md), [High Level Document (HLD)](high_level_document.md), [Low Level Design (LLD)](low_level_design.md)
 
 ## Goal and specification
 
@@ -16,7 +16,7 @@ The administration page is `src/pages/admin/websites/AdminWebsitesPage.tsx`. It 
 
 The database will own classification through `public.website_review_state(websites)`. The list, count, and matching-ID functions will apply a shared predicate with queue and domain-ending parameters. Category writes will go through `bulk_change_website_category(uuid[], text)`, including one-row inline edits. This keeps permission checks, verification metadata, and attribution consistent.
 
-The parked-state helper is a prerequisite from task 46. Confirm its signature and behavior in the target migration chain before starting dependent work. The architecture and bulk-failure decisions are recorded in the [ADR](architecture_decision_record.md) and [DDR](design_decision_record.md).
+The parked-state helper is a prerequisite from task 46. Confirm its signature and behavior in the target migration chain before starting dependent work. The architecture and bulk-failure decisions are recorded in the [Decision Record (DR): architecture](decision_record_architecture.md) and [Decision Record (DR): component design](decision_record_component_design.md).
 
 ## Work sequence
 
@@ -24,7 +24,7 @@ The parked-state helper is a prerequisite from task 46. Confirm its signature an
 
 Inspect the existing definitions of `_admin_websites_predicate`, `list_admin_websites_page`, `count_admin_websites`, and `admin_website_ids`. Record current signatures, grants, All filtering, sort behavior, and callers. Inspect the shared change journal and confirm how `auth.uid()` is recorded for administration writes.
 
-Create the nine-state fixture from the [test specification](test_specification.md) in a disposable database. Capture baseline All membership and the existing automated reader results before modifying functions. Include all nine states, including the deleted row.
+Create the nine-state fixture from the [Test Specification (TS)](test_specification.md) in a disposable database. Capture baseline All membership and the existing automated reader results before modifying functions. Include all nine states, including the deleted row.
 
 Result: a reproducible baseline and confirmed prerequisite. Stop if the parked-state helper or actor handling differs from the design; resolve that conflict before writing dependent migrations.
 
@@ -48,7 +48,7 @@ Create M5 for `bulk_change_website_category(uuid[], text)`. Enforce administrato
 
 Verify journal entries identify the signed-in administrator. Test zero IDs, 500 IDs, 501 IDs, inactive categories, denied callers, deleted rows, forced failure, and concurrent manual changes. Confirm a 500-row request remains below the authenticated role's eight-second statement timeout with journaling enabled. Do not increase the timeout to conceal an unmeasured mutation cost.
 
-Regenerate `src/integrations/supabase/types.ts` and `packages/supabase/src/database.types.ts` through the repository's established process. Review the resulting signatures against the LLD.
+Regenerate `src/integrations/supabase/types.ts` and `packages/supabase/src/database.types.ts` through the repository's established process. Review the resulting signatures against the Low Level Design (LLD).
 
 ### 5. Build tabs and filter behavior
 
@@ -62,15 +62,15 @@ Verify the layout at the agreed desktop widths, including long category labels a
 
 Add `src/components/admin/websites/WebsiteCategoryCell.tsx` and a shared `useWebsiteCategoryEdit` hook. Allow one active row, explicit save/cancel actions, Enter/Escape behavior, and a saving indicator. A failed save retains the selection and edit state. Do not add inline clearing.
 
-Change `src/components/admin/dialogs/BulkChangeWebsiteCategoryDialog.tsx` to call the same mutation in chunks of at most 500 IDs. Stop after the first failed request. Keep confirmed progress separate from the unresolved batch and unattempted IDs. Reconcile an uncertain request through a fresh read before offering a retry, as defined in the DDR.
+Change `src/components/admin/dialogs/BulkChangeWebsiteCategoryDialog.tsx` to call the same mutation in chunks of at most 500 IDs. Stop after the first failed request. Keep confirmed progress separate from the unresolved batch and unattempted IDs. Reconcile an uncertain request through a fresh read before offering a retry, as defined in the component design decision.
 
 Refresh rows and counts after confirmed changes, including partial completion. Inspect `AdminWebsiteDetailPage.tsx` only if the detail-page reproduction demonstrates the same stale-review defect. Keep that fix conditional rather than expanding scope preemptively.
 
 ### 7. Verify, document, and prepare rollout
 
-Run the defined database, component, and browser checks, then review all WEB requirements against their evidence. Record progress in a Test Status Report and the milestone outcome in a Test Completion Report. Remove the mockup route and `WebsitesReviewMockup.tsx` only after the replacement interface has been verified. Update `src/routes/AdminRoutes.tsx` accordingly.
+Run the defined database, component, and browser checks, then review all WEB requirements against their evidence. Record progress in a Test Status Report (TSR) and the milestone outcome in a Test Completion Report (TCR). Remove the mockup route and `WebsitesReviewMockup.tsx` only after the replacement interface has been verified. Update `src/routes/AdminRoutes.tsx` accordingly.
 
-Update the living HLD from the implemented design, publish the administrator how-to, and reconcile any approved behavior changes with the SDD. Do not mark a planned check as passed because its implementation exists.
+Update the living High Level Document (HLD) from the implemented design, publish the administrator how-to, and reconcile any approved behavior changes with the Spec Driven Development document (SDD). Do not mark a planned check as passed because its implementation exists.
 
 ## Requirement coverage
 

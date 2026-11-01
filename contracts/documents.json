@@ -164,43 +164,6 @@
         }
       ]
     },
-    "decision": {
-      "format": "document",
-      "sections": [
-        {
-          "id": "Options considered",
-          "level": 2,
-          "labels": [
-            "Options considered"
-          ],
-          "required": true,
-          "children": [
-            {
-              "id": "At least two named options",
-              "level": 3,
-              "pattern": "Option [A-Za-z0-9]+: .+",
-              "minimum": 2
-            }
-          ]
-        },
-        {
-          "id": "Recommended option",
-          "level": 2,
-          "pattern": "Recommended option \\([A-Za-z0-9]+\\)",
-          "required": true
-        },
-        {
-          "id": "Outcome",
-          "level": 2,
-          "labels": [
-            "Outcome"
-          ],
-          "required": false,
-          "when": "decision_made"
-        }
-      ],
-      "ordered": true
-    },
     "instructions": {
       "format": "frontmatter",
       "sections": []
@@ -319,7 +282,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "discovery_before_delivery": true
     },
     "sdd": {
       "reference": "references/spec_driven_development.md",
@@ -390,7 +354,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "discovery_before_delivery": true
     },
     "requirement": {
       "reference": "references/spec_driven_development.md",
@@ -442,7 +407,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "discovery_before_delivery": true
     },
     "lld": {
       "reference": "references/low_level_design.md",
@@ -482,19 +448,46 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "discovery_before_delivery": true
     },
     "decision": {
-      "reference": "references/decision_record.md",
-      "profile": "decision"
-    },
-    "adr": {
-      "reference": "references/architecture_decision_record.md",
-      "profile": "decision"
-    },
-    "ddr": {
-      "reference": "references/design_decision_record.md",
-      "profile": "decision"
+      "format": "document",
+      "sections": [
+        {
+          "id": "Options considered",
+          "level": 2,
+          "labels": [
+            "Options considered"
+          ],
+          "required": true,
+          "children": [
+            {
+              "id": "At least two named options",
+              "level": 3,
+              "pattern": "Option [A-Za-z0-9]+: .+",
+              "minimum": 2
+            }
+          ]
+        },
+        {
+          "id": "Recommended option",
+          "level": 2,
+          "pattern": "Recommended option \\([A-Za-z0-9]+\\)",
+          "required": true
+        },
+        {
+          "id": "Outcome",
+          "level": 2,
+          "labels": [
+            "Outcome"
+          ],
+          "required": false,
+          "when": "decision_made"
+        }
+      ],
+      "ordered": true,
+      "reference": "references/decision_record.md"
     },
     "plan": {
       "reference": "references/implementation_plan.md",
@@ -550,7 +543,8 @@
           "required": true
         }
       ],
-      "ordered": true
+      "ordered": true,
+      "discovery_before_delivery": true
     },
     "policy": {
       "reference": "references/policy.md",

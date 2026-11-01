@@ -1,18 +1,20 @@
 # Product Requirements Document (PRD)
 
-A PRD explains the product problem, intended users, outcomes, and scope of a product or major feature. Create one when the team needs agreement on product goals and scope; update it when goals, audience, priorities, scope, or success criteria change. Use the [SDD](spec_driven_development.md) for detailed expected software behavior and the [plan](implementation_plan.md) for delivery.
+A Product Requirements Document (PRD) explains the product problem, intended users, outcomes, and scope of a product or major feature. Create one when the team needs agreement on product goals and scope; update it when goals, audience, priorities, scope, or success criteria change. Use the [Spec Driven Development document (SDD)](spec_driven_development.md) for detailed expected software behavior and the [Implementation Plan (IP)](implementation_plan.md) for delivery.
 
 ## Principles
 
 - Describe the problem and who experiences it before proposing capabilities. Distinguish research findings and reported needs from assumptions.
 - Explain the intended benefit and how the team will assess it. Use supplied measures; leave baselines or targets undecided when they are unknown.
 - State included and excluded scope and meaningful priorities. Distinguish agreed commitments from candidate features.
-- Summarize user journeys or link [stories](user_story.md). Link behavior requirements rather than maintaining a competing specification.
-- Identify dependencies, risks, and decisions that affect scope. A changed product goal requires reconciliation with affected SDD requirements, not a silent override.
+- Summarize user journeys or link [User Story (US)](user_story.md). Link behavior requirements rather than maintaining a competing specification.
+- Identify dependencies, risks, and decisions that affect scope. A changed product goal requires reconciliation with affected Spec Driven Development document (SDD) requirements, not a silent override.
 
 ## Structure
 
 Identify status and source/decision authority when known; then problem, users, goals, scope, capabilities, success criteria, assumptions, dependencies, open decisions, and related specifications. Match detail to the initiative; a product brief may be enough before discovery is complete.
+
+Follow [discovery](../workflows/discover.md) to establish the problem and scope before discussing design. Use [Visual Guidance (VG)](visuals.md) for a journey map only when channels, time and user experience need explanation; link detailed user flows or wireflows from Spec Driven Development document (SDD). A short user scenario can be sufficient without a visual.
 
 ## Template
 
@@ -36,7 +38,7 @@ Status/source: [Known status and supporting evidence]
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/product_requirements_document.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Product Requirements Document (PRD) example for Websites Review](../examples/product_requirements_document.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 

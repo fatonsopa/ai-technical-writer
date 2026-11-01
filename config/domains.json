@@ -19,7 +19,13 @@
         "contracts/",
         "scripts/document_contracts.py",
         "scripts/plain_words.py",
-        "scripts/zero_loss.py"
+        "scripts/zero_loss.py",
+        "scripts/planning_readiness.py",
+        "scripts/visual_contracts.py",
+        "scripts/check_mermaid.mjs",
+        "scripts/writing_style_contract.py",
+        "scripts/continuation.py",
+        "scripts/mermaid_runtime.mjs"
       ],
       "depends_on": [
         "writing-guidance"
@@ -29,10 +35,12 @@
       "name": "document-delivery",
       "purpose": "Freeze source inputs, review judgments and deliver accepted bytes.",
       "owned_paths": [
-        "scripts/validate_document.py"
+        "scripts/validate_document.py",
+        "scripts/rewrite_workflow.py"
       ],
       "depends_on": [
-        "document-validation"
+        "document-validation",
+        "visual-rendering"
       ]
     },
     {
@@ -45,7 +53,11 @@
         "evals/audit_examples.py",
         "evals/cases/",
         "evals/fixtures/",
-        "evals/rubrics/"
+        "evals/rubrics/",
+        "evals/workflow_cases.json",
+        "evals/style_cases.json",
+        "evals/retry_cases.json",
+        "evals/diagram_cases.json"
       ],
       "depends_on": [
         "document-validation",
@@ -76,6 +88,35 @@
       "depends_on": [
         "document-validation",
         "document-delivery"
+      ]
+    },
+    {
+      "name": "test-selection",
+      "purpose": "Select impacted repository checks and gate final suites on explicit batch authorization.",
+      "owned_paths": [
+        "scripts/run_tests.py",
+        "config/test_impact.json"
+      ],
+      "depends_on": [
+        "repository"
+      ]
+    },
+    {
+      "name": "visual-rendering",
+      "purpose": "Render diagrams with visible context, notation legends and source-bound exports.",
+      "owned_paths": [
+        "scripts/render_diagram.py",
+        "scripts/diagram_presentation.py",
+        "scripts/render_flowchart.py",
+        "config/diagram_style.json",
+        "scripts/diagram_components.py",
+        "scripts/diagram_inventory.mjs",
+        "scripts/audit_diagram.mjs",
+        "scripts/check_diagram_collection.py"
+      ],
+      "depends_on": [
+        "writing-guidance",
+        "document-validation"
       ]
     }
   ]

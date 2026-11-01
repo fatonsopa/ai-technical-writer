@@ -1,0 +1,42 @@
+%% Diagram: Flowchart
+%% Subtitle: Choose a shape by its meaning. Fills use this skill’s shared palette; dark text and outlines keep the view readable.
+flowchart LR
+    accTitle: Flowchart shapes and when to use them
+    accDescr: A numbered guide to supported flowchart symbols. Each shape has one meaning and a shared color. The expanded subprocess contains its own steps.
+    N1@{ shape: rect, label: "1. Process" }
+class N1 process
+    N2@{ shape: diam, label: "2. Decision" }
+class N2 decision
+    N3@{ shape: doc, label: "3. Document" }
+class N3 document
+    N4@{ shape: lean-r, label: "4. Data (input/output)" }
+class N4 data
+    N5@{ shape: stadium, label: "5. Start / end" }
+class N5 terminator
+    N6@{ shape: fr-rect, label: "6. Predefined process" }
+class N6 predefined
+    N7@{ shape: circle, label: "7. Connector" }
+class N7 connector
+    N8@{ shape: hex, label: "8. Preparation" }
+class N8 preparation
+    N9@{ shape: curv-trap, label: "9. Display" }
+class N9 display
+    N10@{ shape: flag, label: "10. Paper tape" }
+class N10 paper
+    N11@{ shape: delay, label: "11. Delay" }
+class N11 delay
+    N12@{ shape: trap-t, label: "12. Manual operation" }
+class N12 manual
+    N13("13. Person")
+class N13 actor
+    N14@{ shape: cyl, label: "14. Database" }
+class N14 datastore
+    subgraph N15["15. Expanded subprocess"]
+        N15a["15.1. Validate selection"] --> N15b["15.2. Save category"]
+    end
+class N15 subprocess
+class N15a,N15b process
+N1 ~~~ N2 ~~~ N3 ~~~ N4
+N5 ~~~ N6 ~~~ N7 ~~~ N8
+N9 ~~~ N10 ~~~ N11 ~~~ N12
+N13 ~~~ N14 ~~~ N15

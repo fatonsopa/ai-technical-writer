@@ -25,7 +25,7 @@ Engineering must keep queue classification consistent across readers. Product ow
 
 ## Responsibilities and compliance
 
-Administrators are responsible for their selected category and target websites. Engineering owns permission enforcement, persistence, and change-history integrity. QA assesses the [technical standard](technical_standard.md) and SDD checks. Product reviews scope and administrator-facing language.
+Administrators are responsible for their selected category and target websites. Engineering owns permission enforcement, persistence, and change-history integrity. QA assesses the [Technical Standard (STD)](technical_standard.md) and Spec Driven Development document (SDD) checks. Product reviews scope and administrator-facing language.
 
 Release review must consider authorization failures, missing attribution, misleading partial results, and queue omissions. An unresolved failure requires a documented hold or an explicitly authorized scope decision. A green build alone does not demonstrate compliance.
 
@@ -37,4 +37,4 @@ An emergency correction still requires an identifiable actor and retained eviden
 
 ## Ownership, review, and related standards
 
-Review this policy when manual-review roles, queue meaning, or mutation paths change. The [technical standard](technical_standard.md) defines enforcement checks, the [how-to](how_to_guide.md) describes administrator actions, and the [SDD](spec_driven_development.md) owns feature behavior.
+Review this policy when manual-review roles, queue meaning, or mutation paths change. The [Technical Standard (STD)](technical_standard.md) defines enforcement checks, the [How-to Guide (HTG)](how_to_guide.md) describes administrator actions, and the [Spec Driven Development document (SDD)](spec_driven_development.md) owns feature behavior.

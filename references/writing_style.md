@@ -1,8 +1,8 @@
-# Writing style
+# Writing Style (WS)
 
 Write as an experienced developer explaining the subject to a colleague. Use natural English, precise technical terms, and enough context to make sense without the original conversation.
 
-Apply this guide to all prose, including instructions, titles, headings, templates, and examples. The document reference defines the structure and required information. For issue titles and descriptions, also use [Issue](issue.md).
+Apply this guide to every authored text surface before it is sent or accepted. That includes documents, instructions, titles, headings, tables, templates, examples, references, diagram titles, labels, metadata, legends and explanations, questions and answer options, audit findings, recommendations, comments and delivery messages. No output type, length or workflow stage is exempt. The guide’s preservation rules govern exact literals, code, commands, identifiers, values and quotations; applying style must retain their required meaning and bytes. The document reference defines the structure and required information. For issue titles and descriptions, also use [Issue](issue.md).
 
 ## 1. Understand the subject before choosing words
 
@@ -27,6 +27,8 @@ Prefer ordinary verbs such as “use,” “save,” “send,” “check,” an
 Keep established terms that add precision. “Transaction,” “rollback,” “worker,” and “flaky test” can be clearer than improvised substitutes. Define an unfamiliar term once and use it consistently. Retain exact names readers need to find code, commands, settings, or UI controls.
 
 Avoid invented labels, long strings of nouns, slogans, and metaphors that readers must decode. Describe what a process does instead of giving it human motives or calling an intermittent test result “lucky.” Use role names for reusable responsibilities; use a person's name when ownership, attribution, or a historical record requires it.
+
+When referring to a document type, use its full name followed by its acronym in parentheses: “Spec Driven Development document (SDD)” or “High Level Document (HLD).” Use that form each time in prose, headings, tables, link labels and diagrams. Keep the approved names and acronyms consistent with the document catalog or project glossary. Describe the document's purpose separately from its name. If it has no agreed acronym, use its name alone. Preserve literal filenames, code identifiers, accepted input aliases, quotations and external publication titles.
 
 Judge words in context rather than replacing everything a scanner flags.
 
@@ -72,7 +74,7 @@ Shorten by removing repetition and irrelevant detail. Keep every condition, exce
 
 Distinguish observed behavior, requirements, proposals, assumptions, and possible explanations. Use tense and wording that preserve their status: a proposed change has not already happened, and an observed symptom does not establish its cause.
 
-Keep obligations and permissions intact. Changing “may” to “must,” dropping “only,” or omitting an exception can change a requirement. The [SDD guide](spec_driven_development.md) owns requirement wording. A specification states intended behavior; a plan states implementation; a test report states observed results. Keep those roles and their certainty intact.
+Keep obligations and permissions intact. Changing “may” to “must,” dropping “only,” or omitting an exception can change a requirement. The [Spec Driven Development document (SDD) guide](spec_driven_development.md) owns requirement wording. A specification states intended behavior; a plan states implementation; a test report states observed results. Keep those roles and their certainty intact.
 
 Preserve material values, units, dates, commands, identifiers, and exact error messages. Distinguish what a source reports from what you independently checked. Never invent evidence, measurements, file paths, test results, or approval.
 
@@ -87,6 +89,10 @@ Use paragraphs to explain connected ideas, numbered lists for ordered actions, b
 Use bold sparingly and code formatting for literal names and values. Bullets do not need bold opening labels. Follow the project's Markdown formatting conventions; this guide does not impose a line width or a universal page layout.
 
 Use examples that help explain the point. Include enough detail to demonstrate it; a useful example may be longer than the rule.
+
+## Explain diagrams in the reader’s language
+
+Review diagram titles, subtitles, labels, legends and explanations. Use established notation terms. Repeat each complete visible number and label exactly in its table row, with relevant trigger, action, feedback and next path. “The system checks whether the signed-in user is an administrator. Yes permits the edit; No denies access.” Do not imply a confirmation modal. A lost response does not prove rollback. [Visual Guidance (VG)](visuals.md) owns the numbering and notation rules.
 
 ## Examples
 

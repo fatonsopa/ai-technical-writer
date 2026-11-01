@@ -32,8 +32,8 @@ The T10 failure risks forcing an administrator to reconstruct a choice after a r
 
 Engineering will retain selection after a failed inline save and invalidate counts after confirmed partial progress. Add the isolated journal-failure interception point. QA will run T15, T18, and T19, then rerun all 20 cases on the next candidate because shared state handling is changing.
 
-Keep R1 results scoped to wr-candidate-1. Do not merge later passes into this candidate's totals. Release review remains blocked until the [test plan](test_plan.md) exit criteria are met.
+Keep R1 results scoped to wr-candidate-1. Do not merge later passes into this candidate's totals. Release review remains blocked until the [Test Plan (TP)](test_plan.md) exit criteria are met.
 
 ## Sources
 
-R1 case register and captures R1-E10, R1-E16, and R1-E17; performance record R1-P20; [test specification](test_specification.md), version 1; [test plan](test_plan.md).
+R1 case register and captures R1-E10, R1-E16, and R1-E17; performance record R1-P20; [Test Specification (TS)](test_specification.md), version 1; [Test Plan (TP)](test_plan.md).

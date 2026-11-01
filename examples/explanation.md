@@ -22,4 +22,4 @@ Keeping All compatible means its total cannot serve as the total outstanding wor
 
 ## Why counts must come from the same rules
 
-Rows, counts, and matching-ID selection must share the same population and filters. A browser cannot repair a missing uncited row after the server has paginated a different set. The [ADR](architecture_decision_record.md) explains why classification stays in the database; the [SDD](spec_driven_development.md) defines the required behavior.
+Rows, counts, and matching-ID selection must share the same population and filters. A browser cannot repair a missing uncited row after the server has paginated a different set. The [Decision Record (DR): architecture](decision_record_architecture.md) explains why classification stays in the database; the [Spec Driven Development document (SDD)](spec_driven_development.md) defines the required behavior.

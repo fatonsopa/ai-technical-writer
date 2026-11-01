@@ -1,0 +1,4 @@
+# Available project evidence
+The existing application has a React administration page and Supabase-backed PostgreSQL functions. Administrators alone may browse review lists and assign categories. List, count, and matching-ID operations share a predicate. Category changes and change history commit together. Each request supports up to 500 IDs; larger selections use sequential client batches and stop after failure. An uncertain write requires an authorized reconciliation read before an explicit user retry. All of this behavior is agreed. No new services, hosting changes, deadlines or performance targets are requested.
+
+The request is an HLD of this existing design for developers, using the supplied evidence. All material choices for that scope are settled. Describe hosting as outside the available evidence rather than inventing it. Do not ask the user to identify the stack or repeat the agreed workflow.

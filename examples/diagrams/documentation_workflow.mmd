@@ -1,0 +1,26 @@
+%% Diagram: Flowchart
+%% Subtitle: Requirements guide the design and the Implementation Plan (IP). Test documents define the checks and record their results.
+flowchart TD
+    accTitle: How development documents fit together
+    accDescr: Work may start with an issue or specification. Design and planning lead to implementation, verification, and documentation updates. Decision Record (DR) entries and test documents support those activities as needed.
+    WI@{ shape: doc, label: "1. Issue" } --> SDD@{ shape: doc, label: "3. Spec Driven Development document (SDD)" }
+    PRD@{ shape: doc, label: "2. Product Requirements Document (PRD)" } --> SDD
+    SDD --> HLD@{ shape: doc, label: "4. High Level Document (HLD)" }
+    HLD -. "Architectural choice" .-> DR@{ shape: doc, label: "5. Decision Record (DR)" }
+    HLD --> LLD@{ shape: doc, label: "6. Low Level Design (LLD)" }
+    HLD -->|"No separate Low Level Design (LLD) needed"| IP@{ shape: doc, label: "7. Implementation Plan (IP)" }
+    LLD -. "Component choice" .-> DR
+    LLD --> IP
+    IP -. "Create tasks when needed" .-> WI
+    IP --> CODE["8. Implementation"]
+    CODE --> VERIFY["9. Verification"]
+    VERIFY --> UPDATE["10. Update affected documentation"]
+    IP -. "Testing approach" .-> TP@{ shape: doc, label: "11. Test Plan (TP)" }
+    SDD -. "Acceptance behavior" .-> TS@{ shape: doc, label: "12. Test Specification (TS)" }
+    TP -.-> TS
+    TS -. "Defined checks" .-> VERIFY
+    VERIFY -. "During testing" .-> TSR@{ shape: doc, label: "13. Test Status Report (TSR)" }
+    VERIFY -. "Milestone outcome" .-> TCR@{ shape: doc, label: "14. Test Completion Report (TCR)" }
+
+class WI,PRD,SDD,HLD,LLD,DR,IP,TP,TS,TSR,TCR document
+class CODE,VERIFY,UPDATE process

@@ -6,7 +6,7 @@ The test basis is the requirements, acceptance criteria, and other sources used 
 
 ## Principles
 
-- Trace checks to [SDD](spec_driven_development.md) requirements or exact acceptance criteria. Expected results come from those sources, not from whatever the current code happens to do.
+- Trace checks to [Spec Driven Development document (SDD)](spec_driven_development.md) requirements or exact acceptance criteria. Expected results come from those sources, not from whatever the current code happens to do.
 - Choose cases that distinguish meaningful normal, error, permission, and boundary behavior. State what is covered and what remains outside scope.
 - Give each case an identifiable objective, preconditions, inputs/actions, and observable expected outcome.
 - Include execution order, setup, cleanup, and dependencies when needed for repeatability. Use verified commands; report missing facilities instead of inventing them.
@@ -16,7 +16,9 @@ The test basis is the requirements, acceptance criteria, and other sources used 
 
 ## Structure
 
-Identify the test item/version, behavior source, coverage and cases, necessary data/environment, and procedures. Add model detail, dependencies, or cleanup where they affect execution. The [test plan](test_plan.md) owns overall approach; reports own observed outcomes.
+Identify the test item/version, behavior source, coverage and cases, necessary data/environment, and procedures. Add model detail, dependencies, or cleanup where they affect execution. The [Test Plan (TP)](test_plan.md) owns overall approach; reports own observed outcomes.
+
+When governing documents contain flows, sequences or state machines, map relevant branches, transitions and failure outcomes to cases. Link the maintained views instead of drawing a competing behavior model. Use [Visual Guidance (VG)](visuals.md) only if a separate coverage model helps readers; a case table may be sufficient.
 
 ## Template
 
@@ -38,7 +40,7 @@ Test item: [System/component and target build or pending version]
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/test_specification.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [Test Specification (TS) example for Websites Review](../examples/test_specification.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 
