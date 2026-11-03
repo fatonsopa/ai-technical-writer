@@ -22,4 +22,6 @@ Keep repository workflow rules in AGENTS.md. Always provide CLAUDE.md with an @A
 
 Apply references/writing_style.md to every authored text surface, including diagrams, labels, questions, findings and delivery messages, before sending or accepting it. Keep each document format's rules in its owning reference. Preserve source facts, requirements, exceptions, literals and uncertainty when updating guides or examples. Update catalog, contracts, workflow links and affected cases when routing changes.
 
+When changing agent, skill or output-style guidance and examples, apply [the instruction-writing guide](references/agents_and_skills.md) and its [complete example](examples/agents_and_skills.md). Preserve host formats, shared-rule ownership and actual authority and evidence limits.
+
 Use the environment containing scripts/requirements-lock.txt. Run impacted test methods or modules while editing. The impact configuration owns the relevant integrity, regression, wording and example checks. Keep private review records and run snapshots outside the repository.

@@ -518,6 +518,18 @@
         "-p",
         "test_title_contract.py"
       ]
+    },
+    "agent-writing": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_agent_writing.py"
+      ]
     }
   },
   "rules": [
@@ -1031,6 +1043,17 @@
       ],
       "tests": [
         "title-contract"
+      ]
+    },
+    {
+      "paths": [
+        "references/agents_and_skills.md",
+        "examples/agents_and_skills.md",
+        "AGENTS.md",
+        "scripts/test_agent_writing.py"
+      ],
+      "tests": [
+        "agent-writing"
       ]
     }
   ],
