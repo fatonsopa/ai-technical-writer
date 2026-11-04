@@ -1,4 +1,4 @@
-# Policy (Policy (POL))
+# Policy (POL)
 
 A policy states an organization's direction, broad obligations, and accountability. Create it when governance needs an explicit agreement; update it when the authorized direction, scope, or responsibilities change. A [Technical Standard (STD)](technical_standard.md) turns that direction into precise, verifiable rules. Both can be binding; specificity and responsibility distinguish them.
 
@@ -9,11 +9,14 @@ A policy states an organization's direction, broad obligations, and accountabili
 - Explain what people or systems are responsible for, why it matters, and how compliance is assessed. Detailed implementation steps belong in procedures.
 - Identify who owns the policy and can approve exceptions when that authority is known. Preserve existing exceptions and their limits.
 - Keep one owner for each obligation. Link standards and procedures rather than copying them.
+- Keep direction, accountability and exception authority here. Put detailed technical checks in the standard and execution steps in the procedure. Link shared obligations instead of creating another policy for each role that repeats them.
 - Use clear obligation words and keep proposal status explicit. Do not invent regulatory duties, review dates, owners, or approval.
 
 ## Structure
 
 For this package, both the template and completed policy include Definitions and Principles. Add purpose/scope, obligations, responsibilities, compliance, exceptions, ownership/review, and related documents. A draft can identify missing authority rather than pretend it is adopted.
+
+Required content does not require a fixed label for every obligation. Use connected prose for an obligation and its reason, and bullets for independent obligations. State shared authority and exception handling once. Preserve conditions such as applicability, effective periods and limits when shortening; a broad policy statement must not erase a scoped exception or invent a universal duty.
 
 ## Template
 

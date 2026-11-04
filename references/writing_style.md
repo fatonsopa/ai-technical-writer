@@ -70,6 +70,8 @@ State what applies directly. Use a comparison or contrast when readers need it t
 
 Shorten by removing repetition and irrelevant detail. Keep every condition, exception, warning, and distinction that changes the meaning. Brevity must not make the reader guess.
 
+Do not set a word-reduction quota. Remove repeated explanations and unnecessary labels before removing useful examples or technical distinctions. Keep words such as “only,” “unless,” “with the same key,” and “universal” when they limit a rule. Check the revised sentence against a case where that qualification changes the outcome.
+
 ## 8. Preserve meaning and be honest about certainty
 
 Distinguish observations, requirements, proposals, assumptions and hypotheses. Preserve their status: a proposal has not happened, and a symptom does not establish its cause.
@@ -88,9 +90,21 @@ Unknown is not absent or unset. Incomplete work may include passing checks; unru
 
 Use paragraphs for connected ideas, numbered lists for ordered actions, bullets for separate items and tables for comparisons. Put commands, code and literal output in code blocks. Distinguish placeholders from exact values.
 
+Choose the format from the relationship between ideas. Do not join independent checks into a paragraph merely to sound fluent, or turn every sentence into a bullet. Removing repetitive labels does not require removing bullets. Use a short paragraph for a rule or explanation, followed by bullets when its checks can be assessed independently. Number them only when order matters.
+
 Use bold sparingly and code formatting for literals. Bullets need no bold opening labels. Follow project Markdown conventions; this guide imposes no line width or universal layout.
 
 Include enough detail in examples to demonstrate the point, even when an example exceeds the rule's length.
+
+For example, these checks do not form a sequence:
+
+> Before accepting an upload:
+>
+> - Verify the caller may write to the destination.
+> - Enforce the agreed size limit before buffering the entire file.
+> - Prevent the filename from escaping the permitted storage root.
+
+The conditions belong with their checks. “Check permissions, size and paths” is shorter but loses what must be verified.
 
 ## Explain diagrams in the reader’s language
 
@@ -133,6 +147,8 @@ For substantial writing, review the complete document in three passes. For a sma
 1. Meaning and accuracy: Explain the passage in your own words without relying on its phrasing or the original conversation. Check the subject, behavior, conditions, source support, and uncertainty. Repair gaps rather than guessing.
 2. Language and tone: Read the text as if helping a colleague. Check that it sounds approachable and natural. Replace awkward phrasing, unnecessary jargon, condescending language, ambiguous references, and disconnected sentences. Check titles, headings, templates, and examples as well as paragraphs.
 3. Repetition and preservation: Remove text that adds nothing, then compare with the source. Confirm that shortening has preserved important facts, requirements, exceptions, and technical details.
+
+Compare obligation strength and boundary cases explicitly. “Do not accept a token merely because its signature verifies” does not mean “reject the token.” “Do not prescribe universal CAPTCHA” does not prohibit a justified project requirement. Word counts and matching headings cannot establish semantic preservation; token savings and behavioral improvements need their own measurements.
 
 For important or repeatedly misunderstood documents, ask an intended reader to explain a passage or use its instructions. Revise text that requires extra explanations from the author.
 

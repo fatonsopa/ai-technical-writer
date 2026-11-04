@@ -15,6 +15,24 @@ A technical standard defines precise rules and how to verify them. Create it whe
 
 Both the template and completed example must include Definitions, Principles, Rules, and Verification. Also establish purpose/scope, authority, responsibilities, exceptions, and ownership/review. Use ordinary language unless a defined normative convention is needed.
 
+These are information requirements, not a requirement to repeat “Applicability,” “Inspection,” or “Expected evidence” under every rule. Follow [Writing Style (WS)](writing_style.md) when choosing prose, bullets and tables. Keep rule IDs when they support traceability; let each rule's complexity determine its presentation. A fixed record layout is useful when an actual reader or machine consumer needs those fields.
+
+Keep one coherent standard together by default, with linked contents when navigation warrants it. Separate material only for a distinct purpose, audience, owner or loading need that justifies the extra navigation. Common verification and exception rules belong once with their owner; retain control-specific conditions and checks beside the control. Do not repeat the same evidence instructions in both each rule and a verification table.
+
+For example, an access-control rule can combine a requirement with independent checks:
+
+> **ACCESS-01 — Object authorization**
+>
+> Protected objects must be accessible only to callers authorized for the requested action.
+>
+> - Trace trusted caller and tenant identity to the authorization decision before the protected effect.
+> - Inspect alternate APIs, background jobs and cache hits that can reach the same object.
+> - Compare an unauthorized request with a legitimate request that must remain permitted.
+>
+> Authentication or an opaque object identifier alone does not establish authorization.
+
+This illustrates a hypothetical rule's layout, not a new obligation for every project. Preserve the actual project's scope and the source's conditions. Keep relevant sources and versions compact and traceable; citations neither approve a rule nor establish its implementation.
+
 ## Template
 
 ```md
@@ -45,6 +63,8 @@ Read the [Technical Standard (STD) example for Websites Review](../examples/tech
 ## Quality check
 
 Read the actual rules and example, not just their headings. Are definitions and principles substantive? Does every rule have an independent compliance check? Verify scope, authority, units, exceptions, and preserved obligations. A standard must explain how a compliant result can be recognized.
+
+Can a practitioner find the rule and assess its separate checks without decoding a dense paragraph or repetitive form? Compare shortened rules with their source, including exceptions and counterexamples. Do not remove necessary detail to meet a size target.
 
 ## Sources
 

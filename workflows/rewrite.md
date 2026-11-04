@@ -22,6 +22,10 @@ Use the document reference for structure and [Writing Style (WS)](../references/
 
 Do not replace an accurate requirement with a shorter statement that changes its conditions. If the rewrite corrects an error, document the correction separately from the style changes.
 
+Use the writing guide's format choices: independent checks can become bullets while connected explanations remain prose. Removing repetitive field labels is not a request to remove all lists. Preserve negation, quantifiers, obligation strength, scope and exceptions; test the shortened statement against a boundary case before accepting it. Do not force a word-count reduction.
+
+Maintain one identifiable current deliverable unless the user asks for alternatives. Keep intermediate candidates and comparison evidence outside the user-facing set. Approval to discuss, draft or implement retains its actual scope; accepting text does not mean it was installed or behaviorally tested. Do not replace a supplied approval boundary with an inferred broader one.
+
 ## 4. Check preservation
 
 For substantial rewrites, use `scripts/zero_loss.py` to build and review an inventory and a mapping between original and rewritten content. Typical commands:
