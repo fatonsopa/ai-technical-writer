@@ -107,7 +107,7 @@ The result retains the required governance structure and is checked against the 
 
 The failure remains recorded. A repaired draft needs new checks and review; a previous receipt does not transfer to changed content. Persistent skill maintenance follows the authorized scope.
 
-## Validate and deliver a document
+## Check the result
 
 The host normally runs this workflow for you. Use [the document-gate commands](workflows/rewrite.md#validate-the-actual-output) to inspect it or run it yourself. A request identifies the document type, operation, scope, source inputs, destination, explicit requirements, and material values to preserve.
 
@@ -152,7 +152,7 @@ Review failed outputs against their original inputs before changing the skill. A
 
 Routine validation includes necessary bounded retries without another approval for each test. Record a concrete reason for an extension; the shared guard limits each batch and the number of extensions. Preserve failed attempts, targets and expected answers. Honor explicit user hard limits, and stop to report stalled progress or exhausted retry ceilings. Native handoffs count phase packets, not hidden provider requests or a billing cap.
 
-## Troubleshooting and help
+## Limits and help
 
 - **The skill is missing:** confirm the installed folder contains `SKILL.md` and use your host's explicit invocation. Refresh the session if needed.
 - **A Python import fails:** run the environment setup with the installed `scripts/requirements-lock.txt` and use `.venv/bin/python`.
@@ -173,7 +173,7 @@ Preview the checks affected by the current changes, then execute that selection:
 
 The runner compares the last successfully tested checkpoint or Git HEAD and explains each selection. In a folder without Git or a checkpoint, supply exact `--changed PATH` arguments. New or unmapped paths require an impact rule; they do not trigger the full suite. Changed test files select changed methods, and overlapping selections run once.
 
-Full testing is separate and requires the user's confirmation that the batch is finished, bound to the current artifact. See [repository testing](workflows/improve_references.md#scope-repository-tests). A test authorization does not authorize a GitHub push.
+Full testing follows the author's verification that every planned implementation change is delivered and no implementation work remains, with a completion record bound to the current artifact. User batch approval is not required. See [repository testing](workflows/improve_references.md#scope-repository-tests). A test authorization does not authorize a GitHub push.
 
 Test actual output contracts and invalid-output controls as well as package integrity. Installation uses the same public repository files, including its tests. Private records, run snapshots and local environments stay outside the installed copy.
 
@@ -200,10 +200,12 @@ Use `--check` with the same arguments to check an existing export without render
 
 For diagram checks, run `.venv/bin/python scripts/check_diagram_collection.py`. The [diagram evaluation guide](evals/README.md#test-diagram-delivery) explains the real user-flow and sequence tasks, acceptance criteria, mechanical controls and evidence to retain.
 
-## Repository responsibilities
+## Find your way around
 
 `SKILL.md` coordinates writing. `references/` owns document and language guidance; `examples/` demonstrates it. `contracts/` owns output structures. `scripts/` handles validation, accepted delivery and installation. `evals/` owns behavioral cases and assessment; its `adapters/` folder contains optional provider transport. `config/` records layout and component ownership. These components share contracts and preserve the distinction between mechanical checks and source-grounded judgment.
 
 ## License
 
 [MIT](LICENSE).
+
+Optional engineering formats include [Threat Model (TM)](references/threat_model.md), [Interface Contract (IC)](references/interface_contract.md) and [Service Objectives Document (SOD)](references/service_objectives.md). They define security assumptions, boundary semantics and reliability measurement when the project needs them; they are not compulsory project files.

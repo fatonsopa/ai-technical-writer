@@ -1114,6 +1114,147 @@
         1,
         3
       ]
+    },
+    "threat_model": {
+      "reference": "references/threat_model.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Scope and sources",
+          "level": 2,
+          "labels": [
+            "Scope and sources"
+          ],
+          "required": true
+        },
+        {
+          "id": "System and trust boundaries",
+          "level": 2,
+          "labels": [
+            "System and trust boundaries"
+          ],
+          "required": true
+        },
+        {
+          "id": "Threat scenarios",
+          "level": 2,
+          "labels": [
+            "Threat scenarios"
+          ],
+          "required": true
+        },
+        {
+          "id": "Mitigations and residual risk",
+          "level": 2,
+          "labels": [
+            "Mitigations and residual risk"
+          ],
+          "required": true
+        },
+        {
+          "id": "Verification and open decisions",
+          "level": 2,
+          "labels": [
+            "Verification and open decisions"
+          ],
+          "required": true
+        }
+      ],
+      "discovery_before_delivery": true
+    },
+    "interface_contract": {
+      "reference": "references/interface_contract.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Scope and authority",
+          "level": 2,
+          "labels": [
+            "Scope and authority"
+          ],
+          "required": true
+        },
+        {
+          "id": "Operations and messages",
+          "level": 2,
+          "labels": [
+            "Operations and messages"
+          ],
+          "required": true
+        },
+        {
+          "id": "Data and validation",
+          "level": 2,
+          "labels": [
+            "Data and validation"
+          ],
+          "required": true
+        },
+        {
+          "id": "Access and failure semantics",
+          "level": 2,
+          "labels": [
+            "Access and failure semantics"
+          ],
+          "required": true
+        },
+        {
+          "id": "Compatibility and verification",
+          "level": 2,
+          "labels": [
+            "Compatibility and verification"
+          ],
+          "required": true
+        }
+      ],
+      "discovery_before_delivery": true
+    },
+    "service_objectives": {
+      "reference": "references/service_objectives.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Service and user experience",
+          "level": 2,
+          "labels": [
+            "Service and user experience"
+          ],
+          "required": true
+        },
+        {
+          "id": "Indicators and measurement",
+          "level": 2,
+          "labels": [
+            "Indicators and measurement"
+          ],
+          "required": true
+        },
+        {
+          "id": "Objectives and windows",
+          "level": 2,
+          "labels": [
+            "Objectives and windows"
+          ],
+          "required": true
+        },
+        {
+          "id": "Error budget and response",
+          "level": 2,
+          "labels": [
+            "Error budget and response"
+          ],
+          "required": true
+        },
+        {
+          "id": "Ownership and review",
+          "level": 2,
+          "labels": [
+            "Ownership and review"
+          ],
+          "required": true
+        }
+      ],
+      "discovery_before_delivery": true
     }
   }
 }

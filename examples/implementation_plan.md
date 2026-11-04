@@ -99,6 +99,12 @@ For incorrect committed categories, identify affected IDs and journal entries, o
 
 Remove the old `p_needs_review` and `__needs_review__` compatibility paths in M6 only after one compatibility release and evidence that no supported caller uses them. Handle that removal as a separate release step.
 
+### Migration and readiness checks
+
+Before a compatibility rollout, verify that old supported calls still behave as specified while new callers use the optional parameters. If a backfill becomes necessary, first define its source/target population, repeat safety, checkpoint/reconciliation and load limits; this example supplies no approved backfill command. Preserve manual changes made during deployment. Do not infer that removing new code restores earlier data.
+
+Readiness verification must identify access, configuration, dependency health, observability and rollback/roll-forward evidence appropriate to this release. Owners, capacity thresholds and restoration commands need actual sources. These are planned checks, not completed operations or release approval.
+
 ## Risks and readiness limits
 
 Index build cost and 500-row mutation duration require measurement. Partial failures need both a definite server rejection and a lost-response test. The detail-page fix remains conditional. No production date or duration estimate is committed here; scheduling follows these dependency and readiness checks.

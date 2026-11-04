@@ -59,13 +59,31 @@ class TestScopeTests(unittest.TestCase):
 
     def test_final_authorization_is_bound_to_the_exact_artifact(self):
         authorization = self.base / 'authored-control.json'
-        authorization.write_text(json.dumps({'batch_complete': True, 'user_instruction': 'Synthetic unit authorization; not approval for a real repository.', 'artifact_sha256': run_tests.digest(inventory(self.root))}))
+        authorization.write_text(json.dumps({'implementation_complete': True, 'remaining_implementation_work': [], 'artifact_sha256': run_tests.digest(inventory(self.root)), 'implementation_plan': {'source': 'Authored scope fixture', 'steps': [{'id': 'I1', 'result': 'Deliver the fixture source.'}]}, 'delivered_steps': [{'id': 'I1', 'status': 'delivered', 'evidence': ['Actual authored source fixture.']}], 'verified_by': {'identity': 'Authored unit control', 'method': 'Fixture inspection; no user approval claim.'}}))
         selection = run_tests.plan(self.root, [], full=True, authorization=authorization)
         self.assertEqual(selection['mode'], 'full')
         # Planning is sufficient; this control never executes full discovery.
         (self.root / 'source.txt').write_text('changed after the authored authorization')
         with self.assertRaisesRegex(ValueError, 'invalidate'):
             run_tests.plan(self.root, [], full=True, authorization=authorization)
+
+    def test_stale_plan_is_rejected_before_commands_execute(self):
+        selection = run_tests.plan(self.root, ['source.txt'])
+        (self.root / 'source.txt').write_text('Changed after test planning')
+        with patch.object(run_tests.subprocess, 'run') as process:
+            with self.assertRaisesRegex(ValueError, 'changed after test planning'):
+                run_tests.execute(selection)
+            process.assert_not_called()
+
+    def test_stale_final_completion_record_is_rejected_before_commands_execute(self):
+        record = self.base / 'completion.json'
+        record.write_text(json.dumps({'implementation_complete': True, 'remaining_implementation_work': [], 'artifact_sha256': run_tests.digest(inventory(self.root)), 'implementation_plan': {'source': 'Authored fixture', 'steps': [{'id': 'I1', 'result': 'Source delivered'}]}, 'delivered_steps': [{'id': 'I1', 'status': 'delivered', 'evidence': ['Fixture source checked']}], 'verified_by': {'identity': 'Authored control', 'method': 'Fixture inspection'}}))
+        selection = run_tests.plan(self.root, [], full=True, authorization=record)
+        record.write_text('{}')
+        with patch.object(run_tests.subprocess, 'run') as process:
+            with self.assertRaisesRegex(ValueError, 'evidence changed after planning'):
+                run_tests.execute(selection)
+            process.assert_not_called()
 
     def test_hidden_full_discovery_cannot_be_an_impacted_group(self):
         self.config['tests']['related']['argv'] = ['{python}', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py']

@@ -364,6 +364,42 @@
         "review",
         "rewrite"
       ]
+    },
+    {
+      "id": "threat_model",
+      "acronym": "TM",
+      "full_name": "Threat Model",
+      "reference": "references/threat_model.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "interface_contract",
+      "acronym": "IC",
+      "full_name": "Interface Contract",
+      "reference": "references/interface_contract.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "service_objectives",
+      "acronym": "SOD",
+      "full_name": "Service Objectives Document",
+      "reference": "references/service_objectives.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
     }
   ],
   "shared_references": [

@@ -21,7 +21,7 @@ class HostCoverageTests(unittest.TestCase):
         plan = host_coverage.freeze(ROOT, config)
         result = host_coverage.assess(plan, ROOT, [])
         self.assertEqual(plan['required_hosts'], ['codex', 'claude-code'])
-        self.assertEqual(len(plan['cases']), 70)
+        self.assertEqual(len(plan['cases']), 76)
         required = {c['id'] for name in ['document_output_cases.json', 'diagram_cases.json', 'title_cases.json'] for c in json.loads((ROOT / 'evals' / name).read_text())}
         self.assertTrue(required <= {c['id'] for c in plan['cases'] if c.get('verify_delivery')})
         self.assertFalse(result['accepted'])
@@ -67,9 +67,9 @@ class HostCoverageTests(unittest.TestCase):
     def test_document_contexts_cover_all_catalog_types_and_preserve_fixture_bytes(self):
         cases = json.loads((ROOT / 'evals/document_output_cases.json').read_text())
         full = [c for c in cases if c['operation'] in ['create', 'rewrite'] and not c['output_kind'].startswith('issue_') and c['output_kind'] != 'requirement']
-        self.assertEqual(len(full), 44)
-        self.assertEqual(len(cases), 51)
-        source = {c['id']: c for c in [json.loads(line) for line in (ROOT / 'evals/cases/core.jsonl').read_text().splitlines() if line.strip()]}
+        self.assertEqual(len(full), 50)
+        self.assertEqual(len(cases), 57)
+        source = {c['id']: c for path in sorted((ROOT / 'evals/cases').glob('*.jsonl')) for line in path.read_text().splitlines() if line.strip() for c in [json.loads(line)]}
         self.assertEqual(len({c['id'] for c in cases}), len(cases))
         catalog = json.loads((ROOT / 'evals/catalog.json').read_text())['output_kinds']
         self.assertEqual({c['output_kind'] for c in cases}, {c['id'] for c in catalog} - {'visual'})

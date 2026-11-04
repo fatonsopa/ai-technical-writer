@@ -11,6 +11,12 @@ A how-to guide helps someone complete a task. An operational runbook adds the ch
 - Include an observable success check. Link background to [Explanation (EXP)](explanation.md) rather than interrupting the procedure with a full lesson.
 - Execute only actions authorized by the user's task; writing a runbook does not authorize performing its production steps.
 
+## Conditional operational readiness
+
+For an operational procedure, identify environment/version, access, accountable contact when known and the evidence needed before starting. Include configuration/dependency health, capacity, observability, applicable service objectives and backup/restoration readiness according to impact. At each consequential step, state an observable expected result, a stop condition and a safe diagnostic/recovery path. Keep planned checks distinct from recorded observations.
+
+Handle partial progress and lost responses explicitly: reconcile actual state before repeating a side effect, preserve checkpoints and avoid destructive rollback of later valid work. Use tested restoration procedures where available; mark unverified commands and unknown recovery limits instead of inventing them. Link the Implementation Plan (IP) for rollout decisions and [Service Objectives Document (SOD)](service_objectives.md) for approved measurement/response policy. Writing this procedure does not authorize production execution.
+
 ## Structure and template
 
 Use a goal-oriented title, prerequisites, ordered actions, success checks, and applicable failure/recovery instructions.

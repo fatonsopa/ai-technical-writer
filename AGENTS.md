@@ -4,7 +4,7 @@
 
 During implementation, use `scripts/run_tests.py --execute` to run only impacted tests. The script derives changes from the last successful checkpoint or Git HEAD and reports why each check was selected. Do not invoke full unittest/pytest discovery or a full-suite helper directly. Unmapped changes must be assigned an impact rule; they must not trigger a full-suite fallback.
 
-Run the full suite only after the user confirms the batch is finished, with an authorization record bound to the current artifact. Do not create that record without the actual user instruction. Final testing does not grant push approval.
+Run the full suite after the author verifies that every planned implementation change is delivered and no implementation work remains. Use an external implementation-completion record bound to the current artifact; user batch approval is not required. Final validation and publication follow that implementation gate and do not become invented completed implementation steps.
 
 ## Routine test retries
 
@@ -12,7 +12,7 @@ Routine testing and necessary retries are part of the authorized task. Choose an
 
 ## GitHub approval
 
-Do not push to GitHub without the user's explicit approval for the completed changes being published. An earlier approval does not cover later edits. Prepare a concrete, reviewable result, report its validation, and wait for approval before pushing. A request to continue editing is not push approval.
+Publish within the user's existing explicit authority for the completed deliverable, remote and branch. Routine edits and retries within that scope do not require renewed push approval. If publication is not authorized, prepare the tested result and ask for that remaining action; editing or testing alone grants no push or merge authority.
 
 ## Shared instructions
 

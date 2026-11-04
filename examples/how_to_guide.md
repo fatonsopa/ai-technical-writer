@@ -43,6 +43,10 @@ If a response was lost, use the reconciliation view to read current values and r
 
 If rows or counts remain inconsistent after refresh, preserve the operation details and report the problem. Do not clear categories as a way to repair a display issue.
 
+### Operational escalation boundary
+
+The steps above are administration actions, not a production deployment runbook. If recovery needs a database repair, backfill or service rollback, stop and obtain the applicable approved operational procedure and access. Record current values, known committed work and uncertainty before escalation. This example supplies no restoration command, service objective or operator owner; it cannot establish that those controls are ready.
+
 ## Related information
 
 The [Explanation (EXP)](explanation.md) describes queue membership. The [Policy (POL)](policy.md) covers accountability, and the [Spec Driven Development document (SDD)](spec_driven_development.md) defines expected outcomes.

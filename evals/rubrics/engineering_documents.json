@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "critical_failures": [
+    "Unsupported approval, implementation, execution or measurement claims",
+    "Materially changing tenant identity, nullability, scope or proposed target",
+    "Automatic requirement for separate project documents",
+    "Dropping requested edit/review scope"
+  ],
+  "formats": {
+    "threat_model": [
+      "Assets/actors/flows and real trust boundaries",
+      "Concrete threat IDs with preconditions and effects",
+      "Mitigation status, residual risk/authority and threat-linked planned verification"
+    ],
+    "interface_contract": [
+      "Exact operation/status/schema/permission semantics",
+      "Absence/null distinction and opaque identifiers",
+      "Idempotency scope/lifetime/conflicts, lost-response uncertainty and compatibility"
+    ],
+    "service_objectives": [
+      "User journey, good/eligible event definitions and measurement gaps",
+      "Exact target/window/boundary and proposal status",
+      "Correct request-based budget arithmetic, unknown ownership/response and no invented compliance"
+    ]
+  },
+  "calibration": "Authored expected properties, not independent human calibration or observed performance."
+}
