@@ -26,6 +26,9 @@ Accept acronyms, full names and case/hyphen variants. “Explain SDD” may mean
 | [Spec Driven Development document (SDD)](references/spec_driven_development.md); spec | Expected behavior and testable requirements | Behavior needs agreement; requirements change |
 | [High Level Document (HLD)](references/high_level_document.md); High Level Design; architecture | Overall system structure and flows | New system/subsystem; architecture changes |
 | [Low Level Design (LLD)](references/low_level_design.md) | Internal component contracts and design | Detailed design needed; design changes |
+| [Threat Model (TM)](references/threat_model.md) | Assets, trust boundaries, threats, controls and residual risk | Security design needs explicit threat analysis; assets/boundaries change |
+| [Interface Contract (IC)](references/interface_contract.md) | Operations/messages, data, access, failures and compatibility | Consumers need a precise boundary contract; semantics change |
+| [Service Objectives Document (SOD)](references/service_objectives.md) | User-facing indicators, targets, windows and response ownership | Reliability objectives need agreement; journeys/measurement change |
 | [Decision Record (DR)](references/decision_record.md) | Context, options, recommendation and outcome for any choice | Choice needs discussion; evidence or outcome changes |
 | [Implementation Plan (IP)](references/implementation_plan.md); plan | Delivery work and verification | Work needs planning; approach/dependencies change |
 | [Issue](references/issue.md); task; WI / Work Item alias | One tracked unit of work | Tracking needed; scope/progress/evidence change |
@@ -109,6 +112,10 @@ class CODE,VERIFY,UPDATE process
 
 
 The Issue tracks Bug, Chore, Decision, Feature, Improvement or Release work. A Bug Report (BR) adds failure evidence; a User Story (US) is optional content. The Decision Record (DR) supports any material choice and can be a task comment. Policy (POL) sets direction; Technical Standard (STD) defines verifiable rules. Incident Report (IR) records impact, response and lessons; follow-ups may become issues. Tutorial (TUT), How-to Guide (HTG), Explanation (EXP), and Repository readme (README) use verified behavior. Writing Style (WS) and Visual Guidance (VG) apply across these outputs. Test logs are evidence, not a separate document type. Small requirements and test results can live in a task or comment.
+
+Threat Model (TM), Interface Contract (IC) and Service Objectives Document (SOD) capabilities are optional. Reuse project documents with the relevant content; a missing standalone document does not by itself establish a code defect. Record source/version, authority and unresolved conflicts when writing alignment guidance. Technical Writer's format references teach composition; actual project requirements and decisions define intent.
+
+For engineering review findings, preserve the project's or Engineering Review's report schema. Explain the criterion, expected and observed behavior, located evidence, impact, uncertainty and recommendation. Distinguish a contradiction from incomplete evidence and record approved deviations with their actual authority. Writing guidance does not create another review report schema or grant release approval.
 
 ## Work and deliver
 

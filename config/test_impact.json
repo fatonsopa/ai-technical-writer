@@ -530,6 +530,18 @@
         "-p",
         "test_agent_writing.py"
       ]
+    },
+    "engineering-documents": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_engineering_documents.py"
+      ]
     }
   },
   "rules": [
@@ -1055,6 +1067,38 @@
       "tests": [
         "agent-writing"
       ]
+    },
+    {
+      "paths": [
+        "references/threat_model.md",
+        "references/interface_contract.md",
+        "references/service_objectives.md",
+        "examples/threat_model.md",
+        "examples/interface_contract.md",
+        "examples/service_objectives.md",
+        "contracts/documents.json",
+        "evals/catalog.json",
+        "evals/coverage.json",
+        "evals/cases/engineering_documents.jsonl",
+        "evals/fixtures/engineering_documents.md",
+        "evals/rubrics/engineering_documents.json",
+        "scripts/test_engineering_documents.py"
+      ],
+      "tests": [
+        "engineering-documents"
+      ]
+    },
+    {
+      "paths": [
+        "evals/catalog.json",
+        "evals/coverage.json",
+        "evals/cases/engineering_documents.jsonl",
+        "evals/fixtures/engineering_documents.md"
+      ],
+      "tests": [
+        "host-coverage"
+      ],
+      "reason": "Document kind/case additions must preserve exact native-host case coverage and frozen source bytes."
     }
   ],
   "final_checks": {

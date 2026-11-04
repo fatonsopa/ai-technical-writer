@@ -1128,5 +1128,137 @@
     "output_kind": "requirement",
     "operation": "create",
     "source_case_sha256": "9bed1f8a737351fd1d6afa37cb503135a843fa00500a2ca37c2e8709c82374e5"
+  },
+  {
+    "id": "document-threat_model-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write a complete draft using the supplied facts. Use Threat Model (TM). Do not invent approved targets, endpoints, implementation or executed tests. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; preserve unresolved choices and proposed/approved/executed status. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style (WS). Save the document to output/document.md and identify draft/validation status honestly. Do not execute project commands, publish or claim unrun checks. The complete interactive rewrite workflow is evaluated separately.",
+      "source": "# Fjord import service source facts\n\nFictional fixture. Agreed behavior FJ-01: tenant operator 0042 may enqueue imports only for tenant 0042 using scope imports:write. Server checks identity, scope and tenant before enqueue. FJ-02: POST /v2/imports accepts a required HTTPS source_url and optional label (string or null). Omitted label derives the filename; explicit null means no display label. Tenant IDs are opaque strings and leading zeros matter. Successful enqueue returns 202 with an import_id string and state queued; job completion is asynchronous. Schema errors use 400, missing credentials 401, denied scope/tenant 403, reused idempotency key with changed payload 409, and throttling 429. Idempotency-Key is required, scoped to tenant and retained for 7 days; an unchanged replay returns the existing import_id without another job. The replay status code is not supplied. FJ-03: workers may fetch only public HTTPS URLs; validate DNS and each redirect against private destinations. These controls are agreed design intent, not inspected implementation. A lost response may follow successful enqueue; look up the existing idempotency key before retrying. Exact deadlines, numeric rate limits, database engine and deployment commands are unknown.\n\nProposed objective OBJ-01: 99.5% of valid authorized enqueue requests acknowledged within 1 second, inclusive, over a rolling 28-day window. Include maintenance, timeouts, throttling and server errors in eligible outcomes; exclude independently classified malformed and unauthorized requests. Count each received retry as a request. API-edge measurement is proposed; exact query, telemetry coverage and low-traffic handling remain unknown. The objective is not approved; owner, approver and response policy are unknown. No implementation, security controls or tests were inspected or run. Treat absent evidence as unknown.\n\nFor a Threat Model (TM): protect tenant isolation, source URLs, queue state and operator identity; the client, API, queue and URL-fetching worker cross distinct trust boundaries. Residual SSRF and duplicate-enqueue risk need verification and actual risk authority; none is supplied.\n\nExisting flawed draft for review/rewrite: \"The service is secure and all controls passed. Any user can create jobs. A missing label is the same as null. Tenant 42 is supported. Requests always return 200; timeouts roll back enqueue. The approved target is 99.9% uptime with zero alerts. The Security Team accepted every risk.\" The edit-only excerpt is the quoted draft; repair wording and source conflicts within that excerpt without manufacturing new project decisions.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/threat_model.md",
+      "examples/threat_model.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "threat_model-create",
+    "output_kind": "threat_model",
+    "operation": "create",
+    "source_case_sha256": "f7fe17d0102c32f277b8df59520af9e7c7d7f93ef6ea2b109b3e6a4e333c183b"
+  },
+  {
+    "id": "document-threat_model-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the complete supplied draft. The current user explicitly waives public audit/proposal presentation for this isolated fixture, while preserving source discovery and all factual/approval constraints. Use Threat Model (TM). Do not invent approved targets, endpoints, implementation or executed tests. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; preserve unresolved choices and proposed/approved/executed status. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style (WS). Save the document to output/document.md and identify draft/validation status honestly. Do not execute project commands, publish or claim unrun checks. The complete interactive rewrite workflow is evaluated separately.",
+      "source": "# Fjord import service source facts\n\nFictional fixture. Agreed behavior FJ-01: tenant operator 0042 may enqueue imports only for tenant 0042 using scope imports:write. Server checks identity, scope and tenant before enqueue. FJ-02: POST /v2/imports accepts a required HTTPS source_url and optional label (string or null). Omitted label derives the filename; explicit null means no display label. Tenant IDs are opaque strings and leading zeros matter. Successful enqueue returns 202 with an import_id string and state queued; job completion is asynchronous. Schema errors use 400, missing credentials 401, denied scope/tenant 403, reused idempotency key with changed payload 409, and throttling 429. Idempotency-Key is required, scoped to tenant and retained for 7 days; an unchanged replay returns the existing import_id without another job. The replay status code is not supplied. FJ-03: workers may fetch only public HTTPS URLs; validate DNS and each redirect against private destinations. These controls are agreed design intent, not inspected implementation. A lost response may follow successful enqueue; look up the existing idempotency key before retrying. Exact deadlines, numeric rate limits, database engine and deployment commands are unknown.\n\nProposed objective OBJ-01: 99.5% of valid authorized enqueue requests acknowledged within 1 second, inclusive, over a rolling 28-day window. Include maintenance, timeouts, throttling and server errors in eligible outcomes; exclude independently classified malformed and unauthorized requests. Count each received retry as a request. API-edge measurement is proposed; exact query, telemetry coverage and low-traffic handling remain unknown. The objective is not approved; owner, approver and response policy are unknown. No implementation, security controls or tests were inspected or run. Treat absent evidence as unknown.\n\nFor a Threat Model (TM): protect tenant isolation, source URLs, queue state and operator identity; the client, API, queue and URL-fetching worker cross distinct trust boundaries. Residual SSRF and duplicate-enqueue risk need verification and actual risk authority; none is supplied.\n\nExisting flawed draft for review/rewrite: \"The service is secure and all controls passed. Any user can create jobs. A missing label is the same as null. Tenant 42 is supported. Requests always return 200; timeouts roll back enqueue. The approved target is 99.9% uptime with zero alerts. The Security Team accepted every risk.\" The edit-only excerpt is the quoted draft; repair wording and source conflicts within that excerpt without manufacturing new project decisions.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/threat_model.md",
+      "examples/threat_model.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "threat_model-rewrite",
+    "output_kind": "threat_model",
+    "operation": "rewrite",
+    "source_case_sha256": "0aadb69a6672ff0f90f8b624b7e4aa62d8e0c50265e9cccde74576b4e9cb687c"
+  },
+  {
+    "id": "document-interface_contract-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write a complete draft using the supplied facts. Use Interface Contract (IC). Do not invent approved targets, endpoints, implementation or executed tests. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; preserve unresolved choices and proposed/approved/executed status. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style (WS). Save the document to output/document.md and identify draft/validation status honestly. Do not execute project commands, publish or claim unrun checks. The complete interactive rewrite workflow is evaluated separately.",
+      "source": "# Fjord import service source facts\n\nFictional fixture. Agreed behavior FJ-01: tenant operator 0042 may enqueue imports only for tenant 0042 using scope imports:write. Server checks identity, scope and tenant before enqueue. FJ-02: POST /v2/imports accepts a required HTTPS source_url and optional label (string or null). Omitted label derives the filename; explicit null means no display label. Tenant IDs are opaque strings and leading zeros matter. Successful enqueue returns 202 with an import_id string and state queued; job completion is asynchronous. Schema errors use 400, missing credentials 401, denied scope/tenant 403, reused idempotency key with changed payload 409, and throttling 429. Idempotency-Key is required, scoped to tenant and retained for 7 days; an unchanged replay returns the existing import_id without another job. The replay status code is not supplied. FJ-03: workers may fetch only public HTTPS URLs; validate DNS and each redirect against private destinations. These controls are agreed design intent, not inspected implementation. A lost response may follow successful enqueue; look up the existing idempotency key before retrying. Exact deadlines, numeric rate limits, database engine and deployment commands are unknown.\n\nProposed objective OBJ-01: 99.5% of valid authorized enqueue requests acknowledged within 1 second, inclusive, over a rolling 28-day window. Include maintenance, timeouts, throttling and server errors in eligible outcomes; exclude independently classified malformed and unauthorized requests. Count each received retry as a request. API-edge measurement is proposed; exact query, telemetry coverage and low-traffic handling remain unknown. The objective is not approved; owner, approver and response policy are unknown. No implementation, security controls or tests were inspected or run. Treat absent evidence as unknown.\n\nFor a Threat Model (TM): protect tenant isolation, source URLs, queue state and operator identity; the client, API, queue and URL-fetching worker cross distinct trust boundaries. Residual SSRF and duplicate-enqueue risk need verification and actual risk authority; none is supplied.\n\nExisting flawed draft for review/rewrite: \"The service is secure and all controls passed. Any user can create jobs. A missing label is the same as null. Tenant 42 is supported. Requests always return 200; timeouts roll back enqueue. The approved target is 99.9% uptime with zero alerts. The Security Team accepted every risk.\" The edit-only excerpt is the quoted draft; repair wording and source conflicts within that excerpt without manufacturing new project decisions.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/interface_contract.md",
+      "examples/interface_contract.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "interface_contract-create",
+    "output_kind": "interface_contract",
+    "operation": "create",
+    "source_case_sha256": "a2efd95c1f26bf9dd215766292f2ac9b728447652891c1db342b6089dd96785c"
+  },
+  {
+    "id": "document-interface_contract-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the complete supplied draft. The current user explicitly waives public audit/proposal presentation for this isolated fixture, while preserving source discovery and all factual/approval constraints. Use Interface Contract (IC). Do not invent approved targets, endpoints, implementation or executed tests. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; preserve unresolved choices and proposed/approved/executed status. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style (WS). Save the document to output/document.md and identify draft/validation status honestly. Do not execute project commands, publish or claim unrun checks. The complete interactive rewrite workflow is evaluated separately.",
+      "source": "# Fjord import service source facts\n\nFictional fixture. Agreed behavior FJ-01: tenant operator 0042 may enqueue imports only for tenant 0042 using scope imports:write. Server checks identity, scope and tenant before enqueue. FJ-02: POST /v2/imports accepts a required HTTPS source_url and optional label (string or null). Omitted label derives the filename; explicit null means no display label. Tenant IDs are opaque strings and leading zeros matter. Successful enqueue returns 202 with an import_id string and state queued; job completion is asynchronous. Schema errors use 400, missing credentials 401, denied scope/tenant 403, reused idempotency key with changed payload 409, and throttling 429. Idempotency-Key is required, scoped to tenant and retained for 7 days; an unchanged replay returns the existing import_id without another job. The replay status code is not supplied. FJ-03: workers may fetch only public HTTPS URLs; validate DNS and each redirect against private destinations. These controls are agreed design intent, not inspected implementation. A lost response may follow successful enqueue; look up the existing idempotency key before retrying. Exact deadlines, numeric rate limits, database engine and deployment commands are unknown.\n\nProposed objective OBJ-01: 99.5% of valid authorized enqueue requests acknowledged within 1 second, inclusive, over a rolling 28-day window. Include maintenance, timeouts, throttling and server errors in eligible outcomes; exclude independently classified malformed and unauthorized requests. Count each received retry as a request. API-edge measurement is proposed; exact query, telemetry coverage and low-traffic handling remain unknown. The objective is not approved; owner, approver and response policy are unknown. No implementation, security controls or tests were inspected or run. Treat absent evidence as unknown.\n\nFor a Threat Model (TM): protect tenant isolation, source URLs, queue state and operator identity; the client, API, queue and URL-fetching worker cross distinct trust boundaries. Residual SSRF and duplicate-enqueue risk need verification and actual risk authority; none is supplied.\n\nExisting flawed draft for review/rewrite: \"The service is secure and all controls passed. Any user can create jobs. A missing label is the same as null. Tenant 42 is supported. Requests always return 200; timeouts roll back enqueue. The approved target is 99.9% uptime with zero alerts. The Security Team accepted every risk.\" The edit-only excerpt is the quoted draft; repair wording and source conflicts within that excerpt without manufacturing new project decisions.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/interface_contract.md",
+      "examples/interface_contract.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "interface_contract-rewrite",
+    "output_kind": "interface_contract",
+    "operation": "rewrite",
+    "source_case_sha256": "ecf2c1295256d7e03acf2f7d31a3be80e4e1f3db1dc3c152515c357db8f4bece"
+  },
+  {
+    "id": "document-service_objectives-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write a complete draft using the supplied facts. Use Service Objectives Document (SOD). Do not invent approved targets, endpoints, implementation or executed tests. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; preserve unresolved choices and proposed/approved/executed status. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style (WS). Save the document to output/document.md and identify draft/validation status honestly. Do not execute project commands, publish or claim unrun checks. The complete interactive rewrite workflow is evaluated separately.",
+      "source": "# Fjord import service source facts\n\nFictional fixture. Agreed behavior FJ-01: tenant operator 0042 may enqueue imports only for tenant 0042 using scope imports:write. Server checks identity, scope and tenant before enqueue. FJ-02: POST /v2/imports accepts a required HTTPS source_url and optional label (string or null). Omitted label derives the filename; explicit null means no display label. Tenant IDs are opaque strings and leading zeros matter. Successful enqueue returns 202 with an import_id string and state queued; job completion is asynchronous. Schema errors use 400, missing credentials 401, denied scope/tenant 403, reused idempotency key with changed payload 409, and throttling 429. Idempotency-Key is required, scoped to tenant and retained for 7 days; an unchanged replay returns the existing import_id without another job. The replay status code is not supplied. FJ-03: workers may fetch only public HTTPS URLs; validate DNS and each redirect against private destinations. These controls are agreed design intent, not inspected implementation. A lost response may follow successful enqueue; look up the existing idempotency key before retrying. Exact deadlines, numeric rate limits, database engine and deployment commands are unknown.\n\nProposed objective OBJ-01: 99.5% of valid authorized enqueue requests acknowledged within 1 second, inclusive, over a rolling 28-day window. Include maintenance, timeouts, throttling and server errors in eligible outcomes; exclude independently classified malformed and unauthorized requests. Count each received retry as a request. API-edge measurement is proposed; exact query, telemetry coverage and low-traffic handling remain unknown. The objective is not approved; owner, approver and response policy are unknown. No implementation, security controls or tests were inspected or run. Treat absent evidence as unknown.\n\nFor a Threat Model (TM): protect tenant isolation, source URLs, queue state and operator identity; the client, API, queue and URL-fetching worker cross distinct trust boundaries. Residual SSRF and duplicate-enqueue risk need verification and actual risk authority; none is supplied.\n\nExisting flawed draft for review/rewrite: \"The service is secure and all controls passed. Any user can create jobs. A missing label is the same as null. Tenant 42 is supported. Requests always return 200; timeouts roll back enqueue. The approved target is 99.9% uptime with zero alerts. The Security Team accepted every risk.\" The edit-only excerpt is the quoted draft; repair wording and source conflicts within that excerpt without manufacturing new project decisions.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/service_objectives.md",
+      "examples/service_objectives.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "service_objectives-create",
+    "output_kind": "service_objectives",
+    "operation": "create",
+    "source_case_sha256": "5d019b17487686680df4b60e03b5a29ee621c3d80d5ab7441012039fcff3256a"
+  },
+  {
+    "id": "document-service_objectives-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the complete supplied draft. The current user explicitly waives public audit/proposal presentation for this isolated fixture, while preserving source discovery and all factual/approval constraints. Use Service Objectives Document (SOD). Do not invent approved targets, endpoints, implementation or executed tests. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; preserve unresolved choices and proposed/approved/executed status. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style (WS). Save the document to output/document.md and identify draft/validation status honestly. Do not execute project commands, publish or claim unrun checks. The complete interactive rewrite workflow is evaluated separately.",
+      "source": "# Fjord import service source facts\n\nFictional fixture. Agreed behavior FJ-01: tenant operator 0042 may enqueue imports only for tenant 0042 using scope imports:write. Server checks identity, scope and tenant before enqueue. FJ-02: POST /v2/imports accepts a required HTTPS source_url and optional label (string or null). Omitted label derives the filename; explicit null means no display label. Tenant IDs are opaque strings and leading zeros matter. Successful enqueue returns 202 with an import_id string and state queued; job completion is asynchronous. Schema errors use 400, missing credentials 401, denied scope/tenant 403, reused idempotency key with changed payload 409, and throttling 429. Idempotency-Key is required, scoped to tenant and retained for 7 days; an unchanged replay returns the existing import_id without another job. The replay status code is not supplied. FJ-03: workers may fetch only public HTTPS URLs; validate DNS and each redirect against private destinations. These controls are agreed design intent, not inspected implementation. A lost response may follow successful enqueue; look up the existing idempotency key before retrying. Exact deadlines, numeric rate limits, database engine and deployment commands are unknown.\n\nProposed objective OBJ-01: 99.5% of valid authorized enqueue requests acknowledged within 1 second, inclusive, over a rolling 28-day window. Include maintenance, timeouts, throttling and server errors in eligible outcomes; exclude independently classified malformed and unauthorized requests. Count each received retry as a request. API-edge measurement is proposed; exact query, telemetry coverage and low-traffic handling remain unknown. The objective is not approved; owner, approver and response policy are unknown. No implementation, security controls or tests were inspected or run. Treat absent evidence as unknown.\n\nFor a Threat Model (TM): protect tenant isolation, source URLs, queue state and operator identity; the client, API, queue and URL-fetching worker cross distinct trust boundaries. Residual SSRF and duplicate-enqueue risk need verification and actual risk authority; none is supplied.\n\nExisting flawed draft for review/rewrite: \"The service is secure and all controls passed. Any user can create jobs. A missing label is the same as null. Tenant 42 is supported. Requests always return 200; timeouts roll back enqueue. The approved target is 99.9% uptime with zero alerts. The Security Team accepted every risk.\" The edit-only excerpt is the quoted draft; repair wording and source conflicts within that excerpt without manufacturing new project decisions.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/service_objectives.md",
+      "examples/service_objectives.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "service_objectives-rewrite",
+    "output_kind": "service_objectives",
+    "operation": "rewrite",
+    "source_case_sha256": "f830381b3ab992437269e1ce6a1968a9c39c9a4c13725d344ec86ad452367532"
   }
 ]

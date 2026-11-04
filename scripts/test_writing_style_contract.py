@@ -153,3 +153,21 @@ class WritingStyleTests(unittest.TestCase):
             self.assertIn(style.REFERENCE, case['resources'])
             self.assertEqual(case['kind'], 'behavior')
             self.assertTrue(case['request']['source'])
+
+
+class SvgTextBoundaryTests(unittest.TestCase):
+    def test_html_line_break_preserves_document_name_words(self):
+        text = '<svg xmlns="http://www.w3.org/2000/svg"><foreignObject><div><p>No separate Low Level<br/>Design (LLD) needed</p></div></foreignObject></svg>'
+        rendered = style.svg_text(text)
+        self.assertIn('Low Level Design (LLD)', rendered)
+        self.assertEqual(style.document_name_findings(rendered), [])
+
+    def test_actual_wrapped_workflow_svg_preserves_document_names(self):
+        source = (ROOT / 'examples/diagrams/documentation_workflow.svg').read_text()
+        text = style.svg_text(source)
+        self.assertIn('No separate Low Level Design (LLD) needed', text)
+        self.assertEqual(style.document_name_findings(text), [])
+
+    def test_inline_formatting_preserves_opaque_literal_without_inserted_spaces(self):
+        text = '<svg><foreignObject><p>008<span>7</span></p><p>Next</p></foreignObject></svg>'
+        self.assertEqual(style.svg_text(text), '0087 Next')

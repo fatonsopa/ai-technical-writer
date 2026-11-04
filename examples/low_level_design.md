@@ -194,6 +194,10 @@ M1 introduces classification and dependent readers. M2 adds optional administrat
 
 Keep old read calls supported until the next compatibility release. M6 later removes the obsolete Review filter parameters after caller inspection. An interface rollback leaves additive database support and history intact.
 
+### Data definition and invariants
+
+For this example, the design preserves the UUID identity, opaque category ID, nullable category and verification fields described above. Assignment and clear have different invariants; a null queue filter is not the classifier's null result. Mutation and journal share a transaction. The supplied design does not specify every column type/default, storage constraint or retention rule, so a complete data dictionary and actual database isolation settings require source confirmation. Do not invent them from the interface. Verify allowed state transitions and actor identity through the linked cases.
+
 ## Decisions and verification
 
 The [Decision Record (DR): architecture](decision_record_architecture.md) selects one database classification rule. The [Decision Record (DR): component design](decision_record_component_design.md) selects explicit reconciliation rather than automatic bulk retry.

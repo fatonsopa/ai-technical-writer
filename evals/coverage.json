@@ -434,6 +434,48 @@
       "rewrite": [
         "bug_report-rewrite"
       ]
+    },
+    "threat_model": {
+      "create": [
+        "threat_model-create"
+      ],
+      "edit": [
+        "threat_model-edit"
+      ],
+      "review": [
+        "threat_model-review"
+      ],
+      "rewrite": [
+        "threat_model-rewrite"
+      ]
+    },
+    "interface_contract": {
+      "create": [
+        "interface_contract-create"
+      ],
+      "edit": [
+        "interface_contract-edit"
+      ],
+      "review": [
+        "interface_contract-review"
+      ],
+      "rewrite": [
+        "interface_contract-rewrite"
+      ]
+    },
+    "service_objectives": {
+      "create": [
+        "service_objectives-create"
+      ],
+      "edit": [
+        "service_objectives-edit"
+      ],
+      "review": [
+        "service_objectives-review"
+      ],
+      "rewrite": [
+        "service_objectives-rewrite"
+      ]
     }
   },
   "shared_guidance": {

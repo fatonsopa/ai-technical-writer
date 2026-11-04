@@ -118,13 +118,27 @@ def svg_text(content):
         root = ET.fromstring(content)
     except ET.ParseError as error:
         raise ValueError('Diagram text is unavailable for writing-style review: ' + str(error)) from error
+    def visible(node):
+        parts = [node.text or '']
+        for child in node:
+            tag = child.tag.rsplit('}', 1)[-1]
+            if tag == 'br':
+                parts.append(' ')
+            else:
+                if tag in {'p', 'div'} or tag == 'tspan' and 'row' in child.get('class', '').split():
+                    parts.append(' ')
+                parts.append(visible(child))
+                if tag in {'p', 'div'} or tag == 'tspan' and 'row' in child.get('class', '').split():
+                    parts.append(' ')
+            parts.append(child.tail or '')
+        return ''.join(parts)
     values = []
     def visit(node):
         tag = node.tag.rsplit('}', 1)[-1]
         if tag in {'style', 'script', 'defs'}:
             return
         if tag in {'text', 'title', 'desc', 'foreignObject'}:
-            value = ' '.join(''.join(node.itertext()).split())
+            value = ' '.join(visible(node).split())
             if value:
                 values.append(value)
             return

@@ -12,6 +12,12 @@ A plan explains how to deliver agreed behavior within the actual system. Create 
 - Address rollout, compatibility, data changes, monitoring, and recovery according to impact. Preserve historical data when rollback cannot safely remove it.
 - Resolve conflicts with requirements explicitly before proceeding. Implementation detail cannot silently change the intended outcome.
 
+## Conditional migration and operational work
+
+For a data migration/backfill, identify source/target versions, compatibility during mixed deployment, ordering, chunking/checkpoints, repeat/concurrency behavior, validation/reconciliation, load limits and failure recovery. Distinguish reversible schema work from irreversible data changes; rollback must not erase valid later writes. Define stop/hold conditions and preserve unfinished/uncertain work. Use actual scripts and thresholds only when supplied or inspected; unresolved limits remain open.
+
+For an operational rollout, map requirements to readiness evidence: capacity, configuration/secrets, access, dependency failure, observability, support ownership, deployment/rollback or roll-forward, and restoration checks. Link relevant [Service Objectives Document (SOD)](service_objectives.md), [Threat Model (TM)](threat_model.md), [Interface Contract (IC)](interface_contract.md) and operational How-to Guide (HTG). A planned readiness check is not executed evidence or release approval. Google SRE's [production readiness discussion](https://sre.google/sre-book/evolving-sre-engagement-model/) provides context; select criteria for the actual service.
+
 ## Structure
 
 Include goal/specification, important terms, verified context, approach, ordered steps/dependencies, test coverage, rollout/recovery, and risks/open decisions. A plan is not a policy or a full requirements document. Preserve script-consumed tables and project contracts when editing.

@@ -12,6 +12,10 @@ A Low Level Design (LLD) explains how a component will work internally. Create o
 - Record important alternatives in a [Decision Record (DR)](decision_record.md). The [Implementation Plan (IP)](implementation_plan.md) owns work order and delivery; this document owns internal design.
 - Link verification implications to the requirements. Resolve contradictions before calling a design ready.
 
+## Conditional data and boundary detail
+
+When data design is material, include a dictionary of fields/types/units, keys, null/default meanings, sensitivity, ownership, retention and relevant relationships. State invariants and where each is enforced; separate database constraints from application checks and cross-record rules. Explain transaction/isolation assumptions, races and compatibility under old/new readers and writers using the actual database/version. Link migrations to the Implementation Plan (IP) and verification to requirement IDs. Missing schema or policy is an open input, not authority to invent it. Use a separate [Interface Contract (IC)](interface_contract.md) for a shared consumer boundary, and link relevant [Threat Model (TM)](threat_model.md) decisions. PostgreSQL's [constraint guidance](https://www.postgresql.org/docs/current/ddl-constraints.html) is an example for that technology, not a universal storage requirement.
+
 ## Structure
 
 Include scope/status/sources, terms and requirements, internal responsibilities, interface/data/state behavior, important algorithms and failure paths, decisions, checks, and unresolved questions. Omit irrelevant implementation detail instead of inventing it.
