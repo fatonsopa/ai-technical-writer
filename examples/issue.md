@@ -1,7 +1,5 @@
 # Add Websites Review tabs and category editing
 
-Type: Feature
-
 ## Description
 
 Administrators need to separate websites still awaiting automation from parked websites that require a human decision. The current All view can omit uncited websites and does not provide a consistent manual-review flow.

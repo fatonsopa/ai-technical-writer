@@ -16,6 +16,7 @@ When editing an existing excerpt, use the current request's task type and destin
 - Define observable acceptance criteria. Identify which specification requirements or issue acceptance criteria the work satisfies.
 - Preserve existing scope, conditions, evidence, and uncertainty when editing. A title change does not authorize changing the work.
 - Leave status, assignment, priority, and release approvals to the project's task-management process.
+- Keep issue type in tracker metadata. In Linear, use the existing `Type` label group. Do not repeat a `Type: …` field in the title or description; preserve unrelated labels and native status fields.
 
 ## Issue types and titles
 
@@ -32,7 +33,7 @@ A title should distinguish this issue in a list. Retain a useful technical term 
 
 ## Document structure
 
-Include a title, issue type, description, expected outcome, and verifiable acceptance criteria. For change work, identify the governing spec requirement or give the intended behavior and acceptance criteria inline. Add scope, evidence, dependencies, and relevant files when they help.
+Include a title, description, expected outcome, and verifiable acceptance criteria. Record the issue type as tracker metadata, outside the issue text. For change work, identify the governing spec requirement or give the intended behavior and acceptance criteria inline. Add scope, evidence, dependencies, and relevant files when they help.
 
 Relevant files must be verified or clearly attributed to a supplied source; distinguish a reported path from a file you inspected. Keep the current decision or status understandable without reproducing the whole conversation.
 
@@ -44,8 +45,6 @@ Tests and verification can be sections or comments in the task: use [Test Specif
 
 ```md
 # [Specific problem, change, or decision]
-
-Type: [Bug / Chore / Decision / Feature / Improvement / Release]
 
 ## Description
 [Current problem or opportunity, who is affected, and why the work matters.]

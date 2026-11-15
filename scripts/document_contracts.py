@@ -170,8 +170,11 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
         for index, node in enumerate(nodes):
             if node["parent"] is not None and node["level"] > nodes[node["parent"]]["level"] + 1:
                 errors.append(f"Heading level skips its parent at line {node['line']}.")
-        if contract.get("task_type") and not re.search(r"(?mi)^Type:\s*" + re.escape(contract["task_type"]) + r"\s*$", text):
-            errors.append(f"Missing task type: {contract['task_type']}")
+        if contract.get("task_type"):
+            first_section = next((node["line"] - 1 for node in nodes if node["level"] == 2), len(text.splitlines()))
+            preamble = "\n".join(text.splitlines()[:first_section])
+            if re.search(r"(?mi)^Type:\s*(?:Bug|Chore|Decision|Feature|Improvement|Release)\s*$", preamble):
+                errors.append("Keep issue type in tracker metadata, outside the issue text.")
         if kind == "decision":
             options = [(node, re.match(r"Option\s+([A-Za-z0-9]+)\s*:", node["title"], re.I)) for node in nodes]
             options = [(node, match) for node, match in options if match]

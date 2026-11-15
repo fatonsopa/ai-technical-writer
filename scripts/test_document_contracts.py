@@ -20,8 +20,6 @@ def sample(kind):
     if mode == "visual":
         return "### Request flow\n\nThe supplied example shows a request.\n\n```mermaid\nflowchart LR\naccTitle: Request flow\naccDescr: A caller sends a request to a service.\nA --> B\n```\n\nThe service receives the request.\n\n- A: The caller sends the request.\n- B: The service receives it.\n"
     rows = ["# Example document", ""]
-    if contract.get("task_type"):
-        rows += ["Type: " + contract["task_type"], ""]
     for rule in contract.get("sections", []):
         if "alternatives" in rule:
             rules = rule["alternatives"][0]
@@ -38,6 +36,20 @@ def sample(kind):
 
 
 class DocumentContractTests(unittest.TestCase):
+    def test_issue_type_is_metadata_without_a_duplicate_text_field(self):
+        for name in ("Bug", "Chore", "Decision", "Feature", "Improvement", "Release"):
+            kind = "issue_" + name.lower()
+            with self.subTest(kind=kind):
+                self.assertEqual(document_contract(load_contracts(), kind)["task_type"], name)
+                text = sample(kind)
+                self.assertTrue(validate(text, kind)["passed"])
+                duplicated = text.replace("# Example document\n", "# Example document\n\nType: " + name + "\n", 1)
+                self.assertIn("Keep issue type in tracker metadata, outside the issue text.", validate(duplicated, kind)["findings"])
+
+    def test_quoted_type_literals_are_preserved_as_issue_evidence(self):
+        text = sample("issue_bug") + "\n```text\nType: Bug\n```\n"
+        self.assertTrue(validate(text, "issue_bug")["passed"])
+
     def test_catalog_and_contracts_cover_the_same_outputs(self):
         catalog = json.loads((ROOT / "evals/catalog.json").read_text())
         self.assertEqual(set(load_contracts()["documents"]), {item["id"] for item in catalog["output_kinds"]})

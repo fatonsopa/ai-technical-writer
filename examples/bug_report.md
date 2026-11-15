@@ -1,6 +1,5 @@
 # Review omits parked websites without citation aggregates
 
-Type: Bug
 Status: Open at the pre-change baseline
 
 ## Description
