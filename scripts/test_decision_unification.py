@@ -74,6 +74,32 @@ class DecisionUnificationTests(unittest.TestCase):
         fenced = text + '\n```md\n### Option A: Literal example\n## Recommended option (Z)\n```\n'
         self.assertTrue(validate(fenced, 'decision')['passed'])
 
+    def test_comment_requires_decision_title_context_and_alphabetical_options(self):
+        text = (ROOT / 'examples/decision_record.md').read_text().split('## Decision:', 1)[1]
+        text = '## Decision:' + text
+        self.assertTrue(validate(text, 'decision')['passed'])
+        for changed in (
+            text.replace('## Decision:', '## Subject:', 1),
+            text.replace('Domain-ending filter placement', '', 1),
+            text.replace('## Context', 'Context', 1),
+            text.replace('Option A:', 'Option manual:', 1),
+            text.replace('Option B:', 'Option C:', 1),
+            text.replace('Option A:', 'Option a:', 1),
+        ):
+            with self.subTest(output=changed[:100]):
+                self.assertFalse(validate(changed, 'decision')['passed'])
+
+    def test_skill_owned_proposal_template_produces_a_checked_comment(self):
+        template = load_contracts()['documents']['decision']['proposal_rendering']
+        options = '\n\n'.join(template['option'].format(id=identifier, label=label, description=description) for identifier, label, description in (
+            ('A', 'Review manually', 'Inspect the retained evidence before further work.'),
+            ('B', 'Request a separate review', 'Keep the hold while another reviewer checks the evidence.'),
+        ))
+        text = template['body'].format(title='Held report review method', context='The supplied task is on hold and needs a review method.', options=options, recommendation='A', rationale='Manual inspection fits the supplied small fixture.', outcome=template['pending_outcome'], recipient_url='')
+        result = validate(text, 'decision')
+        self.assertTrue(result['passed'], result['findings'])
+        self.assertTrue(text.startswith('## Decision:\n\nHeld report review method\n\n## Context\n'))
+
     def test_removed_guides_and_names_are_absent_from_active_routing(self):
         for name in ('architecture_decision_record.md', 'design_decision_record.md'):
             self.assertFalse((ROOT / 'references' / name).exists())

@@ -1,5 +1,11 @@
 # A bulk category change can stop after some batches have already committed
 
+## Decision:
+
+Bulk category failure handling
+
+## Context
+
 Status: Accepted, 2026-10-27
 Decision authority: Engineering lead and product owner
 Component: Bulk category dialog and request coordinator

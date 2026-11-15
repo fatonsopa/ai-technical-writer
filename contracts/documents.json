@@ -455,6 +455,22 @@
       "format": "document",
       "sections": [
         {
+          "id": "Decision",
+          "level": 2,
+          "labels": [
+            "Decision:"
+          ],
+          "required": true
+        },
+        {
+          "id": "Context",
+          "level": 2,
+          "labels": [
+            "Context"
+          ],
+          "required": true
+        },
+        {
           "id": "Options considered",
           "level": 2,
           "labels": [
@@ -465,7 +481,7 @@
             {
               "id": "At least two named options",
               "level": 3,
-              "pattern": "Option [A-Za-z0-9]+: .+",
+              "pattern": "Option [A-Z]: .+",
               "minimum": 2
             }
           ]
@@ -473,7 +489,7 @@
         {
           "id": "Recommended option",
           "level": 2,
-          "pattern": "Recommended option \\([A-Za-z0-9]+\\)",
+          "pattern": "Recommended option \\([A-Z]\\)",
           "required": true
         },
         {
@@ -487,7 +503,14 @@
         }
       ],
       "ordered": true,
-      "reference": "references/decision_record.md"
+      "reference": "references/decision_record.md",
+      "proposal_rendering": {
+        "version": "technical-writer-decision-v2",
+        "body": "## Decision:\n\n{title}\n\n## Context\n\n{context}\n\n## Options considered\n\n{options}\n\n## Recommended option ({recommendation})\n\n{rationale}\n\n## Outcome\n\n{outcome}\n\n{recipient_url}",
+        "option": "### Option {id}: {label}\n\n{description}",
+        "option_labels": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "pending_outcome": "Pending an observed human choice."
+      }
     },
     "plan": {
       "reference": "references/implementation_plan.md",

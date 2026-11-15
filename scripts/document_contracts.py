@@ -157,7 +157,11 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
             levels = contract.get("title_levels", [3]) if format_name == "visual" else [1]
             expected_level = levels[0]
             titles = [node for node in nodes if node["level"] in levels]
-            if not titles or (format_name == "document" and len(titles) != 1):
+            decision_comment = (
+                kind == "decision" and not titles
+                and text.lstrip().startswith("## Decision:\n")
+            )
+            if not decision_comment and (not titles or (format_name == "document" and len(titles) != 1)):
                 errors.append(f"Expected {'one' if format_name == 'document' else 'a'} level-{expected_level} title.")
             if format_name == "visual":
                 if not re.search(r"(?:`{3,}|~{3,})(?:mermaid|dot|plantuml)\b|!\[[^\]]+\]\(", text):
@@ -172,6 +176,14 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
             options = [(node, re.match(r"Option\s+([A-Za-z0-9]+)\s*:", node["title"], re.I)) for node in nodes]
             options = [(node, match) for node, match in options if match]
             labels = [match[1] for node, match in options]
+            expected_labels = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"[:len(labels)])
+            if labels != expected_labels:
+                errors.append("Decision options must use consecutive uppercase labels A, B, C and so on.")
+            decision = next((node for node in nodes if node["level"] == 2 and node["title"] == "Decision:"), None)
+            if decision and substantive(decision["body"]):
+                if "\n" in decision["body"] or re.search(r"^\s*[#>`*-]", decision["body"]):
+                    errors.append("Decision title must be one plain-English paragraph.")
+                errors.extend(title_contract.title_errors(decision["body"]))
             for node, match in options:
                 parent = nodes[node["parent"]] if node["parent"] is not None else None
                 if node["level"] != 3 or not parent or parent["level"] != 2 or normalized(parent["title"]) != "options considered":

@@ -1,5 +1,11 @@
 # Different website readers can disagree about which sites need review
 
+## Decision:
+
+Shared website classification
+
+## Context
+
 Status: Accepted, 2026-10-27
 Decision authority: Engineering lead and product owner
 Scope: Websites administration reads and shared confirmation state

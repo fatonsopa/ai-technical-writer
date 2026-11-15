@@ -1,5 +1,11 @@
 # The Websites toolbar has no room for another always-visible filter
 
+## Decision:
+
+Domain-ending filter placement
+
+## Context
+
 The All tab already includes domain search, category filtering, and a school filter. Making the new domain-ending field permanently visible would crowd the toolbar at the supported desktop width. WEB-03 requires the filter on every tab; it does not require permanent visibility.
 
 ## Options considered
