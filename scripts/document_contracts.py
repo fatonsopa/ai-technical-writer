@@ -172,7 +172,17 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
                 errors.append(f"Heading level skips its parent at line {node['line']}.")
         if contract.get("task_type"):
             first_section = next((node["line"] - 1 for node in nodes if node["level"] == 2), len(text.splitlines()))
-            preamble = "\n".join(text.splitlines()[:first_section])
+            prose, fence = [], None
+            for line in text.splitlines()[:first_section]:
+                marker = re.match(r"^\s{0,3}(`{3,}|~{3,})(.*)$", line)
+                if fence:
+                    if marker and marker[1][0] == fence[0] and len(marker[1]) >= fence[1] and not marker[2].strip():
+                        fence = None
+                elif marker:
+                    fence = marker[1][0], len(marker[1])
+                else:
+                    prose.append(line)
+            preamble = "\n".join(prose)
             if re.search(r"(?mi)^Type:\s*(?:Bug|Chore|Decision|Feature|Improvement|Release)\s*$", preamble):
                 errors.append("Keep issue type in tracker metadata, outside the issue text.")
         if kind == "decision":

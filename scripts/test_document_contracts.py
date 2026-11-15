@@ -47,8 +47,11 @@ class DocumentContractTests(unittest.TestCase):
                 self.assertIn("Keep issue type in tracker metadata, outside the issue text.", validate(duplicated, kind)["findings"])
 
     def test_quoted_type_literals_are_preserved_as_issue_evidence(self):
-        text = sample("issue_bug") + "\n```text\nType: Bug\n```\n"
-        self.assertTrue(validate(text, "issue_bug")["passed"])
+        original = sample("issue_bug")
+        quoted = "```text\nType: Bug\n```\n"
+        for text in (original + "\n" + quoted, original.replace("## Description", quoted + "\n## Description", 1)):
+            with self.subTest(text=text):
+                self.assertTrue(validate(text, "issue_bug")["passed"])
 
     def test_catalog_and_contracts_cover_the_same_outputs(self):
         catalog = json.loads((ROOT / "evals/catalog.json").read_text())
