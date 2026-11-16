@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 
 import yaml
+import tomllib
 
 from planning_readiness import check_discovery
 from visual_contracts import visual_errors
@@ -116,11 +117,18 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
     context = context or {}
     data = contracts or load_contracts()
     if kind not in data["documents"]:
-        raise ValueError(f"Unsupported document type: {kind}")
+        raise ValueError(f"Unsupported document type: {kind}. Supported kinds: {", ".join(sorted(data["documents"]))}")
     if operation not in {"create", "rewrite", "edit", "review"} or scope not in {"complete", "excerpt", "title"}:
         raise ValueError("Unknown operation or output scope.")
     contract = document_contract(data, kind)
     errors, nodes = [], headings(text)
+    formats = contract.get('instruction_formats', {}) if kind == 'agent' else {}
+    selected = context.get('instruction_format', 'subagent')
+    if kind == 'agent' and selected not in formats:
+        raise ValueError('Unsupported instruction_format. Supported formats: ' + ', '.join(formats))
+    if kind == 'agent' and 'instruction_version' in context and context['instruction_version'] != formats[selected].get('version'):
+        raise ValueError('Unsupported instruction version for ' + selected)
+
     if not text.strip():
         errors.append("Output is empty.")
     complete = scope == "complete" and operation != "review"
@@ -128,7 +136,30 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
         format_name = contract.get("format", "document")
         if kind == 'agent' and context.get('instruction_format') == 'project':
             format_name = 'document'
-        if format_name == "frontmatter":
+        if kind == 'agent' and selected == 'codex-toml':
+            format_name = 'toml'
+        if format_name == 'toml':
+            try:
+                header = tomllib.loads(text)
+                route = formats[selected]
+                allowed = {*route['required_strings'], *route['optional_strings'], *route['optional_tables']}
+                if set(header) - allowed:
+                    errors.append('Unsupported TOML agent fields: ' + ', '.join(sorted(set(header) - allowed)))
+                for field in route['required_strings']:
+                    if not isinstance(header.get(field), str) or not header[field].strip():
+                        errors.append('Missing/non-string TOML agent field: ' + field)
+                for field in route['optional_strings']:
+                    if field in header and (not isinstance(header[field], str) or not header[field].strip()):
+                        errors.append('Invalid TOML agent field: ' + field)
+                if 'features' in header and (not isinstance(header['features'], dict) or any(type(v) is not bool for v in header['features'].values())):
+                    errors.append('Agent features must be a table of boolean flags.')
+                if 'skills' in header and not isinstance(header['skills'], dict):
+                    errors.append('Agent skills must be a table.')
+                if not re.fullmatch(r'[a-z0-9]+(?:[-_][a-z0-9]+)*', str(header.get('name', ''))):
+                    errors.append('Invalid TOML agent name.')
+            except tomllib.TOMLDecodeError as error:
+                errors.append('Invalid TOML agent syntax: ' + str(error))
+        elif format_name == "frontmatter":
             parts = text.split("---\n", 2)
             try:
                 if len(parts) != 3 or parts[0]:

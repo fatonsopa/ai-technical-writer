@@ -1099,6 +1099,27 @@
         "host-coverage"
       ],
       "reason": "Document kind/case additions must preserve exact native-host case coverage and frozen source bytes."
+    },
+    {
+      "paths": [
+        "workflows/validation_review.md",
+        "workflows/rewrite_preflight.md",
+        "contracts/delivery_message.json"
+      ],
+      "tests": [
+        "delivery",
+        "rewrite-workflow"
+      ],
+      "reason": "Bound authored review/preflight instructions and exact delivery wording affect session and handoff acceptance."
+    },
+    {
+      "paths": [
+        "scripts/check_document.py"
+      ],
+      "tests": [
+        "contracts"
+      ],
+      "reason": "Supported kinds come from the validation catalogue."
     }
   ],
   "final_checks": {

@@ -1119,7 +1119,34 @@
     },
     "agent": {
       "reference": "references/agents_and_skills.md",
-      "profile": "instructions"
+      "profile": "instructions",
+      "instruction_formats": {
+        "project": {
+          "syntax": "markdown"
+        },
+        "subagent": {
+          "syntax": "yaml-frontmatter"
+        },
+        "codex-toml": {
+          "syntax": "toml",
+          "version": "standalone-v1",
+          "required_strings": [
+            "name",
+            "description",
+            "developer_instructions"
+          ],
+          "optional_strings": [
+            "model",
+            "model_reasoning_effort",
+            "model_reasoning_summary",
+            "model_verbosity"
+          ],
+          "optional_tables": [
+            "features",
+            "skills"
+          ]
+        }
+      }
     },
     "skill": {
       "reference": "references/agents_and_skills.md",

@@ -21,7 +21,13 @@ class HostCoverageTests(unittest.TestCase):
         plan = host_coverage.freeze(ROOT, config)
         result = host_coverage.assess(plan, ROOT, [])
         self.assertEqual(plan['required_hosts'], ['codex', 'claude-code'])
-        self.assertEqual(len(plan['cases']), 76)
+        declared = set()
+        for source in config['case_files']:
+            path = ROOT / source['path']
+            cases = [json.loads(line) for line in path.read_text().splitlines() if line.strip()] if path.suffix == '.jsonl' else json.loads(path.read_text())
+            selected = [c for c in cases if c['id'] in source['ids']] if 'ids' in source else [c for c in cases if c.get('kind') == 'behavior']
+            declared.update(c['id'] for c in selected)
+        self.assertEqual({c['id'] for c in plan['cases']}, declared)
         required = {c['id'] for name in ['document_output_cases.json', 'diagram_cases.json', 'title_cases.json'] for c in json.loads((ROOT / 'evals' / name).read_text())}
         self.assertTrue(required <= {c['id'] for c in plan['cases'] if c.get('verify_delivery')})
         self.assertFalse(result['accepted'])

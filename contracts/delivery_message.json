@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "message": "Saved the reviewed document: [Open document](<{destination}>).\n\n{status}Document checks passed. Content review: {reviewer}.\n",
+  "status": "Document status: {status}.\n",
+  "reviewers": {
+    "current_host_self_review": "author self-review",
+    "current_host_review": "current-host review",
+    "independent_model": "independent model review",
+    "human": "human review"
+  }
+}

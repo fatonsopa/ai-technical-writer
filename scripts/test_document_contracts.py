@@ -36,6 +36,18 @@ def sample(kind):
 
 
 class DocumentContractTests(unittest.TestCase):
+    def test_explicit_agent_formats_reject_mismatch_and_unknown_fields(self):
+        text = 'name = "reference_reviewer"\ndescription = "Review references"\ndeveloper_instructions = "Inspect supplied sources."\n'
+        context = {'instruction_format': 'codex-toml', 'instruction_version': 'standalone-v1'}
+        self.assertTrue(validate(text, 'agent', context=context)['passed'])
+        self.assertFalse(validate(text, 'agent')['passed'])
+        self.assertFalse(validate(text + 'sandbox_mode = "danger-full-access"\n', 'agent', context=context)['passed'])
+        self.assertFalse(validate('name = [', 'agent', context=context)['passed'])
+        with self.assertRaisesRegex(ValueError, 'version'):
+            validate(text, 'agent', context={**context, 'instruction_version': 'unknown'})
+        self.assertTrue(validate('# Project rules\n\nPreserve source evidence.', 'agent', context={'instruction_format':'project'})['passed'])
+        self.assertFalse(validate('# Project rules', 'agent', context={'instruction_format':'subagent'})['passed'])
+
     def test_issue_type_is_metadata_without_a_duplicate_text_field(self):
         for name in ("Bug", "Chore", "Decision", "Feature", "Improvement", "Release"):
             kind = "issue_" + name.lower()

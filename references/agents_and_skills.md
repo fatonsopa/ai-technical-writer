@@ -124,3 +124,9 @@ Reviewed on 2026-11-03. Recheck host-specific details before reuse. The current 
 - [Claude Code skills](https://code.claude.com/docs/en/skills)
 - [Claude Code subagents](https://code.claude.com/docs/en/sub-agents)
 - [Claude Code output styles](https://code.claude.com/docs/en/output-styles)
+
+## Explicit validation formats
+
+Use `kind: agent` with `context.instruction_format: project` for project Markdown, `subagent` for Markdown with YAML frontmatter, or `codex-toml` for a standalone Codex agent. The TOML route supports `instruction_version: standalone-v1`: nonempty `name`, `description` and `developer_instructions`, optional string model settings, and `features` and `skills` tables. Unknown fields or versions are unsupported; review-only checks do not establish complete creation validation. Existing `project` and `subagent` routes retain their meaning.
+
+The standalone TOML decision follows [Codex custom agents](https://developers.openai.com/codex/subagents), checked on 16 November 2026. [Claude Code subagents](https://code.claude.com/docs/en/sub-agents), checked on the same date, use YAML frontmatter followed by Markdown. These routes validate the declared supported subset; a parser pass does not establish host activation or effective permissions.

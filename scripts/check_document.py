@@ -4,13 +4,13 @@ import argparse
 import json
 from pathlib import Path
 
-from document_contracts import validate
+from document_contracts import validate, load_contracts
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('document', type=Path)
-    parser.add_argument('--kind', required=True)
+    parser.add_argument('--kind', required=True, choices=sorted(load_contracts()['documents']))
     parser.add_argument('--operation', choices=['create', 'rewrite', 'edit', 'review'], default='create')
     parser.add_argument('--scope', choices=['complete', 'excerpt', 'title'], default='complete')
     parser.add_argument('--context', type=Path, help='Optional declared document context JSON.')

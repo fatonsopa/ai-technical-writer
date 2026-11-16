@@ -76,3 +76,15 @@ This communication style does not authorize implementation or external actions.
 ## Validation
 
 Use the [Claude subagent](https://code.claude.com/docs/en/sub-agents), [output-style](https://code.claude.com/docs/en/output-styles), and [Agent Skills](https://agentskills.io/specification) schemas for the target host, including supported tool names and fields. Recheck them before installation. Exercise a matching request, a nonmatching request, missing results, and a response-loss case. Static frontmatter inspection does not establish host activation or permission enforcement. Also exercise lead-only work, eligible independent batch review, missing or conflicting results, denied nesting and the authorized-parent alternative. Record requested and observed configuration separately; these authored examples are not evidence that those host workflows ran.
+
+## Standalone Codex agent
+
+This example uses `kind: agent` and `context.instruction_format: codex-toml` with `instruction_version: standalone-v1`:
+
+```toml
+name = "reference_reviewer"
+description = "Reviews supplied references for stale content locations."
+developer_instructions = "Inspect the supplied sources and report located findings. Do not change source files."
+```
+
+Use project Markdown or YAML-frontmatter routes for those actual formats. A review operation checks its stated scope and cannot establish complete creation validation.

@@ -10,6 +10,8 @@ Map each reference to the document it teaches. Decide which file owns shared wri
 
 ## Work on one reference at a time
 
+Retain valid review of unchanged content and sources with its original scope and date. Review changed meaning and affected consumers. After moving content, check what each surviving link claims is at its destination, derived roster counts, implementation and approval statuses, and the order of required decisions. A valid link or matching heading does not establish semantic consistency. Keep unchanged requirements, qualifiers and literals intact.
+
 1. Research the document type using primary sources. Identify its reader, purpose, common practices, and genuinely binding constraints. Record source links and the date checked.
 2. Audit the complete reference, its template, and its completed example. Compare them with the specification and research. Identify missing content, contradictions, duplicate responsibilities, factual gaps, and unclear language. Record required section names, distinct fields, and established domain terms before rewriting. Inspect callers before changing paths, markers, or sections.
 3. Research the specific questions exposed by the audit. Distinguish an external requirement from an organizational convention and an editorial choice. Do not keep searching merely to repeat what is already established.
@@ -24,8 +26,8 @@ Repeat steps 3–6 while a concrete failure remains. After three unsuccessful at
 During edits, preview and run only impacted checks:
 
 ```sh
-python3 scripts/run_tests.py
-python3 scripts/run_tests.py --execute
+.venv/bin/python scripts/run_tests.py
+.venv/bin/python scripts/run_tests.py --execute
 ```
 
 The script owns selection through config/test_impact.json and the previous successful checkpoint or Git HEAD. It reports changed files and a reason for every check. Add an accurate impact rule for an unmapped path; never fall back to full discovery. For an installed folder without Git, pass the exact changed paths with --changed.

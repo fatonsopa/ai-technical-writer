@@ -4,6 +4,8 @@ Use this workflow before creating or substantially changing a document. Scale it
 
 ## Investigate before asking
 
+Before claiming inspection, identify the required source sections and confirm their complete content is available in this context. A successful file read can still be truncated in transport. Recover an omitted middle or tail using bounded section reads from the same revision, checking its path and byte hash before and after recovery. Restart inspection or disclose incomplete evidence when the source changes; never combine revisions into one claimed complete read. Reuse a small complete input without rereading it. Load conditional sources only when relevant.
+
 Read the request, relevant conversation, supplied material, and maintained project documents. For an existing system, inspect the available code, database schema or migrations, configuration, tests, and workflows needed to understand the subject. Use authorized read-only tools when available. Writing does not authorize migrations, application changes, or production access.
 
 Treat an answer already established by reliable sources as known. Do not ask the user to name the framework, describe a schema you can inspect, repeat an agreed workflow, or select an existing decision again. Cite the evidence and continue. If sources are unavailable or contradictory, explain the specific gap and ask only for what affects the result.

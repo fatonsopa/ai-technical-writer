@@ -23,6 +23,12 @@
       "Load the actual guide before document-specific public text; every observed authored reference uses the approved full document name and acronym.",
       "Run the actual names/check commands: the original fails explicit conventions, the corrected text passes, and output/message.md preserves the quoted input alias and literal README.md.",
       "Keep the narrow scope and actual source facts; a checker pass establishes conventions only, not all semantic quality. No invented checks, approval, file changes or external execution."
+    ],
+    "writer-consistency-recovery-v2": [
+      "Load the writing guidance and inspect complete required source sections; recover the material tail clause from the same source revision and disclose source-use limits.",
+      "Return located findings for the false content-location claim despite a valid link, stale role count, unsupported implementation/approval status and premature release order.",
+      "Correct only affected meaning/references, preserve #check before #ship, 0042, the actual scoped waiver and unmodified literal section. Keep original input files unchanged.",
+      "Use source-bound document checks and an honestly attributed semantic/style review and handoff. Do not infer actual user approval from a source quote or call unrun implementation complete."
     ]
   }
 }

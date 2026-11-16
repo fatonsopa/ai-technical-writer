@@ -50,7 +50,7 @@ def packet(state):
         phases = phases[:4]
     phase = next((phase for phase in phases if phase not in done), 'draft') if required(request) else 'draft'
     result = {'objective_sha256': state['objective_sha256'], 'phase': phase, 'completed': list(done), 'sources': request['sources'], 'requirements': request['requirements'], 'guidance': state['frozen']['guidance'], 'prior_evidence': done, 'authorization': grant,
-              'instructions': 'Record actual research, located audit findings and proposed structure/additions before drafting. Present the audit/proposal in the host; reference that actual public message. Decisions must come from actual user instructions, including existing approval. Do not invent approval, browsing or visibility. Records alone do not prove their claims; retain and review the public host trace.'}
+              'instructions': state['frozen']['guidance'].get('workflows/rewrite_preflight.md', '')}
     result['writing_style'] = writing_style.guide_packet(state['frozen']['guidance'][writing_style.REFERENCE], include_text=False)
     result['packet_sha256'] = digest(result)
     return result

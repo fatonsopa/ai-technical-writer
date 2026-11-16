@@ -117,4 +117,4 @@ class DecisionUnificationTests(unittest.TestCase):
             (root / 'request.json').write_text(json.dumps(request))
             prepare(root / 'request.json', root / 'session')
             state = state_for(root / 'session')
-            self.assertEqual(set(state['frozen']['guidance']), {'references/decision_record.md', 'references/writing_style.md'})
+            self.assertEqual(set(state['frozen']['guidance']), {'references/decision_record.md', 'references/writing_style.md', 'workflows/validation_review.md'})
