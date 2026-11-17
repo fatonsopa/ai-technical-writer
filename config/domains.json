@@ -38,7 +38,9 @@
       "purpose": "Freeze source inputs, review judgments and deliver accepted bytes.",
       "owned_paths": [
         "scripts/validate_document.py",
-        "scripts/rewrite_workflow.py"
+        "scripts/rewrite_workflow.py",
+        "scripts/record_retention.py",
+        "scripts/test_record_retention.py"
       ],
       "depends_on": [
         "document-validation",

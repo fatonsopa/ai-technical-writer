@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Validate a document and bind accepted delivery to its actual inputs and review."""
+import record_retention
+
 import argparse
 from contextlib import contextmanager
 import json
@@ -39,7 +41,7 @@ def load(path):
 
 
 def tool_identity():
-    return {name: digest((ROOT / name).read_bytes()) for name in ("SKILL.md", "scripts/continuation.py", "scripts/document_contracts.py", "scripts/title_contract.py", "scripts/validate_document.py", "scripts/rewrite_workflow.py", "scripts/writing_style_contract.py", "scripts/planning_readiness.py", "scripts/visual_contracts.py", "scripts/check_mermaid.mjs", "scripts/diagram_components.py", "scripts/diagram_inventory.mjs", "scripts/mermaid_runtime.mjs", "scripts/audit_diagram.mjs", "scripts/render_diagram.py", "scripts/diagram_presentation.py", "config/diagram_style.json", "contracts/documents.json", "contracts/delivery_message.json")}
+    return {name: digest((ROOT / name).read_bytes()) for name in ("SKILL.md", "scripts/record_retention.py", "scripts/continuation.py", "scripts/document_contracts.py", "scripts/title_contract.py", "scripts/validate_document.py", "scripts/rewrite_workflow.py", "scripts/writing_style_contract.py", "scripts/planning_readiness.py", "scripts/visual_contracts.py", "scripts/check_mermaid.mjs", "scripts/diagram_components.py", "scripts/diagram_inventory.mjs", "scripts/mermaid_runtime.mjs", "scripts/audit_diagram.mjs", "scripts/render_diagram.py", "scripts/diagram_presentation.py", "config/diagram_style.json", "contracts/documents.json", "contracts/delivery_message.json")}
 
 
 @contextmanager
@@ -169,7 +171,9 @@ def prepare(request_file, session):
               "destination_before_text": before_text}
     state = {"schema_version": 1, "frozen": frozen, "objective_sha256": digest(frozen),
              "started": time.time(), "attempts": [], "extensions": [], "delivery": None}
-    session.mkdir(parents=True, mode=0o700)
+    record_retention.begin(session, 'technical-writer',
+        protected=[ROOT, *[row['path'] for row in captured if row.get('path')]], outputs=[destination])
+    record_retention.cleanup(session.parent, 'technical-writer')
     save(session / "state.json", state)
     return {"status": "prepared", "session": str(session), "objective_sha256": state["objective_sha256"], "limits": limits}
 
@@ -354,7 +358,7 @@ def review(session, review_file):
     return {"accepted": accepted, "review": str(target), "output_sha256": identifier}
 
 
-def finalize(session, draft, review_file):
+def finalize(session, draft, review_file, *, _close_records=True):
     session, draft = Path(session), Path(draft)
     state = state_for(session, budget=False)
     checked = check(session, draft, budget=False)
@@ -390,6 +394,9 @@ def finalize(session, draft, review_file):
     (session / 'message.md').write_text(message)
     save(session / "state.json", state)
     save(session / "delivery.json", state["delivery"])
+    if _close_records and (session / record_retention.MARKER).exists():
+        record_retention.finish(session, resolved=True, pin='accepted_document:' + checked['output_sha256'])
+        record_retention.cleanup(session.parent, 'technical-writer')
     return {"status": "delivered", **state["delivery"]}
 
 
@@ -463,12 +470,15 @@ def main():
                 if args.command == "check": result = check(args.session, args.draft)
                 elif args.command == "packet": result = packet(args.session, args.draft)
                 elif args.command == "review": result = review(args.session, args.review)
-                elif args.command == "finalize": result = finalize(args.session, args.draft, args.review)
+                elif args.command == "finalize": result = finalize(args.session, args.draft, args.review, _close_records=False)
                 elif args.command == "verify-message": result = verify_message(args.session, args.message)
                 elif args.command == 'workflow-packet': result = workflow_packet(args.session)
                 elif args.command == 'workflow-record': result = workflow_record(args.session, args.record)
                 elif args.command == 'draft-permission': result = draft_permission(args.session)
                 else: result = extend(args.session, args.attempts, args.seconds, args.authorization_note)
+        if args.command == 'finalize' and (args.session / record_retention.MARKER).exists():
+            record_retention.finish(args.session, resolved=True, pin='accepted_document:' + result['output_sha256'])
+            record_retention.cleanup(args.session.parent, 'technical-writer')
         print(json.dumps(result, indent=2, ensure_ascii=False))
         return 1 if result.get("passed") is False or result.get("accepted") is False and args.command == "review" else 0
     except (OSError, ValueError, KeyError, TypeError) as error:

@@ -542,6 +542,18 @@
         "-p",
         "test_engineering_documents.py"
       ]
+    },
+    "record-retention": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_record_retention.py"
+      ]
     }
   },
   "rules": [
@@ -1120,6 +1132,16 @@
         "contracts"
       ],
       "reason": "Supported kinds come from the validation catalogue."
+    },
+    {
+      "paths": [
+        "scripts/record_retention.py",
+        "scripts/test_record_retention.py"
+      ],
+      "tests": [
+        "record-retention",
+        "delivery"
+      ]
     }
   ],
   "final_checks": {

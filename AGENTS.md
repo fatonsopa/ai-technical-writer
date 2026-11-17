@@ -25,3 +25,15 @@ Apply references/writing_style.md to every authored text surface, including diag
 When changing agent, skill or output-style guidance and examples, apply [the instruction-writing guide](references/agents_and_skills.md) and its [complete example](examples/agents_and_skills.md). Preserve host formats, shared-rule ownership and actual authority and evidence limits.
 
 Use the environment containing scripts/requirements-lock.txt. Run impacted test methods or modules while editing. The impact configuration owns the relevant integrity, regression, wording and example checks. Keep private review records and run snapshots outside the repository.
+
+## Execution records and retention
+
+Use the host’s public task/tool history for ordinary work. Record observed operations, outcomes, failures and retries with their available run IDs and timestamps; keep metadata as the default and exclude secrets and private model reasoning from telemetry. Task inputs, draft snapshots and accepted copies are evidence and can contain task content; keep access restricted.
+
+Owned local records use the shared `scripts/record_retention.py` mechanic and three separate classes:
+
+- Routine logs: 30 days after completion.
+- Investigation logs: retain until resolution, then 90 days.
+- Optional detailed diagnostic content: 7 days after closure or investigation resolution, in a registered diagnostic child folder.
+
+Active work, unresolved investigations, user deliverables and evidence supporting an accepted version remain protected. The first cleanup previews; later lifecycle calls remove only unchanged, expired, unprotected registered records and leave deletion receipts. Historical folders are never automatically adopted. Release an evidence pin only after deciding its acceptance is no longer relied upon. Native app chat history remains host-managed; local cleanup cannot set or enforce its deletion period.
