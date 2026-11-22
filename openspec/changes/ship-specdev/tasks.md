@@ -1943,7 +1943,7 @@ Candidate: `4d81e5b` on `implementation/ship-specdev`. `SKILL.md` has the resume
 
 Finish an idea assessment at a decision or document an observed bug with its bounded repair check. [Story criteria](./specs/spec-driven-authoring/spec.md#s32--route-an-idea-or-bug-to-the-right-upstream-workflow)
 
-- [ ] 36.1 [W51](#w51--end-idea-assessment-at-a-supported-decision) (T052). Turn the idea into a supported recommendation or identify its missing evidence. A recommendation alone must end before task creation or dispatch. After the connected W47–W50 path, with brief and interview routes. Only W51.1 and W51.2 are approved.
+- [x] 36.1 [W51](#w51--end-idea-assessment-at-a-supported-decision) (T052). Turn the idea into a supported recommendation or identify its missing evidence. A recommendation alone must end before task creation or dispatch. After the connected W47–W50 path, with brief and interview routes. Only W51.1 and W51.2 are approved.
 
 ### W51 · End idea assessment at a supported decision
 
@@ -1965,6 +1965,17 @@ Skill maintainer · R28/A28. [S32.1](./specs/spec-driven-authoring/spec.md#s32-1
 - **W51.2** On a supported decision to proceed, identify the next document and its benefit. A recommendation alone cannot create a task or dispatch an implementation. <a id="w51-2"></a>
 
 `references/decision_record.md`, `workflows/discover.md` and the existing brief and interview routes.
+
+#### Verdicts
+
+Candidate: `5b6472d` on `implementation/ship-specdev`. `SKILL.md` adds "Assess an idea". It names each decision-changing evidence gap and who can close it, and says whether to clarify or stop. On a supported decision to proceed, it names who decided, the next document by catalog name and its benefit. A recommendation creates no task or dispatch, and a selected native `explore` keeps its route. Reviewer: implementing agent.
+
+- **W51.1 Met.** The idea was a loyalty points program with no customer research and no CFO liability estimate. Codex (`gpt-6.2-sol`) recommended customer and cost research before building. It named the head of sales as able to sponsor the customer research and the CFO for cost and liability, and set the condition for revisiting the build decision.
+  - **First attempt kept:** On candidate `4d81e5b`, the first run named the gaps without clearly assigning who decides; the guidance was added after it.
+  - **Sources:** Unchanged.
+- **W51.2 Met.** After the update recording the survey, the CFO's estimate and approval, and the head of sales' decision, Codex said to proceed with the pilot. It named who decided, then named the next document, a Product Requirements Document (PRD) covering pilot eligibility, earning rate and expansion criteria, and its purpose.
+  - **Nothing created:** No task, change or dispatch was created.
+  - **First attempt kept:** The first attempt named no next document.
 
 - [x] 36.2 [W52](#w52--turn-a-reported-defect-into-one-bounded-repair) (T053). Document the observed save defect, expected result and smallest distinguishing check. Keep a suspected cause provisional and leave execution unstarted. After the connected W47–W50 path and W30–W31.
 
@@ -2005,7 +2016,7 @@ Candidate: `4d81e5b` on `implementation/ship-specdev`. No guidance change was ne
 
 Write a standalone document through the catalog. Follow its reviewed constraints when a selected task consumes it. [Story criteria](./specs/spec-driven-authoring/spec.md#s37--write-the-requested-document-and-pass-it-to-the-right-consumer)
 
-- [ ] 37.1 [W58](#w58--reach-the-writing-catalog-without-starting-a-project-change) (T054). Resolve a configured native document ahead of an overlapping writing guide. A standalone tutorial must end with its checked output and no new change. After W35 and W47, with the supported routes on the candidate.
+- [x] 37.1 [W58](#w58--reach-the-writing-catalog-without-starting-a-project-change) (T054). Resolve a configured native document ahead of an overlapping writing guide. A standalone tutorial must end with its checked output and no new change. After W35 and W47, with the supported routes on the candidate.
 
 <a id="w58--request-any-supported-writing-format-through-the-workflow"></a>
 
@@ -2029,6 +2040,21 @@ Skill maintainer · R33/A33. [S37.1](./specs/spec-driven-authoring/spec.md#s37-1
 - **W58.2** With verified inputs and a project containing an active change, request a standalone Tutorial (TUT). Retain its checked output and receipt. Confirm no unrelated change artifact, task, global shortcut or provider dispatch was created. Reuse unchanged host-routing evidence from W35–W37 and W47. <a id="w58-2"></a>
 
 `SKILL.md`, `contracts/documents.json`, `references/tutorial.md` and the existing host writing selectors.
+
+#### Verdicts
+
+Candidate: `1627152` on `implementation/ship-specdev`. `scripts/shortcuts.py` routes every README catalog command:
+- **Contract kinds:** by reference, or through the docs-linked kinds;
+- **Native artifacts:** `proposal`, `design` and `tasks` go to the native OpenSpec artifact;
+- **Guidance only:** `epic` points to the user-story guide.
+
+`list` shows each route. Reviewer: implementing agent.
+
+- **W58.1 Met.**
+  - **Catalog:** `ShortcutTests` resolves all 41 commands for the 39 documents, each to existing contract kinds, a native artifact or guidance. Aliases share their route (`story`/`us`, `sdd`/`spec`), and no document was generated per alias.
+  - **Overlapping name:** In a refund change missing its design, Codex ran `$specdev doc design`, where `design` is also a writing guide. It wrote the native `openspec/changes/add-refund-review/design.md` at the path OpenSpec gives. OpenSpec then showed design complete, `openspec validate` passed, and no second document was created.
+  - **Operations:** The native operation catalog comes from the installed CLI itself (W47), so nothing advertised can be missing from it.
+- **W58.2 Met.** In a project with two active changes, Claude Code (`claude-opus-5-5`) ran `/specdev doc tut` from verified facts and delivered `docs/first-refund-tutorial.md` with a checked delivery receipt ("Document checks passed"). The only new file was the tutorial. No change artifact or task was touched, no shortcut appeared in either skills folder and nothing was dispatched. Host routing reuses the W35–W37 and W47 evidence.
 
 - [ ] 37.2 [W59](#w59--carry-a-reviewed-document-into-a-dependent-task) (T055). Read the exact reviewed design revision through the native refund task. A stale permission source must hold only the dependent action. After W58, W48 and W38–W39.
 
