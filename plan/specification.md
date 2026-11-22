@@ -1,6 +1,6 @@
 # Technical Writer improvement specification
 
-Status: Approved behavioral scope, revision 7. Applies to Codex and Claude Code. [Audit](./audit.md)
+Status: Approved behavioral scope, revision 8. Applies to Codex and Claude Code. [Audit](./audit.md)
 
 ## Purpose and scope
 
@@ -39,6 +39,8 @@ An **owning source** is the project-approved location and revision for a claim. 
 | R16 | Publish the numbered production order in the Technical Writer `README.md` file. Explain prerequisites, conditional artifacts, supported entry points, the child-parent rule and the independent-issue exception. Link the owning references. |
 | R17 | Choose the smallest sufficient work record using the project’s real governance, the user-visible outcome, the ownership of scope and the need to coordinate delivery. Make a child link mandatory when its authority comes from a parent. Allow an independent improvement or story to proceed from its own authority. State the reason for grouping or planning in the existing record when material. |
 | R18 | Use the document type and requested scope to identify material information needed at the checked writing entry. Resolve each applicable topic from evidence or actual authority, or keep it visibly open. Before asking, identify the affected requirement or section, source inspected and the consequence of an answer. Preserve the lightweight route for narrow edits. |
+| R19 | Provide opt-in native document shortcuts and route writing and review actions through existing Technical Writer references and contracts. One catalog owns the mapping. Preserve the original brief, explicit operation, other installed commands and qualified fallback. |
+| R20 | Offer guided entry, read-only next-document advice and one-document continuation using actual prerequisites and revisions. In one line name the next document, the specific gap and its benefit, or the real blocker or completed endpoint. |
 
 ## Production order
 
@@ -62,6 +64,20 @@ Apply R18 at the supported writing entry on either host. Inspect the smallest au
 | Open decision | Ask only when a material consequence remains outside the writer’s authority. State the unresolved difference, or identify the one missing owner-held fact. Never manufacture alternatives. Continue independent writing; an early draft exposes the open decision and its consequence. |
 
 Python checks applicable coverage, valid source and answer references, and permissible readiness transitions. The supported host workflow asks and receives the actual question and reply. Semantic review determines whether the evidence supports the claim and whether a question was necessary. An unverifiable reply, preselected option or silence cannot confer authority.
+
+### How Spec Kit templates map to Technical Writer
+
+Technical Writer owns the published forms, examples and checked-output contracts. A shortcut selects the same owning reference as an ordinary writing request. The following is the implementation decision for all five top-level document templates in the inspected Spec Kit revision.
+
+| Spec Kit source | Useful structure to adopt | Technical Writer owner and boundary |
+| --- | --- | --- |
+| [spec](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/spec-template.md) | A valuable user scenario, an independent demonstration, meaningful edge cases, requirements, outcomes and stated assumptions | Use the behavioral specification for feature rules. Product purpose, users and success measures belong in the Product Requirements Document (PRD). Reuse the story reference for a separately shippable slice. Keep permissions, failure behavior, IDs, source authority and unresolved decisions. Include targets and priorities only when supported. |
+| [tasks](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/tasks-template.md) | Group child work by story, identify real dependencies and give each slice a demonstrable outcome | One task uses the existing Issue template. For plural tasks, produce linked Issue records and preserve their story-criterion mappings. Each task has bounded scope, acceptance and smallest sufficient proof. Mark parallel work only when contracts and ownership allow it. A standalone Issue remains eligible. Setup, foundational and polish phases appear only when real work needs them. |
+| [plan](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/plan-template.md) | Record applicable technical constraints, governing principles and affected project structure | The Implementation Plan (IP) owns sequence, requirement coverage, rollout and recovery. Put architecture, internals and shared interfaces in their existing design or contract records when needed. Link them. Use verified project paths. A template example cannot establish a new platform, file or mandatory phase. |
+| [checklist](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/checklist-template.md) | Derive review questions from the actual requirements and group them by relevant concern | Reuse the requirements-quality checklist in A10g. Record the specification revision, located evidence, verdict and correction. A checked item about requirement quality cannot establish that the feature passed a runtime test. |
+| [constitution](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/constitution-template.md) | Read project principles and their governance before planning | Reuse the project’s adopted Policy (POL) or Technical Standard (STD). Write policy only on request. A suggested principle, such as test-first development, requires actual authority before it becomes binding. |
+
+For the Low Level Design (LLD), use the existing design template and its component, data, interface and failure contracts. The upstream feature specification and plan provide context. Preserve the current User Story (US) template for stories and epics, and the Issue template for tasks. Add a missing useful distinction to its owning guide or example only when the existing guidance does not already supply it. Link upstream sources as prior art. No vendored template tree, Spec Kit installation or generated second set of specifications is required.
 
 ## Quality and interface constraints
 
@@ -113,7 +129,13 @@ Each A10 case starts with source facts and a request for the named artifact thro
 
 **A18 · R18.** Use the two export requests with the same current staff-only route and compare the actual documents and public questions. (a) “Add CSV to the existing download; only the format changes” produces zero permission questions and preserves existing access. (b) “Let customers download their own reports,” with individual versus organization ownership unresolved, produces exactly one targeted ownership question before the dependent requirement becomes ready. Silence leaves the ownership open in a draft. A genuine answer bound to that question unblocks only the supported permission. Omitting the material topic blocks readiness. A cited passage saying permission is undecided cannot justify an administrator-only rule. Reuse those passages and verdicts for the negative cases. Check one missing owner-held fact without invented options, one delegated routine choice without an interview, a lightweight story or Issue, and the narrow-edit exception only where existing evidence is insufficient. Preserve historical receipts. Host-specific claims require an observed exchange on that host.
 
+**A19 · R19.** On their actual hosts, Claude Code’s /prd, /lld and /task and Codex CLI’s $prd, $lld and $task select the existing writing routes when available. Observe one actual checked artifact per host, mechanically resolve the rest of the catalog, and exercise a collision, repeat install and owned-only removal. The brief survives intact. The spec selector produces a behavior specification; task produces one Issue and tasks decomposes approved scope into applicable Issue records. Checklist and analyze have their distinct review outcomes. The host entries neither replace writing templates nor confer implementation authority.
+
+**A20 · R20.** Given a reviewed feature, an unresolved dependency and a completed standalone fix, guide or next returns respectively one useful recommendation, one blocked decision, or completion. For example, “**Interface Contract (IC)** — agree on refund error codes so both clients handle failed refunds consistently.” The recommendation alone writes nothing. Continue produces one grounded document; repeating the same request after resumption cannot duplicate that result. A changed parent revision reopens only affected work. An unbound suggestion cannot alter the checked final message.
+
 ## Open decisions
+
+**D3.** The owner approved R19–R20, their short handoff wording and host-specific entries. Implement the adopted Spec Kit structures within Technical Writer’s owning forms as set out in the template mapping.
 
 **D2.** The owner approved R18/A18 and its bounded implementation in F22.
 

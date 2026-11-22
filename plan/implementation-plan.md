@@ -1,6 +1,6 @@
 # Technical Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 7. The [behavioral specification, revision 7](./specification.md) owns the requirements. The [audit](./audit.md) owns the twenty-two findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 8. The [behavioral specification, revision 8](./specification.md) owns the requirements. The [audit](./audit.md) owns the twenty-four findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -17,6 +17,8 @@ Use the actual [User Story (US) template](https://github.com/fatonsopa/ai-techni
 **Short feedback loop.** Before changing the skill, try the task’s named counterexample at its actual boundary or reuse the audit observation when its inputs still match. Fix the first demonstrated mismatch, inspect the same outcome and stop when its criteria and relevant shared obligations pass. A new input, failed boundary or missing criterion is the reason for another check. An unrelated failure gets its own disposition. Keep the original failure. On acceptance, record the exact commit, evidence and reviewer in the issue and hand the usable increment to its consumer.
 
 The owner approved the work order, scope and local integration authority. Start with the execution prompt in the repository’s [execution guide](./README.md). Use this plan for dependencies, task boundaries, required evidence and closure. Keep the private JSON execution log described in the starting prompt. Reuse native run records and document the reason for each extra verification before it runs.
+
+See the governing specification’s template mapping for shortcuts, task breakdown and reviews. Implement W35 before W36–W37. W40 and W41 reuse the relevant approved writing and review routes. W38 precedes W39. Coordinate their host demonstrations with W17.
 
 ## Work sequence
 
@@ -1604,6 +1606,271 @@ Parent: S22. Supports S22.1 and F22.1. R18/A18. Responsible role: Document-contr
 
 Ship the remaining route coverage and its representative checks. Do not multiply all document kinds by all host and question variants. Use the shared Definition of Done and record the exact candidate, evidence and verdict.
 
+### F23 · Start documents from native shortcuts
+
+As a developer, I want to give the document name and brief in one message, so that I can obtain the same checked document as through the normal route.
+
+#### Acceptance criteria
+
+- **F23.1** Observe real host dispatch with the supplied brief and the intended checked document; verify an occupied name keeps its existing handler and the qualified entry remains usable.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: writing-workflow maintainer. Child: S23. R19/A19. [Audit finding F23](./audit.md#f23--medium--start-documents-from-native-shortcuts)
+
+#### S23 · Write the intended artifact from a short request
+
+As a developer, I want to give the document name and brief in one message, so that I can obtain the same checked document as through the normal route.
+
+##### Acceptance criteria
+
+- **S23.1** Observe real host dispatch with the supplied brief and the intended checked document; verify an occupied name keeps its existing handler and the qualified entry remains usable. Retain the identified candidate, actual request, output and consumer observation.
+
+##### Scope and sources
+
+Parent: F23. Owner role: writing-workflow maintainer. W35–W37 and W40–W41. Use the scope boundaries in A19 and the shared Definition of Done.
+
+##### W35 · Launch three document types in Claude Code
+
+###### Description
+
+A bare slash command needs host-level discovery.
+
+###### Expected outcome
+
+Claude Code can start a PRD, LLD or single Issue directly.
+
+###### Scope
+
+Offer opt-in thin entries for /prd, /lld and /task through the current installer. Reuse one catalog and writing route. Preserve user material, explicit edit intent and existing commands.
+
+###### Specification
+
+Parent: S23. Supports S23.1 and F23.1. R19/A19. Responsible role: integration maintainer. Use the installed skill, existing catalog and current installer.
+
+###### Acceptance criteria
+
+- **W35.1** From a real Claude Code session dispatch a short command and compare its checked artifact, brief and type to the owning contract. Resolve the other two names through the same mapping.
+- **W35.2** Supply an occupied name and repeat installation. Existing foreign content remains intact, a working qualified alternative is reported, and removal affects only owned entries.
+
+###### Relevant files
+
+[scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json)
+
+###### Additional context
+
+Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
+
+##### W36 · Launch the same documents in Codex
+
+###### Description
+
+Codex has a different native skill invocation.
+
+###### Expected outcome
+
+Codex CLI users can invoke $prd, $lld or $task directly.
+
+###### Scope
+
+Reuse W35’s alias mapping and writing entry with Codex’s supported skill installation. Document copyable host examples.
+
+###### Specification
+
+Parent: S23. Supports S23.1 and F23.1. R19/A19. Responsible role: integration maintainer. Requires W35’s common mapping.
+
+###### Acceptance criteria
+
+- **W36.1** Capture a real Codex invocation and checked result for one of the three kinds. The brief retains its context and literals; the destination and format agree with the existing writer.
+- **W36.2** Resolve the other names, preserve the qualified fallback and verify the Codex-specific install/removal boundary. Reuse shared collision checks if their inputs and path are unchanged.
+
+###### Relevant files
+
+[scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json)
+
+###### Additional context
+
+Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
+
+##### W37 · Expose the authorable document catalog
+
+###### Description
+
+A user needs to find which names are installed.
+
+###### Expected outcome
+
+Every supported authorable kind has a discoverable selector and opt-in shortcut or a documented qualified fallback for an occupied name.
+
+###### Scope
+
+Generate entries and quick-start help from the same catalog. Add ready variants as their complete contracts ship. Preserve full-name requests, aliases, reviews and literal text.
+
+###### Specification
+
+Parent: S23. Supports S23.1 and F23.1. R19/A19. Responsible role: integration maintainer. Use W35–W36 and the registered output contracts.
+
+###### Acceptance criteria
+
+- **W37.1** Compare the catalog with generated entries. Every active authoring route resolves to its owning kind, including spec for behavioral specification, and every displayed host spelling corresponds to the installed entry.
+- **W37.2** Use a source-settled request and a review request. Selecting a spec does not create a PRD; reviewing an existing artifact does not create a replacement. Use the template crosswalk for both.
+
+###### Relevant files
+
+[scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json) · [README.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/README.md)
+
+###### Additional context
+
+Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
+
+##### W40 · Distinguish one task from a task breakdown
+
+###### Description
+
+The upstream tasks template is a list, while a commissioned child needs its own acceptance record.
+
+###### Expected outcome
+
+A developer can request one Issue or decompose reviewed scope into bounded Issues.
+
+###### Scope
+
+Route task and tasks separately. Apply the template crosswalk, W20 ancestry and R17 exceptions; keep native Issue sections and stable IDs.
+
+###### Specification
+
+Parent: S23. Supports S23.1 and F23.1. R19/A19. Responsible role: integration maintainer. Use W35’s selection mechanism, W11 and W20.
+
+###### Acceptance criteria
+
+- **W40.1** From one approved story, task produces one Issue and tasks produces a justified breakdown with the same parent, criterion links, dependencies and observable proof for each child. A one-line upstream checklist entry alone fails.
+- **W40.2** A single independent maintenance change stays one Issue. A missing parent for a declared child blocks readiness. Reuse the existing ancestry negatives and confirm no template-generated setup phase or invented test obligation appears.
+
+###### Relevant files
+
+[scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json) · [references/issue.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/references/issue.md) · [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/references/implementation_plan.md)
+
+###### Additional context
+
+Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
+
+##### W41 · Route quality and consistency reviews
+
+###### Description
+
+Requirement quality, cross-document agreement and executed checks answer different questions.
+
+###### Expected outcome
+
+A reviewer can request a requirement checklist or a read-only consistency analysis grounded in the owning documents.
+
+###### Scope
+
+Expose checklist through W04 and analyze through W03/W21. Reuse policy for governance, discovery for clarify and existing plans for planning. A convergence-style report can identify gaps; it cannot commission uncovered scope or run implementation.
+
+###### Specification
+
+Parent: S23. Supports S23.1 and F23.1. R19/A19. Responsible role: integration maintainer. Requires the relevant existing route and W35’s common entry mechanism.
+
+###### Acceptance criteria
+
+- **W41.1** Given one vague criterion and one task that weakens a sourced permission, checklist locates the requirement-quality defect and analyze locates the cross-document disagreement. Reuse the same packet.
+- **W41.2** Inspect before and after the read-only analysis: the reviewed source, tasks and candidate are unchanged. Findings do not claim runtime proof. A request for code implementation routes to the authorized implementing workflow.
+
+###### Relevant files
+
+[scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json) · [workflows/validation_review.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/workflows/validation_review.md)
+
+###### Additional context
+
+Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
+
+### F24 · Guide the next document from project evidence
+
+As a project owner, I want a short recommendation grounded in the initiative, so that I can decide what to write next or stop.
+
+#### Acceptance criteria
+
+- **F24.1** For one feature, a blocked decision and a standalone fix, distinguish the eligible document, missing prerequisite and completed scope. Continuing creates one attributable successor and resumption reuses existing work.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: writing-workflow maintainer. Child: S24. R20/A20. [Audit finding F24](./audit.md#f24--medium--guide-the-next-document-from-project-evidence)
+
+#### S24 · Choose and continue one eligible document
+
+As a project owner, I want a short recommendation grounded in the initiative, so that I can decide what to write next or stop.
+
+##### Acceptance criteria
+
+- **S24.1** For one feature, a blocked decision and a standalone fix, distinguish the eligible document, missing prerequisite and completed scope. Continuing creates one attributable successor and resumption reuses existing work. Retain the identified candidate, actual request, output and consumer observation.
+
+##### Scope and sources
+
+Parent: F24. Owner role: writing-workflow maintainer. W38 and W39. Use the scope boundaries in A20 and the shared Definition of Done.
+
+##### W38 · Show the next useful document
+
+###### Description
+
+A static sequence cannot account for current scope and reviewed sources.
+
+###### Expected outcome
+
+Guide and next can explain the right next action without creating a file.
+
+###### Scope
+
+Support starting from a goal or existing artifact. Inspect current initiative and source revisions. For eligible work show document type, specific gap and benefit in one line. If choice matters, identify the decision. Stop at the requested endpoint.
+
+###### Specification
+
+Parent: S24. Supports S24.1 and F24.1. R20/A20. Responsible role: workflow maintainer. Requires W20, W30–W31 and the approved production order.
+
+###### Acceptance criteria
+
+- **W38.1** From a feature with a settled prerequisite, next names one eligible document and the specific benefit in one line; repeated next leaves the initiative unchanged. With two plausible initiatives ask which only if evidence cannot settle it.
+- **W38.2** For a blocked child name the missing prerequisite. For a standalone fix with sufficient acceptance say documentation is complete. Recommend no extra document in either case; reuse A17 and A18 evidence.
+
+###### Relevant files
+
+[SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/workflows/discover.md) · [README.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/README.md)
+
+###### Additional context
+
+Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
+
+##### W39 · Continue a checked document handoff
+
+###### Description
+
+A suggested next step can duplicate prior work or outlive its source revision.
+
+###### Expected outcome
+
+The owner can continue one document at a time and resume from the current project state.
+
+###### Scope
+
+Use W38’s selected initiative, existing records and the normal writing workflow. Bind any suggested successor included in a checked final message to W15’s reviewed delivery. Respect a single-document request.
+
+###### Specification
+
+Parent: S24. Supports S24.1 and F24.1. R20/A20. Responsible role: workflow maintainer. Requires W38 and W15 for checked delivery text.
+
+###### Acceptance criteria
+
+- **W39.1** On continue, write exactly the selected eligible artifact; the source revision, governing criterion and shared terms survive. Resume from the same starting request after delivery and identify the completed result without duplicating it.
+- **W39.2** Change a governing revision before continuing. Re-evaluate affected readiness and keep unaffected evidence. A stale handoff or altered checked suggestion fails; when a suggestion cannot be bound to the receipt, keep exact finalization and offer guidance on request.
+
+###### Relevant files
+
+[SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/workflows/discover.md) · [contracts/delivery_message.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/delivery_message.json) · [scripts/validate_document.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/validate_document.py)
+
+###### Additional context
+
+Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
+
 ## Requirement coverage
 
 | Requirement and proof | Owning work | Evidence used at closure |
@@ -1623,6 +1890,8 @@ Ship the remaining route coverage and its representative checks. Do not multiply
 | R14 / A14 | F12 → S12 → W25, W26 | Necessary manual action and clarified role recovered from the replies. |
 | R15 / A15 | F13 → S13 → W27 | Routine update trace and relevant naming control. |
 | R17 / A17 | F21 → S21 → W30, W31 | Paired routing choices, rationale and preserved project constraints. |
+| R19 / A19 | F23 → S23 → W35–W37, W40–W41 | Actual host dispatch, canonical template, source-preserving task breakdown and read-only review. |
+| R20 / A20 | F24 → S24 → W38–W39 | Ready, blocked and complete cases; one checked successor, no duplicate or stale handoff. |
 | R18 / A18 | F22 → S22 → W32, W33, W34 | Same export route, two requests, actual question counts, answer binding, review and readiness verdicts. |
 | R16 / A16 | F20 → S20 → W29 | Two reader routes from the `README.md` file and resolved guide links. |
 | R11 / A11 | F2 → S02 → W20 and W11 | Real parent links, broken edges and justified standalone work. |
@@ -1649,7 +1918,7 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-The owner approved specification and implementation plan revision 7, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+The owner approved specification and implementation plan revision 8, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 
