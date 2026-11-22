@@ -14,6 +14,22 @@ A user story describes a small, useful outcome from a person's perspective. Crea
 
 Use a specific title, user/need/value statement, scope, acceptance criteria, and relevant requirement links or open questions. The [Spec Driven Development document (SDD)](spec_driven_development.md) owns detailed behavior; the [Implementation Plan (IP)](implementation_plan.md) owns delivery. For a multi-task feature, author the story and its acceptance scenarios in the governing specification, or link to the project’s existing authoritative story. The delivery plan references its outcome. Child tasks identify the story criterion they deliver. Common task metadata belongs to the task containing the story. Before writing a child story for an epic, identify the epic's outcome and the revision you read, link that outcome, and state the revision in the story. If the epic is missing or contradicts the story, report the broken edge and hold the story rather than writing it as a standalone need.
 
+## Epics
+
+An Epic (EPIC) connects several stories that together deliver one usable outcome. Write it when the stories need coordination, and use the project's governing outcome or link an existing User Story (US) rather than restating it. The epic states:
+
+- the outcome and who can use it, with the governing requirements;
+- non-goals, so children don't absorb excluded work;
+- dependencies between stories or on other teams, systems and decisions;
+- the integrated proof: one observation of the whole outcome, such as an end-to-end check, that no child proves alone;
+- who owns the epic's acceptance and who owns each child story.
+
+Each child story links the epic's outcome and inherits the epic criterion it serves. Each child task links the one story criterion it delivers. The epic stays unaccepted until its own integrated proof is observed, even when every child task is closed. Closed children show progress, not delivery.
+
+When related reports start an epic, keep each original observation with its source. A shared cause that seems likely stays provisional until evidence confirms it. Assign independent work only after deciding whether the reports describe one failure or several.
+
+In an OpenSpec change, write the observable behavior once, in the capability's requirement and scenarios. Keep each task's scope and proof with its numbered checkbox in `tasks.md`, and link an existing Task only when it independently owns the criterion. If the scope spans independent capabilities, map them first and specify each one separately.
+
 ## Template
 
 ```md

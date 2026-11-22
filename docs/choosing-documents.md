@@ -31,7 +31,7 @@ Use `/capability-map` when several parts of a feature could ship separately. Giv
 
 ## Epic
 
-Use `/epic` when several stories contribute to one outcome. Supply that outcome and the stories or requirements that belong to it. The epic connects them and describes how to tell when they deliver the whole result.
+Use `/epic` when several stories contribute to one outcome. Supply that outcome and the stories or requirements that belong to it. The epic connects them and describes how to tell when they deliver the whole result. [How to write an epic](../references/user_story.md#epics)
 
 ## Research record
 

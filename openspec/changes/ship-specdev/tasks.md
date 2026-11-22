@@ -116,7 +116,7 @@ Candidate: the W20 commit on `implementation/ship-specdev`. Reviewers: the imple
 - **W20.1 Met.** Following the new order, the story links the epic's outcome and states epic r3, and the task links story criterion BULK-1 and states story r2 and epic r3. `check_document.py` with declared `parents` passes both. Starting from the task, the reader recovered BULK-1, both revisions with their quoted locations and the epic's shared outcome, and found nothing missing or contradictory.
 - **W20.2 Met.** With the story absent or the epic absent, the task is held as not ready. A stale parent anchor is reported as a broken edge, and a parent revised past the task's stated revision is reported. None of these passes as standalone work. A task declared explicitly standalone, with its own source and expected destination, passes without a parent. A contradiction between parent and child is a judgment of meaning; `workflows/discover.md` and `references/task.md` direct the writer to hold the child and report the edge. Regression: `ParentEdgeTests`.
 
-- [ ] 2.3 [W11](#w11--write-an-epic-whose-stories-prove-a-usable-outcome) (T004). Connect an epic, story and task to one usable outcome. Withhold epic acceptance if its integrated result is missing after all children close. After W20. If the scope spans capabilities, use W10 first.
+- [x] 2.3 [W11](#w11--write-an-epic-whose-stories-prove-a-usable-outcome) (T004). Connect an epic, story and task to one usable outcome. Withhold epic acceptance if its integrated result is missing after all children close. After W20. If the scope spans capabilities, use W10 first.
 
 ### W11 · Write an epic whose stories prove a usable outcome
 
@@ -140,6 +140,13 @@ Story-guidance maintainer · R2/R11/A2/A11. [S02.1](./specs/spec-driven-authorin
 [references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md) · [references/task.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/implementation_plan.md) · [examples/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md)
 
 Use the same chain used in W20 when compatible. Check the parent outcome once rather than recreating each child test.
+
+#### Verdicts
+
+Candidate: the W11 commit on `implementation/ship-specdev`. Reviewers: the implementing agent, and a separate fresh-context reviewer who applied the new "Epics" section of `references/user_story.md` to the illustrative epic, story and task kept with the private run evidence.
+
+- **W11.1 Met.** The epic, written from the two related bulk-edit reports, states its outcome with WEB-09 and WEB-10, non-goals, dependencies, the integrated T16 proof, the acceptance owner and each story owner. The reviewer recovered all of them. The story inherits the epic's three-state outcome, and the task delivers story criterion BULK-1. Its parent edges pass W20's check.
+- **W11.2 Met.** With all three child tasks closed and the integrated proof unobserved, the reviewer judged the epic unaccepted, citing the guidance that closed children show progress, not delivery. Both original reports keep their sources, and the shared cause stays "plausible" and "not confirmed". A contrasting epic that claimed acceptance from closed children and a confirmed root cause was rejected on both statements.
 
 <a id="s01--edit-a-mixed-passage-without-corrupting-its-fixture-continued"></a>
 
