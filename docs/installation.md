@@ -30,6 +30,16 @@ For an npm installation, run the npm install command again, then run `specdev ho
 
 To uninstall, run `specdev host remove`. For a GitHub installation, remove the launcher and release files listed by the installer. For npm, run `npm uninstall -g @fatonsopa/specdev`. Keep your project documents and any entries you edited.
 
+### Maintain the OpenSpec runtime
+
+SpecDev pins OpenSpec in `tools/openspec/package.json` and its lockfile, and installs that exact version with `npm ci` the first time you use an OpenSpec command. From the installed skill folder, use its Python environment:
+
+- `.venv/bin/python scripts/openspec_runtime.py --check` compares the pin, the lockfile and the installed CLI. SpecDev refuses to run OpenSpec while they disagree.
+- `--preview NEW_PACKAGE_JSON NEW_LOCK` shows which files an upgrade would replace and which it keeps. `--upgrade` with the same files installs them and keeps the prior pair in `tools/openspec/.previous`; `--restore` puts that pair back.
+- `--remove` deletes only the installed runtime (`node_modules`). The manifest, the lockfile and any other file stay.
+
+Dependabot proposes OpenSpec updates as pull requests. A proposal doesn't change the pin until a maintainer reviews it against the release notes and merges it.
+
 ## Install from the source checkout
 
 The source installer below installs the `specdev` skill and a small `technical-writer` entry that keeps the former name working. The installer prints both paths and the path for Python setup.
