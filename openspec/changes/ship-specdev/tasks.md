@@ -368,7 +368,7 @@ Candidate: the W18 commit on `implementation/ship-specdev`. The integration rule
 - **W18.1 Met.** From the Mirai due-dates PRD at `ddd183a`, read as facts only, the performer wrote a complete PRD into an empty destination. It passes the `prd` contract. FR-1 to FR-9 and their criteria, SM-1's 70% target with the baseline undecided, NG-1 to NG-4, A-1 and Q-1 are carried over, and owner `mirai-product-manager` is kept. The status line says approval is open and no source shows it was given; the "Decision needed" opening leaves inclusion pending. The reviewed bytes have SHA-256 `5f3b94e5…52e7` and are kept for W19.
 - **W18.2 Met.** Through the same route, the Nacre workspace-renaming facts produced their own PRD with CONF-01 to CONF-03 and AUD-01. It passes the contract and keeps naming length, concurrency, targets and approval open, with no Mirai content. The Mirai source's own front matter and "Summary for approval" layout did not block authoring.
 
-- [ ] 7.2 [W19](#w19--hand-an-authored-product-requirement-to-the-downstream-specification) (T011). Carry the product obligation, exclusion and unresolved decision into the governing behavior document. Locate an incompatible consumer field at its owner. After W18.
+- [x] 7.2 [W19](#w19--hand-an-authored-product-requirement-to-the-downstream-specification) (T011). Carry the product obligation, exclusion and unresolved decision into the governing behavior document. Locate an incompatible consumer field at its owner. After W18.
 
 ### W19 · Hand an authored product requirement to the downstream specification
 
@@ -392,6 +392,13 @@ Integration maintainer · R9/R3/A9/A3. [S09.1](./specs/spec-driven-authoring/spe
 [references/spec_driven_development.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md) · [examples/spec_driven_development.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/spec_driven_development.md) · [workflows/validation_review.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/validation_review.md) · [scripts/validate_document.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/validate_document.py)
 
 One linked document and one conflict are sufficient. App migration, signing, external publication and runtime changes require separate authority.
+
+#### Verdicts
+
+Candidate: the W18 candidate (`8518f03`); W19 needed no further skill change. Reviewer: implementing agent, comparing the performer's output with the reviewed PRD and this Task.
+
+- **W19.1 Met.** This was an independent request, so the specification used the Spec Driven Development document (SDD) contract. From W18's reviewed PRD (SHA-256 `5f3b94e5…52e7`, recorded in the specification with its path), the performer wrote a draft specification that passes the `sdd` contract (SHA-256 `84311b86…8089`). It carries FR-1 to FR-9 with their BR links and criteria, NFR-1 and NFR-2, the permission rule, NG-1 to NG-4 and open decisions Q-1 and approval. Purpose, scope, scenarios and acceptance precede any design or task. An OpenSpec capability delta was not exercised here; W40 and W47 cover the native route.
+- **W19.2 Met.** Asked to add `template: sdd@v1` front matter and a `## Summary for approval` section for the Mirai loader, the performer kept the reviewed file byte for byte. It named the conflicting fields and the loader as the owning interface, proposed an adapter or a decision by the format's owners, and claimed no compatibility with the loader.
 
 <a id="s15--use-the-capability-map-at-its-handoff"></a>
 
