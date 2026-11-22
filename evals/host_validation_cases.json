@@ -13,7 +13,7 @@
       "covers": []
     },
     "request": {
-      "instruction": "/specdev Review this validation claim without rewriting a document or running new model tests: \u201cAll document outputs passed on Codex, so Technical Writer is validated on both Codex and Claude Code.\u201d The release matrix explicitly requires both hosts, but no Claude Code results exist. Inspect the installed host_coverage.py interface and explain what is established, what is missing and how the frozen matrix should be assessed. Keep the response source-grounded, distinguish a missing observation from a failed task, and do not invent a validation result or ask for routine retry permission."
+      "instruction": "/specdev Review this validation claim without rewriting a document or running new model tests: “All document outputs passed on Codex, so Technical Writer is validated on both Codex and Claude Code.” The release matrix explicitly requires both hosts, but no Claude Code results exist. Inspect the installed host_coverage.py interface and explain what is established, what is missing and how the frozen matrix should be assessed. Keep the response source-grounded, distinguish a missing observation from a failed task, and do not invent a validation result or ask for routine retry permission."
     },
     "resources": [
       "SKILL.md",
@@ -22,5 +22,69 @@
     "expect": {
       "exit_code": 0
     }
+  },
+  {
+    "id": "neutral-routine-edit",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "requirements": [
+      "HOST-GUARD"
+    ],
+    "workflow": {
+      "id": "host-matrix",
+      "scenario": "behavior",
+      "covers": []
+    },
+    "request": {
+      "instruction": "/specdev Make the second paragraph of input.md easier to read and save the result in place. Keep everything else as it is.",
+      "source": {
+        "input.md": "# Bulk category edit recovery\n\nThis page explains what happens when a bulk category edit loses its response.\n\nIn the event that the response to a bulk category edit request is lost before it has been received by the client, the system must under no circumstances retry the write automatically, because the write may already have taken effect, and it is the administrator who decides, after the saved state has been read and displayed, whether any retry is to be attempted for the rows that were not attempted.\n\nSee WEB-09 for the governing rule.\n"
+      }
+    },
+    "resources": [
+      "SKILL.md",
+      "references/writing_style.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "reviewer_rubric": [
+      "Only the second paragraph changes; the title, first paragraph and WEB-09 line keep their bytes.",
+      "The edit keeps both obligations: no automatic retry after a lost response, and the administrator decides after the saved state is shown, for unattempted rows only. Equivalent source-grounded wording passes.",
+      "Fail a weakened retry rule (for example, retry once or retry automatically), a dropped decider, or an added obligation."
+    ]
+  },
+  {
+    "id": "neutral-feature-task-handoff",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "requirements": [
+      "HOST-GUARD"
+    ],
+    "workflow": {
+      "id": "host-matrix",
+      "scenario": "behavior",
+      "covers": []
+    },
+    "request": {
+      "instruction": "/specdev Write the task that delivers criterion US-12.2 from story.md and save it as task.md.",
+      "source": {
+        "story.md": "# Story US-12: Recover a bulk category edit\n\nParent: none recorded. Revision 2026-11-20.\n\nAs an administrator, I can recover safely when a bulk category edit loses its response, so I don't apply the same change twice.\n\n## Acceptance criteria\n\n- **US-12.1** After a lost response, the page reads the saved state and shows confirmed, unresolved and unattempted counts.\n- **US-12.2** The page offers a retry only for unattempted rows and never retries automatically; the administrator chooses whether to retry.\n\nRule WEB-09: never retry an uncertain write automatically.\n"
+      }
+    },
+    "resources": [
+      "SKILL.md",
+      "references/writing_style.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "reviewer_rubric": [
+      "The task links story US-12 and criterion US-12.2 as its parent, with the story revision; it invents no epic, feature or other parent.",
+      "Its acceptance keeps the retry rule: retry offered only for unattempted rows, never automatic, the administrator chooses; WEB-09 stays intact. Equivalent source-grounded wording passes.",
+      "Fail a weakened retry (automatic, limited automatic attempts, or retry of unresolved rows), an invented parent, or a second task for US-12.1."
+    ]
   }
 ]
