@@ -66,7 +66,7 @@ For an independent document, integrations take document structure and reusable t
 
 ### Suggest the next document
 
-For `/specdev next` (Codex: `$specdev next`), `guide` or a question such as "what should I write next", start from the user's goal or the named artifact. Read the current initiative, its sources and their revisions, and `openspec status` for a selected change. Then answer in one line: the one eligible document, the specific gap it fills and what it gives the reader. Suggesting creates no file and changes nothing, so asking again gives the same answer.
+For `/specdev next` (Codex: `$specdev next`), `guide` or a question such as "what should I write next", start from the user's goal or the named artifact. Read the current initiative, its sources and their revisions, and `openspec status` for a selected change. Then answer in one line: the one eligible document, named as the README catalog names it, the specific gap it fills and what it gives the reader. For example, a multi-task change's `tasks.md` is a Task List (TL), not an Implementation Plan (IP). Suggesting creates no file and changes nothing, so asking again gives the same answer.
 
 - If two initiatives fit and the evidence can't settle which one, ask only that.
 - For a blocked child, name the missing prerequisite instead of a document.
