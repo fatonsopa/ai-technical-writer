@@ -2056,7 +2056,7 @@ Candidate: `1627152` on `implementation/ship-specdev`. `scripts/shortcuts.py` ro
   - **Operations:** The native operation catalog comes from the installed CLI itself (W47), so nothing advertised can be missing from it.
 - **W58.2 Met.** In a project with two active changes, Claude Code (`claude-opus-5-5`) ran `/specdev doc tut` from verified facts and delivered `docs/first-refund-tutorial.md` with a checked delivery receipt ("Document checks passed"). The only new file was the tutorial. No change artifact or task was touched, no shortcut appeared in either skills folder and nothing was dispatched. Host routing reuses the W35–W37 and W47 evidence.
 
-- [ ] 37.2 [W59](#w59--carry-a-reviewed-document-into-a-dependent-task) (T055). Read the exact reviewed design revision through the native refund task. A stale permission source must hold only the dependent action. After W58, W48 and W38–W39.
+- [x] 37.2 [W59](#w59--carry-a-reviewed-document-into-a-dependent-task) (T055). Read the exact reviewed design revision through the native refund task. A stale permission source must hold only the dependent action. After W58, W48 and W38–W39.
 
 ### W59 · Carry a reviewed document into a dependent task
 
@@ -2079,7 +2079,16 @@ Skill maintainer · R33/A33. [S37.1](./specs/spec-driven-authoring/spec.md#s37-1
 
 `references/low_level_design.md`, the W38–W39 checked handoff and W48’s selected native task consumer.
 
-- [ ] 37.3 [W63](#w63--use-the-writing-guide-for-native-artifacts) (T060). Write and edit native refund wording through SpecDev. Check the saved text against the permission source and OpenSpec’s selected format. After W58.
+#### Verdicts
+
+Candidate: `0541709` on `implementation/ship-specdev`. `references/low_level_design.md` links a reviewed design's revision and exact section only from the native checkbox that consumes it, and other tasks keep their inputs. In `SKILL.md`, W48's consumer rule holds an item whose linked source changed. Reviewer: implementing agent.
+
+- **W59.1 Met.** Item 1.1 of `add-refund-approval` links "LLD revision L1, Authorization", and the sibling `add-refund-notes` has its own design.
+  - **Readback:** Codex (`gpt-6.2-sol`), as the implementer, recovered the "Employee denied" scenario (r1, FP-7). It also recovered LLD revision L1, its "Authorization" section and approver, and the 403/pending employee-denial criterion with the manager success case, each with a line link.
+  - **Scope:** It used neither the sibling's design nor a generic permission check, and the project was unchanged.
+- **W59.2 Met.** The LLD was revised to L2 (a draft adding `finance_lead`, approval pending). Claude Code (`claude-opus-5-5`) held only 1.1, naming the change and the L1 → L2 change to its linked "Authorization" section. It kept 1.2 (audit log, unlinked) available, and no file changed. The refusal and both revision identifiers are kept in the run evidence.
+
+- [x] 37.3 [W63](#w63--use-the-writing-guide-for-native-artifacts) (T060). Write and edit native refund wording through SpecDev. Check the saved text against the permission source and OpenSpec’s selected format. After W58.
 
 ### W63 · Use the writing guide for native artifacts
 
@@ -2100,13 +2109,26 @@ Skill maintainer · R33/A33b · [S37.2](./specs/spec-driven-authoring/spec.md#s3
 
 Use the shared guide and the native authoring route established by W47/W58. Apply the [shared Definition of Done](./design.md#requirement-coverage). Record each verdict and the accepted commit in this Task. Reuse W17’s host observations where they cover the same behavior.
 
+#### Verdicts
+
+Candidate: `0541709` on `implementation/ship-specdev`. `SKILL.md` has the author read Writing Style (WS) with the native instructions before drafting or editing any proposal, specification, design, task list or other schema-supplied Markdown. It keeps required headings, `SHALL`, scenario markers, literals and project terms, and changes only the requested passage. Reviewer: implementing agent.
+
+- **W63.1 Met.** From the approved manager-only rule, Claude Code (`claude-opus-5-5`) used the ordinary entry to write the native `tasks.md`. Its saved row reads: "1.1 In the refund service, call the authorization service before approving a refund above 100.00, and reject the approval unless the user holds the manager role." A reader can tell what to build and who can approve.
+  - **Readback:** `openspec instructions apply` shows item `1.1`, not done.
+  - **Open decision:** It added no item for the retry decision that finance still owns.
+  - **Other artifact kinds:** Specification (W47), design (W58) and proposal (W47 Codex) creation used the same route.
+- **W63.2 Met.** The spec requirement was one long sentence that named the manager approver and left retry authority open. Codex reworded only it, to: "Under finance policy FP-7, the system SHALL allow only users with the manager role to approve refunds over 100.00. The finance team has yet to decide which role, if any, may retry a failed approval."
+  - **Kept:** Both facts, the heading, `SHALL`, the scenario markers and the unrelated text survive.
+  - **Validation:** `openspec validate` passes, and no other file changed.
+  - **Not introduced:** No retry owner was invented and the permission wasn't weakened; I checked this against the before and after passages.
+
 <a id="s33--distribute-and-safely-update-the-versioned-integration"></a>
 
 ## 38. S33 · Distribute and safely update the versioned integration
 
 Update and remove the installed integration while preserving project-authored work. [Story criteria](./specs/spec-driven-authoring/spec.md#s33--distribute-and-safely-update-the-versioned-integration)
 
-- [ ] 38.1 [W53](#w53--maintain-and-upgrade-the-locked-openspec-dependency) (T056). Reproduce the locked install and inspect the Dependabot update path. Detect version drift and demonstrate owned-only update and recovery. After W47–W50, W58–W59 and the entries included in the release.
+- [x] 38.1 [W53](#w53--maintain-and-upgrade-the-locked-openspec-dependency) (T056). Reproduce the locked install and inspect the Dependabot update path. Detect version drift and demonstrate owned-only update and recovery. After W47–W50, W58–W59 and the entries included in the release.
 
 <a id="w53--distribute-and-safely-update-the-versioned-integration"></a>
 
@@ -2130,6 +2152,30 @@ Skill maintainer · R29/A29. [S33.1](./specs/spec-driven-authoring/spec.md#s33-1
 - **W53.2** Detect a manifest/lock/CLI mismatch, unsupported Node or incompatible changed schema/CLI before publishing compatibility. Preview the affected managed paths, preserve edited and foreign content, and demonstrate owned-only update/removal with the prior known-good package and lock available for recovery. Retain version, ownership and before/after evidence. Publishing, automerging or editing a user's global installation requires separate authority. <a id="w53-2"></a>
 
 `tools/openspec/package.json`, `tools/openspec/package-lock.json`, `.github/dependabot.yml`, installer and public usage guidance. [OpenSpec package manifest](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/package.json) · [OpenSpec CLI reference](https://openspec.dev/docs/cli)
+
+#### Verdicts
+
+Candidate: `bb16e21` on `implementation/ship-specdev` (runtime in `dbe847a`, guide in `334e2fc`).
+- **Pin:** The manifest is the single source of the pin. `scripts/openspec_runtime.py --check` compares it with the lockfile and the installed CLI, and the runtime refuses to run on a mismatch.
+- **Upgrade and recovery:** `--preview` and `--upgrade` keep the prior manifest and lockfile pair in `.previous` and restore it on failure. `--restore` and `--remove` touch only that pair and `node_modules`.
+- **Dependabot:** `.github/dependabot.yml` proposes npm updates for `/tools/openspec`.
+- **Documentation:** `docs/installation.md` documents all of this.
+
+Reviewer: implementing agent.
+
+- **W53.1 Met.**
+  - **Installed runtime:** In a disposable install of the candidate, `--status` ran `npm ci` and reported the local `node_modules/.bin/openspec`, OpenSpec 2.1.1, Node v22.23.5 and the lockfile. `--check` passed (pinned 2.1.1, installed 2.1.1).
+  - **Apply readback:** The native apply readback on this runtime is W63.1's task list.
+  - **Dependabot:** The config targets `npm` in `/tools/openspec`.
+  - **Representative proposal:** 2.1.1 is the latest release, so a 2.1.0 manifest and lockfile were generated with `npm install --package-lock-only`. `--preview` listed the two replaced files, the reinstalled `node_modules` and the kept `NOTES.md`.
+  - **Pin unchanged by a proposal:** It changes only through `--upgrade` on reviewed files.
+- **W53.2 Met.**
+  - **Mismatch:** With a mismatched manifest, `--check` reported all three disagreements, and `list` refused to run.
+  - **Edited content:** An edited pair blocked `--upgrade` with nothing changed.
+  - **Old Node:** Node v20.11.0 is reported as a prerequisite.
+  - **Upgrade and restore:** `--upgrade` moved to 2.1.0 and kept the prior pair. `--restore` reinstalled 2.1.1. `--remove` deleted only `node_modules`, leaving the manifest, lockfile, `.previous` and the maintainer's `NOTES.md`.
+  - **Tests:** `MaintenanceTests` covers the same cases.
+  - **Not done:** Nothing was published or auto-merged, and no global installation was edited.
 
 <a id="s39--find-instructions-for-a-feature-or-document-type-from-the-index-continued"></a>
 
