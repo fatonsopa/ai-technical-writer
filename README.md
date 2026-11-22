@@ -18,28 +18,29 @@ If the policy says only managers may approve refunds, the draft keeps that rule.
 
 ## How SpecDev and OpenSpec work together
 
-For the refund example above, you could ask SpecDev for a support runbook and finish there. If you wanted to change how the product handles refunds, the planned integration would use the project’s OpenSpec files. SpecDev would write the agreed refund rule and how to check it. OpenSpec would keep that work with the change and show which tasks remain.
+For a change to refund approvals, OpenSpec keeps the proposal, rules, design and tasks together and shows which tasks remain. With the planned integration, you’ll use SpecDev to write the refund rule and explain how to check it in those same files. If all you need is a support runbook, you can write it on its own.
 
-A checkmark shows which tool does the work. **Planned** marks upcoming SpecDev features.
+Read down each tool’s rows for the usual order. You can request, edit or review a document whenever you need it. A checkmark shows who does the work. **Planned** marks upcoming SpecDev features.
 
 | What you want to do | OpenSpec | SpecDev |
 | --- | :---: | :---: |
-| [Define a feature](references/product_requirements_document.md) for your team. Say who needs it, what should change and how you’ll know it helped. | | ✓ |
-| [Work through a rough brief](workflows/discover.md). Use answers already in your code or docs and settle the open questions together. | | ✓ |
-| [Break a feature into work someone can take on](references/user_story.md). Give each story an outcome and each [task](references/task.md) a clear check. A small fix can stand alone. | | ✓ |
-| [Explain a technical decision](references/decision_record.md), [draw how the parts fit together](docs/writing.md#explain-a-flow-with-controlled-colors-and-background), or [agree on what two services exchange](references/interface_contract.md). | | ✓ |
-| [Plan a test](references/test_specification.md) and [report what it actually showed](references/test_completion_report.md), including anything still unverified. | | ✓ |
-| Write the [runbook](references/how_to_guide.md) an operator needs, the [tutorial](references/tutorial.md) a newcomer can follow, or the [instructions](references/agents_and_skills.md) an AI assistant should follow. | | ✓ |
-| [Review a draft](docs/writing.md#review-a-document) and see which passages conflict with the source. [Edit just one passage](docs/writing.md#make-a-focused-edit) or [rewrite the document](docs/writing.md#rewrite-while-preserving-obligations) while keeping its rules and exceptions. | | ✓ |
-| [Check the document you receive](docs/writing.md#check-the-result). See whether the reviewed version meets your requirements and whether a decision is still open. | | ✓ |
-| Decide which part of an idea to build first. Use a [product brief or capability map](#supported-document-types) to set priorities. Keep [interview answers and research](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#seven-authoring-cases-and-hierarchy-acceptance) when they explain the choice. | | ✓ Planned |
-| Work out where to test a feature and what a user should see. Use a [feature map](#supported-document-types) to find the screen, a critical journey to describe the steps, and a requirements checklist to spot missing rules. | | ✓ Planned |
-| [Ask for a document by command](#supported-document-types), or [ask which document to write next](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s24-1) and why it would help. | | ✓ Planned |
-| [Use the same writing style in an OpenSpec change](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#a33b) while keeping the project’s headings, checkboxes and numbering. | | ✓ Planned |
+| Use the standard templates or [choose your own for the project](openspec/changes/ship-specdev/design.md#reuse-the-upstream-implementation). | ✓ | |
 | [Start a change](https://openspec.dev/docs/cli), find one already underway and see what’s ready to work on. | ✓ | |
 | [Keep the proposal, requirements, design and task list together](#core-document-flow) and check that the change includes what the project requires. | ✓ | |
 | [Work through approved tasks](#where-tasksmd-fits), see what remains and archive the finished change into the project’s specs. | ✓ | |
-| [Choose the documents and templates your project uses for changes](openspec/changes/ship-specdev/design.md#reuse-the-upstream-implementation). | ✓ | |
+| [Work through a rough brief](workflows/discover.md). Use answers already in your code or docs and settle the open questions together. | | ✓ |
+| Decide which part of an idea to build first. Use a [product brief or capability map](#supported-document-types) to set priorities. Keep [interview answers and research](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#seven-authoring-cases-and-hierarchy-acceptance) when they explain the choice. | | ✓ Planned |
+| [Define a feature](references/product_requirements_document.md) for your team. Say who needs it, what should change and how you’ll know it helped. | | ✓ |
+| [Explain a technical decision](references/decision_record.md), [draw how the parts fit together](docs/writing.md#explain-a-flow-with-controlled-colors-and-background), or [agree on what two services exchange](references/interface_contract.md). | | ✓ |
+| Work out where to test a feature and what a user should see. Use a [feature map](#supported-document-types) to find the screen, a critical journey to describe the steps, and a requirements checklist to spot missing rules. | | ✓ Planned |
+| [Break a feature into work someone can take on](references/user_story.md). Give each story an outcome and each [task](references/task.md) a clear check. A small fix can stand alone. | | ✓ |
+| [Plan how to check the work](references/test_specification.md). Describe the starting conditions, action and expected result. | | ✓ |
+| After testing, [report what passed, what failed and what still needs checking](references/test_completion_report.md). | | ✓ |
+| [Ask for a document by command](#supported-document-types), or [ask which document to write next](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s24-1) and why it would help. | | ✓ Planned |
+| [Use the same writing style in an OpenSpec change](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#a33b) while keeping the project’s headings, checkboxes and numbering. | | ✓ Planned |
+| Write the [runbook](references/how_to_guide.md) an operator needs, the [tutorial](references/tutorial.md) a newcomer can follow, or the [instructions](references/agents_and_skills.md) an AI assistant should follow. | | ✓ |
+| [Review a draft](docs/writing.md#review-a-document) and see which passages conflict with the source. [Edit just one passage](docs/writing.md#make-a-focused-edit) or [rewrite the document](docs/writing.md#rewrite-while-preserving-obligations) while keeping its rules and exceptions. | | ✓ |
+| [Check the document you receive](docs/writing.md#check-the-result). See whether the reviewed version meets your requirements and whether a decision is still open. | | ✓ |
 
 ## Document flow
 
