@@ -1,4 +1,4 @@
-# Technical Writer comparative audit
+# Spec Writer comparative audit
 
 **Updated scope.** The owner requires all seven source-backed artifacts and project-independent authorship. F5 and F14–F19 own the seven artifact gaps individually. F9 corrects authorship. F10–F13 distinguish vague acceptance wording, a missing child example, session instructions and an unnecessary check. F20 owns the public document sequence. F21 owns the choice of which levels a particular improvement needs. F22 owns evidence and authority for asking or deciding. Each finding has an epic in the implementation plan.
 
@@ -162,6 +162,8 @@ Use the current initiative, its governing sources, approved requirements, parent
 
 Compared the full tracked tree at [a4d5712](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/README.md) with Technical Writer at [4a8e7c9](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/SKILL.md) and the separately identified approved plan. Inventoried 1,069 paths, including 308 under src, 397 under tests and 132 under docs. Examined writing-relevant guides, the five root document templates, all nine core commands, representative source and tests, and bundled workflows and extensions. This is a repository-wide capability audit by static inspection. It does not qualify every line, third-party catalog entry, installer or runtime on either host.
 
+The table records the earlier comparison for the standalone writing skill. F28–F33 below add the subsequently approved optional toolkit. Its execution provider owns the implementation workflow.
+
 | Area | What to borrow and where it belongs | Sources |
 | --- | --- | --- |
 | README and methodology | Adopt in W42. Lead with a developer’s decision, its output and one worked behavior. W29 owns the full chronology. Keep software implementation with the implementing agent. | [Source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/README.md#choose-your-process) · [Related evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/spec-driven.md#core-principles) |
@@ -200,13 +202,49 @@ finding: The Interface Contract guide names the provider, consumers, version and
 
 recommendation: For independently released components, identify the authoritative source and immutable revision, the consumer’s copy or pin, and the evidence for deployed compatibility when claimed. Resolve disagreements at the owner. Leave deployment support unknown when there is no observation. See the approved F27 epic and W45 in the implementation plan.
 
+### F28 · Approved · Keep existing users working through the Spec Writer rename
+
+finding: The shipped name, discovery and examples use Technical Writer. Skill Builder also requires that literal dependency identity. A metadata-only rename can break both discovery and document acceptance. [Source](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/install_skill.py)
+
+recommendation: Ship Spec Writer with one writing implementation and a compatible legacy entry, after Skill Builder accepts both identities. See W46.
+
+### F29 · Approved · Start a checked feature in a Spec Kit project
+
+finding: Standalone host shortcuts establish a document type. They do not by themselves establish an initialized Spec Kit project, its active feature or the effective project override. [Source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/extensions/developing.md)
+
+recommendation: Provide an optional namespaced integration that reaches the same checked authoring route on both hosts. See W47.
+
+### F30 · Approved · Give the implementing agent the complete task contract
+
+finding: Spec Kit reads a phased tasks.md. Our Issue holds the bounded task and its acceptance. Matching filenames or an Issue link alone cannot establish what the downstream agent actually receives. [Source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/implement.md#L143-L153)
+
+recommendation: Provide a scoped task view that binds the Issue, requirement, criterion and feature revision to the upstream-readable entry. See W48.
+
+### F31 · Approved · Verify and resume one authorized implementation
+
+finding: An authored task or checked box establishes intent or progress. It does not establish a dispatched provider, an observed candidate or the state of an interrupted write. [Source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/workflows/overview.md#run-review-and-resume)
+
+recommendation: Use the selected provider’s existing execution and resume contract, keep observed proof with the originating criterion, and report unexpected scope for decision. See W49, W50.
+
+### F32 · Approved · Route an idea or bug to the right Spec Kit workflow
+
+finding: The approved writing routes describe relevant outputs. The optional upstream assessment and bug workflows also need a handoff that preserves their distinct starting points and authority. [Source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/guides/assessment.md)
+
+recommendation: Connect the existing brief, decision, bug and Issue formats to independent intake routes. Keep a bounded repair small. See W51, W52.
+
+### F33 · Approved · Maintain a versioned Spec Kit integration
+
+finding: The standalone installer preserves an existing destination. The optional ecosystem integration also needs a declared compatible upstream version, identifiable managed components and a safe upgrade or removal path. [Source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/bundles/overview.md)
+
+recommendation: Ship a versioned integration with documented compatibility, ownership and recovery. Assemble a bundle only when the chosen components can be resolved. See W53.
+
 ## Product direction for a complete spec-driven toolkit
 
-**Decision requested.** Ship the writing skill as an independent product for Codex and Claude. Offer GitHub Spec Kit as an optional way to take its documents through implementation and verification in a project. A team can still use the writer alone, or give the same approved work to Mirai. Revision 10 only authorizes the writing improvements. The product choices here need separate approval.
+**Approved direction.** The owner approved the optional Spec Kit integration and the skill name **Spec Writer** (`spec-writer`). Claude implements the live rename on the handoff computer. The existing GitHub repository and clone URL remain the integration target. Spec Writer remains usable without Spec Kit. Use upstream Spec Kit where the project selects it. Mirai can also consume the authorized work.
 
 A developer changing a refund flow should be able to start in an existing repository, specify who may issue a refund, settle one unanswered decision, hand an approved task to a coding agent, and see whether the observed result satisfies the original criterion. The same person should be able to return the next day and find the feature, pending decision and last verified result. The missing product capability is this connected path. Adding more Markdown formats alone would leave the handoff unresolved.
 
-| Stage | Proposed capability | Smallest release that would justify the claim |
+| Stage | Approved capability | Smallest release that would justify the claim |
 | --- | --- | --- |
 | 1. Install and select the project | Use the upstream project initializer and host integrations in toolkit mode. Add namespaced writing commands through an extension. Use a preset only if a core writing command or template must change. Keep a plain skill install available. | A developer starts one checked feature spec from an existing project on each supported host. The project rule and selected feature resolve correctly; an existing user-edited file survives repeat setup. Inspect the contributing template or command when an override wins. [Existing-project setup](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/existing-projects.md) [Extension commands](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/extensions/developing.md) [Preset precedence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/presets/overview.md) [Inspect active artifacts](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/overview/artifacts.md) |
 | 2. Connect the documents | Give the active feature one discoverable workspace. Keep one editable owner for each requirement and task. Present the spec, plan and an upstream-readable task list at the paths the chosen consumer reads. Carry stable Issue and criterion IDs across the boundary. | For the refund feature, the real consumer recovers the allowed actor, child task and its denied-permission check. Show exactly where that consumer reads them. A second feature with the same short task ID cannot supply the answer. An edited source or stale generated view is reported before dispatch. [Task conventions](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/tasks.md) [Implementation consumer](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/implement.md#L143-L153) [Convergence inputs and writes](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/converge.md#L59-L83) |
@@ -218,11 +256,11 @@ A developer changing a refund flow should be able to start in an existing reposi
 
 **Longer-term ownership.** A standalone replacement for Spec Kit would put initialization, host command rendering, workflow state and recovery, version compatibility, upgrades and integration support on this project’s maintainers. That investment makes sense if a required workflow cannot run on upstream, or independent distribution without the upstream runtime becomes a product requirement. The existing writer already gives teams independent document authoring. A catalog, MCP service, GitHub issue publisher and agent fleet are separate investments with different consumers. Mirai already has a delivery workflow. A project using it should have one owner for any given execution. [Available extension points](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/customization.md) [Mirai’s delivery scope](https://github.com/jetmirhaxhisefa/mirai/blob/ddd183a3728d3fdd9f776755de47d4d314c8925c/README.md)
 
-### Proposed skill name
+### Approved skill name
 
-**Spec-Driven Writer** (skill ID `spec-driven-writer`). “Spec-driven” tells the developer how the work is organized. “Writer” covers the existing product documents, designs, issues, reviews and other technical writing. The name works across projects. Use **Spec-Driven Writer for GitHub Spec Kit** for the optional integration. The skill, GitHub repository, Spec Kit extension ID and document shortcuts are separate interfaces. Decide the skill name now; renaming the GitHub repository or publishing a catalog entry would be separate actions.
+Use **Spec Writer** and the canonical skill ID `spec-writer`. Name the optional integration **Spec Writer for GitHub Spec Kit**. Technical Writer and `technical-writer` identify the audited predecessor and the supported legacy invocation. Preserve historical source paths, receipts and dependency keys. Publish the new identity from the existing repository.
 
-**Migration if approved.** Skill Builder looks for a folder named `technical-writer` and requires the exact same value in the skill frontmatter. A folder rename can break automatic discovery. A new frontmatter name fails the identity check even with an explicit path. A shell alias cannot fix that dependency. First release a backward-compatible Skill Builder resolver which validates either supported identity and retains its existing file and snapshot checks. Then release the new canonical skill with a supported legacy invocation on each host and one owner for the writing guidance. Keep the existing request key and environment variable usable. Compare a fresh install, an existing install using the old invocation, and one real Skill Builder document validation. Protect an unrelated pre-existing command. A change of dependency identity during an in-flight run must follow the existing recovery rules. These are proposed release criteria. The current package identity and the GitHub repository name are still in use. [Skill Builder dependency resolver](https://github.com/fatonsopa/ai-skill-builder/blob/ae394124929e99ea8650fb95578f081ce0930734/scripts/runtime/technical_writer.py#L18-L32)
+**Migration order.** Skill Builder B5/T50 adds compatible dependency discovery and validation. Spec Writer F28/W46 then ships the new identity with the legacy invocation. Use explicit path precedence, preserve collision protections and verify a real document with the accepted Builder. The owner assigned the live change to Claude’s handoff. [Current dependency resolver](https://github.com/fatonsopa/ai-skill-builder/blob/ae394124929e99ea8650fb95578f081ce0930734/scripts/runtime/technical_writer.py#L18-L32)
 
 ## Lauren Tan’s practices and the Mirai boundary
 

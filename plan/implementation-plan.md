@@ -1,10 +1,10 @@
-# Technical Writer implementation plan
+# Spec Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 10. The [behavioral specification, revision 10](./specification.md) owns the requirements. The [audit](./audit.md) owns the twenty-seven approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 11. The [behavioral specification, revision 11](./specification.md) owns the requirements. The [audit](./audit.md) owns the thirty-three approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
-Deliver one local Technical Writer candidate that can author complete specification-driven documents for any project and pass meaningful requirements from one document to the next. Mirai is one source of examples and facts. Technical Writer owns document structure and authoring. A project owner approves product decisions and any application change. Confirm or reconcile the audited skill baseline `4a8e7c92e20404f05e68708c1a3ea26c6961b178` before freezing implementation scope.
+Deliver one local Spec Writer candidate that can author complete specification-driven documents for any project and pass meaningful requirements from one document to the next. Mirai is one source of examples and facts. Technical Writer owns document structure and authoring. A project owner approves product decisions and any application change. Confirm or reconcile the audited skill baseline `4a8e7c92e20404f05e68708c1a3ea26c6961b178` before freezing implementation scope.
 
 ## Current context and approach
 
@@ -21,6 +21,8 @@ The owner approved the work order, scope and local integration authority. Start 
 See the governing specification’s template mapping for shortcuts, task breakdown and reviews. Implement W35 before W36–W37. W40 and W41 reuse the relevant approved writing and review routes. W38 precedes W39. Coordinate their host demonstrations with W17.
 
 ## Work sequence
+
+Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 serves its authoritative task, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
 
 Use the accepted Skill Builder candidate from its implementation plan. Begin with W01 and W03 to get a literal and a source reference through a real consumer. W20 makes the parent chain usable. The seven document routes can then draw on one initiative’s source packet: where intent is unknown, use W12 before W09; W10 precedes dependent feature specifications; W13 precedes design that depends on its research; W05 precedes W06; W04 reviews a drafted specification. Other stories may proceed once their named inputs and shared interfaces are settled. The order below groups by finding for lookup. W24 uses the W20 parent contract. W25 precedes W26. W30 and W31 settle the selection rules before W29 publishes the sequence after its linked routes exist. W32 precedes W33, then W34 applies the route across the catalog. W43 uses W32–W34, W44 follows W40/W41, and W45 uses the existing Interface Contract route. W17 is the final integrated host check and reuses these assignment inputs where applicable. Plan-level A10 requires all seven outputs and their consumer observations. Each has one owning epic and task. All epic, story and task implementation verdicts are currently **Not demonstrated**.
 
@@ -2069,6 +2071,398 @@ Parent: S27. Supports S27.1 and F27.1. R23/A23. Responsible role: skill maintain
 
 One commit ships the guidance with the affected example and any necessary route adjustment. Apply the shared Definition of Done. Initially Not demonstrated. Retain each criterion verdict, evidence and candidate in the task.
 
+### F28 · Keep existing users working through the Spec Writer rename
+
+As a developer, I want to invoke Spec Writer from a new or existing installation, so that my writing workflow survives the rename.
+
+#### Acceptance criteria
+
+- **F28.1** Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. Use the integrated readback at S28.1.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: skill maintainer. Child: S28. R24/A24. [Evidence](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/install_skill.py)
+
+#### S28 · Release the Spec Writer identity and legacy entry
+
+As a developer, I want to invoke Spec Writer from a new or existing installation, so that my writing workflow survives the rename.
+
+##### Acceptance criteria
+
+- **S28.1** Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. Preserve observed failures and identify the candidate for each verdict.
+
+##### Scope and sources
+
+Parent: F28. Owner role: skill maintainer. W46 support S28.1. Use task evidence for the story when it proves the integrated outcome.
+
+##### W46 · Release the Spec Writer identity and legacy entry
+
+###### Description
+
+The shipped name, discovery and examples use Technical Writer. Skill Builder also requires that literal dependency identity. A metadata-only rename can break both discovery and document acceptance.
+
+###### Expected outcome
+
+A new installation advertises Spec Writer with skill ID `spec-writer`. A previously supported invocation still reaches its writing workflow.
+
+###### Scope
+
+Canonical metadata, host entry points, installer, public README examples and existing aliases. Preserve historical receipt identifiers, the repository URL and user-owned destinations.
+
+###### Specification
+
+Parent: S28. Supports S28.1 and F28.1. R24/A24. Owner role: skill maintainer. Requires accepted Skill Builder B5/T50; coordinate host evidence with W17 and shortcut ownership with W35–W37.
+
+###### Acceptance criteria
+
+- **W46.1** On Codex and Claude Code, discover the new canonical skill and complete a checked writing request. On the existing-install path, invoke the former name and bind its result to the same writer. Keep one observed invocation per changed host path and reuse W17 when it proves that path.
+- **W46.2** On a machine with an unrelated `spec-writer` installation, setup reports the collision and preserves it. Run one real Builder document validation against the renamed release with the accepted B5 resolver; retain the package revision and receipt.
+
+###### Relevant files
+
+SKILL.md, README.md and scripts/install_skill.py; Skill Builder scripts/runtime/technical_writer.py. [Evidence](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/install_skill.py)
+
+###### Additional context
+
+Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
+
+### F29 · Start a checked feature in a Spec Kit project
+
+As a developer adopting the toolkit, I want the writing command to use the intended project and feature, so that it records my change under the right rules.
+
+#### Acceptance criteria
+
+- **F29.1** From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. Use the integrated readback at S29.1.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: skill maintainer. Child: S29. R25/A25. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/extensions/developing.md)
+
+#### S29 · Start one feature through an optional Spec Kit extension
+
+As a developer adopting the toolkit, I want the writing command to use the intended project and feature, so that it records my change under the right rules.
+
+##### Acceptance criteria
+
+- **S29.1** From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. Preserve observed failures and identify the candidate for each verdict.
+
+##### Scope and sources
+
+Parent: F29. Owner role: skill maintainer. W47 support S29.1. Use task evidence for the story when it proves the integrated outcome.
+
+##### W47 · Start one feature through an optional Spec Kit extension
+
+###### Description
+
+Standalone host shortcuts establish a document type. They do not by themselves establish an initialized Spec Kit project, its active feature or the effective project override.
+
+###### Expected outcome
+
+The selected feature in an existing project receives a checked behavioral specification through a namespaced writing command.
+
+###### Scope
+
+Use upstream initialization and host integration. Read the active project and effective rule. Reuse the canonical writer; keep Spec Kit optional for standalone writing.
+
+###### Specification
+
+Parent: S29. Supports S29.1 and F29.1. R25/A25. Owner role: skill maintainer. Requires W46 and the checked behavioral-spec route. Use the upstream revision identified in the audit as the starting compatibility reference.
+
+###### Acceptance criteria
+
+- **W47.1** Initialize or reuse an existing project, select its refund feature, and issue a writing request on each target host. Capture the resulting checked feature path, project rule and command actually invoked. The existing standalone skill also accepts an ordinary request without Spec Kit; reuse W46 for this.
+- **W47.2** Repeat setup with an edited feature document and two possible feature contexts. Preserve the edited document. Use an explicit selection or request the one missing choice; no write reaches the sibling feature.
+
+###### Relevant files
+
+scripts/install_skill.py and the behavioral-spec reference; upstream docs/extensions/developing.md and docs/presets/overview.md. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/extensions/developing.md)
+
+###### Additional context
+
+Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
+
+### F30 · Give the implementing agent the complete task contract
+
+As an implementer, I want the active feature’s task entry to carry the original criterion, so that I can implement it without the authoring conversation.
+
+#### Acceptance criteria
+
+- **F30.1** With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Use the integrated readback at S30.1.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: skill maintainer. Child: S30. R26/A26. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/implement.md#L143-L153)
+
+#### S30 · Present one Issue in the upstream task format
+
+As an implementer, I want the active feature’s task entry to carry the original criterion, so that I can implement it without the authoring conversation.
+
+##### Acceptance criteria
+
+- **S30.1** With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Preserve observed failures and identify the candidate for each verdict.
+
+##### Scope and sources
+
+Parent: F30. Owner role: skill maintainer. W48 support S30.1. Use task evidence for the story when it proves the integrated outcome.
+
+##### W48 · Present one Issue in the upstream task format
+
+###### Description
+
+Spec Kit reads a phased tasks.md. Our Issue holds the bounded task and its acceptance. Matching filenames or an Issue link alone cannot establish what the downstream agent actually receives.
+
+###### Expected outcome
+
+The real upstream consumer receives the feature, stable Issue and criterion IDs, allowed actor, task scope and required proof from its supported inputs.
+
+###### Scope
+
+Use one editable Issue. Supply the feature spec, plan and task-list format consumed by the pinned integration. Track the source revision, task ID and checkbox progress without accepting behavior from the checkbox.
+
+###### Specification
+
+Parent: S30. Supports S30.1 and F30.1. R26/A26. Owner role: skill maintainer. Requires W47, W40 and W44. Prove actual consumption before designing more document commands.
+
+###### Acceptance criteria
+
+- **W48.1** Project an approved manager-only refund Issue into the selected feature. Observe the actual consumer extracting the scoped task and its denied-permission criterion from its normal inputs. Preserve the Issue as the editing authority.
+- **W48.2** Give a sibling feature the same short task ID; revise the selected Issue after generating the view. The consumer must not take the sibling task or dispatch the stale revision. Reconcile against the governing Issue, retaining existing acceptance evidence.
+
+###### Relevant files
+
+references/issue.md, references/implementation_plan.md; upstream templates/commands/tasks.md and templates/commands/implement.md. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/implement.md#L143-L153)
+
+###### Additional context
+
+Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
+
+### F31 · Verify and resume one authorized implementation
+
+As a developer, I want to hand one approved Issue to a coding agent and resume its verification, so that the verdict refers to the original task and the candidate actually run.
+
+#### Acceptance criteria
+
+- **F31.1** Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. Use the integrated readback at S31.1.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: skill maintainer. Child: S31. R27/A27. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/workflows/overview.md#run-review-and-resume)
+
+#### S31 · Verify and resume one authorized implementation
+
+As a developer, I want to hand one approved Issue to a coding agent and resume its verification, so that the verdict refers to the original task and the candidate actually run.
+
+##### Acceptance criteria
+
+- **S31.1** Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. Preserve observed failures and identify the candidate for each verdict.
+
+##### Scope and sources
+
+Parent: F31. Owner role: skill maintainer. W49, W50 support S31.1. Use task evidence for the story when it proves the integrated outcome.
+
+##### W49 · Hand one approved task to the selected implementation provider
+
+###### Description
+
+An authored task or checked box establishes intent or progress. It does not establish a dispatched provider, an observed candidate or the state of an interrupted write.
+
+###### Expected outcome
+
+One authorized coding session receives a bounded task and returns a verdict tied to its actual candidate and original criterion.
+
+###### Scope
+
+Connect Spec Kit’s implementation path in a disposable authorized project. In Mirai projects, preserve the project-selected owner and make the same packet available for its handoff. Product deployment or changes to Mirai are outside this task.
+
+###### Specification
+
+Parent: S31. Supports S31.1 and F31.1. R27/A27. Owner role: skill maintainer. Requires W48. Name the authority, provider and candidate in the task. No second provider may act on the same assignment.
+
+###### Acceptance criteria
+
+- **W49.1** Hand the manager-only refund Issue to the selected coding agent. Record the real dispatch and observed candidate. A candidate allowing an employee to refund fails the original denial criterion; retain the observed behavior and candidate.
+- **W49.2** Use scoped correction and the smallest discriminating check to observe the required denial on the corrected candidate. Keep the earlier failure. A checkbox or suggested out-of-scope enhancement cannot change the criterion or authorize new work.
+
+###### Relevant files
+
+Upstream templates/commands/implement.md, templates/commands/converge.md and workflows/speckit/workflow.yml; writer verification and handoff references. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/workflows/overview.md#run-review-and-resume)
+
+###### Additional context
+
+Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
+
+##### W50 · Resume the same task after an interrupted run
+
+###### Description
+
+An authored task or checked box establishes intent or progress. It does not establish a dispatched provider, an observed candidate or the state of an interrupted write.
+
+###### Expected outcome
+
+The developer can recover the last confirmed execution or evidence boundary without duplicate task effects.
+
+###### Scope
+
+Use the original run and provider status, revision and task bindings. Keep unresolved external effects uncertain until reconciled.
+
+###### Specification
+
+Parent: S31. Supports S31.1 and F31.1. R27/A27. Owner role: skill maintainer. Requires W49. Reuse its task packet and candidate evidence; interrupt only the boundary needed for this check.
+
+###### Acceptance criteria
+
+- **W50.1** Interrupt one authorized task before its outcome is recorded. Resume the same feature and run, recover the task, criterion and last observed candidate, and identify the next safe action from provider evidence.
+- **W50.2** When prior dispatch may have taken effect, consult available authoritative state. Preserve uncertainty if it cannot be resolved. Retain evidence that resumption caused no duplicate dispatch or application write.
+
+###### Relevant files
+
+Upstream docs/workflows/overview.md and docs/workflows/cli.md; existing writer recovery and evidence records. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/workflows/overview.md#run-review-and-resume)
+
+###### Additional context
+
+Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
+
+### F32 · Route an idea or bug to the right Spec Kit workflow
+
+As a project contributor, I want to enter with an uncertain idea or an observed defect, so that I receive the decision or repair record my situation needs.
+
+#### Acceptance criteria
+
+- **F32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Use the integrated readback at S32.1.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: skill maintainer. Child: S32. R28/A28. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/guides/assessment.md)
+
+#### S32 · Route an idea or bug to the right Spec Kit workflow
+
+As a project contributor, I want to enter with an uncertain idea or an observed defect, so that I receive the decision or repair record my situation needs.
+
+##### Acceptance criteria
+
+- **S32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Preserve observed failures and identify the candidate for each verdict.
+
+##### Scope and sources
+
+Parent: F32. Owner role: skill maintainer. W51, W52 support S32.1. Use task evidence for the story when it proves the integrated outcome.
+
+##### W51 · End idea assessment at a supported decision
+
+###### Description
+
+The approved writing routes describe relevant outputs. The optional upstream assessment and bug workflows also need a handoff that preserves their distinct starting points and authority.
+
+###### Expected outcome
+
+An unshaped idea produces a grounded brief, decision recommendation or focused question.
+
+###### Scope
+
+Adapt the optional idea assessment entry to existing formats and decision authority.
+
+###### Specification
+
+Parent: S32. Supports S32.1 and F32.1. R28/A28. Owner role: skill maintainer. Requires W47 and existing brief/interview routes. No coding or mandatory feature spec on intake.
+
+###### Acceptance criteria
+
+- **W51.1** Supply an idea with a consequential evidence gap. The assessment names that gap, identifies who can decide and recommends clarification or stopping. Preserve source and output.
+- **W51.2** On a supported decision to proceed, identify the next document and its benefit. A recommendation alone cannot create a task or dispatch an implementation.
+
+###### Relevant files
+
+Upstream workflows/assess/workflow.yml; existing decision record, interview and brief routes. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/guides/assessment.md)
+
+###### Additional context
+
+Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
+
+##### W52 · Turn a reported defect into one bounded repair
+
+###### Description
+
+The approved writing routes describe relevant outputs. The optional upstream assessment and bug workflows also need a handoff that preserves their distinct starting points and authority.
+
+###### Expected outcome
+
+A defect reaches a source-grounded bug report or independent repair Issue with its expected observable check.
+
+###### Scope
+
+Use the optional bug route and the project’s established parent rules. Separate observed symptom, expected behavior and unconfirmed cause.
+
+###### Specification
+
+Parent: S32. Supports S32.1 and F32.1. R28/A28. Owner role: skill maintainer. Requires W47 and W30–W31. Reuse the existing bug and Issue authoring routes.
+
+###### Acceptance criteria
+
+- **W52.1** Given one observed save failure with a known expected outcome, produce a repair record with the observation, the expected result and the smallest check that distinguishes them.
+- **W52.2** Given only a suspected cause, keep it provisional. A bounded independent repair needs no fabricated story or PRD and writing it cannot authorize execution.
+
+###### Relevant files
+
+references/bug_report.md and references/issue.md; upstream workflows/bugfix/workflow.yml. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/guides/assessment.md)
+
+###### Additional context
+
+Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
+
+### F33 · Maintain a versioned Spec Kit integration
+
+As a maintainer, I want to install, inspect, upgrade and remove the integration, so that I can adopt it without losing project documents.
+
+#### Acceptance criteria
+
+- **F33.1** Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. Use the integrated readback at S33.1.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: skill maintainer. Child: S33. R29/A29. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/bundles/overview.md)
+
+#### S33 · Distribute and safely update the versioned integration
+
+As a maintainer, I want to install, inspect, upgrade and remove the integration, so that I can adopt it without losing project documents.
+
+##### Acceptance criteria
+
+- **S33.1** Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. Preserve observed failures and identify the candidate for each verdict.
+
+##### Scope and sources
+
+Parent: F33. Owner role: skill maintainer. W53 support S33.1. Use task evidence for the story when it proves the integrated outcome.
+
+##### W53 · Distribute and safely update the versioned integration
+
+###### Description
+
+The standalone installer preserves an existing destination. The optional ecosystem integration also needs a declared compatible upstream version, identifiable managed components and a safe upgrade or removal path.
+
+###### Expected outcome
+
+A team can install a versioned artifact, see what won resolution, update owned components and remove them safely.
+
+###### Scope
+
+Create a testable local release and user instructions. Use an upstream bundle only if it adds value and components resolve. External registry submission and remote release are separate actions.
+
+###### Specification
+
+Parent: S33. Supports S33.1 and F33.1. R29/A29. Owner role: skill maintainer. Requires the connected W47–W50 path and the entry points included in the release. Reuse earlier host observations for unchanged behavior.
+
+###### Acceptance criteria
+
+- **W53.1** Install the release against its declared upstream version. Inspect the active command or template source, upgrade from the prior supported package and remove the owned integration. The working feature document and another command remain available.
+- **W53.2** Supply an incompatible upstream version or a conflicting user-edited component. Identify the constraint and preserve user content. Retain the observed version, ownership decision and before/after paths; no registry publish is necessary.
+
+###### Relevant files
+
+Upstream docs/bundles/overview.md, docs/overview/artifacts.md and docs/upgrade.md; installer and public usage documentation. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/bundles/overview.md)
+
+###### Additional context
+
+Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
+
 ## Requirement coverage
 
 | Requirement and proof | Owning work | Evidence used at closure |
@@ -2093,6 +2487,12 @@ One commit ships the guidance with the affected example and any necessary route 
 | R21 / A21 | F25 → S25 → W43 | Maintained rule versus a frozen launch snapshot, then a conflict with no governing decision. |
 | R22 / A22 | F26 → S26 → W44 | Return.code versus Order.code, a misattributed field in review, and an unrelated prose Issue. |
 | R23 / A23 | F27 → S27 → W45 | Versioned owner definition, divergent consumer copy and a pin without deployed-provider evidence. |
+| R24 / A24 | F28 → S28 → W46 | Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. |
+| R25 / A25 | F29 → S29 → W47 | From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. |
+| R26 / A26 | F30 → S30 → W48 | With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. |
+| R27 / A27 | F31 → S31 → W49, W50 | Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. |
+| R28 / A28 | F32 → S32 → W51, W52 | An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. |
+| R29 / A29 | F33 → S33 → W53 | Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. |
 | R18 / A18 | F22 → S22 → W32, W33, W34 | Same export route, two requests, actual question counts, answer binding, review and readiness verdicts. |
 | R16 / A16 | F20 → S20 → W29, W42 | Worked WEB-06 trace before setup and two reader routes from the `README.md` file and resolved guide links. |
 | R11 / A11 | F2 → S02 → W20 and W11 | Real parent links, broken edges and justified standalone work. |
@@ -2119,10 +2519,8 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-Revision 10 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+Revision 11 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 
 Append out-of-scope discoveries here with their source, observed effect, proposed change, impact of deferral and any task actually blocked. Only an explicit owner decision can add them to implementation scope.
-
-**Product direction and skill name.** The owner requested a recommendation on a full spec-driven toolkit and a new skill name. The [product recommendation](./audit.md#product-direction-for-a-complete-spec-driven-toolkit) proposes an optional Spec Kit integration and the name Spec-Driven Writer. Neither decision blocks W01–W45. Implement only the 45 approved tasks. A product expansion or rename requires its own accepted scope before implementation.

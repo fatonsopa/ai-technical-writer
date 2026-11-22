@@ -1,10 +1,12 @@
-# Technical Writer improvement specification
+# Spec Writer improvement specification
 
-Status: Approved behavioral scope, revision 10. Applies to Codex and Claude Code. [Audit](./audit.md)
+Status: Approved behavioral scope, revision 11. Applies to Codex and Claude Code. [Audit](./audit.md)
 
 ## Purpose and scope
 
-A person should be able to decide what they are approving, and an implementer should be able to recover the agreed behavior and its proof without the original conversation. This specification proposes changes to Technical Writer’s guidance, examples and affected checks. The target is the existing skill. Technical Writer authors every requested specification-driven artifact in full, including the Product Requirements Document (PRD), behavioral specification, design, decisions, plans, stories, issues and verification documents. Mirai and other projects supply evidence and consume the results. Deployment, external tracker writes and publication require separate authority.
+A person should be able to decide what they are approving, and an implementer should be able to recover the agreed behavior and its proof without the original conversation. This specification proposes changes to Technical Writer’s guidance, examples and affected checks. The target is the existing skill, released as Spec Writer after the compatibility migration. Technical Writer authors every requested specification-driven artifact in full, including the Product Requirements Document (PRD), behavioral specification, design, decisions, plans, stories, issues and verification documents. Mirai and other projects supply evidence and consume the results. Deployment, external tracker writes and publication require separate authority.
+
+The owner approved the optional Spec Kit integration and the skill name **Spec Writer** (`spec-writer`). Claude implements the live rename on the handoff computer. The existing GitHub repository and clone URL remain the integration target. Spec Writer remains usable without Spec Kit. Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 serves its authoritative task, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
 
 ## Definitions
 
@@ -44,6 +46,12 @@ An **owning source** is the project-approved location and revision for a claim. 
 | R21 | For a change to a delivered feature, identify the active source under the project’s maintenance policy and distinguish historic delivery evidence. Resolve a material authority conflict before settling the affected requirement. |
 | R22 | For a task that implements a constrained field, bind the exact field to its authoritative definition. Check the resulting Issue for missing or misattributed constraints in scope. |
 | R23 | For independently released providers and consumers, distinguish the authoritative contract revision, the consumer’s supported or pinned version, and the evidence for actual runtime compatibility. |
+| R24 | Ship Spec Writer with one writing implementation and a compatible legacy entry, after Skill Builder accepts both identities. |
+| R25 | Provide an optional namespaced integration that reaches the same checked authoring route on both hosts. |
+| R26 | Provide a scoped task view that binds the Issue, requirement, criterion and feature revision to the upstream-readable entry. |
+| R27 | Use the selected provider’s existing execution and resume contract, keep observed proof with the originating criterion, and report unexpected scope for decision. |
+| R28 | Connect the existing brief, decision, bug and Issue formats to independent intake routes. Keep a bounded repair small. |
+| R29 | Ship a versioned integration with documented compatibility, ownership and recovery. Assemble a bundle only when the chosen components can be resolved. |
 
 ## Production order
 
@@ -88,7 +96,7 @@ Use Technical Writer’s document references and output contracts for form. Pres
 
 ## Acceptance criteria
 
-These are proposed release criteria. The inputs and expected distinctions below precede implementation. Exact prose, host UI and choice of supported command syntax may vary without changing the verdict.
+These are the approved release criteria. The inputs and expected distinctions below precede implementation. Exact prose, host UI and choice of supported command syntax may vary without changing the verdict.
 
 | ID | Starting state and action | Required observable result and safe boundary | Required proof |
 | --- | --- | --- | --- |
@@ -144,9 +152,23 @@ Use the same task evidence at the requirement, story and epic when it proves the
 - **A22 · R22 (F26, W44).** When a task implements a constrained field, link its exact owner and field, preserve relevant semantics and flag uncovered or misattributed fields when reviewing the requested scope. Reuse the project’s schema, Interface Contract or Low Level Design as appropriate. From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available.
 - **A23 · R23 (F27, W45).** For independently released components, identify the authoritative source and immutable revision, the consumer’s copy or pin, and the evidence for deployed compatibility when claimed. Resolve disagreements at the owner. Leave deployment support unknown when there is no observation. Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change.
 
+**A24 · R24.** F28/S28. Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. Use W46 for the required proof.
+
+**A25 · R25.** F29/S29. From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. Use W47 for the required proof.
+
+**A26 · R26.** F30/S30. With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Use W48 for the required proof.
+
+**A27 · R27.** F31/S31. Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. Use W49, W50 for the required proof.
+
+**A28 · R28.** F32/S32. An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Use W51, W52 for the required proof.
+
+**A29 · R29.** F33/S33. Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. Use W53 for the required proof.
+
 ## Open decisions
 
-**D4.** The owner approved F25–F27 under R21–R23. The broader toolkit and skill name are product proposals outside this baseline.
+**D5.** The owner approved the optional Spec Kit integration and the skill name **Spec Writer** (`spec-writer`). Claude implements the live rename on the handoff computer. The existing GitHub repository and clone URL remain the integration target. Spec Writer remains usable without Spec Kit. Implement the approved five toolkit stages within R25–R29. R24 owns the rename.
+
+**D4.** The owner approved F25–F27 under R21–R23. The subsequent D5 decision adds the toolkit and selects its canonical identity.
 
 **D3.** The owner approved R19–R20, their short handoff wording and host-specific entries. Implement the adopted Spec Kit structures within Technical Writer’s owning forms as set out in the template mapping.
 
