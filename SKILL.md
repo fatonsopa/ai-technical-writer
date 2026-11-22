@@ -64,6 +64,14 @@ Apply the reference's principles, structure, template and checks. For creation/s
 
 For an independent document, integrations take document structure and reusable templates from this skill's references and output contracts. In a native OpenSpec change, OpenSpec supplies the behavior, design and task formats; SpecDev writes into them and applies its writing guidance and checks. Applications supply verified facts and use the checked-writing workflow; they must not maintain separate hardcoded document templates. Bind approved content to its exact skill version so a template update preserves historical approvals and records. To write a project's document, start from its facts, decisions and prior requirements, even into an empty destination, and use this skill's reference and contract for the structure. A project's own or legacy template is source evidence, not a prerequisite. If the consuming application needs a different format, report the conflicting field at that application's interface instead of changing the reviewed document.
 
+### Suggest the next document
+
+For `/specdev next` (Codex: `$specdev next`), `guide` or a question such as "what should I write next", start from the user's goal or the named artifact. Read the current initiative, its sources and their revisions, and `openspec status` for a selected change. Then answer in one line: the one eligible document, the specific gap it fills and what it gives the reader. Suggesting creates no file and changes nothing, so asking again gives the same answer.
+
+- If two initiatives fit and the evidence can't settle which one, ask only that.
+- For a blocked child, name the missing prerequisite instead of a document.
+- When the delivered, checked document already covers the request, say the documentation is complete. Examples are a standalone fix with sufficient acceptance, or a checked native `tasks.md`. Suggest a separate Task only when separately owned scope or evidence calls for it. Implementation needs its own authority.
+
 ## OpenSpec projects
 
 SpecDev carries its own pinned OpenSpec CLI. Run every OpenSpec command through `scripts/openspec_runtime.py --project ROOT VERB [ARGS]` with this skill's Python environment. The script installs the locked dependency on first use, checks Node.js 22.20.0 or later and reports a missing prerequisite with the last confirmed state.
