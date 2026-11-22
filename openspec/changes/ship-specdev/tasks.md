@@ -963,7 +963,7 @@ Candidate: the W27 commit on `implementation/ship-specdev`. The `SKILL.md` entry
 
 Reach the intended writing route from a normal request on the identified host. [Story criteria](./specs/spec-driven-authoring/spec.md#s08--follow-the-portable-entry-without-grader-hints)
 
-- [ ] 20.1 [W16](#w16--put-task-routing-before-optional-diagram-detail) (T027). Route abbreviated and full-name requests to the same owner. From the portable entry, locate the short-edit path and accessible diagram source.
+- [x] 20.1 [W16](#w16--put-task-routing-before-optional-diagram-detail) (T027). Route abbreviated and full-name requests to the same owner. From the portable entry, locate the short-edit path and accessible diagram source.
 
 ### W16 · Put task routing before optional diagram detail
 
@@ -987,6 +987,13 @@ Skill-entry maintainer · R7/A7. [S08.1](./specs/spec-driven-authoring/spec.md#s
 [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/SKILL.md) · [references/writing_style.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/writing_style.md) · [scripts/writing_style_contract.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/writing_style_contract.py) · [scripts/test_document_names.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/test_document_names.py)
 
 Verify the changed navigation and parser once. Word count alone cannot prove the route works for users.
+
+#### Verdicts
+
+Candidate: the W16 commit on `implementation/ship-specdev`. The full relationship view, with its image, explanation table and Mermaid source, moved from `SKILL.md` to `docs/document-relationships.md`. The entry keeps its routing catalog, which the naming parser reads, plus a one-line link to the view. Reviewer: a fresh-context agent following the entry, checked by the implementing agent.
+
+- **W16.1 Met.** `writing_style_contract.py names` still reads 35 labels from the entry and maps `PRD` to "Product Requirements Document (PRD)". The agent routed "Draft a PRD" and then "the scope section of our existing Product Requirements Document" to the same `references/product_requirements_document.md`. It did not ask the user to restate the document.
+- **W16.2 Met.** From `SKILL.md`, the agent found the narrow edit and review instructions. It followed the link to the moved view and reported its title, the accessible title "Development documentation workflow" with its description, and the Mermaid source block. Integrity and link checks pass on the moved content.
 
 <a id="s21--route-an-improvement-from-its-actual-scope"></a>
 
