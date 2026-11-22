@@ -74,6 +74,14 @@ For `/specdev next` (Codex: `$specdev next`), `guide` or a question such as "wha
 - For a blocked child, name the missing prerequisite instead of a document.
 - When the delivered, checked document already covers the request, say the documentation is complete. Examples are a standalone fix with sufficient acceptance, or a checked native `tasks.md`. Suggest a separate Task only when separately owned scope or evidence calls for it. Implementation needs its own authority.
 
+### Assess an idea
+
+For an unshaped idea, answer with a grounded assessment, a decision recommendation or one focused question; no OpenSpec change is needed. Use the [Product Brief (PB)](references/product_brief.md), [Discovery Interview Record (DIR)](references/discovery_interview.md) or [Decision Record (DR)](references/decision_record.md) route when the user asks for a document. If the request selects a native `explore` operation, use that instead.
+
+- Name each gap in the evidence that would change the decision, who can close or decide it (for example, the CFO for cost), and whether to clarify first or stop.
+- When the sources show a supported decision to proceed, name who decided, then name the next document by its catalog name and what it gives the reader.
+- A recommendation creates no task and dispatches no implementation.
+
 ## OpenSpec projects
 
 SpecDev carries its own pinned OpenSpec CLI. Run every OpenSpec command through `scripts/openspec_runtime.py --project ROOT VERB [ARGS]` with this skill's Python environment. The script installs the locked dependency on first use, checks Node.js 22.20.0 or later and reports a missing prerequisite with the last confirmed state.
