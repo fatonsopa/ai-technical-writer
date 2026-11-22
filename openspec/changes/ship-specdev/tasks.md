@@ -1342,6 +1342,13 @@ Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md
 
 [scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json)
 
+#### Verdicts
+
+Candidate: `e5d8a14` on `implementation/ship-specdev`. `scripts/shortcuts.py` reads the README's supported-document table and installs only the commands a user names. Each shortcut is a small skill that hands the request to `specdev` with that document selected. The installer skips an occupied name, reports its `doc` form and removes only its own entries. Reviewer: implementing agent.
+
+- **W35.1 Met.** In a real Claude Code session (`claude-opus-5-5`, project skill links), the opted-in `/dr` shortcut was offered beside `specdev`. It invoked the `specdev` skill, which wrote `decision.md` from the supplied facts and passed the `decision` contract. It kept the owner's choice pending and recommended option B. The catalog resolves all 39 documents (41 commands with aliases) through the same table. Without opt-in, no shortcut folders exist, and W46's Claude Code run used the full-name `/specdev` request. Regression: `ShortcutTests`.
+- **W35.2 Met.** Reinstalling `dr` kept one entry. An occupied name, `task`, held by a foreign skill, was skipped and reported with the working alternative `$specdev doc task`. Removal deleted only the shortcuts setup wrote and left the foreign skill intact.
+
 - [x] 26.2 [W36](#w36--launch-the-same-documents-in-codex) (T038). Exercise a real Codex entry and inspect the brief, destination and checked result. Resolve the remaining aliases and verify owned-only removal. After W35.
 
 ### W36 · Launch the same documents in Codex
@@ -1365,6 +1372,13 @@ Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md
 
 [scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json)
 
+#### Verdicts
+
+Candidate: `e5d8a14`. Codex discovers skills in `~/.agents/skills` as `$name`, so the same shortcut skills give Codex its short spelling. This Codex build shows no custom-prompt support. Reviewer: implementing agent.
+
+- **W36.1 Met.** In a real Codex run (`gpt-6.2-sol`, medium, isolated home), `$dr` loaded `specdev/SKILL.md` and wrote `decision.md` from the facts, keeping WEB-09 and the pending choice. The document passes the `decision` contract, and the trace shows the skill's structure check.
+- **W36.2 Met.** With `task` occupied by a foreign skill, `$specdev doc task` reached the same writer and produced a Feature task that passes the `task_feature` contract, and the foreign skill was unchanged. The Codex install and removal boundary is covered by `ShortcutTests`, which share the collision checks with Claude Code.
+
 - [x] 26.3 [W37](#w37--expose-the-authorable-document-catalog) (T039). Compare the complete qualified catalog to its owning contracts. Resolve an occupied shortcut and verify a review request preserves its source. After W35 and W36.
 
 ### W37 · Expose the authorable document catalog
@@ -1387,23 +1401,6 @@ Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md
 - **W37.2** A settled behavior request selects the governing specification route. A standalone document request uses its own format. Review of an existing artifact preserves the original and returns the requested findings. Inspect the selected contract and output in each case. <a id="w37-2"></a>
 
 [scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json) · [README.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/README.md)
-
-
-#### Verdicts
-
-Candidate: `e5d8a14` on `implementation/ship-specdev`. `scripts/shortcuts.py` reads the README's supported-document table and installs only the commands a user names. Each shortcut is a small skill that hands the request to `specdev` with that document selected. The installer skips an occupied name, reports its `doc` form and removes only its own entries. Reviewer: implementing agent.
-
-- **W35.1 Met.** In a real Claude Code session (`claude-opus-5-5`, project skill links), the opted-in `/dr` shortcut was offered beside `specdev`. It invoked the `specdev` skill, which wrote `decision.md` from the supplied facts and passed the `decision` contract. It kept the owner's choice pending and recommended option B. The catalog resolves all 39 documents (41 commands with aliases) through the same table. Without opt-in, no shortcut folders exist, and W46's Claude Code run used the full-name `/specdev` request. Regression: `ShortcutTests`.
-- **W35.2 Met.** Reinstalling `dr` kept one entry. An occupied name, `task`, held by a foreign skill, was skipped and reported with the working alternative `$specdev doc task`. Removal deleted only the shortcuts setup wrote and left the foreign skill intact.
-
-
-#### Verdicts
-
-Candidate: `e5d8a14`. Codex discovers skills in `~/.agents/skills` as `$name`, so the same shortcut skills give Codex its short spelling. This Codex build shows no custom-prompt support. Reviewer: implementing agent.
-
-- **W36.1 Met.** In a real Codex run (`gpt-6.2-sol`, medium, isolated home), `$dr` loaded `specdev/SKILL.md` and wrote `decision.md` from the facts, keeping WEB-09 and the pending choice. The document passes the `decision` contract, and the trace shows the skill's structure check.
-- **W36.2 Met.** With `task` occupied by a foreign skill, `$specdev doc task` reached the same writer and produced a Feature task that passes the `task_feature` contract, and the foreign skill was unchanged. The Codex install and removal boundary is covered by `ShortcutTests`, which share the collision checks with Claude Code.
-
 
 #### Verdicts
 
