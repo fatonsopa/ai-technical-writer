@@ -747,7 +747,7 @@ Candidate: the W24 commit on `implementation/ship-specdev`. `examples/task_faile
 
 Use the source to decide whether one missing answer changes the requirement. [Story criteria](./specs/spec-driven-authoring/spec.md#s06--carry-discovery-evidence-into-the-next-authoring-decision)
 
-- [ ] 16.1 [W28](#w28--ask-the-question-that-changes-the-requirement) (T021). Ask about the unresolved delay, then use the answer in the criterion. A settled request must proceed without another question.
+- [x] 16.1 [W28](#w28--ask-the-question-that-changes-the-requirement) (T021). Ask about the unresolved delay, then use the answer in the criterion. A settled request must proceed without another question.
 
 ### W28 · Ask the question that changes the requirement
 
@@ -771,6 +771,13 @@ Discovery maintainer · R5/A5. [S06.1](./specs/spec-driven-authoring/spec.md#s06
 [Discovery](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md) · [Interview-me](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/interview-me/SKILL.md#L53-L90) · [Grilling](https://github.com/mattpocock/skills/blob/abeeaf95660ba9e8b7c753eb38f441ca707a8823/skills/productivity/grilling/SKILL.md)
 
 One commit ships the guidance and its worked contrast.
+
+#### Verdicts
+
+Candidate: the W28 commit on `implementation/ship-specdev`. `workflows/discover.md` now carries the worked contrast: ask one question that separates the two review delays, use the answer, and write directly when the request already settles it. Performers were fresh-context agents following the installed skill. Reviewer: implementing agent.
+
+- **W28.1 Met.** For "make reviews faster" with no delay named, the first reply explained the two delays from the specification and asked which one to shorten. Given the owner's answer, "the time admins spend assigning categories" with no target, the criterion lets an administrator assign one category to several Review rows in one action. It keeps WEB-05, WEB-07, WEB-09 and WEB-10 behavior and records the missing target as open.
+- **W28.2 Met.** With the delay and acceptance already in the request ("no time target yet"), the second performer wrote the criterion without asking again and left the target open. It listed two optional scope questions without blocking on them.
 
 <a id="s12--act-on-a-handoff-and-resolve-a-misunderstood-role"></a>
 
