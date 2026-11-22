@@ -2181,7 +2181,7 @@ Reviewer: implementing agent.
 
 ## 39. S39 · Find instructions for a feature or document type from the index (continued)
 
-- [ ] 39.1 [W61](#w61--complete-index-coverage-for-the-existing-release) (T057). Check every released index destination against its intended instructions. Reuse valid focused-edit evidence and verify that review preserves its source. After W54, on the identified release.
+- [x] 39.1 [W61](#w61--complete-index-coverage-for-the-existing-release) (T057). Check every released index destination against its intended instructions. Reuse valid focused-edit evidence and verify that review preserves its source. After W54, on the identified release.
 
 ### W61 · Complete index coverage for the existing release
 
@@ -2201,6 +2201,21 @@ Documentation maintainer · R35/A35. [S39.1](./specs/spec-driven-authoring/spec.
 
 - **W61.1** Compare the feature index and the document table in `README.md` with the released catalog and output contracts, grouping the six kinds of Task under one document. Show one requirement and a diagram as things a writer can add to a document. Require exactly three document columns: command, linked document title with its abbreviation in parentheses, and plain-language purpose and use. Confirm the core chart has only the four native documents and the expanded chart distinguishes optional paths. Every node must show just the table title and abbreviation. Identify native OpenSpec files. Write the handoff README for the completed release. At publication, include only formats verified for that release. Check that each link opens at reader instructions. Put longer user guides in `docs/` and use the existing specification for requirements. A link into implementation acceptance criteria cannot serve as a usage guide. For a chore Task, a link to “Task types and titles” can pass when it identifies the chore’s inputs and the Task guide gives the expected result. An absent type or a link that leaves the reader searching fails. Retain the candidate, coverage differences and their disposition. <a id="w61-1"></a>
 - **W61.2** Reuse W54’s focused-edit evidence and open the review entry on the same release. The review guidance returns located findings and preserves the reviewed document. Distinct, useful headings in one file pass. A broken heading or a link to the focused-edit instructions fails even when the file exists. Retain the observed destinations. Recheck only changed links or uncovered entries. <a id="w61-2"></a>
+
+#### Verdicts
+
+Release candidate: `9dae08e` on `implementation/ship-specdev`. Reviewer: implementing agent.
+
+- **W61.1 Met.** I compared the README's feature index and document table with the released catalog (`scripts/shortcuts.py list`) and `contracts/documents.json`.
+  - **Table:** It keeps exactly three columns: command, linked title with its abbreviation, and purpose and use. One `/task` row covers the six Task kinds.
+  - **Names:** The four non-canonical titles were corrected in the table and both charts, clearing the README's four writing-style findings. They are Spec Driven Development document (SDD), High Level Document (HLD), Low Level Design (LLD) and Repository readme (README).
+  - **Additions:** Individual Requirement (REQ) and Diagram (VIS) moved out of the table into "You can also add these to any document", and out of the expanded chart. Their commands still resolve (`ShortcutTests`).
+  - **Charts:** The core chart has only the four native documents. The expanded chart keeps solid core arrows and dotted optional paths, and every node shows only a table title and abbreviation.
+  - **Native files:** A sentence names the four native OpenSpec files.
+  - **Coverage gap:** This release's new runtime maintenance procedure now has an index link (`docs/installation.md#maintain-the-openspec-runtime`).
+  - **Links:** `validate_skill.py` reports no errors, so every link and anchor resolves. Its existing README size warning remains.
+  - **Formats:** Only formats with contracts or native routes in this candidate are listed.
+- **W61.2 Met.** The index's review link opens `docs/writing.md#review-a-document`, the review instructions rather than the focused-edit section. Those instructions say a review returns findings tied to the sources and doesn't overwrite the reviewed document. W41's runs observed this behavior on both hosts: located findings, with the reviewed packet unchanged. The focused-edit evidence is reused from W54, and no other links changed.
 
 `README.md`, `SKILL.md`, `contracts/documents.json`, the public index and the existing pages or sections it links to.
 
