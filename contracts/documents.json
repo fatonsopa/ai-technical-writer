@@ -232,6 +232,14 @@
       "format": "document",
       "sections": [
         {
+          "id": "Decision needed",
+          "level": 2,
+          "labels": [
+            "Decision needed"
+          ],
+          "required": false
+        },
+        {
           "id": "Problem and users",
           "level": 2,
           "labels": [

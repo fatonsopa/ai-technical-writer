@@ -14,6 +14,8 @@ A Product Requirements Document (PRD) explains the product problem, intended use
 
 Identify status and source/decision authority when known; then problem, users, goals, scope, capabilities, success criteria, assumptions, dependencies, open decisions, and related specifications. Match detail to the initiative; a product brief may be enough before discovery is complete.
 
+When the document asks an owner to approve something, such as including a capability in a release, open with a short "Decision needed" section. Write the detail first, then summarize it in that opening so the opening can't claim more than the detail supports. In a few sentences, name the affected users, the proposed change, what stays excluded, the actual choice and who makes it, and the main tradeoff with its source. A working prototype shows the change is feasible; it doesn't approve it, so the opening keeps inclusion pending until the owner decides. Leave out this section when no approval is pending, and don't add cost or budget figures nobody supplied.
+
 Follow [discovery](../workflows/discover.md) to establish the problem and scope before discussing design. Use [Visual Guidance (VG)](visuals.md) for a journey map only when channels, time and user experience need explanation; link detailed user flows or wireflows from Spec Driven Development document (SDD). A short user scenario can be sufficient without a visual.
 
 ## Template
@@ -22,6 +24,8 @@ Follow [discovery](../workflows/discover.md) to establish the problem and scope 
 # [Product or major feature]
 Status/source: [Known status and supporting evidence]
 
+## Decision needed
+[Only when approval is pending: affected users, proposed change, exclusion, the choice and who decides, sourced tradeoff.]
 ## Problem and users
 [Current difficulty, affected users, evidence]
 ## Goals and success criteria

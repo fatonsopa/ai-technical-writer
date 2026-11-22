@@ -266,7 +266,7 @@ Candidate: the W12/W09 commit on `implementation/ship-specdev`. The new `referen
 
 Have a reader recover the decision and distinguish prototype evidence from approval. [Story criteria](./specs/spec-driven-authoring/spec.md#s04--distinguish-a-prototype-from-approval-to-include-it)
 
-- [ ] 6.1 [W07](#w07--write-the-approval-opening-from-the-detailed-product-evidence) (T008). Write the approval opening. Its reader must identify the user, proposed change, exclusion and pending choice from the detailed evidence.
+- [x] 6.1 [W07](#w07--write-the-approval-opening-from-the-detailed-product-evidence) (T008). Write the approval opening. Its reader must identify the user, proposed change, exclusion and pending choice from the detailed evidence.
 
 ### W07 · Write the approval opening from the detailed product evidence
 
@@ -291,7 +291,14 @@ Product-guidance maintainer · R4/A4. [S04.1](./specs/spec-driven-authoring/spec
 
 Keep the opening and detailed baseline. No invented cost, budget or new executive summary for a routine task.
 
-- [ ] 6.2 [W08](#w08--judge-the-readers-decision-against-the-owning-detail) (T009). Check the opening with an independent reader. Reject a wrong decision backed by a real quote and accept equivalent correct wording. After W07.
+#### Verdicts
+
+Candidate: the W07/W08 commit on `implementation/ship-specdev`. `references/product_requirements_document.md` now teaches an optional "Decision needed" opening, used only when approval is pending and written after the detail. The contract accepts the section, and the example opens with the pending Reason-filter decision. Reviewer: implementing agent, with W08's cold reader.
+
+- **W07.1 Met.** A reader given only the opening named the affected administrators, the Reason filter, the exclusion and the open decision with its owner. Each matches the example's detail: the scope section lists "adding a Reason filter" outside the release, and the decisions section keeps it for later.
+- **W07.2 Met.** The opening calls the staging prototype evidence that the filter is feasible and states that the filter stays outside the release until the product owner decides. The baseline and its detail are unchanged, and no cost or budget is added.
+
+- [x] 6.2 [W08](#w08--judge-the-readers-decision-against-the-owning-detail) (T009). Check the opening with an independent reader. Reject a wrong decision backed by a real quote and accept equivalent correct wording. After W07.
 
 ### W08 · Judge the reader’s decision against the owning detail
 
@@ -315,6 +322,13 @@ Evaluation maintainer · R4/A4. [S04.1](./specs/spec-driven-authoring/spec.md#s0
 [workflows/improve_references.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/improve_references.md) · [evals/grades.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/evals/grades.py) · [references/decision_record.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/decision_record.md)
 
 One cold read for the representative material decision. Reuse it at release; no reader run on every document.
+
+#### Verdicts
+
+Candidate: the W07/W08 commit on `implementation/ship-specdev`. `workflows/improve_references.md` now carries the cold-reader task and its review guidance; the reader's task contains no expected answers. Reviewers: a fresh-context reader given only the opening, and a separate fresh-context reviewer applying the guidance.
+
+- **W08.1 Met.** The cold reader, given only W07's opening, identified all four elements with quotations. The comparison with the detail, kept with the private run evidence, found each one correct.
+- **W08.2 Met.** The reviewer rejected an answer that called the filter approved while quoting the opening's real prototype sentence. The reason given: the detail says the first release excludes the filter and the owner still decides. It accepted a differently worded answer that matched all four points.
 
 <a id="s09--create-a-projects-first-governed-documents-from-facts"></a>
 

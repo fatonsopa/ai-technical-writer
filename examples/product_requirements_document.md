@@ -4,6 +4,10 @@ Status: Approved product baseline for the first release
 Audience: Product, administration, engineering, and QA
 Related work: [Feature](task.md), [Spec Driven Development document (SDD)](spec_driven_development.md), [Implementation Plan (IP)](implementation_plan.md)
 
+## Decision needed
+
+Administrators reviewing parked websites can't narrow the Review tab by the reason a website needs attention. A Reason filter would let them work through one reason at a time. Engineering has a working prototype on staging data, which shows the filter is feasible with the existing reason values. The approved first release excludes this filter, and adding it would not change how websites are parked or which websites enter Review. The product owner decides whether to add the Reason filter to the first release or keep it for a later one. Adding it means another filter to specify and test before release; keeping it out leaves the approved baseline unchanged. Until the owner decides, the filter stays outside the release.
+
 ## Problem and users
 
 Administrators need a reliable way to find websites whose automated category confirmation has stopped and resolve them by hand. The current Websites page combines several needs in one list. An administrator can see a category without knowing whether automation is still working on it, has confirmed it, or has stopped trying. A website with no citation aggregate can also be absent from the list, even though it still needs attention.

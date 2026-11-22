@@ -21,6 +21,14 @@ Retain valid review of unchanged content and sources with its original scope and
 
 Repeat steps 3–6 while a concrete failure remains. After three unsuccessful attempts on the same unresolved problem, document what prevents verification and continue unaffected work. Do not invent evidence, weaken criteria, or claim completion for the affected requirement.
 
+## Check an approval opening with a cold reader
+
+When a document opens with a decision for an owner, such as the "Decision needed" section of a Product Requirements Document (PRD), check that a reader who sees only the opening can recover the choice. Run this once for a representative decision, not for every document.
+
+Give an independent reader only the opening text and this task: "From this text alone, name the people affected, the proposed change, what stays excluded, and the decision that is still open and who makes it. Quote the words you rely on." Don't give the reader the detailed sections, the expected answers or this review guidance.
+
+Then compare each answer with the document's detailed sections, which own the facts. Accept an answer that matches the detail, even when its wording differs. Reject an answer that contradicts the detail, even when it quotes real words from the opening. A quotation shows where the reader looked, not that the reader understood. In particular, a reader who concludes that a prototype means the change is approved has misread an inclusion that is still pending. If several readers misread the same point, revise the opening rather than the detail. Keep the opening, each reader response and the comparison with the detail as evidence.
+
 ## Scope repository tests
 
 During edits, preview and run only impacted checks:
