@@ -40,7 +40,7 @@ Status/source: [Draft/approved status, governing source, owner/version when know
 ## Requirement coverage
 | Requirement | Check and expected result |
 | --- | --- |
-| [ID] | [Concrete verification] |
+| [Story or requirement link] | [Criterion ID and link to its owner, plus the verification method or delivery gate. Keep the authoritative case and expected value at the owner.] |
 ## Rollout and recovery
 [Order, compatibility, monitoring, safe recovery]
 ## Risks and open decisions

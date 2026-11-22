@@ -72,7 +72,7 @@ Source: [Request, issue, or product decision]
 ## Acceptance criteria
 | Requirement | Check and expected result |
 | --- | --- |
-| REQ-01 | [Observable verification] |
+| REQ-01 | [Observable verification for a criterion this specification owns. If an existing Issue or story owns the same criterion, use its ID and link here. Leave its full acceptance scenario in its owning record.] |
 
 ## Open decisions
 [Question, consequence, and responsible decision-maker when known.]

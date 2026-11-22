@@ -112,12 +112,12 @@ Use the accepted Skill Builder candidate from its implementation plan. Begin wit
 | R21 / A21 | F25 → S25 → W43 | Maintained rule versus a frozen launch snapshot, then a conflict with no governing decision. |
 | R22 / A22 | F26 → S26 → W44 | Return.code versus Order.code, a misattributed field in review, and an unrelated prose Issue. |
 | R23 / A23 | F27 → S27 → W45 | Versioned owner definition, divergent consumer copy and a pin without deployed-provider evidence. |
-| R24 / A24 | F28 → S28 → W46 | Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. |
-| R25 / A25 | F29 → S29 → W47 | From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. |
-| R26 / A26 | F30 → S30 → W48 | With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. On the refund-status list, observe the parallel pair and the API prerequisite holding and releasing T004. |
-| R27 / A27 | F31 → S31 → W49, W50 | Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. |
-| R28 / A28 | F32 → S32 → W51, W52 | An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. |
-| R29 / A29 | F33 → S33 → W53 | Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. |
+| R24 / A24 | F28 → S28 → W46 | Use the [story acceptance and proof](./specification.md#s28-1). |
+| R25 / A25 | F29 → S29 → W47 | Use the [story acceptance and proof](./specification.md#s29-1). |
+| R26 / A26 | F30 → S30 → W48 | Use the [story acceptance and proof](./specification.md#s30-1). On the refund-status list, observe the parallel pair and the API prerequisite holding and releasing T004. |
+| R27 / A27 | F31 → S31 → W49, W50 | Use the [story acceptance and proof](./specification.md#s31-1). |
+| R28 / A28 | F32 → S32 → W51, W52 | Use the [story acceptance and proof](./specification.md#s32-1). |
+| R29 / A29 | F33 → S33 → W53 | Use the [story acceptance and proof](./specification.md#s33-1). |
 | R33 / A33 | F37 → S37 → W58, W59 | Catalog route comparison, checked tutorial at the public entry, task consuming the reviewed design, and refusal on a stale revision. |
 | R34 / A34 | F38 → S38 → W60 | Review the committed guide, its two reader situations and the sourced example. |
 | R35 / A35 | F39 → S39 → W54, W61 | Compare all released features and supported types with direct index destinations. Use focused editing, review and a chore Issue to check that a useful page or section answers the request. |

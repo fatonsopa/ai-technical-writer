@@ -341,7 +341,7 @@ As a product author, I want a usable discovery interview record, so that another
 
 #### Acceptance criteria
 
-- **F14.1** Brief or product author can distinguish an owner answer from a suggestion. A silent owner leaves the restatement open. Retain the output, the governing source and the consumer’s located evidence on the candidate. <a id="f14-1"></a>
+- **F14.1** Use the [S14.1 acceptance scenario](#s14-1) for the epic’s integrated check. <a id="f14-1"></a>
 
 #### Scope and sources
 
@@ -365,7 +365,7 @@ As a specification author, I want a usable capability map, so that I can specify
 
 #### Acceptance criteria
 
-- **F15.1** The spec author selects the intended capability. Independent capabilities can be parallel. A cycle is surfaced for resolution. Retain the output, the governing source and the consumer’s located evidence on the candidate. <a id="f15-1"></a>
+- **F15.1** Use the [S15.1 acceptance scenario](#s15-1) for the epic’s integrated check. <a id="f15-1"></a>
 
 #### Scope and sources
 
@@ -389,7 +389,7 @@ As a designer, I want a usable research record, so that I can distinguish eviden
 
 #### Acceptance criteria
 
-- **F16.1** Designer can cite the finding and identify who must decide. A study or working prototype cannot silently approve a choice. Retain the output, the governing source and the consumer’s located evidence on the candidate. <a id="f16-1"></a>
+- **F16.1** Use the [S16.1 acceptance scenario](#s16-1) for the epic’s integrated check. <a id="f16-1"></a>
 
 #### Scope and sources
 
@@ -413,7 +413,7 @@ As a verifier, I want a usable feature map, so that I can locate the feature a c
 
 #### Acceptance criteria
 
-- **F17.1** Journey author or verifier can locate the surface. A guessed route/handle or app launch alone cannot establish that it was reached. Retain the output, the governing source and the consumer’s located evidence on the candidate. <a id="f17-1"></a>
+- **F17.1** Use the [S17.1 acceptance scenario](#s17-1) for the epic’s integrated check. <a id="f17-1"></a>
 
 #### Scope and sources
 
@@ -437,7 +437,7 @@ As a verification author, I want a usable set of critical journeys, so that I ca
 
 #### Acceptance criteria
 
-- **F18.1** Verifier resolves each referenced surface and finds the named check. An unknown screen or unrun test cannot count as verified. Retain the output, the governing source and the consumer’s located evidence on the candidate. <a id="f18-1"></a>
+- **F18.1** Use the [S18.1 acceptance scenario](#s18-1) for the epic’s integrated check. <a id="f18-1"></a>
 
 #### Scope and sources
 
@@ -461,7 +461,7 @@ As a implementer, I want a usable requirements-quality checklist, so that I can 
 
 #### Acceptance criteria
 
-- **F19.1** Implementer sees whether scope, permission and observable proof are determinate. A checked box alone cannot establish implementation or test success. Retain the output, the governing source and the consumer’s located evidence on the candidate. <a id="f19-1"></a>
+- **F19.1** Use the [S19.1 acceptance scenario](#s19-1) for the epic’s integrated check. <a id="f19-1"></a>
 
 #### Scope and sources
 
@@ -561,7 +561,7 @@ As a developer, I want to give the document name and brief in one message, so th
 
 #### Acceptance criteria
 
-- **F23.1** Observe real host dispatch with the supplied brief and the intended checked document; verify an occupied name keeps its existing handler and the qualified entry remains usable. For a multi-task feature, use W40’s linked Issues and refund list to recover the first usable story and safe task order. <a id="f23-1"></a>
+- **F23.1** Use the [S23.1 acceptance scenario](#s23-1) for the epic’s integrated check. For a multi-task feature, use W40’s linked Issues and refund list to recover the first usable story and safe task order. <a id="f23-1"></a>
 
 #### Scope and sources
 
@@ -585,7 +585,7 @@ As a project owner, I want a short recommendation grounded in the initiative, so
 
 #### Acceptance criteria
 
-- **F24.1** For one feature, a blocked decision and a standalone fix, distinguish the eligible document, missing prerequisite and completed scope. Continuing creates one attributable successor and resumption reuses existing work. <a id="f24-1"></a>
+- **F24.1** Use the [S24.1 acceptance scenario](#s24-1) for the epic’s integrated check. <a id="f24-1"></a>
 
 #### Scope and sources
 
@@ -609,7 +609,7 @@ As a maintainer returning to a delivered feature, I want to find which agreement
 
 #### Acceptance criteria
 
-- **F25.1** At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior. <a id="f25-1"></a>
+- **F25.1** Use the [S25.1 acceptance scenario](#s25-1) for the epic’s integrated check. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior. <a id="f25-1"></a>
 
 #### Scope and sources
 
@@ -633,7 +633,7 @@ As an implementer reading an Issue, I want to trace a field constraint to its pr
 
 #### Acceptance criteria
 
-- **F26.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available. <a id="f26-1"></a>
+- **F26.1** Use the [S26.1 acceptance scenario](#s26-1) for the epic’s integrated check. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available. <a id="f26-1"></a>
 
 #### Scope and sources
 
@@ -657,7 +657,7 @@ As a developer integrating a consumer with a provider, I want to identify the go
 
 #### Acceptance criteria
 
-- **F27.1** Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change. <a id="f27-1"></a>
+- **F27.1** Use the [S27.1 acceptance scenario](#s27-1) for the epic’s integrated check. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change. <a id="f27-1"></a>
 
 #### Scope and sources
 
@@ -681,7 +681,7 @@ As a developer, I want to invoke Spec Writer from a new or existing installation
 
 #### Acceptance criteria
 
-- **F28.1** Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. Use the integrated readback at S28.1. <a id="f28-1"></a>
+- **F28.1** Use the [S28.1 acceptance scenario](#s28-1) for the epic’s integrated check. Use the integrated readback at S28.1. <a id="f28-1"></a>
 
 #### Scope and sources
 
@@ -705,7 +705,7 @@ As a developer adopting the toolkit, I want the writing command to use the inten
 
 #### Acceptance criteria
 
-- **F29.1** From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. Use the integrated readback at S29.1. <a id="f29-1"></a>
+- **F29.1** Use the [S29.1 acceptance scenario](#s29-1) for the epic’s integrated check. Use the integrated readback at S29.1. <a id="f29-1"></a>
 
 #### Scope and sources
 
@@ -729,7 +729,7 @@ As an implementer, I want the active feature’s task entry to carry the origina
 
 #### Acceptance criteria
 
-- **F30.1** With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Use the integrated readback at S30.1. Use W48.3 to show the actual consumer selects eligible work and observes the API dependency before offering the dashboard filter. <a id="f30-1"></a>
+- **F30.1** Use the [S30.1 acceptance scenario](#s30-1) for the epic’s integrated check. Use the integrated readback at S30.1. Use W48.3 to show the actual consumer selects eligible work and observes the API dependency before offering the dashboard filter. <a id="f30-1"></a>
 
 #### Scope and sources
 
@@ -753,7 +753,7 @@ As a developer, I want to hand one approved Issue to a coding agent and resume i
 
 #### Acceptance criteria
 
-- **F31.1** Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. Use the integrated readback at S31.1. <a id="f31-1"></a>
+- **F31.1** Use the [S31.1 acceptance scenario](#s31-1) for the epic’s integrated check. Use the integrated readback at S31.1. <a id="f31-1"></a>
 
 #### Scope and sources
 
@@ -777,7 +777,7 @@ As a project contributor, I want to enter with an uncertain idea or an observed 
 
 #### Acceptance criteria
 
-- **F32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Use the integrated readback at S32.1. <a id="f32-1"></a>
+- **F32.1** Use the [S32.1 acceptance scenario](#s32-1) for the epic’s integrated check. Use the integrated readback at S32.1. <a id="f32-1"></a>
 
 #### Scope and sources
 
@@ -801,7 +801,7 @@ As a maintainer, I want to install, inspect, upgrade and remove the integration,
 
 #### Acceptance criteria
 
-- **F33.1** Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. Use the integrated readback at S33.1. <a id="f33-1"></a>
+- **F33.1** Use the [S33.1 acceptance scenario](#s33-1) for the epic’s integrated check. Use the integrated readback at S33.1. <a id="f33-1"></a>
 
 #### Scope and sources
 
@@ -1117,7 +1117,7 @@ Each A10 case starts with source facts and a request for the named artifact thro
 
 **A18 · R18.** Use the two export requests with the same current staff-only route and compare the actual documents and public questions. (a) “Add CSV to the existing download; only the format changes” produces zero permission questions and preserves existing access. (b) “Let customers download their own reports,” with individual versus organization ownership unresolved, produces exactly one targeted ownership question before the dependent requirement becomes ready. Silence leaves the ownership open in a draft. A genuine answer bound to that question unblocks only the supported permission. Omitting the material topic blocks readiness. A cited passage saying permission is undecided cannot justify an administrator-only rule. Reuse those passages and verdicts for the negative cases. Check one missing owner-held fact without invented options, one delegated routine choice without an interview, a lightweight story or Issue, and the narrow-edit exception only where existing evidence is insufficient. Preserve historical receipts. Host-specific claims require an observed exchange on that host.
 
-**A19 · R19.** On their actual hosts, Claude Code’s /prd, /lld and /task and Codex CLI’s $prd, $lld and $task select the existing writing routes when available. Observe one actual checked artifact per host, mechanically resolve the rest of the catalog, and exercise a collision, repeat install and owned-only removal. The brief survives intact. The spec selector produces a behavior specification; task produces one Issue and tasks decomposes approved scope into applicable Issue records. Checklist and analyze have their distinct review outcomes. The host entries neither replace writing templates nor confer implementation authority. For the refund-status feature, W40’s output identifies the first shippable story, both independent demonstrations, the T001/T002 parallel pair and the T003 prerequisite for T004. Each row resolves to the corresponding Issue and criterion. A standalone fix stays in one Issue. From an ordinary feature request, recover story acceptance before opening the delivery plan. Follow the plan’s story reference and the task row to their owners. Reuse an existing Issue when supplied. With Markdown alone, accept a bounded record at the task without an external tracker. A second editable definition or an unresolved criterion fails for that task.
+**A19 · R19.** On their actual hosts, Claude Code’s /prd, /lld and /task and Codex CLI’s $prd, $lld and $task select the existing writing routes when available. Observe one actual checked artifact per host, mechanically resolve the rest of the catalog, and exercise a collision, repeat install and owned-only removal. The brief survives intact. The spec selector produces a behavior specification; task produces one Issue and tasks decomposes approved scope into applicable Issue records. Checklist and analyze have their distinct review outcomes. The host entries neither replace writing templates nor confer implementation authority. For the refund-status feature, W40’s output identifies the first shippable story, both independent demonstrations, the T001/T002 parallel pair and the T003 prerequisite for T004. Each row resolves to the corresponding Issue and criterion. A standalone fix stays in one Issue. From an ordinary feature request, recover story acceptance before opening the delivery plan. Follow the plan’s story reference and the task row to their owners. Reuse an existing Issue when supplied. With Markdown alone, accept a bounded record at the task without an external tracker. A second editable definition or an unresolved criterion fails for that task. A matching ID or link does not excuse a second editable copy of the case. For an existing owner, keep the case there and use a reference plus any distinct proof in the consuming document.
 
 **A20 · R20.** Given a reviewed feature, an unresolved dependency and a completed standalone fix, guide or next returns respectively one useful recommendation, one blocked decision, or completion. For example, “**Interface Contract (IC)** — agree on refund error codes so both clients handle failed refunds consistently.” The recommendation alone writes nothing. Continue produces one grounded document; repeating the same request after resumption cannot duplicate that result. A changed parent revision reopens only affected work. An unbound suggestion cannot alter the checked final message. For a settled multi-task plan with linked Issues ready, next names the feature task list. After its checked delivery, a writing-only request finishes. A request for one independent task routes directly to an Issue.
 
@@ -1229,7 +1229,7 @@ As a developer using Spec Writer for the first time, I want to choose a supporte
 
 #### Acceptance criteria
 
-- **F34.1** From the root README, a new reader chooses an existing-document request or the optional feature route, then identifies the input, output and next consumer for the complete refund example. Each advertised capability has a reachable entry on the identified release. Use S34.1 evidence on the candidate. <a id="f34-1"></a>
+- **F34.1** Use the [S34.1 acceptance scenario](#s34-1) for the epic’s integrated check. Use S34.1 evidence on the candidate. <a id="f34-1"></a>
 
 #### Scope and sources
 
@@ -1253,7 +1253,7 @@ As a maintainer, I want to see which command or template is active in this proje
 
 #### Acceptance criteria
 
-- **F35.1** From a project with one known override, locate its contribution and the lower layer with the native inventory; find the generated feature spec separately. Inspection leaves the project content unchanged. Use S35.1 evidence on the candidate. <a id="f35-1"></a>
+- **F35.1** Use the [S35.1 acceptance scenario](#s35-1) for the epic’s integrated check. Use S35.1 evidence on the candidate. <a id="f35-1"></a>
 
 #### Scope and sources
 
@@ -1277,7 +1277,7 @@ As a developer running the optional integration, I want to know when automation 
 
 #### Acceptance criteria
 
-- **F36.1** Use the shipped upstream workflow on the authorized feature. A spec verdict leaves the plan gate independent. After Implement, the operator closes against acceptance evidence and, if the user requests a broader review, runs Converge manually for that same feature and candidate. A remaining gap stays open until the underlying criterion is proved. Use S36.1 evidence on the candidate. <a id="f36-1"></a>
+- **F36.1** Use the [S36.1 acceptance scenario](#s36-1) for the epic’s integrated check. Use S36.1 evidence on the candidate. <a id="f36-1"></a>
 
 #### Scope and sources
 
