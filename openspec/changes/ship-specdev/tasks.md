@@ -2356,7 +2356,7 @@ Reviewer: implementing agent.
 
 Current `scripts/install_skill.py`, `scripts/requirements-lock.txt`, root `README.md` and the candidate’s release entry. Record the candidate, each verdict and its evidence in this Task. [Shared Definition of Done](design.md#requirement-coverage)
 
-- [ ] 42.2 [W65](#w65-task) (T062). Install with npm and refresh the same skill. After W64 and its accepted payload plus W53 for update recovery.
+- [x] 42.2 [W65](#w65-task) (T062). Install with npm and refresh the same skill. After W64 and its accepted payload plus W53 for update recovery.
 
 <a id="w65-task"></a>
 
@@ -2382,6 +2382,27 @@ Release maintainer · [S40](specs/spec-driven-authoring/spec.md#install-the-rele
 
 - **W65.1** Install the candidate `npm pack` tarball in an empty npm prefix. Run `specdev --version` from that prefix and `specdev host init --tools claude`. Verify the release revision and actual Claude Code invocation. Repeat setup and observe one owned entry. Reuse the first channel’s product evidence when the payload and interface match. <a id="w65-1"></a>
 - **W65.2** With a prior staged version, upgrade through the same channel and run `specdev host update`. Observe the new version at the selected host. Exercise a local edit at a managed destination and retain its content on conflict. Run the documented host removal and channel-specific uninstall in the disposable environment. Check that the other skill, project file and foreign entry survive. Record what each channel owns; reuse equivalent update and removal evidence. <a id="w65-2"></a>
+
+#### Verdicts
+
+Candidate: `38f39f6` on `implementation/ship-specdev`.
+- **Package:** The npm tarball `fatonsopa-specdev-0.1.0-rc.1.tgz` comes from `tools/release/build.py`, carrying the same payload as W64.
+- **Staged upgrade:** An `0.1.0-rc.2` label of the same revision.
+- **Not published:** Publishing requires release-owner authority.
+
+Reviewer: implementing agent.
+
+- **W65.1 Met.** In an empty npm prefix with an isolated home already holding a foreign skill and a project file:
+  - **Install and version:** `npm install -g` of the tarball, then `specdev --version` from the prefix, reported 0.1.0-rc.1, revision `38f39f61…`, with the launcher in `prefix/bin`.
+  - **Host setup:** `specdev host init --tools claude` installed `~/.claude/skills/specdev`, and repeating it reported `unchanged` with one owned entry.
+  - **Real invocation:** A Claude Code session (`claude-opus-5-5`) loaded that `specdev` and delivered a checked Explanation (EXP) with the exact delivery message.
+- **W65.2 Met.** Evidence is in `W65/lifecycle.txt`.
+  - **Upgrade:** `npm install -g` of rc.2 reported 0.1.0-rc.2.
+  - **Conflict:** With a local edit to the managed `SKILL.md`, `specdev host update` exited 3 naming the file. It kept the edit and left rc.1 recorded.
+  - **Update:** After the edit was resolved, update moved rc.1 → rc.2 and carried the foreign `notes.md`.
+  - **Removal:** `specdev host remove` deleted the owned files and kept only `notes.md`.
+  - **Uninstall:** `npm uninstall -g @fatonsopa/specdev` removed the package and launcher. The other skill, the project file and the foreign note survived, and the host state file was removed.
+  - **What each channel owns:** npm owns the package and launcher; host setup owns the files it recorded in `hosts.json`.
 
 #### Relevant files
 
