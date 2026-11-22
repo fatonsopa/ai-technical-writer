@@ -1514,7 +1514,7 @@ Candidate: `302f464` on `implementation/ship-specdev`. `scripts/openspec_runtime
 
 ## 29. S23 · Write the intended artifact from a short request (continued)
 
-- [ ] 29.1 [W40](#w40--write-native-numbered-tasks-for-a-selected-change) (T040). Replace the competing template and per-row Task rules. Inspect native task readback and check that the change produces one design and task list. Both refund status tasks can start together. The dashboard filter waits for the verified API filter. After W47, W35, W11 and W20.
+- [x] 29.1 [W40](#w40--write-native-numbered-tasks-for-a-selected-change) (T040). Replace the competing template and per-row Task rules. Inspect native task readback and check that the change produces one design and task list. Both refund status tasks can start together. The dashboard filter waits for the verified API filter. After W47, W35, W11 and W20.
 
 <a id="w40--write-the-feature-task-list-and-its-linked-tasks"></a>
 
@@ -1543,6 +1543,21 @@ Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md
 `references/task.md`, `references/implementation_plan.md`, the W47 CLI and its task consumer. [Native task template](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/schemas/spec-driven/templates/tasks.md) · [OpenSpec CLI reference](https://openspec.dev/docs/cli)
 
 Reuse the same authoring output for [W-PACKET and W-CONSUME](../../../plan/test.md#cases).
+
+#### Verdicts
+
+Candidate: `201fbe0` on `implementation/ship-specdev`. The rules that every document structure come from SpecDev and that every task row resolve a separate Task are retired in `SKILL.md`. The references for task, Implementation Plan (IP), Spec Driven Development document (SDD), High Level Document (HLD) and Low Level Design (LLD) now send a native change to its capability specification, one design and one `tasks.md`. `contracts/documents.json`, `scripts/document_contracts.py` and `scripts/validate_document.py` hold no task-list kind and no native-artifact selection, so they keep only the independent-document routes, legacy reads and receipt verification, unchanged. Reviewer: implementing agent, with a fresh-context performer for W40.2.
+
+- **W40.1 Met.** A refund change was set up with a reviewed proposal, the `refund-review` capability delta, a design and a sibling change.
+  - **Claude Code** (`claude-opus-5-5`) and **Codex** (`gpt-6.2-sol`) each wrote the single native `tasks.md` through `/specdev` or `$specdev`. Each numbered checkbox names its governing scenario and the evidence that completes it.
+  - **Native readback:** `openspec instructions apply` recognizes four items, and `openspec validate` passes on both.
+  - **Nothing extra:** No companion specification, design, plan or per-checkbox Task was created, and implementation wasn't started.
+  - **Contracts:** Original-format receipts are unaffected, because no contract or validator path changed.
+- **W40.2 Met.** A fresh performer given a standalone broken-link fix produced one `task_chore` that passes its contract. It added no `tasks.md`, setup phase or invented test. A child of the missing story RR-3 was held at the broken RR-3 → RR-3.2 edge, with nothing invented.
+- **W40.3 Met.**
+  - **Refund lists:** Both hosts' lists put dashboard 1.1 and CLI 1.2 in parallel against the settled `GET /refunds` contract and require the same-refund comparison before RR-2 ships. API filter 2.1 comes before dashboard 2.2, with the mixed-decision scenario as evidence. Each list links Tasks #81–#84 once without copying their criteria, and the Tasks are unchanged. The lists and readbacks are kept for W48.
+  - **Markdown-only W-PACKET (Codex):** It wrote one `docs/tasks.md` that links W01-1, W02-1 and W03-1 at their owners. It names W01 as the first usable result, has W02 wait for W01 and runs W03 alongside, and it created no fourth Task, tracker or new task file.
+  - **Failure kept with the evidence:** The first Codex attempt for both cases failed because the runner set `CODEX_HOME` inside the isolated home.
 
 - [ ] 29.2 [W41](#w41--route-quality-and-consistency-reviews) (T041). Review one vague criterion and one weakened permission. Locate each defect through the appropriate route and preserve candidate and source bytes. After W35, with the relevant review route.
 
