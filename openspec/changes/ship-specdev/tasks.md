@@ -152,7 +152,7 @@ Candidate: the W11 commit on `implementation/ship-specdev`. Reviewers: the imple
 
 ## 3. S01 · Edit a mixed passage without corrupting its fixture (continued)
 
-- [ ] 3.1 [W02](#w02--protect-literal-values-during-ordinary-edits) (T005). Edit the mixed passage. Compare literal fixture and quotation bytes, and accept valid alternative prose that preserves their meaning. After W01.
+- [x] 3.1 [W02](#w02--protect-literal-values-during-ordinary-edits) (T005). Edit the mixed passage. Compare literal fixture and quotation bytes, and accept valid alternative prose that preserves their meaning. After W01.
 
 ### W02 · Protect literal values during ordinary edits
 
@@ -176,6 +176,13 @@ Style maintainer · R1/A1. [S01.1](./specs/spec-driven-authoring/spec.md#s01-1) 
 [references/writing_style.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/writing_style.md) · [scripts/writing_style_contract.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/writing_style_contract.py) · [scripts/test_document_names.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/test_document_names.py)
 
 Use the W01 fixture as the counterexample. Stop when literal preservation and legitimate editing are both observed.
+
+#### Verdicts
+
+Candidate: the W02 commit on `implementation/ship-specdev`. Reviewer: implementing agent, comparing session checks and the consumer derivation with this Task and [S01.1](./specs/spec-driven-authoring/spec.md#s01-1). D1's first-use convention is now the rule in `references/writing_style.md` and in `writing_style_contract.py`'s naming check, which reports a bare name or acronym only before the first full "Name (ACRONYM)" use.
+
+- **W02.1 Met.** The mixed passage holds the `US` fixture row, a quotation and a genuine `[User Story (US)](user_story.md)` link. It was edited through `validate_document.py` (`edit`, `excerpt`) with the row and quotation declared as required literals. The session check passed with no findings. The row, quotation and label survive byte for byte, and the consumer still derives `__test_wrs-us.co.uk`.
+- **W02.2 Met.** A second, prose-only alternative also passed and derived the same domain. Expanding the key to `User Story (US)` failed the session check on the missing literal and made the consumer derive `__test_wrs-user story (us).co.uk`. Regressions: `test_first_use_expands_the_name_and_later_mentions_may_use_the_acronym` and `test_fixture_keys_and_quoted_bytes_keep_their_value_beside_a_document_label`.
 
 <a id="s14--use-the-discovery-interview-record-at-its-handoff"></a>
 

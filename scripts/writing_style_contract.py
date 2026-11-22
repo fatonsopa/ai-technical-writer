@@ -40,7 +40,11 @@ def document_name_findings(text, labels=None):
     visible = re.sub(r'https?://[^\s)>]+|[\w./-]+\.(?:md|json|py|mmd|svg|png|sql|yaml|yml)\b', mask, visible)
     visible = re.sub(r'"[^"\n]*"|“[^”\n]*”|^\s*>[^\n]*', mask, visible, flags=re.M)
     visible = re.sub(r'\bSDD(?=\s+(?:method|approach)\b)', mask, visible)
+    # D1: the first mention uses the full name and acronym; later mentions may use either.
+    first_use = {}
     for acronym, name in labels.items():
+        labelled = re.search(re.escape(name) + r'\s+\(' + re.escape(acronym) + r'\)', visible)
+        first_use[acronym] = labelled.start() if labelled else len(visible)
         visible = re.sub(re.escape(name) + r'\s+\(' + re.escape(acronym) + r'\)', mask, visible)
     findings = []
     for acronym, name in labels.items():
@@ -53,6 +57,8 @@ def document_name_findings(text, labels=None):
             continue
         matcher = re.compile(r'(?<!\w)(?:' + '|'.join(patterns) + r')(?!\w)')
         for match in matcher.finditer(visible):
+            if match.start() > first_use[acronym]:
+                continue
             findings.append({'line': visible.count('\n', 0, match.start()) + 1,
                              'text': match.group(), 'expected': name + ' (' + acronym + ')'})
     return sorted(findings, key=lambda row: (row['line'], row['text']))

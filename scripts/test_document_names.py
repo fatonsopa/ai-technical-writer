@@ -34,6 +34,17 @@ class DocumentNameTests(unittest.TestCase):
         self.assertEqual(style.document_name_findings('PRD and PRD.')[0]['expected'], 'Product Requirements Document (PRD)')
         self.assertEqual(len(style.document_name_findings('PRD and PRD.')), 2)
 
+    def test_first_use_expands_the_name_and_later_mentions_may_use_the_acronym(self):
+        self.assertEqual(style.document_name_findings('Write the Product Requirements Document (PRD).\nThe PRD then feeds the specification.'), [])
+        late = style.document_name_findings('Draft the PRD.\nThe Product Requirements Document (PRD) follows.')
+        self.assertEqual([(r['line'], r['text']) for r in late], [(1, 'PRD')])
+
+    def test_fixture_keys_and_quoted_bytes_keep_their_value_beside_a_document_label(self):
+        text = ('Assign C2 to U3 and US; the `US` row derives `__test_wrs-us.co.uk`.\n'
+                '| Key | Ending |\n| --- | --- |\n| US | co.uk |\n'
+                'The reviewer wrote "check the PRD first". Link the [User Story (US)](user_story.md) and the Product Requirements Document (PRD).\n')
+        self.assertEqual(style.document_name_findings(text), [])
+
     def test_literals_source_quotes_external_titles_and_method_context_are_preserved(self):
         text = '`PRD` and README.md\n```json\n{"PRD": "value"}\n```\n"PRD"\n> HLD is the quoted source title.\n[External PRD template](https://example.org/template)\nThe SDD method guides development.\n'
         self.assertEqual(style.document_name_findings(text), [])
