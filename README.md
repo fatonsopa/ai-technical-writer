@@ -1,12 +1,12 @@
 # SpecDev
 
-SpecDev helps product teams and developers agree on what to build before a coding agent starts work. Bring a feature idea, a bug, or a draft. The writer uses your project to answer what it can, works through the open decisions with you, and turns what you agree into requirements and tasks someone can check.
+SpecDev is being built on top of OpenSpec to help developers turn a feature idea into a change a coding agent can implement and a teammate can verify. OpenSpec keeps the proposal, requirements, design and tasks for each change together in your repository and tracks the work through implementation. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
 
-You can use the writing tools on their own today. The planned SpecDev release will also use OpenSpec, an open-source tool that keeps a software change’s proposal, requirements, design and tasks together in your project. You’ll work with SpecDev to write and review those files. OpenSpec will track the tasks as your coding agent works through them, so the agent builds from the same requirements your team reviewed. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
+SpecDev adds the tools to write and review what goes into those files. Give it a rough brief and it reads the relevant code and docs, asks about decisions they leave open, and spells out what the software should do and how to check it. It can also write the documents people need around a change, from a design decision for a developer to a runbook for the support team.
 
 ## Quick start
 
-Install the writing skill under its current name, **Technical Writer**. [Setup for Codex and Claude Code](docs/installation.md). In Codex, try this request. In Claude Code, use `/technical-writer` for the same request.
+The writing tools are available today as **Technical Writer**. The planned SpecDev integration will let you write directly into the OpenSpec files your coding agent uses. [Setup for Codex and Claude Code](docs/installation.md). In Codex, try this request. In Claude Code, use `/technical-writer` for the same request.
 
 > $technical-writer We want support to refund duplicate charges. Read our refund policy and draft the requirements. Flag anything we still need to decide.
 
