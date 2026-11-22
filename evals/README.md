@@ -104,7 +104,7 @@ Add representative positive cases, missing/invalid input, important exceptions, 
 
 ## Results and improvement
 
-Task success is accepted attempts divided by evaluated attempts. Coverage is evaluated attempts divided by planned attempts. Show counts with the percentages. With no evaluated attempts, success is unmeasured. Structural or malformed task outputs count as failures; pending reviews leave incomplete coverage. Critical failures block acceptance regardless of the average. These measurements describe selected tasks and versions, not universal accuracy.
+Report accepted, evaluated and planned attempts alongside their percentages. For example, if a team plans 12 attempts, evaluates 10 and accepts 8, task success is 80% (8 of 10) and coverage is 83.3% (10 of 12). With no evaluated attempts, success is unmeasured. Malformed outputs count as failures. Missing reviews leave coverage incomplete, and critical failures block acceptance regardless of the average. These figures describe the evaluated tasks and versions.
 
 The session captures runtime scripts/resources, source fixtures, selected cases, guides, rubric, and output contracts. Changed code, facts, criteria, or output cannot silently inherit a prior result. Repeated grading or replay of an old answer is not a new model-performance observation.
 

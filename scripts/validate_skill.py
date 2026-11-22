@@ -35,6 +35,7 @@ def validate(root=ROOT):
     refs=sorted((root/'references').glob('*.md'));examples=sorted((root/'examples').glob('*.md'))
     runtime=[main]+refs+sorted((root/'workflows').glob('*.md'))+examples
     runtime+= [path for path in (root/'README.md',root/'evals/README.md') if path.is_file()]
+    runtime.extend(sorted((root/'docs').glob('*.md')))
     errors.extend(item['path']+': '+item['problem'] for item in check_layout(root)['findings'])
     reachable=set()
     for required in ('README.md','LICENSE','config/repository_layout.json','contracts/documents.json','scripts/validate_document.py','scripts/requirements-lock.txt'):

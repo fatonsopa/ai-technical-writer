@@ -692,6 +692,7 @@
     },
     {
       "paths": [
+        "docs/*.md",
         "references/*.md",
         "examples/*.md",
         "SKILL.md"

@@ -67,7 +67,7 @@ class PackageDeliveryTests(unittest.TestCase):
     def test_all_installed_documentation_links_are_checked(self):
         source = self.folder / "source"
         copy_repository(ROOT, source)
-        for name in ("README.md", "evals/README.md"):
+        for name in ("README.md", "evals/README.md", "docs/writing.md"):
             path = source / name
             old = path.read_text()
             path.write_text(old + "\n[Missing](missing-file.md)\n")
