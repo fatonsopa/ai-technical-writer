@@ -558,7 +558,7 @@ Candidate: `6bb4652`, which adds `references/critical_journeys.md`, its example 
 
 Follow the approved journey to a user-visible result and distinguish stale evidence. [Story criteria](./specs/spec-driven-authoring/spec.md#s03--verify-one-critical-journey-against-its-source)
 
-- [ ] 12.1 [W21](#w21--preserve-conditions-and-reopen-stale-evidence) (T016). Check response loss across 1,001 rows. Distinguish 500 confirmed, 500 unresolved and one unattempted, and retain prior failures on revision. After W03, with a reachable journey such as W06.
+- [x] 12.1 [W21](#w21--preserve-conditions-and-reopen-stale-evidence) (T016). Check response loss across 1,001 rows. Distinguish 500 confirmed, 500 unresolved and one unattempted, and retain prior failures on revision. After W03, with a reachable journey such as W06.
 
 ### W21 · Preserve conditions and reopen stale evidence
 
@@ -582,6 +582,13 @@ Verification maintainer · R3/R8/A3/A8. [S03.1](./specs/spec-driven-authoring/sp
 [references/spec_driven_development.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md) · [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/implementation_plan.md) · [examples/test_specification.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/test_specification.md) · [examples/spec_driven_development.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/spec_driven_development.md)
 
 The corresponding change-in-place counterexample starts with an existing value and observes the replacement. Stop at proof about the authored example. Formal verification would establish only the property it models. [Verification scope, 10:50–11:30](https://www.youtube.com/watch?v=O_zcc6Xl12g&t=650s)
+
+#### Verdicts
+
+Candidate: the W21 commit on `implementation/ship-specdev`. `references/test_specification.md` gains a "Review a case against its source" method covering weakened conditions, paraphrases, change-in-place cases and candidate-bound verdict lifecycles. T16 in the example now states who starts the retry and which outcomes fail it. Reviewer: a fresh-context reviewer applying that section, compared by the implementing agent with WEB-09.
+
+- **W21.1 Met.** T16 distinguishes 500 confirmed, 500 unresolved and 1 unattempted after response loss. It requires reconciliation before any retry is offered, lets only the administrator start one and fails a bare request count or an automatic retry. The reviewer accepted it on each of those conditions.
+- **W21.2 Met.** A contributor's version that kept `T16 / WEB-09` but reported "1 of 3 requests completed" and resubmitted automatically was rejected, with each dropped condition named. A paraphrase keeping every condition was accepted. When WEB-09 moved to version 2, only T14 to T16 reopened as Not demonstrated, while their build-41 verdicts, including T16's failure, stayed in history. T11's unrelated Met verdict was kept with its candidate and date. The reviewer also noted that T16's figures would change under the new limit.
 
 <a id="s19--use-the-requirements-quality-checklist-at-its-handoff"></a>
 

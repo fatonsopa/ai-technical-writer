@@ -20,6 +20,14 @@ Identify the test item/version, behavior source, coverage and cases, necessary d
 
 When governing documents contain flows, sequences or state machines, map relevant branches, transitions and failure outcomes to cases. Link the maintained views instead of drawing a competing behavior model. Use [Visual Guidance (VG)](visuals.md) only if a separate coverage model helps readers; a case table may be sufficient.
 
+### Review a case against its source
+
+A case can keep its requirement ID while losing what makes it a test. When reviewing a case, compare its expected outcome with the governing requirement, not only its ID. Reject a case that keeps the ID but drops or weakens a material condition: a permission, limit, state, error or forbidden action. For a partial failure, the case must keep each state the requirement distinguishes. For example, under WEB-09 a lost second response leaves 500 confirmed, 500 unresolved and 1 unattempted rows; reporting only a request count, or retrying automatically, fails that case. Accept a paraphrase that keeps every condition.
+
+A change-in-place case starts from an existing value and observes the replacement; setting a value on an empty record doesn't prove it can be changed.
+
+Bind each verdict to the candidate it was observed on, as Met, Failed or Not demonstrated. When a governing requirement changes revision, reopen only the cases that depend on it. Keep their earlier verdicts and failures in the history, and keep valid evidence for unaffected cases with its original candidate and date.
+
 ## Template
 
 ```md
