@@ -1863,7 +1863,7 @@ Candidate: `0453fe4` on `implementation/ship-specdev`. In `SKILL.md`, the implem
 
 Resume the same authorized task after interruption without replaying an uncertain effect. [Story criteria](./specs/spec-driven-authoring/spec.md#s31--verify-and-resume-one-authorized-implementation)
 
-- [ ] 35.1 [W49](#w49--apply-one-authorized-native-task) (T050). Dispatch the authorized refund task once. Retain the employee-permission failure and verify denial on the corrected candidate before checking the task. After W48, with authority for the selected provider.
+- [x] 35.1 [W49](#w49--apply-one-authorized-native-task) (T050). Dispatch the authorized refund task once. Retain the employee-permission failure and verify denial on the corrected candidate before checking the task. After W48, with authority for the selected provider.
 
 <a id="w49--hand-one-approved-task-to-the-selected-implementation-provider"></a>
 
@@ -1888,7 +1888,20 @@ Skill maintainer · R27/A27. [S31.1](./specs/spec-driven-authoring/spec.md#s31-1
 
 Selected native `tasks.md`, its governing scenarios, W48’s apply inputs and the provider’s actual dispatch and candidate records. [OpenSpec CLI reference](https://openspec.dev/docs/cli)
 
-- [ ] 35.2 [W50](#w50--resume-authorized-apply-from-the-confirmed-boundary) (T051). Recover the original change, task, provider and candidate after interruption. Reconcile uncertainty before action and demonstrate no duplicate effect. After W49.
+#### Verdicts
+
+Candidate: `4d81e5b` on `implementation/ship-specdev`. `SKILL.md` makes applying an item conditional on explicit authority that names it, with one coding provider. The session reports the root, change, item, criterion revision, provider and observed candidate, and keeps a failing candidate as a failure. It ticks only against accepted evidence. A writing-only request stops at the documents. Reviewer: implementing agent.
+
+- **W49.1 Met.** The disposable project was `W49/project`, with `add-refund-approval` 1.1 (r1, "Employee denied").
+  - **Starting candidate:** `22c64e1` approves every role; `check_denial.py` prints "FAIL: employee approval of R-200 (150.00) succeeded" and exits 1. That failure is kept.
+  - **Writing-only:** Claude Code prepared 1.1 and made no code edits or dispatch.
+  - **Authorized dispatch:** Under authority for 1.1 only, Codex (`gpt-6.2-sol`) received the item. It reported the root, change, item, criterion revision r1, provider and starting candidate `22c64e1`, and that this candidate fails the check.
+- **W49.2 Met.** Codex fixed only the role check in `refunds.py`.
+  - **Check:** On the new candidate, HEAD `22c64e1` plus `refunds.py` blob `6b489e71…`, the entry-point check prints "PASS: employee denied with 403 and refund pending; manager approval succeeds". I re-ran it myself.
+  - **Tick:** The native checkbox was ticked only after that evidence; the original failure is kept, and nothing was synced, archived, pushed or given to another provider.
+  - **Commit limit:** Codex's `workspace-write` sandbox keeps `.git` read-only, so the candidate is identified by content hash instead of a commit. A full-access rerun was refused by the host's permission check, and I didn't attempt it again.
+
+- [x] 35.2 [W50](#w50--resume-authorized-apply-from-the-confirmed-boundary) (T051). Recover the original change, task, provider and candidate after interruption. Reconcile uncertainty before action and demonstrate no duplicate effect. After W49.
 
 <a id="w50--resume-the-same-task-after-an-interrupted-run"></a>
 
@@ -1912,6 +1925,15 @@ Skill maintainer · R27/A27. [S31.1](./specs/spec-driven-authoring/spec.md#s31-1
 - **W50.2** If the earlier dispatch might have taken effect, consult authoritative provider or target state. Preserve confirmed work and the original failure. Hold the affected action when uncertainty remains. Capture evidence that resumption caused no duplicate dispatch or write. <a id="w50-2"></a>
 
 Native status and apply instructions for the original change, plus the original provider’s dispatch, candidate and target readback. [OpenSpec CLI reference](https://openspec.dev/docs/cli)
+
+#### Verdicts
+
+Candidate: `4d81e5b` on `implementation/ship-specdev`. `SKILL.md` has the resumed session recover the original root, change, item, provider, criterion revision and last candidate from project state before acting. It checks the target state when an earlier effect is uncertain and takes only the next safe step. Reviewer: implementing agent.
+
+- **W50.1 Met.** The authorized Codex run was stopped by its runner a few seconds after it first edited `refunds.py`, before any result was recorded (exit 143). Under the same authority and provider, the resumed Codex session recovered the project root, `add-refund-approval`, item 1.1, revision r1, provider Codex and the last candidate, `22c64e1` plus the uncommitted `refunds.py` edit. Its next step was to verify that edit, which passed.
+  - **Commit attempt:** The first resume couldn't commit (`.git` is read-only in the sandbox), so it held the checkbox.
+  - **Second resume:** Told that commits aren't available, it identified the candidate by content hash and ticked 1.1 against the passing evidence.
+- **W50.2 Met.** Each resume read the working tree and git log before acting. The git log is identical before and after both resumes, and `refunds.py`'s SHA-256 is unchanged across the second, so neither resume repeated the edit or the dispatch. The original failure for `22c64e1` and the confirmed edit were both kept.
 
 <a id="s32--route-an-idea-or-bug-to-the-right-upstream-workflow"></a>
 
