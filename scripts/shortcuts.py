@@ -52,6 +52,8 @@ def catalog(root=ROOT):
     for commands, document, link in re.findall(r"^\| (`/[^|]+`) \| \[([^\]]+)\]\(([^)]+)\) \|", text, re.M):
         for name in re.findall(r"`/([a-z0-9-]+)`", commands):
             rows.append({"command": name, "document": document, "guide": link})
+    for name, document, link in re.findall(r"^- `/([a-z0-9-]+)`: (?:one |a )?\[([^\]]+)\]\(([^)]+)\)", text, re.M):
+        rows.append({"command": name, "document": document, "guide": link, "addition": True})
     if not rows:
         raise ValueError("The README has no supported-document catalog to read.")
     return rows

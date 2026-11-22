@@ -18,7 +18,8 @@ class ShortcutTests(unittest.TestCase):
     def test_catalog_covers_every_documented_command(self):
         rows = shortcuts.catalog()
         names = [row["command"] for row in rows]
-        self.assertEqual(len({row["document"] for row in rows}), 39)
+        self.assertEqual(len({row["document"] for row in rows if not row.get("addition")}), 37)
+        self.assertEqual(sorted(row["command"] for row in rows if row.get("addition")), ["diagram", "requirement"])
         self.assertTrue({"dr", "task", "tasks", "story", "us"} <= set(names))
         self.assertEqual(len(names), len(set(names)))
 

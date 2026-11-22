@@ -87,7 +87,7 @@ flowchart TD
     accTitle: Core document flow
     accDescr: The proposal feeds the specification and design. Both feed the task list.
     CP@{ shape: doc, label: "Change Proposal (CP)" }
-    SDD@{ shape: doc, label: "Behavioral Specification (SDD)" }
+    SDD@{ shape: doc, label: "Spec Driven Development document (SDD)" }
     TD@{ shape: doc, label: "Technical Design (TD)" }
     TL@{ shape: doc, label: "Task List (TL)" }
     CP --> SDD
@@ -116,14 +116,13 @@ flowchart LR
     CP@{ shape: doc, label: "Change Proposal (CP)" }
     EPIC@{ shape: doc, label: "Epic (EPIC)" }
     US@{ shape: doc, label: "User Story (US)" }
-    SDD@{ shape: doc, label: "Behavioral Specification (SDD)" }
+    SDD@{ shape: doc, label: "Spec Driven Development document (SDD)" }
     TASK@{ shape: doc, label: "Task (TASK)" }
     TD@{ shape: doc, label: "Technical Design (TD)" }
-    REQ@{ shape: doc, label: "Individual Requirement (REQ)" }
     RR@{ shape: doc, label: "Research Record (RR)" }
     DR@{ shape: doc, label: "Decision Record (DR)" }
-    HLD@{ shape: doc, label: "High-Level Design (HLD)" }
-    LLD@{ shape: doc, label: "Low-Level Design (LLD)" }
+    HLD@{ shape: doc, label: "High Level Document (HLD)" }
+    LLD@{ shape: doc, label: "Low Level Design (LLD)" }
     IC@{ shape: doc, label: "Interface Contract (IC)" }
     TM@{ shape: doc, label: "Threat Model (TM)" }
     SOD@{ shape: doc, label: "Service Objectives Document (SOD)" }
@@ -140,14 +139,13 @@ flowchart LR
     TCR@{ shape: doc, label: "Test Completion Report (TCR)" }
     BR@{ shape: doc, label: "Bug Report (BR)" }
     IR@{ shape: doc, label: "Incident Report (IR)" }
-    README@{ shape: doc, label: "Repository Readme (README)" }
+    README@{ shape: doc, label: "Repository readme (README)" }
     TUT@{ shape: doc, label: "Tutorial (TUT)" }
     HTG@{ shape: doc, label: "How-to Guide (HTG)" }
     EXP@{ shape: doc, label: "Explanation (EXP)" }
     AI@{ shape: doc, label: "Agent Instructions (AI)" }
     SKILL@{ shape: doc, label: "Reusable Skill (SKILL)" }
     OS@{ shape: doc, label: "Claude Code Output Style (OS)" }
-    VIS@{ shape: doc, label: "Diagram (VIS)" }
     DIR -.-> PB
     PB -.-> PRD
     PRD -.-> CM
@@ -158,7 +156,6 @@ flowchart LR
     US -.-> TASK
     CP --> SDD
     CP --> TD
-    REQ -.-> SDD
     RR -.-> DR
     DR -.-> TD
     HLD -.-> LLD
@@ -189,12 +186,11 @@ flowchart LR
     TL -.-> AI
     TL -.-> SKILL
     TL -.-> OS
-    TL -.-> VIS
     classDef document fill:#D2D2D2,stroke:#4B5563,color:#17212B
-    class DIR,PB,PRD,CM,CP,EPIC,US,SDD,TASK,TD,REQ,RR,DR,HLD,LLD,IC,TM,SOD,POL,STD,RQC,FM,CJ,TS,TP,TL,IP,TSR,TCR,BR,IR,README,TUT,HTG,EXP,AI,SKILL,OS,VIS document
+    class DIR,PB,PRD,CM,CP,EPIC,US,SDD,TASK,TD,RR,DR,HLD,LLD,IC,TM,SOD,POL,STD,RQC,FM,CJ,TS,TP,TL,IP,TSR,TCR,BR,IR,README,TUT,HTG,EXP,AI,SKILL,OS document
 ```
 
-Tutorials, runbooks, repository guidance, diagrams and assistant instructions can be deliverables in their own right. Write them when someone needs them. Verification reports describe results after the corresponding checks have run.
+Tutorials, runbooks, repository guidance and assistant instructions can be deliverables in their own right. Write them when someone needs them. Verification reports describe results after the corresponding checks have run.
 
 </details>
 
@@ -207,7 +203,7 @@ Once the requirements and any needed design are ready, list the work and its che
 Ask for a document by name or use its short command. If another tool already uses a shortcut, give the command to SpecDev directly. For a decision record, use `/specdev doc dr` in Claude Code or `$specdev doc dr` in Codex. Short commands are opt-in: from the installed skill folder, run `.venv/bin/python scripts/shortcuts.py install --host claude-code dr task tasks` (or `--host codex`, or `all`) to add only the ones you want. Setup skips a name another tool already uses and prints the `doc` form to use instead; `scripts/shortcuts.py remove --host claude-code` removes only the shortcuts it added.
 
 <details>
-<summary>Show all 39 documents and their commands</summary>
+<summary>Show all 37 documents and their commands</summary>
 
 | Command | Document | What it answers and when you need it |
 | --- | --- | --- |
@@ -218,12 +214,11 @@ Ask for a document by name or use its short command. If another tool already use
 | `/epic` | [Epic (EPIC)](docs/choosing-documents.md#epic) | Which stories deliver one larger outcome? Use when they need coordination. |
 | `/proposal` | [Change Proposal (CP)](docs/choosing-documents.md#plan-an-openspec-change) | Why make this OpenSpec change, and what does it cover? |
 | `/story`, `/us` | [User Story (US)](references/user_story.md) | What should one person be able to do, and what counts as success? |
-| `/sdd`, `/spec` | [Behavioral Specification (SDD)](references/spec_driven_development.md) | What must the software do? Use for rules, exceptions, and observable outcomes. |
-| `/requirement` | [Individual Requirement (REQ)](references/spec_driven_development.md#writing-an-individual-requirement) | Which single rule needs to be added or clarified? |
+| `/sdd`, `/spec` | [Spec Driven Development document (SDD)](references/spec_driven_development.md) | What must the software do? Use for rules, exceptions, and observable outcomes. |
 | `/research` | [Research Record (RR)](docs/choosing-documents.md#research-record) | What evidence settles a design question, and what remains unknown? |
 | `/dr` | [Decision Record (DR)](references/decision_record.md) | Which option did we choose and why? Use when the rationale needs to survive. |
-| `/hld` | [High-Level Design (HLD)](references/high_level_document.md) | Which parts of the system change, and how do they fit together? |
-| `/lld` | [Low-Level Design (LLD)](references/low_level_design.md) | How will one component handle its data, interfaces, and failures? |
+| `/hld` | [High Level Document (HLD)](references/high_level_document.md) | Which parts of the system change, and how do they fit together? |
+| `/lld` | [Low Level Design (LLD)](references/low_level_design.md) | How will one component handle its data, interfaces, and failures? |
 | `/ic` | [Interface Contract (IC)](references/interface_contract.md) | What do two components exchange, and how must each handle errors? |
 | `/tm` | [Threat Model (TM)](references/threat_model.md) | What could go wrong, and which safeguards address each risk? |
 | `/sod` | [Service Objectives Document (SOD)](references/service_objectives.md) | How reliable must the service be, and how will we measure it? |
@@ -242,15 +237,21 @@ Ask for a document by name or use its short command. If another tool already use
 | `/tcr` | [Test Completion Report (TCR)](references/test_completion_report.md) | When testing ends, what did it prove and what risks remain? |
 | `/br` | [Bug Report (BR)](references/bug_report.md) | What failed, what should have happened, and how can someone investigate? |
 | `/ir` | [Incident Report (IR)](references/incident_report.md) | Who was affected, how did the team recover, and what needs follow-up? |
-| `/readme` | [Repository Readme (README)](references/readme.md) | What is this project, how do I start, and where can I find help? |
+| `/readme` | [Repository readme (README)](references/readme.md) | What is this project, how do I start, and where can I find help? |
 | `/tut` | [Tutorial (TUT)](references/tutorial.md) | How can a learner practice a skill and recognize a successful result? |
 | `/htg` | [How-to Guide (HTG)](references/how_to_guide.md) | How do I complete this task or recover if a step fails? |
 | `/exp` | [Explanation (EXP)](references/explanation.md) | How does this work, and why was it designed this way? |
 | `/agent` | [Agent Instructions (AI)](references/agents_and_skills.md#agent-format) | When should this agent act, what may it do, and what must it return? |
 | `/skill` | [Reusable Skill (SKILL)](references/agents_and_skills.md#skill-format) | How should an agent perform this repeatable task? |
 | `/output-style` | [Claude Code Output Style (OS)](references/agents_and_skills.md#output-style-format) | How should Claude Code word and format its session replies? |
-| `/diagram` | [Diagram (VIS)](references/visuals.md) | Which flow or relationship would a reader understand faster as a picture? |
 
+
+Four rows are native OpenSpec files in a change: the Change Proposal (CP), Spec Driven Development document (SDD), Technical Design (TD) and Task List (TL). OpenSpec owns their format and path; SpecDev writes into them.
+
+You can also add these to any document:
+
+- `/requirement`: one [Individual Requirement (REQ)](references/spec_driven_development.md#writing-an-individual-requirement) when a single rule needs to be added or clarified.
+- `/diagram`: a [Diagram (VIS)](references/visuals.md) when a reader would understand a flow or relationship faster as a picture.
 </details>
 
 <a id="guides"></a>
@@ -260,7 +261,7 @@ Ask for a document by name or use its short command. If another tool already use
 - [Choose a document](docs/choosing-documents.md) for an idea, feature or standalone fix.
 - [Write, edit or review a document](docs/writing.md) with examples you can use in your project.
 - [Make a focused edit](docs/writing.md#make-a-focused-edit) to one title or passage without rewriting the rest.
-- [Install, update or remove SpecDev](docs/installation.md).
+- [Install, update or remove SpecDev](docs/installation.md), and [maintain its OpenSpec runtime](docs/installation.md#maintain-the-openspec-runtime).
 
 ## Support
 
