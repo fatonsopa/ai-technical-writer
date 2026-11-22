@@ -1,6 +1,6 @@
 # Spec Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 15. The [behavioral specification, revision 15](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 16. The [behavioral specification, revision 16](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -10,7 +10,7 @@ Deliver one local Spec Writer candidate that can author complete specification-d
 
 Use the actual [User Story (US) template](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md) for the parent outcome and child story, and the [Issue template](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) for each task. Titles below preserve independent task IDs. Each story’s scope identifies its epic; each task’s Specification names its story criterion. One child story is sufficient for each finding’s first usable outcome.
 
-**Artifact production order.** Use the [numbered dependency rules](./specification.md#production-order) and [seven artifact acceptance cases](./specification.md#seven-authoring-cases-and-hierarchy-acceptance). With unresolved intent, interview → brief → product definition. Separate independently deliverable capabilities before writing their individual specifications. Research precedes any dependent design choice. Requirements review needs an identified specification; critical journey verification needs a mapped surface. From an established feature or epic, write the story first and its child tasks second. A standalone issue states its own authority and proof. Verification criteria are written before implementation; evidence is attached after execution.
+**Artifact production order.** Use the [numbered dependency rules](./specification.md#production-order) and [seven artifact acceptance cases](./specification.md#seven-authoring-cases-and-hierarchy-acceptance). With unresolved intent, interview → brief → product definition. Separate independently deliverable capabilities before writing their individual specifications. Research precedes any dependent design choice. Requirements review needs an identified specification; critical journey verification needs a mapped surface. From an established feature or epic, write the story first and its child tasks second. A standalone issue states its own authority and proof. Verification criteria are written before implementation; evidence is attached after execution. For design, contracts and verification, use the [linking table and refund example](./specification.md#link-work-to-its-parent-and-designs-to-their-sources) to identify which record a reader needs. W62 implements these rules in the ordinary writing route.
 
 **One task, one releasable change.** Include the working entry point, necessary consumers, guidance, example and affected checks in the same commit. A task that introduces an artifact must ship a route from an ordinary request to complete reviewed output. Use a section or existing document contract when it can faithfully deliver the requested form. If it cannot, extend the existing routing and validation mechanism with the smallest compatible named variant. Preserve old receipts by version. Never certify a fragment as a complete standalone document.
 
@@ -1465,10 +1465,11 @@ As a delivery owner, I want the writer to identify the smallest record that pres
 #### Acceptance criteria
 
 - **F21.1** Given A17’s contrasting requests, a reader can choose an independent Issue, an independent or governed story, a grouping record or a delivery plan and identify the input that justified that choice. Preserve project-required parents and unresolved blockers.
+- **F21.2** From A17b’s governed and independent design outputs, a developer can recover the source of the permission rule and the component boundary. A declared child with a missing governing criterion remains blocked. Reuse S21.2 evidence.
 
 #### Scope and sources
 
-Parent: this plan. Owner role: writing-guidance maintainer. Child: S21. R17/A17. [Audit finding F21](./audit.md#f21--medium--the-guides-explain-what-a-record-contains-better-than-when-to-add-a-parent)
+Parent: this plan. Owner role: writing-guidance maintainer. Child: S21. R17/A17 and A17b. [Audit finding F21](./audit.md#f21--medium--the-guides-explain-what-a-record-contains-better-than-when-to-add-a-parent)
 
 #### S21 · Route an improvement from its actual scope
 
@@ -1477,10 +1478,11 @@ As a writer, I want to decide which record owns the outcome and which dependenci
 ##### Acceptance criteria
 
 - **S21.1** Route the paired A17 requests through the ordinary writing entry. From the chosen record and its referenced input, recover why the work can stand alone or why it needs its particular parent or plan. Reuse W20 evidence for stale and missing declared parents.
+- **S21.2** At the ordinary writing entry, carry the manager-only refund rule into a component design and its planned denial check. When a contract supplies the approved rule and boundary, the independent design is ready without an HLD. Use W62’s paired outputs and reuse W20 for the unresolved child.
 
 ##### Scope and sources
 
-Parent: F21. Owner role: workflow maintainer. W30 and W31. W29 links the rules from the public chronology. Apply explicit user or project tracking requirements first.
+Parent: F21. Owner role: workflow maintainer. W30 and W31 support S21.1. W62 supports S21.2. W29 links the rules from the public chronology. Apply explicit user or project tracking requirements first.
 
 ##### W30 · Choose a task or story for an improvement
 
@@ -1543,6 +1545,37 @@ Parent: S21. Supports S21.1 and F21.1. R2/R17 and A17. Responsible role: plannin
 ###### Additional context
 
 Ship the completed decision table, normal route and contrasting examples together. Reuse these choices in the README review. Stop when the reader can distinguish the cases on the identified candidate.
+
+##### W62 · Link a design to the records that govern it
+
+###### Description
+
+The ordinary writing route can distinguish a child task from an independent Issue. Its design guidance also needs to show which record supplies a component boundary, governing rule or acceptance criterion when no work-item parent applies.
+
+###### Expected outcome
+
+A developer can open a refund design and recover both the authorization owner and the manager-only rule. A directly authorized design can draw those facts from an existing contract.
+
+###### Scope
+
+Apply the specification’s [linking table and refund example](./specification.md#link-work-to-its-parent-and-designs-to-their-sources) at the ordinary writing entry. Keep the shared rule at one maintained location and link it from affected HLD, LLD, contract, planning and testing guidance where a reader needs it. Use the project’s existing parent fields, IDs, section links and backlinks. Preserve any explicit governance and applicable evidence bindings.
+
+###### Specification
+
+Parent: S21. Supports S21.2 and F21.2 under R17/A17b. Responsible role: writing-guidance maintainer. Reuse W30’s record-selection rules. W20 already owns the missing-parent case. W59 can reuse matching evidence when it exercises its optional workflow consumer.
+
+###### Acceptance criteria
+
+- **W62.1** Given the approved refund rule, an HLD naming the authorization service and a worked story, child Issue and planned denial test, request the LLD through the ordinary writing entry. From its links, recover the manager-only rule and the owning component. In the worked records, follow the native parent link to the story’s employee-denial criterion and the planned test to the behavior it checks. One resolvable relationship passes without a manually maintained reverse link. A link to an unrelated service, a copied rule with altered permission, or a claim that the unrun test passed fails. Retain the source sections, output and reader’s observations on the candidate.
+- **W62.2** For the same LLD request, supply direct authorization and an approved contract that settles the rule and component boundary. Supply no HLD, story or epic and no project rule requiring one. The checked design cites the applicable contract and proceeds without creating or requesting a parent. For a declared child whose governing criterion is unresolved, withhold readiness for that child. Reuse W20’s missing-parent evidence where it covers that boundary. Keep the two dispositions and their reasons.
+
+###### Relevant files
+
+`SKILL.md`, the owning references in `references/` for architecture, component design, contracts, work items, plans and tests, and the existing linked examples. Start with `references/high_level_document.md` and `references/low_level_design.md`.
+
+###### Additional context
+
+Ship the ordinary writing route, maintained guidance and worked example together. Use the two specified scenarios and reuse existing evidence for unchanged behavior. Record Met, Failed or Not demonstrated against the candidate under the shared Definition of Done. Initial status is Not demonstrated.
 
 ### F22 · Resolve material gaps without needless questions
 
@@ -2728,6 +2761,7 @@ Record Met, Failed or Not demonstrated per criterion and identified release. Reu
 | R14 / A14 | F12 → S12 → W25, W26 | Necessary manual action and clarified role recovered from the replies. |
 | R15 / A15 | F13 → S13 → W27 | Routine update trace and relevant naming control. |
 | R17 / A17 | F21 → S21 → W30, W31 | Paired routing choices, rationale and preserved project constraints. |
+| R17 / A17b | F21 → S21 → W62 | Resolve the refund rule and component, accept the contract-only design, and reuse A11 for the unresolved child. |
 | R19 / A19 | F23 → S23 → W35–W37, W40–W41 | Actual host dispatch, canonical template, source-preserving task breakdown and read-only review. |
 | R20 / A20 | F24 → S24 → W38–W39 | Ready, blocked and complete cases; one checked successor, no duplicate or stale handoff. |
 | R21 / A21 | F25 → S25 → W43 | Maintained rule versus a frozen launch snapshot, then a conflict with no governing decision. |
@@ -2768,13 +2802,13 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-Revision 15 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+Revision 16 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 
 Append out-of-scope discoveries here with their source, observed effect, proposed change, impact of deferral and any task actually blocked. Only an explicit owner decision can add them to implementation scope.
 
-The approved work comprises F1–F33 and F37–F39, their 36 child stories, and W01–W54 plus W58–W61. W60’s guide edit shipped on the handoff branch before the remaining implementation. W46 covers the public identity, W49 covers on-request Converge, and W58–W59 cover the full writing catalog. The additional worked walkthrough and demonstrations in F34–F36 (W55–W57), and the additional assessment criterion W51.3, await the owner’s approval. F39 now owns the approved index task W54 and index coverage for every released feature and supported document type. Exclude only the pending proposals from execution and completion counts. W51.1–W51.2 remain the approved criteria for idea assessment. A proposed guide or extra demonstration is a separate decision from the selected upstream workflow.
+The approved work comprises F1–F33 and F37–F39, their 36 child stories, and W01–W54 plus W58–W62. W60’s guide edit shipped on the handoff branch before the remaining implementation. W46 covers the public identity, W49 covers on-request Converge, and W58–W59 cover the full writing catalog. The additional worked walkthrough and demonstrations in F34–F36 (W55–W57), and the additional assessment criterion W51.3, await the owner’s approval. F39 now owns the approved index task W54 and index coverage for every released feature and supported document type. Exclude only the pending proposals from execution and completion counts. W51.1–W51.2 remain the approved criteria for idea assessment. A proposed guide or extra demonstration is a separate decision from the selected upstream workflow.
 
 ### Proposed assessment refinement
 
