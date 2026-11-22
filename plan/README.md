@@ -27,6 +27,8 @@ openspec instructions apply --change ship-specdev --json
 
 The second command reads task and artifact context. Implementation still requires the starting prompt's authority and settled task prerequisites. A ready artifact means the file exists; the criterion and evidence determine delivery. For a local copy of the pinned CLI, run `npm ci --prefix tools/openspec` once and use `./tools/openspec/node_modules/.bin/openspec` for the commands above.
 
+The release install and host setup are in [W64 and W65](../openspec/changes/ship-specdev/tasks.md#w64-issue). Exercise packaged candidates in isolated locations. Keep the public release commands marked as planned until the corresponding release asset or registry package is verified.
+
 ## Execution rules
 
 1. Establish the required result and proof from the task before editing. Inspect the actual entry point. Resolve routine choices within scope and ask only about a material choice the project cannot settle.

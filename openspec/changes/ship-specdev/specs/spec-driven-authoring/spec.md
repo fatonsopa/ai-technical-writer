@@ -458,3 +458,19 @@ The repository’s `README.md` SHALL identify OpenSpec and SpecDev ownership fea
 
 - **WHEN** a new user follows the public index to focused editing, document review, an Issue variant or another released type or operation
 - **THEN** the destination is a usable page or named section explaining when to use it, inputs and expected result, including the needed action or recovery where applicable. The focused-edit entry preserves the selected scope; the review entry returns located findings. Shared destinations may serve variants they actually explain. An omission, empty stub, broken anchor or irrelevant overview fails. Compare the release catalog to the index; use representative actual destinations. Each changed feature ships its own usable guidance and link.
+
+### Requirement: R36 · Install SpecDev from a release
+
+<a id="install-the-release-and-connect-a-host"></a>
+
+SpecDev SHALL install from a versioned GitHub release or npm package without a source checkout. The installed CLI SHALL report its own version and connect the chosen hosts to the same skill. Published instructions SHALL identify prerequisites, verification, update and removal for each channel.
+
+#### Scenario: Install and use the selected host (A36a, S40.1)
+
+- **WHEN** a developer on a supported platform follows the release instructions in a clean user environment, verifies the version, selects Codex or Claude Code and invokes the installed skill
+- **THEN** the release and executable are identifiable, the selected host reaches the skill and the user can complete a bounded request. Setup leaves unrelated tools and projects alone. A mismatched release checksum or unsupported prerequisite identifies the blocker before replacing a working installation.
+
+#### Scenario: Upgrade or remove only what the installer owns (A36b, S40.2)
+
+- **WHEN** a user updates through the original channel, repeats host setup or removes an installation beside the other skill, with a locally edited entry and a project document
+- **THEN** a clean update exposes the intended version without duplicate entries. A conflict identifies the affected path and preserves the edit and prior working version. Removal preserves the other skill, project documents and foreign files. The `README.md` distinguishes a tested release candidate from a publicly available release.

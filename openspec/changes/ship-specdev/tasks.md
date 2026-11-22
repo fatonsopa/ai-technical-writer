@@ -1733,6 +1733,72 @@ Evaluation maintainer · R7/A7. [S08.1](./specs/spec-driven-authoring/spec.md#s0
 
 Stop at the frozen host/case selection. Reuse compatible observations. No full seven-artifact-by-host matrix or performance ranking is required.
 
+## 42. S40 · Install the release and connect a host
+
+A developer can install the release on a second computer, reach the skill from a selected host, and maintain it without disturbing an existing project. [Story acceptance](specs/spec-driven-authoring/spec.md#install-the-release-and-connect-a-host)
+
+- [ ] 42.1 [W64](#w64-issue) (T061). Install the GitHub release and connect the chosen host. After W46 and W47 on the identified candidate.
+
+<a id="w64-issue"></a>
+
+### W64 · Install the GitHub release and connect the chosen host
+
+#### Description
+
+A user can acquire SpecDev without cloning, check its version, select a host and use the skill. Reuse the existing source installer for the packaged resources. Ship the candidate installer, checksum manifest, launcher, host setup and matching GitHub installation section together.
+
+#### Expected outcome
+
+A developer can follow the [SpecDev installation instructions](../../../README.md#planned-release-installation) against the packaged candidate from outside its source tree.
+
+#### Scope
+
+Use the supported runtime and existing host destinations. Limit writes to the chosen install and host paths. Preserve local edits and unrelated software. Public distribution requires release-owner authority.
+
+#### Specification
+
+Release maintainer · [S40](specs/spec-driven-authoring/spec.md#install-the-release-and-connect-a-host) · R36/A36a. Requires W46 and W47 on the identified candidate.
+
+#### Acceptance criteria
+
+- **W64.1** From an isolated user directory without a checkout, install the tagged candidate through the documented release installer. Verify `specdev --version` and its PATH location. Use `specdev host init --tools codex` and request a checked independent document, then reuse W47 to demonstrate that project initialization goes through the pinned OpenSpec runtime only on request. Keep the tag, digest, actual host invocation, result and selected path. Inspect that the sibling host and an untouched project were not modified. <a id="w64-1"></a>
+- **W64.2** Give the same installer an asset that disagrees with its release checksum. It must identify the mismatch and leave the prior usable version and unrelated files intact. If a prerequisite is absent, report the required prerequisite and recovery. Limit platform claims to release assets with compatible install evidence. <a id="w64-2"></a>
+
+#### Relevant files
+
+Current `scripts/install_skill.py`, `scripts/requirements-lock.txt`, root `README.md` and the candidate’s release entry. Record the candidate, each verdict and its evidence in this Issue. [Shared Definition of Done](design.md#requirement-coverage)
+
+- [ ] 42.2 [W65](#w65-issue) (T062). Install with npm and refresh the same skill. After W64 and its accepted payload plus W53 for update recovery.
+
+<a id="w65-issue"></a>
+
+### W65 · Install with npm and refresh the same skill
+
+#### Description
+
+An npm user can reach the same SpecDev version, update it through npm and remove owned files safely. Use the same host setup and payload as the GitHub installer. Ship the package manifest, CLI entry and npm/update/removal steps in the `README.md` together.
+
+#### Expected outcome
+
+A developer can follow the [SpecDev installation instructions](../../../README.md#planned-release-installation) against the packaged candidate from outside its source tree.
+
+#### Scope
+
+Use the supported runtime and existing host destinations. Limit writes to the chosen install and host paths. Preserve local edits and unrelated software. Public distribution requires release-owner authority.
+
+#### Specification
+
+Release maintainer · [S40](specs/spec-driven-authoring/spec.md#install-the-release-and-connect-a-host) · R36/A36b. Requires W64 and its accepted payload plus W53 for update recovery.
+
+#### Acceptance criteria
+
+- **W65.1** Install the candidate `npm pack` tarball in an empty npm prefix. Run `specdev --version` from that prefix and `specdev host init --tools claude`. Verify the release revision and actual Claude Code invocation. Repeat setup and observe one owned entry. Reuse the first channel’s product evidence when the payload and interface match. <a id="w65-1"></a>
+- **W65.2** With a prior staged version, upgrade through the same channel and run `specdev host update`. Observe the new version at the selected host. Exercise a local edit at a managed destination and retain its content on conflict. Run the documented host removal and channel-specific uninstall in the disposable environment. Check that the other skill, project file and foreign entry survive. Record what each channel owns; reuse equivalent update and removal evidence. <a id="w65-2"></a>
+
+#### Relevant files
+
+Current `scripts/install_skill.py`, `scripts/requirements-lock.txt`, root `README.md` and the candidate’s release entry. Record the candidate, each verdict and its evidence in this Issue. [Shared Definition of Done](design.md#requirement-coverage)
+
 ## Finish the delivery
 
 Verify the affected story and feature outcomes on the identified candidate. W17 owns the cross-host demonstration. Preserve the accepted W60 proof and record any missing host observation separately. [Coverage and shared Definition of Done](./design.md#requirement-coverage)

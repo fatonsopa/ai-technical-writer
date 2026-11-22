@@ -9,6 +9,7 @@ Teams need to hand an agent a clear, source-backed change and keep that change u
 - Keep one writing entry and the optional PRD, LLD and task shortcuts. Preserve the legacy `technical-writer` entry when shipping `specdev`.
 - Delegate overlapping change operations to the project's installed OpenSpec capabilities. Discover upstream commands dynamically, preserve the caller's permissions, and keep one editable artifact per decision.
 - Improve source-backed authoring, session communication and evidence handoff. Update the public feature index and comparison with OpenSpec.
+- Distribute SpecDev as a verified GitHub release and an npm package, with one documented path for connecting Codex and Claude Code.
 
 ## Capabilities
 

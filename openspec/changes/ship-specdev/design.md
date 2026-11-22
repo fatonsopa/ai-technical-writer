@@ -38,6 +38,12 @@ Use the smallest record a reader can act on. A bounded repair can finish in the 
 
 **W53 owns upgrades.** A Dependabot npm version-update PR for `/tools/openspec` updates the exact manifest version and lockfile together. Test the affected integration boundary before accepting the new pin. Refresh matching upstream instructions through the supported update route. Preserve project data, customized settings and unrelated host entries. Restore the previous recorded dependency pair on a failed upgrade; keep valid project work. SpecDev never needs to copy or maintain a fork of OpenSpec to take an ordinary update.
 
+### Install once and connect the chosen hosts
+
+Follow the [installation section](../../../README.md#planned-release-installation) for the promised public commands. Ship the GitHub release route first. Reuse the existing skill installer, resource inventory and Python dependency lock for host setup. Both channels deliver the same versioned payload. Map host ID `claude` to the current installer’s `claude-code` target and `codex` to its Codex target. The npm package exposes `specdev` on PATH. The GitHub installer selects the supported asset for a requested tag or latest complete release, verifies its checksum before activation, and reports which release and paths it owns. Set up the skill’s required runtime dependencies in an owned location or report the missing prerequisite and exact recovery. An npm global install alone registers no hosts.
+
+W46/W47 provide the renamed host entry and the private, locked OpenSpec runtime. W53 supplies the update and recovery checks. Preserve its pin and the native in-session `init` and `update` semantics. The distribution CLI owns only its own version and host management here. Keep user-wide registration separate from optional project initialization. Document macOS, Linux and WSL as supported when verified. Native Windows, Homebrew and other package managers are outside this delivery. Test local release assets and an `npm pack` tarball in disposable destinations. Actual GitHub release publication, npm namespace verification and registry publication are separate release-owner actions. Mark each channel available in the `README.md` only after checking its published URL or registry version. The GitHub release can ship before npm. The public package name is proposed as `@fatonsopa/specdev`; a missing registry listing does not establish ownership.
+
 ## Work sequence
 
 1. Bind the accepted Builder candidate. Start with W01 and W03. Ship each bounded change with its normal entry, reader-facing documentation and the smallest check that proves the criterion. W60’s accepted guide is reusable.
@@ -87,6 +93,7 @@ The first column links the governing epic and story, including their acceptance 
 | <a id="f37--use-the-full-writing-catalog-in-the-optional-workflow"></a>[F37](specs/spec-driven-authoring/spec.md#f37--use-the-full-writing-catalog-in-the-optional-workflow) → <a id="s37--write-the-requested-document-and-pass-it-to-the-right-consumer"></a>[S37](specs/spec-driven-authoring/spec.md#s37--write-the-requested-document-and-pass-it-to-the-right-consumer) | <a id="w58--request-any-supported-writing-format-through-the-workflow"></a>[W58](tasks.md#w58--request-any-supported-writing-format-through-the-workflow), <a id="w59--carry-a-reviewed-document-into-a-dependent-task"></a>[W59](tasks.md#w59--carry-a-reviewed-document-into-a-dependent-task), [W63](tasks.md#w63--use-the-writing-guide-for-native-artifacts)  | 33 |
 | <a id="f38--write-feature-guidance-and-session-replies-around-the-readers-decision"></a>[F38](specs/spec-driven-authoring/spec.md#f38--write-feature-guidance-and-session-replies-around-the-readers-decision) → <a id="s38--explain-the-feature-and-report-the-checked-result"></a>[S38](specs/spec-driven-authoring/spec.md#s38--explain-the-feature-and-report-the-checked-result) | <a id="w60--teach-feature-page-and-session-wording-in-the-live-style-guide"></a>[W60](tasks.md#w60--teach-feature-page-and-session-wording-in-the-live-style-guide)  | 34 |
 | <a id="f39--make-every-released-feature-and-supported-document-type-findable"></a>[F39](specs/spec-driven-authoring/spec.md#f39--make-every-released-feature-and-supported-document-type-findable) → <a id="s39--find-instructions-for-a-feature-or-document-type-from-the-index"></a>[S39](specs/spec-driven-authoring/spec.md#s39--find-instructions-for-a-feature-or-document-type-from-the-index) | <a id="w54--publish-the-public-index-with-a-usable-focused-edit-entry"></a>[W54](tasks.md#w54--publish-the-public-index-with-a-usable-focused-edit-entry), <a id="w61--complete-index-coverage-for-the-existing-release"></a>[W61](tasks.md#w61--complete-index-coverage-for-the-existing-release)  | 35 |
+| [F40 / S40](specs/spec-driven-authoring/spec.md#install-the-release-and-connect-a-host) | [W64](tasks.md#w64-1), [W65](tasks.md#w65-1) | 36 |
 
 ### Shared Definition of Done
 
@@ -108,7 +115,7 @@ The principal risk is a second set of rules taking precedence over OpenSpec. Pro
 
 ## Pending owner decisions
 
-Keep new out-of-scope discoveries here with the evidence, affected work and decision needed. W55–W57 and W51.3 remain outside the execution list. Earlier proposals tied to the retired integration are retained for provenance and confer no authority to implement it. The 36 approved epics retain their IDs. W63 brings the approved task count to 60. W60 is the previously accepted guide edit.
+Keep new out-of-scope discoveries here with the evidence, affected work and decision needed. W55–W57 and W51.3 remain outside the execution list. Earlier proposals tied to the retired integration are retained for provenance and confer no authority to implement it. The release-installation story brings the approved scope to 37 epics and 62 tasks. Existing IDs retain their meaning. W60 is the previously accepted guide edit.
 
 | Governing outcome | Shippable Issues |
 | --- | --- |

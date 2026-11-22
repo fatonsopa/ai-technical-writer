@@ -16,6 +16,7 @@ Use one entry to write a standalone project document or work on a software chang
 | Define a change’s proposal, capability specs, design and task list | ✓ | |
 | Report change status, apply authorized tasks, sync specs and archive a change | ✓ | |
 | Provide native commands, configured workflows, schemas, templates and structural validation | ✓ | |
+| [Install and refresh SpecDev’s own entry in the selected hosts](#planned-release-installation) | | ✓ |
 | Offer a single SpecDev entry in Claude Code and Codex and discover the matching upstream operation | | ✓ |
 | Write standalone project documents such as a PRD, runbook, incident report or shared contract when the active workflow has no owner for them | | ✓ |
 | Review wording against the supplied policy or source and preserve its exact permissions and exceptions | | ✓ |
@@ -38,6 +39,35 @@ For “write a support runbook,” SpecDev will use its writing guide unless the
 An external model CLI is optional. The native evaluation workflow uses the model already available in your host.
 
 ## Installation
+
+### Planned release installation
+
+The commands below are release targets. Use the source instructions below until this repository announces the release. Both skills will follow the same installation steps on macOS, Linux and WSL. SpecDev needs Python 3.11+ for writing and Node.js 22.20.0+ for the locked OpenSpec 2.1.1 integration.
+
+1. Install the CLI once. The primary route downloads the installer from this repository’s GitHub release. It selects a compatible release asset and verifies it against that release’s `SHA256SUMS` before replacing the installed version. The alternative npm command will become available after publication under the verified package name.
+
+   ```sh
+   install_dir=$(mktemp -d)
+   curl -fsSL https://github.com/fatonsopa/ai-technical-writer/releases/latest/download/install.sh -o "$install_dir/install.sh" && sh "$install_dir/install.sh"
+   ```
+
+   Or, for the planned npm package:
+
+   ```sh
+   npm install -g @fatonsopa/specdev@latest
+   ```
+
+2. Run `specdev --version`. Check the version and executable path before continuing if a second copy is already on your PATH. Then make the skill available in the hosts you use:
+
+   ```sh
+   specdev host init --tools codex,claude
+   ```
+
+   You can select just one host. Setup reports its destination, any missing prerequisite and the exact invocation to use in a fresh session. This connects SpecDev to the hosts. To start an OpenSpec project, separately invoke `/specdev init` in Claude Code or `$specdev init` in Codex from the intended project. That request delegates to OpenSpec.
+
+3. To upgrade, use the original install channel again, then run `specdev host update` to refresh the entries you selected. For removal, first run `specdev host remove`. Then use `npm uninstall -g @fatonsopa/specdev` for npm, or the owned launcher and release paths printed by the GitHub installer. Keep user edits, other skills and project documents.
+
+To have an agent help, ask it to follow this section for your chosen hosts, check for an existing installation first, and report the version, destination and working invocation. [Release acceptance](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#install-the-release-and-connect-a-host) · [OpenSpec’s installation method](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/docs/installation.md)
 
 ### Get the source
 
