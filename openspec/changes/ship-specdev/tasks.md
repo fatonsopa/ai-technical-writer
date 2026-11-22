@@ -1205,7 +1205,7 @@ Candidate: the W34 commit on `implementation/ship-specdev`. Every catalog kind i
 
 Choose the next document using the public entry and the numbered sequence. [Story criteria](./specs/spec-driven-authoring/spec.md#s20--choose-the-next-document-from-the-quick-start)
 
-- [ ] 23.1 [W42](#w42--explain-spec-driven-writing-at-the-public-entry) (T034). Write the public introduction and feature comparison. A reader can select the right entry, identify the owner and release status, and trace the WEB-06 example.
+- [x] 23.1 [W42](#w42--explain-spec-driven-writing-at-the-public-entry) (T034). Write the public introduction and feature comparison. A reader can select the right entry, identify the owner and release status, and trace the WEB-06 example.
 
 ### W42 · Explain spec-driven writing at the public entry
 
@@ -1230,13 +1230,20 @@ Repository root `README.md` and its Quick start; [WEB-06](https://github.com/fat
 
 Suggested opening in the project’s own voice: “SpecDev helps developers and AI agents agree on what a change must do before anyone builds it. Give it a request and the project sources. It turns the agreed behavior into specifications, stories and tasks that say how to check the result.” Example: “If saving a category fails, keep my selection.” WEB-06 requires retaining it. The story expects an error and the selection still in edit mode. An illustrative child Task would implement that failure path. T10 defines its check, including the absence of a success message. Link the real examples and label the illustrative Task. Ship the `README.md` edit in one commit. Use the shared Definition of Done.
 
+#### Verdicts
+
+Candidate: the W42/W54/W29 commit on `implementation/ship-specdev`. The README opens with the suggested plain-language purpose. A new "Follow one behavior to its check" section links WEB-06, the story criterion, the illustrative child task and T10. Reviewer: a fresh-context first-time reader, checked by the implementing agent.
+
+- **W42.1 Met.** Starting at the title, the reader stated the purpose, saw Installation before Quick start and named the example's expected result: the manager-only rule kept and the repeat-refund question asked. They chose a brief for an idea, an OpenSpec change for agreed behavior and one Task for a small fix. In the feature table, every row has exactly one owner checked, and the two rows sampled are supported by their linked pages. The table predates this change; publishing still requires the release owner to check each capability.
+- **W42.2 Met.** The reader followed WEB-06, the story's failed-save criterion, the child task labeled "illustrative" and T10. They recognized T10 as planned proof that hasn't run, and every link resolved to the matching content. Four style findings in the older catalog table, which uses display names such as "Behavioral Specification (SDD)", are unchanged from the committed README and belong to W37's catalog work.
+
 <a id="s39--find-instructions-for-a-feature-or-document-type-from-the-index"></a>
 
 ## 24. S39 · Find instructions for a feature or document type from the index
 
 Find each released capability and document type from the public index. [Story criteria](./specs/spec-driven-authoring/spec.md#s39--find-instructions-for-a-feature-or-document-type-from-the-index)
 
-- [ ] 24.1 [W54](#w54--publish-the-public-index-with-a-usable-focused-edit-entry) (T035). Publish the working index link to the focused-edit instructions. The destination must explain a title-only request and preserve the description.
+- [x] 24.1 [W54](#w54--publish-the-public-index-with-a-usable-focused-edit-entry) (T035). Publish the working index link to the focused-edit instructions. The destination must explain a title-only request and preserve the description.
 
 ### W54 · Publish the public index with a usable focused-edit entry
 
@@ -1261,11 +1268,18 @@ Documentation maintainer · R35/A35. [S39.1](./specs/spec-driven-authoring/spec.
 
 Ship the index and its first usable link in one commit.
 
+#### Verdicts
+
+Candidate: the W42/W54/W29 commit. The README's Documentation list is the public index and now links "Make a focused edit" directly. That section now says what to supply and how to inspect the result. Reviewer: the same fresh-context reader.
+
+- **W54.1 Met.** The index link opens "Make a focused edit" in `docs/writing.md`. It shows a title-only request, says content outside the title is preserved, and says to compare the file before and after because only the title line should differ. "Review a document" is a separate section.
+- **W54.2 Met.** Every Documentation link and every relative file path in the README resolves on the candidate. No planned feature is presented as ready in the links added here.
+
 <a id="s20--choose-the-next-document-from-the-quick-start-continued"></a>
 
 ## 25. S20 · Choose the next document from the quick start (continued)
 
-- [ ] 25.1 [W29](#w29--publish-the-numbered-document-sequence-in-the-readmemd-file) (T036). Publish the numbered sequence. A reader can trace one selected change through its native artifacts and route an independent broken-link fix directly. After W20, W30–W31 and the seven linked authoring routes (W04–W06, W09–W10, W12–W13).
+- [x] 25.1 [W29](#w29--publish-the-numbered-document-sequence-in-the-readmemd-file) (T036). Publish the numbered sequence. A reader can trace one selected change through its native artifacts and route an independent broken-link fix directly. After W20, W30–W31 and the seven linked authoring routes (W04–W06, W09–W10, W12–W13).
 
 ### W29 · Publish the numbered document sequence in the `README.md` file
 
@@ -1289,6 +1303,13 @@ Documentation maintainer · R16/A16. [S20.1](./specs/spec-driven-authoring/spec.
 [Repository entry](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/README.md#L56) · [Relationship guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/SKILL.md#L116) · [Required production order](./specs/spec-driven-authoring/spec.md#production-order)
 
 One commit ships the section, quick-start link and necessary cross-references. Reuse W20 evidence for runtime routing.
+
+#### Verdicts
+
+Candidate: the W42/W54/W29 commit. "Choose what to write next" now opens the README's Document flow. It numbers intent, product definition, OpenSpec change, numbered tasks and authorized implementation, with the input, result and next consumer of each, the Codex and Claude Code spellings, and links to each format. Reviewer: the same fresh-context reader. W20's evidence covers runtime parent routing.
+
+- **W29.1 Met.** The reader traced intent through optional discovery and product definition to the OpenSpec proposal, requirements and scenarios, and design. From there they reached numbered tasks, where a row links its own Task only when one exists, then authorized implementation and candidate evidence. They stated that a writing-only request ends at checked delivery with no companion plan, task file or ticket.
+- **W29.2 Met.** The reader routed a single broken-link fix to one Task with inline scope and proof, and explained that a child with a missing parent waits rather than becoming standalone. They placed all seven optional records at their steps and distinguished planned proof from a result that exists only after a candidate run.
 
 <a id="s23--write-the-intended-artifact-from-a-short-request"></a>
 

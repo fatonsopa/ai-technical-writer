@@ -24,7 +24,7 @@ The [flowchart workflow](../workflows/flowcharts.md) uses a shared palette and a
 
 > $specdev Change only this task's title to describe the observed failure. Preserve the description and every other field.
 
-You receive the requested title change. A file edit preserves content outside its declared title or excerpt; it does not expand into a complete document rewrite.
+Supply the task and the observed failure the new title should name. You receive the requested title change. A file edit preserves content outside its declared title or excerpt; it does not expand into a complete document rewrite. To inspect the result, compare the file before and after: only the title line should differ.
 
 ## Review a document
 

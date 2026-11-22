@@ -1,6 +1,6 @@
 # SpecDev
 
-SpecDev is a technical writing skill for teams that plan software changes with AI coding agents. It builds on OpenSpec’s workflow for planning and implementing changes so you can also write documentation for your whole project and check it against your code and your team’s decisions. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
+SpecDev helps developers and AI agents agree on what a change must do before anyone builds it. Give it a request and your project's sources. It turns the agreed behavior into specifications, stories and tasks that say how to check the result. It builds on OpenSpec’s workflow for planning and implementing changes, and it also writes and checks documentation for the rest of your project. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
 
 <a id="planned-release-installation"></a>
 
@@ -34,6 +34,10 @@ If the policy says only managers may approve refunds, the draft keeps that rule.
 
 For a new idea, start with a [product brief](docs/choosing-documents.md#product-brief). For agreed behavior, [plan the change](docs/choosing-documents.md#plan-an-openspec-change). For a small fix, ask for [one task](references/task.md).
 
+### Follow one behavior to its check
+
+Suppose an administrator says, "If saving a category fails, keep my selection." In the Websites Review example, requirement WEB-06 in the [behavior specification](examples/spec_driven_development.md#web-06-support-dependable-inline-assignment) already requires it. The [user story](examples/user_story.md#acceptance-criteria) turns it into a criterion: an error appears and the selected category stays in edit mode without a success message. The [illustrative child task](examples/task_failed_save.md) implements just that failure path. Check T10 in the [test specification](examples/test_specification.md) defines how to prove it: force the save to fail and confirm the error, the kept selection and the missing success message. T10 is planned proof; it says nothing about a run until someone runs it on a candidate.
+
 <a id="what-specdev-adds-to-openspec"></a>
 
 ## How SpecDev and OpenSpec work together
@@ -61,6 +65,18 @@ OpenSpec manages each change’s files and tasks. SpecDev calls OpenSpec for you
 | Check [whether the draft supports its claims](docs/writing.md#review-a-document) and [covers your requirements](docs/writing.md#check-the-result). | | ✓ |
 
 ## Document flow
+
+### Choose what to write next
+
+Each step names what you supply, what you get and who uses it next. In Codex, start a request with `$specdev`; in Claude Code, with `/specdev`.
+
+1. **Intent.** Supply the request and any evidence. If an answer would change the scope, SpecDev asks one question and can keep a [Discovery Interview Record (DIR)](docs/choosing-documents.md#discovery-interview) for the next author.
+2. **Product definition, if needed.** A [Product Brief (PB)](docs/choosing-documents.md#product-brief) decides whether an idea is worth defining; a [Product Requirements Document (PRD)](references/product_requirements_document.md) agrees on users, outcome and scope. Broad initiatives can first get a [Capability Map (CM)](docs/choosing-documents.md#capability-map) to pick what to specify first.
+3. **OpenSpec change.** For agreed project behavior, the installed OpenSpec route writes the proposal, then the capability's requirements and scenarios and, where a decision needs it, the design. A [Research Record (RR)](docs/choosing-documents.md#research-record) can settle a design question first.
+4. **Numbered tasks.** `tasks.md` lists the work and how each item is checked; a row links a separate Task only when that Task owns its own criteria. A [Requirements-Quality Checklist (RQC)](docs/choosing-documents.md#requirements-checklist) can say which requirements are ready before tasks are written.
+5. **Authorized implementation.** When implementation is authorized, the agent applies one ready task and records the candidate's evidence. [Feature Map (FM)](docs/choosing-documents.md#feature-map) and [Critical Journeys (CJ)](docs/choosing-documents.md#critical-journeys) tell a tester where to look. A planned check is proof to collect; a result exists only after it runs on a candidate.
+
+A writing-only request ends when the checked document is delivered. It creates no companion plan, task file or ticket. A small independent fix, such as one broken link, goes straight to one [Task](references/task.md) with its scope and proof inline. A child task whose parent story or criterion can't be found waits until the parent is resolved; it doesn't become standalone.
 
 ### Core document flow
 
@@ -243,6 +259,7 @@ Ask for a document by name or use its short command. If another tool already use
 
 - [Choose a document](docs/choosing-documents.md) for an idea, feature or standalone fix.
 - [Write, edit or review a document](docs/writing.md) with examples you can use in your project.
+- [Make a focused edit](docs/writing.md#make-a-focused-edit) to one title or passage without rewriting the rest.
 - [Install, update or remove SpecDev](docs/installation.md).
 
 ## Support
