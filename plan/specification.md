@@ -1,6 +1,6 @@
 # Technical Writer improvement specification
 
-Status: Approved behavioral scope, revision 6. Applies to Codex and Claude Code. [Audit](./audit.md)
+Status: Approved behavioral scope, revision 7. Applies to Codex and Claude Code. [Audit](./audit.md)
 
 ## Purpose and scope
 
@@ -38,6 +38,7 @@ An **owning source** is the project-approved location and revision for a claim. 
 | R15 | Require the file-based wording check where its predicates or an existing artifact obligation apply. Every message still receives source-grounded editorial review. |
 | R16 | Publish the numbered production order in the Technical Writer `README.md` file. Explain prerequisites, conditional artifacts, supported entry points, the child-parent rule and the independent-issue exception. Link the owning references. |
 | R17 | Choose the smallest sufficient work record using the project’s real governance, the user-visible outcome, the ownership of scope and the need to coordinate delivery. Make a child link mandatory when its authority comes from a parent. Allow an independent improvement or story to proceed from its own authority. State the reason for grouping or planning in the existing record when material. |
+| R18 | Use the document type and requested scope to identify material information needed at the checked writing entry. Resolve each applicable topic from evidence or actual authority, or keep it visibly open. Before asking, identify the affected requirement or section, source inspected and the consequence of an answer. Preserve the lightweight route for narrow edits. |
 
 ## Production order
 
@@ -48,6 +49,19 @@ An **owning source** is the project-approved location and revision for a claim. 
 5. **Plan deliverable outcomes.** When coordinated delivery needs one, the Implementation Plan (IP) consumes the applicable specification, settled constraints and decisions. Identify the governing feature or epic and its integrated acceptance. A feature may be the direct parent of stories; introduce an epic only where grouping adds value.
 6. **Write the child story, then its tasks.** For a child User Story (US), resolve the parent outcome and its revision first. A directly authorized independent story can carry its source, value, scope and proof inline. Resolve that story and its acceptance criterion before writing a child Issue. Include dependencies, permitted effects and required proof. If a parent is missing, stale, ambiguous or contradicts the current scope, locate it, author it first when authorized and sufficiently sourced, or report the unresolved dependency. An independent improvement, bug or chore can use one Issue as specified in R11.
 7. **Verify and close.** Define proof before implementation. Record observed results only after execution. A changed parent reopens affected children; retain applicable evidence for unaffected work. Close each parent on its usable outcome.
+
+### When the writer may ask the owner
+
+Apply R18 at the supported writing entry on either host. Inspect the smallest authoritative input that can settle the issue. Ignore details immaterial to this document. Keep current behavior, required future behavior and design discretion distinguishable.
+
+| Basis | Required behavior |
+| --- | --- |
+| Observed fact | Cite the applicable code, configuration or other observation at its revision. Write what that evidence establishes. |
+| Governing requirement | If the request preserves an existing rule or an applicable standard determines the answer, cite that authority and use it without asking. |
+| Delegated choice | Within granted discretion use a fitting project convention or supported practice. Record the rationale when it affects the design. General advice can inform a recommendation. |
+| Open decision | Ask only when a material consequence remains outside the writer’s authority. State the unresolved difference, or identify the one missing owner-held fact. Never manufacture alternatives. Continue independent writing; an early draft exposes the open decision and its consequence. |
+
+Python checks applicable coverage, valid source and answer references, and permissible readiness transitions. The supported host workflow asks and receives the actual question and reply. Semantic review determines whether the evidence supports the claim and whether a question was necessary. An unverifiable reply, preselected option or silence cannot confer authority.
 
 ## Quality and interface constraints
 
@@ -97,9 +111,13 @@ Each A10 case starts with source facts and a request for the named artifact thro
 
 **A17 · R17.** Use the same improvement in three contexts. An independently authorized small change with inline scope and proof can ship in one Issue. A contribution assigned to a story must resolve that story and criterion. A directly authorized user outcome may be written as a standalone story if its value, boundary and proof are clear. Then compare two deliveries for the same feature. A single, bounded delivery can keep its steps inline. A migration requiring the old and new readers to coexist needs rollout order, compatibility evidence and recovery before the dependent switch. A project-mandated parent or planning step remains binding. Retain the selected records, governing input and reason at the first point where the choice differs. Reuse A11 for the broken-parent case and A16 for README discoverability.
 
+**A18 · R18.** Use the two export requests with the same current staff-only route and compare the actual documents and public questions. (a) “Add CSV to the existing download; only the format changes” produces zero permission questions and preserves existing access. (b) “Let customers download their own reports,” with individual versus organization ownership unresolved, produces exactly one targeted ownership question before the dependent requirement becomes ready. Silence leaves the ownership open in a draft. A genuine answer bound to that question unblocks only the supported permission. Omitting the material topic blocks readiness. A cited passage saying permission is undecided cannot justify an administrator-only rule. Reuse those passages and verdicts for the negative cases. Check one missing owner-held fact without invented options, one delegated routine choice without an interview, a lightweight story or Issue, and the narrow-edit exception only where existing evidence is insufficient. Preserve historical receipts. Host-specific claims require an observed exchange on that host.
+
 ## Open decisions
 
-**D1.** The owner approved specification and implementation plan revision 6, including the conditional hierarchy, first-use naming convention and reviewed-delivery sentence. A user may name a document by acronym or full name at any turn. In ordinary authored prose, introduce the full name with its acronym and use the acronym when clear thereafter. Preserve contractual labels, literals and quotations. A checked handoff may include one useful result or open decision from reviewed content. Bind that sentence to the same reviewed version and keep older receipts verifiable.
+**D2.** The owner approved R18/A18 and its bounded implementation in F22.
+
+**D1.** The owner approved the original revision 6 scope, including the conditional hierarchy, first-use naming convention and reviewed-delivery sentence. A user may name a document by acronym or full name at any turn. In ordinary authored prose, introduce the full name with its acronym and use the acronym when clear thereafter. Preserve contractual labels, literals and quotations. A checked handoff may include one useful result or open decision from reviewed content. Bind that sentence to the same reviewed version and keep older receipts verifiable.
 
 ## Related design and work
 

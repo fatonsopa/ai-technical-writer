@@ -1,6 +1,6 @@
 # Technical Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 6. The [behavioral specification, revision 6](./specification.md) owns the requirements. The [audit](./audit.md) owns the twenty-one findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 7. The [behavioral specification, revision 7](./specification.md) owns the requirements. The [audit](./audit.md) owns the twenty-two findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -20,7 +20,7 @@ The owner approved the work order, scope and local integration authority. Start 
 
 ## Work sequence
 
-Use the accepted Skill Builder candidate from its implementation plan. Begin with W01 and W03 to get a literal and a source reference through a real consumer. W20 makes the parent chain usable. The seven document routes can then draw on one initiative’s source packet: where intent is unknown, use W12 before W09; W10 precedes dependent feature specifications; W13 precedes design that depends on its research; W05 precedes W06; W04 reviews a drafted specification. Other stories may proceed once their named inputs and shared interfaces are settled. The order below groups by finding for lookup. W24 uses the W20 parent contract. W25 precedes W26. W30 and W31 settle the selection rules before W29 publishes the sequence after its linked routes exist. W17 is the final integrated host check. Plan-level A10 requires all seven outputs and their consumer observations. Each has one owning epic and task. All epic, story and task implementation verdicts are currently **Not demonstrated**.
+Use the accepted Skill Builder candidate from its implementation plan. Begin with W01 and W03 to get a literal and a source reference through a real consumer. W20 makes the parent chain usable. The seven document routes can then draw on one initiative’s source packet: where intent is unknown, use W12 before W09; W10 precedes dependent feature specifications; W13 precedes design that depends on its research; W05 precedes W06; W04 reviews a drafted specification. Other stories may proceed once their named inputs and shared interfaces are settled. The order below groups by finding for lookup. W24 uses the W20 parent contract. W25 precedes W26. W30 and W31 settle the selection rules before W29 publishes the sequence after its linked routes exist. W32 precedes W33, then W34 applies the route across the catalog. W17 is the final integrated host check and reuses these assignment inputs where applicable. Plan-level A10 requires all seven outputs and their consumer observations. Each has one owning epic and task. All epic, story and task implementation verdicts are currently **Not demonstrated**.
 
 ### F1 · Preserve the project’s literal identifiers
 
@@ -1487,6 +1487,123 @@ Parent: S21. Supports S21.1 and F21.1. R2/R17 and A17. Responsible role: plannin
 
 Ship the completed decision table, normal route and contrasting examples together. Reuse these choices in the README review. Stop when the reader can distinguish the cases on the identified candidate.
 
+### F22 · Resolve material gaps without needless questions
+
+As a document owner, I want the writer to ask only when my answer changes the work, so that the specification preserves my intent and I can trust its stated decisions.
+
+#### Acceptance criteria
+
+- **F22.1** From the supported writing entry, the two A18 requests preserve or clarify export ownership as their evidence permits. An invented decision or an unnecessary permission question fails. A draft can still expose an unresolved rule.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: writing-workflow maintainer. Child: S22. R18/A18. [Audit finding F22](./audit.md#f22--high--a-valid-source-reference-can-conceal-an-invented-answer)
+
+#### S22 · Write from incomplete project context
+
+As a developer, I want the writer to use the project’s evidence and identify what only I can settle, so that I can act on the document without rechecking every assumption.
+
+##### Acceptance criteria
+
+- **S22.1** Inspect the two A18 documents, actual questions, sources, readiness outcomes and review verdicts on the same candidate. A decision is attributable to the source or the actual owner response. An unresolved topic stays provisional. The source-settled case incurs no interview.
+
+##### Scope and sources
+
+Parent: F22. Owner role: discovery maintainer. W32 establishes coverage on one route, W33 connects the question and response, and W34 applies the contract across the catalog. Reuse F6’s discovery guidance, W17’s host handoff and the private JSON execution records.
+
+##### W32 · Detect an omitted material permission
+
+###### Description
+
+A writer can omit the question from the discovery record and still pass the current check.
+
+###### Expected outcome
+
+A complete product document can expose its unresolved permission in a draft and cannot be marked ready until the material topic is settled.
+
+###### Scope
+
+Extend the existing document contract and readiness check on the product route. Derive applicable topics from the format and task scope, independently of the writer’s list. Accept a supported answer, a provisional proposal, an open item or a justified inapplicable topic according to its effect on readiness. Preserve old records at their original version.
+
+###### Specification
+
+Parent: S22. Supports S22.1 and F22.1. R18/A18. Responsible role: Contract maintainer. Inputs are the existing PRD contract, declared permission controls and F22’s undecided brief.
+
+###### Acceptance criteria
+
+- **W32.1** On the undecided export brief, omit the material permission topic. Preparation or checked readiness gives the located missing topic and its affected section. A draft naming that open decision can pass as a draft.
+- **W32.2** Mark the decision resolved against the undecided brief. A real but irrelevant source ID cannot pass the required semantic review. Retain the passage and verdict alongside the mechanical result. Reuse the existing open-blocker control.
+
+###### Relevant files
+
+[contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/contracts/documents.json) · [scripts/planning_readiness.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/planning_readiness.py) · [scripts/validate_document.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/validate_document.py)
+
+###### Additional context
+
+One commit ships the product route, compatible contract, guidance and smallest affected regression. Use the shared Definition of Done and record the exact candidate, evidence and verdict.
+
+##### W33 · Ask only the question that changes the requirement
+
+###### Description
+
+A writer can ask an owner to confirm existing policy or treat a plausible recommendation as authority.
+
+###### Expected outcome
+
+The supported workflow uses existing evidence where decisive, obtains a missing owner answer where necessary and resumes the dependent section.
+
+###### Scope
+
+Connect W32’s decision to the existing discovery and host question routes. Before asking, record the affected criterion, source inspected and unresolved consequence. Bind a returned answer or explicit delegation to the question through a trustworthy host reference where available. Leave unverifiable authority unresolved.
+
+###### Specification
+
+Parent: S22. Supports S22.1 and F22.1. R18/A18. Responsible role: Discovery maintainer. Requires W32. Use A18’s same export route for both requests. The public exchange supplies behavioral proof.
+
+###### Acceptance criteria
+
+- **W33.1** For the format-only change, observe zero permission questions and the preserved permission. For self-service with ownership unresolved, observe one targeted ownership question. An unanswered request keeps the dependent section provisional while independent sections proceed.
+- **W33.2** Supply the owner’s answer and confirm only the supported scope becomes ready. A single missing owner-held fact can be asked directly. A delegated routine choice proceeds without making the user confirm it. Use existing evidence for unchanged branches.
+
+###### Relevant files
+
+[workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/workflows/discover.md) · [scripts/planning_readiness.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/planning_readiness.py) · [scripts/validate_document.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/validate_document.py)
+
+###### Additional context
+
+Ship one connected question-and-resumption route. Share its packet with W28 and the applicable host acceptance check. Use the shared Definition of Done and record the exact candidate, evidence and verdict.
+
+##### W34 · Apply discovery checks at the right document scope
+
+###### Description
+
+A control for complete product documents alone leaves other formats exposed and can add friction to minor edits.
+
+###### Expected outcome
+
+The other applicable authoring routes use the same readiness distinction at a scale appropriate to the requested work.
+
+###### Scope
+
+Map applicability through the existing catalog for complete or substantial authoring, including low-level design, stories and issues. Keep a title edit or a section with no material decision lightweight. Use shared rules when they are sufficient.
+
+###### Specification
+
+Parent: S22. Supports S22.1 and F22.1. R18/A18. Responsible role: Document-contract maintainer. Requires W32 and W33. Use the actual kind and operation mappings and historical receipt protections.
+
+###### Acceptance criteria
+
+- **W34.1** From actual routing, account for every supported document kind and scope. On the distinct story or Issue path exercise one material missing fact through to draft or owner answer. For a source-settled design reuse compatible route evidence.
+- **W34.2** A title-only edit with the same topic incurs no discovery questionnaire. Old receipts verify under their own version. Reuse A7/W17 for host differences, or add only the missing A18 observation to that handoff.
+
+###### Relevant files
+
+[contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/contracts/documents.json) · [references/issue.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/issue.md) · [references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/user_story.md) · [references/low_level_design.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/low_level_design.md) · [scripts/test_guided_discovery.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/test_guided_discovery.py)
+
+###### Additional context
+
+Ship the remaining route coverage and its representative checks. Do not multiply all document kinds by all host and question variants. Use the shared Definition of Done and record the exact candidate, evidence and verdict.
+
 ## Requirement coverage
 
 | Requirement and proof | Owning work | Evidence used at closure |
@@ -1506,6 +1623,7 @@ Ship the completed decision table, normal route and contrasting examples togethe
 | R14 / A14 | F12 → S12 → W25, W26 | Necessary manual action and clarified role recovered from the replies. |
 | R15 / A15 | F13 → S13 → W27 | Routine update trace and relevant naming control. |
 | R17 / A17 | F21 → S21 → W30, W31 | Paired routing choices, rationale and preserved project constraints. |
+| R18 / A18 | F22 → S22 → W32, W33, W34 | Same export route, two requests, actual question counts, answer binding, review and readiness verdicts. |
 | R16 / A16 | F20 → S20 → W29 | Two reader routes from the `README.md` file and resolved guide links. |
 | R11 / A11 | F2 → S02 → W20 and W11 | Real parent links, broken edges and justified standalone work. |
 
@@ -1531,8 +1649,8 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-The owner approved specification and implementation plan revision 6, including the conditional hierarchy, first-use naming convention and reviewed-delivery sentence. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+The owner approved specification and implementation plan revision 7, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 
-None at handoff. Append out-of-scope discoveries here with their source, observed effect, proposed change, impact of deferral and any task actually blocked. Only an explicit owner decision can add them to implementation scope.
+Append out-of-scope discoveries here with their source, observed effect, proposed change, impact of deferral and any task actually blocked. Only an explicit owner decision can add them to implementation scope.
