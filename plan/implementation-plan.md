@@ -1,6 +1,6 @@
 # Spec Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 12. The [behavioral specification, revision 12](./specification.md) owns the requirements. The [audit](./audit.md) owns the thirty-six approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 13. The [behavioral specification, revision 13](./specification.md) owns the requirements. The [audit](./audit.md) owns the thirty-three approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -22,7 +22,7 @@ See the governing specification’s template mapping for shortcuts, task breakdo
 
 ## Work sequence
 
-Use the bundled upstream `speckit` workflow for automation. After its Implement step returns, the operator invokes Converge manually in the coding agent for the same feature. Use the installed upstream definition. The standalone writer also supports direct document requests. Coordinate W57 with the same W49/W50 refund run. W55 uses its observed result in the worked tutorial; do not make W57 depend on the tutorial. W56 can publish the native inventory guide once the integration is installed. Link W54–W57 from the public release as each capability becomes available. W53 keeps its existing distribution responsibilities.
+When the project chooses Spec Kit to build an authorized feature, use its bundled workflow. It runs Specify, Plan, Tasks and Implement, with separate reviews after the specification and the plan. Document the manual Converge step after Implement for that same feature. A request to write a document ends at its checked handoff unless implementation is separately authorized.
 
 Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 serves its authoritative task, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
 
@@ -2282,7 +2282,7 @@ Parent: S31. Supports S31.1 and F31.1. R27/A27. Owner role: skill maintainer. Re
 
 ###### Acceptance criteria
 
-- **W49.1** Hand the manager-only refund Issue to the selected coding agent. Record the real dispatch and observed candidate. A candidate allowing an employee to refund fails the original denial criterion; retain the observed behavior and candidate. For a workflow-driven handoff, W57 owns the transition from the upstream run’s final step to manual Converge.
+- **W49.1** Hand the manager-only refund Issue to the selected coding agent. Record the real dispatch and observed candidate. A candidate allowing an employee to refund fails the original denial criterion; retain the observed behavior and candidate. For the Spec Kit integration, document that the bundled workflow ends at Implement and how the operator manually invokes Converge in the agent for the same feature.
 - **W49.2** Use scoped correction and the smallest discriminating check to observe the required denial on the corrected candidate. Keep the earlier failure. A checkbox or suggested out-of-scope enhancement cannot change the criterion or authorize new work.
 
 ###### Relevant files
@@ -2330,7 +2330,7 @@ As a project contributor, I want to enter with an uncertain idea or an observed 
 
 #### Acceptance criteria
 
-- **F32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Use the integrated readback at S32.1. For the idea route, recover the assessment evidence and decision authority from W51.3.
+- **F32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Use the integrated readback at S32.1.
 
 #### Scope and sources
 
@@ -2342,7 +2342,7 @@ As a project contributor, I want to enter with an uncertain idea or an observed 
 
 ##### Acceptance criteria
 
-- **S32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Preserve observed failures and identify the candidate for each verdict. The assessed idea retains its slug, decision rationale and optional next action under W51.3.
+- **S32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Preserve observed failures and identify the candidate for each verdict.
 
 ##### Scope and sources
 
@@ -2360,9 +2360,7 @@ An unshaped idea produces a grounded brief, decision recommendation or focused q
 
 ###### Scope
 
-Adapt the optional idea assessment entry to existing formats and decision authority. In Spec Kit mode the optional assessment uses one idea slug, ordinarily progressing from intake to research, problem definition, concept comparison and decision. The upstream outputs are `intake.md`, `research.md`, `problem.md`, `concept.md` and `decision.md` under `.specify/assessments/<slug>/`. Use those artifacts when integrating the extension. Their contents reuse the writer’s existing interview, brief, research and decision guidance. The standalone writer can keep a small decision in its existing format.
-
-Define can start from supplied intent. Shape and Decide require the problem definition. A `go` additionally needs adequate problem validity and evidence strength and a recommended concept. Include evidence for and against the idea, cite the source and confidence, and preserve assumptions as such. A `needs-clarification` verdict names the missing fact and affected record. A `kill` verdict retains the decisive reason and ends the assessment. Refine the affected artifact and decision when new evidence arrives. Only a separate choice to pursue the software idea passes the decision summary to Specify.
+Adapt the optional idea assessment entry to existing formats and decision authority.
 
 ###### Specification
 
@@ -2372,7 +2370,6 @@ Parent: S32. Supports S32.1 and F32.1. R28/A28. Owner role: skill maintainer. Re
 
 - **W51.1** Supply an idea with a consequential evidence gap. The assessment names that gap, identifies who can decide and recommends clarification or stopping. Preserve source and output.
 - **W51.2** On a supported decision to proceed, identify the next document and its benefit. A recommendation alone cannot create a task or dispatch an implementation.
-- **W51.3** In one initialized project, follow one idea slug to its decision. With weak evidence or a missing concept, the decision identifies the blocker. Supply the missing sourced fact and recommended concept for the same idea, retain opposing evidence and confidence, and revise only the affected records. A supported go contains a handoff summary without writing a feature spec or starting implementation. For a stop, retain the decisive reason and close the assessment. Use the same records to inspect the verdict boundaries; do not repeat five live stages per verdict.
 
 ###### Relevant files
 
@@ -2467,6 +2464,82 @@ Upstream docs/bundles/overview.md, docs/overview/artifacts.md and docs/upgrade.m
 ###### Additional context
 
 Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
+
+## Requirement coverage
+
+| Requirement and proof | Owning work | Evidence used at closure |
+| --- | --- | --- |
+| R1 / A1 | F1 → S01 → W01, W02 | Mixed passage and the literal’s real consumer. |
+| R2 / A2 | F5 → S05 → W09, F15 → S15 → W10, F2 → S02 → W11, W20 | Shape a brief, decompose an initiative and retain the standalone issue path. |
+| R3 / A3 | F2 → S02 → W03, F19 → S19 → W04, F3 → S03 → W21 | Correct and displaced references, justified safeguard, meaningful counterexample and consuming work. |
+| R4 / A4 | F4 → S04 → W07, W08 | Independent reader’s decision and a source-grounded verdict. |
+| R5 / A5 | F6 → S06 → W28, consuming F14/W12 or F16/W13 when needed | Ambiguous and complete inputs, source-backed answers and an unresolved cause. |
+| R6 / A6 | F7 → S07 → W14, W15 | Public messages, checked result and historical receipt. |
+| R7 / A7 | F8 → S08 → W16, W17 | Same natural edit and connected handoff on the two actual hosts. |
+| R8 / A8 | F3 → S03 → W21 | Changed and unaffected sources, previous failure, candidate and resulting verdicts. |
+| R9 / A9 | F9 → S09 → W18, W19 | Blank-start product and behavior documents on the same authoring contract. |
+| R10 / A10a–g | See the seven rows below | All seven complete authored outputs with their own minimum content and consumer evidence. |
+| R12 / A12 | F10 → S10 → W22, W23; F7 → S07 for A6 | Original and edited wording, source, cold reader’s answer and one fluent but wrong alternative. |
+| R13 / A13 | F11 → S11 → W24 | Child Issue, parent links and one scoped failure criterion. |
+| R14 / A14 | F12 → S12 → W25, W26 | Necessary manual action and clarified role recovered from the replies. |
+| R15 / A15 | F13 → S13 → W27 | Routine update trace and relevant naming control. |
+| R17 / A17 | F21 → S21 → W30, W31 | Paired routing choices, rationale and preserved project constraints. |
+| R19 / A19 | F23 → S23 → W35–W37, W40–W41 | Actual host dispatch, canonical template, source-preserving task breakdown and read-only review. |
+| R20 / A20 | F24 → S24 → W38–W39 | Ready, blocked and complete cases; one checked successor, no duplicate or stale handoff. |
+| R21 / A21 | F25 → S25 → W43 | Maintained rule versus a frozen launch snapshot, then a conflict with no governing decision. |
+| R22 / A22 | F26 → S26 → W44 | Return.code versus Order.code, a misattributed field in review, and an unrelated prose Issue. |
+| R23 / A23 | F27 → S27 → W45 | Versioned owner definition, divergent consumer copy and a pin without deployed-provider evidence. |
+| R24 / A24 | F28 → S28 → W46 | Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. |
+| R25 / A25 | F29 → S29 → W47 | From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. |
+| R26 / A26 | F30 → S30 → W48 | With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. |
+| R27 / A27 | F31 → S31 → W49, W50 | Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. |
+| R28 / A28 | F32 → S32 → W51, W52 | An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. |
+| R29 / A29 | F33 → S33 → W53 | Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. |
+| R18 / A18 | F22 → S22 → W32, W33, W34 | Same export route, two requests, actual question counts, answer binding, review and readiness verdicts. |
+| R16 / A16 | F20 → S20 → W29, W42 | Worked WEB-06 trace before setup and two reader routes from the `README.md` file and resolved guide links. |
+| R11 / A11 | F2 → S02 → W20 and W11 | Real parent links, broken edges and justified standalone work. |
+
+| Requested deliverable | Acceptance | Task and next consumer |
+| --- | --- | --- |
+| Discovery interview record | A10a | F14 → W12 · Brief or product author can distinguish an owner answer from a suggestion. A silent owner leaves the restatement open. |
+| Brief | A10b | F5 → W09 · Product owner can decide whether to develop the opportunity. A missing baseline stays unknown; no budget is invented. |
+| Capability map | A10c | F15 → W10 · The spec author selects the intended capability. Independent capabilities can be parallel. A cycle is surfaced for resolution. |
+| Research record | A10d | F16 → W13 · Designer can cite the finding and identify who must decide. A study or working prototype cannot silently approve a choice. |
+| Feature map | A10e | F17 → W05 · Journey author or verifier can locate the surface. A guessed route/handle or app launch alone cannot establish that it was reached. |
+| Critical journeys | A10f | F18 → W06 · Verifier resolves each referenced surface and finds the named check. An unknown screen or unrun test cannot count as verified. |
+| Requirements-quality checklist | A10g | F19 → W04 · Implementer sees whether scope, permission and observable proof are determinate. A checked box alone cannot establish implementation or test success. |
+
+**Independent handoff.** Give the implementer the packet, sources and normal skill entry. Keep the reviewer’s expected observations separate. The reader should recover WEB-09, its excluded automatic retry, its reconciliation requirement and evidence for the stored state. Record what the reader could recover and where a consequential guess remained. [Governing example](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/spec_driven_development.md#L118) · [T16](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/test_specification.md#L55)
+
+**Shared Definition of Done.** After approval, use Skill Builder’s existing modify workflow with frozen source, authorized paths and necessary checks. Bind the Technical Writer dependency separately from the candidate. Follow the runner’s packets; import current document receipts with `validate-documents`. Use `scripts/run_tests.py --execute` for impacted changes. Reuse a structural check only within its demonstrated scope. A claim about the writer producing a usable artifact requires the actual output from its supported entry, its reviewed bytes and the stated consumer observation. A change to an existing route includes relevant compatibility coverage. [Builder workflow](https://github.com/fatonsopa/ai-skill-builder/blob/222b356fd5ac7a2df9fd9621e3744db883ecede0/SKILL.md) · [Repository rules](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/AGENTS.md)
+
+**Close each task at the first sufficient evidence.** The implementer supplies the bounded result; the reviewer inspects the candidate against the same criterion. Record Met, Failed or Not demonstrated, evidence, candidate, reviewer and integration result in the issue. For seven-output coverage, reuse the same source packet across compatible cases and run only missing distinctions. Close a story and its epic on their stated usable outcome. If a source changes, preserve the old verdict and reopen only dependent claims. The final integrated reader must be able to recover scope, exclusions and proof without this conversation. For a claimed improvement compare baseline and candidate on equivalent inputs.
+
+## Rollout and recovery
+
+Keep previous contracts, reviewed documents and delivery receipts readable under their original versions. Halt the affected increment on changed authority, broken historical verification, a validator guessing a parent, or a host unable to produce required evidence. Resume at the first unresolved boundary. Use the repository’s full-suite gate once implementation completion is bound to the full candidate. Apply the accepted local package through Skill Builder within the authorized scope. Use its existing recovery mechanism if local application fails. Record independent consumer acceptance only when directly observed.
+
+## Risks and open decisions
+
+Revision 13 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+
+## Pending owner decisions
+
+Append out-of-scope discoveries here with their source, observed effect, proposed change, impact of deferral and any task actually blocked. Only an explicit owner decision can add them to implementation scope.
+
+The approved work comprises F1–F33, their 33 child stories, W01–W53 and their revision 11 acceptance criteria, with the manual Converge clarification in W49. The public-guide proposals F34–F36, W54–W57 and the additional assessment criterion W51.3 await the owner’s approval. Exclude them from task selection, verification obligations and completion counts. W51.1–W51.2 remain the approved criteria for idea assessment. A proposed guide or extra demonstration is a separate decision from the selected upstream workflow.
+
+### Proposed assessment refinement
+
+Adapt the optional idea assessment entry to existing formats and decision authority. In Spec Kit mode the optional assessment uses one idea slug, ordinarily progressing from intake to research, problem definition, concept comparison and decision. The upstream outputs are `intake.md`, `research.md`, `problem.md`, `concept.md` and `decision.md` under `.specify/assessments/<slug>/`. Use those artifacts when integrating the extension. Their contents reuse the writer’s existing interview, brief, research and decision guidance. The standalone writer can keep a small decision in its existing format.
+
+Define can start from supplied intent. Shape and Decide require the problem definition. A `go` additionally needs adequate problem validity and evidence strength and a recommended concept. Include evidence for and against the idea, cite the source and confidence, and preserve assumptions as such. A `needs-clarification` verdict names the missing fact and affected record. A `kill` verdict retains the decisive reason and ends the assessment. Refine the affected artifact and decision when new evidence arrives. Only a separate choice to pursue the software idea passes the decision summary to Specify.
+
+- **W51.3** In one initialized project, follow one idea slug to its decision. With weak evidence or a missing concept, the decision identifies the blocker. Supply the missing sourced fact and recommended concept for the same idea, retain opposing evidence and confidence, and revise only the affected records. A supported go contains a handoff summary without writing a feature spec or starting implementation. For a stop, retain the decisive reason and close the assessment. Use the same records to inspect the verdict boundaries; do not repeat five live stages per verdict.
+
+### Proposed public guides and workflow checks
+
+These records retain their stable IDs and original checks for review. Implementation authority is pending for each record below.
 
 ### F34 · Find a capability and follow a feature from request to evidence
 
@@ -2663,68 +2736,3 @@ Planned public page: `docs/workflows.md`. Upstream workflows/speckit/workflow.ym
 ###### Additional context
 
 Commit the usable page with its entry link and necessary integration adjustment. Record criterion verdicts, candidate and proof in this task. Implementation initially Not demonstrated.
-
-## Requirement coverage
-
-| Requirement and proof | Owning work | Evidence used at closure |
-| --- | --- | --- |
-| R1 / A1 | F1 → S01 → W01, W02 | Mixed passage and the literal’s real consumer. |
-| R2 / A2 | F5 → S05 → W09, F15 → S15 → W10, F2 → S02 → W11, W20 | Shape a brief, decompose an initiative and retain the standalone issue path. |
-| R3 / A3 | F2 → S02 → W03, F19 → S19 → W04, F3 → S03 → W21 | Correct and displaced references, justified safeguard, meaningful counterexample and consuming work. |
-| R4 / A4 | F4 → S04 → W07, W08 | Independent reader’s decision and a source-grounded verdict. |
-| R5 / A5 | F6 → S06 → W28, consuming F14/W12 or F16/W13 when needed | Ambiguous and complete inputs, source-backed answers and an unresolved cause. |
-| R6 / A6 | F7 → S07 → W14, W15 | Public messages, checked result and historical receipt. |
-| R7 / A7 | F8 → S08 → W16, W17 | Same natural edit and connected handoff on the two actual hosts. |
-| R8 / A8 | F3 → S03 → W21 | Changed and unaffected sources, previous failure, candidate and resulting verdicts. |
-| R9 / A9 | F9 → S09 → W18, W19 | Blank-start product and behavior documents on the same authoring contract. |
-| R10 / A10a–g | See the seven rows below | All seven complete authored outputs with their own minimum content and consumer evidence. |
-| R12 / A12 | F10 → S10 → W22, W23; F7 → S07 for A6 | Original and edited wording, source, cold reader’s answer and one fluent but wrong alternative. |
-| R13 / A13 | F11 → S11 → W24 | Child Issue, parent links and one scoped failure criterion. |
-| R14 / A14 | F12 → S12 → W25, W26 | Necessary manual action and clarified role recovered from the replies. |
-| R15 / A15 | F13 → S13 → W27 | Routine update trace and relevant naming control. |
-| R17 / A17 | F21 → S21 → W30, W31 | Paired routing choices, rationale and preserved project constraints. |
-| R19 / A19 | F23 → S23 → W35–W37, W40–W41 | Actual host dispatch, canonical template, source-preserving task breakdown and read-only review. |
-| R20 / A20 | F24 → S24 → W38–W39 | Ready, blocked and complete cases; one checked successor, no duplicate or stale handoff. |
-| R21 / A21 | F25 → S25 → W43 | Maintained rule versus a frozen launch snapshot, then a conflict with no governing decision. |
-| R22 / A22 | F26 → S26 → W44 | Return.code versus Order.code, a misattributed field in review, and an unrelated prose Issue. |
-| R23 / A23 | F27 → S27 → W45 | Versioned owner definition, divergent consumer copy and a pin without deployed-provider evidence. |
-| R24 / A24 | F28 → S28 → W46 | Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. |
-| R25 / A25 | F29 → S29 → W47 | From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. |
-| R26 / A26 | F30 → S30 → W48 | With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. |
-| R27 / A27 | F31 → S31 → W49, W50 | Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. |
-| R28 / A28 | F32 → S32 → W51, W52 | An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. |
-| R29 / A29 | F33 → S33 → W53 | Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. |
-| R30 / A30 | F34 → S34 → W54, W55 | From the root README, a new reader chooses an existing-document request or the optional feature route, then identifies the input, output and next consumer for the complete refund example. Each advertised capability has a reachable entry on the identified release. |
-| R31 / A31 | F35 → S35 → W56 | From a project with one known override, locate its contribution and the lower layer with the native inventory; find the generated feature spec separately. Inspection leaves the project content unchanged. |
-| R32 / A32 | F36 → S36 → W57 | Use the shipped upstream workflow on the authorized feature. A spec verdict leaves the plan gate independent. After Implement, the operator identifies the same feature/candidate and runs Converge manually. A remaining gap stays open until the underlying criterion is proved. |
-| R18 / A18 | F22 → S22 → W32, W33, W34 | Same export route, two requests, actual question counts, answer binding, review and readiness verdicts. |
-| R16 / A16 | F20 → S20 → W29, W42 | Worked WEB-06 trace before setup and two reader routes from the `README.md` file and resolved guide links. |
-| R11 / A11 | F2 → S02 → W20 and W11 | Real parent links, broken edges and justified standalone work. |
-
-| Requested deliverable | Acceptance | Task and next consumer |
-| --- | --- | --- |
-| Discovery interview record | A10a | F14 → W12 · Brief or product author can distinguish an owner answer from a suggestion. A silent owner leaves the restatement open. |
-| Brief | A10b | F5 → W09 · Product owner can decide whether to develop the opportunity. A missing baseline stays unknown; no budget is invented. |
-| Capability map | A10c | F15 → W10 · The spec author selects the intended capability. Independent capabilities can be parallel. A cycle is surfaced for resolution. |
-| Research record | A10d | F16 → W13 · Designer can cite the finding and identify who must decide. A study or working prototype cannot silently approve a choice. |
-| Feature map | A10e | F17 → W05 · Journey author or verifier can locate the surface. A guessed route/handle or app launch alone cannot establish that it was reached. |
-| Critical journeys | A10f | F18 → W06 · Verifier resolves each referenced surface and finds the named check. An unknown screen or unrun test cannot count as verified. |
-| Requirements-quality checklist | A10g | F19 → W04 · Implementer sees whether scope, permission and observable proof are determinate. A checked box alone cannot establish implementation or test success. |
-
-**Independent handoff.** Give the implementer the packet, sources and normal skill entry. Keep the reviewer’s expected observations separate. The reader should recover WEB-09, its excluded automatic retry, its reconciliation requirement and evidence for the stored state. Record what the reader could recover and where a consequential guess remained. [Governing example](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/spec_driven_development.md#L118) · [T16](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/test_specification.md#L55)
-
-**Shared Definition of Done.** After approval, use Skill Builder’s existing modify workflow with frozen source, authorized paths and necessary checks. Bind the Technical Writer dependency separately from the candidate. Follow the runner’s packets; import current document receipts with `validate-documents`. Use `scripts/run_tests.py --execute` for impacted changes. Reuse a structural check only within its demonstrated scope. A claim about the writer producing a usable artifact requires the actual output from its supported entry, its reviewed bytes and the stated consumer observation. A change to an existing route includes relevant compatibility coverage. [Builder workflow](https://github.com/fatonsopa/ai-skill-builder/blob/222b356fd5ac7a2df9fd9621e3744db883ecede0/SKILL.md) · [Repository rules](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/AGENTS.md)
-
-**Close each task at the first sufficient evidence.** The implementer supplies the bounded result; the reviewer inspects the candidate against the same criterion. Record Met, Failed or Not demonstrated, evidence, candidate, reviewer and integration result in the issue. For seven-output coverage, reuse the same source packet across compatible cases and run only missing distinctions. Close a story and its epic on their stated usable outcome. If a source changes, preserve the old verdict and reopen only dependent claims. The final integrated reader must be able to recover scope, exclusions and proof without this conversation. For a claimed improvement compare baseline and candidate on equivalent inputs.
-
-## Rollout and recovery
-
-Keep previous contracts, reviewed documents and delivery receipts readable under their original versions. Halt the affected increment on changed authority, broken historical verification, a validator guessing a parent, or a host unable to produce required evidence. Resume at the first unresolved boundary. Use the repository’s full-suite gate once implementation completion is bound to the full candidate. Apply the accepted local package through Skill Builder within the authorized scope. Use its existing recovery mechanism if local application fails. Record independent consumer acceptance only when directly observed.
-
-## Risks and open decisions
-
-Revision 12 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
-
-## Pending owner decisions
-
-Append out-of-scope discoveries here with their source, observed effect, proposed change, impact of deferral and any task actually blocked. Only an explicit owner decision can add them to implementation scope.
