@@ -1588,7 +1588,7 @@ Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md
 
 Identify one useful next document and continue only when requested. [Story criteria](./specs/spec-driven-authoring/spec.md#s24--choose-and-continue-one-eligible-document)
 
-- [ ] 30.1 [W38](#w38--show-the-next-useful-document) (T042). Identify the next useful artifact from current sources. Repeating the request leaves state intact and a completed standalone request needs no extra document. After W20 and W30–W31, with the approved production order.
+- [x] 30.1 [W38](#w38--show-the-next-useful-document) (T042). Identify the next useful artifact from current sources. Repeating the request leaves state intact and a completed standalone request needs no extra document. After W20 and W30–W31, with the approved production order.
 
 ### W38 · Show the next useful document
 
@@ -1610,6 +1610,18 @@ Workflow maintainer · R20/A20. [S24.1](./specs/spec-driven-authoring/spec.md#s2
 - **W38.2** For a blocked child name the missing prerequisite. For a standalone fix with sufficient acceptance say documentation is complete. Recommend no extra document in either case; reuse A17 and A18 evidence. Reuse W40’s refund case to check that next recommends `tasks.md` once its inputs exist and reports document delivery after the checked list. A complete list ends the writing request. A separate task record is needed only when separately owned scope or evidence calls for it. Implementation requires its own authority. <a id="w38-2"></a>
 
 [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/workflows/discover.md) · [README.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/README.md)
+
+#### Verdicts
+
+Candidate: `4324f1b` on `implementation/ship-specdev`. `SKILL.md` adds "Suggest the next document" for `/specdev next`, `$specdev next` and `guide`. It reads the current initiative, its sources and revisions, and native status, then answers in one line with the document's catalog name, its gap and its benefit, without writing anything. Reviewer: implementing agent, with a fresh-context performer.
+
+- **W38.1 Met.** On the W-PACKET project without a list, the reply named one document: "Write the Task List (TL) at docs/tasks.md…", with the first usable result, the parallel item and the wait. Asking again about the refund change returned the same answer, with nothing changed. With two equally plausible initiatives, it asked only which one.
+  - **Failure kept:** The performer's first reply called the list an Implementation Plan (IP). The guidance now requires catalog names, and the reply was correct on recheck.
+- **W38.2 Met.**
+  - **Blocked child:** For the child of the missing RR-3.2, the reply named that missing criterion as the prerequisite.
+  - **Standalone fix:** For a standalone link fix whose Task has acceptance, it said the documentation is complete.
+  - **W40 refund case:** With the checked `tasks.md` in place, it reported the documentation complete, suggested no separate Task and said implementation needs its own authorization. Without the list, the same project gets the Task List (TL), as in the W-PACKET reply.
+  - **Nothing extra:** No extra document was suggested in any case.
 
 - [ ] 30.2 [W39](#w39--continue-a-checked-document-handoff) (T043). Continue only the selected checked artifact. Recognize prior delivery and reopen affected readiness if its governing revision changes. After W38 and W15.
 
