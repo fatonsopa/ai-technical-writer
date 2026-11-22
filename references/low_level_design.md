@@ -37,6 +37,8 @@ Status/sources: [Proposed/current, inspected inputs]
 [Decision-record links, requirement-linked checks, unresolved choices]
 ```
 
+In a native OpenSpec change, put the relevant low-level detail in the change's one native design, or cite an independently owned design document; don't add a second design for the same change.
+
 ## Completed example
 
 Read the [Low Level Design (LLD) example for Websites Review](../examples/low_level_design.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.

@@ -37,6 +37,8 @@ Status and sources: [Current/proposed, version/environment, inspected sources]
 [Decision-record links, consequences, limits, unresolved questions]
 ```
 
+In a native OpenSpec change, put the relevant high-level detail in the change's one native design, or cite an independently owned design document; don't add a second design for the same change.
+
 ## Completed example
 
 Read the [High Level Document (HLD) example for Websites Review](../examples/high_level_document.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
