@@ -228,15 +228,37 @@ recommendation: Use the selected provider’s existing execution and resume cont
 
 ### F32 · Approved · Route an idea or bug to the right Spec Kit workflow
 
-finding: The approved writing routes describe relevant outputs. The optional upstream assessment and bug workflows also need a handoff that preserves their distinct starting points and authority. [Source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/guides/assessment.md)
+finding: The approved writing routes describe relevant outputs. The optional upstream assessment and bug workflows also need a handoff that preserves their distinct starting points and authority. [Source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/guides/assessment.md) A closer comparison found that W51 could pass with a plausible verdict without tracing opposing evidence, a shaped concept or the specific artifact that needs clarification. [Assessment guide](https://github.github.io/spec-kit/guides/assessment.html) · [Command and verdict contract](https://github.github.io/spec-kit/reference/agentic-assessment.html)
 
-recommendation: Connect the existing brief, decision, bug and Issue formats to independent intake routes. Keep a bounded repair small. See W51, W52.
+recommendation: Connect the existing brief, decision, bug and Issue formats to independent intake routes. Keep a bounded repair small. See W51, W52. In W51 use native assessment artifacts for the optional extension, retain confidence and opposing evidence, refine only affected records and require a separate decision before handing a supported go to Specify.
 
 ### F33 · Approved · Maintain a versioned Spec Kit integration
 
 finding: The standalone installer preserves an existing destination. The optional ecosystem integration also needs a declared compatible upstream version, identifiable managed components and a safe upgrade or removal path. [Source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/bundles/overview.md)
 
 recommendation: Ship a versioned integration with documented compatibility, ownership and recovery. Assemble a bundle only when the chosen components can be resolved. See W53.
+
+## What the public guides change in the Spec Writer handoff
+
+The public index describes a development method. The feature quickstart walks a person through individual agent commands. The workflow guide describes what the installed YAML actually runs. The pinned YAML contains four command steps and two separate review gates. Its final command is Implement. We will reuse that definition and document the operator’s manual Converge step. Feature output files, installed artifact contributions and workflow run state each serve a different lookup. [Public index](https://github.github.io/spec-kit/index.html) · [Artifact inventory](https://github.github.io/spec-kit/overview/artifacts.html) · [Feature quickstart](https://github.github.io/spec-kit/quickstart.html) · [Upstream workflows](https://github.github.io/spec-kit/workflows/overview.html) · [Idea assessment](https://github.github.io/spec-kit/guides/assessment.html) · [Assessment prerequisites](https://github.github.io/spec-kit/reference/agentic-assessment.html) · [Actual step list](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/workflows/speckit/workflow.yml#L43-L80)
+
+### F34 · Approved · Find a capability and follow a feature from request to evidence
+
+finding: W29 and W42 explain chronology and one example in the README. W53 covers installation and upgrade. None commissions a maintained capability reference and a worked quickstart that distinguishes terminal setup from agent actions, standalone writing from optional integration, or a planned check from an observed result. [Prior handoff](https://github.com/fatonsopa/ai-technical-writer/blob/b202d195b2f5262ef2c0bcd04d27714740bceb12/README.md#quick-start) · [Official guide](https://github.github.io/spec-kit/index.html)
+
+recommendation: Link a concise capability index and one worked quickstart from the root README. Reuse the existing README, Tutorial and How-to Guide formats. Publish as repository-readable Markdown. See W54, W55.
+
+### F35 · Approved · Inspect what the installed integration exposes
+
+finding: W47 and W53 ask for the effective command or rule. They do not specify how a user lists the installed command, template, script and hook inventory or distinguishes an override from a generated feature document. [Prior handoff](https://github.com/fatonsopa/ai-technical-writer/blob/b202d195b2f5262ef2c0bcd04d27714740bceb12/plan/implementation-plan.md#w53--distribute-and-safely-update-the-versioned-integration) · [Official guide](https://github.github.io/spec-kit/overview/artifacts.html)
+
+recommendation: Document and exercise the read-only upstream list and info operations. Keep feature-output discovery in the quickstart and use existing upstream provenance for installed assets. See W56.
+
+### F36 · Approved · Finish the upstream workflow with an explicit manual convergence step
+
+finding: W49–W50 cover dispatch, verification and resume, but leave the public operator entry and the transition from upstream Implement to manual Converge unspecified. The pinned bundled YAML ends at Implement. Its spec and plan gates have separate verdicts. [Prior handoff](https://github.com/fatonsopa/ai-technical-writer/blob/b202d195b2f5262ef2c0bcd04d27714740bceb12/plan/implementation-plan.md#w50--resume-the-same-task-after-an-interrupted-run) · [Official guide](https://github.github.io/spec-kit/workflows/overview.html)
+
+recommendation: Use the unmodified upstream workflow, identify its run and active feature, and document manual Converge. Reconcile any appended tasks with the original Issue and permitted change. See W57.
 
 ## Product direction for a complete spec-driven toolkit
 

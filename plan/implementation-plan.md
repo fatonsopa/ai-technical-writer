@@ -1,6 +1,6 @@
 # Spec Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 11. The [behavioral specification, revision 11](./specification.md) owns the requirements. The [audit](./audit.md) owns the thirty-three approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 12. The [behavioral specification, revision 12](./specification.md) owns the requirements. The [audit](./audit.md) owns the thirty-six approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -21,6 +21,8 @@ The owner approved the work order, scope and local integration authority. Start 
 See the governing specification’s template mapping for shortcuts, task breakdown and reviews. Implement W35 before W36–W37. W40 and W41 reuse the relevant approved writing and review routes. W38 precedes W39. Coordinate their host demonstrations with W17.
 
 ## Work sequence
+
+Use the bundled upstream `speckit` workflow for automation. After its Implement step returns, the operator invokes Converge manually in the coding agent for the same feature. Use the installed upstream definition. The standalone writer also supports direct document requests. Coordinate W57 with the same W49/W50 refund run. W55 uses its observed result in the worked tutorial; do not make W57 depend on the tutorial. W56 can publish the native inventory guide once the integration is installed. Link W54–W57 from the public release as each capability becomes available. W53 keeps its existing distribution responsibilities.
 
 Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 serves its authoritative task, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
 
@@ -2280,7 +2282,7 @@ Parent: S31. Supports S31.1 and F31.1. R27/A27. Owner role: skill maintainer. Re
 
 ###### Acceptance criteria
 
-- **W49.1** Hand the manager-only refund Issue to the selected coding agent. Record the real dispatch and observed candidate. A candidate allowing an employee to refund fails the original denial criterion; retain the observed behavior and candidate.
+- **W49.1** Hand the manager-only refund Issue to the selected coding agent. Record the real dispatch and observed candidate. A candidate allowing an employee to refund fails the original denial criterion; retain the observed behavior and candidate. For a workflow-driven handoff, W57 owns the transition from the upstream run’s final step to manual Converge.
 - **W49.2** Use scoped correction and the smallest discriminating check to observe the required denial on the corrected candidate. Keep the earlier failure. A checkbox or suggested out-of-scope enhancement cannot change the criterion or authorize new work.
 
 ###### Relevant files
@@ -2328,7 +2330,7 @@ As a project contributor, I want to enter with an uncertain idea or an observed 
 
 #### Acceptance criteria
 
-- **F32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Use the integrated readback at S32.1.
+- **F32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Use the integrated readback at S32.1. For the idea route, recover the assessment evidence and decision authority from W51.3.
 
 #### Scope and sources
 
@@ -2340,7 +2342,7 @@ As a project contributor, I want to enter with an uncertain idea or an observed 
 
 ##### Acceptance criteria
 
-- **S32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Preserve observed failures and identify the candidate for each verdict.
+- **S32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Preserve observed failures and identify the candidate for each verdict. The assessed idea retains its slug, decision rationale and optional next action under W51.3.
 
 ##### Scope and sources
 
@@ -2358,7 +2360,9 @@ An unshaped idea produces a grounded brief, decision recommendation or focused q
 
 ###### Scope
 
-Adapt the optional idea assessment entry to existing formats and decision authority.
+Adapt the optional idea assessment entry to existing formats and decision authority. In Spec Kit mode the optional assessment uses one idea slug, ordinarily progressing from intake to research, problem definition, concept comparison and decision. The upstream outputs are `intake.md`, `research.md`, `problem.md`, `concept.md` and `decision.md` under `.specify/assessments/<slug>/`. Use those artifacts when integrating the extension. Their contents reuse the writer’s existing interview, brief, research and decision guidance. The standalone writer can keep a small decision in its existing format.
+
+Define can start from supplied intent. Shape and Decide require the problem definition. A `go` additionally needs adequate problem validity and evidence strength and a recommended concept. Include evidence for and against the idea, cite the source and confidence, and preserve assumptions as such. A `needs-clarification` verdict names the missing fact and affected record. A `kill` verdict retains the decisive reason and ends the assessment. Refine the affected artifact and decision when new evidence arrives. Only a separate choice to pursue the software idea passes the decision summary to Specify.
 
 ###### Specification
 
@@ -2368,6 +2372,7 @@ Parent: S32. Supports S32.1 and F32.1. R28/A28. Owner role: skill maintainer. Re
 
 - **W51.1** Supply an idea with a consequential evidence gap. The assessment names that gap, identifies who can decide and recommends clarification or stopping. Preserve source and output.
 - **W51.2** On a supported decision to proceed, identify the next document and its benefit. A recommendation alone cannot create a task or dispatch an implementation.
+- **W51.3** In one initialized project, follow one idea slug to its decision. With weak evidence or a missing concept, the decision identifies the blocker. Supply the missing sourced fact and recommended concept for the same idea, retain opposing evidence and confidence, and revise only the affected records. A supported go contains a handoff summary without writing a feature spec or starting implementation. For a stop, retain the decisive reason and close the assessment. Use the same records to inspect the verdict boundaries; do not repeat five live stages per verdict.
 
 ###### Relevant files
 
@@ -2463,6 +2468,202 @@ Upstream docs/bundles/overview.md, docs/overview/artifacts.md and docs/upgrade.m
 
 Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
 
+### F34 · Find a capability and follow a feature from request to evidence
+
+As a developer using Spec Writer for the first time, I want to choose a supported capability and follow one feature through its documents, so that I know what to supply, inspect and do next.
+
+#### Acceptance criteria
+
+- **F34.1** From the root README, a new reader chooses an existing-document request or the optional feature route, then identifies the input, output and next consumer for the complete refund example. Each advertised capability has a reachable entry on the identified release. Use S34.1 evidence on the candidate.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: integration documentation maintainer. Child: S34. R30/A30. [Upstream guide](https://github.github.io/spec-kit/index.html)
+
+#### S34 · Find a capability and follow a feature from request to evidence
+
+As a developer using Spec Writer for the first time, I want to choose a supported capability and follow one feature through its documents, so that I know what to supply, inspect and do next.
+
+##### Acceptance criteria
+
+- **S34.1** From the root README, a new reader chooses an existing-document request or the optional feature route, then identifies the input, output and next consumer for the complete refund example. Each advertised capability has a reachable entry on the identified release. Record what the reader or operator actually found.
+
+##### Scope and sources
+
+Parent: F34. Owner role: integration documentation maintainer. W54, W55 support S34.1. Use the shared Definition of Done.
+
+##### W54 · Publish the public capability index
+
+###### Description
+
+W29 and W42 explain chronology and one example in the README. W53 covers installation and upgrade. None commissions a maintained capability reference and a worked quickstart that distinguishes terminal setup from agent actions, standalone writing from optional integration, or a planned check from an observed result.
+
+###### Expected outcome
+
+A reader can choose a document request, an assessment, a repair, a spec-driven feature, or help with an existing run from the repository entry.
+
+###### Scope
+
+Keep one concise index. State intended user and result, where to invoke each route, required skill or optional upstream component, and how to verify it. Link actual guides and release status. Distinguish the two supported hosts; verify exact invocation against the candidate.
+
+###### Specification
+
+Parent: S34. Supports S34.1 and F34.1. R30/A30. Owner role: integration documentation maintainer. Reuse W29/W42. Ship W54 when W51–W53 and W55–W57 have usable, linkable entries. Each earlier guide ships with its own README link. Never advertise a future feature as available.
+
+###### Acceptance criteria
+
+- **W54.1** Starting at the public README, route “write an LLD” to standalone writing and “assess an unproven idea” to the optional assessment. Each leads to its actual entry, prerequisites and expected output. A reader can also find the feature, defect, workflow and inventory guides.
+- **W54.2** Compare entries with the identified release. Any unshipped or dependency-only feature is accurately marked. Open the published relative links from a clean checkout. Keep the two routes and link readback; a docs website deployment is unnecessary.
+
+###### Relevant files
+
+Planned public page: `docs/README.md`. README.md, references/readme.md, references/how_to_guide.md and actual shipped entries. [Upstream guide](https://github.github.io/spec-kit/index.html)
+
+###### Additional context
+
+Commit the usable page with its entry link and necessary integration adjustment. Record criterion verdicts, candidate and proof in this task. Implementation initially Not demonstrated.
+
+##### W55 · Walk a reader through the default feature path
+
+###### Description
+
+W29 and W42 explain chronology and one example in the README. W53 covers installation and upgrade. None commissions a maintained capability reference and a worked quickstart that distinguishes terminal setup from agent actions, standalone writing from optional integration, or a planned check from an observed result.
+
+###### Expected outcome
+
+A developer can follow one refund requirement from source intent through its spec, plan and task to the observed candidate and manual convergence result.
+
+###### Scope
+
+Use one worked Tutorial in repository docs. Name each producer, concrete path or result, next consumer and evidence boundary. Show the shorter path and where clarify, checklist and analyze help an affected decision. Map host-specific syntax to the same steps. Link W57 for executing the upstream workflow.
+
+###### Specification
+
+Parent: S34. Supports S34.1 and F34.1. R30/A30. Owner role: integration documentation maintainer. Uses W47–W49 and the accepted manual boundary. Publish with verified commands and actual candidate evidence; reuse W49/W57 observations when compatible.
+
+###### Acceptance criteria
+
+- **W55.1** Follow a manager-only refund request from the README. Identify the selected feature, expected actor, owning spec clause, corresponding plan decision, Issue/criterion and upstream task entry. At each step name what is now available for the next action. Show code and candidate evidence at Implement; Converge can leave tasks.md unchanged.
+- **W55.2** Use one unresolved permission choice to locate clarify before planning; a requirements-quality question is answered by checklist, and a contradiction across the three documents is reported by read-only analyze before dispatch. Identify where a small writing request ends without starting a delivery. Keep the walkthrough and the located answers; no second full implementation run.
+
+###### Relevant files
+
+Planned public page: `docs/quickstart.md`. README.md, references/tutorial.md, the worked feature sources and the selected release’s supported command reference. [Upstream guide](https://github.github.io/spec-kit/index.html)
+
+###### Additional context
+
+Commit the usable page with its entry link and necessary integration adjustment. Record criterion verdicts, candidate and proof in this task. Implementation initially Not demonstrated.
+
+### F35 · Inspect what the installed integration exposes
+
+As a maintainer, I want to see which command or template is active in this project, so that I can explain an unexpected result without guessing from filenames.
+
+#### Acceptance criteria
+
+- **F35.1** From a project with one known override, locate its contribution and the lower layer with the native inventory; find the generated feature spec separately. Inspection leaves the project content unchanged. Use S35.1 evidence on the candidate.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: integration documentation maintainer. Child: S35. R31/A31. [Upstream guide](https://github.github.io/spec-kit/overview/artifacts.html)
+
+#### S35 · Inspect what the installed integration exposes
+
+As a maintainer, I want to see which command or template is active in this project, so that I can explain an unexpected result without guessing from filenames.
+
+##### Acceptance criteria
+
+- **S35.1** From a project with one known override, locate its contribution and the lower layer with the native inventory; find the generated feature spec separately. Inspection leaves the project content unchanged. Record what the reader or operator actually found.
+
+##### Scope and sources
+
+Parent: F35. Owner role: integration documentation maintainer. W56 support S35.1. Use the shared Definition of Done.
+
+##### W56 · Explain an installed override from native artifact readback
+
+###### Description
+
+W47 and W53 ask for the effective command or rule. They do not specify how a user lists the installed command, template, script and hook inventory or distinguishes an override from a generated feature document.
+
+###### Expected outcome
+
+A maintainer can reproduce the winning contribution and distinguish it from the spec and tasks generated for a feature.
+
+###### Scope
+
+Ship a short reference or How-to Guide using the existing upstream CLI. Explain kinds, layered composition and additive hook registration; describe nullable provenance as reported. Keep the generated file map with the feature guide.
+
+###### Specification
+
+Parent: S35. Supports S35.1 and F35.1. R31/A31. Owner role: integration documentation maintainer. Uses W47’s installed test project and W53’s release evidence where compatible. Upstream inventory is optional with the integration.
+
+###### Acceptance criteria
+
+- **W56.1** Run `specify artifact list --json` and then `specify artifact info <id> --json` using a real returned ID in the project with an override. The guide identifies its kind, winning contribution and visible lower layer or suppression. Distinguish participation in composition from the winning layer.
+- **W56.2** Use an unknown artifact ID to show the supported lookup error. Explain where to find that feature’s spec.md separately. For a documented hook, registration alone does not establish execution. Retain the JSON and before/after project state from these read-only lookups; no new scanner, hook execution or host matrix.
+
+###### Relevant files
+
+Planned public page: `docs/artifacts.md`. Upstream docs/overview/artifacts.md, src/specify_cli/artifacts and the existing integration installation instructions. [Upstream guide](https://github.github.io/spec-kit/overview/artifacts.html)
+
+###### Additional context
+
+Commit the usable page with its entry link and necessary integration adjustment. Record criterion verdicts, candidate and proof in this task. Implementation initially Not demonstrated.
+
+### F36 · Finish the upstream workflow with an explicit manual convergence step
+
+As a developer running the optional integration, I want to know when automation stops and how to check the candidate, so that a successful workflow exit cannot silently become a feature acceptance claim.
+
+#### Acceptance criteria
+
+- **F36.1** Use the shipped upstream workflow on the authorized feature. A spec verdict leaves the plan gate independent. After Implement, the operator identifies the same feature/candidate and runs Converge manually. A remaining gap stays open until the underlying criterion is proved. Use S36.1 evidence on the candidate.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: integration documentation maintainer. Child: S36. R32/A32. [Upstream guide](https://github.github.io/spec-kit/workflows/overview.html)
+
+#### S36 · Finish the upstream workflow with an explicit manual convergence step
+
+As a developer running the optional integration, I want to know when automation stops and how to check the candidate, so that a successful workflow exit cannot silently become a feature acceptance claim.
+
+##### Acceptance criteria
+
+- **S36.1** Use the shipped upstream workflow on the authorized feature. A spec verdict leaves the plan gate independent. After Implement, the operator identifies the same feature/candidate and runs Converge manually. A remaining gap stays open until the underlying criterion is proved. Record what the reader or operator actually found.
+
+##### Scope and sources
+
+Parent: F36. Owner role: integration documentation maintainer. W57 support S36.1. Use the shared Definition of Done.
+
+##### W57 · Document and demonstrate the manual handoff from Implement to Converge
+
+###### Description
+
+W49–W50 cover dispatch, verification and resume, but leave the public operator entry and the transition from upstream Implement to manual Converge unspecified. The pinned bundled YAML ends at Implement. Its spec and plan gates have separate verdicts.
+
+###### Expected outcome
+
+The operator can run the upstream definition, inspect or resume the correct run, then manually assess the candidate against its original feature.
+
+###### Scope
+
+Use upstream status, resume and gate behavior on the pinned release. State terminal versus agent actions. The writer does not ship a replacement YAML workflow, automatically loop, or give approval on the user’s behalf. Preserve documents, task IDs, history and provider ownership.
+
+###### Specification
+
+Parent: S36. Supports S36.1 and F36.1. R32/A32. Owner role: integration documentation maintainer. Uses W47–W50. Coordinate the same run and fixture with W49/W50 and the W55 tutorial. W53 distribution can link this guide as soon as the workflow is supported.
+
+###### Acceptance criteria
+
+- **W57.1** In the upstream run for the refund feature, observe separate spec and plan reviews. Use status and, at a genuine pause, resume the same run. Record the Implement result, active feature, Issue revision and candidate. Manual Converge on the matching feature yields an observed outcome distinct from the workflow exit.
+- **W57.2** For a named unmet criterion, an appended task is reconciled to its source Issue before another implementation. Preserve the append and original failure when refreshing a generated task view. Extra scope remains for the owner. With no gap, show no appended task. Reuse the failing and corrected W49 outcomes; demonstrate any unobserved branch at the smallest affected boundary.
+
+###### Relevant files
+
+Planned public page: `docs/workflows.md`. Upstream workflows/speckit/workflow.yml, docs/workflows/overview.md, templates/commands/converge.md and the existing implementation and recovery evidence. [Upstream guide](https://github.github.io/spec-kit/workflows/overview.html)
+
+###### Additional context
+
+Commit the usable page with its entry link and necessary integration adjustment. Record criterion verdicts, candidate and proof in this task. Implementation initially Not demonstrated.
+
 ## Requirement coverage
 
 | Requirement and proof | Owning work | Evidence used at closure |
@@ -2493,6 +2694,9 @@ Ship the working entry and its consumer in one commit. Record criterion verdicts
 | R27 / A27 | F31 → S31 → W49, W50 | Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. |
 | R28 / A28 | F32 → S32 → W51, W52 | An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. |
 | R29 / A29 | F33 → S33 → W53 | Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. |
+| R30 / A30 | F34 → S34 → W54, W55 | From the root README, a new reader chooses an existing-document request or the optional feature route, then identifies the input, output and next consumer for the complete refund example. Each advertised capability has a reachable entry on the identified release. |
+| R31 / A31 | F35 → S35 → W56 | From a project with one known override, locate its contribution and the lower layer with the native inventory; find the generated feature spec separately. Inspection leaves the project content unchanged. |
+| R32 / A32 | F36 → S36 → W57 | Use the shipped upstream workflow on the authorized feature. A spec verdict leaves the plan gate independent. After Implement, the operator identifies the same feature/candidate and runs Converge manually. A remaining gap stays open until the underlying criterion is proved. |
 | R18 / A18 | F22 → S22 → W32, W33, W34 | Same export route, two requests, actual question counts, answer binding, review and readiness verdicts. |
 | R16 / A16 | F20 → S20 → W29, W42 | Worked WEB-06 trace before setup and two reader routes from the `README.md` file and resolved guide links. |
 | R11 / A11 | F2 → S02 → W20 and W11 | Real parent links, broken edges and justified standalone work. |
@@ -2519,7 +2723,7 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-Revision 11 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+Revision 12 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 
