@@ -50,7 +50,8 @@ class EngineeringDocumentsTests(unittest.TestCase):
             self.assertTrue(validate(sample(kind) + '\n0042 28-day FJ-01', kind, context=context)['passed'])
 
     def test_unknown_blocking_decisions_cannot_be_claimed_ready(self):
-        record = {'status': 'ready', 'source_ids': ['facts'], 'decisions': [{'id': 'OPEN-01', 'question': 'Who approved the target?', 'status': 'open', 'blocking': True, 'answer': '', 'source_ids': []}]}
+        record = {'status': 'ready', 'source_ids': ['facts'], 'decisions': [{'id': 'OPEN-01', 'question': 'Who approved the target?', 'status': 'open', 'blocking': True, 'answer': '', 'source_ids': []},
+                                                                    {'id': 'PERM', 'topic': 'permissions', 'question': 'Who may act?', 'status': 'inapplicable', 'blocking': False, 'answer': 'The fixture changes no actions or data access.', 'source_ids': []}]}
         for kind in KINDS:
             self.assertFalse(validate(sample(kind), kind, context={'discovery': record})['passed'])
             draft = deepcopy(record); draft['status'] = 'draft'

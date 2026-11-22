@@ -173,36 +173,43 @@
     "task_chore": {
       "reference": "references/task.md",
       "task_type": "Chore",
-      "profile": "task"
+      "profile": "task",
+      "material_topics": []
     },
     "task_decision": {
       "reference": "references/task.md",
       "task_type": "Decision",
-      "profile": "task"
+      "profile": "task",
+      "material_topics": []
     },
     "task_feature": {
       "reference": "references/task.md",
       "task_type": "Feature",
-      "profile": "task"
+      "profile": "task",
+      "material_topics": []
     },
     "task_improvement": {
       "reference": "references/task.md",
       "task_type": "Improvement",
-      "profile": "task"
+      "profile": "task",
+      "material_topics": []
     },
     "task_release": {
       "reference": "references/task.md",
       "task_type": "Release",
-      "profile": "task"
+      "profile": "task",
+      "material_topics": []
     },
     "task_bug": {
       "reference": "references/bug_report.md",
       "task_type": "Bug",
-      "profile": "bug"
+      "profile": "bug",
+      "material_topics": []
     },
     "bug_report": {
       "reference": "references/bug_report.md",
-      "profile": "bug"
+      "profile": "bug",
+      "material_topics": []
     },
     "user_story": {
       "reference": "references/user_story.md",
@@ -224,6 +231,13 @@
             "Context and scope"
           ],
           "required": true
+        }
+      ],
+      "material_topics": [
+        {
+          "id": "permissions",
+          "section": "Acceptance criteria",
+          "question": "Who may perform each new or changed action, and who owns the data it exposes?"
         }
       ]
     },
@@ -370,12 +384,20 @@
           "required": true
         }
       ],
-      "discovery_before_delivery": true
+      "discovery_before_delivery": true,
+      "material_topics": [
+        {
+          "id": "permissions",
+          "section": "Requirements and business rules",
+          "question": "Who may perform each new or changed action, and who owns the data it exposes?"
+        }
+      ]
     },
     "requirement": {
       "reference": "references/spec_driven_development.md",
       "format": "requirement",
-      "sections": []
+      "sections": [],
+      "material_topics": []
     },
     "hld": {
       "reference": "references/high_level_document.md",
@@ -423,7 +445,8 @@
           "required": true
         }
       ],
-      "discovery_before_delivery": true
+      "discovery_before_delivery": true,
+      "material_topics": []
     },
     "lld": {
       "reference": "references/low_level_design.md",
@@ -464,7 +487,14 @@
           "required": true
         }
       ],
-      "discovery_before_delivery": true
+      "discovery_before_delivery": true,
+      "material_topics": [
+        {
+          "id": "permissions",
+          "section": "Scope and requirements",
+          "question": "Who may perform each new or changed action, and who owns the data it exposes?"
+        }
+      ]
     },
     "decision": {
       "format": "document",
@@ -525,7 +555,8 @@
         "option": "### Option {id}: {label}\n\n{description}",
         "option_labels": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
         "pending_outcome": "Pending an observed human choice."
-      }
+      },
+      "material_topics": []
     },
     "plan": {
       "reference": "references/implementation_plan.md",
@@ -582,7 +613,8 @@
         }
       ],
       "ordered": true,
-      "discovery_before_delivery": true
+      "discovery_before_delivery": true,
+      "material_topics": []
     },
     "policy": {
       "reference": "references/policy.md",
@@ -644,7 +676,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "standard": {
       "reference": "references/technical_standard.md",
@@ -706,7 +739,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "tp": {
       "reference": "references/test_plan.md",
@@ -769,7 +803,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "ts": {
       "reference": "references/test_specification.md",
@@ -841,7 +876,8 @@
           "required": false,
           "when": "open_prerequisites"
         }
-      ]
+      ],
+      "material_topics": []
     },
     "tsr": {
       "reference": "references/test_status_report.md",
@@ -880,7 +916,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "tcr": {
       "reference": "references/test_completion_report.md",
@@ -919,7 +956,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "tutorial": {
       "reference": "references/tutorial.md",
@@ -958,7 +996,8 @@
           "required": true
         }
       ],
-      "ordered": true
+      "ordered": true,
+      "material_topics": []
     },
     "howto": {
       "reference": "references/how_to_guide.md",
@@ -998,7 +1037,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "explanation": {
       "reference": "references/explanation.md",
@@ -1039,7 +1079,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "readme": {
       "reference": "references/readme.md",
@@ -1092,7 +1133,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "incident": {
       "reference": "references/incident_report.md",
@@ -1138,7 +1180,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "agent": {
       "reference": "references/agents_and_skills.md",
@@ -1169,15 +1212,18 @@
             "skills"
           ]
         }
-      }
+      },
+      "material_topics": []
     },
     "skill": {
       "reference": "references/agents_and_skills.md",
-      "profile": "instructions"
+      "profile": "instructions",
+      "material_topics": []
     },
     "output_style": {
       "reference": "references/agents_and_skills.md",
-      "profile": "instructions"
+      "profile": "instructions",
+      "material_topics": []
     },
     "visual": {
       "reference": "references/visuals.md",
@@ -1186,7 +1232,8 @@
       "title_levels": [
         1,
         3
-      ]
+      ],
+      "material_topics": []
     },
     "threat_model": {
       "reference": "references/threat_model.md",
@@ -1233,7 +1280,14 @@
           "required": true
         }
       ],
-      "discovery_before_delivery": true
+      "discovery_before_delivery": true,
+      "material_topics": [
+        {
+          "id": "permissions",
+          "section": "System and trust boundaries",
+          "question": "Who may perform each new or changed action, and who owns the data it exposes?"
+        }
+      ]
     },
     "interface_contract": {
       "reference": "references/interface_contract.md",
@@ -1280,7 +1334,14 @@
           "required": true
         }
       ],
-      "discovery_before_delivery": true
+      "discovery_before_delivery": true,
+      "material_topics": [
+        {
+          "id": "permissions",
+          "section": "Access and failure semantics",
+          "question": "Who may perform each new or changed action, and who owns the data it exposes?"
+        }
+      ]
     },
     "service_objectives": {
       "reference": "references/service_objectives.md",
@@ -1327,7 +1388,8 @@
           "required": true
         }
       ],
-      "discovery_before_delivery": true
+      "discovery_before_delivery": true,
+      "material_topics": []
     },
     "interview": {
       "reference": "references/discovery_interview.md",
@@ -1373,7 +1435,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "brief": {
       "reference": "references/product_brief.md",
@@ -1427,7 +1490,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "capability_map": {
       "reference": "references/capability_map.md",
@@ -1473,7 +1537,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "research": {
       "reference": "references/research_record.md",
@@ -1527,7 +1592,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "feature_map": {
       "reference": "references/feature_map.md",
@@ -1549,7 +1615,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "journeys": {
       "reference": "references/critical_journeys.md",
@@ -1563,7 +1630,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     },
     "requirements_checklist": {
       "reference": "references/requirements_checklist.md",
@@ -1585,7 +1653,8 @@
           ],
           "required": true
         }
-      ]
+      ],
+      "material_topics": []
     }
   }
 }

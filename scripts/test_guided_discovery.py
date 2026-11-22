@@ -139,3 +139,26 @@ class MaterialTopicTests(unittest.TestCase):
     def test_title_scope_and_older_records_without_topics_keep_their_route(self):
         from document_contracts import validate
         self.assertFalse(any('Material topic' in f for f in validate('# Customer report downloads\n', 'prd', scope='title', context={'discovery': self.record('draft', [])})['findings']))
+
+
+class TopicApplicabilityTests(unittest.TestCase):
+    """W34: every catalog kind accounts for material topics, scaled to the requested scope."""
+
+    def test_every_kind_declares_its_material_topics(self):
+        import json
+        from pathlib import Path
+        contracts = json.loads((Path(__file__).resolve().parents[1] / 'contracts/documents.json').read_text())
+        missing = [kind for kind, row in contracts['documents'].items() if not isinstance(row.get('material_topics'), list)]
+        self.assertEqual(missing, [])
+        with_topics = {kind for kind, row in contracts['documents'].items() if row['material_topics']}
+        self.assertEqual(with_topics, {'prd', 'sdd', 'user_story', 'lld', 'interface_contract', 'threat_model'})
+
+    def test_story_route_locates_a_missing_permission_topic_and_title_edits_stay_light(self):
+        from document_contracts import validate
+        from test_document_contracts import sample
+        story = sample('user_story')
+        record = {'status': 'draft', 'source_ids': ['brief'], 'decisions': []}
+        full = validate('Status: Draft\n\n' + story, 'user_story', context={'discovery': record})
+        self.assertTrue(any("Material topic 'permissions'" in f and 'Acceptance criteria' in f for f in full['findings']), full['findings'])
+        title = validate('# Download my reports\n', 'user_story', scope='title', context={'discovery': record})
+        self.assertFalse(any('Material topic' in f for f in title['findings']))

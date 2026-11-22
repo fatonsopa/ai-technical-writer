@@ -1167,7 +1167,7 @@ Candidate: the W33 commit on `implementation/ship-specdev`. `workflows/discover.
 - **W33.1 Met.** For "Add CSV to the existing report download; only the format changes", the performer asked no permission question, kept staff-only access and recorded the topic as resolved from the current-behavior source. For self-service with ownership undecided, it asked exactly one question ("reports the customer created, or every report in their organization?"). It kept the permission rule open and the document a draft, and wrote the independent format, naming and scope sections.
 - **W33.2 Met.** With the owner's answer, "Only reports the customer created themselves", cited by its message reference, only the creator-only rule and its denial became Ready. Organization-wide access stayed excluded as a separate decision. The delegated file naming was chosen without asking the owner to confirm it. The unchanged format branch reused its earlier wording.
 
-- [ ] 22.3 [W34](#w34--apply-discovery-checks-at-the-right-document-scope) (T033). Exercise a material gap through the applicable authoring route. A title-only edit stays lightweight and old receipts retain their original meaning. After W32 and W33.
+- [x] 22.3 [W34](#w34--apply-discovery-checks-at-the-right-document-scope) (T033). Exercise a material gap through the applicable authoring route. A title-only edit stays lightweight and old receipts retain their original meaning. After W32 and W33.
 
 ### W34 · Apply discovery checks at the right document scope
 
@@ -1191,6 +1191,13 @@ Document-contract maintainer · R18/A18. [S22.1](./specs/spec-driven-authoring/s
 [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/contracts/documents.json) · [references/task.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/issue.md) · [references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/user_story.md) · [references/low_level_design.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/low_level_design.md) · [scripts/test_guided_discovery.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/test_guided_discovery.py)
 
 Ship the remaining route coverage and its representative checks. Do not multiply all document kinds by all host and question variants.
+
+#### Verdicts
+
+Candidate: the W34 commit on `implementation/ship-specdev`. Every catalog kind in `contracts/documents.json` now declares `material_topics`, empty where no topic applies. The Product Requirements Document (PRD), Spec Driven Development document (SDD), User Story (US), Low Level Design (LLD), Interface Contract (IC) and Threat Model (TM) carry the permissions topic, each mapped to its affected section. Reviewer: implementing agent, with a fresh-context performer on the story route.
+
+- **W34.1 Met.** `TopicApplicabilityTests` accounts for every supported kind and applies topics only to complete authoring. A story whose discovery omits the permission topic is reported with "Acceptance criteria" as the affected section. On the story route, the performer kept "who may pin or unpin" open, made the dependent criteria provisional, asked one question with options and a recommendation, and drafted the rest. W62's source-settled design evidence is reused for the design route.
+- **W34.2 Met.** A title-only story edit gets no topic finding, and the performer handled "retitle 'Pin comments'" without any questionnaire. Old sessions keep the contract they froze, and W15 confirmed that a historical receipt still renders in its original format. Host differences are left to W17.
 
 <a id="s20--choose-the-next-document-from-the-quick-start"></a>
 
