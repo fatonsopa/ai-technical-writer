@@ -2412,6 +2412,27 @@ Current `scripts/install_skill.py`, `scripts/requirements-lock.txt`, root `READM
 
 Verify the affected story and feature outcomes on the identified candidate. W17 owns the cross-host demonstration. Preserve the accepted W60 proof and record any missing host observation separately. [Coverage and shared Definition of Done](./design.md#requirement-coverage)
 
+### Delivery acceptance
+
+Accepted on 2026-11-23 against implementation HEAD `eac4eb8`, artifact SHA-256 `5e663687…`. Builder dependency: Skill Builder accepted at `979ccf5`. Reviewer: implementing agent.
+
+- **Tasks:** All 62 numbered tasks are ticked, each with per-criterion verdicts above. `openspec instructions apply --change ship-specdev` reports 62 of 62 complete.
+- **Full suite:** The author's implementation-completion record (62 steps, kept outside the repository) is bound to that artifact. `scripts/run_tests.py --full` passed on it: regression suite, integrity, wording, preservation, example commands and diagram assets.
+- **Hosts:** Each connected path was observed in real sessions on both hosts:
+  - **Codex** (`gpt-6.2-sol`, medium effort)
+  - **Claude Code** (`claude-opus-5-5`)
+
+  The recorded verdicts cover:
+  - **Install and identity:** W46, W64 and W65.
+  - **OpenSpec runtime:** W47 and W53.
+  - **Writing routes:** W35–W37, W40, W41, W43–W45, W58, W59 and W63.
+  - **Implementation handoff:** W48–W50.
+  - **Cross-host cases:** The neutral cases in W17. A pass on one host was never counted for the other.
+- **Limits:**
+  - **Interpreter:** A performer on the system `python3` (3.9) can't run the skill's scripts; this is in Pending owner decisions.
+  - **Commits in the sandbox:** In W49–W50, Codex's sandbox keeps `.git` read-only, so candidates are identified by content hash.
+  - **Release:** Release assets are built and verified locally. Publishing them, merging to main and deploying are outside this delivery's authority.
+
 ## Proposals awaiting owner approval
 
 These proposals have no execution rows. Their original examples and candidate checks remain in the [prior handoff](https://github.com/fatonsopa/ai-technical-writer/blob/8742dce257d21113ed3db3b6e70f6c001253fecc/plan/tasks.md#proposals-awaiting-owner-approval). Revival requires an owner decision and a scope grounded in the installed OpenSpec release.
