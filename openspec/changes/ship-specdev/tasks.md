@@ -1463,7 +1463,7 @@ Candidate: `54c14cc` on `implementation/ship-specdev`. Accepted Builder B5/T50 i
 
 Write the intended change on each host and preserve its sibling and the standalone route. [Story criteria](./specs/spec-driven-authoring/spec.md#s29--start-one-feature-through-an-optional-workflow-extension)
 
-- [ ] 28.1 [W47](#w47--install-the-locked-openspec-cli-and-select-a-change) (T048). Run explicit `/specdev init` with the locked 2.1.1 CLI in the selected checkout. Read native state on both hosts and preserve sibling and standalone work. After W46 and the checked writing route. Supplies the CLI needed by W40.
+- [x] 28.1 [W47](#w47--install-the-locked-openspec-cli-and-select-a-change) (T048). Run explicit `/specdev init` with the locked 2.1.1 CLI in the selected checkout. Read native state on both hosts and preserve sibling and standalone work. After W46 and the checked writing route. Supplies the CLI needed by W40.
 
 <a id="w47--start-one-feature-through-an-optional-workflow-extension"></a>
 
@@ -1487,6 +1487,28 @@ Skill maintainer · R25/A25. [S29.1](./specs/spec-driven-authoring/spec.md#s29-1
 - **W47.2** Repeat setup with an edited project document and a sibling change. Honor explicit root/change selection and preserve edited or foreign files. With materially ambiguous authority or destination, ask only for that choice before writing. With a missing runtime, failed install or missing initialization authority, report the failed prerequisite and the last confirmed state. For an unrecognized verb, check both inventories, return an unknown-command result, and observe no write or shell execution. An installed but disabled native capability reports its native prerequisite. Preserve user-wide settings. A standalone writing request, an error or a missing change must never trigger implicit initialization or fabrication. <a id="w47-2"></a>
 
 `tools/openspec/{package.json,package-lock.json}`, `scripts/install_skill.py`, the writer’s host entries and source-selection guidance. [OpenSpec package manifest](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/package.json) · [OpenSpec CLI reference](https://openspec.dev/docs/cli)
+
+#### Verdicts
+
+Candidate: the W47 guidance commit on `implementation/ship-specdev`. `scripts/openspec_runtime.py` installs `tools/openspec` with `npm ci` on first use, checks Node.js 22.20.0 or later and verifies the pinned 2.1.1 CLI. It forwards any command the installed CLI offers, with the selected project as its working directory. Default `init` adds `--tools=none --scope=project`; explicit options pass through. Unknown commands run nothing, and OpenSpec telemetry is off. Reviewer: implementing agent.
+
+- **W47.1 Met.** A clean install of both host copies, in an isolated home, reported the lockfile, the local executable, Node v22.23.5 and OpenSpec 2.1.1.
+  - **Setup:** In fresh Git targets, `/specdev init` (Claude Code, `claude-opus-5-5`) and `$specdev init` (Codex, `gpt-6.2-sol`) ran `init --tools=none --scope=project`. This added only `openspec/` and no host commands, and the home gained no OpenSpec skills or config.
+  - **Change:** Each host created `add-partial-refunds`, wrote `specs/partial-refunds/spec.md` at the returned path and passed `openspec validate`.
+  - **Explicit options:** These reach the CLI unchanged (`RuntimeTests`).
+  - **`templates`:** `$specdev templates --schema spec-driven --json` on Codex had no SpecDev mapping. It was discovered from the installed CLI, and its four template paths match the pinned executable's output on the same project.
+  - **Standalone requests:** These used their own contract without a change (W46 runs).
+- **W47.2 Met.** The targets were given a sibling change, `add-refund-limits`, and an edited `openspec/config.yaml`.
+  - **Explicit selection:** Codex, told to use `add-partial-refunds`, changed only that spec, and it validated. The sibling and the edited file were unchanged.
+  - **Ambiguous request:** Claude Code, asked to "add a requirement to the refund change", named both candidates and asked only which one, before writing anything.
+  - **Unknown verb:** `/specdev frobnicate --all` went to the runtime, which returned `unknown` with the installed command list and wrote nothing.
+  - **Prerequisites:** A missing or outdated Node.js is reported before any install (`PrerequisiteTests`).
+  - **Disabled workflow:** `/specdev verify add-partial-refunds` reported that `verify` stays off until `openspec config profile` adds it. It ran nothing and did not imitate the check.
+  - **Failures kept with the evidence:**
+    - A runner quoting error in the first two Claude Code invocations.
+    - A first unknown-verb run that answered without checking the installed CLI. This was fixed in `2226179`.
+    - A Codex run that waited on stdin.
+    - An early explicit `init` without `--scope`, which used OpenSpec's global default and wrote six skills and a config file to the real home. These were removed; the default now stays in the project.
 
 <a id="s23--write-the-intended-artifact-from-a-short-request-continued"></a>
 
