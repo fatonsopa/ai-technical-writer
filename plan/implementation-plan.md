@@ -1,6 +1,6 @@
 # Spec Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 16. The [behavioral specification, revision 16](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 17. The [behavioral specification, revision 17](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -20,7 +20,7 @@ Use the actual [User Story (US) template](https://github.com/fatonsopa/ai-techni
 
 The owner approved the work order, scope and local integration authority. Start with the execution prompt in the repository’s [execution guide](./README.md). Use this plan for dependencies, task boundaries, required evidence and closure. Keep the private JSON execution log described in the starting prompt. Reuse native run records and document the reason for each extra verification before it runs.
 
-See the governing specification’s template mapping for shortcuts, task breakdown and reviews. Implement W35 before W36–W37. W40 and W41 reuse the relevant approved writing and review routes. W38 precedes W39. Coordinate their host demonstrations with W17.
+See the governing specification’s template mapping for shortcuts, task breakdown and reviews. Implement W35 before W36–W37. W40 and W41 reuse the relevant approved writing and review routes. W40 authors the refund task list. W48 consumes that exact output under the [feature task-list rules and refund example](./specification.md#feature-task-lists-and-issue-acceptance). W38 precedes W39. Coordinate their host demonstrations with W17.
 
 ## Reuse the upstream implementation
 
@@ -29,7 +29,7 @@ For each approved capability borrowed from the upstream project, inspect the act
 | Approved work | Implementation to start from | Spec Writer’s responsibility |
 | --- | --- | --- |
 | W47 · Add a project-aware writing command | [extension manifest scaffold](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/extensions/template/extension.yml) and [example command](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/extensions/template/commands/example.md) | Adapt the scaffold to invoke the existing checked writer. Use the installed host integration and feature context. |
-| W48 · Hand off one bounded Issue | [task generation](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/tasks.md) and [task consumer](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/implement.md) | Adapt the upstream task representation at the boundary. Keep the full Issue and its stable criteria authoritative. Confirm that the real upstream consumer recovers them. |
+| W40/W48 · Author and consume the feature task list | [task-list template](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/tasks-template.md), [task generation](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/tasks.md) and [task consumer](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/implement.md) | Adapt the upstream list and generation rules. Give the real implementation command the feature’s ordered rows and access to each authoritative Issue. Observe the eligible tasks, the blocked task and its release condition. |
 | W49–W50 · Execute and resume | [bundled workflow](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/workflows/speckit/workflow.yml) | Call the upstream workflow and its status/resume facilities. Bind provider results to the originating Issue and candidate. [Upstream Converge](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/converge.md) is available on request. |
 | W51–W52 · Assessment and defect repair | [assessment extension](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/extensions/assess/extension.yml) and [bug extension](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/extensions/bug/extension.yml) | Start with the first-party extension commands and manifests. Apply the approved writing formats, criteria and permissions to their inputs and outputs. |
 | W53 · Version and distribute | [first-party bundle manifest](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/bundles/assess/bundle.yml) | If a bundle is needed, adapt the manifest to the components and versions that actually resolve. Use upstream install/update/remove where available. |
@@ -42,7 +42,7 @@ For each borrowed operation, determine which writing features it calls and which
 
 For an authorized feature build, use the bundled workflow when the project selects it. It runs Specify, Plan, Tasks and Implement, with separate reviews after the specification and the plan. Close routine delivery when the existing task and story acceptance criteria and applicable Definition of Done are demonstrated on the identified candidate. Invoke upstream Converge manually only when the user requests a broader review of that feature. Its findings may identify work to propose; they grant no additional implementation authority. A request to write a document ends at its checked handoff unless implementation is separately authorized.
 
-Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 serves its authoritative task, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
+Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 lets the implementing agent select eligible work from the feature list and recover acceptance from each Issue, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
 
 Use the accepted Skill Builder candidate from its implementation plan. Begin with W01 and W03 to get a literal and a source reference through a real consumer. W20 makes the parent chain usable. The seven document routes can then draw on one initiative’s source packet: where intent is unknown, use W12 before W09; W10 precedes dependent feature specifications; W13 precedes design that depends on its research; W05 precedes W06; W04 reviews a drafted specification. Other stories may proceed once their named inputs and shared interfaces are settled. The order below groups by finding for lookup. W24 uses the W20 parent contract. W25 precedes W26. W30 and W31 settle the selection rules before W29 publishes the sequence after its linked routes exist. W32 precedes W33, then W34 applies the route across the catalog. W43 uses W32–W34, W44 follows W40/W41, and W45 uses the existing Interface Contract route. W17 is the final integrated host check and reuses these assignment inputs where applicable. Plan-level A10 requires all seven outputs and their consumer observations. Each has one owning epic and task. All epic, story and task implementation verdicts are currently **Not demonstrated**.
 
@@ -1700,7 +1700,7 @@ As a developer, I want to give the document name and brief in one message, so th
 
 #### Acceptance criteria
 
-- **F23.1** Observe real host dispatch with the supplied brief and the intended checked document; verify an occupied name keeps its existing handler and the qualified entry remains usable.
+- **F23.1** Observe real host dispatch with the supplied brief and the intended checked document; verify an occupied name keeps its existing handler and the qualified entry remains usable. For a multi-task feature, use W40’s linked Issues and refund list to recover the first usable story and safe task order.
 
 #### Scope and sources
 
@@ -1712,7 +1712,7 @@ As a developer, I want to give the document name and brief in one message, so th
 
 ##### Acceptance criteria
 
-- **S23.1** Observe real host dispatch with the supplied brief and the intended checked document; verify an occupied name keeps its existing handler and the qualified entry remains usable. Retain the identified candidate, actual request, output and consumer observation.
+- **S23.1** Observe real host dispatch with the supplied brief and the intended checked document; verify an occupied name keeps its existing handler and the qualified entry remains usable. Retain the identified candidate, actual request, output and consumer observation. For the refund breakdown, reuse W40.3 to show the first independent story and its task dependencies.
 
 ##### Scope and sources
 
@@ -1811,7 +1811,7 @@ Parent: S23. Supports S23.1 and F23.1. R19/A19. Responsible role: integration ma
 
 Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
 
-##### W40 · Distinguish one task from a task breakdown
+##### W40 · Write the feature task list and its linked Issues
 
 ###### Description
 
@@ -1819,11 +1819,11 @@ The upstream tasks template is a list, while a commissioned child needs its own 
 
 ###### Expected outcome
 
-A developer can request one Issue or decompose reviewed scope into bounded Issues.
+A developer receives one Issue for a bounded change or one feature-level `tasks.md` with linked, independently shippable Issues for a multi-task feature.
 
 ###### Scope
 
-Route task and tasks separately. Apply the template crosswalk, W20 ancestry and R17 exceptions; keep native Issue sections and stable IDs.
+Route task and tasks separately. Adapt the pinned task-list template and generation instructions. Group work by story, identify the first usable story and how each story can be demonstrated, and distinguish safe parallel work from prerequisites. Use the owning Issues for acceptance, stable IDs and proof. Apply W20 ancestry and R17’s standalone exception.
 
 ###### Specification
 
@@ -1833,6 +1833,7 @@ Parent: S23. Supports S23.1 and F23.1. R19/A19. Responsible role: integration ma
 
 - **W40.1** From one approved story, task produces one Issue and tasks produces a justified breakdown with the same parent, criterion links, dependencies and observable proof for each child. A one-line upstream checklist entry alone fails.
 - **W40.2** A single independent maintenance change stays one Issue. A missing parent for a declared child blocks readiness. Reuse the existing ancestry negatives and confirm no template-generated setup phase or invented test obligation appears.
+- **W40.3** Given the two approved refund stories, settled read contract, verified fixture paths and Issue references in the [feature task-list rules and refund example](./specification.md#feature-task-lists-and-issue-acceptance), use the normal writing entry. Expect one `tasks.md` with four rows linked to #81–#84 and their criteria. In US1, only T001 and T002 carry `[P]` and the same refund can be checked on both surfaces before US2 ships. In US2, T004 explicitly depends on T003 and the story demonstration uses mixed refund decisions. A second editable copy of task acceptance, a blanket setup phase or a parallel marker on T004 fails. Retain the checked list and its linked Issues for W48.
 
 ###### Relevant files
 
@@ -2240,25 +2241,25 @@ As an implementer, I want the active feature’s task entry to carry the origina
 
 #### Acceptance criteria
 
-- **F30.1** With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Use the integrated readback at S30.1.
+- **F30.1** With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Use the integrated readback at S30.1. Use W48.3 to show the actual consumer selects eligible work and observes the API dependency before offering the dashboard filter.
 
 #### Scope and sources
 
 Parent: this plan. Owner role: skill maintainer. Child: S30. R26/A26. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/implement.md#L143-L153)
 
-#### S30 · Present one Issue in the upstream task format
+#### S30 · Select eligible feature work and recover its Issue criteria
 
 As an implementer, I want the active feature’s task entry to carry the original criterion, so that I can implement it without the authoring conversation.
 
 ##### Acceptance criteria
 
-- **S30.1** With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Preserve observed failures and identify the candidate for each verdict.
+- **S30.1** With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Preserve observed failures and identify the candidate for each verdict. For the two-story refund list, recover both parallel status tasks, the first usable story, and the condition that releases the dependent filter. Reuse W48.3.
 
 ##### Scope and sources
 
 Parent: F30. Owner role: skill maintainer. W48 support S30.1. Use task evidence for the story when it proves the integrated outcome.
 
-##### W48 · Present one Issue in the upstream task format
+##### W48 · Select eligible tasks from the feature list
 
 ###### Description
 
@@ -2266,11 +2267,11 @@ The upstream implementation command reads a phased tasks.md. Our Issue holds the
 
 ###### Expected outcome
 
-The real upstream consumer receives the feature, stable Issue and criterion IDs, allowed actor, task scope and required proof from its supported inputs.
+Through its supported inputs, the real implementing agent reads the active feature, recognizes eligible and blocked tasks, and recovers the selected Issue’s stable ID, criterion, allowed actor, scope and proof.
 
 ###### Scope
 
-Use one editable Issue. Supply the feature spec, plan and task-list format consumed by the pinned integration. Track the source revision, task ID and checkbox progress without accepting behavior from the checkbox.
+Use one authoritative Issue per task. Supply the active feature spec, plan and W40’s `tasks.md` at the pinned integration’s normal inputs. Resolve feature-local IDs to the current Issue and criterion. Use source revisions and existing progress records to make safe selections. Acceptance requires the Issue’s evidence.
 
 ###### Specification
 
@@ -2280,6 +2281,7 @@ Parent: S30. Supports S30.1 and F30.1. R26/A26. Owner role: skill maintainer. Re
 
 - **W48.1** Project an approved manager-only refund Issue into the selected feature. Observe the actual consumer extracting the scoped task and its denied-permission criterion from its normal inputs. Preserve the Issue as the editing authority.
 - **W48.2** Give a sibling feature the same short task ID; revise the selected Issue after generating the view. The consumer must not take the sibling task or dispatch the stale revision. Reconcile against the governing Issue, retaining existing acceptance evidence.
+- **W48.3** Give the actual implementing agent W40’s feature list and linked Issues through its normal entry, without coaching it on the order. Capture the consumer identifying both T001 and T002 as eligible together and explaining how their story can ship before filtering. At the start of US2, capture the consumer selecting T003 and identifying its working API as the reason T004 must wait. Once the approved API filter has evidence on the candidate, observe T004 become eligible and the agent recover #84’s governing criterion. A checkbox alone, an early dispatch or a wrong Issue fails. Retain the consumer’s selections, prerequisite evidence and source references. Reuse the same feature and applicable checkpoints. This check proves scheduling and handoff; it requires neither concurrent workers nor four fresh builds.
 
 ###### Relevant files
 
@@ -2762,14 +2764,14 @@ Record Met, Failed or Not demonstrated per criterion and identified release. Reu
 | R15 / A15 | F13 → S13 → W27 | Routine update trace and relevant naming control. |
 | R17 / A17 | F21 → S21 → W30, W31 | Paired routing choices, rationale and preserved project constraints. |
 | R17 / A17b | F21 → S21 → W62 | Resolve the refund rule and component, accept the contract-only design, and reuse A11 for the unresolved child. |
-| R19 / A19 | F23 → S23 → W35–W37, W40–W41 | Actual host dispatch, canonical template, source-preserving task breakdown and read-only review. |
+| R19 / A19 | F23 → S23 → W35–W37, W40–W41 | Actual host dispatch, canonical template, two-story refund list and linked Issue criteria and read-only review. |
 | R20 / A20 | F24 → S24 → W38–W39 | Ready, blocked and complete cases; one checked successor, no duplicate or stale handoff. |
 | R21 / A21 | F25 → S25 → W43 | Maintained rule versus a frozen launch snapshot, then a conflict with no governing decision. |
 | R22 / A22 | F26 → S26 → W44 | Return.code versus Order.code, a misattributed field in review, and an unrelated prose Issue. |
 | R23 / A23 | F27 → S27 → W45 | Versioned owner definition, divergent consumer copy and a pin without deployed-provider evidence. |
 | R24 / A24 | F28 → S28 → W46 | Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. |
 | R25 / A25 | F29 → S29 → W47 | From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. |
-| R26 / A26 | F30 → S30 → W48 | With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. |
+| R26 / A26 | F30 → S30 → W48 | With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. On the refund-status list, observe the parallel pair and the API prerequisite holding and releasing T004. |
 | R27 / A27 | F31 → S31 → W49, W50 | Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. |
 | R28 / A28 | F32 → S32 → W51, W52 | An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. |
 | R29 / A29 | F33 → S33 → W53 | Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. |
@@ -2802,7 +2804,7 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-Revision 16 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+Revision 17 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 
