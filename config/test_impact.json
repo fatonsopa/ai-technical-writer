@@ -578,6 +578,18 @@
         "-p",
         "test_openspec_runtime.py"
       ]
+    },
+    "release": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_release.py"
+      ]
     }
   },
   "rules": [
@@ -1207,6 +1219,20 @@
       ],
       "tests": [
         "openspec-runtime"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/release_cli.py",
+        "scripts/test_release.py",
+        "tools/release/*",
+        "tools/release/npm/*",
+        "tools/release/npm/bin/*",
+        "config/release.json"
+      ],
+      "tests": [
+        "release",
+        "integrity"
       ]
     }
   ],

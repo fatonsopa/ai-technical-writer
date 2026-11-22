@@ -1,0 +1,20 @@
+{
+  "name": "@fatonsopa/specdev",
+  "version": "0.0.0",
+  "description": "Write and review technical documents and tasks, and run a pinned OpenSpec CLI, from Codex or Claude Code.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fatonsopa/ai-technical-writer.git"
+  },
+  "bin": {
+    "specdev": "bin/specdev.js"
+  },
+  "files": [
+    "bin",
+    "payload"
+  ],
+  "engines": {
+    "node": ">=22.20.0"
+  }
+}
