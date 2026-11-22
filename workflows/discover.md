@@ -26,6 +26,8 @@ Start at the first unresolved material topic, then adapt the next question to th
 | 4 | Unresolved architecture, component design, operational and delivery tradeoffs | High Level Document (HLD), Low Level Design (LLD), decision record, plan |
 | 5 | Whether a visual would clarify a difficult relationship or scenario | Owning reference with visual guidance |
 
+For a child story or task, resolve its ancestry before any of these topics. Find the epic or feature outcome it belongs to, the story, the exact criterion and each source's revision. If one of them is missing, stale or contradicts the child, report that broken edge instead of drafting around it. Work that depends on the edge waits; independent research can continue. A request that is explicitly standalone, such as fixing one broken link, can proceed with its own source and expected destination. An unresolved parent never turns the child into standalone work.
+
 This is a question dependency order, not a requirement to create all those documents. Do not ask a deployment question while the feature's scope is unknown, unless that constraint determines the scope.
 
 Use the host's structured question tool when available and permitted in the current mode. Present one focused decision, or a small group of independent questions, with meaningful alternatives and consequences. Recommend an option when evidence supports it and explain why. Allow a written answer; use free text when a meaningful choice cannot capture the information. If no usable question tool exists, ask concisely in chat. Do not invent a tool or require a particular host or mode.

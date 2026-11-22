@@ -178,3 +178,20 @@ class CoverageResolutionTests(unittest.TestCase):
         plan = '# Plan\n\n## Requirement coverage\n\n| Requirement | Check |\n| --- | --- |\n| [Save](spec.md#save-a-website) | T09 |\n'
         self.assertEqual(self.findings(plan, source), [])
         self.assertRegex(self.findings(plan.replace('#save-a-website', '#save-websites'), source)[0], 'links to section #save-websites')
+
+
+class ParentEdgeTests(unittest.TestCase):
+    """W20: a child resolves its parents before it is ready; a missing parent never makes it standalone."""
+    STORY = '# Story\n\n## Acceptance criteria\n\n- BULK-1: Keep three states.\n'
+    TASK = '# Task\n\nDelivers BULK-1 in [the story](story.md#acceptance-criteria), story r2.\n'
+
+    def findings(self, text, source=STORY, revision='story r2'):
+        from document_contracts import parent_errors
+        return parent_errors(text, [{'source': 'story.md', 'path': 'story.md', 'revision': revision, 'source_text': source}])
+
+    def test_resolved_edge_passes_and_each_broken_edge_is_located(self):
+        self.assertEqual(self.findings(self.TASK), [])
+        self.assertRegex(self.findings(self.TASK, source=None)[0], 'unavailable.*does not make the work standalone')
+        self.assertRegex(self.findings(self.TASK, source=self.STORY.replace('Acceptance criteria', 'Checks'))[0], 'Broken parent edge: #acceptance-criteria')
+        self.assertRegex(self.findings('# Task\n\nNo parent link.\n', revision=None)[0], 'No link to a section of parent')
+        self.assertRegex(self.findings(self.TASK, revision='story r3')[0], 'does not state the parent revision story r3')

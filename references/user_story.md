@@ -12,7 +12,7 @@ A user story describes a small, useful outcome from a person's perspective. Crea
 
 ## Structure
 
-Use a specific title, user/need/value statement, scope, acceptance criteria, and relevant requirement links or open questions. The [Spec Driven Development document (SDD)](spec_driven_development.md) owns detailed behavior; the [Implementation Plan (IP)](implementation_plan.md) owns delivery. For a multi-task feature, author the story and its acceptance scenarios in the governing specification, or link to the project’s existing authoritative story. The delivery plan references its outcome. Child tasks identify the story criterion they deliver. Common task metadata belongs to the task containing the story.
+Use a specific title, user/need/value statement, scope, acceptance criteria, and relevant requirement links or open questions. The [Spec Driven Development document (SDD)](spec_driven_development.md) owns detailed behavior; the [Implementation Plan (IP)](implementation_plan.md) owns delivery. For a multi-task feature, author the story and its acceptance scenarios in the governing specification, or link to the project’s existing authoritative story. The delivery plan references its outcome. Child tasks identify the story criterion they deliver. Common task metadata belongs to the task containing the story. Before writing a child story for an epic, identify the epic's outcome and the revision you read, link that outcome, and state the revision in the story. If the epic is missing or contradicts the story, report the broken edge and hold the story rather than writing it as a standalone need.
 
 ## Template
 

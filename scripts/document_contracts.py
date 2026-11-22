@@ -193,6 +193,32 @@ def coverage_errors(text, coverage):
     return errors
 
 
+def parent_errors(text, parents):
+    """Check each declared parent edge: a link into the parent at an anchor it contains, and its revision.
+
+    A child with an unresolved parent is held rather than treated as standalone.
+    """
+    errors = []
+    for parent in parents:
+        label = parent.get("source", "the declared parent")
+        revision = parent.get("revision")
+        source = parent.get("source_text")
+        if source is None:
+            errors.append(f"Parent {label} is unavailable, so this child is not ready. Restore or relink the parent; a missing parent does not make the work standalone.")
+            continue
+        anchors = {slug(row["title"]) for row in headings(source)} | set(re.findall(r'<a id="([^"]+)"', source))
+        name = Path(parent.get("path", label)).name
+        links = [anchor for target, anchor in re.findall(r"\]\(([^)#\s]*)#([^)\s]+)\)", text) if Path(target).name == name]
+        if not links:
+            errors.append(f"No link to a section of parent {label}, so the edge to its outcome or criterion is missing. Link the exact story criterion or epic outcome this work serves.")
+        for anchor in links:
+            if anchor not in anchors:
+                errors.append(f"Broken parent edge: #{anchor} is not in {label}" + (f" at {revision}" if revision else "") + ". The parent may be stale or contradict this child; hold dependent work until the edge resolves.")
+        if revision and revision not in text:
+            errors.append(f"The child does not state the parent revision {revision} for {label}, so a reader cannot tell which version governs it.")
+    return errors
+
+
 def validate(text, kind, operation="create", scope="complete", context=None, contracts=None):
     context = context or {}
     data = contracts or load_contracts()
@@ -332,6 +358,8 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
             errors.append(f"Missing required literal: {value!r}")
     if "coverage" in context:
         errors.extend(coverage_errors(text, context["coverage"]))
+    if "parents" in context:
+        errors.extend(parent_errors(text, context["parents"]))
     for value in context.get("requirement_ids", []):
         if not re.search(r"(?<![\w-])" + re.escape(value) + r"(?![\w-])", text):
             errors.append(f"Missing required requirement ID: {value}")

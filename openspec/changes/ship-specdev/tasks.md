@@ -84,7 +84,7 @@ Candidate: the W03 commit on `implementation/ship-specdev`. Reviewer: implementi
 - **W03.1 Met.** With `coverage` declared, `scripts/check_document.py --kind plan` passes the example Implementation Plan (IP) against its Spec Driven Development document (SDD). It fails the audit's mutation, in which `WEB-999` replaces `WEB-09`. The two findings name the consumer row on line 87, the missing `WEB-999`, the searched source and revision, the lost `WEB-09` coverage and the correction. An unavailable source is reported as its own finding, without row findings. Regression: `CoverageResolutionTests`.
 - **W03.2 Met.** The reverse mapping reports a source requirement without a coverage row as open. A `Safeguard` row with its reason and work stays eligible, and one without a reason is reported. For a project without IDs, an exact section link resolves and a changed anchor is reported. For this OpenSpec change, `design.md` resolves every coverage link against the capability specification, and all 123 distinct specification links in the native `tasks.md` resolve. The delivery approach stays in the design and each criterion stays in the specification. The example IP is checked against its cited SDD. Reviewers still judge meaning, as `references/implementation_plan.md` now states.
 
-- [ ] 2.2 [W20](#w20--resolve-feature-story-and-task-ancestry-before-drafting) (T003). Recover the child’s story, criterion and governing revision. Hold a broken parent link while letting a sourced standalone fix proceed. After W03.
+- [x] 2.2 [W20](#w20--resolve-feature-story-and-task-ancestry-before-drafting) (T003). Recover the child’s story, criterion and governing revision. Hold a broken parent link while letting a sourced standalone fix proceed. After W03.
 
 ### W20 · Resolve feature, story and task ancestry before drafting
 
@@ -108,6 +108,13 @@ Workflow maintainer · R2/R11/A2/A11. [S02.1](./specs/spec-driven-authoring/spec
 [workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md) · [references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md) · [references/task.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/implementation_plan.md)
 
 Use the valid chain and mutations on that chain; test the standalone branch once. No external tracker write.
+
+#### Verdicts
+
+Candidate: the W20 commit on `implementation/ship-specdev`. Reviewers: the implementing agent, and a separate fresh-context reader for W20.1. The chain is an illustrative Websites Review epic, child story and task kept with the private run evidence.
+
+- **W20.1 Met.** Following the new order, the story links the epic's outcome and states epic r3, and the task links story criterion BULK-1 and states story r2 and epic r3. `check_document.py` with declared `parents` passes both. Starting from the task, the reader recovered BULK-1, both revisions with their quoted locations and the epic's shared outcome, and found nothing missing or contradictory.
+- **W20.2 Met.** With the story absent or the epic absent, the task is held as not ready. A stale parent anchor is reported as a broken edge, and a parent revised past the task's stated revision is reported. None of these passes as standalone work. A task declared explicitly standalone, with its own source and expected destination, passes without a parent. A contradiction between parent and child is a judgment of meaning; `workflows/discover.md` and `references/task.md` direct the writer to hold the child and report the edge. Regression: `ParentEdgeTests`.
 
 - [ ] 2.3 [W11](#w11--write-an-epic-whose-stories-prove-a-usable-outcome) (T004). Connect an epic, story and task to one usable outcome. Withhold epic acceptance if its integrated result is missing after all children close. After W20. If the scope spans capabilities, use W10 first.
 

@@ -100,7 +100,7 @@ def prepare(request_file, session):
     if len({row["id"] for row in requirements}) != len(requirements):
         raise ValueError("Requirement IDs must be unique.")
     context = request.setdefault("context", {})
-    if not isinstance(context, dict) or set(context) - {"required_literals", "requirement_ids", "open_prerequisites", "decision_made", "edit_region", "discovery", "visuals", "instruction_format", "instruction_version", "rewrite_authorization", "coverage"}:
+    if not isinstance(context, dict) or set(context) - {"required_literals", "requirement_ids", "open_prerequisites", "decision_made", "edit_region", "discovery", "visuals", "instruction_format", "instruction_version", "rewrite_authorization", "coverage", "parents"}:
         raise ValueError("Unsupported document context.")
     rewrite_workflow.authorization(context)
     if 'instruction_format' in context and (request['kind'] != 'agent' or context['instruction_format'] not in contracts['documents']['agent']['instruction_formats']):
@@ -111,6 +111,9 @@ def prepare(request_file, session):
     coverage = context.get("coverage")
     if coverage is not None and (not isinstance(coverage, dict) or coverage.get("source_id") not in ids or set(coverage) - {"source_id", "revision"}):
         raise ValueError("coverage needs the source_id of a supplied source and an optional revision.")
+    parents = context.get("parents")
+    if parents is not None and (not isinstance(parents, list) or any(not isinstance(row, dict) or row.get("source_id") not in ids or set(row) - {"source_id", "revision"} for row in parents)):
+        raise ValueError("parents needs a list of supplied source_id values with optional revisions.")
     for name in ("open_prerequisites", "decision_made"):
         if name in context and type(context[name]) is not bool:
             raise ValueError(f"{name} must be boolean.")
@@ -230,6 +233,9 @@ def check(session, draft, budget=True):
         selected = context["coverage"]
         source = next(row for row in request["sources"] if row["id"] == selected["source_id"])
         context = {**context, "coverage": {**selected, "source": selected["source_id"], "source_text": source["text"]}}
+    if "parents" in context:
+        captured = {row["id"]: row for row in request["sources"]}
+        context = {**context, "parents": [{**row, "source": row["source_id"], "path": captured[row["source_id"]].get("path", row["source_id"]), "source_text": captured[row["source_id"]]["text"]} for row in context["parents"]]}
     text = draft.read_bytes().decode("utf-8")
     result = validate(text, request["kind"], request["operation"], request["scope"], context, state["frozen"]["contracts"])
     if request["scope"] == "complete" and request["operation"] != "review":
