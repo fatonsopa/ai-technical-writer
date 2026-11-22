@@ -1817,7 +1817,7 @@ Reviewer: implementing agent, with a fresh-context performer for the shared-file
 
 Read native apply inputs, distinguish eligible and blocked tasks, and recover the criterion at its owner. [Story criteria](./specs/spec-driven-authoring/spec.md#s30--select-eligible-feature-work-and-recover-its-task-criteria)
 
-- [ ] 34.1 [W48](#w48--read-eligible-work-from-native-apply-instructions) (T049). Read the selected change’s native apply inputs. Hold the stale or sibling task and release refund task 2.2 only after 2.1 has candidate evidence. After W47, W40 and W44.
+- [x] 34.1 [W48](#w48--read-eligible-work-from-native-apply-instructions) (T049). Read the selected change’s native apply inputs. Hold the stale or sibling task and release refund task 2.2 only after 2.1 has candidate evidence. After W47, W40 and W44.
 
 <a id="w48--select-eligible-tasks-from-the-feature-list"></a>
 
@@ -1844,6 +1844,18 @@ Skill maintainer · R26/A26. [S30.1](./specs/spec-driven-authoring/spec.md#s30-1
 `references/task.md`, the selected native `tasks.md`, and the context files and instructions returned by the installed CLI. [OpenSpec CLI reference](https://openspec.dev/docs/cli)
 
 Reuse W40’s actual outputs in [W-PACKET and W-CONSUME](../../../plan/test.md#cases).
+
+#### Verdicts
+
+Candidate: `0453fe4` on `implementation/ship-specdev`. In `SKILL.md`, the implementing consumer reads `status` and `instructions apply --change ID --json` and opens the listed context files. It follows only the selected checkbox, its scenario and any linked independently owned Task, and holds items whose prerequisite lacks evidence or whose linked source changed. A same-numbered sibling item is a different item. Reading starts nothing. All five consumer runs left their project with no tracked changes. Reviewer: implementing agent.
+
+- **W48.1 Met.** In the approval change (`add-refund-approval`, sibling `add-refund-notes`), Claude Code (`claude-opus-5-5`) selected 1.1. From the native context and the linked spec, it recovered the manager-only rule (revision r1, FP-7), the "Employee denied" scenario (403, refund pending) and 1.1's own proof. It noted that FP-7's text isn't in the repository. The self-contained item needed no other Task.
+- **W48.2 Met.** The approval spec was moved to r2 (threshold 50.00) after an r1 handoff. Codex (`gpt-6.2-sol`) held item 1.1 in `add-refund-approval`, named the project, item, r1 → r2 change and the affected threshold, and stayed off the sibling's 1.1. It said to build against the current owner's rule once the change owner aligns the checkbox.
+- **W48.3 Met.**
+  - **Refund list:** On W40's actual refund list, Claude Code, uncoached, marked 1.1, 1.2 and 2.1 eligible together and held 2.2 for 2.1. It explained that 1.1 or 1.2 gives the first usable result and that T81-1 needs both before RR-2 ships.
+  - **Release of 2.2:** Given 2.1's evidence on candidate `c0ffee1`, it returned to the same list and selected 2.2 with #84's own criterion T84-1. It left the 2.1 checkbox unticked and noted that it had checked only the evidence file.
+  - **W-PACKET:** Codex started W01 and W03 in parallel, and said W01-1 evidence releases W02, with each Task's criterion at its owner.
+  - **Kept:** All readbacks are kept in the evidence. No concurrent workers or builds were used.
 
 <a id="s31--verify-and-resume-one-authorized-implementation"></a>
 
