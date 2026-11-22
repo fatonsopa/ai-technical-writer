@@ -1,12 +1,14 @@
 # Spec Writer improvement specification
 
-Status: Approved behavioral scope, revision 13. Applies to Codex and Claude Code. [Audit](./audit.md)
+Status: Approved behavioral scope, revision 14. Applies to Codex and Claude Code. [Audit](./audit.md)
 
 ## Purpose and scope
 
 A person should be able to decide what they are approving, and an implementer should be able to recover the agreed behavior and its proof without the original conversation. This specification proposes changes to Technical Writer’s guidance, examples and affected checks. The target is the existing skill, released as Spec Writer after the compatibility migration. Technical Writer authors every requested specification-driven artifact in full, including the Product Requirements Document (PRD), behavioral specification, design, decisions, plans, stories, issues and verification documents. Mirai and other projects supply evidence and consume the results. Deployment, external tracker writes and publication require separate authority.
 
-The owner approved the optional Spec Kit integration and the skill name **Spec Writer** (`spec-writer`). Claude implements the live rename on the handoff computer. The existing GitHub repository and clone URL remain the integration target. Spec Writer remains usable without Spec Kit. Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 serves its authoritative task, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
+The owner approved the optional workflow integration and the skill name **Spec Writer** (`spec-writer`). Claude implements the live rename on the handoff computer. The existing GitHub repository and clone URL remain the integration target. Spec Writer remains usable without the optional workflow. Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 serves its authoritative task, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
+
+Use **Spec Writer** (`spec-writer`) as the sole product identity in the skill, repository documentation, installation text, examples, command descriptions and session replies. Describe the optional workflow by its function. Preserve exact technical identifiers needed to run it, source destinations for the audit and applicable copyright notices.
 
 ## Definitions
 
@@ -52,6 +54,9 @@ An **owning source** is the project-approved location and revision for a claim. 
 | R27 | Use the selected provider’s existing execution and resume contract, keep observed proof with the originating criterion, and report unexpected scope for decision. |
 | R28 | Connect the existing brief, decision, bug and Issue formats to independent intake routes. Keep a bounded repair small. |
 | R29 | Ship a versioned integration with documented compatibility, ownership and recovery. Assemble a bundle only when the chosen components can be resolved. |
+| R33 | Extend borrowed document operations to every supported writing route. Preserve each format, its own prerequisites, authority, checked delivery and handoff to its actual consumer. |
+| R34 | Give procedures, references and session replies wording suited to the reader’s decision and the evidence available. |
+| R35 | Give every released feature its own reader-usable Markdown file linked from the public index. Aliases use their owning page. |
 
 ## Production order
 
@@ -76,11 +81,11 @@ Apply R18 at the supported writing entry on either host. Inspect the smallest au
 
 Python checks applicable coverage, valid source and answer references, and permissible readiness transitions. The supported host workflow asks and receives the actual question and reply. Semantic review determines whether the evidence supports the claim and whether a question was necessary. An unverifiable reply, preselected option or silence cannot confer authority.
 
-### How Spec Kit templates map to Technical Writer
+### How upstream templates map to the writer
 
-Technical Writer owns the published forms, examples and checked-output contracts. A shortcut selects the same owning reference as an ordinary writing request. The following is the implementation decision for all five top-level document templates in the inspected Spec Kit revision.
+Technical Writer owns the published forms, examples and checked-output contracts. A shortcut selects the same owning reference as an ordinary writing request. The following is the implementation decision for all five top-level document templates in the inspected upstream revision.
 
-| Spec Kit source | Useful structure to adopt | Technical Writer owner and boundary |
+| Upstream source | Useful structure to adopt | Technical Writer owner and boundary |
 | --- | --- | --- |
 | [spec](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/spec-template.md) | A valuable user scenario, an independent demonstration, meaningful edge cases, requirements, outcomes and stated assumptions | Use the behavioral specification for feature rules. Product purpose, users and success measures belong in the Product Requirements Document (PRD). Reuse the story reference for a separately shippable slice. Keep permissions, failure behavior, IDs, source authority and unresolved decisions. Include targets and priorities only when supported. |
 | [tasks](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/tasks-template.md) | Group child work by story, identify real dependencies and give each slice a demonstrable outcome | One task uses the existing Issue template. For plural tasks, produce linked Issue records and preserve their story-criterion mappings. Each task has bounded scope, acceptance and smallest sufficient proof. Mark parallel work only when contracts and ownership allow it. A standalone Issue remains eligible. Setup, foundational and polish phases appear only when real work needs them. |
@@ -88,7 +93,30 @@ Technical Writer owns the published forms, examples and checked-output contracts
 | [checklist](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/checklist-template.md) | Derive review questions from the actual requirements and group them by relevant concern | Reuse the requirements-quality checklist in A10g. Record the specification revision, located evidence, verdict and correction. A checked item about requirement quality cannot establish that the feature passed a runtime test. |
 | [constitution](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/constitution-template.md) | Read project principles and their governance before planning | Reuse the project’s adopted Policy (POL) or Technical Standard (STD). Write policy only on request. A suggested principle, such as test-first development, requires actual authority before it becomes binding. |
 
-For the Low Level Design (LLD), use the existing design template and its component, data, interface and failure contracts. The upstream feature specification and plan provide context. Preserve the current User Story (US) template for stories and epics, and the Issue template for tasks. Add a missing useful distinction to its owning guide or example only when the existing guidance does not already supply it. Link upstream sources as prior art. No vendored template tree, Spec Kit installation or generated second set of specifications is required.
+For the Low Level Design (LLD), use the existing design template and its component, data, interface and failure contracts. The upstream feature specification and plan provide context. Preserve the current User Story (US) template for stories and epics, and the Issue template for tasks. Add a missing useful distinction to its owning guide or example only when the existing guidance does not already supply it. Link upstream sources as prior art. No vendored template tree, upstream installation or generated second set of specifications is required.
+
+### How the optional workflow uses the full catalog
+
+Start from the writer’s live [format catalog](../SKILL.md) and [output contracts](../contracts/documents.json). Where the catalog groups several contract kinds, retain each supported kind and its aliases. Include the seven approved forms in A10a–g as their owning routes ship. Writing Style and Visual Guidance apply where appropriate. Keep reference-only guidance and native host file formats in their existing roles.
+
+| Request or feature input | What the workflow does with it |
+| --- | --- |
+| Discovery interview, brief, capability map, research record or product requirements | Carry sourced intent, scope, open decisions or research to the document that needs them. Select the relevant capability before writing its feature specification. |
+| Requirement, behavioral specification, requirements-quality checklist, story, Issue or implementation plan | Preserve exact requirement and criterion references. Apply the project’s parent rules and standalone exception. Dispatch implementation only for an authorized task. |
+| High- or low-level design, interface contract, threat model, service objectives, decision record, policy or technical standard | Link the owning document and relevant section or revision when a later decision depends on it. Preserve project terminology, permissions and unresolved choices. |
+| Feature map, critical journeys, test plan, test specification, test status or completion report | Link surfaces to journeys and criteria to checks. Retain observed results separately from proposed checks. |
+| Bug report, incident report or any supported Issue subtype | Accept the requested record directly. Carry it into repair or follow-up only if that work is authorized. |
+| Tutorial, how-to guide, explanation, repository README, agent instructions, reusable skill or output style | Write the requested format through its own entry and apply its format-specific checks. A guide or host file can be the final deliverable. |
+
+For a direct request, select the canonical type, use its own discovery, writing, editing and review rules, and deliver the checked result. For a feature, reuse an appropriate existing document, or request the missing input according to R18. Recommend one eligible next document under R20. Preserve the actual project location, revision and relevant section when passing a document to the next consumer. Operators may initiate a document independently when its own prerequisites allow it. A borrowed command, template, checklist, assessment or workflow uses this same rule wherever it handles documents. A provider can consume a link or a scoped view without taking ownership of the document.
+
+### One file for every released feature
+
+Use the short repository README to direct readers to the public feature index. Each independently usable, released feature has a distinct, reachable Markdown file. Start with the existing public readme, user-invocable routes and supported format catalog. Include standalone writing, discovery, editing, review, rewriting, visuals, checked delivery, documented maintenance operations, shortcuts, guided handoffs and each shipped optional workflow. Count supported document formats as reader destinations. Aliases and command spellings resolve to the same file. Reuse a dedicated, reader-usable guide or format reference. Where several distinct features have only a shared reference or one README section, give each its own page linking the common rules.
+
+A page answers the question a reader came with. Give its purpose, relevant prerequisites, where to act, one supported input, the observable result and where work ends or goes next. If an operation can stop partway, explain the meaningful stop or recovery point. Link the source of shared rules. A page duplicating setup from other guides or pointing only to an overview leaves the reader without an owner for the instructions.
+
+The task that releases or changes a feature owns its page and index entry in the same increment. As examples, W35 owns shortcuts, W38 owns next-document guidance, W47 owns project-aware writing, W49–W50 own execution and resumption, and W51 and W52 own assessment and repair respectively. The owner of each A10a–g route supplies or links its dedicated guide. W54 establishes the public entry. W61 covers already released features whose pages would otherwise have no delivery owner. The guide for an optional workflow describes its available behavior even if a separate tutorial or runtime demonstration is still proposed.
 
 ## Quality and interface constraints
 
@@ -158,21 +186,29 @@ Use the same task evidence at the requirement, story and epic when it proves the
 
 **A26 · R26.** F30/S30. With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Use W48 for the required proof.
 
-**A27 · R27.** F31/S31. Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. Use W49, W50 for the required proof.
+**A27 · R27.** F31/S31. Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. Use W49, W50 for the required proof. Routine closure uses the existing acceptance evidence. A broader Converge review requires a user request.
 
 **A28 · R28.** F32/S32. An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Use W51, W52 for the required proof.
 
 **A29 · R29.** F33/S33. Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. Use W53 for the required proof.
 
+**A33 · R33.** F37/S37. Resolve each eligible catalog type and alias to its canonical owner at the integrated entry, including A10a–g. A tutorial request returns a checked tutorial and ends. An authorized child Issue carries its reviewed design constraint and exact source. A stale design reference holds that dispatch. Use W58–W59 evidence.
+
+**A34 · R34.** F38/S38/W60. Use the [committed guide](https://github.com/fatonsopa/ai-technical-writer/blob/d8bf859f0eec178aa34b24e29aef10290e984c3b/references/writing_style.md#write-a-feature-page-people-can-use) and its worked case. The feature example identifies the action and source. The session identifies the reviewed approval rule and the unresolved decision.
+
+**A35 · R35.** F39/S39/W54/W61. Compare every released capability and format with the public index. Each distinct feature has a working, separate file and an example appropriate to its entry. A focused edit and a review lead to distinct results. A shared overview or empty page fails. Include new pages with their feature’s own delivery.
+
 ## Open decisions
 
-**D6.** When the project chooses Spec Kit to build an authorized feature, use its bundled workflow. It runs Specify, Plan, Tasks and Implement, with separate reviews after the specification and the plan. Document the manual Converge step after Implement for that same feature. A request to write a document ends at its checked handoff unless implementation is separately authorized. The decision covers documenting the handoff within existing W49.
+**D7.** For approved capabilities borrowed from the upstream project, use its pinned first-party implementation directly or adapt its source as described in the [upstream reuse instructions](./implementation-plan.md#reuse-the-upstream-implementation). Preserve the Spec Writer document contracts and standalone entry. This implementation choice adds no work items.
 
-**D5.** The owner approved the optional Spec Kit integration and the skill name **Spec Writer** (`spec-writer`). Claude implements the live rename on the handoff computer. The existing GitHub repository and clone URL remain the integration target. Spec Writer remains usable without Spec Kit. Implement the approved five toolkit stages within R25–R29. R24 owns the rename.
+**D6.** For an authorized feature build, use the bundled workflow when the project selects it. It runs Specify, Plan, Tasks and Implement, with separate reviews after the specification and the plan. Close routine delivery when the existing task and story acceptance criteria and applicable Definition of Done are demonstrated on the identified candidate. Invoke upstream Converge manually only when the user requests a broader review of that feature. Its findings may identify work to propose; they grant no additional implementation authority. A request to write a document ends at its checked handoff unless implementation is separately authorized. The decision covers documenting the handoff within existing W49.
+
+**D5.** The owner approved the optional workflow integration and the skill name **Spec Writer** (`spec-writer`). Claude implements the live rename on the handoff computer. The existing GitHub repository and clone URL remain the integration target. Spec Writer remains usable without the optional workflow. Implement the approved five toolkit stages within R25–R29. R24 owns the rename.
 
 **D4.** The owner approved F25–F27 under R21–R23. The subsequent D5 decision adds the toolkit and selects its canonical identity.
 
-**D3.** The owner approved R19–R20, their short handoff wording and host-specific entries. Implement the adopted Spec Kit structures within Technical Writer’s owning forms as set out in the template mapping.
+**D3.** The owner approved R19–R20, their short handoff wording and host-specific entries. Implement the adopted upstream structures within Technical Writer’s owning forms as set out in the template mapping.
 
 **D2.** The owner approved R18/A18 and its bounded implementation in F22.
 
@@ -184,23 +220,23 @@ The implementation plan maps each finding to an epic and each criterion to bound
 
 ## Proposals awaiting owner approval
 
-The approved work comprises F1–F33, their 33 child stories, W01–W53 and their revision 11 acceptance criteria, with the manual Converge clarification in W49. The public-guide proposals F34–F36, W54–W57 and the additional assessment criterion W51.3 await the owner’s approval. Exclude them from task selection, verification obligations and completion counts. The following material is retained for a future decision. References to the manual Converge choice remain governed by D6.
+The approved work comprises F1–F33 and F37–F39, their 36 child stories, and W01–W54 plus W58–W61. W60’s guide edit shipped on the handoff branch before the remaining implementation. W46 covers the public identity, W49 covers on-request Converge, and W58–W59 cover the full writing catalog. The additional worked walkthrough and demonstrations in F34–F36 (W55–W57), and the additional assessment criterion W51.3, await the owner’s approval. F39 now owns the approved index task W54 and the separate page requirement. Exclude only the pending proposals from execution and completion counts. The following material is retained for a future decision. The on-request Converge policy in D6 governs these proposals too.
 
 | Proposed ID | Candidate behavior |
 | --- | --- |
-| R30 | Link a concise capability index and one worked quickstart from the root README. Reuse the existing README, Tutorial and How-to Guide formats. Publish as repository-readable Markdown. |
+| R30 | Use the approved capability index and add one worked quickstart linked from the root README. Reuse the existing README, Tutorial and How-to Guide formats. Publish as repository-readable Markdown. |
 | R31 | Document and exercise the read-only upstream list and info operations. Keep feature-output discovery in the quickstart and use existing upstream provenance for installed assets. |
-| R32 | Use the unmodified upstream workflow, identify its run and active feature, and document manual Converge. Reconcile any appended tasks with the original Issue and permitted change. |
+| R32 | Use the unmodified upstream workflow, identify its run and active feature, and document Converge as a user-requested review. Reconcile any appended tasks with the original Issue and permitted change. |
 
-**A30 · R30.** F34/S34. From the root README, a new reader chooses an existing-document request or the optional feature route, then identifies the input, output and next consumer for the complete refund example. Each advertised capability has a reachable entry on the identified release. Use W54, W55 for the proof.
+**A30 · R30.** F34/S34. From the root README, a new reader chooses an existing-document request or the optional feature route, then identifies the input, output and next consumer for the complete refund example. Each advertised capability has a reachable entry on the identified release. Use W55 for the proposed walkthrough. Reuse the approved W54 index.
 
 **A31 · R31.** F35/S35. From a project with one known override, locate its contribution and the lower layer with the native inventory; find the generated feature spec separately. Inspection leaves the project content unchanged. Use W56 for the proof.
 
-**A32 · R32.** F36/S36. Use the shipped upstream workflow on the authorized feature. A spec verdict leaves the plan gate independent. After Implement, the operator identifies the same feature/candidate and runs Converge manually. A remaining gap stays open until the underlying criterion is proved. Use W57 for the proof.
+**A32 · R32.** F36/S36. Use the shipped upstream workflow on the authorized feature. A spec verdict leaves the plan gate independent. After Implement, the operator closes against acceptance evidence and, if the user requests a broader review, runs Converge manually for that same feature and candidate. A remaining gap stays open until the underlying criterion is proved. Use W57 for the proof.
 
 ### Default feature route and its outputs
 
-Use the feature route for an authorized software change. A direct document request may end with one checked document. Follow the project’s governing principles; Spec Kit’s quickstart establishes a constitution once per project. Keep the optional assessment and defect routes separate from the feature prerequisites.
+Use the feature route for an authorized software change. A direct document request may end with one checked document. Follow the project’s governing principles; the upstream quickstart establishes a constitution once per project. Keep the optional assessment and defect routes separate from the feature prerequisites.
 
 | Phase | Input | Output and next consumer |
 | --- | --- | --- |
@@ -208,19 +244,19 @@ Use the feature route for an authorized software change. A direct document reque
 | Plan | The governing spec and project constraints | `plan.md` records the approach. Link relevant design, research, model or interface details to the tasks that depend on them. Use the quality checklist when the adequacy of the requirements needs review. |
 | Tasks | Spec, plan and applicable design | `tasks.md` exposes dependency-ordered work tied to authoritative Issues and criteria. Read-only Analyze can locate a cross-document conflict before dispatch. Correct the owning record first. |
 | Implement | The approved scope, selected task and its proof | The provider changes the candidate. Preserve the candidate identity, observation and task progress. A checked requirement-quality item or task marker alone cannot establish delivery. |
-| Converge | The actual candidate and the same feature’s spec, plan and tasks | The operator invokes Converge in the agent after upstream automation ends. A clean comparison leaves the task list unchanged. When gaps produce appended tasks, preserve them, reconcile each against the authoritative Issue and obtain authority for any new scope. Record the verdict and outstanding proof. |
+| Converge (on request) | The actual candidate and the same feature’s spec, plan and tasks | If the user requests a broader review, the operator invokes Converge in the agent on the same feature. A clean comparison leaves the task list unchanged. When gaps produce appended tasks, preserve them, reconcile each against the authoritative Issue and obtain authority for any new scope. Record the verdict and outstanding proof. |
 
 For the manual path, the longer upstream sequence inserts Clarify after Specify, Checklist after Plan, and Analyze after Tasks. Use those steps when they address a real decision or coverage gap. In the automated `speckit` path the installed definition and its actual gates determine what runs. A guide must mark any supplemental checks it asks the operator to run separately. A terminal workflow exit is evidence only for the steps observed in that run.
 
 ### Capability reference and artifact inventory
 
-Use a short root README linked to a public capability index, feature tutorial, installed-artifact reference and workflow guide. In repository docs, label standalone writing, optional Spec Kit integration and the chosen implementation provider. For each advertised capability name the user need, supported entry and host, required input, output location and next action. Upstream integrates hosts, adds operations through extensions, changes existing behavior through presets, sequences steps with workflows, adjusts installed sequences with overlays, and distributes components as bundles. Link upstream for third-party tooling. Describe only the components the Spec Writer release supports.
+Use a short root README linked to a public capability index, feature tutorial, installed-artifact reference and workflow guide. In repository docs, label standalone writing, optional workflow integration and the chosen implementation provider. For each advertised capability name the user need, supported entry and host, required input, output location and next action. Upstream integrates hosts, adds operations through extensions, changes existing behavior through presets, sequences steps with workflows, adjusts installed sequences with overlays, and distributes components as bundles. Link upstream for third-party tooling. Describe only the components the Spec Writer release supports.
 
-A generated project document and an installed Spec Kit asset use different lookup paths. Resolve the active feature from supported project state to find its spec, plan or tasks. Run the read-only upstream CLI to list command, template, script and hook contributions or inspect one returned ID. Named assets have a precedence stack; composing layers may still contribute below the winner. Hook registrations can be additive. An inventory row does not establish invocation, hook execution or document acceptance.
+A generated project document and an installed workflow asset use different lookup paths. Resolve the active feature from supported project state to find its spec, plan or tasks. Run the read-only upstream CLI to list command, template, script and hook contributions or inspect one returned ID. Named assets have a precedence stack; composing layers may still contribute below the winner. Hook registrations can be additive. An inventory row does not establish invocation, hook execution or document acceptance.
 
-### Idea assessment in Spec Kit mode
+### Idea assessment in workflow mode
 
-In Spec Kit mode the optional assessment uses one idea slug, ordinarily progressing from intake to research, problem definition, concept comparison and decision. The upstream outputs are `intake.md`, `research.md`, `problem.md`, `concept.md` and `decision.md` under `.specify/assessments/<slug>/`. Use those artifacts when integrating the extension. Their contents reuse the writer’s existing interview, brief, research and decision guidance. The standalone writer can keep a small decision in its existing format.
+In workflow mode the optional assessment uses one idea slug, ordinarily progressing from intake to research, problem definition, concept comparison and decision. The upstream outputs are `intake.md`, `research.md`, `problem.md`, `concept.md` and `decision.md` under `.specify/assessments/<slug>/`. Use those artifacts when integrating the extension. Their contents reuse the writer’s existing interview, brief, research and decision guidance. The standalone writer can keep a small decision in its existing format.
 
 | Step | Assessment file | What the next reader needs |
 | --- | --- | --- |
