@@ -147,3 +147,34 @@ class DocumentContractTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CoverageResolutionTests(unittest.TestCase):
+    """W03: coverage rows resolve against the declared source in both directions."""
+    SOURCE = '# Spec\n\n### WEB-08: Clear\n\nText.\n\n### WEB-09: Batches\n\nText.\n'
+    PLAN = '# Plan\n\n## Requirement coverage\n\n| Requirement | Implementation area | Verification |\n| --- | --- | --- |\n| WEB-08 | Clear branch | T13 |\n| WEB-09 | Batch coordinator | T14–T16 |\n'
+
+    def findings(self, plan, source=SOURCE):
+        from document_contracts import coverage_errors
+        return coverage_errors(plan, {'source': 'spec.md', 'revision': 'rev-1', 'source_text': source})
+
+    def test_valid_rows_pass_and_a_displaced_id_reports_row_revision_lost_coverage_and_correction(self):
+        self.assertEqual(self.findings(self.PLAN), [])
+        found = self.findings(self.PLAN.replace('| WEB-09 |', '| WEB-999 |'))
+        self.assertEqual(len(found), 2)
+        self.assertRegex(found[0], r'line 8 .*WEB-999.*spec.md at rev-1 does not declare.*likely replaced WEB-09')
+        self.assertRegex(found[1], r'Requirement WEB-09 .*no coverage row')
+
+    def test_unavailable_source_is_reported_separately(self):
+        self.assertEqual(self.findings(self.PLAN, source=None), ['Coverage source unavailable: spec.md (rev-1). Its citations were not checked; supply the source before relying on coverage.'])
+
+    def test_justified_safeguard_is_eligible_and_an_unjustified_one_is_not(self):
+        plan = self.PLAN + '| Safeguard: keep audit rows | Journal retention | Required by the data policy |\n'
+        self.assertEqual(self.findings(plan), [])
+        self.assertRegex(self.findings(self.PLAN + '| Safeguard | | |\n')[0], 'safeguard without its justification')
+
+    def test_project_without_ids_resolves_exact_section_links(self):
+        source = '# Spec\n\n## Save a website\n\nText.\n'
+        plan = '# Plan\n\n## Requirement coverage\n\n| Requirement | Check |\n| --- | --- |\n| [Save](spec.md#save-a-website) | T09 |\n'
+        self.assertEqual(self.findings(plan, source), [])
+        self.assertRegex(self.findings(plan.replace('#save-a-website', '#save-websites'), source)[0], 'links to section #save-websites')

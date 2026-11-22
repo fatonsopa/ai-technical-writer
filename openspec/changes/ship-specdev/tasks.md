@@ -52,7 +52,7 @@ Candidate: the W01 commit on `implementation/ship-specdev`. Reviewer: implementi
 
 Trace a commissioned task from its authority to the behavior and proof the implementer receives. [Story criteria](./specs/spec-driven-authoring/spec.md#s02--commission-a-task-from-a-reviewed-requirement)
 
-- [ ] 2.1 [W03](#w03--resolve-coverage-in-both-directions) (T002). Trace work to its source in both directions. Flag the displaced requirement and orphaned criterion while admitting a justified safeguard. May start in parallel.
+- [x] 2.1 [W03](#w03--resolve-coverage-in-both-directions) (T002). Trace work to its source in both directions. Flag the displaced requirement and orphaned criterion while admitting a justified safeguard. May start in parallel.
 
 ### W03 · Resolve coverage in both directions
 
@@ -76,6 +76,13 @@ Plan maintainer · R3/A3. [S02.1](./specs/spec-driven-authoring/spec.md#s02-1) a
 [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/implementation_plan.md) · [examples/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/implementation_plan.md) · [scripts/check_document.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/check_document.py) · [scripts/document_contracts.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/document_contracts.py)
 
 Use the existing comparison; add a mechanical check only for decidable references. Human review assesses meaning. [Actionable diagnostics, 08:55–09:11](https://www.youtube.com/watch?v=O_zcc6Xl12g&t=535s)
+
+#### Verdicts
+
+Candidate: the W03 commit on `implementation/ship-specdev`. Reviewer: implementing agent, comparing checker output on the audit's control with this Task and [S02.1](./specs/spec-driven-authoring/spec.md#s02-1).
+
+- **W03.1 Met.** With `coverage` declared, `scripts/check_document.py --kind plan` passes the example Implementation Plan (IP) against its Spec Driven Development document (SDD). It fails the audit's mutation, in which `WEB-999` replaces `WEB-09`. The two findings name the consumer row on line 87, the missing `WEB-999`, the searched source and revision, the lost `WEB-09` coverage and the correction. An unavailable source is reported as its own finding, without row findings. Regression: `CoverageResolutionTests`.
+- **W03.2 Met.** The reverse mapping reports a source requirement without a coverage row as open. A `Safeguard` row with its reason and work stays eligible, and one without a reason is reported. For a project without IDs, an exact section link resolves and a changed anchor is reported. For this OpenSpec change, `design.md` resolves every coverage link against the capability specification, and all 123 distinct specification links in the native `tasks.md` resolve. The delivery approach stays in the design and each criterion stays in the specification. The example IP is checked against its cited SDD. Reviewers still judge meaning, as `references/implementation_plan.md` now states.
 
 - [ ] 2.2 [W20](#w20--resolve-feature-story-and-task-ancestry-before-drafting) (T003). Recover the child’s story, criterion and governing revision. Hold a broken parent link while letting a sourced standalone fix proceed. After W03.
 

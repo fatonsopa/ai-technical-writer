@@ -17,6 +17,11 @@ def main():
     args = parser.parse_args()
     try:
         context = json.loads(args.context.read_text()) if args.context else None
+        coverage = (context or {}).get('coverage')
+        if coverage and 'path' in coverage:
+            source = (args.context.parent / coverage['path']).resolve()
+            coverage.setdefault('source', coverage['path'])
+            coverage['source_text'] = source.read_text() if source.is_file() else None
         result = validate(args.document.read_text(), args.kind, args.operation, args.scope, context=context)
         print(json.dumps(result, indent=2))
         return 0 if result['passed'] else 1

@@ -14,6 +14,12 @@ For a multi-task feature, the reviewed plan and feature specification feed task 
 - Address rollout, compatibility, data changes, monitoring, and recovery according to impact. Preserve historical data when rollback cannot safely remove it.
 - Resolve conflicts with requirements explicitly before proceeding. Implementation detail cannot silently change the intended outcome.
 
+## Check coverage against its source
+
+A structural pass shows the plan has a coverage table, not that each row cites a real requirement. To check that, declare the governing source in the document context: `{"coverage": {"path": "spec.md", "revision": "LABEL"}}` for `scripts/check_document.py --context`, or `{"coverage": {"source_id": "ID", "revision": "LABEL"}}` naming a supplied source in a checked-delivery session. The check reports each row whose requirement ID or section link the source doesn't contain, with the row, the missing reference, the revision it searched and the requirement that lost its owner. It reports each source requirement that no row covers, and it reports an unavailable source separately. A row that starts with `Safeguard` and states its reason and work is accepted without a requirement ID. A project without requirement IDs can cite exact section links instead.
+
+The check settles references; a reviewer still judges whether the work in each row serves its requirement. For an OpenSpec change, run it on `design.md` against the capability specification it links, and review the native `tasks.md` rows against the same scenarios. Keep the delivery approach in the design and the requirement in the specification, without a second editable copy.
+
 ## Conditional migration and operational work
 
 For a data migration/backfill, identify source/target versions, compatibility during mixed deployment, ordering, chunking/checkpoints, repeat/concurrency behavior, validation/reconciliation, load limits and failure recovery. Distinguish reversible schema work from irreversible data changes; rollback must not erase valid later writes. Define stop/hold conditions and preserve unfinished/uncertain work. Use actual scripts and thresholds only when supplied or inspected; unresolved limits remain open.

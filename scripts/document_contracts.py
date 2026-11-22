@@ -120,6 +120,79 @@ def section_errors(nodes, rules, context, ordered=False):
     return errors
 
 
+IDENTIFIER = re.compile(r"(?<![\w-])[A-Z][A-Z0-9]*-\d+[a-z]?(?![\w-])")
+
+
+def slug(title):
+    """GitHub-style heading anchor."""
+    return re.sub(r"[^\w\- ]", "", title.lower()).replace(" ", "-")
+
+
+def coverage_errors(text, coverage):
+    """Resolve each coverage row against its declared source, and each source requirement back to a row.
+
+    The check is mechanical: it decides whether cited IDs and section links exist in
+    the declared source revision. Whether the row's work actually serves the
+    requirement still needs review.
+    """
+    label = coverage.get("source", "the declared source")
+    revision = coverage.get("revision") or "unrecorded revision"
+    source = coverage.get("source_text")
+    if source is None:
+        return [f"Coverage source unavailable: {label} ({revision}). Its citations were not checked; supply the source before relying on coverage."]
+    declared = []
+    for row in headings(source):
+        found = IDENTIFIER.match(row["title"])
+        if found and found[0] not in declared:
+            declared.append(found[0])
+    for line in source.splitlines():
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")] if line.lstrip().startswith("|") else []
+        found = IDENTIFIER.match(cells[0]) if cells else None
+        if found and found[0] not in declared:
+            declared.append(found[0])
+    sections = {slug(row["title"]) for row in headings(source)} | set(re.findall(r'<a id="([^"]+)"', source))
+    rows, in_table, errors = [], False, []
+    for number, line in enumerate(text.splitlines(), 1):
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            in_table = False
+            continue
+        cells = [cell.strip() for cell in stripped.strip("|").split("|")]
+        if not in_table:
+            in_table = bool(re.match(r"(requirement|outcome|criterion)", cells[0], re.I))
+            continue
+        if set(cells[0]) <= set("-: "):
+            continue
+        rows.append((number, cells))
+    if not rows:
+        return [f"No requirement coverage table was found to compare with {label} ({revision})."]
+    cited = {value for _, cells in rows for value in IDENTIFIER.findall(cells[0])}
+    uncovered = [value for value in declared if value not in cited]
+    for number, cells in rows:
+        first = cells[0]
+        if re.match(r"safeguard\b", first, re.I):
+            if len(cells) < 2 or not any(cell for cell in cells[1:]):
+                errors.append(f"Coverage row on line {number} declares a safeguard without its justification or work.")
+            continue
+        ids = IDENTIFIER.findall(first)
+        anchors = re.findall(r"\]\([^)#]*#([^)]+)\)", first)
+        if not ids and not anchors:
+            errors.append(f"Coverage row on line {number} ({first!r}) cites no requirement ID or section of {label}. Cite the governing requirement or mark the row as a justified safeguard.")
+        for value in ids:
+            if value not in declared:
+                hint = f" It likely replaced {uncovered[0]}, which no row covers now." if len(uncovered) == 1 else ""
+                errors.append(f"Coverage row on line {number} ({first!r}) cites {value}, which {label} at {revision} does not declare.{hint} Correct the row to the requirement it implements.")
+        for value in anchors:
+            if value not in sections:
+                errors.append(f"Coverage row on line {number} ({first!r}) links to section #{value}, which {label} at {revision} does not contain.")
+            else:
+                cited.add("#" + value)
+    for value in declared:
+        if value not in cited:
+            errors.append(f"Requirement {value} in {label} at {revision} has no coverage row, so no work owns it. Add its owning work or record why it is excluded.")
+    return errors
+
+
 def validate(text, kind, operation="create", scope="complete", context=None, contracts=None):
     context = context or {}
     data = contracts or load_contracts()
@@ -257,6 +330,8 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
     for value in context.get("required_literals", []):
         if not isinstance(value, str) or value not in text:
             errors.append(f"Missing required literal: {value!r}")
+    if "coverage" in context:
+        errors.extend(coverage_errors(text, context["coverage"]))
     for value in context.get("requirement_ids", []):
         if not re.search(r"(?<![\w-])" + re.escape(value) + r"(?![\w-])", text):
             errors.append(f"Missing required requirement ID: {value}")
