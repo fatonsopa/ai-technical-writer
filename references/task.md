@@ -18,6 +18,7 @@ When editing an existing excerpt, use the current request's task type and destin
 - Keep independently deliverable work separate. Retain related symptoms together when they describe one failure; link dependencies rather than adding unrelated tasks.
 - Explain the need before the implementation. Include technical instructions when they are confirmed constraints or useful investigation findings.
 - Define observable acceptance criteria. Identify which specification requirements or task acceptance criteria the work satisfies.
+- When a task implements a constrained field, link the exact owner and field together, such as `Return.code` in the schema, Interface Contract (IC) or Low Level Design (LLD) that defines it. Keep its semantics: required or optional, null or absent, format. A link to the whole document can hide the wrong field when several share a name. An unambiguous existing field pointer is enough, and a prose-only task needs no field citations.
 - Preserve existing scope, conditions, evidence, and uncertainty when editing. A title change does not authorize changing the work.
 - Leave status, assignment, priority, and release approvals to the project's task-management process.
 - Keep task type in tracker metadata. In Linear, use the existing `Type` label group. Do not repeat a `Type: …` field in the title or description; preserve unrelated labels and native status fields.
@@ -91,6 +92,8 @@ Read the [complete Websites Review example](../examples/task.md). It demonstrate
 ## Quality check
 
 Can a developer identify the work from the title, understand the need, find its governing behavior, and assess its acceptance criteria? Confirm that facts, technical constraints, and open decisions survived the rewrite. A Decision remains open until decided; a Release remains unverified until its checks actually run.
+
+When reviewing a task against a contract, check that each cited field resolves to the owner and field the requirement names. Report the task, the wrong field and the requirement left uncovered, such as a task that cites the optional `Order.code` for the required `Return.code`.
 
 To review an edited criterion, give a reader only the edited task and ask the question its source answers, such as "What happens after a response is lost, and who may retry?". Compare the answer with the governing requirement and cite the words that carry each obligation. A missing or wrong answer points to the exact ambiguity to fix. A rewrite in a similar tone can still change an obligation, for example by making an optional retry required; reject it and name the changed obligation. Accept any clear wording that keeps every obligation.
 
