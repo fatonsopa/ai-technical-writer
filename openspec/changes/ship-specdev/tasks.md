@@ -482,7 +482,7 @@ Candidate: the W10/W13 commit on `implementation/ship-specdev`. The new `referen
 
 Locate the named feature at its actual entry point. [Story criteria](./specs/spec-driven-authoring/spec.md#s17--use-the-feature-map-at-its-handoff)
 
-- [ ] 10.1 [W05](#w05--author-a-feature-map-from-verified-surfaces) (T014). Map the evidenced surface, action and end state so a verifier can locate them. Mark a missing handle or proposed surface as unverified.
+- [x] 10.1 [W05](#w05--author-a-feature-map-from-verified-surfaces) (T014). Map the evidenced surface, action and end state so a verifier can locate them. Mark a missing handle or proposed surface as unverified.
 
 ### W05 · Author a feature map from verified surfaces
 
@@ -507,13 +507,20 @@ Verification-guidance maintainer · R10/A10e. [S17.1](./specs/spec-driven-author
 
 Use one grounded surface and one missing detail. A fabricated selector fails; a real consumer observation may be reused.
 
+#### Verdicts
+
+Candidate: `6bb4652`, which adds `references/feature_map.md`, its example and contract kind `feature_map`. The performer was a fresh-context agent following the installed skill with a captured Nacre settings page as evidence. Reviewer: implementing agent.
+
+- **W05.1 Met.** The map's rows give the user-facing name, the route `/settings/workspace`, the handles (the "Rename workspace" form, the "Workspace name" field, the "Save name" button with `data-testid="save-workspace-name"`, and the `rename-status` element), the capture's build and commit, and the end state. Every handle the map names occurs in the captured page, so a verifier can locate it. The map passes the contract.
+- **W05.2 Met.** The status message's text, which the capture doesn't show, and the end state, which comes from the product specification, are marked unverified, and no wording was invented. The planned Transfer ownership page is listed as proposed, with no route or handle. A QA report that the app launched was recorded, but no row was marked verified because of it.
+
 <a id="s18--use-the-critical-journeys-at-its-handoff"></a>
 
 ## 11. S18 · Use the critical journeys at its handoff
 
 Follow the mapped journey to its observable result. [Story criteria](./specs/spec-driven-authoring/spec.md#s18--use-the-critical-journeys-at-its-handoff)
 
-- [ ] 11.1 [W06](#w06--author-a-critical-journey-that-consumes-the-feature-map) (T015). Write a critical journey with the sourced actor, steps, screen and end check. Expose the missing screen or check without claiming a pass. Requires the W05 map or compatible existing evidence.
+- [x] 11.1 [W06](#w06--author-a-critical-journey-that-consumes-the-feature-map) (T015). Write a critical journey with the sourced actor, steps, screen and end check. Expose the missing screen or check without claiming a pass. Requires the W05 map or compatible existing evidence.
 
 ### W06 · Author a critical journey that consumes the feature map
 
@@ -537,6 +544,13 @@ Journey-guidance maintainer · R3/R10/A3/A10f. [S18.1](./specs/spec-driven-autho
 [references/product_requirements_document.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/product_requirements_document.md) · [references/test_specification.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/test_specification.md) · [examples/test_specification.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/test_specification.md)
 
 Reuse the map. A declared test path can establish a reference; only an executed observation establishes the result.
+
+#### Verdicts
+
+Candidate: `6bb4652`, which adds `references/critical_journeys.md`, its example and contract kind `journeys`. The performer was a fresh-context agent using the committed Websites Review feature map and test specification as compatible existing evidence. Reviewer: implementing agent.
+
+- **W06.1 Met.** CJ-1, "Resolve one parked website inline", names the administrator, four ordered steps on mapped surfaces, WEB-06 as its criticality source and the end state. Its checks are T09 and T11, which a tester can find in the test specification. The journeys pass the contract.
+- **W06.2 Met.** The CSV-export journey, whose screen isn't in the feature map, marks that step unresolved and its check as missing. Its criticality is recorded as a support report with no requirement behind it. Asked to mark the journeys passed after "a good QA cycle", the performer recorded CJ-1 as not run and CJ-2 as unable to pass yet.
 
 <a id="s03--verify-one-critical-journey-against-its-source"></a>
 
@@ -575,7 +589,7 @@ The corresponding change-in-place counterexample starts with an existing value a
 
 Identify the requirement that needs clarification before work starts. [Story criteria](./specs/spec-driven-authoring/spec.md#s19--use-the-requirements-quality-checklist-at-its-handoff)
 
-- [ ] 13.1 [W04](#w04--author-a-requirements-quality-checklist-for-the-implementer) (T017). Evaluate ambiguous retry authority in the requirements checklist. After clarification update only the affected judgment and retain both verdicts. After W03, with a drafted specification.
+- [x] 13.1 [W04](#w04--author-a-requirements-quality-checklist-for-the-implementer) (T017). Evaluate ambiguous retry authority in the requirements checklist. After clarification update only the affected judgment and retain both verdicts. After W03, with a drafted specification.
 
 ### W04 · Author a requirements-quality checklist for the implementer
 
@@ -599,6 +613,13 @@ Review-guidance maintainer · R3/R10/A3/A10g. [S19.1](./specs/spec-driven-author
 [workflows/validation_review.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/validation_review.md) · [references/spec_driven_development.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/contracts/documents.json)
 
 One reviewed requirement before and after clarification proves this increment. Reuse the same checklist for release evidence.
+
+#### Verdicts
+
+Candidate: `6bb4652`, which adds `references/requirements_checklist.md`, its example and contract kind `requirements_checklist`. The performer was a fresh-context agent following the installed skill. Reviewer: implementing agent.
+
+- **W04.1 Met.** For a bulk-export specification at revision r3 whose EXP-2 says only "it can be retried", the checklist rows name the revision, ask "Who may retry?" and "Does a retry start automatically or on request?", quote the passage and record Defect with the correction needed. Other rows record Ready or Needs decision with their evidence. It passes the contract.
+- **W04.2 Met.** After the owner's r4 clarification, only the two EXP-2 rows changed, to Ready, citing the quoted rule. The retry-limit question stays open, the r3 checklist is kept unchanged and its verdicts are listed in History. A request to mark EXP-1 done because a developer built it was declined: the checklist records requirement quality, not build or test status.
 
 <a id="s10--read-a-work-item-without-guessing-what-success-means"></a>
 
