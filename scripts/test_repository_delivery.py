@@ -131,3 +131,12 @@ class RenameInstallTests(unittest.TestCase):
         self.assertEqual(result["legacy"]["status"], "replaced")
         self.assertTrue(Path(result["legacy"]["previous_installation"], "scripts/validate_document.py").is_file())
         self.assertIn("specdev legacy entry", (old / "SKILL.md").read_text())
+
+    def test_backups_from_both_hosts_stay_separate(self):
+        for host, base in (("codex", ".agents/skills"), ("claude-code", ".claude/skills")):
+            install(ROOT, host, self.home / base / "technical-writer")
+        backups = [install(ROOT, host)["legacy"]["previous_installation"] for host in ("codex", "claude-code")]
+        self.assertEqual(len(set(backups)), 2)
+        for path in backups:
+            self.assertTrue(Path(path, "SKILL.md").is_file())
+            self.assertFalse(Path(path, "technical-writer").exists())

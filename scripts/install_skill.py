@@ -48,11 +48,11 @@ def install(source, host, destination=None):
     files = copy_repository(source, target)
     result = {"status": "installed", "name": name, "destination": str(target), "files": len(files)}
     if destination is None:
-        result["legacy"] = install_legacy(base / LEGACY, target)
+        result["legacy"] = install_legacy(base / LEGACY, target, host)
     return result
 
 
-def install_legacy(folder, target):
+def install_legacy(folder, target, host):
     """Keep the former name working; replace only an entry or installation this skill owns."""
     skill = folder / "SKILL.md"
     if folder.exists():
@@ -61,7 +61,11 @@ def install_legacy(folder, target):
             return {"status": "updated", "destination": str(folder)}
         if not is_this_skill(folder):
             return {"status": "preserved", "destination": str(folder), "reason": "An unrelated technical-writer skill is installed there; invoke SpecDev as specdev."}
-        backup = Path.home() / ".local/share/specdev/backups" / (LEGACY + "-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
+        stem = Path.home() / ".local/share/specdev/backups" / (host + "-" + LEGACY + "-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
+        backup, number = stem, 1
+        while backup.exists():
+            number += 1
+            backup = stem.with_name(stem.name + "-" + str(number))
         backup.parent.mkdir(parents=True, exist_ok=True)
         shutil.move(str(folder), str(backup))
         result = {"status": "replaced", "destination": str(folder), "previous_installation": str(backup)}
