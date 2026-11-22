@@ -1,5 +1,7 @@
 # Develop and check the skill
 
+[Implementation handoff](../plan/README.md) · [Writing evaluations](../evals/README.md)
+
 Preview the checks affected by the current changes, then execute that selection:
 
 ```sh

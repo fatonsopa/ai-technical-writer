@@ -449,19 +449,19 @@ SpecDev SHALL give procedures, references and session replies wording suited to 
 
 ### Requirement: R35 · Public feature ownership and instructions
 
-The root `README.md` SHALL show who supplies each feature and distinguish released features from planned ones. Link each released feature to usable guidance. List documents by the names users request, explain each in plain language and link its guide. One section may cover related variants. Add a separate guide only for a distinct reader need.
+The root `README.md` SHALL describe the completed release in the present tense, put Installation before Quick start and show who supplies each feature. Link each released feature to usable guidance. List documents by the names users request, explain each in plain language and link its guide. One section may cover related variants. Add a separate guide only for a distinct reader need.
 
 #### Scenario: Identify the owner of each feature from the public `README.md` (A35, F39.1, S39.1)
 
 <a id="f39--make-every-released-feature-and-supported-document-type-findable"></a><a id="acceptance-criteria-46"></a><a id="f39-1"></a><a id="scope-and-sources-46"></a><a id="s39--find-instructions-for-a-feature-or-document-type-from-the-index"></a><a id="acceptance-criteria-47"></a><a id="s39-1"></a><a id="scope-and-sources-47"></a><a id="find-features-and-document-types-from-the-public-index"></a>
 
 - **WHEN** a reader opens the repository-root `README.md` before deciding whether to use the product
-- **THEN** a feature-by-feature table has separate OpenSpec and SpecDev columns and checkmarks indicating which tool owns each feature. Its caption explains how the single SpecDev entry uses upstream OpenSpec. The reader can distinguish shipped behavior from planned integration and find the owning instructions. An unshipped capability presented as ready or a checkmark implying duplicate ownership where upstream governs fails.
+- **THEN** a feature-by-feature table has separate OpenSpec and SpecDev columns and checkmarks indicating which tool owns each feature. Its caption explains how the single SpecDev entry uses upstream OpenSpec. The reader can find the owning instructions. At release publication, a listed capability without release evidence or a checkmark implying duplicate ownership fails.
 
 #### Scenario: Find each released capability and supported type
 
 - **WHEN** a new user follows the public index to focused editing, document review, a Task variant or another released type or operation
-- **THEN** the destination is a usable page or named section explaining when to use it, inputs and expected result, including the needed action or recovery where applicable. The focused-edit entry preserves the selected scope; the review entry returns located findings. Shared destinations may serve variants they actually explain. An omission, empty stub, broken anchor or irrelevant overview fails. Compare the release catalog to the index; use representative actual destinations. Each changed feature ships its own usable guidance and link. Use one document table with the command, the linked title in Full Name (ABBREVIATION) form, and a plain-language description of when to use it. Mark planned formats in the description.
+- **THEN** the destination is a usable page or named section explaining when to use it, inputs and expected result, including the needed action or recovery where applicable. The focused-edit entry preserves the selected scope; the review entry returns located findings. Shared destinations may serve variants they actually explain. An omission, empty stub, broken anchor or irrelevant overview fails. Compare the release catalog to the index; use representative actual destinations. Each changed feature ships its own usable guidance and link. Use one document table with the command, the linked title in Full Name (ABBREVIATION) form, and a plain-language description of when to use it. At release publication, include only verified formats.
 
 ### Requirement: R36 · Install SpecDev from a release
 
@@ -477,4 +477,4 @@ SpecDev SHALL install from a versioned GitHub release or npm package without a s
 #### Scenario: Upgrade or remove only what the installer owns (A36b, S40.2)
 
 - **WHEN** a user updates through the original channel, repeats host setup or removes an installation beside the other skill, with a locally edited entry and a project document
-- **THEN** a clean update exposes the intended version without duplicate entries. A conflict identifies the affected path and preserves the edit and prior working version. Removal preserves the other skill, project documents and foreign files. The `README.md` distinguishes a tested release candidate from a publicly available release.
+- **THEN** a clean update exposes the intended version without duplicate entries. A conflict identifies the affected path and preserves the edit and prior working version. Removal preserves the other skill, project documents and foreign files. The release owner confirms each install channel is public before publishing its instructions. Evidence from a local candidate alone cannot establish public availability.

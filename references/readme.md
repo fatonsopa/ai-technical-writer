@@ -11,27 +11,44 @@ A Repository readme (README) is the entry point for a repository or component. C
 - Link maintained requirements, architecture, usage, and contribution information when they exist. Do not invent files or license claims.
 - Keep the entry point concise. Move a long learning path to a [Tutorial (TUT)](tutorial.md), operations to a [How-to Guide (HTG)](how_to_guide.md), and design to the relevant High Level Document (HLD)/Low Level Design (LLD).
 
+## Decide what belongs in the README
+
+Write for someone opening the repository for the first time. In the first paragraph name what the tool does, who would use it and one concrete reason to choose it. For a tool built on another project, say what the dependency handles and what the reader gains by using this one. Use an example when it explains the difference faster than a list of promises.
+
+Put prerequisites and installation before the first instruction that depends on them. If setup is unnecessary, start with the task. Give one realistic request or command, say where to enter it, and show the result the reader can recognize. Mark hypothetical results as examples. Use everyday verbs, name the actual output and cut claims that could describe almost any tool.
+
+Keep a short answer in the README when it helps someone choose, start, check the result or get help. Put longer walkthroughs, command references, alternative setup methods, troubleshooting and contributor or evaluation procedures in `docs/` by default. Link directly to the page or section that answers the question. An existing maintained documentation site or project convention can serve the same purpose. A small skill with nothing more to explain needs no extra file or empty directory.
+
+Keep requirements, acceptance criteria and live task status in their owning specification or tracker. A short example can explain what a spec looks like. Link the original for the complete rules. When an index or diagram must stay in the README, keep the common path visible and fold long catalogs or optional paths under a descriptive label. Never move required material merely to shorten the page.
+
 ## When the project is a reusable skill
 
-Explain the writing or task capability, prerequisites, concrete installation, explicit host invocation, a worked request and expected result, verification, evaluation results, improvement, troubleshooting and known support. Include real clone instructions when a repository URL is provided. Explain input fixtures, acceptance criteria and percentage denominators where users need to test or improve the skill. Keep a scenario's input preparation with that scenario. Separate installation checks from task-quality evidence.
+Show the input someone supplies, the skill invocation in its actual host, and what they can inspect afterward. Include only the prerequisites for that path. Link other supported install methods, evaluation instructions, fixture preparation, coverage definitions and recovery steps where people use them. Separate a successful installation check from evidence of writing or task quality. Link the maintainer and known license when applicable.
 
-Write for people using the skill. Do not put private authoring conversations, internal plans or deferred projects in public onboarding. Verify the installed guide's links and commands as well as the source Repository readme (README). Describe existing packaging and installation accurately; writing the Repository readme (README) does not authorize building a package, installing software or publishing a repository.
+Write a released README from observed behavior. If the owner requests copy for a future release, use the approved release design and voice. Record unverified commands and capabilities in the handoff and verify them before publishing the release. Writing documentation grants no installation or release authority.
 
 ## Structure and template
 
-Use identity/purpose, prerequisites, getting started, verification/tests, useful structure, and further documentation. Adapt to a library, application, skill, or component rather than forcing server instructions on every repository.
+Adapt the headings to the reader. Combine a short setup and example when they naturally fit. Keep the order of actions a new user has to take.
 
 ```md
 # [Project]
-[Purpose and intended users]
-## Start
-[Verified prerequisites, setup, first command, expected result]
+[What it does, who it helps, and one concrete use]
+
+## Installation
+[Prerequisites, primary setup, and where to run it]
+
+## Quick start
+[One real input and invocation]
+
 ## Check the result
-[Tests or success check]
-## Find your way around
-[Important real files/folders and maintained links]
-## Limits and help
-[Relevant constraints and known support resources]
+[What the user should see]
+
+## Documentation
+[Direct links to the relevant guides in docs/ or the maintained documentation site]
+
+## Support
+[Where to get help or report a problem]
 ```
 
 ## Completed example
@@ -40,9 +57,11 @@ Read the [Repository readme (README) example for Websites Review](../examples/re
 
 ## Quality check
 
-Can someone new understand the purpose, run the first command, check success, and locate deeper information? Confirm that every claimed command/path/link exists in the actual project. Report checks that were not run.
+Read it once in order as a newcomer. Can you tell why to use the project, follow setup before first use, recognize the result, and reach the next answer from the link text? Look for repeated procedures, marketing claims, internal task IDs and specifications copied into public instructions. Confirm that every claimed command/path/link exists in the actual project. Report checks that were not run.
 
 ## Sources
 
 - [GitHub: repository READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
-- [Google: documentation best practices](https://google.github.io/styleguide/docguide/best_practices.html)
+- [Google’s README guidance](https://google.github.io/styleguide/docguide/READMEs.html) and [voice and tone](https://developers.google.com/style/tone)
+- [Diátaxis on choosing a document by reader need](https://diataxis.fr/start-here/)
+- [OpenSpec’s worked example and links to detailed guides](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/README.md)

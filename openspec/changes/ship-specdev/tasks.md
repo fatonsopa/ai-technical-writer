@@ -985,13 +985,13 @@ The public `README.md` opens with a catalog and then lists installation requirem
 
 A first-time reader can start with one change request, choose a document and follow one behavior into a task and its planned proof.
 
-Edit the repository-root `README.md` introduction. Put a plain-language explanation and a compact need-to-output table before setup. Use the current catalog and one existing feature example. W29 owns the detailed chronology.
+Edit the repository-root `README.md` introduction. Put the plain-language introduction first, then installation and one usable example. Link the choices for an idea, an agreed change and a small fix beside that example. Use the current catalog and one existing feature example. W29 owns the detailed chronology.
 
 Documentation maintainer · R16/A16. [S20.2](./specs/spec-driven-authoring/spec.md#s20-2) and [F20.2](./specs/spec-driven-authoring/spec.md#f20-2). Uses existing references and examples; can ship before [W29](#w29--publish-the-numbered-document-sequence-in-the-readmemd-file). Show only entry points available on the candidate.
 
 #### Acceptance criteria
 
-- **W42.1** Starting at the `README.md` title, before installation, a reader can identify the audience, what a spec settles before coding, what to supply and what the writer returns. The reader can choose among an unshaped idea, agreed feature behavior and one bounded fix from the need-to-output table. A small authorized fix must route straight to a Task. From the repository-root `README.md`, locate the feature × OpenSpec / SpecDev checkmark table. Compare each row with its owning source and existing release evidence. Each feature has one owner, installed native operations retain precedence, and planned additions are clearly marked. Reuse existing feature evidence for this documentation check. <a id="w42-1"></a>
+- **W42.1** Starting at the `README.md` title, a reader can identify the purpose, follow installation before the first runnable example and recognize the expected result. From that example, they can choose a brief for an idea, a specification for agreed behavior or a task for one bounded fix. A small authorized fix must route straight to a Task. From the repository-root `README.md`, locate the feature × OpenSpec / SpecDev checkmark table. Compare each row with its owning source and existing release evidence. Each feature has one owner, installed native operations retain precedence, and the release owner checks each advertised capability before publication. Reuse existing feature evidence for this documentation check. <a id="w42-1"></a>
 - **W42.2** Follow one worked request through a named requirement, story criterion, a clearly labeled illustrative child Task and its planned observable check. Preserve the source behavior on failure, keep the record types distinct and avoid claiming the check ran. Record the passage, link targets and reader answers on the candidate. One document read covers both criteria. <a id="w42-2"></a>
 
 Repository root `README.md` and its Quick start; [WEB-06](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/spec_driven_development.md#L102-L104) · [the story criterion](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md#L20) · [T10](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/test_specification.md#L49) · [historical reader-guide comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/README.md#choose-your-process) · [historical development-method comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/README.md#spec-driven-development).
@@ -1677,7 +1677,7 @@ Documentation maintainer · R35/A35. [S39.1](./specs/spec-driven-authoring/spec.
 
 #### Acceptance criteria
 
-- **W61.1** Compare the feature index and the document table in `README.md` with the released catalog and output contracts, grouping the six kinds of Task under one document. Show one requirement and a diagram as things a writer can add to a document. Require exactly three document columns: command, linked document title with its abbreviation in parentheses, and plain-language purpose and use. Confirm the core chart has only the four native documents and the expanded chart distinguishes optional paths. Every node must show just the table title and abbreviation. Identify native OpenSpec files and label unreleased formats. Check that each link opens at the intended instructions. For a chore Task, a link to “Task types and titles” can pass when it identifies the chore’s inputs and the Task guide gives the expected result. An absent type or a link that leaves the reader searching fails. Retain the candidate, coverage differences and their disposition. <a id="w61-1"></a>
+- **W61.1** Compare the feature index and the document table in `README.md` with the released catalog and output contracts, grouping the six kinds of Task under one document. Show one requirement and a diagram as things a writer can add to a document. Require exactly three document columns: command, linked document title with its abbreviation in parentheses, and plain-language purpose and use. Confirm the core chart has only the four native documents and the expanded chart distinguishes optional paths. Every node must show just the table title and abbreviation. Identify native OpenSpec files. Write the handoff README for the completed release. At publication, include only formats verified for that release. Check that each link opens at reader instructions. Put longer user guides in `docs/` and use the existing specification for requirements. A link into implementation acceptance criteria cannot serve as a usage guide. For a chore Task, a link to “Task types and titles” can pass when it identifies the chore’s inputs and the Task guide gives the expected result. An absent type or a link that leaves the reader searching fails. Retain the candidate, coverage differences and their disposition. <a id="w61-1"></a>
 - **W61.2** Reuse W54’s focused-edit evidence and open the review entry on the same release. The review guidance returns located findings and preserves the reviewed document. Distinct, useful headings in one file pass. A broken heading or a link to the focused-edit instructions fails even when the file exists. Retain the observed destinations. Recheck only changed links or uncovered entries. <a id="w61-2"></a>
 
 `README.md`, `SKILL.md`, `contracts/documents.json`, the public index and the existing pages or sections it links to.
@@ -1759,7 +1759,7 @@ A user can acquire SpecDev without cloning, check its version, select a host and
 
 #### Expected outcome
 
-A developer can follow the [SpecDev installation instructions](../../../README.md#planned-release-installation) against the packaged candidate from outside its source tree.
+A developer can follow the [SpecDev installation instructions](../../../README.md#installation) against the packaged candidate from outside its source tree.
 
 #### Scope
 
@@ -1790,7 +1790,7 @@ An npm user can reach the same SpecDev version, update it through npm and remove
 
 #### Expected outcome
 
-A developer can follow the [SpecDev installation instructions](../../../README.md#planned-release-installation) against the packaged candidate from outside its source tree.
+A developer can follow the [SpecDev installation instructions](../../../README.md#installation) against the packaged candidate from outside its source tree.
 
 #### Scope
 

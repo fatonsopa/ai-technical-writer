@@ -1,46 +1,50 @@
 # Write and review project documents
 
-Use these examples in Codex with `$technical-writer`. In Claude Code, start with `/technical-writer`. Give the writer the facts, project files, or draft it should use.
+Use these examples in Codex with `$specdev`. In Claude Code, start with `/specdev`. Give the writer the facts, project files, or draft it should use.
 
 ## Create a complete document
 
-> $technical-writer Write a PRD from the attached product brief. Use the PRD reference and output contract. Separate agreed scope, proposed capabilities, and unresolved goals. Save the accepted document to the requested project path.
+> $specdev Write a PRD from the attached product brief. Use the PRD reference and output contract. Separate agreed scope, proposed capabilities, and unresolved goals. Save the accepted document to the requested project path.
 
 You receive a complete product document with the required sections and source-supported content. A heading check cannot replace the review of its purpose, facts, and scope.
 
 ## Work through an incomplete architecture brief
 
-> $technical-writer Prepare an HLD for this feature. Inspect the existing code, schema and workflows first. Research missing technical information, then guide me through unresolved scope, behavior and design choices using the available question interface. Use diagrams only where they help explain the design.
+> $specdev Prepare an HLD for this feature. Inspect the existing code, schema and workflows first. Research missing technical information, then guide me through unresolved scope, behavior and design choices using the available question interface. Use diagrams only where they help explain the design.
 
 The skill uses reliable project facts without asking you to repeat them. It asks focused questions in dependency order, explains meaningful options, and accepts written answers. Material unanswered choices remain open; an early document stays a draft. A complete brief needs no questionnaire. Diagrams carry their visible title, scope subtitle and symbol legend inside the image, with detailed element explanations below it. Sequence numbering expresses order; hierarchical IDs require actual decomposition.
 
 ## Explain a flow with controlled colors and background
 
-> $technical-writer Explain this user flow using the shared flowchart style. Use the light dotted canvas and appropriate pastel shapes, export an SVG, retain its editable Mermaid source, and explain its elements below the diagram.
+> $specdev Explain this user flow using the shared flowchart style. Use the light dotted canvas and appropriate pastel shapes, export an SVG, retain its editable Mermaid source, and explain its elements below the diagram.
 
 The [flowchart workflow](../workflows/flowcharts.md) uses a shared palette and a background built into the SVG, so a Markdown theme cannot turn the canvas transparent or dark. Shapes and labels preserve meaning without color. Only needed diagrams are created. Their sources and exports are checked together before accepted delivery.
 
 ## Make a focused edit
 
-> $technical-writer Change only this task's title to describe the observed failure. Preserve the description and every other field.
+> $specdev Change only this task's title to describe the observed failure. Preserve the description and every other field.
 
 You receive the requested title change. A file edit preserves content outside its declared title or excerpt; it does not expand into a complete document rewrite.
 
 ## Review a document
 
-> $technical-writer Review this implementation plan against the supplied SDD. Return located gaps and recommended corrections. Do not rewrite the plan.
+> $specdev Review this implementation plan against the supplied SDD. Return located gaps and recommended corrections. Do not rewrite the plan.
 
 You receive findings tied to the source requirements. A review does not overwrite the document being reviewed or authorize implementation.
 
 ## Rewrite while preserving obligations
 
-> $technical-writer Rewrite this technical standard for clarity. Preserve every obligation, exception, limit, and identifier. Explain any unresolved contradiction before changing its meaning.
+> $specdev Rewrite this technical standard for clarity. Preserve every obligation, exception, limit, and identifier. Explain any unresolved contradiction before changing its meaning.
 
 The result retains the required governance structure and is checked against the original text. The preservation tools assist the comparison; semantic review is still required.
 
+## Edit an OpenSpec document
+
+Open the existing change and name the passage you want edited. For example, ask SpecDev to clarify who approves a refund in the change specification and give it the policy to use. SpecDev edits the existing file and preserves its requirement headings, scenario markers and task checkboxes. Check the wording against the policy and use OpenSpec validation to check the format.
+
 ## Improve after a failed output
 
-> $technical-writer This output omitted a required PRD section. Correct the draft and identify the reusable guidance or check responsible for the miss. Keep the failing input and output as a regression case; preserve unrelated guidance.
+> $specdev This output omitted a required PRD section. Correct the draft and identify the reusable guidance or check responsible for the miss. Keep the failing input and output as a regression case; preserve unrelated guidance.
 
 The failure remains recorded. A repaired draft needs new checks and review; a previous receipt does not transfer to changed content. Persistent skill maintenance follows the authorized scope.
 

@@ -1041,6 +1041,14 @@
           "required": true
         },
         {
+          "id": "Quick start",
+          "level": 2,
+          "labels": [
+            "Quick start"
+          ],
+          "required": false
+        },
+        {
           "id": "Check the result",
           "level": 2,
           "labels": [

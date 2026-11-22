@@ -281,6 +281,23 @@ finding: The README already gives focused editing and review their own headings,
 
 recommendation: Give every released feature and supported document type an entry in the public index. Link directly to the page or named section that explains when to use it, what to supply and what to expect. Aliases and small variants may share a destination that covers them. Create a separate guide when the reader needs a distinct procedure or reference. W54 ships the first usable index link. W61 checks coverage against the release and catches missing entries, broken anchors and links that open on the wrong instructions.
 
+#### README review for the SpecDev release
+
+The review covered the [opening, setup example, feature comparison, diagrams, document catalog, guides and developer links at the audited revision](https://github.com/fatonsopa/ai-technical-writer/blob/f4a4a93515ca853ddfa3bb104f99db153da8fc3b/README.md). The following corrections extend F20 and F39 and their existing stories and tasks.
+
+finding: The opening could describe taking meeting notes. Quick start asks for a legacy command before explaining how to install the tool. Repeated release-status notes interrupt the instructions. GitHub describes the README as a place to explain usefulness, first use and help. OpenSpec’s runnable quick start puts setup before the first agent request. [GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) · [OpenSpec](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/README.md#quick-start)
+
+recommendation: Use a two-sentence opening with a concrete input and result, then installation, one first request and its expected result. Write the handoff README from the approved release perspective. Check public availability before publishing the release. [Opening and first use](../README.md) · [F20 implementation task](../openspec/changes/ship-specdev/tasks.md#w42-1)
+
+finding: Eight document links lead to acceptance scenarios for building the tool. The comparison repeats the same refund example in two testing rows, and the explanation of upstream commands sits after the catalog. Readers have to piece together which tool does the work. Google recommends direct, conversational language. OpenSpec uses a short example and links to full documentation. [Google voice and tone](https://developers.google.com/style/tone) · [OpenSpec README](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/README.md)
+
+recommendation: Explain OpenSpec where the ownership table starts. Name one reader outcome per row. Link the eight formats to instructions that name the needed input and expected output. Keep the approved core diagram visible, with the expanded diagram and 39-document table available on demand. [Choosing a document](../docs/choosing-documents.md) · [Index acceptance](../openspec/changes/ship-specdev/tasks.md#w61-1)
+
+finding: The writing guides asked every skill README to cover evaluation mechanics. That turns an onboarding page into a maintainer manual. The development section also linked directly to the execution plan. Google allows a README to point to usage details, and Diátaxis separates instructions for a task from reference material. [Google README guidance](https://google.github.io/styleguide/docguide/READMEs.html) · [Diátaxis](https://diataxis.fr/start-here/)
+
+recommendation: Keep the first usable path and help in the root. Put longer public guides in `docs/` by default. Keep the requirements and execution plan at their existing owners and link to them from contributor guidance. Apply this rule when Technical Writer writes a README and when Skill Builder commissions one. [README authoring guide](../references/readme.md#decide-what-belongs-in-the-readme)
+
+
 ### F40 · Install SpecDev from a release and connect the selected hosts
 
 finding: The [source installer](../scripts/install_skill.py) copies a checkout to one host. The [current setup instructions](../README.md#installation) also require Python environment setup. OpenSpec 2.1.1 publishes platform archives with checksums, recommends its standalone installer first, and offers npm as an alternative. A local source copy alone cannot demonstrate either release path. [Installation](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/docs/installation.md) · [Release assets](https://github.com/Fission-AI/OpenSpec/releases/tag/v2.1.1)
