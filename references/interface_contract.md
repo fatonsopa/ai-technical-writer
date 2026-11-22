@@ -14,6 +14,8 @@ For state-changing or repeated operations, specify timeout/deadline meaning, ret
 
 Explain compatibility for consumers, schema evolution, deprecation and migration. Tie examples and contract tests to requirement IDs, including valid, invalid, unauthorized, duplicate and older-consumer cases as applicable. A descriptive schema does not prove runtime conformance. Keep internal implementation in [Low Level Design (LLD)](low_level_design.md).
 
+For independently released components, name the authoritative source and its immutable revision, such as a tagged file in the provider's repository. Record the version the consumer copies or pins. If a consumer's copy differs from the owner's revision, name the difference and send the proposed change to the owner; don't edit the copy to settle it. Keep the agreed version separate from deployed support: claim the deployed provider supports a version only from an observation of it, and leave it unknown otherwise. A mock or contract-test result shows the consumer's side only. When both components use one shared file, cite that file; no synchronized copy is needed.
+
 ## Structure and template
 
 Use [discovery](../workflows/discover.md) to resolve material choices; the author must not invent an endpoint or retry policy. Small contracts can live in a design or task, preserving the same information.
