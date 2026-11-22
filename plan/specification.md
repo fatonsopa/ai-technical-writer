@@ -1,6 +1,8 @@
 # Spec Writer improvement specification
 
-Status: Approved behavioral scope, revision 18. Applies to Codex and Claude Code. [Audit](./audit.md)
+Status: Approved behavioral scope, revision 19. Applies to Codex and Claude Code. [Audit](./audit.md)
+
+Source: The owner’s approved scope and the [comparative audit](./audit.md).
 
 ## Purpose and scope
 
@@ -173,7 +175,7 @@ T001 and T002 can start together against the settled read contract. Each deliver
 
 ### How the optional workflow uses the full catalog
 
-Start from the writer’s live [format catalog](../SKILL.md) and [output contracts](../contracts/documents.json). Where the catalog groups several contract kinds, retain each supported kind and its aliases. Include the seven approved forms in A10a–g as their owning routes ship. Writing Style and Visual Guidance apply where appropriate. Keep reference-only guidance and native host file formats in their existing roles.
+Start from the writer’s live [format catalog](../SKILL.md) and [output contracts](../contracts/documents.json). Where the catalog groups several contract kinds, retain each supported kind and its aliases. Include the seven approved forms in A10a–g as their owning routes ship. Apply the writing rules to each artifact and use Visual Guidance (VG) when it includes a diagram. Keep reference-only guidance and native host file formats in their existing roles.
 
 | Request or feature input | What the workflow does with it |
 | --- | --- |
@@ -294,6 +296,8 @@ Use the same task evidence at the requirement, story and epic when it proves the
 
 ## Related design and work
 
+Use this specification as the behavior source for the Spec Writer change itself. The [implementation plan](./implementation-plan.md) contains the governing stories and Issues. The [task list](./tasks.md) orders them, and the [handoff test specification](./test.md) checks whether a reader can use them. Each Issue owns its acceptance criteria and the evidence needed to close it. When the writing entry is available, generate the three-Issue sample from this plan and give that output to its real consumer as described in W-PACKET.
+
 The implementation plan maps each finding to an epic and each criterion to bounded work and proof. This approved revision is the behavioral baseline. Amend affected clauses through the same decision record or work item that records the owner’s instruction. [Proposed implementation](./implementation-plan.md)
 
 ## Proposals awaiting owner approval
@@ -302,7 +306,7 @@ The approved work comprises F1–F33 and F37–F39, their 36 child stories, and 
 
 | Proposed ID | Candidate behavior |
 | --- | --- |
-| R30 | Use the approved capability index and add one worked quickstart linked from the root README. Reuse the existing README, Tutorial and How-to Guide formats. Publish as repository-readable Markdown. |
+| R30 | Use the approved capability index and add one worked quickstart linked from the root README. Reuse the existing README, Tutorial (TUT) and How-to Guide (HTG) formats. Publish as repository-readable Markdown. |
 | R31 | Document and exercise the read-only upstream list and info operations. Keep feature-output discovery in the quickstart and use existing upstream provenance for installed assets. |
 | R32 | Use the unmodified upstream workflow, identify its run and active feature, and document Converge as a user-requested review. Reconcile any appended tasks with the original Issue and permitted change. |
 

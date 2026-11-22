@@ -1,6 +1,6 @@
 # Spec Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 18. The [behavioral specification, revision 18](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 19. The [behavioral specification, revision 19](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -40,11 +40,13 @@ For each borrowed operation, determine which writing features it calls and which
 
 ## Work sequence
 
+Open the [task list](./tasks.md) to select work. Follow its row to the existing Issue below and use that Issue’s scope, criterion IDs and proof. The [handoff test specification](./test.md) exercises this same route on the actual packet. Reuse the earlier W60 result. W55–W57 and W51.3 have no executable row.
+
 For an authorized feature build, use the bundled workflow when the project selects it. It runs Specify, Plan, Tasks and Implement, with separate reviews after the specification and the plan. Close routine delivery when the existing task and story acceptance criteria and applicable Definition of Done are demonstrated on the identified candidate. Invoke upstream Converge manually only when the user requests a broader review of that feature. Its findings may identify work to propose; they grant no additional implementation authority. A request to write a document ends at its checked handoff unless implementation is separately authorized.
 
 Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 lets the implementing agent select eligible work from the feature list and recover acceptance from each Issue, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
 
-Use the accepted Skill Builder candidate from its implementation plan. Begin with W01 and W03 to get a literal and a source reference through a real consumer. W20 makes the parent chain usable. The seven document routes can then draw on one initiative’s source packet: where intent is unknown, use W12 before W09; W10 precedes dependent feature specifications; W13 precedes design that depends on its research; W05 precedes W06; W04 reviews a drafted specification. Other stories may proceed once their named inputs and shared interfaces are settled. The order below groups by finding for lookup. W24 uses the W20 parent contract. W25 precedes W26. W30 and W31 settle the selection rules before W29 publishes the sequence after its linked routes exist. W32 precedes W33, then W34 applies the route across the catalog. W43 uses W32–W34, W44 follows W40/W41, and W45 uses the existing Interface Contract route. W17 is the final integrated host check and reuses these assignment inputs where applicable. Plan-level A10 requires all seven outputs and their consumer observations. Each has one owning epic and task. All epic, story and task implementation verdicts are currently **Not demonstrated**.
+Use the accepted Skill Builder candidate from its implementation plan. Begin with W01 and W03 to get a literal and a source reference through a real consumer. W20 makes the parent chain usable. The seven document routes can then draw on one initiative’s source packet: where intent is unknown, use W12 before W09; W10 precedes dependent feature specifications; W13 precedes design that depends on its research; W05 precedes W06; W04 reviews a drafted specification. Other stories may proceed once their named inputs and shared interfaces are settled. The order below groups by finding for lookup. W24 uses the W20 parent contract. W25 precedes W26. W30 and W31 settle the selection rules before W29 publishes the sequence after its linked routes exist. W32 precedes W33, then W34 applies the route across the catalog. W43 uses W32–W34, W44 follows W40/W41, and W45 uses the existing Interface Contract (IC) route. W17 is the final integrated host check and reuses these assignment inputs where applicable. Plan-level A10 requires all seven outputs and their consumer observations. Each has one owning epic and task. W60 has accepted guide evidence. The remaining implementation verdicts start as **Not demonstrated**.
 
 ### F1 · Preserve the project’s literal identifiers
 
@@ -1478,7 +1480,7 @@ As a writer, I want to decide which record owns the outcome and which dependenci
 ##### Acceptance criteria
 
 - **S21.1** Route the paired A17 requests through the ordinary writing entry. From the chosen record and its referenced input, recover why the work can stand alone or why it needs its particular parent or plan. Reuse W20 evidence for stale and missing declared parents.
-- **S21.2** At the ordinary writing entry, carry the manager-only refund rule into a component design and its planned denial check. When a contract supplies the approved rule and boundary, the independent design is ready without an HLD. Use W62’s paired outputs and reuse W20 for the unresolved child.
+- **S21.2** At the ordinary writing entry, carry the manager-only refund rule into a component design and its planned denial check. When a contract supplies the approved rule and boundary, the independent design can proceed without a separate High Level Document (HLD). Use W62’s paired outputs and reuse W20 for the unresolved child.
 
 ##### Scope and sources
 
@@ -1558,7 +1560,7 @@ A developer can open a refund design and recover both the authorization owner an
 
 ###### Scope
 
-Apply the specification’s [linking table and refund example](./specification.md#link-work-to-its-parent-and-designs-to-their-sources) at the ordinary writing entry. Keep the shared rule at one maintained location and link it from affected HLD, LLD, contract, planning and testing guidance where a reader needs it. Use the project’s existing parent fields, IDs, section links and backlinks. Preserve any explicit governance and applicable evidence bindings.
+Apply the specification’s [linking table and refund example](./specification.md#link-work-to-its-parent-and-designs-to-their-sources) at the ordinary writing entry. Keep the shared rule at one maintained location and link it from the affected architecture, Low Level Design (LLD), contract, planning and testing guides where a reader needs it. Use the project’s existing parent fields, IDs, section links and backlinks. Preserve any explicit governance and applicable evidence bindings.
 
 ###### Specification
 
@@ -1840,6 +1842,8 @@ Parent: S23. Supports S23.1 and F23.1. R19/A19. Responsible role: integration ma
 [scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json) · [references/issue.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/references/issue.md) · [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/references/implementation_plan.md)
 
 ###### Additional context
+
+Use the three existing Issues in [W-PACKET](./test.md#cases) to generate a small list from this repository and retain the actual output for W48. The approved refund checks still apply.
 
 Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
 
@@ -2289,6 +2293,8 @@ references/issue.md, references/implementation_plan.md; upstream templates/comma
 
 ###### Additional context
 
+Use the W40 output retained for [W-PACKET](./test.md#cases) to observe selection before and after W01 evidence is supplied. Keep the rehearsal read-only. The refund case still owns the story demonstration and blocked API dependency.
+
 Ship the working entry and its consumer in one commit. Record criterion verdicts, candidate and proof under the shared Definition of Done. Implementation initially Not demonstrated.
 
 ### F31 · Verify and resume one authorized implementation
@@ -2618,7 +2624,7 @@ Parent: this plan. Child: S38. R34/A34. Owner role: writing maintainer. Covers t
 
 #### S38 · Explain the feature and report the checked result
 
-As a writer, I want a procedure and a session reply to use the same facts while serving their different readers.
+As a writer, I want the procedure and the session reply to use the same facts, so that the reader can follow the procedure and the owner can see which decision is still open.
 
 ##### Acceptance criteria
 
@@ -2672,7 +2678,7 @@ Parent: this plan. Child: S39. R35/A35. Owner role: documentation maintainer. Co
 
 #### S39 · Find instructions for a feature or document type from the index
 
-As a new user, I want the index to take me to the exact instructions for my request.
+As a new user, I want the index to take me to the instructions for my request, so that I can start the right task.
 
 ##### Acceptance criteria
 
@@ -2804,7 +2810,7 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-Revision 18 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+Revision 19 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 
@@ -2915,7 +2921,7 @@ A maintainer can reproduce the winning contribution and distinguish it from the 
 
 ###### Scope
 
-Ship a short reference or How-to Guide using the existing upstream CLI. Explain kinds, layered composition and additive hook registration; describe nullable provenance as reported. Keep the generated file map with the feature guide.
+Ship a short reference or How-to Guide (HTG) using the existing upstream CLI. Explain kinds, layered composition and additive hook registration; describe nullable provenance as reported. Keep the generated file map with the feature guide.
 
 ###### Specification
 
