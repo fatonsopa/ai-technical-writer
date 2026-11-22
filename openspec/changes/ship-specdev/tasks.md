@@ -1396,7 +1396,7 @@ Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md
 
 Discover the canonical writer and use its shipped legacy entry. [Story criteria](./specs/spec-driven-authoring/spec.md#s28--release-the-spec-writer-identity-and-legacy-entry)
 
-- [ ] 27.1 [W46](#w46--release-the-specdev-identity-and-legacy-entry) (T047). Discover `specdev` on both hosts and validate the renamed package through Builder. Preserve the `technical-writer` entry and a foreign installation. Requires accepted Skill Builder B5/T50 before changing the live identity.
+- [x] 27.1 [W46](#w46--release-the-specdev-identity-and-legacy-entry) (T047). Discover `specdev` on both hosts and validate the renamed package through Builder. Preserve the `technical-writer` entry and a foreign installation. Requires accepted Skill Builder B5/T50 before changing the live identity.
 
 <a id="w46--release-the-spec-writer-identity-and-legacy-entry"></a>
 
@@ -1420,6 +1420,19 @@ Skill maintainer · R24/A24. [S28.1](./specs/spec-driven-authoring/spec.md#s28-1
 - **W46.2** On a machine with an unrelated `specdev` installation, setup reports the collision and preserves it. Run one real Builder document validation against the renamed release with the accepted B5 resolver; retain the package revision and receipt. <a id="w46-2"></a>
 
 SKILL.md, README.md and scripts/install_skill.py; Skill Builder scripts/runtime/technical_writer.py. [Evidence](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/install_skill.py)
+
+#### Verdicts
+
+Candidate: `54c14cc` on `implementation/ship-specdev`. Accepted Builder B5/T50 is at `979ccf5`. The skill is now `specdev`, and SpecDev is the product name in the entry, catalog, evaluation instructions and installation guide. The source installer writes a `technical-writer` entry that hands the former invocation to the installed `specdev`. It replaces an earlier full installation only after backing it up per host, outside the skills folders. An unrelated `specdev` folder is reported and preserved. Historical identifiers, record classes, source links and the repository URL keep their values. Reviewer: implementing agent.
+
+- **W46.1 Met.** The hosts were checked in an isolated home that already held the handoff's full `technical-writer` install. That install was backed up per host and replaced by the legacy entry. Each run asked for a checked Explanation (EXP) from supplied facts.
+  - **Codex `$specdev`** (`gpt-6.2-sol`, medium): it used the installed `specdev` scripts and references, wrote the document and reported the structure check passing in the skill's environment.
+  - **Codex `$technical-writer`:** the legacy entry read `skills/specdev/SKILL.md` and completed the same request.
+  - **Claude Code `/specdev`** (`claude-opus-5-5`, through project skill links with user-level skills excluded): it wrote the document and passed the check.
+  - **Claude Code `/technical-writer`:** it read `specdev/SKILL.md` and passed the check.
+  - **Failed first attempt:** The first Codex attempt for both paths failed because the runner script set `CODEX_HOME` inside the isolated home. That failure is kept with the run evidence, and the reruns used the correct path.
+  - **Public names:** These were checked across `SKILL.md`, the README, docs, examples and the named references. The remaining `technical-writer` mentions are the legacy notes and the repository's clone folder.
+- **W46.2 Met.** Run against a home holding an unrelated `specdev` skill, the real installer exited 3, named the folder and left it unchanged. Builder `979ccf5`, through its B5 resolver with an explicit path to the installed renamed copy, bound the writer as `specdev`. It validated `explanation.md` through the renamed release's own prepare, review and finalize steps and `validate-documents`. The receipt is document-bound (SHA-256 `9b0a0da5…65b8d4`), and the planning document check passed. Regressions: `RenameInstallTests`, including separate per-host backups.
 
 <a id="s29--start-one-feature-through-an-optional-workflow-extension"></a>
 
