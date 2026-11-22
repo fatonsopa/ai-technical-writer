@@ -1745,7 +1745,7 @@ Candidate: `0114cc3` on `implementation/ship-specdev`. `references/task.md` now 
 
 Locate the owner and version of a shared contract from the consumer. [Story criteria](./specs/spec-driven-authoring/spec.md#s27--document-the-owner-and-consumer-version-of-a-shared-contract)
 
-- [ ] 33.1 [W45](#w45--document-the-owner-and-consumer-version-of-a-shared-contract) (T046). Trace the consumer’s v1 pin and proposed v2 change to the contract owner. Keep unknown deployed support separate from mock evidence.
+- [x] 33.1 [W45](#w45--document-the-owner-and-consumer-version-of-a-shared-contract) (T046). Trace the consumer’s v1 pin and proposed v2 change to the contract owner. Keep unknown deployed support separate from mock evidence.
 
 ### W45 · Document the owner and consumer version of a shared contract
 
@@ -1767,6 +1767,26 @@ Skill maintainer · R23/A23. [S27.1](./specs/spec-driven-authoring/spec.md#s27-1
 - **W45.2** Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change. <a id="w45-2"></a>
 
 [Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/interface_contract.md)
+
+#### Verdicts
+
+Candidate: `28ae1be` on `implementation/ship-specdev`. `references/interface_contract.md` now says how to handle independently released components:
+- Name the owner's immutable revision and the consumer's copy or pin.
+- Send any difference in a copy, and any proposed change, to the owner.
+- Claim deployed support only from an observation of the deployed provider; a mock shows the consumer's side only.
+- Cite one shared file without synchronizing a copy.
+
+Reviewer: implementing agent, with a fresh-context performer for the shared-file case.
+
+- **W45.1 Met.** The packet (`1f2724a`) held the provider's v1 contract, a locally edited checkout copy, the checkout pin, a v2 proposal and mock results. Codex (`gpt-6.2-sol`) wrote `docs/checkout-payments-ic.md` through checked delivery.
+  - **Revision and pin:** It names the authoritative revision, `payments-contract-v1.0.0` at commit `7c1d2e9`, and states that checkout pins the same tag.
+  - **Discrepancy:** It tabulates how the copy differs (amount type, currency requirement, the missing `409`) and sends those differences to the payments team.
+  - **v2 proposal:** It records the proposal as awaiting the payments team's review.
+  - **Consumer copy:** Unchanged (SHA-256 `7030972ce4344dc5…` before and after).
+- **W45.2 Met.**
+  - **Mock-only evidence:** With only the v1 pin and mock results, the compatibility passage reads: "The run used the checkout mock only, so support for this revision in the deployed payments service is unknown." The checked handoff repeats that sentence.
+  - **Shared file:** A fresh performer, given one contract file shared by both components, cited that file at its tag, created no copy and left deployed support unknown.
+  - **Nothing deployed:** No service or provider test was run.
 
 <a id="s30--select-eligible-feature-work-and-recover-its-task-criteria"></a>
 
