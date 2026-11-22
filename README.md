@@ -67,9 +67,9 @@ With code/file tools, the skill stages a draft, runs its applicable checks, revi
 
 The planned Spec Writer feature workflow uses this order. The command integration is part of the implementation handoff.
 
-1. **Specify the feature.** Write its behavior and story outcomes in `spec.md`.
-2. **Plan delivery.** Read the reviewed specification and record the approach and constraints in `plan.md`. Include design or contract details where the work depends on them.
-3. **Break the feature into tasks.** Read the reviewed spec and plan. Reuse or write an [Issue](references/issue.md) for each shippable task, including its acceptance criteria. Write one `tasks.md` for the feature. Its ordered rows point to those Issues and show dependencies and safe parallel work.
+1. **Specify the feature.** Write the user stories and their observable acceptance scenarios in `spec.md`. Link to an existing authoritative story when the project already has one.
+2. **Plan delivery.** Read the reviewed specification and link to the relevant stories from `plan.md` and record the approach, constraints and reasons for the delivery order. Include design or contract details where the work depends on them.
+3. **Break the feature into tasks.** Read the reviewed spec and plan. Give each shippable task one record for its scope, criteria and required proof. Use the [Issue format](references/issue.md) in Markdown or link an existing tracker Issue. Each task resolves the story criterion it delivers. Write one `tasks.md` for the feature. Its ordered rows point to those Issues and show dependencies and safe parallel work.
 4. **Implement when authorized.** The implementing agent reads `tasks.md`, the plan, and the Issue for the next eligible row. It does the work and records the evidence against that Issue. It then returns to the list for the next eligible row. After the final task, verify the story and feature outcomes.
 
 A request to write the documents ends with the checked list and linked Issues. There is no required `task.md` step after `tasks.md`. A project may keep an individual Issue in its tracker, in a Markdown file, or in a named section. For a standalone fix, one Issue can carry both the scope and its proof. [Feature workflow and individual task requests](plan/specification.md#when-to-write-and-read-tasksmd)

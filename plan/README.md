@@ -2,7 +2,7 @@
 
 Use this handoff to implement Spec Writer on a local branch. It contains the starting prompt for Claude or Codex and the approved work for this repository.
 
-The execution baseline is revision 19, covering 36 approved findings, 36 child stories and 59 tasks. Users may ask for a document by full name or acronym at any turn. In authored prose, introduce a document name once and retain required literal labels. A checked delivery may include one useful statement from the reviewed document, bound to its reviewed version. The handoff branch contains the audited Technical Writer source at `4a8e7c92e20404f05e68708c1a3ea26c6961b178` and the planning packet. Implementation begins on the other computer. Use the accepted Skill Builder implementation from the first handoff. Record its commit. Start with W01 and W03 as their dependencies allow. [Skill Builder handoff](https://github.com/fatonsopa/ai-skill-builder/blob/docs/autonomous-implementation/plan/README.md)
+The execution baseline is revision 20, covering 36 approved findings, 36 child stories and 59 tasks. Users may ask for a document by full name or acronym at any turn. In authored prose, introduce a document name once and retain required literal labels. A checked delivery may include one useful statement from the reviewed document, bound to its reviewed version. The handoff branch contains the audited Technical Writer source at `4a8e7c92e20404f05e68708c1a3ea26c6961b178` and the planning packet. Implementation begins on the other computer. Use the accepted Skill Builder implementation from the first handoff. Record its commit. Start with W01 and W03 as their dependencies allow. [Skill Builder handoff](https://github.com/fatonsopa/ai-skill-builder/blob/docs/autonomous-implementation/plan/README.md)
 
 ## Start
 
@@ -28,9 +28,9 @@ For a read-only rehearsal, compare the reader’s choices with the [test specifi
 
 ## Find your way around
 
-1. Read the [audit](./audit.md) for the source of a finding and the [specification](./specification.md) for the agreed behavior.
-2. Open the [implementation plan](./implementation-plan.md) for the approach, story outcomes and detailed Issues.
-3. Use [tasks.md](./tasks.md) to select the next eligible Issue. Its criteria and proof live in the linked plan section. A separate `task.md` is optional.
+1. Read the [audit](./audit.md) for the source of a finding and the [specification](./specification.md) for the agreed behavior, stories and acceptance scenarios.
+2. Open the [implementation plan](./implementation-plan.md) for the approach, material dependencies, rollout and recovery.
+3. Use [tasks.md](./tasks.md) to select the next eligible Issue. Its scope, acceptance criteria and proof live at that row. Follow its parent link to the story criterion in the specification. A separate `task.md` is optional.
 4. Use [test.md](./test.md) for the read-only rehearsal and the later implementation case.
 
 ## Limits and help
@@ -62,7 +62,7 @@ Implement R18/A18 through W32–W34. Before asking, identify the affected criter
 
 ## Shortcuts and document handoffs
 
-Ship opt-in native shortcuts and a one-line next-document recommendation. Use the [upstream template mapping](./specification.md#how-upstream-templates-map-to-the-writer) when implementing W35–W41. Every shortcut must reach the existing Technical Writer reference and checked output contract. The walkthrough recommends, then waits for the user to continue. See F23 and F24 in the implementation plan. Use the [feature task-list rules and refund example](./specification.md#feature-task-lists-and-issue-acceptance) for the W40-to-W48 handoff. Use the [command and document sequence](./specification.md#when-to-write-and-read-tasksmd) in the public README, the owning format guides and each applicable command’s handoff.
+Ship opt-in native shortcuts and a one-line next-document recommendation. Use the [upstream template mapping](./specification.md#how-upstream-templates-map-to-the-writer) when implementing W35–W41. Every shortcut must reach the existing Technical Writer reference and checked output contract. The walkthrough recommends, then waits for the user to continue. See F23 and F24 in the [specification](./specification.md#scenarios). Use the [feature task-list rules and refund example](./specification.md#feature-task-lists-and-issue-acceptance) for the W40-to-W48 handoff. Use the [command and document sequence](./specification.md#when-to-write-and-read-tasksmd) in the public README, the owning format guides and each applicable command’s handoff.
 
 ## Approved rename and toolkit
 
