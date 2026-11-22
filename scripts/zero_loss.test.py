@@ -465,7 +465,7 @@ def self_comparison_holds_for_the_repositorys_own_documents(d: Path):
     failure.)"""
     repo = HERE.parents[3]
     files = sorted(repo.glob(".claude/standards/*.md")) + sorted((HERE.parent / "references").glob("*.md"))
-    for name in ("CLAUDE.md", ".claude/skills/technical-writer/SKILL.md"):
+    for name in ("CLAUDE.md", ".claude/skills/specdev/SKILL.md"):
         if (repo / name).exists():
             files.append(repo / name)
     if not files:

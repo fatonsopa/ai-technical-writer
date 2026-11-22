@@ -29,7 +29,7 @@ def validate(root=ROOT):
     text=main.read_text();header=re.match(r'\A---\n(.*?)\n---\n',text,re.S)
     if not header:errors.append('Missing first frontmatter block')
     else:
-        if not re.search(r'^name: technical-writer$',header[1],re.M):errors.append('Invalid skill name')
+        if not re.search(r'^name: specdev$',header[1],re.M):errors.append('Invalid skill name')
         d=re.search(r'^description:\s*(.+)$',header[1],re.M)
         if not d or not 1<=len(d[1])<=1024:errors.append('Invalid description')
     refs=sorted((root/'references').glob('*.md'));examples=sorted((root/'examples').glob('*.md'))

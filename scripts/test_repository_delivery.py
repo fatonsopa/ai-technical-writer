@@ -1,6 +1,7 @@
 """Verify complete repository installation, private exclusions and user links."""
 import json
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -95,3 +96,38 @@ class PackageDeliveryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RenameInstallTests(unittest.TestCase):
+    """W46: install the canonical specdev entry, keep the former name working and preserve foreign folders."""
+
+    def setUp(self):
+        from unittest.mock import patch
+        self.temp = tempfile.TemporaryDirectory()
+        self.home = Path(self.temp.name)
+        patcher = patch.object(Path, "home", return_value=self.home)
+        patcher.start(); self.addCleanup(patcher.stop); self.addCleanup(self.temp.cleanup)
+
+    def test_canonical_entry_and_legacy_entry_reach_the_same_writer(self):
+        result = install(ROOT, "codex")
+        target = self.home / ".agents/skills/specdev"
+        self.assertEqual((result["name"], result["destination"]), ("specdev", str(target)))
+        legacy = (self.home / ".agents/skills/technical-writer/SKILL.md").read_text()
+        self.assertIn("name: technical-writer", legacy)
+        self.assertIn(str(target) + "/SKILL.md", legacy)
+
+    def test_unrelated_specdev_is_preserved_and_an_earlier_full_install_is_backed_up(self):
+        from install_skill import Collision
+        foreign = self.home / ".claude/skills/specdev"
+        foreign.mkdir(parents=True)
+        (foreign / "SKILL.md").write_text("---\nname: specdev\ndescription: Someone else's tool.\n---\n")
+        with self.assertRaisesRegex(Collision, "another skill or folder"):
+            install(ROOT, "claude-code")
+        self.assertIn("Someone else's tool", (foreign / "SKILL.md").read_text())
+        shutil.rmtree(foreign)
+        old = self.home / ".claude/skills/technical-writer"
+        install(ROOT, "claude-code", old)
+        result = install(ROOT, "claude-code")
+        self.assertEqual(result["legacy"]["status"], "replaced")
+        self.assertTrue(Path(result["legacy"]["previous_installation"], "scripts/validate_document.py").is_file())
+        self.assertIn("specdev legacy entry", (old / "SKILL.md").read_text())

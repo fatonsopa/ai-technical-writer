@@ -1,6 +1,6 @@
 # Document relationships
 
-This view shows how the documents in the Technical Writer catalog usually hand work to one another. The [skill entry](../SKILL.md#document-relationships) explains who owns what; use this page when you want the whole picture.
+This view shows how the documents in the SpecDev catalog usually hand work to one another. The [skill entry](../SKILL.md#document-relationships) explains who owns what; use this page when you want the whole picture.
 
 ![Technical documentation workflow](../examples/diagrams/documentation_workflow.svg)
 

@@ -1,4 +1,4 @@
-# Evaluate Technical Writer
+# Evaluate SpecDev
 
 Test the documents the skill produces, separately from the tools and reference files. A valid package is not proof of useful writing. Cases must assess source facts, obligations, document structure, scope, traceability, and language.
 
@@ -175,7 +175,7 @@ The two tasks in style_cases.json and their rubric test non-document text and ac
 
 ## Test diagram delivery
 
-`diagram_cases.json` contains two real `/technical-writer` tasks: a user flow and a save sequence. `rubrics/diagram_behavior.json` owns their criteria. Give the performer only the task and raw brief, retain its public trace and artifacts, and review actual numbering, exact explanation rows, source facts, Writing Style (WS) and checked delivery. Case definitions are not measured passes.
+`diagram_cases.json` contains two real `/specdev` tasks: a user flow and a save sequence. `rubrics/diagram_behavior.json` owns their criteria. Give the performer only the task and raw brief, retain its public trace and artifacts, and review actual numbering, exact explanation rows, source facts, Writing Style (WS) and checked delivery. Case definitions are not measured passes.
 
 Mechanical controls are in `scripts/test_diagram_components.py`, `scripts/test_diagram_pipeline.py` and `scripts/test_diagram_collection.py`. They cover missing/duplicate/invisible references, mismatched rows, stale exports, skipped/reordered rendering phases and failed inspection. Run the affected checks through `scripts/run_tests.py --execute`; `scripts/check_diagram_collection.py` checks all example consumers recursively. Real renderer/browser observations and readable screenshots remain separate from authored unit controls.
 

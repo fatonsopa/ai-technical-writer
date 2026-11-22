@@ -137,7 +137,7 @@ class EvaluationSessionTests(unittest.TestCase):
         for case in cases:
             self.assertEqual(case["kind"], "behavior")
             self.assertIs(case["semantic"], True)
-            self.assertIn("/technical-writer", case["request"]["instruction"])
+            self.assertIn("/specdev", case["request"]["instruction"])
             self.assertTrue(case["expect"])
             self.assertTrue(rubric["cases"][case["id"]])
             for resource in case.get("resources", []):

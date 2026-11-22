@@ -32,7 +32,7 @@ To uninstall, run `specdev host remove`. For a GitHub installation, remove the l
 
 ## Install from the source checkout
 
-The development checkout below uses the original `technical-writer` entry. The installer prints the path for Python setup.
+The source installer below installs the `specdev` skill and a small `technical-writer` entry that keeps the former name working. The installer prints both paths and the path for Python setup.
 
 - A host with file access and code execution: Codex, filesystem-enabled ChatGPT desktop, Claude Code, or a Claude environment supporting custom skills and Python.
 - Python 3.11 or later on macOS, Linux, or WSL, with the packages in `scripts/requirements-lock.txt`.
@@ -55,7 +55,7 @@ You can also download and extract the repository ZIP, then open its `technical-w
 python3 scripts/install_skill.py --host codex
 ```
 
-The installer prints its destination, normally `~/.agents/skills/technical-writer`. Invoke `$technical-writer` in Codex or select `@technical-writer` in ChatGPT desktop. If discovery does not refresh, start a new session or restart the app.
+The installer prints its destination, normally `~/.agents/skills/specdev`. Invoke `$specdev` in Codex or select `@specdev` in ChatGPT desktop; `$technical-writer` still reaches the same writer. If discovery does not refresh, start a new session or restart the app.
 
 ### Claude Code
 
@@ -63,7 +63,7 @@ The installer prints its destination, normally `~/.agents/skills/technical-write
 python3 scripts/install_skill.py --host claude-code
 ```
 
-The normal destination is `~/.claude/skills/technical-writer`. Invoke `/technical-writer` in Claude Code. An existing installation is preserved; use `--destination NEW_FOLDER` to test a separate installation.
+The normal destination is `~/.claude/skills/specdev`. Invoke `/specdev` in Claude Code; `/technical-writer` still reaches the same writer. An existing installation is preserved; use `--destination NEW_FOLDER` to test a separate installation.
 
 ### Set up the Python environment
 
@@ -77,4 +77,4 @@ python3 -m venv .venv
 
 The self-check reports `passed: true`. It checks installed resources and exercises the document gate; it does not establish writing quality across all future inputs.
 
-The repository is the complete skill. You can download its GitHub ZIP instead of cloning. For a Claude custom-skill upload, extract the repository, give the folder the name `technical-writer`, and compress that folder with your archive tool. Enable code execution in the host. See [Claude's upload instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+The repository is the complete skill. You can download its GitHub ZIP instead of cloning. For a Claude custom-skill upload, extract the repository, give the folder the name `specdev`, and compress that folder with your archive tool. Enable code execution in the host. See [Claude's upload instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).

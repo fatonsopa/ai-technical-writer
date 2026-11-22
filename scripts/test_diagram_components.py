@@ -93,4 +93,4 @@ class DiagramComponentTests(unittest.TestCase):
         self.assertEqual({x['id'] for x in cases},set(rubric['cases']))
         self.assertEqual(len(cases),2)
         for case in cases:
-            self.assertEqual(case['kind'],'behavior');self.assertTrue(case['semantic']);self.assertIn('/technical-writer',case['request']['instruction']);self.assertTrue(case['request']['source'])
+            self.assertEqual(case['kind'],'behavior');self.assertTrue(case['semantic']);self.assertIn('/specdev',case['request']['instruction']);self.assertTrue(case['request']['source'])
