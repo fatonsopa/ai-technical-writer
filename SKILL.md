@@ -26,6 +26,11 @@ Accept acronyms, full names and case/hyphen variants. “Explain SDD” may mean
 | --- | --- | --- |
 | [Discovery Interview Record (DIR)](references/discovery_interview.md) | Owner answers, restatement, confirmation, open decisions | Answers change intent/scope; new answer or confirmation |
 | [Product Brief (PB)](references/product_brief.md) | Shaping decision, affected people, outcome, unknowns | Deciding whether to define a product change; evidence changes |
+| [Capability Map (CM)](references/capability_map.md) | Independent capabilities, dependencies, build order | Initiative spans several outcomes; boundaries or dependencies change |
+| [Research Record (RR)](references/research_record.md) | Question, sources, findings, uncertainty, decision owner | Design depends on an unanswered question; evidence changes |
+| [Feature Map (FM)](references/feature_map.md) | Where a feature lives, its handle and end state | A verifier must locate a feature; surfaces change |
+| [Critical Journeys (CJ)](references/critical_journeys.md) | Critical user paths, steps, end states and checks | A path must be checked end to end; risks or surfaces change |
+| [Requirements-Quality Checklist (RQC)](references/requirements_checklist.md) | Requirement readiness, evidence, verdicts | Before building from a specification; requirements change |
 | [Product Requirements Document (PRD)](references/product_requirements_document.md) | Product intent, users, scope, outcomes | Product/major feature; goals/scope change |
 | [Spec Driven Development document (SDD)](references/spec_driven_development.md); spec | Expected behavior and testable requirements | Behavior needs agreement; requirements change |
 | [High Level Document (HLD)](references/high_level_document.md); High Level Design; architecture | Overall system structure and flows | New system/subsystem; architecture changes |

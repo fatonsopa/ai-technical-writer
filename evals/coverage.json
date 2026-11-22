@@ -504,6 +504,76 @@
       "rewrite": [
         "brief-rewrite"
       ]
+    },
+    "capability_map": {
+      "create": [
+        "capability_map-create"
+      ],
+      "edit": [
+        "capability_map-edit"
+      ],
+      "review": [
+        "capability_map-review"
+      ],
+      "rewrite": [
+        "capability_map-rewrite"
+      ]
+    },
+    "research": {
+      "create": [
+        "research-create"
+      ],
+      "edit": [
+        "research-edit"
+      ],
+      "review": [
+        "research-review"
+      ],
+      "rewrite": [
+        "research-rewrite"
+      ]
+    },
+    "feature_map": {
+      "create": [
+        "feature_map-create"
+      ],
+      "edit": [
+        "feature_map-edit"
+      ],
+      "review": [
+        "feature_map-review"
+      ],
+      "rewrite": [
+        "feature_map-rewrite"
+      ]
+    },
+    "journeys": {
+      "create": [
+        "journeys-create"
+      ],
+      "edit": [
+        "journeys-edit"
+      ],
+      "review": [
+        "journeys-review"
+      ],
+      "rewrite": [
+        "journeys-rewrite"
+      ]
+    },
+    "requirements_checklist": {
+      "create": [
+        "requirements_checklist-create"
+      ],
+      "edit": [
+        "requirements_checklist-edit"
+      ],
+      "review": [
+        "requirements_checklist-review"
+      ],
+      "rewrite": [
+        "requirements_checklist-rewrite"
+      ]
     }
   },
   "shared_guidance": {

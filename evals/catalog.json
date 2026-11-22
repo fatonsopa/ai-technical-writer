@@ -424,6 +424,66 @@
         "review",
         "rewrite"
       ]
+    },
+    {
+      "id": "capability_map",
+      "acronym": "CM",
+      "full_name": "Capability Map",
+      "reference": "references/capability_map.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "research",
+      "acronym": "RR",
+      "full_name": "Research Record",
+      "reference": "references/research_record.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "feature_map",
+      "acronym": "FM",
+      "full_name": "Feature Map",
+      "reference": "references/feature_map.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "journeys",
+      "acronym": "CJ",
+      "full_name": "Critical Journeys",
+      "reference": "references/critical_journeys.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "requirements_checklist",
+      "acronym": "RQC",
+      "full_name": "Requirements-Quality Checklist",
+      "reference": "references/requirements_checklist.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
     }
   ],
   "shared_references": [

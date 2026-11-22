@@ -1421,6 +1421,164 @@
           "required": true
         }
       ]
+    },
+    "capability_map": {
+      "reference": "references/capability_map.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Initiative",
+          "level": 2,
+          "labels": [
+            "Initiative"
+          ],
+          "required": true
+        },
+        {
+          "id": "Capabilities",
+          "level": 2,
+          "labels": [
+            "Capabilities"
+          ],
+          "required": true
+        },
+        {
+          "id": "Dependencies",
+          "level": 2,
+          "labels": [
+            "Dependencies"
+          ],
+          "required": true
+        },
+        {
+          "id": "Build order",
+          "level": 2,
+          "labels": [
+            "Build order"
+          ],
+          "required": true
+        },
+        {
+          "id": "Open questions",
+          "level": 2,
+          "labels": [
+            "Open questions"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "research": {
+      "reference": "references/research_record.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Question",
+          "level": 2,
+          "labels": [
+            "Question"
+          ],
+          "required": true
+        },
+        {
+          "id": "Sources",
+          "level": 2,
+          "labels": [
+            "Sources"
+          ],
+          "required": true
+        },
+        {
+          "id": "Findings",
+          "level": 2,
+          "labels": [
+            "Findings"
+          ],
+          "required": true
+        },
+        {
+          "id": "Alternatives",
+          "level": 2,
+          "labels": [
+            "Alternatives"
+          ],
+          "required": true
+        },
+        {
+          "id": "Uncertainty and gaps",
+          "level": 2,
+          "labels": [
+            "Uncertainty and gaps"
+          ],
+          "required": true
+        },
+        {
+          "id": "Recommendation and decision owner",
+          "level": 2,
+          "labels": [
+            "Recommendation and decision owner"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "feature_map": {
+      "reference": "references/feature_map.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Surfaces",
+          "level": 2,
+          "labels": [
+            "Surfaces"
+          ],
+          "required": true
+        },
+        {
+          "id": "Gaps",
+          "level": 2,
+          "labels": [
+            "Gaps"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "journeys": {
+      "reference": "references/critical_journeys.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Journeys",
+          "level": 2,
+          "labels": [
+            "Journeys"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "requirements_checklist": {
+      "reference": "references/requirements_checklist.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Checks",
+          "level": 2,
+          "labels": [
+            "Checks"
+          ],
+          "required": true
+        },
+        {
+          "id": "History",
+          "level": 2,
+          "labels": [
+            "History"
+          ],
+          "required": true
+        }
+      ]
     }
   }
 }

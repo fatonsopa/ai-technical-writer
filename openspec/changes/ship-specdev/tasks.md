@@ -406,7 +406,7 @@ Candidate: the W18 candidate (`8518f03`); W19 needed no further skill change. Re
 
 Identify independent capabilities and select the next one to specify. [Story criteria](./specs/spec-driven-authoring/spec.md#s15--use-the-capability-map-at-its-handoff)
 
-- [ ] 8.1 [W10](#w10--map-independent-capabilities-before-specifying-each-one) (T012). Map two independent capabilities and their dependent one. Verify both starters are eligible and that a cycle blocks the affected order. Requires an identified initiative from a brief or product definition.
+- [x] 8.1 [W10](#w10--map-independent-capabilities-before-specifying-each-one) (T012). Map two independent capabilities and their dependent one. Verify both starters are eligible and that a cycle blocks the affected order. Requires an identified initiative from a brief or product definition.
 
 ### W10 · Map independent capabilities before specifying each one
 
@@ -431,13 +431,20 @@ Planning-guidance maintainer · R2/R10/A2/A10c. [S15.1](./specs/spec-driven-auth
 
 Reuse one three-capability example. No permutation suite or formal graph service.
 
+#### Verdicts
+
+Candidate: the W10/W13 commit on `implementation/ship-specdev`. The new `references/capability_map.md`, its example and contract kind `capability_map` make the map an independently requestable artifact that names capabilities by what users can do. The performer was a fresh-context agent following the installed skill. Reviewer: implementing agent.
+
+- **W10.1 Met.** For a team-calendar initiative with two independent capabilities and one dependent capability, the performer wrote CAP-1 to CAP-3, gave the single dependency (CAP-2 on CAP-1) its reason, and let CAP-1 and CAP-3 start in parallel. The map passes the contract, and the child specification's opening cites "CAP-1".
+- **W10.2 Met.** When the owner's launch condition made CAP-1 depend on CAP-2, the performer named the cycle and held both capabilities' order. CAP-3 stayed startable, IDs stayed stable and the resolution was left to the owner. A single dark-mode request got no map and was routed to direct specification.
+
 <a id="s16--use-the-research-record-at-its-handoff"></a>
 
 ## 9. S16 · Use the research record at its handoff
 
 Trace the design choice to a source or an explicit research gap. [Story criteria](./specs/spec-driven-authoring/spec.md#s16--use-the-research-record-at-its-handoff)
 
-- [ ] 9.1 [W13](#w13--author-the-research-record-that-informs-a-design-choice) (T013). Write the sourced WEB-09 research finding and retry condition. Removing the governing passage must leave its dependent conclusion open.
+- [x] 9.1 [W13](#w13--author-the-research-record-that-informs-a-design-choice) (T013). Write the sourced WEB-09 research finding and retry condition. Removing the governing passage must leave its dependent conclusion open.
 
 ### W13 · Author the research record that informs a design choice
 
@@ -461,6 +468,13 @@ Research-guidance maintainer · R5/R10/A5/A10d. [S16.1](./specs/spec-driven-auth
 [references/decision_record.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/decision_record.md) · [workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md) · [examples/decision_record.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/decision_record.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/contracts/documents.json)
 
 Use actual supplied content or observed source access. A writer’s assertion of a read alone cannot establish it.
+
+#### Verdicts
+
+Candidate: the W10/W13 commit on `implementation/ship-specdev`. The new `references/research_record.md`, its example and contract kind `research` define the record and point decisions to the Decision Record (DR). The performer was a fresh-context agent with only the supplied files. Reviewer: implementing agent.
+
+- **W13.1 Met.** Given the reviewer's paraphrase ("just retry it automatically") and the specification and test example, the record quotes WEB-09's governing retry passage and T16's 500/500/1 outcome. It compares automatic retry, reconcile-then-explicit-retry and stop-and-report against them, and labels its reading of "timeout" as an inference. It recommends no automatic retry and leaves the decision open. It passes the `research` contract, and each finding links its specification section.
+- **W13.2 Met.** With WEB-09 removed from the supplied specification, the record named the missing passage, kept every dependent conclusion open and asked for the text from its owner. Asked to mark an uninspected, reportedly working prototype as accepted, it kept the decision open and recorded the prototype claim as unverified.
 
 <a id="s17--use-the-feature-map-at-its-handoff"></a>
 

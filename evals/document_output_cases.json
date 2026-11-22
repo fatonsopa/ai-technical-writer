@@ -1348,5 +1348,225 @@
     "output_kind": "brief",
     "operation": "rewrite",
     "source_case_sha256": "f8fe471d8c10d066a303dd4853dafca5901d9c5f39385e4234e3ed1219084188"
+  },
+  {
+    "id": "document-capability_map-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write CM from the source facts. Give stable IDs and a reason for each dependency; derive the build order from them. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/capability_map.md",
+      "examples/capability_map.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "capability_map-create",
+    "output_kind": "capability_map",
+    "operation": "create",
+    "source_case_sha256": "9cf46fe6f1e6e77f3a84e38a24492960a0cbc60e459af4ec1b68dee897dc61c8"
+  },
+  {
+    "id": "document-capability_map-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Capability Map draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/capability_map.md",
+      "examples/capability_map.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "capability_map-rewrite",
+    "output_kind": "capability_map",
+    "operation": "rewrite",
+    "source_case_sha256": "94e300a2c700ecbbc5e9e2b046298d0f76ef59e25acfdf3bb6eabd6630a12da5"
+  },
+  {
+    "id": "document-research-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write RR from the source facts. Cite only sources actually supplied; keep the decision with its owner. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/research_record.md",
+      "examples/research_record.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "research-create",
+    "output_kind": "research",
+    "operation": "create",
+    "source_case_sha256": "d794a881089c8843ae109f0cee43e155fb4b800682df63bf558b84fda5b222a6"
+  },
+  {
+    "id": "document-research-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Research Record draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/research_record.md",
+      "examples/research_record.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "research-rewrite",
+    "output_kind": "research",
+    "operation": "rewrite",
+    "source_case_sha256": "7d09e41342466d4b36b5223d08d93e7fe22fc75b4d78d354a4d6b3e11f86402a"
+  },
+  {
+    "id": "document-feature_map-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write FM from the source facts. Map only surfaces the source shows; mark unknown handles unverified and planned surfaces proposed. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/feature_map.md",
+      "examples/feature_map.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "feature_map-create",
+    "output_kind": "feature_map",
+    "operation": "create",
+    "source_case_sha256": "9d53a8c8276c8525c355a5a65f860113b3ef240acc4b0b6b1c97461e6c04be48"
+  },
+  {
+    "id": "document-feature_map-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Feature Map draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/feature_map.md",
+      "examples/feature_map.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "feature_map-rewrite",
+    "output_kind": "feature_map",
+    "operation": "rewrite",
+    "source_case_sha256": "4434555215974c5c77272d739a91665f6a0359bf0dbfdf3ba9cd524a9d3abd18"
+  },
+  {
+    "id": "document-journeys-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write CJ from the source facts. Use mapped surfaces; keep missing screens and checks visible and report no unrun pass. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/critical_journeys.md",
+      "examples/critical_journeys.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "journeys-create",
+    "output_kind": "journeys",
+    "operation": "create",
+    "source_case_sha256": "0b1e58705f28ddf557800b87c37d5d1a800ee8a58fd00ad98b81610a4bc7b009"
+  },
+  {
+    "id": "document-journeys-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Critical Journeys draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/critical_journeys.md",
+      "examples/critical_journeys.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "journeys-rewrite",
+    "output_kind": "journeys",
+    "operation": "rewrite",
+    "source_case_sha256": "a257bd913b0b6f83cff527adb54c9c64ead1ed423f5331f7c8988b2c4c505a35"
+  },
+  {
+    "id": "document-requirements_checklist-create",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Write RQC from the source facts. Judge requirement text at its revision; never claim code or tests exist. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/requirements_checklist.md",
+      "examples/requirements_checklist.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "requirements_checklist-create",
+    "output_kind": "requirements_checklist",
+    "operation": "create",
+    "source_case_sha256": "2b6ad1409530686e2b1095d842dd31cd8550dc63cfa1e71eb4daf94da098ef3a"
+  },
+  {
+    "id": "document-requirements_checklist-rewrite",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Rewrite the existing Requirements-Quality Checklist draft into a usable document of that type. Preserve source facts, scope and uncertainty; organize it for its reader. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
+    },
+    "resources": [
+      "references/writing_style.md",
+      "references/requirements_checklist.md",
+      "examples/requirements_checklist.md"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "document_case_id": "requirements_checklist-rewrite",
+    "output_kind": "requirements_checklist",
+    "operation": "rewrite",
+    "source_case_sha256": "b7ca50531b02166f11dc817616f445926d27a3220617c092a6145cb7224ff38e"
   }
 ]
