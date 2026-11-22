@@ -50,4 +50,4 @@ These locations come from the supplied baseline investigation. The existing inne
 
 ## Verification
 
-T03 must return U3, U3H, and User Story (US) for active Review, four expected Pending rows, and the six existing All rows. T06 must show matching list/count/ID populations. Repeat after the read-contract change.
+T03 must return U3, U3H, and US for active Review, four expected Pending rows, and the six existing All rows. T06 must show matching list/count/ID populations. Repeat after the read-contract change.

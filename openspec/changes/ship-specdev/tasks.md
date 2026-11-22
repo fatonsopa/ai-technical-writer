@@ -14,7 +14,7 @@ Follow dependencies and stable Task IDs. W46 and W47 establish the installed run
 
 Derive the fixture domain from its literal value and recognize the genuine document label. [Story criteria](./specs/spec-driven-authoring/spec.md#s01--edit-a-mixed-passage-without-corrupting-its-fixture)
 
-- [ ] 1.1 [W01](#w01--repair-the-websites-review-fixture-and-its-consumers) (T001). Repair the fixture and derive `__test_wrs-us.co.uk` from its literal. The cited consumers must select the same row. May start in parallel.
+- [x] 1.1 [W01](#w01--repair-the-websites-review-fixture-and-its-consumers) (T001). Repair the fixture and derive `__test_wrs-us.co.uk` from its literal. The cited consumers must select the same row. May start in parallel.
 
 ### W01 · Repair the Websites Review fixture and its consumers
 
@@ -38,6 +38,13 @@ Example maintainer · R1/A1. [S01.1](./specs/spec-driven-authoring/spec.md#s01-1
 [examples/test_specification.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/test_specification.md) · [references/writing_style.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/writing_style.md)
 
 One fixture derivation and affected reference lookup suffice. No application deployment is involved.
+
+#### Verdicts
+
+Candidate: the W01 commit on `implementation/ship-specdev`. Reviewer: implementing agent, comparing the scoped diff and consuming cases with this Task and [S01.1](./specs/spec-driven-authoring/spec.md#s01-1).
+
+- **W01.1 Met.** The fixture row is again `| US | co.uk | … | Review |`. The documented rule, `__test_wrs-` plus the lowercase key and the row's ending, derives `__test_wrs-us.co.uk`. T02, T03, T04 and T11 in `examples/test_specification.md`, and the T03 expectation in `examples/bug_report.md`, now select that same `US` row.
+- **W01.2 Met.** The diff changes only the six fixture references. The genuine link `[User Story (US)](user_story.md)` in `examples/task.md` keeps its meaning, and the integrity and example checks pass.
 
 <a id="s02--commission-a-task-from-a-reviewed-requirement"></a>
 
