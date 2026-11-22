@@ -106,6 +106,20 @@ For example, these checks do not form a sequence:
 
 The conditions belong with their checks. “Check permissions, size and paths” is shorter but loses what must be verified.
 
+## Write a feature page people can use
+
+Open with the situation in which someone would use the feature and what they get from it. A heading such as “Resume an interrupted review” helps someone who already knows their problem. Use the feature’s exact name where people need to find it in the product.
+
+Choose the example around one reader decision. In a procedure, show where the reader acts, what they supply and what they can inspect afterward. If the work moves from a terminal to an agent session, say where to enter the next instruction. In a reference, put the input, meaning and resulting file or effect where readers can look them up. Link the shared instructions when several features use the same setup.
+
+Keep one example consistent across a handoff. If a planner will use a reviewed design, identify the version and the decision it supplies. Someone opening the plan should be able to find both. Describe a missing input, optional step or recovery action where it changes what the reader does. Use the [How-to Guide (HTG)](how_to_guide.md) or [Tutorial (TUT)](tutorial.md) for the document’s structure.
+
+## Report the result in the session
+
+A progress message earns its place when it gives the reader a result, a decision to make or a blocker they can resolve. Lead with that fact. When suggesting another document, give its name and the reason to create it in one line. If the requested work is complete, finish with the checked result. Keep examples of future output visibly hypothetical.
+
+For example, suppose a reviewer confirmed that only a manager may approve a refund and that the retry owner is still unknown. After checking the document, the writer could say, “The design records that only managers may approve refunds. Who may retry a failed refund?” If the document already answers the question, use that answer. A statement that the refund flow passed would require an observed check of that flow.
+
 ## Explain diagrams in the reader’s language
 
 Review diagram titles, subtitles, labels, legends and explanations. Use established notation terms. Repeat each complete visible number and label exactly in its table row, with relevant trigger, action, feedback and next path. “The system checks whether the signed-in user is an administrator. Yes permits the edit; No denies access.” Do not imply a confirmation modal. A lost response does not prove rollback. [Visual Guidance (VG)](visuals.md) owns the numbering and notation rules.

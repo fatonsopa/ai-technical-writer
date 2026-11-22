@@ -26,6 +26,7 @@
     "contracts": "Task output schemas and constraints.",
     "config": "Machine-readable configuration and generated bookkeeping.",
     "docs": "Public user/developer documentation.",
+    "plan": "Owner-approved implementation handoff, audit evidence and specifications.",
     "tools": "Repository development tools."
   },
   "local_only": [
