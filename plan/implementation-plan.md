@@ -1,6 +1,6 @@
 # Technical Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 9. The [behavioral specification, revision 9](./specification.md) owns the requirements. The [audit](./audit.md) owns the twenty-four approved findings and three additional proposals. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 10. The [behavioral specification, revision 10](./specification.md) owns the requirements. The [audit](./audit.md) owns the twenty-seven approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -22,7 +22,7 @@ See the governing specification’s template mapping for shortcuts, task breakdo
 
 ## Work sequence
 
-Use the accepted Skill Builder candidate from its implementation plan. Begin with W01 and W03 to get a literal and a source reference through a real consumer. W20 makes the parent chain usable. The seven document routes can then draw on one initiative’s source packet: where intent is unknown, use W12 before W09; W10 precedes dependent feature specifications; W13 precedes design that depends on its research; W05 precedes W06; W04 reviews a drafted specification. Other stories may proceed once their named inputs and shared interfaces are settled. The order below groups by finding for lookup. W24 uses the W20 parent contract. W25 precedes W26. W30 and W31 settle the selection rules before W29 publishes the sequence after its linked routes exist. W32 precedes W33, then W34 applies the route across the catalog. W17 is the final integrated host check and reuses these assignment inputs where applicable. Plan-level A10 requires all seven outputs and their consumer observations. Each has one owning epic and task. All epic, story and task implementation verdicts are currently **Not demonstrated**.
+Use the accepted Skill Builder candidate from its implementation plan. Begin with W01 and W03 to get a literal and a source reference through a real consumer. W20 makes the parent chain usable. The seven document routes can then draw on one initiative’s source packet: where intent is unknown, use W12 before W09; W10 precedes dependent feature specifications; W13 precedes design that depends on its research; W05 precedes W06; W04 reviews a drafted specification. Other stories may proceed once their named inputs and shared interfaces are settled. The order below groups by finding for lookup. W24 uses the W20 parent contract. W25 precedes W26. W30 and W31 settle the selection rules before W29 publishes the sequence after its linked routes exist. W32 precedes W33, then W34 applies the route across the catalog. W43 uses W32–W34, W44 follows W40/W41, and W45 uses the existing Interface Contract route. W17 is the final integrated host check and reuses these assignment inputs where applicable. Plan-level A10 requires all seven outputs and their consumer observations. Each has one owning epic and task. All epic, story and task implementation verdicts are currently **Not demonstrated**.
 
 ### F1 · Preserve the project’s literal identifiers
 
@@ -1904,6 +1904,171 @@ Parent: S24. Supports S24.1 and F24.1. R20/A20. Responsible role: workflow maint
 
 Ship the entry, affected guidance and necessary compatibility evidence together. Stop at the stated proof. Record the candidate and verdict under the shared Definition of Done.
 
+### F25 · Find the governing specification after delivery
+
+As a maintainer returning to a delivered feature, I want to find which agreement governs the next change, so that an old delivery snapshot cannot silently reinstate retired behavior.
+
+#### Acceptance criteria
+
+- **F25.1** At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: documentation maintainer. Child: S25. R21/A21. [Technical Writer baseline](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md#L13-L16) · [comparison source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/persisting-specs.md#two-separate-questions)
+
+#### S25 · Guide selection of a specification after delivery
+
+As a maintainer returning to a delivered feature, I want to find which agreement governs the next change, so that an old delivery snapshot cannot silently reinstate retired behavior.
+
+##### Acceptance criteria
+
+- **S25.1** At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Use the same outputs for story and epic closure.
+
+##### Scope and sources
+
+Parent: F25. Responsible role: skill maintainer. W43 supports S25.1. Limit the change to the named writing route and the affected review.
+
+##### W43 · Guide selection of a specification after delivery
+
+###### Description
+
+The behavioral specification guide covers revisions. Decision records cover supersession. Neither tells a writer resuming a delivered feature how to distinguish the maintained behavior source from a frozen delivery snapshot when both are available. R18 classifies evidence, but does not settle this post-delivery choice.
+
+###### Expected outcome
+
+Find which agreement governs the next change.
+
+###### Scope
+
+Use the team’s declared maintenance convention. Link a retained snapshot to its maintained successor or other approved source when known. With no authority for a material difference, preserve both and ask one focused question.
+
+###### Specification
+
+Parent: S25. Supports S25.1 and F25.1. R21/A21. Responsible role: skill maintainer. Use existing source and review contracts. Reuse W32–W34 for ambiguous authority.
+
+###### Acceptance criteria
+
+- **W43.1** At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact.
+- **W43.2** Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior.
+
+###### Relevant files
+
+[Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md) · [Upstream comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/persisting-specs.md#two-separate-questions)
+
+###### Additional context
+
+One commit ships the guidance with the affected example and any necessary route adjustment. Apply the shared Definition of Done. Initially Not demonstrated. Retain each criterion verdict, evidence and candidate in the task.
+
+### F26 · Carry exact field constraints into the implementing Issue
+
+As an implementer reading an Issue, I want to trace a field constraint to its precise definition, so that two similar names cannot lead me to implement the wrong rule.
+
+#### Acceptance criteria
+
+- **F26.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: documentation maintainer. Child: S26. R22/A22. [Technical Writer baseline](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md#L13-L18) · [comparison source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/tasks.md#task-organization)
+
+#### S26 · Resolve constrained fields in Issue handoffs
+
+As an implementer reading an Issue, I want to trace a field constraint to its precise definition, so that two similar names cannot lead me to implement the wrong rule.
+
+##### Acceptance criteria
+
+- **S26.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Use the same outputs for story and epic closure.
+
+##### Scope and sources
+
+Parent: F26. Responsible role: skill maintainer. W44 supports S26.1. Limit the change to the named writing route and the affected review.
+
+##### W44 · Resolve constrained fields in Issue handoffs
+
+###### Description
+
+The Issue guide names requirement-level coverage. The Interface Contract already distinguishes absence, null and exact field names. The task handoff and its planned consistency review do not explicitly require the owner and field to resolve together when one requirement covers several similarly named fields. A document-level link alone can hide the wrong field.
+
+###### Expected outcome
+
+Trace a field constraint to its precise definition.
+
+###### Scope
+
+When a task implements a constrained field, link its exact owner and field, preserve relevant semantics and flag uncovered or misattributed fields when reviewing the requested scope. Reuse the project’s schema, Interface Contract or Low Level Design as appropriate.
+
+###### Specification
+
+Parent: S26. Supports S26.1 and F26.1. R22/A22. Responsible role: skill maintainer. Use existing source and review contracts. Build on W40 and W41 for generation and read-only analysis.
+
+###### Acceptance criteria
+
+- **W44.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient.
+- **W44.2** Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available.
+
+###### Relevant files
+
+[Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md) · [Upstream comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/tasks.md#task-organization)
+
+###### Additional context
+
+One commit ships the guidance with the affected example and any necessary route adjustment. Apply the shared Definition of Done. Initially Not demonstrated. Retain each criterion verdict, evidence and candidate in the task.
+
+### F27 · Resolve the contract shared by separate repositories
+
+As a developer integrating a consumer with a provider, I want to identify the governing contract and supported version, so that a local edit cannot silently change the release agreement.
+
+#### Acceptance criteria
+
+- **F27.1** Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change.
+
+#### Scope and sources
+
+Parent: this plan. Owner role: documentation maintainer. Child: S27. R23/A23. [Technical Writer baseline](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md#L3-L17) · [comparison source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/contract-driven-development.md#one-authoritative-owner)
+
+#### S27 · Document the owner and consumer version of a shared contract
+
+As a developer integrating a consumer with a provider, I want to identify the governing contract and supported version, so that a local edit cannot silently change the release agreement.
+
+##### Acceptance criteria
+
+- **S27.1** Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Use the same outputs for story and epic closure.
+
+##### Scope and sources
+
+Parent: F27. Responsible role: skill maintainer. W45 supports S27.1. Limit the change to the named writing route and the affected review.
+
+##### W45 · Document the owner and consumer version of a shared contract
+
+###### Description
+
+The Interface Contract guide names the provider, consumers, version and source authority. Its worked handoff does not tell a consumer how to handle a locally edited copy, or how to distinguish a version pinned by the consumer from the version supported by the deployed provider.
+
+###### Expected outcome
+
+Identify the governing contract and supported version.
+
+###### Scope
+
+For independently released components, identify the authoritative source and immutable revision, the consumer’s copy or pin, and the evidence for deployed compatibility when claimed. Resolve disagreements at the owner. Leave deployment support unknown when there is no observation.
+
+###### Specification
+
+Parent: S27. Supports S27.1 and F27.1. R23/A23. Responsible role: skill maintainer. Use existing source and review contracts. Use the existing Interface Contract route.
+
+###### Acceptance criteria
+
+- **W45.1** Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched.
+- **W45.2** Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change.
+
+###### Relevant files
+
+[Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/interface_contract.md) · [Upstream comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/contract-driven-development.md#one-authoritative-owner)
+
+###### Additional context
+
+One commit ships the guidance with the affected example and any necessary route adjustment. Apply the shared Definition of Done. Initially Not demonstrated. Retain each criterion verdict, evidence and candidate in the task.
+
 ## Requirement coverage
 
 | Requirement and proof | Owning work | Evidence used at closure |
@@ -1925,6 +2090,9 @@ Ship the entry, affected guidance and necessary compatibility evidence together.
 | R17 / A17 | F21 → S21 → W30, W31 | Paired routing choices, rationale and preserved project constraints. |
 | R19 / A19 | F23 → S23 → W35–W37, W40–W41 | Actual host dispatch, canonical template, source-preserving task breakdown and read-only review. |
 | R20 / A20 | F24 → S24 → W38–W39 | Ready, blocked and complete cases; one checked successor, no duplicate or stale handoff. |
+| R21 / A21 | F25 → S25 → W43 | Maintained rule versus a frozen launch snapshot, then a conflict with no governing decision. |
+| R22 / A22 | F26 → S26 → W44 | Return.code versus Order.code, a misattributed field in review, and an unrelated prose Issue. |
+| R23 / A23 | F27 → S27 → W45 | Versioned owner definition, divergent consumer copy and a pin without deployed-provider evidence. |
 | R18 / A18 | F22 → S22 → W32, W33, W34 | Same export route, two requests, actual question counts, answer binding, review and readiness verdicts. |
 | R16 / A16 | F20 → S20 → W29, W42 | Worked WEB-06 trace before setup and two reader routes from the `README.md` file and resolved guide links. |
 | R11 / A11 | F2 → S02 → W20 and W11 | Real parent links, broken edges and justified standalone work. |
@@ -1951,177 +2119,10 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-Revision 9 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+Revision 10 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 
 Append out-of-scope discoveries here with their source, observed effect, proposed change, impact of deferral and any task actually blocked. Only an explicit owner decision can add them to implementation scope.
 
-### Spec Kit proposals awaiting owner adoption
-
-F25–F27 below are outside the approved delivery denominator. Recommended decision: adopt all three within the named existing guides. They can be accepted individually. Until adopted, stop at this proposal. Implementation cannot select W43–W45.
-
-### F25 · Find the governing specification after delivery
-
-As a maintainer returning to a delivered feature, I want to find which agreement governs the next change, so that an old delivery snapshot cannot silently reinstate retired behavior.
-
-#### Acceptance criteria
-
-- **F25.1** At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior.
-
-#### Scope and sources
-
-Parent: proposed Spec Kit amendment in this plan. Owner role: documentation maintainer. Child: S25. Proposed R21/A21. [Technical Writer baseline](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md#L13-L16) · [comparison source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/persisting-specs.md#two-separate-questions)
-
-#### S25 · Guide selection of a specification after delivery
-
-As a maintainer returning to a delivered feature, I want to find which agreement governs the next change, so that an old delivery snapshot cannot silently reinstate retired behavior.
-
-##### Acceptance criteria
-
-- **S25.1** At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Use the same outputs for story and epic closure.
-
-##### Scope and sources
-
-Parent: F25. Responsible role: skill maintainer. W43 supports S25.1. Limit the change to the named writing route and the affected review. Execution requires the owner’s adoption of this proposal.
-
-##### W43 · Guide selection of a specification after delivery
-
-###### Description
-
-The behavioral specification guide covers revisions. Decision records cover supersession. Neither tells a writer resuming a delivered feature how to distinguish the maintained behavior source from a frozen delivery snapshot when both are available. R18 classifies evidence, but does not settle this post-delivery choice.
-
-###### Expected outcome
-
-Find which agreement governs the next change.
-
-###### Scope
-
-Use the team’s declared maintenance convention. Link a retained snapshot to its maintained successor or other approved source when known. With no authority for a material difference, preserve both and ask one focused question.
-
-###### Specification
-
-Parent: S25. Supports S25.1 and F25.1. Proposed R21/A21. Responsible role: skill maintainer. Requires owner adoption. Use existing source and review contracts. Reuse W32–W34 for ambiguous authority.
-
-###### Acceptance criteria
-
-- **W43.1** At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact.
-- **W43.2** Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior.
-
-###### Relevant files
-
-[Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md) · [Upstream comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/persisting-specs.md#two-separate-questions)
-
-###### Additional context
-
-One commit ships the guidance with the affected example and any necessary route adjustment. Apply the shared Definition of Done. Initially Not demonstrated. Retain each criterion verdict, evidence and candidate in the task.
-
-### F26 · Carry exact field constraints into the implementing Issue
-
-As an implementer reading an Issue, I want to trace a field constraint to its precise definition, so that two similar names cannot lead me to implement the wrong rule.
-
-#### Acceptance criteria
-
-- **F26.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available.
-
-#### Scope and sources
-
-Parent: proposed Spec Kit amendment in this plan. Owner role: documentation maintainer. Child: S26. Proposed R22/A22. [Technical Writer baseline](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md#L13-L18) · [comparison source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/tasks.md#task-organization)
-
-#### S26 · Resolve constrained fields in Issue handoffs
-
-As an implementer reading an Issue, I want to trace a field constraint to its precise definition, so that two similar names cannot lead me to implement the wrong rule.
-
-##### Acceptance criteria
-
-- **S26.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Use the same outputs for story and epic closure.
-
-##### Scope and sources
-
-Parent: F26. Responsible role: skill maintainer. W44 supports S26.1. Limit the change to the named writing route and the affected review. Execution requires the owner’s adoption of this proposal.
-
-##### W44 · Resolve constrained fields in Issue handoffs
-
-###### Description
-
-The Issue guide names requirement-level coverage. The Interface Contract already distinguishes absence, null and exact field names. The task handoff and its planned consistency review do not explicitly require the owner and field to resolve together when one requirement covers several similarly named fields. A document-level link alone can hide the wrong field.
-
-###### Expected outcome
-
-Trace a field constraint to its precise definition.
-
-###### Scope
-
-When a task implements a constrained field, link its exact owner and field, preserve relevant semantics and flag uncovered or misattributed fields when reviewing the requested scope. Reuse the project’s schema, Interface Contract or Low Level Design as appropriate.
-
-###### Specification
-
-Parent: S26. Supports S26.1 and F26.1. Proposed R22/A22. Responsible role: skill maintainer. Requires owner adoption. Use existing source and review contracts. Build on W40 and W41 for generation and read-only analysis.
-
-###### Acceptance criteria
-
-- **W44.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient.
-- **W44.2** Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available.
-
-###### Relevant files
-
-[Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md) · [Upstream comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/tasks.md#task-organization)
-
-###### Additional context
-
-One commit ships the guidance with the affected example and any necessary route adjustment. Apply the shared Definition of Done. Initially Not demonstrated. Retain each criterion verdict, evidence and candidate in the task.
-
-### F27 · Resolve the contract shared by separate repositories
-
-As a developer integrating a consumer with a provider, I want to identify the governing contract and supported version, so that a local edit cannot silently change the release agreement.
-
-#### Acceptance criteria
-
-- **F27.1** Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change.
-
-#### Scope and sources
-
-Parent: proposed Spec Kit amendment in this plan. Owner role: documentation maintainer. Child: S27. Proposed R23/A23. [Technical Writer baseline](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md#L3-L17) · [comparison source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/contract-driven-development.md#one-authoritative-owner)
-
-#### S27 · Document the owner and consumer version of a shared contract
-
-As a developer integrating a consumer with a provider, I want to identify the governing contract and supported version, so that a local edit cannot silently change the release agreement.
-
-##### Acceptance criteria
-
-- **S27.1** Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Use the same outputs for story and epic closure.
-
-##### Scope and sources
-
-Parent: F27. Responsible role: skill maintainer. W45 supports S27.1. Limit the change to the named writing route and the affected review. Execution requires the owner’s adoption of this proposal.
-
-##### W45 · Document the owner and consumer version of a shared contract
-
-###### Description
-
-The Interface Contract guide names the provider, consumers, version and source authority. Its worked handoff does not tell a consumer how to handle a locally edited copy, or how to distinguish a version pinned by the consumer from the version supported by the deployed provider.
-
-###### Expected outcome
-
-Identify the governing contract and supported version.
-
-###### Scope
-
-For independently released components, identify the authoritative source and immutable revision, the consumer’s copy or pin, and the evidence for deployed compatibility when claimed. Resolve disagreements at the owner. Leave deployment support unknown when there is no observation.
-
-###### Specification
-
-Parent: S27. Supports S27.1 and F27.1. Proposed R23/A23. Responsible role: skill maintainer. Requires owner adoption. Use existing source and review contracts. Use the existing Interface Contract route.
-
-###### Acceptance criteria
-
-- **W45.1** Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched.
-- **W45.2** Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change.
-
-###### Relevant files
-
-[Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/interface_contract.md) · [Upstream comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/contract-driven-development.md#one-authoritative-owner)
-
-###### Additional context
-
-One commit ships the guidance with the affected example and any necessary route adjustment. Apply the shared Definition of Done. Initially Not demonstrated. Retain each criterion verdict, evidence and candidate in the task.
+**Product direction and skill name.** The owner requested a recommendation on a full spec-driven toolkit and a new skill name. The [product recommendation](./audit.md#product-direction-for-a-complete-spec-driven-toolkit) proposes an optional Spec Kit integration and the name Spec-Driven Writer. Neither decision blocks W01–W45. Implement only the 45 approved tasks. A product expansion or rename requires its own accepted scope before implementation.

@@ -1,6 +1,6 @@
 # Technical Writer improvement specification
 
-Status: Approved behavioral scope, revision 9. Applies to Codex and Claude Code. [Audit](./audit.md)
+Status: Approved behavioral scope, revision 10. Applies to Codex and Claude Code. [Audit](./audit.md)
 
 ## Purpose and scope
 
@@ -19,7 +19,7 @@ An **owning source** is the project-approved location and revision for a claim. 
 
 ## Requirements and business rules
 
-| ID | Proposed behavior |
+| ID | Required behavior |
 | --- | --- |
 | R1 | Preserve meaning, obligation strength, exact literals and project vocabulary on every writing surface. Accept the full document name or its acronym in any user request, including the first mention. In authored prose introduce the full name and acronym once, then use the acronym where clear. Preserve project-required labels. |
 | R2 | Choose the smallest document or native record suited to the decision. Support a shaping brief and an epic view as variants. Assign one owner to each requirement even when the project assigns that role to a differently named document. |
@@ -41,6 +41,9 @@ An **owning source** is the project-approved location and revision for a claim. 
 | R18 | Use the document type and requested scope to identify material information needed at the checked writing entry. Resolve each applicable topic from evidence or actual authority, or keep it visibly open. Before asking, identify the affected requirement or section, source inspected and the consequence of an answer. Preserve the lightweight route for narrow edits. |
 | R19 | Provide opt-in native document shortcuts and route writing and review actions through existing Technical Writer references and contracts. One catalog owns the mapping. Preserve the original brief, explicit operation, other installed commands and qualified fallback. |
 | R20 | Offer guided entry, read-only next-document advice and one-document continuation using actual prerequisites and revisions. In one line name the next document, the specific gap and its benefit, or the real blocker or completed endpoint. |
+| R21 | For a change to a delivered feature, identify the active source under the project’s maintenance policy and distinguish historic delivery evidence. Resolve a material authority conflict before settling the affected requirement. |
+| R22 | For a task that implements a constrained field, bind the exact field to its authoritative definition. Check the resulting Issue for missing or misattributed constraints in scope. |
+| R23 | For independently released providers and consumers, distinguish the authoritative contract revision, the consumer’s supported or pinned version, and the evidence for actual runtime compatibility. |
 
 ## Production order
 
@@ -133,15 +136,17 @@ Each A10 case starts with source facts and a request for the named artifact thro
 
 **A20 · R20.** Given a reviewed feature, an unresolved dependency and a completed standalone fix, guide or next returns respectively one useful recommendation, one blocked decision, or completion. For example, “**Interface Contract (IC)** — agree on refund error codes so both clients handle failed refunds consistently.” The recommendation alone writes nothing. Continue produces one grounded document; repeating the same request after resumption cannot duplicate that result. A changed parent revision reopens only affected work. An unbound suggestion cannot alter the checked final message.
 
-## Proposed Spec Kit additions awaiting owner decision
+### Acceptance for maintained specifications, fields and shared contracts
 
-The following candidates are outside revision 9 execution scope. If adopted, use the task-level proof below for the requirement, story and epic. Existing authority and host-neutral acceptance apply.
+Use the same task evidence at the requirement, story and epic when it proves their outcomes. Both hosts use these criteria.
 
-- **R21 / A21 (proposed, F25, W43).** Use the team’s declared maintenance convention. Link a retained snapshot to its maintained successor or other approved source when known. With no authority for a material difference, preserve both and ask one focused question. At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior.
-- **R22 / A22 (proposed, F26, W44).** When a task implements a constrained field, link its exact owner and field, preserve relevant semantics and flag uncovered or misattributed fields when reviewing the requested scope. Reuse the project’s schema, Interface Contract or Low Level Design as appropriate. From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available.
-- **R23 / A23 (proposed, F27, W45).** For independently released components, identify the authoritative source and immutable revision, the consumer’s copy or pin, and the evidence for deployed compatibility when claimed. Resolve disagreements at the owner. Leave deployment support unknown when there is no observation. Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change.
+- **A21 · R21 (F25, W43).** Use the team’s declared maintenance convention. Link a retained snapshot to its maintained successor or other approved source when known. With no authority for a material difference, preserve both and ask one focused question. At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior.
+- **A22 · R22 (F26, W44).** When a task implements a constrained field, link its exact owner and field, preserve relevant semantics and flag uncovered or misattributed fields when reviewing the requested scope. Reuse the project’s schema, Interface Contract or Low Level Design as appropriate. From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available.
+- **A23 · R23 (F27, W45).** For independently released components, identify the authoritative source and immutable revision, the consumer’s copy or pin, and the evidence for deployed compatibility when claimed. Resolve disagreements at the owner. Leave deployment support unknown when there is no observation. Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change.
 
 ## Open decisions
+
+**D4.** The owner approved F25–F27 under R21–R23. The broader toolkit and skill name are product proposals outside this baseline.
 
 **D3.** The owner approved R19–R20, their short handoff wording and host-specific entries. Implement the adopted Spec Kit structures within Technical Writer’s owning forms as set out in the template mapping.
 
