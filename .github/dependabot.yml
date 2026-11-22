@@ -1,0 +1,12 @@
+# Proposes updates to SpecDev's private OpenSpec runtime. A proposal alone
+# never changes the accepted pin: review it against the upstream release
+# notes, run scripts/openspec_runtime.py --preview and the runtime tests,
+# then merge it deliberately.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/tools/openspec"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 2
+    versioning-strategy: "increase"

@@ -56,3 +56,61 @@ class PrerequisiteTests(unittest.TestCase):
         with patch.object(runtime.shutil, "which", return_value="/bin/node"), patch.object(runtime.subprocess, "run", return_value=subprocess.CompletedProcess([], 0, "v20.1.0\n", "")):
             with self.assertRaisesRegex(runtime.Prerequisite, "found v20.1.0"):
                 runtime.ensure()
+
+
+class MaintenanceTests(unittest.TestCase):
+    """W53: drift is detected, upgrades keep the prior pair, and removal touches only the runtime."""
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        self.root = Path(temp.name)
+        self.tools = self.root / "tools"
+        self.tools.mkdir()
+        self.write(self.tools, "2.1.1")
+        (self.tools / "node_modules/.bin").mkdir(parents=True)
+        (self.tools / "NOTES.md").write_text("A maintainer note.\n")
+        patcher = patch.object(runtime, "TOOLS", self.tools)
+        patcher.start(); self.addCleanup(patcher.stop)
+
+    def write(self, folder, version, locked=None):
+        import json
+        folder.mkdir(parents=True, exist_ok=True)
+        engines = {"node": ">=22.20.0"}
+        (folder / "package.json").write_text(json.dumps({"name": "specdev-openspec-runtime", "private": True, "engines": engines, "dependencies": {runtime.PACKAGE: version}}))
+        (folder / "package-lock.json").write_text(json.dumps({"packages": {"": {"dependencies": {runtime.PACKAGE: version}, "engines": engines},
+                                                                     "node_modules/" + runtime.PACKAGE: {"version": locked or version}}}))
+
+    def test_manifest_lock_and_cli_mismatches_are_reported(self):
+        self.assertEqual(runtime.consistency("2.1.1"), [])
+        self.assertIn("SpecDev pins 2.1.1", runtime.consistency("2.2.0")[0])
+        self.write(self.tools, "2.1.1", locked="2.1.0")
+        self.assertIn("resolves", runtime.consistency()[0])
+        self.write(self.tools, "^2.1.1")
+        self.assertIn("exact version", runtime.consistency()[0])
+
+    def test_upgrade_previews_keeps_the_prior_pair_and_restores_it_on_failure(self):
+        proposal = self.root / "proposal"
+        self.write(proposal, "2.2.0")
+        plan = runtime.preview(proposal / "package.json", proposal / "package-lock.json")
+        self.assertEqual((plan["from"], plan["to"]), ("2.1.1", "2.2.0"))
+        self.assertEqual(plan["keeps"], [str(self.tools / "NOTES.md")])
+        with patch.object(runtime, "ensure", side_effect=runtime.Prerequisite("npm ci failed")):
+            with self.assertRaisesRegex(runtime.Prerequisite, "npm ci failed"):
+                runtime.upgrade(proposal / "package.json", proposal / "package-lock.json")
+        self.assertEqual(runtime.pinned(), "2.1.1")
+        with patch.object(runtime, "ensure", return_value={"version": "2.2.0"}):
+            result = runtime.upgrade(proposal / "package.json", proposal / "package-lock.json")
+        self.assertEqual((result["status"], runtime.pinned()), ("upgraded", "2.2.0"))
+        runtime.restore()
+        self.assertEqual(runtime.pinned(), "2.1.1")
+        self.assertEqual((self.tools / "NOTES.md").read_text(), "A maintainer note.\n")
+
+    def test_edited_manifest_blocks_upgrade_and_removal_keeps_everything_but_the_runtime(self):
+        self.write(self.tools, "2.1.1", locked="2.1.0")
+        proposal = self.root / "proposal"
+        self.write(proposal, "2.2.0")
+        with self.assertRaisesRegex(runtime.Prerequisite, "local edits"):
+            runtime.upgrade(proposal / "package.json", proposal / "package-lock.json")
+        self.assertFalse((self.tools / ".previous").exists())
+        runtime.remove()
+        self.assertEqual(sorted(p.name for p in self.tools.iterdir()), ["NOTES.md", "package-lock.json", "package.json"])

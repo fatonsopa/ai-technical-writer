@@ -1202,7 +1202,8 @@
         "scripts/openspec_runtime.py",
         "scripts/test_openspec_runtime.py",
         "tools/openspec/package.json",
-        "tools/openspec/package-lock.json"
+        "tools/openspec/package-lock.json",
+        ".github/dependabot.yml"
       ],
       "tests": [
         "openspec-runtime"

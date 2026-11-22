@@ -16,8 +16,21 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools/openspec"
-PINNED = "2.1.1"
-MIN_NODE = (22, 20, 0)
+PACKAGE = "@fission-ai/openspec"
+OWNED = ("node_modules",)
+
+
+def manifest():
+    return json.loads((TOOLS / "package.json").read_text())
+
+
+def pinned():
+    """The exact version the manifest pins; the manifest is the single source."""
+    return manifest()["dependencies"][PACKAGE]
+
+
+def min_node():
+    return tuple(int(x) for x in re.findall(r"\d+", manifest()["engines"]["node"])[:3])
 
 
 class Prerequisite(Exception):
@@ -30,7 +43,7 @@ def node_version():
         raise Prerequisite("Node.js 22.20.0 or later is required for OpenSpec, and node isn't on PATH. Install Node.js, then repeat the request.")
     found = subprocess.run([node, "--version"], capture_output=True, text=True).stdout.strip()
     parts = tuple(int(x) for x in re.findall(r"\d+", found)[:3])
-    if parts < MIN_NODE:
+    if parts < min_node():
         raise Prerequisite(f"OpenSpec needs Node.js 22.20.0 or later; found {found}. Upgrade Node.js, then repeat the request.")
     return found
 
@@ -39,6 +52,26 @@ def environment():
     """Run OpenSpec without telemetry; SpecDev sends no usage data on the user's behalf."""
     import os
     return {**os.environ, "DO_NOT_TRACK": "1", "OPENSPEC_TELEMETRY": "0"}
+
+
+def consistency(installed_version=None):
+    """Disagreements between the manifest pin, the lockfile and the installed CLI."""
+    findings = []
+    pin = pinned()
+    if not re.fullmatch(r"\d+\.\d+\.\d+", pin):
+        findings.append(f"package.json must pin {PACKAGE} to one exact version; found {pin!r}.")
+    lock = json.loads((TOOLS / "package-lock.json").read_text())
+    root = lock["packages"][""]
+    resolved = lock["packages"].get("node_modules/" + PACKAGE, {}).get("version")
+    if root.get("dependencies", {}).get(PACKAGE) != pin:
+        findings.append(f"package-lock.json records {PACKAGE} {root.get('dependencies', {}).get(PACKAGE)!r}, but package.json pins {pin}. Regenerate the lockfile.")
+    if resolved != pin:
+        findings.append(f"package-lock.json resolves {PACKAGE} to {resolved!r}, not {pin}.")
+    if root.get("engines") != manifest().get("engines"):
+        findings.append("package-lock.json and package.json declare different Node.js engines.")
+    if installed_version is not None and installed_version != pin:
+        findings.append(f"The installed OpenSpec is {installed_version or 'unknown'}, but SpecDev pins {pin}.")
+    return findings
 
 
 def executable():
@@ -60,8 +93,9 @@ def ensure():
         if result.returncode or not binary.exists():
             raise Prerequisite("npm ci failed in " + str(TOOLS) + "; no OpenSpec runtime is installed. " + (result.stderr or result.stdout).strip()[-400:])
     version = subprocess.run([str(binary), "--version"], capture_output=True, text=True, env=environment()).stdout.strip()
-    if version != PINNED:
-        raise Prerequisite(f"The installed OpenSpec is {version or 'unknown'}, but SpecDev pins {PINNED}. Remove {TOOLS / 'node_modules'} and repeat the request.")
+    findings = consistency(version)
+    if findings:
+        raise Prerequisite(" ".join(findings) + f" Nothing was run. To reinstall the pinned runtime, run `scripts/openspec_runtime.py remove`, then repeat the request.")
     return {"executable": str(binary), "version": version, "node": node, "lockfile": str(lock)}
 
 
@@ -103,14 +137,81 @@ def run(verb, arguments, project):
             "stdout": result.stdout, "stderr": result.stderr, "openspec": runtime["version"]}
 
 
+def preview(new_manifest, new_lock):
+    """What an upgrade would change, without changing it."""
+    current = {"package.json": manifest(), "package-lock.json": json.loads((TOOLS / "package-lock.json").read_text())}
+    proposed = {"package.json": json.loads(Path(new_manifest).read_text()), "package-lock.json": json.loads(Path(new_lock).read_text())}
+    foreign = sorted(p.name for p in TOOLS.iterdir() if p.name not in {"package.json", "package-lock.json", ".previous", *OWNED})
+    return {"from": current["package.json"]["dependencies"][PACKAGE], "to": proposed["package.json"]["dependencies"][PACKAGE],
+            "replaces": [str(TOOLS / name) for name in ("package.json", "package-lock.json")], "reinstalls": [str(TOOLS / name) for name in OWNED],
+            "keeps": [str(TOOLS / name) for name in foreign], "previous": str(TOOLS / ".previous")}
+
+
+def upgrade(new_manifest, new_lock):
+    """Install a reviewed manifest and lockfile, keeping the prior pair for recovery."""
+    if consistency():
+        raise Prerequisite("The current manifest and lockfile disagree, so they may hold local edits. Nothing was changed: " + " ".join(consistency()))
+    plan = preview(new_manifest, new_lock)
+    backup = TOOLS / ".previous"
+    backup.mkdir(exist_ok=True)
+    for name in ("package.json", "package-lock.json"):
+        shutil.copy2(TOOLS / name, backup / name)
+    shutil.copy2(new_manifest, TOOLS / "package.json")
+    shutil.copy2(new_lock, TOOLS / "package-lock.json")
+    try:
+        if consistency():
+            raise Prerequisite("The proposed manifest and lockfile disagree: " + " ".join(consistency()))
+        remove()
+        return {**plan, "status": "upgraded", "runtime": ensure()}
+    except Prerequisite:
+        restore()
+        raise
+
+
+def restore():
+    """Put back the prior manifest and lockfile and reinstall them."""
+    backup = TOOLS / ".previous"
+    if not (backup / "package.json").is_file():
+        raise Prerequisite("No prior OpenSpec manifest is kept in " + str(backup) + ".")
+    for name in ("package.json", "package-lock.json"):
+        shutil.copy2(backup / name, TOOLS / name)
+    remove()
+    return {"status": "restored", "version": pinned()}
+
+
+def remove():
+    """Remove only the installed runtime; the manifest, lockfile and any other file stay."""
+    removed = []
+    for name in OWNED:
+        path = TOOLS / name
+        if path.exists():
+            shutil.rmtree(path)
+            removed.append(str(path))
+    return {"status": "removed", "removed": removed}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--project", default=".", help="Project to run in; defaults to the current folder.")
     parser.add_argument("--status", action="store_true", help="Install if needed and report the runtime.")
+    parser.add_argument("--check", action="store_true", help="Compare the manifest pin, lockfile and installed CLI without installing.")
+    parser.add_argument("--preview", nargs=2, metavar=("MANIFEST", "LOCK"), help="Show what upgrading to a reviewed manifest and lockfile would change.")
+    parser.add_argument("--upgrade", nargs=2, metavar=("MANIFEST", "LOCK"), help="Upgrade to a reviewed manifest and lockfile, keeping the prior pair.")
+    parser.add_argument("--restore", action="store_true", help="Reinstall the prior manifest and lockfile.")
+    parser.add_argument("--remove", action="store_true", help="Remove only the installed runtime (node_modules).")
     parser.add_argument("verb", nargs="?", help="An installed OpenSpec command, such as init, list or templates.")
     parser.add_argument("arguments", nargs=argparse.REMAINDER)
     args = parser.parse_args()
     try:
+        maintenance = (args.preview and preview(*args.preview)) or (args.upgrade and upgrade(*args.upgrade)) or (args.restore and restore()) or (args.remove and remove())
+        if maintenance:
+            print(json.dumps(maintenance, indent=2))
+            return 0
+        if args.check:
+            version = subprocess.run([str(executable()), "--version"], capture_output=True, text=True, env=environment()).stdout.strip() if executable().exists() else None
+            findings = consistency(version)
+            print(json.dumps({"passed": not findings, "pinned": pinned(), "installed": version, "findings": findings}, indent=2))
+            return 0 if not findings else 4
         result = ensure() if args.status or not args.verb else run(args.verb, args.arguments, args.project)
         print(json.dumps(result, indent=2))
         return 0 if result.get("status", "ok") in ("ok", None) or args.status else (3 if result.get("status") == "unknown" else 1)
