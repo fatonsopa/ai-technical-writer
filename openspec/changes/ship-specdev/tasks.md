@@ -1559,7 +1559,7 @@ Candidate: `201fbe0` on `implementation/ship-specdev`. The rules that every docu
   - **Markdown-only W-PACKET (Codex):** It wrote one `docs/tasks.md` that links W01-1, W02-1 and W03-1 at their owners. It names W01 as the first usable result, has W02 wait for W01 and runs W03 alongside, and it created no fourth Task, tracker or new task file.
   - **Failure kept with the evidence:** The first Codex attempt for both cases failed because the runner set `CODEX_HOME` inside the isolated home.
 
-- [ ] 29.2 [W41](#w41--route-quality-and-consistency-reviews) (T041). Review one vague criterion and one weakened permission. Locate each defect through the appropriate route and preserve candidate and source bytes. After W35, with the relevant review route.
+- [x] 29.2 [W41](#w41--route-quality-and-consistency-reviews) (T041). Review one vague criterion and one weakened permission. Locate each defect through the appropriate route and preserve candidate and source bytes. After W35, with the relevant review route.
 
 ### W41 · Route quality and consistency reviews
 
@@ -1581,6 +1581,17 @@ Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md
 - **W41.2** Inspect before and after the read-only analysis: the reviewed source, tasks and candidate are unchanged. Findings do not claim runtime proof. A request for code implementation routes to the authorized implementing workflow. <a id="w41-2"></a>
 
 [scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json) · [workflows/validation_review.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/workflows/validation_review.md)
+
+#### Verdicts
+
+Candidate: `973927d` on `implementation/ship-specdev`. The review rule in `SKILL.md` makes every review read-only. It sends requirement quality to the Requirements-Quality Checklist (RQC) and consistency to a claim-by-claim comparison with the owning source. A native change uses OpenSpec's own review or verification operation, findings are not presented as runtime proof, and a request to implement code goes to the implementing workflow. Reviewer: implementing agent.
+
+- **W41.1 Met.** The packet had a vague RA-2 ("should respond quickly and feel smooth") and a task 1.2 that lets support agents approve any amount, against the sourced manager-only RA-1.
+  - **Claude Code** `/specdev doc requirements-checklist`: it judged RA-2 a defect because it can't be measured, and it raised decisions on RA-1's threshold and its unavailable source FP-7.
+  - **Codex** `$specdev` consistency review: it reported that 1.2 contradicts RA-1, with both line locations.
+- **W41.2 Met.**
+  - **Read-only:** In both review runs, the cloned packet had no tracked changes afterwards, so the source, tasks and candidate were unchanged. The findings cite document text and claim no executed result.
+  - **Implementation request:** Asked to implement task 1.3 in code, Codex treated the request as implementation rather than a writing review. It added `refund_denials.py` and left the spec and task list untouched, so the request's own authority governed the code work.
 
 <a id="s24--choose-and-continue-one-eligible-document"></a>
 
