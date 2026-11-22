@@ -46,6 +46,9 @@
         "edit",
         "review",
         "rewrite"
+      ],
+      "examples": [
+        "examples/task_failed_save.md"
       ]
     },
     {

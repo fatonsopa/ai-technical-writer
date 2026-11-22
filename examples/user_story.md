@@ -22,4 +22,4 @@ Review contains active unverified websites for which automated confirmation has 
 
 ## Related checks
 
-T03, T08–T11, and T17 cover this journey in the [Test Specification (TS)](test_specification.md). The parent Spec Driven Development document (SDD) remains the source of detailed behavior.
+The failed-save criterion has its own [child task](task_failed_save.md). T03, T08–T11, and T17 cover this journey in the [Test Specification (TS)](test_specification.md). The parent Spec Driven Development document (SDD) remains the source of detailed behavior.

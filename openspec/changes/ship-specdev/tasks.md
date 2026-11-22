@@ -706,7 +706,7 @@ Candidate: the W22/W23 commit on `implementation/ship-specdev`. The Task guide's
 
 Follow the failed-save condition from the story to its child Task. [Story criteria](./specs/spec-driven-authoring/spec.md#s11--follow-a-failed-save-from-story-to-child-task)
 
-- [ ] 15.1 [W24](#w24--publish-a-child-task-for-the-storys-failed-save) (T020). Trace the child Task to the failed-save story. Verify visible error, retained selection and absence of success, with bulk edits outside scope. After W20.
+- [x] 15.1 [W24](#w24--publish-a-child-task-for-the-storys-failed-save) (T020). Trace the child Task to the failed-save story. Verify visible error, retained selection and absence of success, with bulk edits outside scope. After W20.
 
 <a id="w24--publish-a-child-issue-for-the-storys-failed-save"></a>
 
@@ -732,6 +732,14 @@ Examples maintainer · R13/A13. [S11.1](./specs/spec-driven-authoring/spec.md#s1
 [Task guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Worked story](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md) · [Parent Feature](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/issue.md)
 
 Commit the connected example and links together. Reuse W20’s ancestry check for unchanged edges.
+
+
+#### Verdicts
+
+Candidate: the W24 commit on `implementation/ship-specdev`. `examples/task_failed_save.md` is a complete child Task for one criterion of the single-site story, linked from the Task guide and from the story and validated as a contextual `task_feature` example. Reviewer: a fresh-context reader who followed the links, checked by the implementing agent.
+
+- **W24.1 Met.** Following the Task guide to the child, the reader identified the source story, the quoted failed-save criterion (WEB-06) and the visible effects the acceptance criteria observe: an error at the row, edit mode kept, the same category still selected and no success message. T10 is the proof that forces the failure and observes the row.
+- **W24.2 Met.** The child's parent link, `user_story.md#acceptance-criteria`, and the story's return link both resolve, as does the Feature link. Comparing the child's scope ("Bulk changes, category clearing and successful saves belong to other slices") with the story's, the reader rejected adding bulk category editing to the child.
 
 <a id="s06--carry-discovery-evidence-into-the-next-authoring-decision"></a>
 
