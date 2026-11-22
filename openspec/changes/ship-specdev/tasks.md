@@ -1704,7 +1704,7 @@ Candidate: `2bdbc24` on `implementation/ship-specdev`. The Spec Driven Developme
 
 Recover field-specific constraints from the Task the implementer receives. [Story criteria](./specs/spec-driven-authoring/spec.md#s26--resolve-constrained-fields-in-task-handoffs)
 
-- [ ] 32.1 [W44](#w44--resolve-constrained-fields-in-task-handoffs) (T045). Link the requirement to `Return.code`. Reject a task citing `Order.code` and preserve the field’s required semantics. After W40 and W41.
+- [x] 32.1 [W44](#w44--resolve-constrained-fields-in-task-handoffs) (T045). Link the requirement to `Return.code`. Reject a task citing `Order.code` and preserve the field’s required semantics. After W40 and W41.
 
 <a id="w44--resolve-constrained-fields-in-issue-handoffs"></a>
 
@@ -1728,6 +1728,16 @@ Skill maintainer · R22/A22. [S26.1](./specs/spec-driven-authoring/spec.md#s26-1
 - **W44.2** Review a variant citing Order.code for the return requirement. The review identifies the Task, wrong field and missing coverage. An unrelated prose-only Task requires no field citations. Retain the authored Task, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available. <a id="w44-2"></a>
 
 [Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md)
+
+#### Verdicts
+
+Candidate: `0114cc3` on `implementation/ship-specdev`. `references/task.md` now requires a constrained field to be linked as its exact owner and field, with its semantics kept. An unambiguous existing pointer is enough, and a prose-only task needs no field citations. The quality check reports a task citing the wrong field, with the requirement left uncovered. Reviewer: implementing agent.
+
+- **W44.1 Met.** The contract packet (`b14fa63`, IC v1.4) defines `Order.code` as optional (absent, never null) and `Return.code` as required (`RA-` plus 6 digits, 422 when missing). Claude Code (`claude-opus-5-5`) wrote `docs/task-return-code.md`. It links the exact [`Return.code`](returns-contract.md#return) row under RET-4, keeps the required field, its format and the 422 rejection, and says it leaves `Order.code` unchanged.
+- **W44.2 Met.**
+  - **Variant:** The Codex (`gpt-6.2-sol`) read-only review found that `docs/task-variant.md` cites the optional `Order.code` for RET-4, with line links to the task, both field rows and the requirement. It reported that the required format and the 422 behavior are left unchecked.
+  - **Prose-only Task:** The unrelated help-page Task got only a request for a policy source, with no field citation.
+  - **Unchanged:** Both clones had no tracked changes, so the authored Task, the review excerpt and the source definitions are kept unchanged in the evidence.
 
 <a id="s27--document-the-owner-and-consumer-version-of-a-shared-contract"></a>
 
