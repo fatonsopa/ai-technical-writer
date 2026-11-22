@@ -1313,6 +1313,106 @@
         }
       ],
       "discovery_before_delivery": true
+    },
+    "interview": {
+      "reference": "references/discovery_interview.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Context",
+          "level": 2,
+          "labels": [
+            "Context"
+          ],
+          "required": true
+        },
+        {
+          "id": "Questions and answers",
+          "level": 2,
+          "labels": [
+            "Questions and answers"
+          ],
+          "required": true
+        },
+        {
+          "id": "Restatement",
+          "level": 2,
+          "labels": [
+            "Restatement"
+          ],
+          "required": true
+        },
+        {
+          "id": "Open decisions",
+          "level": 2,
+          "labels": [
+            "Open decisions"
+          ],
+          "required": true
+        },
+        {
+          "id": "Sources",
+          "level": 2,
+          "labels": [
+            "Sources"
+          ],
+          "required": true
+        }
+      ]
+    },
+    "brief": {
+      "reference": "references/product_brief.md",
+      "format": "document",
+      "sections": [
+        {
+          "id": "Decision",
+          "level": 2,
+          "labels": [
+            "Decision"
+          ],
+          "required": true
+        },
+        {
+          "id": "Problem and who is affected",
+          "level": 2,
+          "labels": [
+            "Problem and who is affected"
+          ],
+          "required": true
+        },
+        {
+          "id": "Desired outcome",
+          "level": 2,
+          "labels": [
+            "Desired outcome"
+          ],
+          "required": true
+        },
+        {
+          "id": "Non-goals",
+          "level": 2,
+          "labels": [
+            "Non-goals"
+          ],
+          "required": true
+        },
+        {
+          "id": "Unknowns and open choices",
+          "level": 2,
+          "labels": [
+            "Unknowns and open choices"
+          ],
+          "required": true
+        },
+        {
+          "id": "Sources",
+          "level": 2,
+          "labels": [
+            "Sources"
+          ],
+          "required": true
+        }
+      ]
     }
   }
 }

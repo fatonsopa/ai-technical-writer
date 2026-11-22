@@ -34,6 +34,8 @@ Use the host's structured question tool when available and permitted in the curr
 
 Explain the evidence before asking. For example: “The current client records each committed batch. Resuming after an uncertain response would require reconciliation. Should recovery remain explicit, or should we propose automatic recovery?” Ask this only if recovery is genuinely undecided or an improvement is being considered. A confirmed policy needs no new vote.
 
+When the answers need to outlive the session, or someone asks for them, write a [Discovery Interview Record (DIR)](../references/discovery_interview.md). It keeps each question, answer and source, the restatement and whether the owner confirmed it.
+
 Wait for answers before dependent work; continue independent research or drafting where useful. A preselected option, silence, tool timeout, or elapsed time is not an answer. Accept explicit delegation to choose, record its scope, and justify the choice. Do not infer delegation from “continue.” Routine wording, headings, and equivalent notation choices remain the writer's responsibility.
 
 ## Draft or deliver

@@ -73,8 +73,9 @@ class HostCoverageTests(unittest.TestCase):
     def test_document_contexts_cover_all_catalog_types_and_preserve_fixture_bytes(self):
         cases = json.loads((ROOT / 'evals/document_output_cases.json').read_text())
         full = [c for c in cases if c['operation'] in ['create', 'rewrite'] and not c['output_kind'].startswith('task_') and c['output_kind'] != 'requirement']
-        self.assertEqual(len(full), 50)
-        self.assertEqual(len(cases), 57)
+        catalog_kinds = [c['id'] for c in json.loads((ROOT / 'evals/catalog.json').read_text())['output_kinds']]
+        self.assertEqual(len(full), 2 * len([k for k in catalog_kinds if not k.startswith('task_') and k not in {'requirement', 'visual'}]))
+        self.assertEqual(len(cases), len(full) + 7)
         source = {c['id']: c for path in sorted((ROOT / 'evals/cases').glob('*.jsonl')) for line in path.read_text().splitlines() if line.strip() for c in [json.loads(line)]}
         self.assertEqual(len({c['id'] for c in cases}), len(cases))
         catalog = json.loads((ROOT / 'evals/catalog.json').read_text())['output_kinds']

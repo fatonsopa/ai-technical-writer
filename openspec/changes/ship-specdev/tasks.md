@@ -190,7 +190,7 @@ Candidate: the W02 commit on `implementation/ship-specdev`. Reviewer: implementi
 
 Recover a stakeholder decision and an unresolved question from the interview. [Story criteria](./specs/spec-driven-authoring/spec.md#s14--use-the-discovery-interview-record-at-its-handoff)
 
-- [ ] 4.1 [W12](#w12--author-the-discovery-interview-record) (T006). Capture the actual delay the owner identifies. With complete sources, proceed directly. Leave an unspecified latency target open.
+- [x] 4.1 [W12](#w12--author-the-discovery-interview-record) (T006). Capture the actual delay the owner identifies. With complete sources, proceed directly. Leave an unspecified latency target open.
 
 ### W12 · Author the discovery interview record
 
@@ -215,13 +215,20 @@ Discovery maintainer · R5/R10/A5/A10a. [S14.1](./specs/spec-driven-authoring/sp
 
 One ambiguous exchange and one complete-input control; reuse the interview as W09 input. Preserve exact owner expressions when they change scope.
 
+#### Verdicts
+
+Candidate: the W12/W09 commit on `implementation/ship-specdev`. The new `references/discovery_interview.md` and its example define the record; `workflows/discover.md` links it; contract kind `interview` gives checked delivery. Performers were fresh-context agents that followed the installed skill; the owner's words came from supplied conversations. Reviewer: implementing agent.
+
+- **W12.1 Met.** Given "make reviews faster" and the Websites Review specification, the performer explained the competing delays from WEB-06, WEB-09 and WEB-12, asked which one mattered and stopped without drafting or inventing an answer. With the owner's reply supplied, it wrote a record that keeps the question, the owner's exact words and their source, and the restatement as "awaiting the owner's reply" because the owner had not confirmed it. Open decisions are listed. The record passes the `interview` contract.
+- **W12.2 Met.** With a conversation that already settled the delay and contained the owner's "Yes, exactly", a second performer wrote the record without asking, recorded that reply as confirmation, and recorded the unanswered target question as "No reply" with no number. The W09 brief built from an interview record also kept the target and baseline open.
+
 <a id="s05--decide-whether-an-opportunity-warrants-product-definition"></a>
 
 ## 5. S05 · Decide whether an opportunity warrants product definition
 
 Decide from the sourced brief whether the opportunity warrants product definition. [Story criteria](./specs/spec-driven-authoring/spec.md#s05--decide-whether-an-opportunity-warrants-product-definition)
 
-- [ ] 5.1 [W09](#w09--author-a-brief-from-opportunity-evidence) (T007). Write a sourced brief whose reader can recover the beneficiary, decision and missing baseline without an invented target or budget. Use sourced intent. If intent is missing, use W12 first.
+- [x] 5.1 [W09](#w09--author-a-brief-from-opportunity-evidence) (T007). Write a sourced brief whose reader can recover the beneficiary, decision and missing baseline without an invented target or budget. Use sourced intent. If intent is missing, use W12 first.
 
 ### W09 · Author a brief from opportunity evidence
 
@@ -245,6 +252,13 @@ Product-guidance maintainer · R2/R10/A2/A10b. [S05.1](./specs/spec-driven-autho
 [references/product_requirements_document.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/product_requirements_document.md) · [examples/product_requirements_document.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/product_requirements_document.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/contracts/documents.json)
 
 One brief with an explicit unknown proves the distinction; retain its checked output for downstream use.
+
+#### Verdicts
+
+Candidate: the W12/W09 commit on `implementation/ship-specdev`. The new `references/product_brief.md` and its example define the compact brief, and contract kind `brief` checks it. Reviewers: the implementing agent, and a fresh-context product author for W09.2.
+
+- **W09.1 Met.** From the interview record and the specification, the performer wrote a brief with the decision, problem and affected administrators, desired outcome, non-goals, unknowns and sources. It names the interview as its source, says that no appetite was supplied and keeps the current queue time and target unknown. It passes the `brief` contract. The performer also found that the interview example's "three failed checks" was not in the specification; both examples now use the specification's "parked" wording.
+- **W09.2 Met.** The product author recovered the beneficiary, the decision and the missing baseline from the brief alone and found no invented figure. A variant adding a 45-to-10-minute queue time and an approved two-sprint budget was rejected on each invented claim.
 
 <a id="s04--distinguish-a-prototype-from-approval-to-include-it"></a>
 

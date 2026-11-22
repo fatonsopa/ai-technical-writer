@@ -400,6 +400,30 @@
         "review",
         "rewrite"
       ]
+    },
+    {
+      "id": "interview",
+      "acronym": "DIR",
+      "full_name": "Discovery Interview Record",
+      "reference": "references/discovery_interview.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
+    },
+    {
+      "id": "brief",
+      "acronym": "PB",
+      "full_name": "Product Brief",
+      "reference": "references/product_brief.md",
+      "operations": [
+        "create",
+        "edit",
+        "review",
+        "rewrite"
+      ]
     }
   ],
   "shared_references": [

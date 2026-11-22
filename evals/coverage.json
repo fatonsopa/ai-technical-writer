@@ -476,6 +476,34 @@
       "rewrite": [
         "service_objectives-rewrite"
       ]
+    },
+    "interview": {
+      "create": [
+        "interview-create"
+      ],
+      "edit": [
+        "interview-edit"
+      ],
+      "review": [
+        "interview-review"
+      ],
+      "rewrite": [
+        "interview-rewrite"
+      ]
+    },
+    "brief": {
+      "create": [
+        "brief-create"
+      ],
+      "edit": [
+        "brief-edit"
+      ],
+      "review": [
+        "brief-review"
+      ],
+      "rewrite": [
+        "brief-rewrite"
+      ]
     }
   },
   "shared_guidance": {
