@@ -22,6 +22,15 @@ When editing an existing excerpt, use the current request's task type and destin
 - Leave status, assignment, priority, and release approvals to the project's task-management process.
 - Keep task type in tracker metadata. In Linear, use the existing `Type` label group. Do not repeat a `Type: …` field in the title or description; preserve unrelated labels and native status fields.
 
+### Write acceptance as the visible result
+
+An acceptance criterion should let the implementer and the tester picture the same outcome. Replace a judgment word, such as "honestly", "gracefully" or "properly", with what the user sees and who decides the next step, from the governing requirement. For example:
+
+- Before: "partial or uncertain writes stop and are reported honestly."
+- After: "After the first request that fails or returns no response, no further batches are sent, and the administrator sees separate counts of confirmed, unresolved and unattempted rows. Before any retry is offered, the page reads the saved state of the unresolved rows; the administrator decides whether to retry."
+
+Keep the neighboring conditions, such as limits, permissions and refreshes, and don't add guarantees the source doesn't make. A criterion that is already clear needs no rewrite.
+
 ## Task types and titles
 
 | Type | Title and description |
@@ -82,6 +91,8 @@ Read the [complete Websites Review example](../examples/task.md). It demonstrate
 ## Quality check
 
 Can a developer identify the work from the title, understand the need, find its governing behavior, and assess its acceptance criteria? Confirm that facts, technical constraints, and open decisions survived the rewrite. A Decision remains open until decided; a Release remains unverified until its checks actually run.
+
+To review an edited criterion, give a reader only the edited task and ask the question its source answers, such as "What happens after a response is lost, and who may retry?". Compare the answer with the governing requirement and cite the words that carry each obligation. A missing or wrong answer points to the exact ambiguity to fix. A rewrite in a similar tone can still change an obligation, for example by making an optional retry required; reject it and name the changed obligation. Accept any clear wording that keeps every obligation.
 
 ## Sources
 

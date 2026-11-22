@@ -634,7 +634,7 @@ Candidate: `6bb4652`, which adds `references/requirements_checklist.md`, its exa
 
 Have a reader recover the visible outcome and permission from the revised work item. [Story criteria](./specs/spec-driven-authoring/spec.md#s10--read-a-work-item-without-guessing-what-success-means)
 
-- [ ] 14.1 [W22](#w22--replace-vague-acceptance-text-with-the-visible-result) (T018). Rewrite the acceptance clause so an administrator can distinguish confirmed, uncertain and unattempted work and retain the 500-ID boundary.
+- [x] 14.1 [W22](#w22--replace-vague-acceptance-text-with-the-visible-result) (T018). Rewrite the acceptance clause so an administrator can distinguish confirmed, uncertain and unattempted work and retain the 500-ID boundary.
 
 ### W22 · Replace vague acceptance text with the visible result
 
@@ -659,7 +659,14 @@ Task-guidance maintainer · R12/A12. [S10.1](./specs/spec-driven-authoring/spec.
 
 One usable example and its guidance ship in this commit. The first signal is whether the original phrase allows both an informative summary and a generic error. Reuse W21’s requirement evidence.
 
-- [ ] 14.2 [W23](#w23--review-markdown-by-what-the-reader-can-recover) (T019). Have a reader recover who may retry after response loss. Reject mandatory retry wording and accept a source-supported alternative. After W22.
+#### Verdicts
+
+Candidate: the W22/W23 commit on `implementation/ship-specdev`. The original clause "partial or uncertain writes stop and are reported honestly" allowed both an informative summary and a generic error. Reviewer: implementing agent, with W23's reader.
+
+- **W22.1 Met.** The WEB-09–WEB-10 criterion in `examples/task.md` now says that no further batches are sent after the first failed or unanswered request. It says the administrator sees separate confirmed, unresolved and unattempted counts, that the saved state is read before any retry is offered, and that the administrator decides whether to retry. `references/task.md` carries the before and after as a worked example with WEB-09 as its source.
+- **W22.2 Met.** The 500-ID bound, the refresh of confirmed rows and counts and the separate WEB-05–WEB-08 permission criterion are unchanged in meaning. The story example about a site leaving Review needed no change, and nothing beyond WEB-09 and WEB-10 was promised. The task passes the `task_feature` contract.
+
+- [x] 14.2 [W23](#w23--review-markdown-by-what-the-reader-can-recover) (T019). Have a reader recover who may retry after response loss. Reject mandatory retry wording and accept a source-supported alternative. After W22.
 
 ### W23 · Review Markdown by what the reader can recover
 
@@ -683,6 +690,13 @@ Evaluation maintainer · R12/A12. [S10.1](./specs/spec-driven-authoring/spec.md#
 [Reference review workflow](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/improve_references.md) · [Existing style cases](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/evals/style_cases.json) · [Governing source](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/spec_driven_development.md#L118)
 
 Share the reader’s packet with W08 if both independently graded results can be observed without revealing either answer. Stop after a supported reader result and the wrong-meaning control. No style benchmark across the entire catalog.
+
+#### Verdicts
+
+Candidate: the W22/W23 commit on `implementation/ship-specdev`. The Task guide's quality check now carries the reader-based review guidance. The acceptance case `accept-task-retry-edit` holds the ordinary editing request, its fixture and the grader's private expected properties. Reviewers: a fresh-context reader given only the edited task, and a separate fresh-context reviewer applying the guidance.
+
+- **W23.1 Met.** Asked what happens after a lost response and who may retry, the reader quoted that no further batches are sent and that the administrator sees separate confirmed, unresolved and unattempted counts. It also quoted that "the page reads the saved state of the unresolved rows" before any retry is offered and that "the administrator decides whether to retry". Each answer matches WEB-09, so no ambiguity remained to fix.
+- **W23.2 Met.** Of two passages in a similar tone, the reviewer accepted the one with the optional retry. It rejected the other and named the changed obligation, quoting "the administrator must retry them before closing the dialog". A third, differently worded passage that kept every obligation was accepted.
 
 <a id="s11--follow-a-failed-save-from-story-to-child-task"></a>
 

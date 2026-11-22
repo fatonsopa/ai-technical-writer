@@ -16,7 +16,7 @@ An administrator can find every active website requiring review, understand its 
 
 - WEB-01–WEB-04: Classification, active populations, filters, counts, selection, and pagination follow the [Spec Driven Development document (SDD)](spec_driven_development.md).
 - WEB-05–WEB-08: Only administrators can change categories; inline assignment, attribution, and clearing have the specified outcomes.
-- WEB-09–WEB-10: Requests respect the 500-ID boundary; partial or uncertain writes stop and are reported honestly; confirmed rows and counts refresh.
+- WEB-09–WEB-10: Each request carries at most 500 IDs. After the first request that fails or returns no response, no further batches are sent, and the administrator sees separate counts of confirmed, unresolved and unattempted rows. Before any retry is offered, the page reads the saved state of the unresolved rows; the administrator decides whether to retry. Confirmed rows and counts refresh.
 - WEB-11–WEB-12: Controls, compatible callers, and measured database limits pass the defined checks.
 - T01–T20 pass on the final candidate, with results recorded in the completion report.
 
