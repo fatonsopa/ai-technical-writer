@@ -1,14 +1,10 @@
 # SpecDev
 
-SpecDev is a writing skill for Codex and Claude Code, designed to extend OpenSpec. OpenSpec already helps a coding agent propose a change, write requirements and track tasks. Use OpenSpec directly if that’s what you need. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
-
-Choose SpecDev when you need to explain a change to different people. Give it a refund policy and it can write what developers should build, how to test it, and how support should handle a refund. It checks each draft against your sources and asks when a rule is unclear.
-
-Today you can use the writing skill as **Technical Writer**. The planned SpecDev release will call OpenSpec’s commands and write directly into your project’s existing change files.
+SpecDev is a technical writing skill for developers who work with AI coding agents. Designed to extend OpenSpec’s workflow for planning and tracking changes, it turns your team’s decisions into requirements developers can implement, checks testers can run, and guides users can follow. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
 
 ## Quick start
 
-[Setup for Codex and Claude Code](docs/installation.md). In Codex, try this request. In Claude Code, use `/technical-writer` for the same request.
+Today the writing skill is available as **Technical Writer**. The planned SpecDev release will use OpenSpec’s own commands and write into your project’s existing change files. [Setup for Codex and Claude Code](docs/installation.md). In Codex, try this request. In Claude Code, use `/technical-writer` for the same request.
 
 > $technical-writer We want support to refund duplicate charges. Read our refund policy and draft the requirements. Flag anything we still need to decide.
 
@@ -20,29 +16,29 @@ If the policy says only managers may approve refunds, the draft keeps that rule.
 
 ## How SpecDev and OpenSpec work together
 
-For a change to refund approvals, OpenSpec keeps the proposal, rules, design and tasks together and shows which tasks remain. With the planned integration, you’ll use SpecDev to write the refund rule and explain how to check it in those same files. If all you need is a support runbook, you can write it on its own.
+Use OpenSpec directly to plan a change and track its tasks. Choose SpecDev when you also need to turn a rule like “only managers may approve refunds” into instructions for developers, testers and support.
 
 A checkmark shows which tool does the work. **Planned** means it’s for a future release. You can ask for one document at any time.
 
-| What you can do | OpenSpec | SpecDev |
+| What you get | OpenSpec | SpecDev |
 | --- | :---: | :---: |
-| Use OpenSpec’s templates or [choose your own](openspec/changes/ship-specdev/design.md#reuse-the-upstream-implementation). | ✓ | |
-| [Start a change, find one in progress or see what to do next](https://openspec.dev/docs/cli). | ✓ | |
-| Keep the [proposal, requirements, design and tasks](#core-document-flow) together. Check for missing documents or sections. | ✓ | |
-| [Check off finished tasks](#where-tasksmd-fits). Archive the completed change to update the project’s requirements. | ✓ | |
-| [Talk through an idea](workflows/discover.md). The writer reads your project and asks about choices you still need to make. | | ✓ |
-| Use a [brief or map of the features](#supported-document-types) to choose what to build first. [Save the interviews or research](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#seven-authoring-cases-and-hierarchy-acceptance) behind that choice. | | ✓ Planned |
-| [Describe who needs a feature](references/product_requirements_document.md), what it should do and how you’ll know it helped. | | ✓ |
-| [Explain a design choice](references/decision_record.md), [draw how the system works](docs/writing.md#explain-a-flow-with-controlled-colors-and-background) or [list the data two services share](references/interface_contract.md). | | ✓ |
-| [Show a tester where to start](#supported-document-types), what a user should see at each step and which rules are missing. | | ✓ Planned |
-| [Describe what the user needs](references/user_story.md). Split the work into [tasks](references/task.md) and say how to check each one. A small fix can stand alone. | | ✓ |
-| [Write test steps](references/test_specification.md). For example, try approving a refund without manager access. The system should block the approval. | | ✓ |
-| [Write a report from your test results](references/test_completion_report.md). Did the system block the approval? If nobody ran the test, the report says so. | | ✓ |
-| [Start a document with a command](#supported-document-types) like `/prd`, or [ask what to write next and why](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s24-1). | | ✓ Planned |
-| [Write in SpecDev’s style](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#a33b) while keeping OpenSpec’s headings, numbers and checkboxes. | | ✓ Planned |
-| Write [instructions for an operator](references/how_to_guide.md), [a tutorial for a teammate](references/tutorial.md) or [rules for an AI assistant](references/agents_and_skills.md). | | ✓ |
-| [Find where a draft disagrees with your sources](docs/writing.md#review-a-document), [edit one paragraph](docs/writing.md#make-a-focused-edit) or [rewrite the document](docs/writing.md#rewrite-while-preserving-obligations) while keeping its rules and exceptions. | | ✓ |
-| [Get the reviewed document](docs/writing.md#check-the-result) and see which requirements it covers and which decisions are still open. | | ✓ |
+| Give every change a familiar format with [your team’s templates or OpenSpec’s defaults](openspec/changes/ship-specdev/design.md#reuse-the-upstream-implementation). | ✓ | |
+| See [where a change stands and what to do next](https://openspec.dev/docs/cli), whether you’re starting it or picking it back up. | ✓ | |
+| Find the [proposal, requirements, design and tasks in one place](#core-document-flow). Spot gaps before coding starts. | ✓ | |
+| See [which tasks are still open](#where-tasksmd-fits). Archive the finished change so the project’s requirements stay up to date. | ✓ | |
+| Answer [only the questions your project leaves open](workflows/discover.md). The writer looks up the rest. | | ✓ |
+| Decide [what to build first](#supported-document-types) and keep the [interview notes or research behind that choice](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#seven-authoring-cases-and-hierarchy-acceptance). | | ✓ Planned |
+| Agree on [who needs the feature, what it should do and how you’ll know it helped](references/product_requirements_document.md). | | ✓ |
+| Understand [why a design was chosen](references/decision_record.md), [how its parts fit together](docs/writing.md#explain-a-flow-with-controlled-colors-and-background) and [what data two services share](references/interface_contract.md). | | ✓ |
+| See [which screens and user actions need testing](#supported-document-types) and where the expected result is still unclear. | | ✓ Planned |
+| Give a developer [the user’s goal](references/user_story.md) and [a task with a clear way to check it](references/task.md). Small fixes can stand alone. | | ✓ |
+| Know [how to test a rule](references/test_specification.md). Try approving a refund without manager access. The approval should be blocked. | | ✓ |
+| See [what actually happened in testing](references/test_completion_report.md). Was the approval blocked, did it go through, or has nobody tested it yet? | | ✓ |
+| Get [the document you need](#supported-document-types) with a command like `/prd`, or [find out what to write next and why](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s24-1). | | ✓ Planned |
+| Get [clear wording in OpenSpec documents](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#a33b) while keeping the headings and checkboxes your project expects. | | ✓ Planned |
+| Help [operators finish a task](references/how_to_guide.md), [new teammates learn it](references/tutorial.md) and [AI assistants follow your rules](references/agents_and_skills.md). | | ✓ |
+| Catch [claims your sources don’t support](docs/writing.md#review-a-document). [Fix one paragraph](docs/writing.md#make-a-focused-edit) or [clarify the whole draft](docs/writing.md#rewrite-while-preserving-obligations) while keeping its meaning. | | ✓ |
+| See [which requirements the reviewed document covers](docs/writing.md#check-the-result) and which decisions are still open. | | ✓ |
 
 ## Document flow
 
