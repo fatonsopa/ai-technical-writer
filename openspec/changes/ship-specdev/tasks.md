@@ -1001,7 +1001,7 @@ Candidate: the W16 commit on `implementation/ship-specdev`. The full relationshi
 
 Select the smallest governed work record and follow the source of a design constraint. [Story criteria](./specs/spec-driven-authoring/spec.md#s21--route-an-improvement-from-its-actual-scope)
 
-- [ ] 21.1 [W30](#w30--choose-a-task-or-story-for-an-improvement) (T028). Route a single label repair directly and a user capability to a story. Hold an unresolved declared child without inventing ancestry. After W20.
+- [x] 21.1 [W30](#w30--choose-a-task-or-story-for-an-improvement) (T028). Route a single label repair directly and a user capability to a story. Hold an unresolved declared child without inventing ancestry. After W20.
 
 ### W30 · Choose a task or story for an improvement
 
@@ -1026,7 +1026,14 @@ Workflow maintainer · R11/R17 and A11/A17. [S21.1](./specs/spec-driven-authorin
 
 Ship the ordinary writing route, guidance and example in one commit.
 
-- [ ] 21.2 [W31](#w31--choose-a-feature-epic-or-delivery-plan) (T029). Group independently shippable slices under their capability. Verify the mixed-version rollout has ordering and recovery while a contained change can keep steps inline. After W30.
+#### Verdicts
+
+Candidate: the W30/W31/W62 commit on `implementation/ship-specdev`. `workflows/discover.md` gains "Choose the smallest record", a table that links the Task and story references and keeps the declared-child rule. The performer was a fresh-context agent following the installed skill. Reviewer: implementing agent.
+
+- **W30.1 Met.** The approved replacement of one label, with its scope and a check on all three tabs, became one Task. Recovering an unsaved selection became a story with actor, benefit, boundary and observable result, and its open decisions stayed open. Neither got a parent.
+- **W30.2 Met.** When the same label change was assigned to story S-12's AC-3, which isn't in the sources, the performer named the broken edge and held the child. It quoted "an unresolved parent never turns the child into standalone work". W20's missing-parent evidence is reused for the check behind it.
+
+- [x] 21.2 [W31](#w31--choose-a-feature-epic-or-delivery-plan) (T029). Group independently shippable slices under their capability. Verify the mixed-version rollout has ordering and recovery while a contained change can keep steps inline. After W30.
 
 ### W31 · Choose a feature, epic or delivery plan
 
@@ -1051,7 +1058,14 @@ Planning-guidance maintainer · R2/R17 and A17. [S21.1](./specs/spec-driven-auth
 
 Ship the completed decision table, normal route and contrasting examples together. Reuse these choices in the `README.md` review. Stop when the reader can distinguish the cases on the identified candidate.
 
-- [ ] 21.3 [W62](#w62--link-a-design-to-the-records-that-govern-it) (T030). Follow the refund design to the manager-only rule and employee-denial check. A standalone design can cite a complete governing contract directly. After W30.
+#### Verdicts
+
+Candidate: the W30/W31/W62 commit. The same table distinguishes a feature, an epic and an Implementation Plan (IP). Reviewer: implementing agent.
+
+- **W31.1 Met.** One independently shippable filter story kept its direct source with no invented feature or epic. Three independently acceptable bulk-editing slices were grouped under one feature, and an epic was ruled out because no broader initiative or owner was supplied.
+- **W31.2 Met.** With the feature fixed, a single contained release kept its steps inline. A release where old and new list readers coexist got an Implementation Plan (IP) naming the order, compatibility proof, who switches over and recovery. The table states that a project-mandated plan takes precedence.
+
+- [x] 21.3 [W62](#w62--link-a-design-to-the-records-that-govern-it) (T030). Follow the refund design to the manager-only rule and employee-denial check. A standalone design can cite a complete governing contract directly. After W30.
 
 ### W62 · Link a design to the records that govern it
 
@@ -1075,6 +1089,13 @@ Parent: [S21](./specs/spec-driven-authoring/spec.md#s21--route-an-improvement-fr
 `SKILL.md`, the owning references in `references/` for architecture, component design, contracts, work items, plans and tests, and the existing linked examples. Start with `references/high_level_document.md` and `references/low_level_design.md`.
 
 Ship the ordinary writing route, maintained guidance and worked example together. Use the two specified scenarios and reuse existing evidence for unchanged behavior.
+
+#### Verdicts
+
+Candidate: the W30/W31/W62 commit. "Link work to its parent and designs to their sources" now lives once in `SKILL.md`, with the refund example. The High Level Document (HLD), Low Level Design (LLD), Interface Contract (IC), Implementation Plan (IP) and Test Specification (TS) guides link to it. The performer was a fresh-context agent with supplied refund records. Reviewer: implementing agent.
+
+- **W62.1 Met.** Through `/lld`, with the approved refund rule, a High Level Document (HLD), a story, a child task and a planned test, the design linked `refund-rule.md#ref-1-only-managers-approve-refunds` for the manager-only rule and `hld.md#components` for the authorization service. It also linked the story's acceptance criteria and the child task. RT-3 is described as "planned, not run", with no result claimed. All links resolve, and the design passes the `lld` contract. No reverse link was added.
+- **W62.2 Met.** With direct authorization and only an approved contract, the design cited the contract, said no story, epic or High Level Document (HLD) was needed, and asked for no parent. It passes the contract. A child task for missing story S-40's AC-9 was held rather than written; W20's evidence covers that boundary.
 
 <a id="s22--write-from-incomplete-project-context"></a>
 

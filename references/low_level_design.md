@@ -1,6 +1,6 @@
 # Low Level Design (LLD)
 
-A Low Level Design (LLD) explains how a component will work internally. Create one when contracts, state, algorithms, data, or failure handling need more detail than the [High Level Document (HLD)](high_level_document.md). Update it when that design changes; label proposed and verified implementation views separately.
+A Low Level Design (LLD) explains how a component will work internally. Create one when contracts, state, algorithms, data, or failure handling need more detail than the [High Level Document (HLD)](high_level_document.md). Update it when that design changes; label proposed and verified implementation views separately. Link each boundary, rule and criterion to the record that owns it, as the [linking rule](../SKILL.md#link-work-to-its-parent-and-designs-to-their-sources) describes.
 
 ## Principles
 

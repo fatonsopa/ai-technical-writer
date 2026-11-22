@@ -40,6 +40,21 @@ When the answers need to outlive the session, or someone asks for them, write a 
 
 Wait for answers before dependent work; continue independent research or drafting where useful. A preselected option, silence, tool timeout, or elapsed time is not an answer. Accept explicit delegation to choose, record its scope, and justify the choice. Do not infer delegation from “continue.” Routine wording, headings, and equivalent notation choices remain the writer's responsibility.
 
+## Choose the smallest record
+
+Pick the record from what the request actually covers, and don't invent a parent.
+
+| Situation | Record |
+| --- | --- |
+| An independently authorized, bounded change, such as replacing one misleading label with an exact new one | One [Task](../references/task.md) with its scope and proof |
+| An independent user outcome, such as letting an administrator recover an unsaved selection | A [User Story (US)](../references/user_story.md), or the project's equivalent record, with the actor, benefit, boundary and observable result |
+| A change assigned to a criterion of an existing story | A child Task; resolve the parent story and criterion first, and hold the child if the parent is missing |
+| Several usable slices of one capability | A feature that groups them |
+| Several slices or capabilities that share an initiative, an owner and an integrated outcome | An epic, or whatever label the project uses for that level |
+| Delivery that needs an agreed order, handoff, compatibility proof or recovery, such as a rollout where old and new readers must coexist | An [Implementation Plan (IP)](../references/implementation_plan.md) naming the order, compatibility proof, who switches over and how to recover |
+
+A single contained delivery keeps its steps inline in the Task or design. A plan the project requires takes precedence over this table.
+
 ## Draft or deliver
 
 Resolve choices that change scope, required behavior, architecture commitments, permissions, cost, data safety, or acceptance before presenting them as settled. Alternatives can remain proposals while those choices are open. For an early draft, use `Status: Draft`, identify open decisions and their consequences, and keep dependent sections provisional.

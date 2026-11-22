@@ -1,6 +1,6 @@
 # High Level Document (HLD)
 
-A High Level Document (HLD) explains how a system is organized, how its major parts communicate, and where important data moves. This package also accepts High Level Design and architecture document. Create it for a new system or substantial subsystem; maintain it when the architecture changes. Consult the existing High Level Document (HLD) when planning relevant work.
+A High Level Document (HLD) explains how a system is organized, how its major parts communicate, and where important data moves. This package also accepts High Level Design and architecture document. Create it for a new system or substantial subsystem; maintain it when the architecture changes. Consult the existing High Level Document (HLD) when planning relevant work. Link each boundary, rule and criterion to the record that owns it, as the [linking rule](../SKILL.md#link-work-to-its-parent-and-designs-to-their-sources) describes.
 
 ## Principles
 

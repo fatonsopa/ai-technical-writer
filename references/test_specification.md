@@ -1,6 +1,6 @@
 # Test Specification (TS)
 
-A test specification defines the checks and procedures used to assess required behavior. Create it before the relevant tests run; update it when behavior, coverage, data, or execution procedures change. The result can be a task section, a test-management record, a table linked to executable tests, or a standalone document.
+A test specification defines the checks and procedures used to assess required behavior. Create it before the relevant tests run; update it when behavior, coverage, data, or execution procedures change. The result can be a task section, a test-management record, a table linked to executable tests, or a standalone document. Link each boundary, rule and criterion to the record that owns it, as the [linking rule](../SKILL.md#link-work-to-its-parent-and-designs-to-their-sources) describes.
 
 The test basis is the requirements, acceptance criteria, and other sources used to define the checks.
 

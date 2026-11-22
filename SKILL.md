@@ -72,6 +72,19 @@ For a multi-task feature, put story outcomes and acceptance in the governing spe
 
 These are common handoffs, not a mandatory sequence. The [document relationships view](docs/document-relationships.md) has the full diagram, its explanation table and its Mermaid source.
 
+### Link work to its parent and designs to their sources
+
+Keep each fact where it's owned and link to it from the records that rely on it. One resolvable link is enough; don't maintain a reverse link by hand.
+
+| Record | Links to |
+| --- | --- |
+| Child task | The story criterion it delivers |
+| Story | The feature or epic outcome it serves, when one exists |
+| Design: High Level Document (HLD), Low Level Design (LLD) or a standalone design | The decision record, contract or requirement that sets each boundary and rule it relies on |
+| Test case | The criterion it checks, with its status as planned or observed |
+
+For example, a Low Level Design (LLD) for manager-only refund approval links the approved refund rule and the High Level Document (HLD) section naming the authorization service as the owning component. The worked child task links the story's employee-denial criterion, and the planned denial test links the behavior it checks; it stays planned until it runs. If a request is directly authorized and an approved contract already settles the rule and component boundary, the design cites that contract and needs no story, epic or separate High Level Document (HLD). A declared child whose governing criterion is unresolved stays blocked.
+
 The Task tracks Bug, Chore, Decision, Feature, Improvement or Release work. A Bug Report (BR) adds failure evidence; a User Story (US) is optional content. The Decision Record (DR) supports any material choice and can be a task comment. Policy (POL) sets direction; Technical Standard (STD) defines verifiable rules. Incident Report (IR) records impact, response and lessons; follow-ups may become tasks. Tutorial (TUT), How-to Guide (HTG), Explanation (EXP), and Repository readme (README) use verified behavior. Writing Style (WS) and Visual Guidance (VG) apply across these outputs. Test logs are evidence, not a separate document type. Small requirements and test results can live in a task or comment.
 
 Threat Model (TM), Interface Contract (IC) and Service Objectives Document (SOD) capabilities are optional. Reuse project documents with the relevant content; a missing standalone document does not by itself establish a code defect. Record source/version, authority and unresolved conflicts when writing alignment guidance. Technical Writer's format references teach composition; actual project requirements and decisions define intent.

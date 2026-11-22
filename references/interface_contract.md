@@ -1,6 +1,6 @@
 # Interface Contract (IC)
 
-An Interface Contract (IC) defines the observable agreement between providers and consumers. Create it for a public or internal API, message/event, library boundary or file exchange when callers need precise behavior. Update it when schema, authorization, errors or compatibility change. Keep a maintained machine-readable definition authoritative for syntax and link explanatory semantics to it; do not create an inconsistent second schema.
+An Interface Contract (IC) defines the observable agreement between providers and consumers. Create it for a public or internal API, message/event, library boundary or file exchange when callers need precise behavior. Update it when schema, authorization, errors or compatibility change. Keep a maintained machine-readable definition authoritative for syntax and link explanatory semantics to it; do not create an inconsistent second schema. Link each boundary, rule and criterion to the record that owns it, as the [linking rule](../SKILL.md#link-work-to-its-parent-and-designs-to-their-sources) describes.
 
 ## Principles
 
