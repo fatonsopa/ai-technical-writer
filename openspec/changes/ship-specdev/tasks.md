@@ -1135,7 +1135,7 @@ Candidate: the W32 commit on `implementation/ship-specdev`. The prd contract now
 - **W32.1 Met.** For the undecided customer-download brief, a draft whose discovery omits the permission topic gets "Material topic 'permissions' is missing from discovery; it affects Scope and capabilities." The same draft, recording OWN-1 as an open topic and naming it, passes as a draft. Ready is refused while OWN-1 is open or only provisional. A title-only check is unaffected. Regression: `MaterialTopicTests`. The delivery fixture records a justified inapplicable topic.
 - **W32.2 Met.** A record marking OWN-1 resolved, with "every report in their organization" and only the real but irrelevant `format-note` as its source, passed the mechanical source-ID check. The reviewer rejected it: the format note is about CSV, and the brief says ownership is undecided. The document stays a draft. The existing open-blocker check, "An unresolved blocking decision prevents ready delivery", is reused.
 
-- [ ] 22.2 [W33](#w33--ask-only-the-question-that-changes-the-requirement) (T032). Ask only for the material ownership decision the sources cannot settle. Resume the affected section after the answer and preserve unrelated work. After W32.
+- [x] 22.2 [W33](#w33--ask-only-the-question-that-changes-the-requirement) (T032). Ask only for the material ownership decision the sources cannot settle. Resume the affected section after the answer and preserve unrelated work. After W32.
 
 ### W33 · Ask only the question that changes the requirement
 
@@ -1159,6 +1159,13 @@ Discovery maintainer · R18/A18. [S22.1](./specs/spec-driven-authoring/spec.md#s
 [workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/workflows/discover.md) · [scripts/planning_readiness.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/planning_readiness.py) · [scripts/validate_document.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/validate_document.py)
 
 Ship one connected question-and-resumption route. Share its packet with W28 and the applicable host acceptance check.
+
+#### Verdicts
+
+Candidate: the W33 commit on `implementation/ship-specdev`. `workflows/discover.md` now says to record the affected criterion, source and consequence before asking, to bind an answer to its host message, to apply it only to its scope, to leave unverifiable authority open and to let delegated choices proceed. Performers were fresh-context agents on the same export route. Reviewer: implementing agent.
+
+- **W33.1 Met.** For "Add CSV to the existing report download; only the format changes", the performer asked no permission question, kept staff-only access and recorded the topic as resolved from the current-behavior source. For self-service with ownership undecided, it asked exactly one question ("reports the customer created, or every report in their organization?"). It kept the permission rule open and the document a draft, and wrote the independent format, naming and scope sections.
+- **W33.2 Met.** With the owner's answer, "Only reports the customer created themselves", cited by its message reference, only the creator-only rule and its denial became Ready. Organization-wide access stayed excluded as a separate decision. The delegated file naming was chosen without asking the owner to confirm it. The unchanged format branch reused its earlier wording.
 
 - [ ] 22.3 [W34](#w34--apply-discovery-checks-at-the-right-document-scope) (T033). Exercise a material gap through the applicable authoring route. A title-only edit stays lightweight and old receipts retain their original meaning. After W32 and W33.
 

@@ -38,6 +38,8 @@ Explain the evidence before asking. For example: “The current client records e
 
 When the answers need to outlive the session, or someone asks for them, write a [Discovery Interview Record (DIR)](../references/discovery_interview.md). It keeps each question, answer and source, the restatement and whether the owner confirmed it.
 
+Before you ask, note which criterion or section the answer affects, which source you inspected and what changes with each answer. Ask only for a fact the owner holds and the sources don't settle; an existing rule, such as current access to a download, needs no new vote. When the answer arrives, link it to the question with the message or reference where the host shows it. Apply it only to the scope it actually covers. Leave the topic open if you can't tell who answered or whether they hold that authority. A routine choice the owner delegated to you proceeds without another confirmation.
+
 Wait for answers before dependent work; continue independent research or drafting where useful. A preselected option, silence, tool timeout, or elapsed time is not an answer. Accept explicit delegation to choose, record its scope, and justify the choice. Do not infer delegation from “continue.” Routine wording, headings, and equivalent notation choices remain the writer's responsibility.
 
 ## Record material topics
