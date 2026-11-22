@@ -1490,7 +1490,7 @@ Skill maintainer · R25/A25. [S29.1](./specs/spec-driven-authoring/spec.md#s29-1
 
 #### Verdicts
 
-Candidate: the W47 guidance commit on `implementation/ship-specdev`. `scripts/openspec_runtime.py` installs `tools/openspec` with `npm ci` on first use, checks Node.js 22.20.0 or later and verifies the pinned 2.1.1 CLI. It forwards any command the installed CLI offers, with the selected project as its working directory. Default `init` adds `--tools=none --scope=project`; explicit options pass through. Unknown commands run nothing, and OpenSpec telemetry is off. Reviewer: implementing agent.
+Candidate: `302f464` on `implementation/ship-specdev`. `scripts/openspec_runtime.py` installs `tools/openspec` with `npm ci` on first use, checks Node.js 22.20.0 or later and verifies the pinned 2.1.1 CLI. It forwards any command the installed CLI offers, with the selected project as its working directory. Default `init` adds `--tools=none --scope=project`; explicit options pass through. Unknown commands run nothing, and OpenSpec telemetry is off. Reviewer: implementing agent.
 
 - **W47.1 Met.** A clean install of both host copies, in an isolated home, reported the lockfile, the local executable, Node v22.23.5 and OpenSpec 2.1.1.
   - **Setup:** In fresh Git targets, `/specdev init` (Claude Code, `claude-opus-5-5`) and `$specdev init` (Codex, `gpt-6.2-sol`) ran `init --tools=none --scope=project`. This added only `openspec/` and no host commands, and the home gained no OpenSpec skills or config.
