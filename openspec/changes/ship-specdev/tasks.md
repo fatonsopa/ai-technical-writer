@@ -1663,7 +1663,7 @@ Workflow maintainer · R20/A20. [S24.1](./specs/spec-driven-authoring/spec.md#s2
 
 Identify which specification governs work after delivery. [Story criteria](./specs/spec-driven-authoring/spec.md#s25--guide-selection-of-a-specification-after-delivery)
 
-- [ ] 31.1 [W43](#w43--guide-selection-of-a-specification-after-delivery) (T044). Use the maintained thirty-day rule over a seven-day snapshot. If authority is removed, identify the conflict before choosing a value. Use W32–W34 when authority is ambiguous.
+- [x] 31.1 [W43](#w43--guide-selection-of-a-specification-after-delivery) (T044). Use the maintained thirty-day rule over a seven-day snapshot. If authority is removed, identify the conflict before choosing a value. Use W32–W34 when authority is ambiguous.
 
 ### W43 · Guide selection of a specification after delivery
 
@@ -1685,6 +1685,16 @@ Skill maintainer · R21/A21. [S25.1](./specs/spec-driven-authoring/spec.md#s25-1
 - **W43.2** Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior. <a id="w43-2"></a>
 
 [Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md)
+
+#### Verdicts
+
+Candidate: `2bdbc24` on `implementation/ship-specdev`. The Spec Driven Development document (SDD) reference adds "Choose the governing specification after delivery". It covers where OpenSpec keeps current, proposed and archived behavior, the team's convention for independent documents, and how to cite the maintained rule while labelling a frozen snapshot as historical. Where nothing settles which source governs, it asks one focused question first. Reviewer: implementing agent.
+
+- **W43.1 Met.** The packet held a frozen launch specification (`RF-1`, 7 days), an approved and maintained policy that supersedes it (`POL-3`, 30 days, revision 2026-09-15) and a partial-refund note. Asked to update the feature, Codex (`gpt-6.2-sol`) wrote `docs/refund-spec.md` and passed checked delivery.
+  - **Maintained rule:** It states the 30-day window from POL-3 and says that rule supersedes the 7-day window in launch requirement RF-1.
+  - **Snapshot:** It cites the launch specification as the frozen 2026-03-01 record of the original rules.
+  - **Sources:** All three were unchanged (`git diff` empty; packet `388e882`).
+- **W43.2 Met.** The maintenance statement was removed and both values kept (packet `453b59d`). Before writing, Claude Code (`claude-opus-5-5`) named the conflict between RF-1 (7 days, frozen 2026-03-01) and POL-3 (30 days, revised 2026-09-15) and asked which governs, without committing to a value. It also raised two gaps the sources leave open. No file was written, and the sources were unchanged.
 
 <a id="s26--resolve-constrained-fields-in-task-handoffs"></a>
 
