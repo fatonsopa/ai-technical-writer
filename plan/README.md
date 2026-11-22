@@ -2,7 +2,7 @@
 
 Open this file in the checkout you will work on. It contains the starting prompt and the execution rules for Claude or Codex. The [specification](./specification.md) owns behavior and acceptance. The [implementation plan](./implementation-plan.md) owns the work, its boundaries, dependencies and checks. The [audit](./audit.md) explains the findings and their evidence.
 
-The owner approved specification and implementation plan revision 8, covering 24 findings, 24 child stories and 41 tasks. Users may ask for a document by full name or acronym at any turn. In authored prose, introduce a document name once and retain required literal labels. A checked delivery may include one useful statement from the reviewed document, bound to its reviewed version. The handoff branch contains the audited Technical Writer source at `4a8e7c92e20404f05e68708c1a3ea26c6961b178` and the planning packet. Implementation begins on the other computer. Use the accepted Skill Builder implementation from the first handoff. Record its commit. Start with W01 and W03 as their dependencies allow. [Skill Builder handoff](https://github.com/fatonsopa/ai-skill-builder/blob/docs/autonomous-implementation/plan/README.md)
+The execution baseline is revision 9, covering 24 approved findings, 24 child stories and 42 tasks. Users may ask for a document by full name or acronym at any turn. In authored prose, introduce a document name once and retain required literal labels. A checked delivery may include one useful statement from the reviewed document, bound to its reviewed version. The handoff branch contains the audited Technical Writer source at `4a8e7c92e20404f05e68708c1a3ea26c6961b178` and the planning packet. Implementation begins on the other computer. Use the accepted Skill Builder implementation from the first handoff. Record its commit. Start with W01 and W03 as their dependencies allow. [Skill Builder handoff](https://github.com/fatonsopa/ai-skill-builder/blob/docs/autonomous-implementation/plan/README.md)
 
 ## Starting prompt
 
@@ -43,6 +43,10 @@ Implement R18/A18 through W32–W34. Before asking, identify the affected criter
 ## Shortcuts and document handoffs
 
 Ship opt-in native shortcuts and a one-line next-document recommendation. Use the [Spec Kit template mapping](./specification.md#how-spec-kit-templates-map-to-technical-writer) when implementing W35–W41. Every shortcut must reach the existing Technical Writer reference and checked output contract. The walkthrough recommends, then waits for the user to continue. See F23 and F24 in the implementation plan.
+
+## Public README and proposed follow-ups
+
+W42 introduces the skill as a spec-driven technical writer in the repository-root README. W29 owns its detailed document sequence. The [repository-wide Spec Kit comparison](./audit.md#what-else-to-borrow-from-github-spec-kit) identifies three further opportunities. F25–F27, proposed R21–R23 and W43–W45 await owner adoption and are outside the execution prompt and approved counts.
 
 ## How to choose a work record
 
