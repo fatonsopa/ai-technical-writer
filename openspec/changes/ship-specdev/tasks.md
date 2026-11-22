@@ -1103,7 +1103,7 @@ Candidate: the W30/W31/W62 commit. "Link work to its parent and designs to their
 
 Compare an undecided permission with the same permission already settled by a source. [Story criteria](./specs/spec-driven-authoring/spec.md#s22--write-from-incomplete-project-context)
 
-- [ ] 22.1 [W32](#w32--detect-an-omitted-material-permission) (T031). Identify the omitted permission in the export brief. An explicitly unresolved draft may pass as a draft. Reject unsupported resolution against an irrelevant source.
+- [x] 22.1 [W32](#w32--detect-an-omitted-material-permission) (T031). Identify the omitted permission in the export brief. An explicitly unresolved draft may pass as a draft. Reject unsupported resolution against an irrelevant source.
 
 ### W32 · Detect an omitted material permission
 
@@ -1127,6 +1127,13 @@ Contract maintainer · R18/A18. [S22.1](./specs/spec-driven-authoring/spec.md#s2
 [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/contracts/documents.json) · [scripts/planning_readiness.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/planning_readiness.py) · [scripts/validate_document.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/validate_document.py)
 
 One commit ships the product route, compatible contract, guidance and smallest affected regression.
+
+#### Verdicts
+
+Candidate: the W32 commit on `implementation/ship-specdev`. The prd contract now declares the material topic `permissions` with the section it affects. Discovery decisions accept an optional `topic` and the statuses `provisional` and `inapplicable`, and readiness reports a missing material topic for complete authoring. Sessions keep the contract they froze, so old records keep their version. `workflows/discover.md` documents the statuses. Reviewer: implementing agent, with a fresh-context reviewer for W32.2.
+
+- **W32.1 Met.** For the undecided customer-download brief, a draft whose discovery omits the permission topic gets "Material topic 'permissions' is missing from discovery; it affects Scope and capabilities." The same draft, recording OWN-1 as an open topic and naming it, passes as a draft. Ready is refused while OWN-1 is open or only provisional. A title-only check is unaffected. Regression: `MaterialTopicTests`. The delivery fixture records a justified inapplicable topic.
+- **W32.2 Met.** A record marking OWN-1 resolved, with "every report in their organization" and only the real but irrelevant `format-note` as its source, passed the mechanical source-ID check. The reviewer rejected it: the format note is about CSV, and the brief says ownership is undecided. The document stays a draft. The existing open-blocker check, "An unresolved blocking decision prevents ready delivery", is reused.
 
 - [ ] 22.2 [W33](#w33--ask-only-the-question-that-changes-the-requirement) (T032). Ask only for the material ownership decision the sources cannot settle. Resume the affected section after the answer and preserve unrelated work. After W32.
 

@@ -40,6 +40,17 @@ When the answers need to outlive the session, or someone asks for them, write a 
 
 Wait for answers before dependent work; continue independent research or drafting where useful. A preselected option, silence, tool timeout, or elapsed time is not an answer. Accept explicit delegation to choose, record its scope, and justify the choice. Do not infer delegation from “continue.” Routine wording, headings, and equivalent notation choices remain the writer's responsibility.
 
+## Record material topics
+
+Some formats name topics that a complete document must settle, whatever the writer's own list says. For a Product Requirements Document (PRD), that topic is permissions: who may perform each new or changed action, and who owns the data it exposes. Record each such topic in the discovery decisions with `topic` set and one of these statuses:
+
+- `resolved`, with the answer and the source that supports it;
+- `provisional`, with a proposed answer that still lacks authority;
+- `open`, with no answer yet;
+- `inapplicable`, with the reason it doesn't apply.
+
+An open or provisional topic keeps the document a draft, and the draft names it. The checker reports a missing topic with the section it affects. Whether a cited source actually supports an answer is for the reviewer to judge; a real source ID about something else doesn't settle the topic.
+
 ## Choose the smallest record
 
 Pick the record from what the request actually covers, and don't invent a parent.

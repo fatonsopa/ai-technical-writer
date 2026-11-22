@@ -19,8 +19,8 @@ def discovery_errors(record, source_ids=None):
         return errors + ["Discovery decisions must be a list."]
     seen = set()
     for row in decisions:
-        if not isinstance(row, dict) or set(row) != {"id", "question", "status", "blocking", "answer", "source_ids"}:
-            errors.append("Each discovery decision needs id, question, status, blocking, answer and source_ids.")
+        if not isinstance(row, dict) or set(row) - {"topic"} != {"id", "question", "status", "blocking", "answer", "source_ids"}:
+            errors.append("Each discovery decision needs id, question, status, blocking, answer and source_ids, with an optional topic.")
             continue
         if any(not isinstance(row[k], str) or not row[k].strip() for k in ("id", "question")):
             errors.append("Discovery decisions need nonempty IDs and questions.")
@@ -28,14 +28,22 @@ def discovery_errors(record, source_ids=None):
             errors.append("Discovery decision IDs must be unique.")
         else:
             seen.add(row["id"])
-        if row["status"] not in ("open", "resolved") or type(row["blocking"]) is not bool:
-            errors.append("Discovery decisions need open/resolved status and boolean blocking.")
+        if row["status"] not in ("open", "resolved", "provisional", "inapplicable") or type(row["blocking"]) is not bool:
+            errors.append("Discovery decisions need open, resolved, provisional or inapplicable status and boolean blocking.")
         if not isinstance(row["answer"], str):
             errors.append("Discovery answers must be strings.")
         if row["status"] == "resolved":
             if not isinstance(row["answer"], str) or not row["answer"].strip():
                 errors.append("A resolved decision needs its actual answer.")
             sources(row["source_ids"])
+        elif row["status"] == "inapplicable":
+            if not isinstance(row["answer"], str) or not row["answer"].strip() or row["blocking"]:
+                errors.append("An inapplicable topic needs a justification and cannot block: " + str(row["id"]))
+        elif row["status"] == "provisional":
+            if not isinstance(row["answer"], str) or not row["answer"].strip():
+                errors.append("A provisional decision needs its proposed answer: " + str(row["id"]))
+            if record["status"] == "ready":
+                errors.append("A provisional decision lacks authority, so it prevents ready delivery: " + str(row["id"]))
         elif row["status"] == "open":
             if row["answer"] or row["source_ids"]:
                 errors.append("An open decision cannot contain a claimed answer or answer sources.")
@@ -66,6 +74,13 @@ def check_discovery(text, record):
         errors.append("Draft discovery requires Status: Draft before the document sections.")
     if record["status"] == "draft":
         for row in record["decisions"]:
-            if row["status"] == "open" and not re.search(r"(?<![\w-])" + re.escape(row["id"]) + r"(?![\w-])", text):
+            if row["status"] in ("open", "provisional") and not re.search(r"(?<![\w-])" + re.escape(row["id"]) + r"(?![\w-])", text):
                 errors.append("Draft must identify its open decision: " + row["id"])
     return errors
+
+
+def material_topic_errors(record, topics):
+    """Each material topic the format requires must be decided, kept open or justified as inapplicable."""
+    recorded = {row.get("topic") for row in record.get("decisions", []) if isinstance(row, dict)}
+    return ["Material topic '" + topic["id"] + "' is missing from discovery; it affects " + topic["section"] + ". " + topic["question"]
+            for topic in topics if topic["id"] not in recorded]

@@ -97,7 +97,7 @@ class GuidedDiscoveryTests(unittest.TestCase):
             self.prepare()
         self.record["decisions"][0]["blocking"] = False
         self.record["decisions"][0]["status"] = ["resolved"]
-        with self.assertRaisesRegex(ValueError, "open/resolved"):
+        with self.assertRaisesRegex(ValueError, "open, resolved"):
             self.prepare()
 
     def test_ready_delivery_checks_embedded_syntax_instead_of_trusting_metadata(self):
@@ -112,3 +112,30 @@ class GuidedDiscoveryTests(unittest.TestCase):
             self.assertFalse(report["passed"])
             self.assertTrue(any("visible title, subtitle and symbol legend" in item for item in report["findings"]))
         self.assertIn("references/visuals.md", delivery.state_for(self.root / "session")["frozen"]["guidance"])
+
+
+class MaterialTopicTests(unittest.TestCase):
+    """W32: the product route derives its permission topic from the format, not the writer's list."""
+
+    def prd(self, status_line, extra=''):
+        from test_document_contracts import sample
+        return sample('prd').replace('# Example document', '# Customer report downloads\n\n' + status_line, 1) + extra
+
+    def record(self, status, decisions):
+        return {'status': status, 'source_ids': ['brief'], 'decisions': decisions}
+
+    def test_omitted_permission_topic_is_located_and_an_open_draft_passes_as_draft(self):
+        from document_contracts import validate
+        omitted = validate(self.prd('Status: Draft'), 'prd', context={'discovery': self.record('draft', [])})
+        self.assertIn("Material topic 'permissions' is missing from discovery; it affects Scope and capabilities.", ' '.join(omitted['findings']))
+        open_row = {'id': 'OWN-1', 'topic': 'permissions', 'question': 'Do customers download reports for themselves or for their whole organization?', 'status': 'open', 'blocking': True, 'answer': '', 'source_ids': []}
+        draft = validate(self.prd('Status: Draft', '\nOpen decision OWN-1: report ownership.\n'), 'prd', context={'discovery': self.record('draft', [open_row])})
+        self.assertTrue(draft['passed'], draft['findings'])
+        ready = validate(self.prd('Status: Ready'), 'prd', context={'discovery': self.record('ready', [open_row])})
+        self.assertTrue(any('prevents ready delivery: OWN-1' in f for f in ready['findings']))
+        provisional = {**open_row, 'status': 'provisional', 'blocking': False, 'answer': 'Proposal: individual reports only.'}
+        self.assertTrue(any('lacks authority' in f for f in validate(self.prd('Status: Ready'), 'prd', context={'discovery': self.record('ready', [provisional])})['findings']))
+
+    def test_title_scope_and_older_records_without_topics_keep_their_route(self):
+        from document_contracts import validate
+        self.assertFalse(any('Material topic' in f for f in validate('# Customer report downloads\n', 'prd', scope='title', context={'discovery': self.record('draft', [])})['findings']))

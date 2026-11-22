@@ -8,7 +8,7 @@ import re
 import yaml
 import tomllib
 
-from planning_readiness import check_discovery
+from planning_readiness import check_discovery, material_topic_errors
 from visual_contracts import visual_errors
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -353,6 +353,8 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
                 errors.extend(title_contract.title_errors(node['title'], task=bool(contract.get('task_type')) or kind in {'task', 'bug_report', 'story'}))
     if "discovery" in context:
         errors.extend(check_discovery(text, context["discovery"]))
+        if complete and contract.get("material_topics"):
+            errors.extend(material_topic_errors(context["discovery"], contract["material_topics"]))
     for value in context.get("required_literals", []):
         if not isinstance(value, str) or value not in text:
             errors.append(f"Missing required literal: {value!r}")

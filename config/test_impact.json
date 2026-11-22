@@ -1151,6 +1151,17 @@
       ],
       "tests": [],
       "reason": "Native change and handoff records: review the changed text against their sources; no behavioral suite."
+    },
+    {
+      "paths": [
+        "scripts/document_contracts.py",
+        "scripts/planning_readiness.py",
+        "contracts/documents.json"
+      ],
+      "tests": [
+        "delivery",
+        "discovery"
+      ]
     }
   ],
   "final_checks": {

@@ -19,7 +19,7 @@ class DocumentDeliveryTests(unittest.TestCase):
         self.session = self.root / "session"
         self.draft = self.root / "draft.md"
         self.target = self.root / "accepted.md"
-        self.data = {"kind": "prd", "sources": [{"id": "request", "text": "Preserve identifier 0042. This control's product goals are agreed."}], "destination": "accepted.md", "context": {"required_literals": ["0042"], "discovery": {"status": "ready", "source_ids": ["request"], "decisions": []}}, "requirements": [{"id": "KEEP-ID", "text": "Preserve 0042."}]}
+        self.data = {"kind": "prd", "sources": [{"id": "request", "text": "Preserve identifier 0042. This control's product goals are agreed."}], "destination": "accepted.md", "context": {"required_literals": ["0042"], "discovery": {"status": "ready", "source_ids": ["request"], "decisions": [{"id": "PERM", "topic": "permissions", "question": "Who may perform the changed actions?", "status": "inapplicable", "blocking": False, "answer": "This control changes no actions or data access.", "source_ids": []}]}}, "requirements": [{"id": "KEEP-ID", "text": "Preserve 0042."}]}
         self.draft.write_text(sample("prd") + "\nIdentifier: 0042.\n")
 
     def tearDown(self):

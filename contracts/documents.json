@@ -291,7 +291,14 @@
           "required": true
         }
       ],
-      "discovery_before_delivery": true
+      "discovery_before_delivery": true,
+      "material_topics": [
+        {
+          "id": "permissions",
+          "section": "Scope and capabilities",
+          "question": "Who may perform each new or changed action, and who owns the data it exposes?"
+        }
+      ]
     },
     "sdd": {
       "reference": "references/spec_driven_development.md",
