@@ -282,6 +282,32 @@ class DecisionHandoffTests(unittest.TestCase):
                     delivery.finalize(self.session, self.draft, result["review"])
                 self.assertFalse(self.target.exists())
 
+    def test_bound_successor_reaches_the_message_and_goes_stale_when_its_source_changes(self):
+        """W39: a checked suggestion is bound to its sources; a changed governing revision fails verification."""
+        self.prepare()
+        spec = self.root / "spec.md"
+        spec.write_text("Revision 1: refunds above 100.00 need a manager.\n")
+        result = self.judgment(delivery_successor={"document": "Task List (TL)", "reason": "It orders the refund work and its checks.", "sources": ["spec.md"]})
+        receipt = delivery.finalize(self.session, self.draft, result["review"])
+        self.assertIn("Suggested next document: Task List (TL). It orders the refund work and its checks.", receipt["message"])
+        message = self.session / "message.md"
+        self.assertTrue(delivery.verify_message(self.session, message)["passed"])
+        message.write_text(receipt["message"].replace("Task List (TL)", "Implementation Plan (IP)"))
+        self.assertFalse(delivery.verify_message(self.session, message)["passed"])
+        message.write_text(receipt["message"])
+        spec.write_text("Revision 2: refunds above 50.00 need a manager.\n")
+        report = delivery.verify_message(self.session, message)
+        self.assertFalse(report["passed"])
+        self.assertIn("stale", report["findings"][0])
+
+    def test_successor_without_sources_is_rejected_and_no_successor_adds_nothing(self):
+        self.prepare()
+        with self.assertRaisesRegex(ValueError, "source file"):
+            delivery.finalize(self.session, self.draft, self.judgment(delivery_successor={"document": "Task List (TL)", "reason": "Orders the work.", "sources": []})["review"])
+        self.assertFalse(self.target.exists())
+        receipt = delivery.finalize(self.session, self.draft, self.judgment()["review"])
+        self.assertNotIn("Suggested next document", receipt["message"])
+
     def test_old_receipt_keeps_its_format_and_no_decision_adds_nothing(self):
         self.prepare()
         receipt = delivery.finalize(self.session, self.draft, self.judgment()["review"])

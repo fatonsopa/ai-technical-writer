@@ -68,6 +68,8 @@ For an independent document, integrations take document structure and reusable t
 
 For `/specdev next` (Codex: `$specdev next`), `guide` or a question such as "what should I write next", start from the user's goal or the named artifact. Read the current initiative, its sources and their revisions, and `openspec status` for a selected change. Then answer in one line: the one eligible document, named as the README catalog names it, the specific gap it fills and what it gives the reader. For example, a multi-task change's `tasks.md` is a Task List (TL), not an Implementation Plan (IP). Suggesting creates no file and changes nothing, so asking again gives the same answer.
 
+- To continue, write exactly the selected document through the normal workflow, keeping its source revision, governing criterion and shared terms. When the same request comes back after delivery, read the destination and its receipt, name the completed result and don't write it again.
+- A checked handoff can name the next document through `delivery_successor` in the review ([validation review](workflows/validation_review.md)). If `verify-message` reports it stale, re-check readiness against the changed source and keep evidence the change doesn't affect.
 - If two initiatives fit and the evidence can't settle which one, ask only that.
 - For a blocked child, name the missing prerequisite instead of a document.
 - When the delivered, checked document already covers the request, say the documentation is complete. Examples are a standalone fix with sufficient acceptance, or a checked native `tasks.md`. Suggest a separate Task only when separately owned scope or evidence calls for it. Implementation needs its own authority.

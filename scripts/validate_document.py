@@ -393,6 +393,7 @@ def finalize(session, draft, review_file, *, _close_records=True):
     if digest(content) != checked["output_sha256"]:
         raise ValueError("Draft changed during validation.")
     decision = reviewed_decision(record, content)
+    successor = reviewed_successor(record, target)
     target.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(dir=target.parent, delete=False) as stream:
         temporary = Path(stream.name)
@@ -404,6 +405,8 @@ def finalize(session, draft, review_file, *, _close_records=True):
     state["delivery"] = {"destination": str(target), "output_sha256": checked["output_sha256"], "objective_sha256": state["objective_sha256"], "review": str(review_path), "reviewer": record["reviewer"], "document_status": state["frozen"]["request"]["context"].get("discovery", {}).get("status", "unspecified"), "message_version": 2}
     if decision:
         state["delivery"]["decision"] = decision
+    if successor:
+        state["delivery"]["successor"] = successor
     # A deterministic handoff reports the actual validation only. Product facts
     # remain in the reviewed artifact rather than an unreviewed final summary.
     message = delivery_message_text(state['delivery'])
@@ -427,6 +430,9 @@ def delivery_message_text(receipt):
     if decision:
         anchor = str(decision['anchor']).replace('>', '%3E').replace(')', '%29').replace(' ', '-')
         status_text += template['decision'].format(sentence=decision['sentence'], destination=target, anchor=anchor)
+    successor = receipt.get('successor') if receipt.get('message_version', 1) >= 2 else None
+    if successor:
+        status_text += template['successor'].format(document=successor['document'], reason=successor['reason'])
     return template['message'].format(destination=target, status=status_text,
                                       reviewer=template['reviewers'][receipt['reviewer']['kind']])
 
@@ -449,6 +455,30 @@ def reviewed_decision(record, content):
 
 
 
+def reviewed_successor(record, target):
+    """An optional next-document suggestion, bound to the current bytes of the sources it relies on."""
+    successor = record.get("delivery_successor")
+    if successor is None:
+        return None
+    if not isinstance(successor, dict) or set(successor) != {"document", "reason", "sources"} or not all(isinstance(successor[k], str) and successor[k].strip() and "\n" not in successor[k] for k in ("document", "reason")):
+        raise ValueError("delivery_successor needs a document name, a one-line reason and the source files it relies on.")
+    if not isinstance(successor["sources"], list) or not successor["sources"]:
+        raise ValueError("delivery_successor must name at least one source file it relies on.")
+    bound = {}
+    for name in successor["sources"]:
+        path = (target.parent / name).resolve() if not Path(name).is_absolute() else Path(name)
+        if not path.is_file():
+            raise ValueError(f"The suggested next document relies on {name}, which doesn't exist.")
+        bound[str(path)] = digest(path.read_bytes())
+    return {"document": successor["document"].strip(), "reason": successor["reason"].strip(), "sources": bound}
+
+
+def stale_successor_sources(receipt):
+    """Sources of a bound suggestion whose bytes changed after delivery."""
+    successor = receipt.get("successor") or {}
+    return sorted(path for path, sha in successor.get("sources", {}).items() if not Path(path).is_file() or digest(Path(path).read_bytes()) != sha)
+
+
 def verify_message(session, message):
     state = state_for(session, budget=False)
     receipt = state.get('delivery')
@@ -460,9 +490,11 @@ def verify_message(session, message):
     if receipt['message'] != expected or digest(expected.encode()) != receipt['message_sha256']:
         raise ValueError('Delivery message receipt changed.')
     actual = Path(message).read_text()
-    passed = actual.rstrip('\r\n') == expected.rstrip('\r\n')
+    findings = [] if actual.rstrip('\r\n') == expected.rstrip('\r\n') else ['Public delivery text differs from the finalized message. Send the returned message unchanged.']
+    findings += [f'The suggested next document is stale: {path} changed after delivery. Re-evaluate what to write next before continuing.' for path in stale_successor_sources(receipt)]
+    passed = not findings
     return {'passed': passed, 'message_sha256': receipt['message_sha256'],
-            'findings': [] if passed else ['Public delivery text differs from the finalized message. Send the returned message unchanged.'],
+            'findings': findings,
             'limits': ['This checks the supplied message file; the host transcript must also match. Artifact meaning still needs source-grounded review.']}
 
 

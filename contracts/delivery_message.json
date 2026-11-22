@@ -9,5 +9,7 @@
     "human": "human review"
   },
   "decision": "{sentence} [Read it in the document](<{destination}#{anchor}>).\n",
-  "decision_note": "Version 2 receipts may carry one reviewed sentence copied verbatim from the document and the anchor of its section. Receipts without message_version use the version 1 message unchanged."
+  "decision_note": "Version 2 receipts may carry one reviewed sentence copied verbatim from the document and the anchor of its section. Receipts without message_version use the version 1 message unchanged.",
+  "successor": "Suggested next document: {document}. {reason}\n",
+  "successor_note": "A version 2 receipt may carry one reviewed next-document suggestion bound to the bytes of the sources it relies on. Message verification fails once any of those sources changes."
 }
