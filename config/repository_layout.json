@@ -28,7 +28,8 @@
     "docs": "Public user/developer documentation.",
     "plan": "Owner-approved implementation handoff, audit evidence and specifications.",
     "openspec": "Native change proposals, design, task status and capability specifications for this repository.",
-    "tools": "Repository development tools."
+    "tools": "Repository development tools.",
+    ".github": "GitHub repository automation, such as Dependabot updates for the OpenSpec runtime."
   },
   "local_only": [
     ".git",
