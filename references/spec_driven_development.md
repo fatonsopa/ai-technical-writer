@@ -33,6 +33,15 @@ Rationale: [Only if it helps interpretation]
 
 For a complete requirement entry, see WEB-07 and its acceptance mapping in the [Spec Driven Development document (SDD) worked example](../examples/spec_driven_development.md).
 
+## Choose the governing specification after delivery
+
+When a delivered feature changes again, find which agreement governs before drafting.
+
+- In OpenSpec, current behavior lives in `openspec/specs/<capability>/spec.md`. A selected change's deltas propose new behavior, and the archive keeps past changes and their decisions.
+- For independent documents, follow the team's declared maintenance convention, such as a maintained specification that supersedes launch snapshots.
+- Cite the maintained rule. A frozen delivery snapshot is a historical source: label its values as historical, and link it to its maintained successor or other approved source when known. Leave both files unchanged.
+- If two sources give materially different values and nothing says which governs, keep both and ask one focused question, such as "Which refund window governs: 7 days in the launch specification or 30 days in the refund policy?" Don't commit to either value until it's answered. Sections the conflict doesn't touch can still be drafted.
+
 ## Document structure
 
 The template below is this skill's default. Scale the detail to the work, while preserving the behavior and acceptance agreement.
