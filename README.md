@@ -1,6 +1,6 @@
 # SpecDev
 
-SpecDev is a technical writing skill for teams that plan software changes with AI coding agents. Built on OpenSpec’s change tracking, SpecDev writes product briefs, test plans and user guides, then checks them against your project files. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
+SpecDev is a technical writing skill for teams that plan software changes with AI coding agents. It builds on OpenSpec’s workflow for planning and implementing changes so you can also write documentation for your whole project and check it against your code and your team’s decisions. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
 
 <a id="planned-release-installation"></a>
 
