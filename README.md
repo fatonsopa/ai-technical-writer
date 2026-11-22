@@ -1,8 +1,33 @@
-# Technical Writer
+# SpecDev
+
+The current installable skill is **Technical Writer** (`technical-writer`). **SpecDev** is its planned release name. This repository already uses OpenSpec for its own [implementation handoff](plan/README.md). The `/specdev` entry and automatic forwarding described below are acceptance requirements for that release.
 
 Write, edit, review, and rewrite technical documents using shared language guidance and document-specific references. Supported outputs include issues, PRDs, behavioral specifications, architecture, implementation plans, decision records, governance, testing reports, tutorials, and READMEs.
 
 The [catalog and workflow](SKILL.md) explain when to use each format. The skill preserves source facts, requirements, exceptions, exact values, and uncertainty. Complete documents are checked against [versioned output contracts](contracts/documents.json); accepted delivery also requires a source-grounded review of the actual draft.
+
+## What SpecDev adds to OpenSpec
+
+Use one entry to write a standalone project document or work on a software change. A checkmark identifies the tool that supplies the feature. SpecDev will expose the checked OpenSpec features through that same entry. The table is a comparison, not a list of allowed commands.
+
+| Feature | OpenSpec | SpecDev |
+| --- | :---: | :---: |
+| Initialize a project and find its change or configured store | ✓ | |
+| Define a change’s proposal, capability specs, design and task list | ✓ | |
+| Report change status, apply authorized tasks, sync specs and archive a change | ✓ | |
+| Provide native commands, configured workflows, schemas, templates and structural validation | ✓ | |
+| Offer a single SpecDev entry in Claude Code and Codex and discover the matching upstream operation | | ✓ |
+| Write standalone project documents such as a PRD, runbook, incident report or shared contract when the active workflow has no owner for them | | ✓ |
+| Review wording against the supplied policy or source and preserve its exact permissions and exceptions | | ✓ |
+| Provide the optional PRD, LLD and task shortcuts and communicate checked writing results in the session | | ✓ |
+
+### How OpenSpec works behind SpecDev
+
+In the planned release, enter `/specdev` in Claude Code or `$specdev` in Codex. For example, `/specdev init` will run the pinned OpenSpec CLI in the selected project. For a fresh project using only SpecDev it requests `--tools none`. Project initialization creates the native workspace; it starts no feature and applies no code change.
+
+When you enter a command, SpecDev will check the installed OpenSpec CLI and available workflow instructions. If upstream supplies the operation, SpecDev will use it with the selected project, change and supported arguments. For example, `/specdev templates --schema spec-driven --json` will use the native template lookup without a separate SpecDev shortcut. **Every OpenSpec operation available in that installation and project is in scope**, including operations outside the table and types added by a custom schema. Native prerequisites and permissions still apply. If a workflow is disabled, SpecDev will report what it needs. If neither tool recognizes a command, it will report that without changing the project.
+
+For “write a support runbook,” SpecDev will use its writing guide unless the selected change schema already owns that document. For “plan refund approvals,” the agent will follow OpenSpec’s instructions and write the change’s native files. A later request to implement or archive uses the same change. The benefit is one conversation and one editable copy of each decision. [OpenSpec skills](https://openspec.dev/docs/skills) · [OpenSpec CLI](https://openspec.dev/docs/cli) · [Pinned dependency](tools/openspec/package.json)
 
 ## Requirements
 
@@ -65,14 +90,14 @@ With code/file tools, the skill stages a draft, runs its applicable checks, revi
 
 ### Where `tasks.md` fits
 
-The planned Spec Writer feature workflow uses this order. The command integration is part of the implementation handoff.
+For a change using OpenSpec’s default schema:
 
-1. **Specify the feature.** Write the user stories and their observable acceptance scenarios in `spec.md`. Link to an existing authoritative story when the project already has one.
-2. **Plan delivery.** Read the reviewed specification and link to the relevant stories from `plan.md` and record the approach, constraints and reasons for the delivery order. Include design or contract details where the work depends on them.
-3. **Break the feature into tasks.** Read the reviewed spec and plan. Give each shippable task one record for its scope, criteria and required proof. Use the [Issue format](references/issue.md) in Markdown or link an existing tracker Issue. Each task resolves the story criterion it delivers. Write one `tasks.md` for the feature. Its ordered rows point to those Issues and show dependencies and safe parallel work.
-4. **Implement when authorized.** The implementing agent reads `tasks.md`, the plan, and the Issue for the next eligible row. It does the work and records the evidence against that Issue. It then returns to the list for the next eligible row. After the final task, verify the story and feature outcomes.
+1. State the reason and affected capabilities in `proposal.md`.
+2. Define observable behavior in `specs/<capability>/spec.md`. Record the delivery approach and decisions in `design.md` as the schema requires.
+3. Put ordered, independently verifiable steps in **one** `tasks.md`. Each row says what to change and how to check it. Link an Issue when it already owns an assignment or acceptance criterion.
+4. On an authorized build, the agent reads OpenSpec’s apply context for the selected change, performs an eligible task, and updates that same checkbox after verifying the result.
 
-A request to write the documents ends with the checked list and linked Issues. There is no required `task.md` step after `tasks.md`. A project may keep an individual Issue in its tracker, in a Markdown file, or in a named section. For a standalone fix, one Issue can carry both the scope and its proof. [Feature workflow and individual task requests](plan/specification.md#when-to-write-and-read-tasksmd)
+You can inspect the [SpecDev task list](openspec/changes/ship-specdev/tasks.md) in this checkout. A standalone writing request can finish with the requested document.
 
 ## Usage scenarios
 

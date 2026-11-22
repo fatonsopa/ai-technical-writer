@@ -1,10 +1,12 @@
 # SpecDev handoff test specification
 
-Use the [governing specification](./specification.md) and the candidate's [task list](./tasks.md). The first two checks are read-only checks of this handoff. The implementation checks belong to the corresponding Issues and run only on the actual candidate.
+Use the [governing specification](../openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md) and the candidate's [task list](../openspec/changes/ship-specdev/tasks.md). The first two checks are read-only checks of this handoff. The implementation checks belong to the corresponding Issues and run only on the actual candidate.
 
 ## Coverage and setup
 
-Give the reader the handoff commit and requested starting state. Keep the expected answers with the assessor. Reuse the existing refund example, source facts and applicable host evidence. The Toolkit dependency setup must resolve the package pinned in the [manifest](../tools/openspec/package.json) and [lockfile](../tools/openspec/package-lock.json).
+Give the reader the handoff commit and requested starting state. Keep the expected answers with the assessor. Reuse the existing refund example, source facts and applicable host evidence. The SpecDev dependency setup must resolve the package pinned in the [manifest](../tools/openspec/package.json) and [lockfile](../tools/openspec/package-lock.json).
+
+For this handoff, inspect the native change status and the task context returned by `openspec instructions apply --change ship-specdev --json`. Compare the row identities, evidence and checked states with the native task list. This read-only check is separate from exercising the future skill.
 
 ## Cases
 
