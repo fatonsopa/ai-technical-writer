@@ -1,16 +1,18 @@
-# Spec Writer improvement specification
+# SpecDev improvement specification
 
-Status: Approved behavioral scope, revision 20. Applies to Codex and Claude Code. [Audit](./audit.md)
+<a id="spec-writer-improvement-specification"></a>
 
-Source: The owner’s approved scope and the [comparative audit](./audit.md).
+Status: Approved behavioral scope, revision 21. Applies to Codex and Claude Code. [Audit](./audit.md)
+
+Source: The owner’s approved scope, the OpenSpec and naming decisions in D5–D7, and the [comparative audit](./audit.md).
 
 ## Purpose and scope
 
-A person should be able to decide what they are approving, and an implementer should be able to recover the agreed behavior and its proof without the original conversation. This specification proposes changes to Technical Writer’s guidance, examples and affected checks. The target is the existing skill, released as Spec Writer after the compatibility migration. Technical Writer authors every requested specification-driven artifact in full, including the Product Requirements Document (PRD), behavioral specification, design, decisions, plans, stories, issues and verification documents. Mirai and other projects supply evidence and consume the results. Deployment, external tracker writes and publication require separate authority.
+A person should be able to decide what they are approving, and an implementer should be able to recover the agreed behavior and its proof without the original conversation. This specification defines changes to the existing Technical Writer guidance, examples and affected checks. The planned public identity is SpecDev after the compatibility migration. SpecDev authors every requested specification-driven artifact in full, including the Product Requirements Document (PRD), behavioral specification, design, decisions, plans, stories, issues and verification documents. Mirai and other projects supply evidence and consume the results. Deployment, external tracker writes and publication require separate authority.
 
-The owner approved the optional workflow integration and the skill name **Spec Writer** (`spec-writer`). Claude implements the live rename on the handoff computer. The existing GitHub repository and clone URL remain the integration target. Spec Writer remains usable without the optional workflow. Deliver the rename after Skill Builder B5/T50. W47 selects a feature, W48 lets the implementing agent select eligible work from the feature list and recover acceptance from each Issue, and W49–W50 prove execution and recovery on one authorized local feature. Establish that connection before adding W51–W52 and the versioned W53 distribution. Reuse host evidence where inputs match. Use the project-selected provider for execution. Keep remote publication outside implementation authority.
+SpecDev (`specdev`) is the public entry, `/specdev` on Claude Code and `$specdev` or the documented native equivalent on Codex. Use it for both ordinary writing and a project’s OpenSpec changes. A direct document request uses the existing writing contracts without a project setup. To initialize the current project, ask for `/specdev init` (or the host equivalent). It delegates to the private OpenSpec executable’s native `init` at the selected root. A fresh setup requesting only SpecDev uses `--tools none`. Respect the user’s supported tool choices and flags. Initialization stops at project setup. For a change, the writer edits the selected project’s native artifacts in place. OpenSpec supplies structure, dependencies, validation, apply instructions and archive behavior. SpecDev supplies grounded prose, proportionate design depth and semantic review. Implementation and archive depend on the authority for those actions.
 
-Use **Spec Writer** (`spec-writer`) as the sole product identity in the skill, repository documentation, installation text, examples, command descriptions and session replies. Describe the optional workflow by its function. Preserve exact technical identifiers needed to run it, source destinations for the audit and applicable copyright notices.
+The existing repository and clone URL remain the delivery target. The rename on the handoff computer follows accepted Skill Builder B5/T50. W47 connects the writer to the privately pinned npm package `@fission-ai/openspec@2.1.1`; W48–W50 demonstrate task selection, authorized execution and recovery. W53 owns later upgrades and removal. These are planned changes. The [implementation plan](./implementation-plan.md) records rollout and evidence boundaries.
 
 ## Definitions
 
@@ -217,7 +219,7 @@ Parent: [F8](#f8--reach-the-right-guidance-from-an-ordinary-request). Owner role
 
 ### F9 · Author complete documents independently of the application
 
-As a project owner, I want Technical Writer to author every requested specification-driven file, so that my project supplies facts and retains decision authority without needing its own writer.
+As a project owner, I want SpecDev to author the specification-driven documents I request, so that my project supplies facts and retains decision authority without needing its own writer.
 
 #### Acceptance criteria
 
@@ -225,7 +227,7 @@ As a project owner, I want Technical Writer to author every requested specificat
 
 #### Scope and sources
 
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: project owner. Child: [S09](#s09--create-a-projects-first-governed-documents-from-facts). R9/A9. The audit correction assigns document structure, prose and checked delivery to Technical Writer. [Audit finding F9](./audit.md#f9--high--the-proposed-integration-gave-document-authorship-to-the-wrong-component)
+Delivery approach: [implementation plan](./implementation-plan.md). Owner role: project owner. Child: [S09](#s09--create-a-projects-first-governed-documents-from-facts). R9/A9. The original audit returned writing ownership to Technical Writer. For an OpenSpec change, the native schema now owns structure and SpecDev edits the content in place. [Audit finding F9](./audit.md#f9--high--the-proposed-integration-gave-document-authorship-to-the-wrong-component)
 
 #### S09 · Create a project’s first governed documents from facts
 
@@ -555,293 +557,171 @@ As a developer, I want the writer to use the project’s evidence and identify w
 
 Parent: [F22](#f22--resolve-material-gaps-without-needless-questions). Owner role: discovery maintainer. [W32](./tasks.md#w32--detect-an-omitted-material-permission) establishes coverage on one route, [W33](./tasks.md#w33--ask-only-the-question-that-changes-the-requirement) connects the question and response, and [W34](./tasks.md#w34--apply-discovery-checks-at-the-right-document-scope) applies the contract across the catalog. Reuse [F6](#f6--ground-discovery-and-research-in-actual-evidence)’s discovery guidance, [W17](./tasks.md#w17--ship-neutral-cross-host-assignments-for-the-connected-handoff)’s host handoff and the private JSON execution records.
 
-### F23 · Start documents from native shortcuts
+<a id="f23--start-documents-from-native-shortcuts"></a>
 
-As a developer, I want to give the document name and brief in one message, so that I can obtain the same checked document as through the normal route.
+### F23 · Select a document from the supported host
 
-#### Acceptance criteria
+A developer can keep the original brief and receive the same checked document through the qualified writer or an enabled shortcut.
 
-- **F23.1** Use the [S23.1 acceptance scenario](#s23-1) for the epic’s integrated check. For a multi-task feature, use W40’s linked Issues and refund list to recover the first usable story and safe task order. <a id="f23-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: writing-workflow maintainer. Child: [S23](#s23--write-the-intended-artifact-from-a-short-request). R19/A19. [Audit finding F23](./audit.md#f23--medium--start-documents-from-native-shortcuts)
+**F23.1** Accept the integrated outcome against [S23.1](#s23-1) using its candidate-bound evidence. <a id="f23-1"></a>
 
 #### S23 · Write the intended artifact from a short request
 
-As a developer, I want to give the document name and brief in one message, so that I can obtain the same checked document as through the normal route.
+**S23.1** On the actual host, observe the original brief reach the right writer, inspect the checked output and verify its consumer. Exercise an occupied shortcut and repeated setup. The existing handler survives and the qualified entry remains usable. Use W40’s native refund list to recover the first usable outcome and true dependencies. <a id="s23-1"></a>
 
-##### Acceptance criteria
-
-- **S23.1** Observe real host dispatch with the supplied brief and the intended checked document; verify an occupied name keeps its existing handler and the qualified entry remains usable. Retain the identified candidate, actual request, output and consumer observation. For the refund breakdown, reuse W40.3 to show the first independent story and its task dependencies. <a id="s23-1"></a>
-
-##### Scope and sources
-
-Parent: [F23](#f23--start-documents-from-native-shortcuts). Owner role: writing-workflow maintainer. [W35](./tasks.md#w35--launch-three-document-types-in-claude-code)–[W37](./tasks.md#w37--expose-the-authorable-document-catalog) and [W40](./tasks.md#w40--write-the-feature-task-list-and-its-linked-issues)–[W41](./tasks.md#w41--route-quality-and-consistency-reviews). Use the scope boundaries in A19 and the shared Definition of Done.
+R19/A19. The writing-workflow maintainer owns this outcome. [W35](./tasks.md#w35--launch-three-document-types-in-claude-code) · [W36](./tasks.md#w36--launch-the-same-documents-in-codex) · [W37](./tasks.md#w37--expose-the-authorable-document-catalog) · [W40](./tasks.md#w40--write-the-feature-task-list-and-its-linked-issues) · [W41](./tasks.md#w41--route-quality-and-consistency-reviews)
 
 ### F24 · Guide the next document from project evidence
 
-As a project owner, I want a short recommendation grounded in the initiative, so that I can decide what to write next or stop.
+A project owner can ask what to write next, continue one authorized document or stop after a document-only delivery.
 
-#### Acceptance criteria
-
-- **F24.1** Use the [S24.1 acceptance scenario](#s24-1) for the epic’s integrated check. <a id="f24-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: writing-workflow maintainer. Child: [S24](#s24--choose-and-continue-one-eligible-document). R20/A20. [Audit finding F24](./audit.md#f24--medium--guide-the-next-document-from-project-evidence)
+**F24.1** Accept the integrated outcome against [S24.1](#s24-1) using its candidate-bound evidence. <a id="f24-1"></a>
 
 #### S24 · Choose and continue one eligible document
 
-As a project owner, I want a short recommendation grounded in the initiative, so that I can decide what to write next or stop.
+**S24.1** Use a feature, a blocked decision and a completed independent fix. Identify the next useful artifact, the missing prerequisite or completion. Continue only the requested writing and reuse its reviewed result on resumption. Retain the request, reviewed output and consumer observation. <a id="s24-1"></a>
 
-##### Acceptance criteria
-
-- **S24.1** For one feature, a blocked decision and a standalone fix, distinguish the eligible document, missing prerequisite and completed scope. Continuing creates one attributable successor and resumption reuses existing work. Retain the identified candidate, actual request, output and consumer observation. <a id="s24-1"></a>
-
-##### Scope and sources
-
-Parent: [F24](#f24--guide-the-next-document-from-project-evidence). Owner role: writing-workflow maintainer. [W38](./tasks.md#w38--show-the-next-useful-document) and [W39](./tasks.md#w39--continue-a-checked-document-handoff). Use the scope boundaries in A20 and the shared Definition of Done.
+R20/A20. The writing-workflow maintainer owns this outcome. [W38](./tasks.md#w38--show-the-next-useful-document) · [W39](./tasks.md#w39--continue-a-checked-document-handoff)
 
 ### F25 · Find the governing specification after delivery
 
 As a maintainer returning to a delivered feature, I want to find which agreement governs the next change, so that an old delivery snapshot cannot silently reinstate retired behavior.
 
-#### Acceptance criteria
-
-- **F25.1** Use the [S25.1 acceptance scenario](#s25-1) for the epic’s integrated check. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior. <a id="f25-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: documentation maintainer. Child: [S25](#s25--guide-selection-of-a-specification-after-delivery). R21/A21. [Technical Writer baseline](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md#L13-L16) · [comparison source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/persisting-specs.md#two-separate-questions)
+**F25.1** Accept the integrated outcome against [S25.1](#s25-1) using its candidate-bound evidence. <a id="f25-1"></a>
 
 #### S25 · Guide selection of a specification after delivery
 
-As a maintainer returning to a delivered feature, I want to find which agreement governs the next change, so that an old delivery snapshot cannot silently reinstate retired behavior.
+**S25.1** At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Use the same outputs for story and epic closure. <a id="s25-1"></a>
 
-##### Acceptance criteria
-
-- **S25.1** At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Use the same outputs for story and epic closure. <a id="s25-1"></a>
-
-##### Scope and sources
-
-Parent: [F25](#f25--find-the-governing-specification-after-delivery). Responsible role: skill maintainer. [W43](./tasks.md#w43--guide-selection-of-a-specification-after-delivery) supports [S25.1](#s25-1). Limit the change to the named writing route and the affected review.
+R21/A21. The skill maintainer owns this outcome. [W43](./tasks.md#w43--guide-selection-of-a-specification-after-delivery)
 
 ### F26 · Carry exact field constraints into the implementing Issue
 
-As an implementer reading an Issue, I want to trace a field constraint to its precise definition, so that two similar names cannot lead me to implement the wrong rule.
+An implementer can recover the exact field constraint from the owning task, including an independently assigned Issue.
 
-#### Acceptance criteria
-
-- **F26.1** Use the [S26.1 acceptance scenario](#s26-1) for the epic’s integrated check. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available. <a id="f26-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: documentation maintainer. Child: [S26](#s26--resolve-constrained-fields-in-issue-handoffs). R22/A22. [Technical Writer baseline](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md#L13-L18) · [comparison source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/tasks.md#task-organization)
+**F26.1** Accept the integrated outcome against [S26.1](#s26-1) using its candidate-bound evidence. <a id="f26-1"></a>
 
 #### S26 · Resolve constrained fields in Issue handoffs
 
-As an implementer reading an Issue, I want to trace a field constraint to its precise definition, so that two similar names cannot lead me to implement the wrong rule.
+**S26.1** Given optional Order.code and required Return.code, write the task for Return.code. Its source points unambiguously to the required field. When reviewing a variant that cites Order.code, locate the wrong field, the affected task and the missing constraint. Reuse the task and review for both verdicts. An unrelated prose edit needs no field reference. <a id="s26-1"></a>
 
-##### Acceptance criteria
-
-- **S26.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Use the same outputs for story and epic closure. <a id="s26-1"></a>
-
-##### Scope and sources
-
-Parent: [F26](#f26--carry-exact-field-constraints-into-the-implementing-issue). Responsible role: skill maintainer. [W44](./tasks.md#w44--resolve-constrained-fields-in-issue-handoffs) supports [S26.1](#s26-1). Limit the change to the named writing route and the affected review.
+R22/A22. The skill maintainer owns this outcome. [W44](./tasks.md#w44--resolve-constrained-fields-in-issue-handoffs)
 
 ### F27 · Resolve the contract shared by separate repositories
 
 As a developer integrating a consumer with a provider, I want to identify the governing contract and supported version, so that a local edit cannot silently change the release agreement.
 
-#### Acceptance criteria
-
-- **F27.1** Use the [S27.1 acceptance scenario](#s27-1) for the epic’s integrated check. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change. <a id="f27-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: documentation maintainer. Child: [S27](#s27--document-the-owner-and-consumer-version-of-a-shared-contract). R23/A23. [Technical Writer baseline](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md#L3-L17) · [comparison source](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/how-to/contract-driven-development.md#one-authoritative-owner)
+**F27.1** Accept the integrated outcome against [S27.1](#s27-1) using its candidate-bound evidence. <a id="f27-1"></a>
 
 #### S27 · Document the owner and consumer version of a shared contract
 
-As a developer integrating a consumer with a provider, I want to identify the governing contract and supported version, so that a local edit cannot silently change the release agreement.
+**S27.1** Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract (IC) update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Use the same outputs for story and epic closure. <a id="s27-1"></a>
 
-##### Acceptance criteria
+R23/A23. The skill maintainer owns this outcome. [W45](./tasks.md#w45--document-the-owner-and-consumer-version-of-a-shared-contract)
 
-- **S27.1** Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Use the same outputs for story and epic closure. <a id="s27-1"></a>
+<a id="f28--keep-existing-users-working-through-the-spec-writer-rename"></a>
 
-##### Scope and sources
+### F28 · Keep existing users working through the SpecDev rename
 
-Parent: [F27](#f27--resolve-the-contract-shared-by-separate-repositories). Responsible role: skill maintainer. [W45](./tasks.md#w45--document-the-owner-and-consumer-version-of-a-shared-contract) supports [S27.1](#s27-1). Limit the change to the named writing route and the affected review.
+A new user can invoke SpecDev, and an existing Technical Writer installation can reach the same checked writing implementation.
 
-### F28 · Keep existing users working through the Spec Writer rename
+**F28.1** Accept the integrated outcome against [S28.1](#s28-1) using its candidate-bound evidence. <a id="f28-1"></a>
 
-As a developer, I want to invoke Spec Writer from a new or existing installation, so that my writing workflow survives the rename.
+<a id="s28--release-the-spec-writer-identity-and-legacy-entry"></a>
 
-#### Acceptance criteria
+#### S28 · Release SpecDev with a compatible Technical Writer entry
 
-- **F28.1** Use the [S28.1 acceptance scenario](#s28-1) for the epic’s integrated check. Use the integrated readback at S28.1. <a id="f28-1"></a>
+**S28.1** On each supported host, prove the canonical entry and existing legacy invocation resolve to the same writer. Protect an unrelated occupied name. The accepted Builder validates a real document against the canonical release after B5/T50. Retain the candidate, host observation and any failure. <a id="s28-1"></a>
 
-#### Scope and sources
+R24/A24. The skill maintainer owns this outcome. [W46](./tasks.md#w46--release-the-spec-writer-identity-and-legacy-entry)
 
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: skill maintainer. Child: [S28](#s28--release-the-spec-writer-identity-and-legacy-entry). R24/A24. [Evidence](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/install_skill.py)
+<a id="f29--start-a-checked-feature-in-an-initialized-workflow-project"></a>
 
-#### S28 · Release the Spec Writer identity and legacy entry
+### F29 · Open and edit a native change from SpecDev
 
-As a developer, I want to invoke Spec Writer from a new or existing installation, so that my writing workflow survives the rename.
+A developer can use the same writer to edit the intended native OpenSpec artifact in a registered project or to write a standalone document.
 
-##### Acceptance criteria
+**F29.1** Accept the integrated outcome against [S29.1](#s29-1) using its candidate-bound evidence. <a id="f29-1"></a>
 
-- **S28.1** Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. Preserve observed failures and identify the candidate for each verdict. <a id="s28-1"></a>
+<a id="s29--start-one-feature-through-an-optional-workflow-extension"></a>
 
-##### Scope and sources
+#### S29 · Connect the privately pinned OpenSpec to a selected change
 
-Parent: [F28](#f28--keep-existing-users-working-through-the-spec-writer-rename). Owner role: skill maintainer. [W46](./tasks.md#w46--release-the-spec-writer-identity-and-legacy-entry) support [S28.1](#s28-1). Use task evidence for the story when it proves the integrated outcome.
+**S29.1** From the supplied private npm manifest and lock, resolve the exact OpenSpec 2.1.1 executable, identify the intended root and change through native status and instructions, and write or review the native artifact in place. Retain per-host paths, artifact identity and observed content. From the same integration, use an installed operation beyond the core change flow, such as native template resolution for the selected schema, and compare its result with upstream. Repeat setup preserves user edits. A missing or ambiguous required target stops the change operation and leaves ordinary writing usable. <a id="s29-1"></a>
 
-### F29 · Start a checked feature in an initialized workflow project
+R25/A25. The skill maintainer owns this outcome. [W47](./tasks.md#w47--start-one-feature-through-an-optional-workflow-extension)
 
-As a developer adopting the toolkit, I want the writing command to use the intended project and feature, so that it records my change under the right rules.
+<a id="f30--give-the-implementing-agent-the-complete-task-contract"></a>
 
-#### Acceptance criteria
+### F30 · Select native work with its verification
 
-- **F29.1** Use the [S29.1 acceptance scenario](#s29-1) for the epic’s integrated check. Use the integrated readback at S29.1. <a id="f29-1"></a>
+An implementing agent can identify the permitted work, required source and check directly from the selected change’s native task list.
 
-#### Scope and sources
+**F30.1** Accept the integrated outcome against [S30.1](#s30-1) using its candidate-bound evidence. <a id="f30-1"></a>
 
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: skill maintainer. Child: [S29](#s29--start-one-feature-through-an-optional-workflow-extension). R25/A25. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/extensions/developing.md)
+<a id="s30--select-eligible-feature-work-and-recover-its-issue-criteria"></a>
 
-#### S29 · Start one feature through an optional workflow extension
+#### S30 · Read the eligible row and its source in the selected change
 
-As a developer adopting the toolkit, I want the writing command to use the intended project and feature, so that it records my change under the right rules.
+**S30.1** Give two changes the same local row number. The consumer selects the refund row in the intended change and resolves its governing rule, actor and denial check. Read W40’s native example to identify the first usable outcome, rows 1.1 and 1.2 that can start together and the prerequisite 2.1 for 2.2. An independently assigned Issue is resolved where linked. A stale link holds only its dependent row. Preserve the candidate, selected change, task and readback. <a id="s30-1"></a>
 
-##### Acceptance criteria
-
-- **S29.1** From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. Preserve observed failures and identify the candidate for each verdict. <a id="s29-1"></a>
-
-##### Scope and sources
-
-Parent: [F29](#f29--start-a-checked-feature-in-an-initialized-workflow-project). Owner role: skill maintainer. [W47](./tasks.md#w47--start-one-feature-through-an-optional-workflow-extension) support [S29.1](#s29-1). Use task evidence for the story when it proves the integrated outcome.
-
-### F30 · Give the implementing agent the complete task contract
-
-As an implementer, I want the active feature’s task entry to carry the original criterion, so that I can implement it without the authoring conversation.
-
-#### Acceptance criteria
-
-- **F30.1** Use the [S30.1 acceptance scenario](#s30-1) for the epic’s integrated check. Use the integrated readback at S30.1. Use W48.3 to show the actual consumer selects eligible work and observes the API dependency before offering the dashboard filter. <a id="f30-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: skill maintainer. Child: [S30](#s30--select-eligible-feature-work-and-recover-its-issue-criteria). R26/A26. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/commands/implement.md#L143-L153)
-
-#### S30 · Select eligible feature work and recover its Issue criteria
-
-As an implementer, I want the active feature’s task entry to carry the original criterion, so that I can implement it without the authoring conversation.
-
-##### Acceptance criteria
-
-- **S30.1** With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Preserve observed failures and identify the candidate for each verdict. For the two-story refund list, recover both parallel status tasks, the first usable story, and the condition that releases the dependent filter. Reuse W48.3. <a id="s30-1"></a>
-
-##### Scope and sources
-
-Parent: [F30](#f30--give-the-implementing-agent-the-complete-task-contract). Owner role: skill maintainer. [W48](./tasks.md#w48--select-eligible-tasks-from-the-feature-list) support [S30.1](#s30-1). Use task evidence for the story when it proves the integrated outcome.
+R26/A26. The skill maintainer owns this outcome. [W48](./tasks.md#w48--select-eligible-tasks-from-the-feature-list)
 
 ### F31 · Verify and resume one authorized implementation
 
-As a developer, I want to hand one approved Issue to a coding agent and resume its verification, so that the verdict refers to the original task and the candidate actually run.
+A developer can hand an approved native task to the selected coding provider and resume its verification against the same criterion.
 
-#### Acceptance criteria
-
-- **F31.1** Use the [S31.1 acceptance scenario](#s31-1) for the epic’s integrated check. Use the integrated readback at S31.1. <a id="f31-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: skill maintainer. Child: [S31](#s31--verify-and-resume-one-authorized-implementation). R27/A27. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/workflows/overview.md#run-review-and-resume)
+**F31.1** Accept the integrated outcome against [S31.1](#s31-1) using its candidate-bound evidence. <a id="f31-1"></a>
 
 #### S31 · Verify and resume one authorized implementation
 
-As a developer, I want to hand one approved Issue to a coding agent and resume its verification, so that the verdict refers to the original task and the candidate actually run.
+**S31.1** Observe a refund task reach the provider only under implementation authority. Retain the original permission failure, correction, actual candidate, verification result and task identity. After interruption, reconcile the confirmed effects before resuming. Uncertain effects stay open. Confirm archive updates durable specifications only when archive is authorized and acceptance has been demonstrated. <a id="s31-1"></a>
 
-##### Acceptance criteria
+R27/A27. The skill maintainer owns this outcome. [W49](./tasks.md#w49--hand-one-approved-task-to-the-selected-implementation-provider) · [W50](./tasks.md#w50--resume-the-same-task-after-an-interrupted-run)
 
-- **S31.1** Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. Preserve observed failures and identify the candidate for each verdict. <a id="s31-1"></a>
+<a id="f32--route-an-idea-or-bug-to-the-right-upstream-workflow"></a>
 
-##### Scope and sources
+### F32 · Choose a suitable record for an idea or defect
 
-Parent: [F31](#f31--verify-and-resume-one-authorized-implementation). Owner role: skill maintainer. [W49](./tasks.md#w49--hand-one-approved-task-to-the-selected-implementation-provider), [W50](./tasks.md#w50--resume-the-same-task-after-an-interrupted-run) support [S31.1](#s31-1). Use task evidence for the story when it proves the integrated outcome.
+A contributor with an uncertain idea can obtain a supported decision or question. A reporter with a bounded defect can obtain one repair task and its expected check.
 
-### F32 · Route an idea or bug to the right upstream workflow
+**F32.1** Accept the integrated outcome against [S32.1](#s32-1) using its candidate-bound evidence. <a id="f32-1"></a>
 
-As a project contributor, I want to enter with an uncertain idea or an observed defect, so that I receive the decision or repair record my situation needs.
+<a id="s32--route-an-idea-or-bug-to-the-right-upstream-workflow"></a>
 
-#### Acceptance criteria
+#### S32 · Resolve an idea or describe a bounded repair
 
-- **F32.1** Use the [S32.1 acceptance scenario](#s32-1) for the epic’s integrated check. Use the integrated readback at S32.1. <a id="f32-1"></a>
+**S32.1** Given an idea missing a material decision, capture its supported recommendation or focused question. Given a bounded defect, identify the actual failure, repair scope and verification in one task or existing Issue. A writing-only request ends at the resulting record. Retain the observed inputs and outputs. <a id="s32-1"></a>
 
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: skill maintainer. Child: [S32](#s32--route-an-idea-or-bug-to-the-right-upstream-workflow). R28/A28. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/guides/assessment.md)
-
-#### S32 · Route an idea or bug to the right upstream workflow
-
-As a project contributor, I want to enter with an uncertain idea or an observed defect, so that I receive the decision or repair record my situation needs.
-
-##### Acceptance criteria
-
-- **S32.1** An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Preserve observed failures and identify the candidate for each verdict. <a id="s32-1"></a>
-
-##### Scope and sources
-
-Parent: [F32](#f32--route-an-idea-or-bug-to-the-right-upstream-workflow). Owner role: skill maintainer. [W51](./tasks.md#w51--end-idea-assessment-at-a-supported-decision), [W52](./tasks.md#w52--turn-a-reported-defect-into-one-bounded-repair) support [S32.1](#s32-1). Use task evidence for the story when it proves the integrated outcome.
+R28/A28. The skill maintainer owns this outcome. [W51](./tasks.md#w51--end-idea-assessment-at-a-supported-decision) · [W52](./tasks.md#w52--turn-a-reported-defect-into-one-bounded-repair)
 
 ### F33 · Maintain a versioned workflow integration
 
-As a maintainer, I want to install, inspect, upgrade and remove the integration, so that I can adopt it without losing project documents.
+A maintainer can update or remove the private integration while preserving project-authored files and unrelated host configuration.
 
-#### Acceptance criteria
-
-- **F33.1** Use the [S33.1 acceptance scenario](#s33-1) for the epic’s integrated check. Use the integrated readback at S33.1. <a id="f33-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: skill maintainer. Child: [S33](#s33--distribute-and-safely-update-the-versioned-integration). R29/A29. [Evidence](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/docs/bundles/overview.md)
+**F33.1** Accept the integrated outcome against [S33.1](#s33-1) using its candidate-bound evidence. <a id="f33-1"></a>
 
 #### S33 · Distribute and safely update the versioned integration
 
-As a maintainer, I want to install, inspect, upgrade and remove the integration, so that I can adopt it without losing project documents.
+**S33.1** Starting from the W47 pin and an identified local release, inspect the selected package, exercise a controlled update and recovery, then remove owned installation files. Keep the previous exact pin and lock binding available for recovery. Compare user-edited artifacts and unrelated handlers before and after. Record the actual candidate, package versions, results and any failure. <a id="s33-1"></a>
 
-##### Acceptance criteria
+R29/A29. The skill maintainer owns this outcome. [W53](./tasks.md#w53--distribute-and-safely-update-the-versioned-integration)
 
-- **S33.1** Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. Preserve observed failures and identify the candidate for each verdict. <a id="s33-1"></a>
+<a id="f37--use-the-full-writing-catalog-in-the-optional-workflow"></a>
 
-##### Scope and sources
+### F37 · Use supplementary documents when a change needs them
 
-Parent: [F33](#f33--maintain-a-versioned-workflow-integration). Owner role: skill maintainer. [W53](./tasks.md#w53--distribute-and-safely-update-the-versioned-integration) support [S33.1](#s33-1). Use task evidence for the story when it proves the integrated outcome.
+A developer can request an authorable format directly, or use a change’s existing reviewed source when its tasks depend on that source.
 
-### F37 · Use the full writing catalog in the optional workflow
+**F37.1** Accept the integrated outcome against [S37.1](#s37-1) using its candidate-bound evidence. <a id="f37-1"></a>
 
-As a project maintainer, I want the workflow to use the same document types as the standalone writer, so that a team can adopt it without giving up the documents it relies on.
+<a id="s37--write-the-requested-document-and-pass-it-to-the-right-consumer"></a>
 
-#### Acceptance criteria
+#### S37 · Write a requested document and pass a needed source to its consumer
 
-- **F37.1** Given the candidate catalog and an authorized feature with a reviewed design, a user can request a catalog document through the optional entry and a later task can recover the relevant design constraint. A document-only request ends at delivery. Retain the catalog comparison and the observations from S37.1 on the same release. <a id="f37-1"></a>
+**S37.1** Request a tutorial from the qualified writer and observe checked delivery without provider dispatch. For a change, review its existing native design in place, respect a selected schema that already defines a specialist artifact, then show the selected task recovers the applicable decision and source. A stale design holds the dependent row. Only an explicitly requested or independently necessary supplementary artifact is produced. Reuse the W58/W59 outputs. <a id="s37-1"></a>
 
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: skill maintainer. Child: [S37](#s37--write-the-requested-document-and-pass-it-to-the-right-consumer). R33/A33. Apply the existing writing rules, source requirements, host authority and shared Definition of Done. The borrowed workflow definition continues to own its execution steps.
-
-#### S37 · Write the requested document and pass it to the right consumer
-
-As a developer, I want to request a specific document and have later work use its reviewed version, so that I can move from writing into development when my project needs it.
-
-##### Acceptance criteria
-
-- **S37.1** From the supported workflow entry, request a tutorial and observe its checked delivery without provider dispatch. For an authorized feature, pass a reviewed low-level design to a child task and observe its exact source and boundary in the task. A stale reference blocks dependent dispatch. Retain the W58 and W59 outputs and verdicts on the candidate. Reuse the same observations for F37.1. <a id="s37-1"></a>
-
-##### Scope and sources
-
-Parent: [F37](#f37--use-the-full-writing-catalog-in-the-optional-workflow). Owner role: skill maintainer. [W58](./tasks.md#w58--request-any-supported-writing-format-through-the-workflow) covers document selection and the stopping point. [W59](./tasks.md#w59--carry-a-reviewed-document-into-a-dependent-task) covers the consuming task and stale-input boundary. R33/A33 owns both. Use [W47](./tasks.md#w47--start-one-feature-through-an-optional-workflow-extension)’s settled project selection and the existing conditional hierarchy.
+R33/A33. The skill maintainer owns this outcome. [W58](./tasks.md#w58--request-any-supported-writing-format-through-the-workflow) · [W59](./tasks.md#w59--carry-a-reviewed-document-into-a-dependent-task) · [W47](./tasks.md#w47--start-one-feature-through-an-optional-workflow-extension)
 
 ### F38 · Write feature guidance and session replies around the reader’s decision
 
@@ -873,7 +753,7 @@ As a developer, I want to find the instructions for a feature or document type f
 
 #### Acceptance criteria
 
-- **F39.1** Given the candidate’s public capabilities and supported document catalog, follow their index entries from the repository README. Each resolves to usable instructions on a page or at a named section. Aliases and variants may share a destination that covers them. An omitted entry, irrelevant destination or unshipped feature presented as ready fails. Save the candidate revision, coverage comparison and representative destinations. <a id="f39-1"></a>
+- **F39.1** Given the candidate’s public capabilities and supported document catalog, follow their index entries from the repository’s `README.md`. Each resolves to usable instructions on a page or at a named section. Aliases and variants may share a destination that covers them. An omitted entry, irrelevant destination or unshipped feature presented as ready fails. Save the candidate revision, coverage comparison and representative destinations. <a id="f39-1"></a>
 
 #### Scope and sources
 
@@ -903,63 +783,50 @@ Parent: [F39](#f39--make-every-released-feature-and-supported-document-type-find
 | R6 | Tailor the session response to progress, a decision, a blocker, or delivery. Every material claim in a checked delivery must be attributable to the exact reviewed content or an observed check. |
 | R7 | Expose one portable writing contract. Route optional references by reader need and preserve existing supported invocation names and aliases. Demonstrate the changed behavior on both declared hosts before claiming it works on both. |
 | R8 | Distinguish implementation, verification and acceptance. Preserve previous evidence, failures and approvals when a source or candidate changes. Mark each affected criterion Met, Failed or Not demonstrated against its actual candidate. |
-| R9 | Technical Writer authors each requested specification-driven file from its own reference and output contract on any project. Projects supply facts, governing sources, permissions, IDs and decisions. The writer can start from a blank document. Existing documents may supply evidence or be edited when requested. Preserve authority and historical approvals. A consumer-format conflict must be identified explicitly. |
-| R10 | Author all seven named artifacts through the normal skill entry on explicit request. Support a complete standalone deliverable when requested and a linked section when sufficient. Each route includes accepted inputs, writing guidance, consumer, representative example and a compatible checked-output path. Use an existing type only when its full contract fits; a named variant may carry distinct structure. Technical Writer owns those forms. |
-| R11 | Resolve a child story to its governing feature or epic, and a child task to its story and criterion before drafting it as ready for implementation. An independent issue, including a bounded improvement, may carry its source, scope, observable outcome and proof inline. Never reclassify an orphaned child as standalone to bypass the missing parent. |
+| R9 | SpecDev can author a requested document from verified project facts, sources, authority and decisions. For an OpenSpec change, review or edit the native artifact at its actual path and follow the project schema. Preserve approved versions and flag a consumer-format conflict. Ordinary writing uses the existing format contracts. |
+| R10 | Author all seven named artifacts through the normal skill entry on explicit request. Support a complete standalone deliverable when requested and a linked section when sufficient. Each route includes accepted inputs, writing guidance, consumer, representative example and a compatible checked-output path. Use an existing type only when its full contract fits; a named variant may carry distinct structure. SpecDev owns those additional writing forms. |
+| R11 | Resolve each declared child story or task to the outcome and criterion from which it derives authority. A native task may reference its governing capability requirement and scenario directly. Add a separate story only where independently needed or required by the project. An independent issue, including a bounded improvement, may carry its source, scope, observable outcome and proof inline. Never reclassify an orphaned child as standalone to bypass the missing parent. |
 | R12 | Use reader-appropriate plain language across Markdown and session messages. Name the actor, action and observable consequence where they affect the reader’s decision. Preserve sourced meaning, uncertainty, obligation strength, exact identifiers, numbers and authority. Keep clear prose as written. Match the vocabulary to the owner, implementer or reviewer using the artifact. |
 | R13 | Give writers a complete child Issue that can be reached from its story and the Issue guide. Preserve the distinct parent Feature example. |
 | R14 | Put portable session instructions for necessary manual actions and misunderstood explanations in one named section of Writing Style (WS). Link the existing procedure guidance and preserve the checked-delivery boundary. |
 | R15 | Require the file-based wording check where its predicates or an existing artifact obligation apply. Every message still receives source-grounded editorial review. |
-| R16 | Introduce spec-driven technical writing in the public README before setup. Connect one user request to the agreed behavior, bounded work and planned proof. Help readers choose their entry by need. Publish the numbered production order in the Technical Writer `README.md` file. Explain prerequisites, conditional artifacts, supported entry points, the child-parent rule and the independent-issue exception. Link the owning references. |
-| R17 | Choose the smallest sufficient work record using the project’s real governance, the user-visible outcome, the ownership of scope and the need to coordinate delivery. Make a child link mandatory when its authority comes from a parent. Allow an independent improvement or story to proceed from its own authority. State the reason for grouping or planning in the existing record when material. For designs, contracts, plans and tests, link the governing source that the reader needs. A design reference alone establishes no work-item parent. |
+| R16 | In the public `README.md`, show how a request becomes observable behavior, a bounded change and a check. Distinguish an ordinary document, an independent fix and an OpenSpec change. Show readers where to find the governing scenario, the design decision where needed, the task and its proof. Link the owning instructions for conditional documents. |
+| R17 | Use the smallest record that preserves scope, authority and proof under the project’s governance. Resolve declared parent criteria. An independently authorized fix may use one Issue. Use the same OpenSpec design structure for standalone and change designs. Add architecture, component, interface, migration or recovery detail only where a decision needs it. Link existing decisions and contracts at their owner. |
 | R18 | Use the document type and requested scope to identify material information needed at the checked writing entry. Resolve each applicable topic from evidence or actual authority, or keep it visibly open. Before asking, identify the affected requirement or section, source inspected and the consequence of an answer. Preserve the lightweight route for narrow edits. |
-| R19 | Provide opt-in native document shortcuts and route writing and review actions through existing Technical Writer references and contracts. One catalog owns the mapping. Preserve the original brief, explicit operation, other installed commands and qualified fallback. For a multi-task feature, write one story-grouped `tasks.md` and link its rows to the Issues that own acceptance. The spec owns story outcomes and acceptance or resolves their existing owner. The implementation plan references the stories and owns the delivery approach. Each task has one owning record for its scope, criterion and proof. |
-| R20 | Offer guided entry, read-only next-document advice and one-document continuation using actual prerequisites and revisions. In one line name the next document, the specific gap and its benefit, or the real blocker or completed endpoint. |
+| R19 | Use the single `/specdev` entry or its host-native equivalent, including for `init`. For OpenSpec work, select its native operation or schema first. Use the writer’s format catalog for supplementary or standalone requests. Offer `/prd`, `/lld` and `/task` as explicit opt-ins with their supported host equivalents. The qualified selector or a full document name reaches every authorable type. Preserve the original brief, requested operation, existing host handlers and qualified fallback. Reference guides inform authoring. OpenSpec owns the selected change’s task syntax and progress. |
+| R20 | Use OpenSpec’s discovery or next-artifact guidance where available. For standalone writing, offer guided entry, read-only next-document advice and one-document continuation using actual prerequisites and revisions. In one line name the next document, the specific gap and its benefit, or the real blocker or completed endpoint. |
 | R21 | For a change to a delivered feature, identify the active source under the project’s maintenance policy and distinguish historic delivery evidence. Resolve a material authority conflict before settling the affected requirement. |
-| R22 | For a task that implements a constrained field, bind the exact field to its authoritative definition. Check the resulting Issue for missing or misattributed constraints in scope. |
+| R22 | For work on a constrained field, link the exact field definition from the native task or its independently owned Issue. Check the receiving task for missing or misattributed constraints. |
 | R23 | For independently released providers and consumers, distinguish the authoritative contract revision, the consumer’s supported or pinned version, and the evidence for actual runtime compatibility. |
-| R24 | Ship Spec Writer with one writing implementation and a compatible legacy entry, after Skill Builder accepts both identities. |
-| R25 | Provide an optional namespaced integration that reaches the same checked authoring route on both hosts. |
-| R26 | Present the active feature’s `tasks.md` to the implementing agent at its supported entry. Bind each selected row to its Issue, applicable criterion and source revision within that feature. Honor story phases, parallel eligibility and real prerequisites before dispatch. |
-| R27 | Use the selected provider’s existing execution and resume contract, keep observed proof with the originating criterion, and report unexpected scope for decision. |
-| R28 | Connect the existing brief, decision, bug and Issue formats to independent intake routes. Keep a bounded repair small. |
-| R29 | Ship a versioned integration with documented compatibility, ownership and recovery. Assemble a bundle only when the chosen components can be resolved. |
-| R33 | Extend borrowed document operations to every supported writing route. Preserve each format, its own prerequisites, authority, checked delivery and handoff to its actual consumer. |
+| R24 | Ship SpecDev with one writing implementation and a compatible legacy entry, after Skill Builder accepts both identities. |
+| R25 | Connect SpecDev to OpenSpec using a private, exact npm dependency on `@fission-ai/openspec@2.1.1`. Route all supported upstream capabilities through the installed native operation or CLI. OpenSpec takes precedence on every overlap. Resolve the selected project and change where required and use the actual schema, status and instructions. Read, write and review the native artifacts in place on each supported host. Protect project files and other installations on setup and recovery. |
+| R26 | Use the selected change’s native `tasks.md`. Each numbered checkbox describes bounded work and how to verify it. Resolve its governing scenario and any material design, dependency or existing Issue. A separate Issue is warranted for independently owned, externally assigned or project-required work. Maintain each criterion at one owner. |
+| R27 | A writing request ends at checked document delivery. For an authorized build, use OpenSpec’s apply instructions and the selected provider. Keep the task, original criterion, candidate and observed result attributable through recovery. Use native archive only within authorized scope after applicable acceptance and verification. |
+| R28 | For an OpenSpec discovery or exploration request, use the installed upstream operation. Otherwise use the smallest intake appropriate to the request. A material idea can use a brief or decision record. An observed bounded defect can use one repair task with its check. Resolve substantive uncertainty before undertaking dependent work. |
+| R29 | Distribute a versioned SpecDev integration with a private exact OpenSpec npm dependency. Upgrades identify the proposed pin, verify native inputs and project preservation and support recovery to the prior working pin. Remove only owned files. |
+| R33 | All authorable document types remain available from SpecDev on explicit request. When an upstream operation or the selected schema owns the requested output, including a specialist type, use its native operation and author or review that artifact in place. Only bring an extra document into a change when requested or when its consumer needs it. Distinguish authorable formats from instructions for writing and review. |
 | R34 | Give procedures, references and session replies wording suited to the reader’s decision and the evidence available. |
 | R35 | The public index must lead readers directly to usable guidance for every released feature and supported document type. A guide or a named section can satisfy the requirement. Create a separate guide when readers need a distinct procedure or reference. |
 
 ## Production order
 
-1. **Discover the need.** Record an interview when stakeholder answers matter. Use existing authoritative answers when available. A brief consumes those facts to frame the opportunity. A complete request may enter at the product definition.
-2. **Define the product and features.** The Product Requirements Document (PRD) identifies users, intended outcomes, in-scope features, exclusions and decision authority. For several independently deliverable capabilities, produce a capability map before deriving their individual specifications. A single capability can proceed directly.
-3. **Specify each capability and its stories.** The Spec Driven Development document (SDD) identifies the feature or epic and states its behavioral rules, boundaries, user-visible outcomes and observable acceptance scenarios. If the project already owns a story elsewhere, reference that version and criterion. Resolve the governing outcome before writing a child story. Research material unknowns before any design or criterion that depends on the answer. An unresolved material question blocks only its dependents. Record an actual choice in the decision record.
-4. **Design and review.** Use architecture, internal design and interface contracts as needed. Produce the requirements-quality checklist against the identified specification before implementation readiness. For a critical user flow, link its steps to the feature map, its purpose to the product requirement, and its proof to a test or explicit gap. Existing surfaces can be mapped earlier. Proposed designs stay identified as proposed.
-5. **Plan delivery from the reviewed stories.** Link to the applicable story and criterion. Explain the approach, interfaces, stages, dependencies and recovery. When coordinated delivery needs one, the Implementation Plan (IP) consumes the applicable specification, settled constraints and decisions. When a feature or epic governs the work, identify it and its integrated acceptance. Otherwise use the directly authorized scope and outcome. A feature may be the direct parent of stories; introduce an epic only where grouping adds value.
-6. **Break the reviewed stories into shippable tasks.** For a child User Story (US), use the parent outcome established in the specification. Preserve its revision when authority or proof depends on it. A directly authorized independent story can carry its source, value, scope and proof inline. Resolve that story and its acceptance criterion before writing a child Issue. Include dependencies, permitted effects and required proof. If a parent is missing, stale, ambiguous or contradicts the current scope, locate it, author it first when authorized and sufficiently sourced, or report the unresolved dependency. An independent improvement, bug or chore can use one Issue as specified in R11.
-7. **Assemble and use the feature task list.** For a multi-task feature, Tasks reads the reviewed spec and plan, resolves or writes the Issues from step 6, and writes one `tasks.md` that links them in execution order. Stop at document delivery for a writing request. For an authorized build, Implement reads the plan, list and selected Issue, then returns to the list as work completes. See the [command and document sequence](#when-to-write-and-read-tasksmd).
-8. **Verify and close.** Define proof before implementation. Record observed results only after execution. A changed parent reopens affected children; retain applicable evidence for unaffected work. Close each parent on its usable outcome.
+Choose the route from the request and project.
+
+1. For an ordinary writing request, use the named format, its sources and the requested scope. An already-owned Issue can carry a bounded fix and verification. A discovery interview, brief, product definition, capability map or research record is useful when the next decision needs those facts. The seven authoring cases in A10 are independently available.
+2. For an OpenSpec change, use the upstream discovery or exploration operation when it serves the request. Establish the registered project root, selected change and active schema. Read the project’s durable capabilities and current change before proposing a new capability. The native proposal identifies purpose, scope and affected capabilities.
+3. Write or review requirements and observable scenarios in the selected capability’s native change spec. Reference a project-owned story or criterion where it already defines the behavior. When the schema expects a design, place the approach and decisions in the change’s `design.md`. Follow the schema’s dependency graph to determine which artifact can proceed.
+4. Break the approved behavior into deliverable changes in one native `tasks.md`. Each numbered checkbox includes its verification. Identify the scenario, genuine prerequisites and any external work record needed by the implementer. A writing-only request ends at delivery of the requested artifact.
+5. With implementation authority, use the native apply instructions for that change and verify the result on the actual candidate before marking the row complete. Check integrated behavior against its scenario. Archive only when authorized and the applicable checks pass. Reuse the archived change and durable specifications when later work needs their distinct histories.
 
 ### Link work to its parent and designs to their sources
 
-Use the project’s existing tracking and document conventions. A parent identifies the larger outcome a child was commissioned to deliver. A source link identifies the rule, constraint or decision the reader needs to use. The public index helps people find writing instructions. An index entry grants no authority to undertake project work.
+The change specification owns requirements and observable scenarios. A native task references the scenario it delivers. For an independently assigned Issue, identify its owner, scope and proof there and reference the Issue from the task. Project governance may require particular parents or records. A directly authorized standalone fix can keep its scope, outcome and check inline. A missing or stale declared parent stops the dependent task. Use existing record IDs or exact sections and bind revisions when authority, compatibility or proof depends on them.
 
-| Document being written | What the reader should be able to follow |
-| --- | --- |
-| Product Requirements Document (PRD) or feature specification | Link the brief, product objective or approved requirement that defines this scope, if one exists. A directly authorized request with sufficient scope and evidence can start here. |
-| High Level Document (HLD) | Link the requirements, quality goals and constraints that explain the architecture. A shared architecture can serve several features without belonging to an epic. |
-| Low Level Design (LLD) | Link the component section of an applicable HLD and any requirement, decision or interface contract the implementer relies on. If a bounded design is already authorized and a contract settles its component boundary, the contract can supply that context directly. |
-| Interface Contract (IC) or Decision Record (DR) | For a contract, identify the provider, consumers and observable obligations at their boundary. For a decision, identify its drivers and the accepted choice or pending status. In either case, link the specific governing source where one exists. Other documents point back to the contract or decision that owns the detail. |
-| User Story (US) or Issue | A child story points to the feature or epic that assigned its outcome. A child task points to the story and the acceptance criterion it delivers. An independently authorized Issue or story can carry its scope, outcome and proof inline. |
-| Implementation Plan (IP) | Link the specification or approved record that defines what to deliver. Link design constraints, dependencies or rollout decisions where a delivery step relies on them. A bounded change may keep its steps in the Issue. |
-| Test or verification record | Link to the behavior or acceptance criterion the check can prove. Record the observed result against the candidate when the check runs. A planned test describes expected behavior. |
-
-Use a native parent field, a stable requirement ID or a link to the exact section. Keep each rule with its owner and use native backlinks where available. One resolvable link suffices unless the project requires another. Add an explicit revision when approval, compatibility or verification depends on the version, or when project governance requires it. A missing declared parent, contradictory governing rule or unresolved contract holds only the dependent work. An absent optional document creates no blocker.
+Use one design standard in either route. Start with OpenSpec’s design structure for context, goals and exclusions, decisions with their rationale, and risks or trade-offs. Record migration, recovery or open questions where relevant. Add architectural or component-level details, data contracts and failure cases only where they change an implementer’s decision. Within an OpenSpec change, update the native `design.md`. Outside a change, use the standalone design’s requested location and the same structure. An existing shared architecture, interface contract or decision record can remain the owner of a decision. Link to the relevant section. A separately requested High Level Document (HLD) or Low Level Design (LLD) selects the needed depth and audience.
 
 #### Refund approval
 
-Suppose the approved refund specification says only a manager may approve a refund. The HLD identifies the service that owns authorization. The LLD points to that service’s section and the manager-only rule. A child Issue for denying an employee’s attempt links to its story’s denial criterion and the LLD section if the implementer needs it. The test targets that criterion and checks the employee’s request is denied. The test result stays open until somebody runs it on the candidate.
-
-For the same design request in a smaller project, suppose the authorized scope, manager-only rule and owner of the authorization check are already explicit in the approved interface contract. The writer can produce the LLD from that contract without creating an HLD or epic. If the team later assigns an Issue to a specific story and its denial criterion cannot be located, that child stays open until the reference is resolved.
+Suppose the refund capability permits only a manager to approve a refund. The design identifies the service that enforces the rule and cites the capability’s manager-only scenario. If a shared architecture already owns that service boundary, link it. A task to enforce employee denial cites the scenario and verifies the employee’s request leaves the refund unapproved. A standalone request for the same component design can start from an authorized interface contract naming the service and rule. The writer uses the same design structure at the requested depth.
 
 ### When the writer may ask the owner
 
@@ -974,100 +841,71 @@ Apply R18 at the supported writing entry on either host. Inspect the smallest au
 
 Python checks applicable coverage, valid source and answer references, and permissible readiness transitions. The supported host workflow asks and receives the actual question and reply. Semantic review determines whether the evidence supports the claim and whether a question was necessary. An unverifiable reply, preselected option or silence cannot confer authority.
 
-### How upstream templates map to the writer
+<a id="how-upstream-templates-map-to-the-writer"></a>
 
-Technical Writer owns the published forms, examples and checked-output contracts. A shortcut selects the same owning reference as an ordinary writing request. The following is the implementation decision for all five top-level document templates in the inspected upstream revision.
+### Which artifact owns each part of an OpenSpec change?
 
-| Upstream source | Useful structure to adopt | Technical Writer owner and boundary |
-| --- | --- | --- |
-| [spec](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/spec-template.md) | A valuable user scenario, an independent demonstration, meaningful edge cases, requirements, outcomes and stated assumptions | Use the behavioral specification for feature rules. Product purpose, users and success measures belong in the Product Requirements Document (PRD). Reuse the story reference for a separately shippable slice. Keep each feature story and its observable acceptance in the governing specification, or link its existing project-owned story record there. Keep permissions, failure behavior, IDs, source authority and unresolved decisions. Include targets and priorities only when supported. |
-| [tasks](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/tasks-template.md) | Group child work by story, identify real dependencies and give each slice a demonstrable outcome | One task uses the existing Issue template. For a multi-task feature, produce one `tasks.md` and linked Issue records. Preserve their story-criterion mappings. Each task has bounded scope, acceptance and smallest sufficient proof. Mark parallel work only when contracts and ownership allow it. A standalone Issue remains eligible. Setup, foundational and polish phases appear only when real work needs them. |
-| [plan](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/plan-template.md) | Record applicable technical constraints, governing principles and affected project structure | The Implementation Plan (IP) owns delivery strategy, milestone sequence, requirement coverage, rollout and recovery. Link each in-scope story and its criteria. Put the detailed order and checkbox progress in the feature’s task list. Put architecture, internals and shared interfaces in their existing design or contract records when needed. Link them. Use verified project paths. A template example cannot establish a new platform, file or mandatory phase. |
-| [checklist](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/checklist-template.md) | Derive review questions from the actual requirements and group them by relevant concern | Reuse the requirements-quality checklist in A10g. Record the specification revision, located evidence, verdict and correction. A checked item about requirement quality cannot establish that the feature passed a runtime test. |
-| [constitution](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/templates/constitution-template.md) | Read project principles and their governance before planning | Reuse the project’s adopted Policy (POL) or Technical Standard (STD). Write policy only on request. A suggested principle, such as test-first development, requires actual authority before it becomes binding. |
+OpenSpec takes precedence wherever it provides the capability. From SpecDev, use the installed upstream operation or CLI with its own contract. This includes discovery and exploration, writing and reviewing artifacts, built-in verification, update and sync, archive, supported workflows and profiles, and installed custom schemas. For a command request through the qualified entry, resolve the verb or workflow against the installed OpenSpec CLI help and installed skill/profile metadata. A missing local shortcut always triggers this lookup. A matching upstream operation wins even when the local catalog has the same name. A local-only command works when the upstream lookup finds no applicable match. If neither supplies the command, say so and leave state untouched. An unavailable runtime or disabled native workflow is a prerequisite to report, never a reason to reinterpret a requested native command as a writing task. Treat unrecognized input as data, never as a shell command. Preserve its native options, supported outputs and authority boundaries. The writer adds source-grounded wording or specialist detail when it helps. If a custom schema defines a specialist artifact, edit that native artifact in place. The integration must preserve access to the complete installed upstream surface without maintaining another command list, schema copy or workflow engine.
 
-For the Low Level Design (LLD), use the existing design template and its component, data, interface and failure contracts. The upstream feature specification and plan provide context. Preserve the current User Story (US) template for stories and epics, and the Issue template for tasks. Add a missing useful distinction to its owning guide or example only when the existing guidance does not already supply it. Link upstream sources as prior art. No vendored template tree, upstream installation or generated second set of specifications is required.
+The selected project’s OpenSpec schema determines each native artifact’s path, prerequisites and structure. For the default `spec-driven` schema, paths in the first four rows are relative to `openspec/changes/<change>/`. Use SpecDev’s writing and review guidance on the files the project already consumes. [Pinned OpenSpec package](https://www.npmjs.com/package/@fission-ai/openspec/v/2.1.1)
 
-### Feature task lists and Issue acceptance
+| Artifact | What the reader uses it for |
+| --- | --- |
+| `proposal.md` | Identify the reason for the change, its scope and affected capabilities. Reuse the names of existing capabilities when they govern the behavior. |
+| `specs/<capability>/spec.md` | Review changed requirements and their observable scenarios. Keep permission, failure behavior and exclusions with the requirement they qualify. Use the native delta structure. |
+| `design.md` | Record how to implement the change and why the design fits its constraints. Use the single [design standard](#link-work-to-its-parent-and-designs-to-their-sources) at the depth the change needs. Follow the active schema’s prerequisites. |
+| `tasks.md` | See bounded work, its dependency and verification, and which checkboxes remain open. An existing independently owned Issue can supply its own task detail by reference. |
+| `openspec/specs/<capability>/spec.md` | Read the durable capability after authorized archive. The archived proposal, change spec, design and task list preserve the change history. |
 
-For a feature with several independently shippable tasks, produce one `tasks.md` in the feature workspace. Each task maps to an Issue that owns its scope, acceptance criteria and required proof. A small change with several ordinary steps can keep those steps in a single Issue. Generate the same feature list for a normal writing request on either host. Using the optional implementation workflow requires separate authority.
+<a id="feature-task-lists-and-issue-acceptance"></a>
 
-| Record | Question it answers | What to maintain here |
-| --- | --- | --- |
-| Behavioral specification | What must the user be able to do? | Own the feature’s stories, their acceptance scenarios and independent demonstrations, or resolve the authoritative project story. |
-| Implementation Plan (IP) | Why take this delivery approach? | Record the governing specification, technical approach, milestone order, constraints, rollout and recovery as applicable. Explain material ordering decisions once. Use the project’s existing plan. The upstream implementation command reads the active feature’s `plan.md`. |
-| Feature `tasks.md` | What can the implementing agent start or resume? | Group rows by story in delivery order. Identify the first usable result, the observable demonstration for each story, genuine blockers and safe parallel work. Link each row to the stable Issue and its applicable criterion. Keep checkbox progress here. |
-| Issue | What change is authorized and what proves it? | Maintain the task’s scope, acceptance criteria, boundary cases and evidence in its owning record. If scope or criteria change, refresh the affected row before dispatch. A checked box alone establishes neither task nor story acceptance. |
+### Native tasks and separately owned Issues
 
-Reuse the project’s authoritative Issue. Where work lives in Markdown, keep the bounded task record at its row or link an existing Issue section. Maintain each task criterion in one place. The default plan links the stories and task list and contains the delivery detail it owns. For standalone authoring, a separate plan is useful when the approach, rollout or recovery needs its own explanation, or project governance requires one. For the optional upstream workflow, make the governing plan available at the feature’s required `plan.md` entry. Keep the detailed checklist in `tasks.md`.
-
-Use the shipped task-list template and generation instructions as the starting point. Keep their checklist syntax, feature-local IDs, story labels and verified paths. A row’s short ID resolves within its feature. Carry or resolve the authoritative Issue ID, criterion and source revision at handoff. Use `[P]` only for work in the eligible phase with settled interfaces, independent changes and no outstanding dependency between the tasks. Write an actual blocker beside the affected task. The priority of two stories can set their delivery order without implying a technical dependency. Include setup, test or cleanup tasks only when the feature needs a separate deliverable.
+Use one native task list for an OpenSpec change. Put the action and the smallest check that establishes completion in the same checkbox. Reference the scenario, design decision or contract needed to act. When a distinct team owns an Issue, another party is assigned the work, or the project requires a tracker record, link that Issue and its criterion. Reuse an existing Issue and keep independently maintained task acceptance there. Ordinary substeps share their task. A standalone fix can use a single existing Issue or bounded task.
 
 #### When to write and read `tasks.md`
 
-The operation names below describe intent on either host. Use the installed command or normal writing request that serves that intent. All file lookups stay within the selected feature. The optional upstream workflow uses the filenames shown.
+Read `openspec status --change <change> --json` and `openspec instructions <artifact-id> --change <change> --json` for the selected project. Follow the returned dependencies, paths and instructions. A writer can review an existing artifact at its path or edit just the requested content. If project resolution, change selection or a required provider fails, identify the failed boundary and stop the affected operation. A direct document request remains available without OpenSpec.
 
-| Operation | Read first | Produce or select | Next consumer or stopping point |
-| --- | --- | --- | --- |
-| Specify | The authorized request, governing requirements and project context | `spec.md` with feature behavior, stories and their observable acceptance scenarios | Plan reads the reviewed specification. |
-| Plan | `spec.md` and applicable constraints or contracts | `plan.md` with story references, delivery approach and material ordering decisions | Tasks reads the reviewed spec and plan together. |
-| Tasks (feature breakdown) | The active feature’s `spec.md`, `plan.md`, applicable design and existing Issues | Resolve or author one Issue per shippable task within the request’s authority. Publish one checked `tasks.md` with rows pointing to the correct Issues and criteria. | For a writing-only request, deliver the list and stop. When implementation is authorized, Implement consumes the list. |
-| Implement | The active feature’s `tasks.md`, `plan.md`, the eligible row’s Issue and criterion, and relevant spec or design | Make the authorized change. Attach the observed proof to the Issue and update that row’s progress. | Return to the same list to select the next eligible Issue. When the work is exhausted, assess the integrated story and feature outcomes against the governing specification. |
-
-**Single task.** A singular `task` request writes or edits one Issue, which may be a tracker record, a project-named file, or an addressable section in an existing Markdown document. For an independent fix this can be the entire handoff. There is no required singular `task.md` between Tasks and Implement. If an Issue is missing or its revision is stale, resolve the affected reference before dispatch. An existing Issue keeps its identity when the list is refreshed. Writing a breakdown grants no authority to post to a tracker or execute code.
-
-**Guided continuation.** A read-only next-step request after the reviewed plan can say “Next: feature task list (`tasks.md`), so the implementer can see which Issues can start.” If a requested one-document continuation still needs an Issue, name that specific prerequisite and continue with it only under the existing writing authority. An explicit request for the whole breakdown may author the Issues and list together. After the checked list, a writing-only session reports delivery. Only an authorized implementation request crosses into execution.
+Use native validation and the applicable upstream review or verify operation first. Reuse its evidence for the aspects it covers. SpecDev adds semantic judgment only where source meaning, authority or writing quality still needs assessment. Actual product behavior requires an observation at the relevant consumer. For authorized implementation, the provider consumes the native apply instructions and actual context files, selects an eligible row, runs its check and records observed evidence. A checkbox records progress. The task result needs evidence on the candidate, and a story needs its observable outcome. Mark a stale dependency and continue other eligible work where authorized.
 
 #### Refund status and filtering
 
-The following example assumes two approved stories, an API that already stores and exposes a refund’s decision, and separate dashboard and CLI code. The paths and Issue numbers are illustrative. Resolve paths and Issue references against the real project when generating a list.
+Suppose support staff can already read the recorded refund decision through an API. The change adds dashboard and CLI views, then decision filtering. The capability spec owns the scenarios for showing the stored value and returning only matching refunds. The native task list can read as follows.
 
 ```markdown
-## Phase 1 — User Story 1: View a refund decision (P1)
+## 1. Show the recorded decision
 
-**Goal:** Support can see the recorded decision from either tool. This is the first usable story.
-**Independent test:** Look up the same refund in the dashboard and CLI. Both show its recorded decision.
+- [ ] 1.1 Show the stored decision in the dashboard. Check a known denied refund against the recorded value.
+- [ ] 1.2 Show the same field in the CLI. Check the same refund against the API response.
 
-- [ ] T001 [P] [US1] Show the stored decision in dashboard/refund-status.ts (Issue #81, AC1).
-- [ ] T002 [P] [US1] Show the stored decision in cli/refund-status.ts (Issue #82, AC1).
+## 2. Filter refunds by decision
 
-## Phase 2 — User Story 2: Filter refunds by decision (P2)
-
-**Goal:** Support can find refunds by their decision.
-**Independent test:** Choose Denied with both approved and denied refunds present. Only denied refunds appear.
-
-- [ ] T003 [US2] Add decision filtering to api/refunds.ts (Issue #83, AC1).
-- [ ] T004 [US2] Connect the dashboard filter in dashboard/refund-filters.ts (Issue #84, AC1). Depends on T003.
+- [ ] 2.1 Filter the API results by decision. Request denied refunds from mixed input and verify that every result is denied.
+- [ ] 2.2 Connect the dashboard to the verified API filter from 2.1. Select Denied and verify that the view shows only denied refunds.
 ```
 
-T001 and T002 can start together against the settled read contract. Each delivers a usable change. US1 can ship after both surfaces demonstrate the expected result, before filtering exists. Within US2, T003 can ship as a usable API filter. T004 waits for evidence that the filter works under Issue #83’s criterion. For example, a request for denied refunds against mixed input returns only denied records. The implementing agent recovers #84’s own acceptance from that Issue when T004 becomes eligible.
+Rows 1.1 and 1.2 can start together when their interfaces and edit boundaries are settled. Together their observed results demonstrate the first usable capability. Row 2.2 waits for the API result from 2.1. If an API team already owns Issue #83, row 2.1 can point to #83 and its criterion, then verify that the referenced result applies to this change. Keep the detailed criterion and evidence with that Issue.
 
-### How the optional workflow uses the full catalog
+<a id="how-the-optional-workflow-uses-the-full-catalog"></a>
 
-Start from the writer’s live [format catalog](../SKILL.md) and [output contracts](../contracts/documents.json). Where the catalog groups several contract kinds, retain each supported kind and its aliases. Include the seven approved forms in A10a–g as their owning routes ship. Apply the writing rules to each artifact and use Visual Guidance (VG) when it includes a diagram. Keep reference-only guidance and native host file formats in their existing roles.
+### Request a document by name
 
-| Request or feature input | What the workflow does with it |
-| --- | --- |
-| Discovery interview, brief, capability map, research record or product requirements | Carry sourced intent, scope, open decisions or research to the document that needs them. Select the relevant capability before writing its feature specification. |
-| Requirement, behavioral specification, requirements-quality checklist, story, Issue or implementation plan | Preserve exact requirement and criterion references. Apply the project’s parent rules and standalone exception. Dispatch implementation only for an authorized task. |
-| High- or low-level design, interface contract, threat model, service objectives, decision record, policy or technical standard | Link the owning document and relevant section or revision when a later decision depends on it. Preserve project terminology, permissions and unresolved choices. |
-| Feature map, critical journeys, test plan, test specification, test status or completion report | Link surfaces to journeys and criteria to checks. Retain observed results separately from proposed checks. |
-| Bug report, incident report or any supported Issue subtype | Accept the requested record directly. Carry it into repair or follow-up only if that work is authorized. |
-| Tutorial, how-to guide, explanation, repository README, agent instructions, reusable skill or output style | Write the requested format through its own entry and apply its format-specific checks. A guide or host file can be the final deliverable. |
+Use the qualified SpecDev entry or the document’s full name for any authorable format. SpecDev offers three opt-in writing shortcuts, `/prd`, `/lld` and `/task`, with their supported host equivalents. The choice leaves all installed native OpenSpec operations available. Each forwards the original brief to the same writer. Writing Style (WS), Visual Guidance (VG) and the other reference-only guides inform the output. A request to author a Tutorial (TUT) or How-to Guide (HTG) still selects its authorable format. Derive the distinction from the [format catalog](../SKILL.md) and [output contracts](../contracts/documents.json).
 
-For a direct request, select the canonical type, use its own discovery, writing, editing and review rules, and deliver the checked result. For a feature, reuse an appropriate existing document, or request the missing input according to R18. Recommend one eligible next document under R20. Preserve the actual project location, revision and relevant section when passing a document to the next consumer. Operators may initiate a document independently when its own prerequisites allow it. A borrowed command, template, checklist, assessment or workflow uses this same rule wherever it handles documents. A provider can consume a link or a scoped view without taking ownership of the document.
+A tutorial, design, Issue or other requested document may be the complete result. A change reuses a related artifact or links an existing supplementary document when a real dependency warrants it. If the user asks for a native proposal, spec, design or task list, review or edit that native file in place. Do not generate companion documents, exports or additional host aliases as part of an ordinary change.
 
 ### Find features and document types from the public index
 
-Link the public index from the repository README. Cover the released user-facing capabilities and supported document catalog, including standalone writing, discovery, editing, review, rewriting, visuals, checked delivery, documented maintenance operations, shortcuts, guided handoffs and each shipped optional workflow. Aliases, command spellings and small variants can share guidance when readers can identify the behavior that applies to their request.
+Link the public index from the repository’s `README.md`. Cover the released user-facing capabilities and supported document catalog, including standalone writing, discovery, editing, review, rewriting, visuals, checked delivery, documented maintenance operations, shortcuts, guided handoffs and each shipped optional workflow. Aliases, command spellings and small variants can share guidance when readers can identify the behavior that applies to their request.
 
-Link to the page or specific heading that explains when to use the feature or format, what to provide and what result to expect. For instance, the focused-edit and review entries can point to different headings in the same README. An Issue variant can point to the section that explains its fields. Give readers a separate guide when they need a distinct procedure or reference. Include prerequisites, recovery or the next action where these affect the reader’s task.
+Link to the page or specific heading that explains when to use the feature or format, what to provide and what result to expect. For instance, the focused-edit and review entries can point to different headings in the same `README.md`. An Issue variant can point to the section that explains its fields. Give readers a separate guide when they need a distinct procedure or reference. Include prerequisites, recovery or the next action where these affect the reader’s task.
 
-The task that releases or changes a feature owns the guidance and its direct index link in the same increment. As examples, W35 owns shortcuts, W38 owns next-document guidance, W47 owns project-aware writing, W49–W50 own execution and resumption, and W51 and W52 own assessment and repair respectively. The owner of each A10a–g route makes its instructions findable from the index. W54 establishes the public entry. W61 covers already released features and supported types with missing or inadequate index destinations. The guide for an optional workflow describes its available behavior even if a separate tutorial or runtime demonstration is still proposed.
+The task that releases or changes a feature owns the guidance and its direct index link in the same increment. As examples, W35 owns shortcuts, W38 owns next-document guidance, W47 owns project-aware writing, W49–W50 own execution and resumption, and W51 and W52 own assessment and repair respectively. The owner of each A10a–g route makes its instructions findable from the index. W54 establishes the public entry. W61 covers already released features and supported types with missing or inadequate index destinations. Describe the released native operations at their upstream owner. Additional guides or demonstrations retain their own scope and approval status.
 
 ## Quality and interface constraints
 
-Use Technical Writer’s document references and output contracts for form. Preserve verified project terminology, literal IDs and applicable native tracker metadata. Allow exact sections for projects without stable IDs and keep small self-contained work inline. For externally consumed data or output text, identify callers and compatibility before changing the contract. An existing approved document or delivery receipt must remain auditable under the version that produced it. The writer can recommend a scope change. Only the authorised decision-maker may adopt it.
+For native changes use the active OpenSpec instructions. For supplementary or standalone writing, use the appropriate document reference and checked output contract. Preserve verified project terminology, literal IDs and applicable native tracker metadata. Allow exact sections for projects without stable IDs and keep small self-contained work inline. For externally consumed data or output text, identify callers and compatibility before changing the contract. An existing approved document or delivery receipt must remain auditable under the version that produced it. The writer can recommend a scope change. Only the authorised decision-maker may adopt it.
 
 ## Acceptance criteria
 
@@ -1083,11 +921,11 @@ These are the approved release criteria. The inputs and expected distinctions be
 | A6 · R6 | Present a confirmed intermediate result, a genuine external blocker, and a checked document containing a material choice. | Progress explains the change. The blocker identifies the last confirmed fact and required action. Checked delivery exposes the reviewed choice, file, status and provenance. A changed or unreviewed decision sentence fails the exact-message check. | Compare the actual messages with the observed results, reviewed artifact and delivery receipt. Include a delivery requiring no owner action. |
 | A7 · R7 | Use a routine editing request and the integrated handoff case through the supported skill on Codex and Claude Code. | Both route to the same governing rules and preserve the same required behavior. A small edit avoids unrelated workflow material. Host-specific permission or tool limits stay explicit. | Retain per-host observations on the identified artifact, with the case inputs, actual outputs, public evidence and model/settings when exposed. |
 | A8 · R8 | Change an upstream rule after downstream work was reviewed. Supply one unaffected criterion and one previously failed attempt. | The changed criterion loses current acceptance until newly proved. Unaffected evidence retains its original identity and scope. The historical failure remains available. A completed task count cannot close the integrated outcome. | Inspect the before/after source, affected references, candidate identity, evidence and criterion verdicts. |
-| A9 · R9 | Give the writer Mirai facts, stable IDs, an open approval and no prior document or application template. Request a complete Product Requirements Document (PRD) and one linked behavioral specification. Give it a second project’s facts and request a new product document through the same entry. | The writer produces each whole artifact using its own type contract. Project facts stay attributable, unresolved choices stay open, and the downstream requirement resolves to its source. A misleading legacy heading cannot replace the writer’s template. A consumer conflict identifies the incompatible field and owner. | Inspect the actual documents, normal Technical Writer checks, source links, decision status and version-bound evidence. Reuse the first product document across both tasks. Record document acceptance separately from application ingestion. |
+| A9 · R9 | Give the writer Mirai facts, stable IDs, an open approval and no prior document or application template. Request a complete Product Requirements Document (PRD) and one linked behavioral specification. Give it a second project’s facts and request a new product document through the same entry. | The writer produces each whole artifact using its own type contract. Project facts stay attributable, unresolved choices stay open, and the downstream requirement resolves to its source. A misleading legacy heading cannot replace the writer’s template. A consumer conflict identifies the incompatible field and owner. | Inspect the actual documents, normal writing checks, source links, decision status and version-bound evidence. Reuse the first product document across both tasks. Record document acceptance separately from application ingestion. |
 
 ### Seven authoring cases and hierarchy acceptance
 
-Each A10 case starts with source facts and a request for the named artifact through Technical Writer. Keep the actual output, its checked document/version binding and the downstream observation. One linked example set can supply all seven cases. A heading check alone is insufficient.
+Each A10 case starts with source facts and a request for the named artifact through SpecDev. Keep the actual output, its checked document/version binding and the downstream observation. One linked example set can supply all seven cases. A heading check alone is insufficient.
 
 | ID / artifact | Inputs and required content | Consumer verdict and safe failure |
 | --- | --- | --- |
@@ -1109,39 +947,41 @@ Each A10 case starts with source facts and a request for the named artifact thro
 
 **A15 · R15.** Observe a routine progress reply with no label or absence claim and an applicable message with a wrong canonical label. The first can be sent after editorial review without the file check. The second produces a located naming finding. Retain the actual trace and comparison. Preserve existing artifact checks and version-bound finalization.
 
-**A16 · R16.** Before installation, read one plain-language explanation, choose the right entry for an idea, an agreed feature or a small fix, and trace WEB-06 through a story and illustrative task to its specified failure check T10. The passage identifies what a developer supplies and what the writer returns. A planned check stays visibly distinct from an observed result. From the `README.md` file quick start, use the numbered sequence to route one governed feature to its story and child task, and one independent broken-link fix to a standalone Issue. The reader can locate each conditional artifact in A10, say what has to exist first, and distinguish planned verification from observed evidence. A missing story blocks only the dependent child. Keep the two reader answers, the relevant passage and its resolved links. From Quick start, locate the reviewed plan, the Issues and the feature list in order. Identify Implement’s actual inputs, the writing-only endpoint, and how the agent selects another task. Creating a mandatory `task.md` after the list fails.
+**A16 · R16.** From the public `README.md`, choose the entry for an idea, a native change or an independent broken-link fix. Locate an agreed requirement, its task and the planned proof, including WEB-06 and failure check T10 in the worked example. For the native change, identify where its scenario, applicable design and task verification live, when writing stops and how authorized apply selects another eligible row. For the independent fix, use its existing work record. A missing declared parent blocks dependent work. Retain the reader’s choices, passage and resolved links. Check the A10 formats are discoverable on individual request.
 
-**A17 · R17.** Use the same improvement in three contexts. An independently authorized small change with inline scope and proof can ship in one Issue. A contribution assigned to a story must resolve that story and criterion. A directly authorized user outcome may be written as a standalone story if its value, boundary and proof are clear. Then compare two deliveries for the same feature. A single, bounded delivery can keep its steps inline. A migration requiring the old and new readers to coexist needs rollout order, compatibility evidence and recovery before the dependent switch. A project-mandated parent or planning step remains binding. Retain the selected records, governing input and reason at the first point where the choice differs. Reuse A11 for the broken-parent case and A16 for README discoverability.
+**A17 · R17.** Use the same improvement in three contexts. An independently authorized small change with inline scope and proof can ship in one Issue. A contribution assigned to a story must resolve that story and criterion. A directly authorized user outcome may be written as a standalone story if its value, boundary and proof are clear. Then compare two deliveries for the same feature. A single, bounded delivery can keep its steps inline. A migration requiring the old and new readers to coexist needs rollout order, compatibility evidence and recovery before the dependent switch. A project-mandated parent or planning step remains binding. Retain the selected records, governing input and reason at the first point where the choice differs. Reuse A11 for the broken-parent case and A16 to assess whether readers can find it from `README.md`.
 
-**A17b · R17.** Use the refund example at the ordinary writing entry. Given a governing specification and HLD, the LLD identifies the manager-only rule and the service that enforces it. The task and test lead to the employee-denial criterion. Given direct authorization and a contract that supplies the same facts, the LLD can be ready without an HLD, story or epic. An invented parent, missing governing rule treated as settled, or mandatory duplicate backlink fails. For a declared child whose parent or criterion cannot be resolved, reuse A11’s dependent-only refusal. W62 owns the two design cases.
+**A17b · R17.** For the refund change, review or edit the one native design in place. Identify the service that enforces manager-only approval, its governing source and the planned employee-denial check. Request a standalone component design using only an authorized contract that provides the same inputs. It uses the same design structure at the depth needed. A duplicate design, invented parent, unresolved governing rule taken as settled or mandatory duplicate backlink fails. Reuse A11 for a declared child with a missing parent. W62 owns both cases.
 
 **A18 · R18.** Use the two export requests with the same current staff-only route and compare the actual documents and public questions. (a) “Add CSV to the existing download; only the format changes” produces zero permission questions and preserves existing access. (b) “Let customers download their own reports,” with individual versus organization ownership unresolved, produces exactly one targeted ownership question before the dependent requirement becomes ready. Silence leaves the ownership open in a draft. A genuine answer bound to that question unblocks only the supported permission. Omitting the material topic blocks readiness. A cited passage saying permission is undecided cannot justify an administrator-only rule. Reuse those passages and verdicts for the negative cases. Check one missing owner-held fact without invented options, one delegated routine choice without an interview, a lightweight story or Issue, and the narrow-edit exception only where existing evidence is insufficient. Preserve historical receipts. Host-specific claims require an observed exchange on that host.
 
-**A19 · R19.** On their actual hosts, Claude Code’s /prd, /lld and /task and Codex CLI’s $prd, $lld and $task select the existing writing routes when available. Observe one actual checked artifact per host, mechanically resolve the rest of the catalog, and exercise a collision, repeat install and owned-only removal. The brief survives intact. The spec selector produces a behavior specification; task produces one Issue and tasks decomposes approved scope into applicable Issue records. Checklist and analyze have their distinct review outcomes. The host entries neither replace writing templates nor confer implementation authority. For the refund-status feature, W40’s output identifies the first shippable story, both independent demonstrations, the T001/T002 parallel pair and the T003 prerequisite for T004. Each row resolves to the corresponding Issue and criterion. A standalone fix stays in one Issue. From an ordinary feature request, recover story acceptance before opening the delivery plan. Follow the plan’s story reference and the task row to their owners. Reuse an existing Issue when supplied. With Markdown alone, accept a bounded record at the task without an external tracker. A second editable definition or an unresolved criterion fails for that task. A matching ID or link does not excuse a second editable copy of the case. For an existing owner, keep the case there and use a reference plus any distinct proof in the consuming document.
+**A19 · R19.** On the actual supported hosts, enable only the three opt-in shortcuts for product requirements, detailed design and one task. Preserve the original brief. Confirm each shortcut maps to the same owner as the qualified selector, and retain one checked output per host. Exercise a name collision, repeat installation and owned-only removal. The qualified writer reaches other authorable types by selector or full name without installing additional global aliases. Reference-only guides stay out of the authorable catalog. A writing review returns located findings on the selected artifact.
 
-**A20 · R20.** Given a reviewed feature, an unresolved dependency and a completed standalone fix, guide or next returns respectively one useful recommendation, one blocked decision, or completion. For example, “**Interface Contract (IC)** — agree on refund error codes so both clients handle failed refunds consistently.” The recommendation alone writes nothing. Continue produces one grounded document; repeating the same request after resumption cannot duplicate that result. A changed parent revision reopens only affected work. An unbound suggestion cannot alter the checked final message. For a settled multi-task plan with linked Issues ready, next names the feature task list. After its checked delivery, a writing-only request finishes. A request for one independent task routes directly to an Issue.
+For W40, use the [native refund example](#refund-status-and-filtering). Recover the first usable story, its two independent views and the API dependency for filtering. Verify every checkbox states how to check completion. A row can verify the relevant result of a linked, independently owned Issue without copying its criterion. An independent fix stays in its existing record. Duplicate editable criteria, an extra task file as a prerequisite, a missing governing criterion or automatically exporting tasks to a tracker fail.
+
+**A20 · R20.** Given a reviewed change, a blocked decision and a completed standalone fix, next-step advice identifies one useful successor, the actual blocker or completion. Use the native status and instructions for a change. The recommendation writes nothing. When asked to continue one document, produce that document and retain its source binding. Repeating the request after resumption reuses the result. A changed source reopens only affected work. After a writing-only delivery, stop. One independent task can use an Issue.
 
 ### Acceptance for maintained specifications, fields and shared contracts
 
 Use the same task evidence at the requirement, story and epic when it proves their outcomes. Both hosts use these criteria.
 
-- **A21 · R21 (F25, W43).** Use the team’s declared maintenance convention. Link a retained snapshot to its maintained successor or other approved source when known. With no authority for a material difference, preserve both and ask one focused question. At the normal edit entry, supply a frozen launch specification allowing seven days and an approved maintained policy allowing thirty days. Ask to update the feature. The draft cites the maintained rule and labels the seven-day value historical. Both source files remain intact. Remove the maintenance decision while keeping two plausible values. The writer identifies the conflict and asks which governs before committing to a value. It can draft unrelated sections. Capture the two draft excerpts or the focused question, source revisions and before/after identities of the inputs. Reuse existing discovery and rewrite evidence for unchanged behavior.
-- **A22 · R22 (F26, W44).** When a task implements a constrained field, link its exact owner and field, preserve relevant semantics and flag uncovered or misattributed fields when reviewing the requested scope. Reuse the project’s schema, Interface Contract or Low Level Design as appropriate. From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available.
-- **A23 · R23 (F27, W45).** For independently released components, identify the authoritative source and immutable revision, the consumer’s copy or pin, and the evidence for deployed compatibility when claimed. Resolve disagreements at the owner. Leave deployment support unknown when there is no observation. Given an owner contract at v1, a divergent consumer copy and a proposed v2, ask for an Interface Contract update. It identifies the source revision, pins the consumer to v1, names the discrepancy and directs the proposed change to the owner. The consumer copy is untouched. Provide only the v1 pin and mock results, with no deployed-provider evidence. The handoff distinguishes the agreed version from unknown runtime support. One shared file used by both components requires no synchronized copy. Keep the cited owner revision, consumer pin and resulting compatibility passage; inspect the copy identity. No service deployment or provider test is needed to assess this writing change.
+- **A21 · R21 (F25, W43).** Reuse [S25.1](#s25-1). Preserve both source identities, the retained historical value, the governing reviewed rule and the observed behavior when its authority is unclear. In an OpenSpec project distinguish durable capability specs from the archived change that introduced an earlier value.
+- **A22 · R22 (F26, W44).** Reuse [S26.1](#s26-1). Retain the located field reference, authored task, review excerpt and unchanged source definitions. Reuse that task at W40/W41 where it provides the same proof.
+- **A23 · R23 (F27, W45).** Reuse [S27.1](#s27-1). Retain the contract owner and revision, consumer pin, divergent copy, proposed change and observed compatibility statement. A local mock alone leaves deployed-provider support unknown.
 
-**A24 · R24.** F28/S28. Fresh and existing users reach the same checked writer through their supported host. A pre-existing unrelated skill remains untouched. The accepted Builder validates a real document using the renamed release. Use W46 for the required proof.
+**A24 · R24.** Reuse W46 and [S28.1](#s28-1). Bind existing installations and receipts to the identity that produced them. An unreleased working name creates no alias requirement.
 
-**A25 · R25.** F29/S29. From an existing project, the installed command produces a checked spec for the selected feature on each supported host. Repeat setup preserves the edited project document. The standalone writer remains usable. Use W47 for the required proof.
+**A25 · R25.** Reuse W47 and [S29.1](#s29-1). The supplied private manifest and lock resolve `@fission-ai/openspec@2.1.1`. From a fresh selected project, invoke `/specdev init` or its host equivalent. Observe native initialization at that root with `--tools none` for a SpecDev-only setup. Explicit supported tool selections and flags reach upstream. Preserve unrelated handlers and existing project content on repeat initialization. The result creates project setup only, with no separate global `/init` command, feature creation or apply. Native JSON status and artifact instructions identify the registered root’s change, expected output and dependencies. Observe each supported host’s writer use the same native file. Protect other changes and require a settled target before a project edit. Reuse the installed command inspection and invoke one supported non-core operation through SpecDev. For example, `openspec templates --schema <name> --json` returns the upstream resolved template paths. A hand-maintained subset that hides a supported operation fails.
 
-**A26 · R26.** F30/S30. With two features using the same short upstream task number, the actual selected consumer reads the refund Issue, its authorized actor and denial criterion. A stale view stops the affected dispatch. Use W48 for the required proof. Give the real implementing agent the same W40 list. It identifies T001 and T002 as eligible together and the first story’s independent demonstration. Within US2 it can select T003 and holds T004 until the API criterion is met. Then it can select T004 and recover Issue #84’s criterion. Preserve the observations on the identified candidate.
+**A26 · R26.** Reuse W48 and [S30.1](#s30-1). Give the actual consumer W40’s `tasks.md` and native change context. Verify it can recover scope, criterion and expected proof from a native row without a second record and from a row referencing an independently owned Issue. Identical row numbers in another change and a stale criterion cannot redirect dispatch.
 
-**A27 · R27.** F31/S31. Follow one refund task from dispatch to an observed permission failure, correction and evidence-backed verdict. Resume at the same task and candidate boundary after interruption; uncertain effects cannot be replayed on guesswork. Use W49, W50 for the required proof. Routine closure uses the existing acceptance evidence. A broader Converge review requires a user request.
+**A27 · R27.** Reuse W49/W50 and [S31.1](#s31-1). Preserve the earlier failure, the actual corrected result and same-task recovery. Record the separate outcomes for native structural validation, semantic review and observed product behavior. An unchecked product criterion remains open regardless of the native validator’s result. Scope every native operation to the user’s request. A writing request stops before apply or archive. Resolve uncertain effects before any retry.
 
-**A28 · R28.** F32/S32. An idea lacking decision evidence ends with a supported question or stop recommendation; a bounded defect reaches a scoped repair and expected check. Neither input silently starts coding. Use W51, W52 for the required proof.
+**A28 · R28.** Reuse W51/W52 and [S32.1](#s32-1). Compare the idea decision with the repair record and its actual input. Neither route adds routine intake documents or initiates coding from a writing request.
 
-**A29 · R29.** F33/S33. Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. Use W53 for the required proof.
+**A29 · R29.** Reuse W53 and [S33.1](#s33-1). Record the exact current and candidate dependency, resolved executable and native-contract comparison. A rejected update preserves or restores the known working install, project-authored files and existing host entries.
 
-**A33 · R33.** F37/S37. Resolve each eligible catalog type and alias to its canonical owner at the integrated entry, including A10a–g. A tutorial request returns a checked tutorial and ends. An authorized child Issue carries its reviewed design constraint and exact source. A stale design reference holds that dispatch. Use W58–W59 evidence.
+**A33 · R33.** Reuse W58/W59 and [S37.1](#s37-1). Map authorable formats and aliases, including the seven A10 forms as they ship, through the qualified writer. Apply reference-only writing guides as guidance. Observe the direct tutorial stop and a native design constraint reach its dependent task on the same change. A format in the catalog creates no requirement to produce it in every change.
 
 **A34 · R34.** F38/S38/W60. Use the [committed guide](https://github.com/fatonsopa/ai-technical-writer/blob/d8bf859f0eec178aa34b24e29aef10290e984c3b/references/writing_style.md#write-a-feature-page-people-can-use) and its worked case. The feature example identifies the action and source. The session identifies the reviewed approval rule and the unresolved decision.
 
@@ -1149,15 +989,15 @@ Use the same task evidence at the requirement, story and epic when it proves the
 
 ## Open decisions
 
-**D7.** For approved capabilities borrowed from the upstream project, use its pinned first-party implementation directly or adapt its source as described in the [upstream reuse instructions](./implementation-plan.md#reuse-the-upstream-implementation). Preserve the Spec Writer document contracts and standalone entry. This implementation choice adds no work items.
+**D7.** Revision 21 replaces the previously selected integration with the privately installed OpenSpec npm dependency at exact version 2.1.1. Use its native artifact instructions, validation, apply context and archive behavior. The handoff supplies the private npm manifest and lock at `tools/openspec/`. W47 demonstrates the first usable connection. W53 owns upgrade and recovery.
 
-**D6.** For an authorized feature build, use the bundled workflow when the project selects it. It runs Specify, Plan, Tasks and Implement, with separate reviews after the specification and the plan. Close routine delivery when the existing task and story acceptance criteria and applicable Definition of Done are demonstrated on the identified candidate. Invoke upstream Converge manually only when the user requests a broader review of that feature. Its findings may identify work to propose; they grant no additional implementation authority. A request to write a document ends at its checked handoff unless implementation is separately authorized. The decision covers documenting the handoff within existing W49.
+**D6.** Use the writing and execution boundaries in [Production order](#production-order). The former upstream workflow, its phase gates and its convergence command are superseded. Applicable project reviews and requested broader reviews retain their original authority.
 
-**D5.** The owner approved the optional workflow integration and the skill name **Spec Writer** (`spec-writer`). Claude implements the live rename on the handoff computer. The existing GitHub repository and clone URL remain the integration target. Spec Writer remains usable without the optional workflow. Implement the approved five toolkit stages within R25–R29. R24 owns the rename.
+**D5.** The selected public identity is **SpecDev** (`specdev`), with compatibility for the deployed `technical-writer` entry. Unreleased planning names require no runtime aliases. Claude implements the rename on the handoff computer after B5/T50. The repository and clone URL stay the same.
 
-**D4.** The owner approved F25–F27 under R21–R23. The subsequent D5 decision adds the toolkit and selects its canonical identity.
+**D4.** F25–F27 remain approved under R21–R23 for governing specifications, field constraints and cross-repository contracts.
 
-**D3.** The owner approved R19–R20, their short handoff wording and host-specific entries. Implement the adopted upstream structures within Technical Writer’s owning forms as set out in the template mapping.
+**D3.** R19–R20 cover three opt-in host shortcuts, qualified selection for other authorable formats, and one grounded next-document recommendation. Use the [native artifact map](#how-upstream-templates-map-to-the-writer) for project changes.
 
 **D2.** The owner approved R18/A18 and its bounded implementation in F22.
 
@@ -1165,132 +1005,20 @@ Use the same task evidence at the requirement, story and epic when it proves the
 
 ## Related design and work
 
-Use this specification as the behavior source for the Spec Writer change itself. The [Scenarios](#scenarios) section owns the stories and their acceptance. The [implementation plan](./implementation-plan.md) explains the delivery approach. The [task list](./tasks.md) contains the ordered work and its bounded Issue records, and the [handoff test specification](./test.md) checks whether a reader can use them. Each Issue owns its acceptance criteria and the evidence needed to close it. When the writing entry is available, generate the three-Issue sample from this plan and give that output to its real consumer as described in W-PACKET.
-
-The implementation plan maps each finding to an epic and each criterion to bounded work and proof. This approved revision is the behavioral baseline. Amend affected clauses through the same decision record or work item that records the owner’s instruction. [Proposed implementation](./implementation-plan.md)
+The [scenarios](#scenarios) own this handoff’s stories and acceptance. The [implementation plan](./implementation-plan.md) owns delivery dependencies. Existing W records in the [task list](./tasks.md) retain their approved identities, scope, criteria and evidence. Their presence in this maintained packet creates no requirement to generate a separate Issue for each native change task. The [handoff test specification](./test.md) defines the reader and eventual implementation checks. Use W40’s representative native change list at its W48 consumer. Record a later material change at its established authority and update the affected criterion.
 
 ## Proposals awaiting owner approval
 
-The approved work comprises F1–F33 and F37–F39, their 36 child stories, and W01–W54 plus W58–W62. W60’s guide edit shipped on the handoff branch before the remaining implementation. W46 covers the public identity, W49 covers on-request Converge, and W58–W59 cover the full writing catalog. The additional worked walkthrough and demonstrations in F34–F36 (W55–W57), and the additional assessment criterion W51.3, await the owner’s approval. F39 now owns the approved index task W54 and index coverage for every released feature and supported document type. Exclude only the pending proposals from execution and completion counts. The following material is retained for a future decision. The on-request Converge policy in D6 governs these proposals too.
+F34–F36 (W55–W57) and W51.3 were proposals in revision 20. They have no execution authority. The previous upstream-specific mechanisms are superseded. The approved W54/W61 index and W51.1–W51.2 intake work retain their existing scope. [Historical proposals in revision 20](https://github.com/fatonsopa/ai-technical-writer/blob/8742dce257d21113ed3db3b6e70f6c001253fecc/plan/specification.md#proposals-awaiting-owner-approval)
 
-| Proposed ID | Candidate behavior |
+<a id="default-feature-route-and-its-outputs"></a>
+<a id="capability-reference-and-artifact-inventory"></a>
+<a id="idea-assessment-in-workflow-mode"></a>
+<a id="proposed-story-records"></a>
+
+| Proposed records | Historical scope |
 | --- | --- |
-| R30 | Use the approved capability index and add one worked quickstart linked from the root README. Reuse the existing README, Tutorial (TUT) and How-to Guide (HTG) formats. Publish as repository-readable Markdown. |
-| R31 | Document and exercise the read-only upstream list and info operations. Keep feature-output discovery in the quickstart and use existing upstream provenance for installed assets. |
-| R32 | Use the unmodified upstream workflow, identify its run and active feature, and document Converge as a user-requested review. Reconcile any appended tasks with the original Issue and permitted change. |
-
-**A30 · R30.** F34/S34. From the root README, a new reader chooses an existing-document request or the optional feature route, then identifies the input, output and next consumer for the complete refund example. Each advertised capability has a reachable entry on the identified release. Use W55 for the proposed walkthrough. Reuse the approved W54 index.
-
-**A31 · R31.** F35/S35. From a project with one known override, locate its contribution and the lower layer with the native inventory; find the generated feature spec separately. Inspection leaves the project content unchanged. Use W56 for the proof.
-
-**A32 · R32.** F36/S36. Use the shipped upstream workflow on the authorized feature. A spec verdict leaves the plan gate independent. After Implement, the operator closes against acceptance evidence and, if the user requests a broader review, runs Converge manually for that same feature and candidate. A remaining gap stays open until the underlying criterion is proved. Use W57 for the proof.
-
-### Default feature route and its outputs
-
-Use the feature route for an authorized software change. A direct document request may end with one checked document. Follow the project’s governing principles; the upstream quickstart establishes a constitution once per project. Keep the optional assessment and defect routes separate from the feature prerequisites.
-
-| Phase | Input | Output and next consumer |
-| --- | --- | --- |
-| Specify | User intent, governing rules and located sources | The feature’s `spec.md` states the observable behavior. Clarify consequential ambiguity here before the planner uses it. |
-| Plan | The governing spec and project constraints | `plan.md` records the approach. Link relevant design, research, model or interface details to the tasks that depend on them. Use the quality checklist when the adequacy of the requirements needs review. |
-| Tasks | Spec, plan and applicable design | Resolve or author the Issues and then write `tasks.md` with their execution order and criterion links. The list is the input to authorized implementation. Read-only Analyze can locate a cross-document conflict before dispatch. Correct the owning record first. |
-| Implement | The approved scope, selected task and its proof | The provider changes the candidate. Preserve the candidate identity, observation and task progress. A checked requirement-quality item or task marker alone cannot establish delivery. |
-| Converge (on request) | The actual candidate and the same feature’s spec, plan and tasks | If the user requests a broader review, the operator invokes Converge in the agent on the same feature. A clean comparison leaves the task list unchanged. When gaps produce appended tasks, preserve them, reconcile each against the authoritative Issue and obtain authority for any new scope. Record the verdict and outstanding proof. |
-
-For the manual path, the longer upstream sequence inserts Clarify after Specify, Checklist after Plan, and Analyze after Tasks. Use those steps when they address a real decision or coverage gap. In the automated `speckit` path the installed definition and its actual gates determine what runs. A guide must mark any supplemental checks it asks the operator to run separately. A terminal workflow exit is evidence only for the steps observed in that run.
-
-### Capability reference and artifact inventory
-
-Use a short root README linked to a public capability index, feature tutorial, installed-artifact reference and workflow guide. In repository docs, label standalone writing, optional workflow integration and the chosen implementation provider. For each advertised capability name the user need, supported entry and host, required input, output location and next action. Upstream integrates hosts, adds operations through extensions, changes existing behavior through presets, sequences steps with workflows, adjusts installed sequences with overlays, and distributes components as bundles. Link upstream for third-party tooling. Describe only the components the Spec Writer release supports.
-
-A generated project document and an installed workflow asset use different lookup paths. Resolve the active feature from supported project state to find its spec, plan or tasks. Run the read-only upstream CLI to list command, template, script and hook contributions or inspect one returned ID. Named assets have a precedence stack; composing layers may still contribute below the winner. Hook registrations can be additive. An inventory row does not establish invocation, hook execution or document acceptance.
-
-### Idea assessment in workflow mode
-
-In workflow mode the optional assessment uses one idea slug, ordinarily progressing from intake to research, problem definition, concept comparison and decision. The upstream outputs are `intake.md`, `research.md`, `problem.md`, `concept.md` and `decision.md` under `.specify/assessments/<slug>/`. Use those artifacts when integrating the extension. Their contents reuse the writer’s existing interview, brief, research and decision guidance. The standalone writer can keep a small decision in its existing format.
-
-| Step | Assessment file | What the next reader needs |
-| --- | --- | --- |
-| Intake | `intake.md` | Original idea, its source and the shared assessment slug. |
-| Research | `research.md` | Supporting and contrary evidence, with citations, confidence and labeled assumptions. |
-| Define | `problem.md` | Affected users, problem, goals, exclusions, success measures and the cost of leaving things as they are. |
-| Shape | `concept.md` | Viable options, constraints, how much time or effort is worth spending, and trade-offs. |
-| Decide | `decision.md` | Evidence-based scorecard and rationale. For an authorized handoff, supply the recommended option, scope, success measures and unresolved questions. |
-
-Define can start from supplied intent. Shape and Decide require the problem definition. A `go` additionally needs adequate problem validity and evidence strength and a recommended concept. Include evidence for and against the idea, cite the source and confidence, and preserve assumptions as such. A `needs-clarification` verdict names the missing fact and affected record. A `kill` verdict retains the decisive reason and ends the assessment. Refine the affected artifact and decision when new evidence arrives. Only a separate choice to pursue the software idea passes the decision summary to Specify. [Assessment guide](https://github.github.io/spec-kit/guides/assessment.html) · [Command and verdict contract](https://github.github.io/spec-kit/reference/agentic-assessment.html)
-
-### Proposed story records
-
-These stories await the owner’s decision. They do not enter the execution list.
-
-### F34 · Find a capability and follow a feature from request to evidence
-
-As a developer using Spec Writer for the first time, I want to choose a supported capability and follow one feature through its documents, so that I know what to supply, inspect and do next.
-
-#### Acceptance criteria
-
-- **F34.1** Use the [S34.1 acceptance scenario](#s34-1) for the epic’s integrated check. Use S34.1 evidence on the candidate. <a id="f34-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: integration documentation maintainer. Child: [S34](#s34--find-a-capability-and-follow-a-feature-from-request-to-evidence). R30/A30. [Upstream guide](https://github.github.io/spec-kit/index.html)
-
-#### S34 · Find a capability and follow a feature from request to evidence
-
-As a developer using Spec Writer for the first time, I want to choose a supported capability and follow one feature through its documents, so that I know what to supply, inspect and do next.
-
-##### Acceptance criteria
-
-- **S34.1** From the root README, a new reader chooses an existing-document request or the optional feature route, then identifies the input, output and next consumer for the complete refund example. Each advertised capability has a reachable entry on the identified release. Record what the reader or operator actually found. <a id="s34-1"></a>
-
-##### Scope and sources
-
-Parent: [F34](#f34--find-a-capability-and-follow-a-feature-from-request-to-evidence). Owner role: integration documentation maintainer. [W55](./tasks.md#w55--walk-a-reader-through-the-default-feature-path) supports [S34.1](#s34-1) and consumes the approved [W54](./tasks.md#w54--publish-the-public-index-with-a-usable-focused-edit-entry) index. Use the shared Definition of Done.
-
-### F35 · Inspect what the installed integration exposes
-
-As a maintainer, I want to see which command or template is active in this project, so that I can explain an unexpected result without guessing from filenames.
-
-#### Acceptance criteria
-
-- **F35.1** Use the [S35.1 acceptance scenario](#s35-1) for the epic’s integrated check. Use S35.1 evidence on the candidate. <a id="f35-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: integration documentation maintainer. Child: [S35](#s35--inspect-what-the-installed-integration-exposes). R31/A31. [Upstream guide](https://github.github.io/spec-kit/overview/artifacts.html)
-
-#### S35 · Inspect what the installed integration exposes
-
-As a maintainer, I want to see which command or template is active in this project, so that I can explain an unexpected result without guessing from filenames.
-
-##### Acceptance criteria
-
-- **S35.1** From a project with one known override, locate its contribution and the lower layer with the native inventory; find the generated feature spec separately. Inspection leaves the project content unchanged. Record what the reader or operator actually found. <a id="s35-1"></a>
-
-##### Scope and sources
-
-Parent: [F35](#f35--inspect-what-the-installed-integration-exposes). Owner role: integration documentation maintainer. [W56](./tasks.md#w56--explain-an-installed-override-from-native-artifact-readback) support [S35.1](#s35-1). Use the shared Definition of Done.
-
-### F36 · Document an on-request convergence review after the upstream workflow
-
-As a developer running the optional integration, I want to know when automation stops and how to check the candidate, so that a successful workflow exit cannot silently become a feature acceptance claim.
-
-#### Acceptance criteria
-
-- **F36.1** Use the [S36.1 acceptance scenario](#s36-1) for the epic’s integrated check. Use S36.1 evidence on the candidate. <a id="f36-1"></a>
-
-#### Scope and sources
-
-Delivery approach: [implementation plan](./implementation-plan.md). Owner role: integration documentation maintainer. Child: [S36](#s36--document-an-on-request-convergence-review-after-the-upstream-workflow). R32/A32. [Upstream guide](https://github.github.io/spec-kit/workflows/overview.html)
-
-#### S36 · Document an on-request convergence review after the upstream workflow
-
-As a developer running the optional integration, I want to know when automation stops and how to check the candidate, so that a successful workflow exit cannot silently become a feature acceptance claim.
-
-##### Acceptance criteria
-
-- **S36.1** Use the shipped upstream workflow on the authorized feature. A spec verdict leaves the plan gate independent. After Implement, the operator closes against acceptance evidence and, if the user requests a broader review, runs Converge manually for that same feature and candidate. A remaining gap stays open until the underlying criterion is proved. Record what the reader or operator actually found. <a id="s36-1"></a>
-
-##### Scope and sources
-
-Parent: [F36](#f36--document-an-on-request-convergence-review-after-the-upstream-workflow). Owner role: integration documentation maintainer. [W57](./tasks.md#w57--explain-how-to-request-a-convergence-review-on-a-built-feature) support [S36.1](#s36-1). Use the shared Definition of Done.
+| R30/A30 · <a id="f34--find-a-capability-and-follow-a-feature-from-request-to-evidence"></a><a id="f34-1"></a><a id="s34--find-a-capability-and-follow-a-feature-from-request-to-evidence"></a><a id="s34-1"></a>F34.1/S34.1 · W55 | An additional public walkthrough from the capability index to a complete feature example. |
+| R31/A31 · <a id="f35--inspect-what-the-installed-integration-exposes"></a><a id="f35-1"></a><a id="s35--inspect-what-the-installed-integration-exposes"></a><a id="s35-1"></a>F35.1/S35.1 · W56 | A separate installed-artifact inventory guide and override demonstration for the former integration. |
+| R32/A32 · <a id="f36--document-an-on-request-convergence-review-after-the-upstream-workflow"></a><a id="f36-1"></a><a id="s36--document-an-on-request-convergence-review-after-the-upstream-workflow"></a><a id="s36-1"></a>F36.1/S36.1 · W57 | A separate guide and demonstration of the former integration’s convergence command. |
+| W51.3 | A longer idea-assessment demonstration. The approved intake uses the request’s evidence and the smallest adequate record. |

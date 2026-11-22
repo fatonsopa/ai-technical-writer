@@ -1,0 +1,11 @@
+{
+  "name": "specdev-openspec-runtime",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.20.0"
+  },
+  "dependencies": {
+    "@fission-ai/openspec": "2.1.1"
+  }
+}

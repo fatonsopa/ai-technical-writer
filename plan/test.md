@@ -1,28 +1,26 @@
-# Spec Writer handoff test specification
+# SpecDev handoff test specification
 
-Test basis: [Behavioral specification](./specification.md) and the [approved task records](./tasks.md) in this handoff revision.
-
-Test item: The [execution guide](./README.md), [task list](./tasks.md) and linked Issue records at the same Git revision. Record the candidate used for each observation.
+Use the [governing specification](./specification.md) and the candidate's [task list](./tasks.md). The first two checks are read-only checks of this handoff. The implementation checks belong to the corresponding Issues and run only on the actual candidate.
 
 ## Coverage and setup
 
-The first two cases test whether a reader can select a task, find its criteria and stop at a real dependency. Use a read-only checkout. Supply hypothetical completion states in the question. Leave the actual task boxes and Issue verdicts untouched. The final two cases exercise different boundaries during implementation. The refund case keeps its existing acceptance run. The three-Issue case checks whether the shipped writer can reproduce and consume the work order in this handoff.
+Give the reader the handoff commit and requested starting state. Keep the expected answers with the assessor. Reuse the existing refund example, source facts and applicable host evidence. The Toolkit dependency setup must resolve the package pinned in the [manifest](../tools/openspec/package.json) and [lockfile](../tools/openspec/package-lock.json).
 
 ## Cases
 
-| ID / requirement | Preconditions and action | Expected outcome |
+| Case | Action | Required observation |
 | --- | --- | --- |
-| W-START · S01.1/S02.1 | Compare the handoff before and after an accepted Builder commit is available. Ask what can start, what proof the first Issue requires and what prior work can be reused. | Until Builder is accepted, hold Writer implementation. Then W01 and W03 can start in parallel. W01.1 requires the literal-derived domain and its consuming cases. Reuse W60’s accepted guide evidence. |
-| W-RESUME · S23.1/S30.1 | Assume W40 and W47 have accepted evidence, but W44 is still open. Ask whether W48 can start. Then supply accepted W44 evidence and ask what W48 reads. | Hold W48 until W44 is met. With the three prerequisites met, follow the list to W48 and recover its approved criteria from the Issue. W55–W57 and W51.3 remain outside execution scope. |
-| W-CONSUME · A19/A26 | When W40 and W48 ship, use the existing refund assignment through the real writing and implementation entries. Compare the observed selection with the same rule used in this handoff. | Keep W40’s authored list and linked Issues. W48’s actual consumer identifies both parallel rows, holds the dashboard filter for the API result and reads its own Issue when it becomes eligible. Retain that evidence once. |
-| W-PACKET · W40.3/W48.3 | As W40 ships, use the ordinary writing entry on a scratch copy of this revision. Supply the specification, delivery plan and just the Issue bodies for W01, W02 and W03. Withhold the checklist, local row numbers, parallel markers and expected answers. Ask for the execution list for those three Issues. When W48 is available, ask its real consumer what it could start, then supply hypothetical accepted W01 evidence and ask again. | Resolve S01.1 and S02.1 in the specification, the approach in the plan and each task criterion in its Issue. The generated list resolves the two opening Issues and their own criteria. A copied acceptance definition or unresolved source fails the affected handoff. A full second case under the same criterion ID counts as a copy even if it includes a link to the original. W02 waits for W01. The consumer reads that actual list, then selects W02 with its own criteria after the prerequisite is met. It neither invents a fourth Issue nor starts an implementation in the read-only exercise. Retain the generated rows and both observed selections. |
+| W-START · S01.1/S02.1 | Ask what can start before and after the accepted Builder commit is available. | Before acceptance, implementation waits. Afterward, W01 and W03 can start independently. The reader finds W01's literal-derived domain and its real consumer and reuses W60's guide evidence. |
+| W-RESUME · S30.1 | W47 and W40 have evidence. W44 is open. Ask whether W48 can start, then supply W44's acceptance. | The reader waits for W44. Once eligible, W48 consumes the selected change and its original criteria. Parked proposals confer no authority. |
+| W-CONSUME · A19/A26 | Use W40's refund list through the real W48 consumer. A same-numbered task exists in a sibling change. | Native rows 1.1 and 1.2 can start independently. Row 2.2 waits for working API evidence from 2.1. The consumer uses the selected change and the existing Issue only where ownership calls for it. An incorrect permission, stale reference or wrong change fails the relevant check. |
+| W-PACKET · W40.3/W48.3 | Ask the normal entry to prepare work from the same source packet with W01, W02 and W03 as independently owned Issues. Read the generated list before and after supplying hypothetical W01 acceptance. | One native checklist resolves the three supplied Issues, preserves their criteria and identifies both opening tasks. W02 waits for W01. No fourth Issue, parallel feature plan or extra acceptance record is created. The exercise ends at document delivery. |
 
 ## Procedure and cleanup
 
-1. Give the reader the execution guide and the starting state for each of the first two cases. Keep the expected answers with the assessor. Ask for the selected and blocked work, the owning Issue or criterion, and the source of its authority.
-2. Compare the returned choices and links with the expected outcomes. Record the candidate, exact sources and observed result in the private JSON execution log. A wrong selection fails the affected case. Reuse the other case while its inputs still match.
-3. For the implementation cases, use the named Issue’s checks on its actual candidate. Compare the resolved Issues, behaviors and dependencies. Different wording or local task numbers can be valid. Keep its evidence with that Issue. The reading exercise creates no tracked state to clean up.
+At W47, issue `/specdev init` through the supported host entry in a fresh disposable project. Inspect the native root, empty change list and absence of extra host entries. A plain standalone request in a fresh directory creates no OpenSpec root. Reuse that initialized project for the feature case.
+
+For the new routing cases use the criteria already attached to W35–W37, W47, W53, W58 and W59. They cover native and standalone requests, a short command collision, the W47.1 native verb with no local alias, an unknown verb with no effects, a custom-schema name collision, and upgrade and recovery. Keep the real dispatch, resulting file or native status, candidate and verdict in the existing private run record. A package installation proves the pin only; a host or product outcome needs its own observation.
 
 ## Open prerequisites
 
-W40 must be available for generation. Keep its output for the W48 consumer when that entry is available. A successful reading exercise establishes document usability only.
+Capture W40's authorized output once and reuse it at W48. Use both actual hosts for the release claims assigned to W17. Keep unavailable host behavior Not demonstrated.
