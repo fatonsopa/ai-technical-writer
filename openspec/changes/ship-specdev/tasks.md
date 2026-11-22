@@ -2255,7 +2255,7 @@ Met on d8bf859f0eec178aa34b24e29aef10290e984c3b for the guide and author-applied
 
 ## 41. S08 · Follow the portable entry without grader hints (continued)
 
-- [ ] 41.1 [W17](#w17--ship-neutral-cross-host-assignments-for-the-connected-handoff) (T059). Observe the same neutral edit and feature handoff separately on Codex and Claude Code. Record candidate-bound host results and missing visibility. At release, after W16 and the affected increments are integrated on the frozen candidate.
+- [x] 41.1 [W17](#w17--ship-neutral-cross-host-assignments-for-the-connected-handoff) (T059). Observe the same neutral edit and feature handoff separately on Codex and Claude Code. Record candidate-bound host results and missing visibility. At release, after W16 and the affected increments are integrated on the frozen candidate.
 
 ### W17 · Ship neutral cross-host assignments for the connected handoff
 
@@ -2276,6 +2276,27 @@ Evaluation maintainer · R7/A7. [S08.1](./specs/spec-driven-authoring/spec.md#s0
 - **W17.1** Run a routine edit and the integrated feature-to-task handoff on Codex and Claude Code with the same request, sources and rubric. Record actual text, available public source-use evidence and exposed model/settings per host. <a id="w17-1"></a>
 - **W17.2** Accept source-grounded equivalent wording. Reject the weakened retry or an invented parent. If routing is unobservable, record that specific limit. A pass on one host cannot satisfy the other. <a id="w17-2"></a>
 
+#### Verdicts
+
+Candidate: `da9431a` on `implementation/ship-specdev`.
+- **Cases:** `evals/host_validation_cases.json` adds two cases: `neutral-routine-edit` and `neutral-feature-task-handoff`.
+- **Neutral requests:** The requests name no guide.
+- **Rubrics:** Each case has a reviewer-only rubric that accepts equivalent source-grounded wording and rejects a weakened retry or an invented parent.
+
+Each host ran the same instruction (Codex `$specdev`, Claude Code `/specdev`) on the same sources from an isolated install of the candidate. Reviewer: implementing agent.
+
+- **W17.1 Met.**
+  - **Hosts and settings:** Codex `gpt-6.2-sol` at medium effort, `workspace-write`; Claude Code `claude-opus-5-5` through a project skill link, user-level skills excluded, hooks disabled.
+  - **Routine edit:** Both changed only the second paragraph of `input.md`.
+  - **Handoff:** Both wrote `task.md`, which passes the `task_feature` contract.
+  - **Source-use evidence:** Both hosts read `references/writing_style.md` and the writing-style check for the edit. Both read `references/task.md`, `check_document.py` and `validate_document.py` for the handoff; Codex also read the discovery, rewrite and validation-review workflows. Claude Code's init event lists `specdev` as the loaded skill.
+  - **Kept:** The actual texts are kept with each run.
+- **W17.2 Met on each host separately.**
+  - **Edit:** Both keep "never retry the write automatically", the reason, and the administrator's decision after the saved state is shown, for unattempted rows only. Their wording differs and both are acceptable.
+  - **Task:** Both link US-12.2 in story US-12, revision 2026-11-20, with no invented epic or feature, and offer retry only for unattempted rows, never automatically, at the administrator's choice. Both also cite WEB-09.
+  - **No failures:** Neither weakened the retry rule or added a task for US-12.1.
+  - **Routing limit:** Codex loads the skill body through the host, so its routing evidence is the skill files it read, not a recorded load event.
+
 [config/host_validation.json](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/config/host_validation.json) · [evals/host_validation_cases.json](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/evals/host_validation_cases.json) · [scripts/host_coverage.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/host_coverage.py) · [workflows/improve_references.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/improve_references.md)
 
 Stop at the frozen host/case selection. Reuse compatible observations. No full seven-artifact-by-host matrix or performance ranking is required.
@@ -2284,7 +2305,7 @@ Stop at the frozen host/case selection. Reuse compatible observations. No full s
 
 A developer can install the release on a second computer, reach the skill from a selected host, and maintain it without disturbing an existing project. [Story acceptance](specs/spec-driven-authoring/spec.md#install-the-release-and-connect-a-host)
 
-- [ ] 42.1 [W64](#w64-task) (T061). Install the GitHub release and connect the chosen host. After W46 and W47 on the identified candidate.
+- [x] 42.1 [W64](#w64-task) (T061). Install the GitHub release and connect the chosen host. After W46 and W47 on the identified candidate.
 
 <a id="w64-task"></a>
 
@@ -2310,6 +2331,26 @@ Release maintainer · [S40](specs/spec-driven-authoring/spec.md#install-the-rele
 
 - **W64.1** From an isolated user directory without a checkout, install the tagged candidate through the documented release installer. Verify `specdev --version` and its PATH location. Use `specdev host init --tools codex` and request a checked independent document, then reuse W47 to demonstrate that project initialization goes through the pinned OpenSpec runtime only on request. Keep the tag, digest, actual host invocation, result and selected path. Inspect that the sibling host and an untouched project were not modified. <a id="w64-1"></a>
 - **W64.2** Give the same installer an asset that disagrees with its release checksum. It must identify the mismatch and leave the prior usable version and unrelated files intact. If a prerequisite is absent, report the required prerequisite and recovery. Limit platform claims to release assets with compatible install evidence. <a id="w64-2"></a>
+
+#### Verdicts
+
+Candidate: `38f39f6` on `implementation/ship-specdev` (release 0.1.0-rc.1).
+- **Build:** `tools/release/build.py` built the payload `specdev-0.1.0-rc.1.tar.gz` (SHA-256 `3e9b16de…092a`), `install.sh` and the npm tarball, with `SHA256SUMS`.
+- **Not published:** Publishing requires release-owner authority.
+
+Reviewer: implementing agent.
+
+- **W64.1 Met.** The isolated home had no checkout and already held a foreign Claude Code skill and a project file. The documented installer was run with `SPECDEV_RELEASE_BASE` pointing at the candidate assets.
+  - **Install:** It installed release 0.1.0-rc.1 and listed the paths it owns.
+  - **Version:** `specdev --version` reported version, revision `38f39f61…` and the launcher at `~/.local/bin/specdev`.
+  - **Host setup:** `specdev host init --tools codex` installed `~/.agents/skills/specdev`.
+  - **Real request:** A Codex request (`$specdev`, `gpt-6.2-sol`) wrote `explanation.md` through the installed skill's `check_document.py`, `validate_document.py` and writing-style check. It returned the exact checked-delivery message.
+  - **Project setup:** It goes through the pinned runtime only on request, reusing W47.
+  - **Untouched:** The sibling Claude Code folder, holding only the foreign skill, and the project file (`5116ffb6…`) were unchanged.
+- **W64.2 Met.**
+  - **Mismatch:** With the payload tampered, the installer exited 4 with "checksum mismatch … Nothing was changed; the current installation stays in place". `specdev --version` still reported 0.1.0-rc.1, and the foreign skill and project file were unchanged.
+  - **Prerequisites:** `InstallerTests` covers a missing Python, which is named with how to recover. A missing Node.js is reported when OpenSpec is first used (W47).
+  - **Platforms:** Claims are limited to macOS, Linux and WSL; this evidence is from macOS.
 
 #### Relevant files
 
