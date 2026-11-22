@@ -1,6 +1,6 @@
 # Spec Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 14. The [behavioral specification, revision 14](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 15. The [behavioral specification, revision 15](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -14,7 +14,7 @@ Use the actual [User Story (US) template](https://github.com/fatonsopa/ai-techni
 
 **One task, one releasable change.** Include the working entry point, necessary consumers, guidance, example and affected checks in the same commit. A task that introduces an artifact must ship a route from an ordinary request to complete reviewed output. Use a section or existing document contract when it can faithfully deliver the requested form. If it cannot, extend the existing routing and validation mechanism with the smallest compatible named variant. Preserve old receipts by version. Never certify a fragment as a complete standalone document.
 
-**Feature documentation at delivery.** Follow R35. Every new or changed public capability ships with its dedicated page and its entry link in the same increment. W54 can start from a released feature. Close F39 after the release-to-index comparison covers existing and newly delivered features.
+**Feature documentation at delivery.** Follow R35. Ship each new or changed public capability or document type with its guidance and a direct index link in the same increment. W54 establishes the first usable route. Close F39 when the index covers the release’s public features and supported document types.
 
 **Short feedback loop.** Before changing the skill, try the task’s named counterexample at its actual boundary or reuse the audit observation when its inputs still match. Fix the first demonstrated mismatch, inspect the same outcome and stop when its criteria and relevant shared obligations pass. A new input, failed boundary or missing criterion is the reason for another check. An unrelated failure gets its own disposition. Keep the original failure. On acceptance, record the exact commit, evidence and reviewer in the issue and hand the usable increment to its consumer.
 
@@ -2623,31 +2623,31 @@ Parent: S38. Supports S38.1 and F38.1. R34/A34. Owner role: writing maintainer. 
 
 Met on d8bf859f0eec178aa34b24e29aef10290e984c3b for the guide and author-applied example. The writing-style contract, repository and layout integrity checks passed. Reuse the [committed guide](https://github.com/fatonsopa/ai-technical-writer/blob/d8bf859f0eec178aa34b24e29aef10290e984c3b/references/writing_style.md#write-a-feature-page-people-can-use). The checkout layout now identifies the owner-requested plan directory. W60 needs no repeat implementation. Cross-host performance is assessed in W17.
 
-### F39 · Document each released feature in its own file
+### F39 · Make every released feature and supported document type findable
 
-As a developer, I want a direct link to instructions for each supported feature, so that I can find its input, result and next action.
+As a developer, I want to find the instructions for a feature or document type from the public index, so that I know when to use it, what to supply and what to expect.
 
 #### Acceptance criteria
 
-- **F39.1** Given the release entry points and format catalog, use the public README to locate a distinct Markdown page for every independently usable feature. An alias may share its feature’s page. A missing page, shared overview offered as two feature pages, or unshipped feature advertised as available fails. Save the release revision, route comparison and representative readback.
+- **F39.1** Given the candidate’s public capabilities and supported document catalog, follow their index entries from the repository README. Each resolves to usable instructions on a page or at a named section. Aliases and variants may share a destination that covers them. An omitted entry, irrelevant destination or unshipped feature presented as ready fails. Save the candidate revision, coverage comparison and representative destinations.
 
 #### Scope and sources
 
-Parent: this plan. Child: S39. R35/A35. Owner role: documentation maintainer. Applies to existing and newly shipped features. Use the approved repository README and documentation formats.
+Parent: this plan. Child: S39. R35/A35. Owner role: documentation maintainer. Covers existing and newly released features and supported document types.
 
-#### S39 · Find a feature and act from its own page
+#### S39 · Find instructions for a feature or document type from the index
 
 As a new user, I want the index to take me to the exact instructions for my request.
 
 ##### Acceptance criteria
 
-- **S39.1** Read the focused-edit page and a distinct shipped feature page from the same public index. Identify where to act, what each consumes, the result and where to stop. Compare the release’s eligible features and document formats with linked destinations. Reuse W54.1 and W61.1, plus owning-task evidence for later features.
+- **S39.1** From the same index, open the focused-edit and document-review entries. The first explains how to change only the selected text. The second explains how to obtain located findings. Both may resolve to sections in the same file. Use one supported Issue variant to show that a shared section can explain its specific inputs. Reuse the release comparison and observations from W54 and W61.
 
 ##### Scope and sources
 
-Parent: F39. W54 owns the first usable path and W61 owns existing-feature coverage. The task that delivers each new feature owns its page. Owner role: documentation maintainer.
+Parent: F39. W54 owns the first usable route. W61 owns existing release coverage. The task that delivers a new feature or document type owns its guidance and index link. Owner role: documentation maintainer.
 
-##### W54 · Publish the feature index and the focused-edit page
+##### W54 · Publish the public index with a usable focused-edit entry
 
 ###### Description
 
@@ -2655,11 +2655,11 @@ The current README describes focused edits inside a list of scenarios.
 
 ###### Expected outcome
 
-A reader can go from the repository entry to one page and request an edit with a clear boundary.
+A reader can follow the index to the focused-edit instructions and request a change with a clear boundary.
 
 ###### Scope
 
-Keep the index short. Reuse an existing suitable guide or add the focused-edit page with one realistic request. Link to other dedicated pages as they ship.
+Link the public index from the README. Point the focused-edit entry at its existing named section and improve that section if the example omits a needed input or result. Link additional released routes as their guidance becomes usable.
 
 ###### Specification
 
@@ -2667,18 +2667,18 @@ Parent: S39. Supports S39.1 and F39.1. R35/A35. Owner role: documentation mainta
 
 ###### Acceptance criteria
 
-- **W54.1** Starting from the root README in the candidate, follow the focused-edit link. The dedicated Markdown page shows the input, that only the selected title changes, and how to inspect the result. A link to a README section or a claim of a full rewrite fails. Preserve the path, sample and result of opening the link.
-- **W54.2** Open the published index links on the same candidate. Distinct released features listed have distinct files and aliases use the owning entry. A planned feature is never presented as ready. Save the link results.
+- **W54.1** From the candidate README, follow the index link for a focused edit. A direct link to “Make a focused edit” passes when it explains the title-only request, the preserved description and how to inspect the result. A working link to “Review a document” fails for that request. Keep the destination and the text that settles the distinction.
+- **W54.2** Open the index links included in this increment. Each guide or named section resolves on the candidate. A missing heading, an empty stub or a planned feature presented as ready fails. Save the candidate and link results.
 
 ###### Relevant files
 
-`README.md`, planned `docs/README.md`, the focused-edit guide and `references/readme.md`.
+`README.md` (including its focused-edit section), planned `docs/README.md`, and `references/readme.md`.
 
 ###### Additional context
 
-Ship the index and its first usable page in one commit. Initial verdicts: Not demonstrated. Apply the shared Definition of Done.
+Ship the index and its first usable link in one commit. Initial verdicts: Not demonstrated. Apply the shared Definition of Done.
 
-##### W61 · Complete page coverage for the existing release
+##### W61 · Complete index coverage for the existing release
 
 ###### Description
 
@@ -2690,20 +2690,20 @@ A reader can locate instructions for each feature and document format that the r
 
 ###### Scope
 
-Resolve the released entry points, README scenarios and format catalog to real Markdown files. Use an existing reader-ready page when possible. Give uncovered features a dedicated page with an example. Publish each independently usable page with its index link in a separate commit. Add later capabilities with their own feature tasks.
+Compare released entry points, README scenarios and supported document types against the public index. Link to useful existing sections first. Fill a gap in the owning guidance or write a separate guide when the reader needs a distinct procedure or reference. Keep each correction with its index link.
 
 ###### Specification
 
-Parent: S39. Supports S39.1 and F39.1. R35/A35. Owner role: documentation maintainer. Requires W54 and the identified release. Use the existing catalog and index as the record. Split any newly discovered independent page work into bounded Issues under S39 before authoring it.
+Parent: S39. Supports S39.1 and F39.1. R35/A35. Owner role: documentation maintainer. Requires W54 and the identified release. Use the existing catalog and index as the record.
 
 ###### Acceptance criteria
 
-- **W61.1** Compare the candidate release’s feature entries and supported formats with the index destinations. Every distinct feature has a reachable individual Markdown file; aliases can share their owner. Read the focused-edit and review pages. An edit describes the bounded change; a review returns located findings. Keep the paths, the differences and closure of any missing destination.
-- **W61.2** For new capabilities in the same candidate, reuse the page and link evidence from the delivering task. Check only uncovered entries or changed links. Neither a section of a catch-all README nor an empty stub satisfies coverage.
+- **W61.1** Compare every released user-facing feature and supported document type with the index. Check that each link opens at the intended instructions. For a chore Issue, a link to “Issue types and titles” can pass when it identifies the chore’s inputs and the Issue guide gives the expected result. An absent type or a link that leaves the reader searching fails. Retain the candidate, coverage differences and their disposition.
+- **W61.2** Reuse W54’s focused-edit evidence and open the review entry on the same release. The review guidance returns located findings and preserves the reviewed document. Distinct, useful headings in one file pass. A broken heading or a link to the focused-edit instructions fails even when the file exists. Retain the observed destinations. Recheck only changed links or uncovered entries.
 
 ###### Relevant files
 
-`README.md`, `SKILL.md`, `contracts/documents.json`, existing format references and public feature pages.
+`README.md`, `SKILL.md`, `contracts/documents.json`, the public index and the existing pages or sections it links to.
 
 ###### Additional context
 
@@ -2741,7 +2741,7 @@ Record Met, Failed or Not demonstrated per criterion and identified release. Reu
 | R29 / A29 | F33 → S33 → W53 | Using a versioned local release and a declared upstream version, inspect the effective command, upgrade the managed integration, then remove it. Project-authored documents and other installed commands survive. |
 | R33 / A33 | F37 → S37 → W58, W59 | Catalog route comparison, checked tutorial at the public entry, task consuming the reviewed design, and refusal on a stale revision. |
 | R34 / A34 | F38 → S38 → W60 | Review the committed guide, its two reader situations and the sourced example. |
-| R35 / A35 | F39 → S39 → W54, W61 | Compare the released entries with distinct public files and open the focused-edit and review routes. |
+| R35 / A35 | F39 → S39 → W54, W61 | Compare all released features and supported types with direct index destinations. Use focused editing, review and a chore Issue to check that a useful page or section answers the request. |
 | R18 / A18 | F22 → S22 → W32, W33, W34 | Same export route, two requests, actual question counts, answer binding, review and readiness verdicts. |
 | R16 / A16 | F20 → S20 → W29, W42 | Worked WEB-06 trace before setup and two reader routes from the `README.md` file and resolved guide links. |
 | R11 / A11 | F2 → S02 → W20 and W11 | Real parent links, broken edges and justified standalone work. |
@@ -2768,13 +2768,13 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-Revision 14 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+Revision 15 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 
 Append out-of-scope discoveries here with their source, observed effect, proposed change, impact of deferral and any task actually blocked. Only an explicit owner decision can add them to implementation scope.
 
-The approved work comprises F1–F33 and F37–F39, their 36 child stories, and W01–W54 plus W58–W61. W60’s guide edit shipped on the handoff branch before the remaining implementation. W46 covers the public identity, W49 covers on-request Converge, and W58–W59 cover the full writing catalog. The additional worked walkthrough and demonstrations in F34–F36 (W55–W57), and the additional assessment criterion W51.3, await the owner’s approval. F39 now owns the approved index task W54 and the separate page requirement. Exclude only the pending proposals from execution and completion counts. W51.1–W51.2 remain the approved criteria for idea assessment. A proposed guide or extra demonstration is a separate decision from the selected upstream workflow.
+The approved work comprises F1–F33 and F37–F39, their 36 child stories, and W01–W54 plus W58–W61. W60’s guide edit shipped on the handoff branch before the remaining implementation. W46 covers the public identity, W49 covers on-request Converge, and W58–W59 cover the full writing catalog. The additional worked walkthrough and demonstrations in F34–F36 (W55–W57), and the additional assessment criterion W51.3, await the owner’s approval. F39 now owns the approved index task W54 and index coverage for every released feature and supported document type. Exclude only the pending proposals from execution and completion counts. W51.1–W51.2 remain the approved criteria for idea assessment. A proposed guide or extra demonstration is a separate decision from the selected upstream workflow.
 
 ### Proposed assessment refinement
 

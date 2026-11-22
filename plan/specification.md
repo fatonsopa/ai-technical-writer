@@ -1,6 +1,6 @@
 # Spec Writer improvement specification
 
-Status: Approved behavioral scope, revision 14. Applies to Codex and Claude Code. [Audit](./audit.md)
+Status: Approved behavioral scope, revision 15. Applies to Codex and Claude Code. [Audit](./audit.md)
 
 ## Purpose and scope
 
@@ -56,7 +56,7 @@ An **owning source** is the project-approved location and revision for a claim. 
 | R29 | Ship a versioned integration with documented compatibility, ownership and recovery. Assemble a bundle only when the chosen components can be resolved. |
 | R33 | Extend borrowed document operations to every supported writing route. Preserve each format, its own prerequisites, authority, checked delivery and handoff to its actual consumer. |
 | R34 | Give procedures, references and session replies wording suited to the reader’s decision and the evidence available. |
-| R35 | Give every released feature its own reader-usable Markdown file linked from the public index. Aliases use their owning page. |
+| R35 | The public index must lead readers directly to usable guidance for every released feature and supported document type. A guide or a named section can satisfy the requirement. Create a separate guide when readers need a distinct procedure or reference. |
 
 ## Production order
 
@@ -110,13 +110,13 @@ Start from the writer’s live [format catalog](../SKILL.md) and [output contrac
 
 For a direct request, select the canonical type, use its own discovery, writing, editing and review rules, and deliver the checked result. For a feature, reuse an appropriate existing document, or request the missing input according to R18. Recommend one eligible next document under R20. Preserve the actual project location, revision and relevant section when passing a document to the next consumer. Operators may initiate a document independently when its own prerequisites allow it. A borrowed command, template, checklist, assessment or workflow uses this same rule wherever it handles documents. A provider can consume a link or a scoped view without taking ownership of the document.
 
-### One file for every released feature
+### Find features and document types from the public index
 
-Use the short repository README to direct readers to the public feature index. Each independently usable, released feature has a distinct, reachable Markdown file. Start with the existing public readme, user-invocable routes and supported format catalog. Include standalone writing, discovery, editing, review, rewriting, visuals, checked delivery, documented maintenance operations, shortcuts, guided handoffs and each shipped optional workflow. Count supported document formats as reader destinations. Aliases and command spellings resolve to the same file. Reuse a dedicated, reader-usable guide or format reference. Where several distinct features have only a shared reference or one README section, give each its own page linking the common rules.
+Link the public index from the repository README. Cover the released user-facing capabilities and supported document catalog, including standalone writing, discovery, editing, review, rewriting, visuals, checked delivery, documented maintenance operations, shortcuts, guided handoffs and each shipped optional workflow. Aliases, command spellings and small variants can share guidance when readers can identify the behavior that applies to their request.
 
-A page answers the question a reader came with. Give its purpose, relevant prerequisites, where to act, one supported input, the observable result and where work ends or goes next. If an operation can stop partway, explain the meaningful stop or recovery point. Link the source of shared rules. A page duplicating setup from other guides or pointing only to an overview leaves the reader without an owner for the instructions.
+Link to the page or specific heading that explains when to use the feature or format, what to provide and what result to expect. For instance, the focused-edit and review entries can point to different headings in the same README. An Issue variant can point to the section that explains its fields. Give readers a separate guide when they need a distinct procedure or reference. Include prerequisites, recovery or the next action where these affect the reader’s task.
 
-The task that releases or changes a feature owns its page and index entry in the same increment. As examples, W35 owns shortcuts, W38 owns next-document guidance, W47 owns project-aware writing, W49–W50 own execution and resumption, and W51 and W52 own assessment and repair respectively. The owner of each A10a–g route supplies or links its dedicated guide. W54 establishes the public entry. W61 covers already released features whose pages would otherwise have no delivery owner. The guide for an optional workflow describes its available behavior even if a separate tutorial or runtime demonstration is still proposed.
+The task that releases or changes a feature owns the guidance and its direct index link in the same increment. As examples, W35 owns shortcuts, W38 owns next-document guidance, W47 owns project-aware writing, W49–W50 own execution and resumption, and W51 and W52 own assessment and repair respectively. The owner of each A10a–g route makes its instructions findable from the index. W54 establishes the public entry. W61 covers already released features and supported types with missing or inadequate index destinations. The guide for an optional workflow describes its available behavior even if a separate tutorial or runtime demonstration is still proposed.
 
 ## Quality and interface constraints
 
@@ -196,7 +196,7 @@ Use the same task evidence at the requirement, story and epic when it proves the
 
 **A34 · R34.** F38/S38/W60. Use the [committed guide](https://github.com/fatonsopa/ai-technical-writer/blob/d8bf859f0eec178aa34b24e29aef10290e984c3b/references/writing_style.md#write-a-feature-page-people-can-use) and its worked case. The feature example identifies the action and source. The session identifies the reviewed approval rule and the unresolved decision.
 
-**A35 · R35.** F39/S39/W54/W61. Compare every released capability and format with the public index. Each distinct feature has a working, separate file and an example appropriate to its entry. A focused edit and a review lead to distinct results. A shared overview or empty page fails. Include new pages with their feature’s own delivery.
+**A35 · R35.** F39/S39/W54/W61. Compare the release’s public features and supported document types with the index. Each entry opens on guidance that explains when to use it, its input and expected result. A direct link to a useful section passes, including one shared by variants it covers. For focused editing and review, the respective destinations must distinguish a bounded change from findings. An omitted entry, broken anchor, unrelated section, empty stub or general overview that leaves the reader searching fails. Reuse the candidate and link observations from the owning tasks.
 
 ## Open decisions
 
@@ -220,7 +220,7 @@ The implementation plan maps each finding to an epic and each criterion to bound
 
 ## Proposals awaiting owner approval
 
-The approved work comprises F1–F33 and F37–F39, their 36 child stories, and W01–W54 plus W58–W61. W60’s guide edit shipped on the handoff branch before the remaining implementation. W46 covers the public identity, W49 covers on-request Converge, and W58–W59 cover the full writing catalog. The additional worked walkthrough and demonstrations in F34–F36 (W55–W57), and the additional assessment criterion W51.3, await the owner’s approval. F39 now owns the approved index task W54 and the separate page requirement. Exclude only the pending proposals from execution and completion counts. The following material is retained for a future decision. The on-request Converge policy in D6 governs these proposals too.
+The approved work comprises F1–F33 and F37–F39, their 36 child stories, and W01–W54 plus W58–W61. W60’s guide edit shipped on the handoff branch before the remaining implementation. W46 covers the public identity, W49 covers on-request Converge, and W58–W59 cover the full writing catalog. The additional worked walkthrough and demonstrations in F34–F36 (W55–W57), and the additional assessment criterion W51.3, await the owner’s approval. F39 now owns the approved index task W54 and index coverage for every released feature and supported document type. Exclude only the pending proposals from execution and completion counts. The following material is retained for a future decision. The on-request Converge policy in D6 governs these proposals too.
 
 | Proposed ID | Candidate behavior |
 | --- | --- |
