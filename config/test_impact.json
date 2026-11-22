@@ -566,6 +566,18 @@
         "-p",
         "test_shortcuts.py"
       ]
+    },
+    "openspec-runtime": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_openspec_runtime.py"
+      ]
     }
   },
   "rules": [
@@ -1183,6 +1195,17 @@
       ],
       "tests": [
         "shortcuts"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/openspec_runtime.py",
+        "scripts/test_openspec_runtime.py",
+        "tools/openspec/package.json",
+        "tools/openspec/package-lock.json"
+      ],
+      "tests": [
+        "openspec-runtime"
       ]
     }
   ],

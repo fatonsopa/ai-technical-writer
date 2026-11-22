@@ -64,6 +64,15 @@ Apply the reference's principles, structure, template and checks. For creation/s
 
 Integrations must take document structure and reusable templates from this skill's references and output contracts. Applications supply verified facts and use the checked-writing workflow; they must not maintain separate hardcoded document templates. Bind approved content to its exact skill version so a template update preserves historical approvals and records. To write a project's document, start from its facts, decisions and prior requirements, even into an empty destination, and use this skill's reference and contract for the structure. A project's own or legacy template is source evidence, not a prerequisite. If the consuming application needs a different format, report the conflicting field at that application's interface instead of changing the reviewed document.
 
+## OpenSpec projects
+
+SpecDev carries its own pinned OpenSpec CLI. Run every OpenSpec command through `scripts/openspec_runtime.py --project ROOT VERB [ARGS]` with this skill's Python environment. The script installs the locked dependency on first use, checks Node.js 22.20.0 or later and reports a missing prerequisite with the last confirmed state.
+
+- `/specdev init` (Codex: `$specdev init`) runs `openspec init` in the project the user names. It adds `--tools=none` and `--scope=project` unless the user supplied those options, so a default setup adds no host commands and nothing outside the project. Run it only when the user asks for it; a writing request, an error or a missing change never starts initialization.
+- Any other OpenSpec command, such as `status`, `instructions`, `templates`, `validate` or `archive`, is forwarded with its arguments unchanged. The script asks the installed CLI whether the command exists. An unknown command returns a result and runs nothing.
+- Select the project root and the change before writing. Use the root and change the user named, or the single one the CLI lists. If several fit and the choice matters, ask which one. Write each native artifact at the path `openspec instructions` returns, follow its instructions and template, and check it with `openspec validate`. Native OpenSpec owns every artifact and operation it supplies; SpecDev adds the writing guide and its checks.
+- Leave other changes, user-edited project files and user-wide settings as they are.
+
 ## Document relationships
 
 The Spec Driven Development document (SDD) owns WHAT; the High Level Document (HLD) and Low Level Design (LLD) explain design; the Implementation Plan (IP) explains HOW to deliver and verify it. “Spec Driven Development” is also the method's name; this document label/filename is the user's convention. Respect a project's different terminology. Link requirements and checks by stable IDs or exact sections; resolve conflicts explicitly.
