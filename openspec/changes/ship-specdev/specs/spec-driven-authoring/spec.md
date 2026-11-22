@@ -425,6 +425,13 @@ SpecDev SHALL make each authorable format available on explicit request. When th
 - **WHEN** the user requests a Tutorial (TUT), or an authorized native change task consumes a reviewed design or specialist artifact already defined by its schema
 - **THEN** the tutorial receives its format-specific checked handoff and no provider dispatch. The change uses the native artifact at its actual location, links its exact decision and source to the task and holds stale dependent input. The catalog includes eligible authorable types and A10 variants as released. Writing Style (WS), Visual Guidance (VG) and other reference-only guides inform writing. A catalog entry alone creates no requirement for a companion file, extra alias or export.
 
+#### Scenario: Write and edit native artifacts in the shared style (A33b, F37.2, S37.2)
+
+<a id="a33b"></a><a id="f37-2"></a><a id="s37-2"></a>
+
+- **WHEN** SpecDev drafts or edits prose in an OpenSpec proposal, specification, design, task list or other Markdown artifact supplied by the active schema
+- **THEN** SpecDev SHALL use its installed Writing Style (WS) guide and review the finished passage against the governing source. OpenSpec and the selected project retain their headings, requirement keywords, paths, identifiers, numbering, checkboxes and applicable rules. A reader can identify the action and its conditions. An unresolved permission stays open until a source or an authorized person settles it. The writing request produces only the requested artifact or edit.
+
 ### Requirement: R34 · Reader-facing feature guidance
 
 SpecDev SHALL give procedures, references and session replies wording suited to the reader’s decision and the evidence available.

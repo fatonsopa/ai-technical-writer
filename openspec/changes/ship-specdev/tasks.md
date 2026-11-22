@@ -1593,6 +1593,27 @@ Skill maintainer · R33/A33. [S37.1](./specs/spec-driven-authoring/spec.md#s37-1
 
 `references/low_level_design.md`, the W38–W39 checked handoff and W48’s selected native task consumer.
 
+- [ ] 37.3 [W63](#w63--use-the-writing-guide-for-native-artifacts) (T060). Write and edit native refund wording through SpecDev. Check the saved text against the permission source and OpenSpec’s selected format. After W58.
+
+### W63 · Use the writing guide for native artifacts
+
+#### Description
+
+A developer should be able to read an OpenSpec proposal, specification, design or task list in the same plain language as other SpecDev documents. The active OpenSpec schema owns the structure of each file.
+
+#### Expected outcome
+
+Through the normal SpecDev entry, the author reads the installed [Writing Style (WS) guide](../../../references/writing_style.md) alongside the native instructions before drafting or editing prose. Apply this to any Markdown artifact the selected schema supplies. Keep project-specific terminology, rules, required syntax and literal values intact. Deliver the reviewed text at its native path. Existing files outside the requested edit stay untouched.
+
+Skill maintainer · R33/A33b · [S37.2](./specs/spec-driven-authoring/spec.md#s37-2). Requires [W58](#w58--request-any-supported-writing-format-through-the-workflow). Reuse W40’s refund source and W58’s custom artifact routing evidence. W17 owns host coverage.
+
+#### Acceptance criteria
+
+- **W63.1** Given the approved manager-only refund rule, use the ordinary authoring entry to draft a native task. From the saved row, a reader must be able to say what to build and who can approve. “Allow only managers to approve refunds” is one acceptable wording. Use the task number assigned in this change. Retain the source, final passage, candidate and native task readback showing its number and state. Inspect the common create/edit route for the four built-in artifact kinds and the configured Markdown kind from W58. <a id="w63-1"></a>
+- **W63.2** Request a wording edit to one native refund specification. Its source names the approver but leaves retry authority open. Compare the changed passage with the source and original file. A reader must recover both facts. The required heading, `SHALL`, scenario markers and unrelated text survive. Reject an invented retry owner, a weaker permission or an extra file. Keep the before/after passage and criterion verdict with the candidate. A prompt or structural validation alone cannot establish either wording result. <a id="w63-2"></a>
+
+Use the shared guide and the native authoring route established by W47/W58. Apply the [shared Definition of Done](./design.md#requirement-coverage). Record each verdict and the accepted commit in this Issue. Reuse W17’s host observations where they cover the same behavior.
+
 <a id="s33--distribute-and-safely-update-the-versioned-integration"></a>
 
 ## 38. S33 · Distribute and safely update the versioned integration
