@@ -4,6 +4,8 @@ Use this reference to define what a finished system or change must do. A specifi
 
 This package uses “SDD” for both the behavioral document and the development method; the document name is a local convention. Create it when behavior needs explicit agreement; update it when intended behavior changes. Use [Implementation Plan (IP)](implementation_plan.md) for delivery, [Product Requirements Document (PRD)](product_requirements_document.md) for product intent, and [User Story (US)](user_story.md) for a user-value summary. A specification can follow a work item or generate several items after planning. Small changes can keep their specification in explicit task requirements and acceptance criteria.
 
+When the project uses the multi-task feature workflow, the reviewed specification feeds the plan. The same feature’s specification and plan then feed the Issues and `tasks.md`. [Feature task flow](../README.md#where-tasksmd-fits)
+
 ## Principles
 
 - Describe observable outcomes before choosing technologies or files. A genuine architectural, regulatory, or product constraint belongs in the spec with its source; a proposed implementation choice belongs in the design or plan.

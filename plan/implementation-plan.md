@@ -1,6 +1,6 @@
 # Spec Writer implementation plan
 
-Status: Scope approved for implementation on the handoff computer. Revision 17. The [behavioral specification, revision 17](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
+Status: Scope approved for implementation on the handoff computer. Revision 18. The [behavioral specification, revision 18](./specification.md) owns the requirements. The [audit](./audit.md) owns the 36 approved findings. This plan assigns each finding one epic, identifies its child story and commissions individually shippable tasks against that story.
 
 ## Goal and specification
 
@@ -10,7 +10,7 @@ Deliver one local Spec Writer candidate that can author complete specification-d
 
 Use the actual [User Story (US) template](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md) for the parent outcome and child story, and the [Issue template](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) for each task. Titles below preserve independent task IDs. Each story’s scope identifies its epic; each task’s Specification names its story criterion. One child story is sufficient for each finding’s first usable outcome.
 
-**Artifact production order.** Use the [numbered dependency rules](./specification.md#production-order) and [seven artifact acceptance cases](./specification.md#seven-authoring-cases-and-hierarchy-acceptance). With unresolved intent, interview → brief → product definition. Separate independently deliverable capabilities before writing their individual specifications. Research precedes any dependent design choice. Requirements review needs an identified specification; critical journey verification needs a mapped surface. From an established feature or epic, write the story first and its child tasks second. A standalone issue states its own authority and proof. Verification criteria are written before implementation; evidence is attached after execution. For design, contracts and verification, use the [linking table and refund example](./specification.md#link-work-to-its-parent-and-designs-to-their-sources) to identify which record a reader needs. W62 implements these rules in the ordinary writing route.
+**Artifact production order.** Use the [numbered dependency rules](./specification.md#production-order) and [seven artifact acceptance cases](./specification.md#seven-authoring-cases-and-hierarchy-acceptance). With unresolved intent, interview → brief → product definition. Separate independently deliverable capabilities before writing their individual specifications. Research precedes any dependent design choice. Requirements review needs an identified specification; critical journey verification needs a mapped surface. From an established feature or epic, write the story first and its child tasks second. A standalone issue states its own authority and proof. Verification criteria are written before implementation; evidence is attached after execution. For design, contracts and verification, use the [linking table and refund example](./specification.md#link-work-to-its-parent-and-designs-to-their-sources) to identify which record a reader needs. W62 implements these rules in the ordinary writing route. Use the [command and document sequence](./specification.md#when-to-write-and-read-tasksmd) for the transition from the plan to Issues, the feature task list and authorized implementation.
 
 **One task, one releasable change.** Include the working entry point, necessary consumers, guidance, example and affected checks in the same commit. A task that introduces an artifact must ship a route from an ordinary request to complete reviewed output. Use a section or existing document contract when it can faithfully deliver the requested form. If it cannot, extend the existing routing and validation mechanism with the smallest compatible named variant. Preserve old receipts by version. Never certify a fragment as a complete standalone document.
 
@@ -1408,7 +1408,7 @@ A contributor can choose what to write next from the `README.md` file alone and 
 
 ###### Scope
 
-Add one numbered section linked from Quick start. Keep optional branches, checked-output rules and format definitions in their owning references. Include human-readable text for both hosts.
+Build on the Quick start section “Where `tasks.md` fits” when the implementation ships. Publish the full numbered chronology and replace its planned-status wording with verified host entries. Link to the owning format guides. The command instructions must identify their actual input, output and next reader for both hosts.
 
 ###### Specification
 
@@ -1416,7 +1416,7 @@ Parent: S20. Supports S20.1 and F20.1. R16/A16. Responsible role: documentation 
 
 ###### Acceptance criteria
 
-- **W29.1** Starting at Quick start, a new reader can locate discovery or existing evidence → brief when useful → product definition → feature behavior → applicable design or decisions → delivery plan → feature or epic → story → child Issue → evidence and closure. The section says what feeds each step and links to the actual skill guidance.
+- **W29.1** Starting at Quick start, a new reader can locate discovery or existing evidence → brief when useful → product definition → feature behavior → applicable design or decisions → delivery plan → feature or epic → story → child Issue → evidence and closure. The section says what feeds each step and links to the actual skill guidance. Follow the multi-task branch through its reviewed spec and plan, Issues, `tasks.md`, eligible Issue, implementation evidence and next eligible row. Starting from the README, the reader can explain why the list is the last writing output and why no `task.md` follows it by default.
 - **W29.2** Using the same section, route an independent broken-link fix directly, with inline scope and proof. Identify why an orphaned child must wait. Locate all seven conditional artifacts at their dependency points and distinguish planned proof from observed results. Retain the `README.md` file passage, resolved links and both reader answers.
 
 ###### Relevant files
@@ -1833,7 +1833,7 @@ Parent: S23. Supports S23.1 and F23.1. R19/A19. Responsible role: integration ma
 
 - **W40.1** From one approved story, task produces one Issue and tasks produces a justified breakdown with the same parent, criterion links, dependencies and observable proof for each child. A one-line upstream checklist entry alone fails.
 - **W40.2** A single independent maintenance change stays one Issue. A missing parent for a declared child blocks readiness. Reuse the existing ancestry negatives and confirm no template-generated setup phase or invented test obligation appears.
-- **W40.3** Given the two approved refund stories, settled read contract, verified fixture paths and Issue references in the [feature task-list rules and refund example](./specification.md#feature-task-lists-and-issue-acceptance), use the normal writing entry. Expect one `tasks.md` with four rows linked to #81–#84 and their criteria. In US1, only T001 and T002 carry `[P]` and the same refund can be checked on both surfaces before US2 ships. In US2, T004 explicitly depends on T003 and the story demonstration uses mixed refund decisions. A second editable copy of task acceptance, a blanket setup phase or a parallel marker on T004 fails. Retain the checked list and its linked Issues for W48.
+- **W40.3** Given the two approved refund stories, settled read contract, verified fixture paths and Issue references in the [feature task-list rules and refund example](./specification.md#feature-task-lists-and-issue-acceptance), use the normal writing entry. Expect one `tasks.md` with four rows linked to #81–#84 and their criteria. In US1, only T001 and T002 carry `[P]` and the same refund can be checked on both surfaces before US2 ships. In US2, T004 explicitly depends on T003 and the story demonstration uses mixed refund decisions. A second editable copy of task acceptance, a blanket setup phase or a parallel marker on T004 fails. Retain the checked list and its linked Issues for W48. At the Tasks entry, consume the reviewed spec and plan, resolve or author the Issues before marking the list ready, and return the linked outputs. Reuse existing Issues on continuation. An unresolved row remains unready. Use the [command and document sequence](./specification.md#when-to-write-and-read-tasksmd) in the installed writing guidance.
 
 ###### Relevant files
 
@@ -1919,7 +1919,7 @@ Parent: S24. Supports S24.1 and F24.1. R20/A20. Responsible role: workflow maint
 ###### Acceptance criteria
 
 - **W38.1** From a feature with a settled prerequisite, next names one eligible document and the specific benefit in one line; repeated next leaves the initiative unchanged. With two plausible initiatives ask which only if evidence cannot settle it.
-- **W38.2** For a blocked child name the missing prerequisite. For a standalone fix with sufficient acceptance say documentation is complete. Recommend no extra document in either case; reuse A17 and A18 evidence.
+- **W38.2** For a blocked child name the missing prerequisite. For a standalone fix with sufficient acceptance say documentation is complete. Recommend no extra document in either case; reuse A17 and A18 evidence. Reuse W40’s refund case to check that next recommends `tasks.md` once its inputs exist and reports document delivery after the checked list. It must neither invent a singular document nor initiate implementation.
 
 ###### Relevant files
 
@@ -2281,7 +2281,7 @@ Parent: S30. Supports S30.1 and F30.1. R26/A26. Owner role: skill maintainer. Re
 
 - **W48.1** Project an approved manager-only refund Issue into the selected feature. Observe the actual consumer extracting the scoped task and its denied-permission criterion from its normal inputs. Preserve the Issue as the editing authority.
 - **W48.2** Give a sibling feature the same short task ID; revise the selected Issue after generating the view. The consumer must not take the sibling task or dispatch the stale revision. Reconcile against the governing Issue, retaining existing acceptance evidence.
-- **W48.3** Give the actual implementing agent W40’s feature list and linked Issues through its normal entry, without coaching it on the order. Capture the consumer identifying both T001 and T002 as eligible together and explaining how their story can ship before filtering. At the start of US2, capture the consumer selecting T003 and identifying its working API as the reason T004 must wait. Once the approved API filter has evidence on the candidate, observe T004 become eligible and the agent recover #84’s governing criterion. A checkbox alone, an early dispatch or a wrong Issue fails. Retain the consumer’s selections, prerequisite evidence and source references. Reuse the same feature and applicable checkpoints. This check proves scheduling and handoff; it requires neither concurrent workers nor four fresh builds.
+- **W48.3** Give the actual implementing agent W40’s feature list and linked Issues through its normal entry, without coaching it on the order. Capture the consumer identifying both T001 and T002 as eligible together and explaining how their story can ship before filtering. At the start of US2, capture the consumer selecting T003 and identifying its working API as the reason T004 must wait. Once the approved API filter has evidence on the candidate, observe T004 become eligible and the agent recover #84’s governing criterion. A checkbox alone, an early dispatch or a wrong Issue fails. Retain the consumer’s selections, prerequisite evidence and source references. Reuse the same feature and applicable checkpoints. This check proves scheduling and handoff; it requires neither concurrent workers nor four fresh builds. At the implementation entry, observe that the agent opens the active plan, feature list and selected Issue. Reuse those selection observations to prove it returns to the same list for the next eligible row. A demand for a new `task.md` fails.
 
 ###### Relevant files
 
@@ -2804,7 +2804,7 @@ Keep previous contracts, reviewed documents and delivery receipts readable under
 
 ## Risks and open decisions
 
-Revision 17 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
+Revision 18 carries forward the approved scope, including the conditional hierarchy, first-use naming convention, reviewed-delivery sentence and evidence-based clarification under R18/A18. Internal file names and implementation choices are delegated within the approved scope. A missing host observation remains Not demonstrated.
 
 ## Pending owner decisions
 

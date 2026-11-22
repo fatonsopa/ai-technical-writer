@@ -6,6 +6,8 @@ Create a task when work needs tracking; update its scope, progress, and evidence
 
 An issue may trigger a specification, or a specification and plan may produce several issues. For a small change, the issue's expected behavior and acceptance criteria can be the specification. Larger work links to the governing spec and plan instead of copying them.
 
+In a multi-task feature, write or reuse each Issue during task breakdown so the feature’s `tasks.md` can link directly to its scope and acceptance criteria. The implementing agent opens the eligible Issue from that list. A standalone task can end with this Issue. Its filename follows the project convention. [Feature task flow](../README.md#where-tasksmd-fits)
+
 When editing an existing excerpt, use the current request's task type and destination if an older draft contains conflicting drafting directions. Remove author-facing drafting instructions from finished issue prose. Keep meaningful headings within the edited excerpt clear without expanding it into a full task.
 
 ## Principles

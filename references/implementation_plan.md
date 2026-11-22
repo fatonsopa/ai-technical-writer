@@ -2,6 +2,8 @@
 
 A plan explains how to deliver agreed behavior within the actual system. Create it when work needs sequencing or coordination; update it when the approach, dependencies, risks, or verification change. Read the governing [Spec Driven Development document (SDD)](spec_driven_development.md), relevant [High Level Document (HLD)](high_level_document.md), and decision history before choosing the approach.
 
+For a multi-task feature, the reviewed plan and feature specification feed task breakdown. Keep approach, rollout and material ordering decisions in the plan. Resolve or write the [Issues](issue.md), then put the execution order and links in one `tasks.md`. The implementing agent uses that list and the plan to select an Issue when implementation is authorized. [Feature task flow](../README.md#where-tasksmd-fits)
+
 ## Principles
 
 - Explain the current problem and desired result, then identify the requirements that define success. If a small issue is the specification, link its exact expected behavior and acceptance criteria.

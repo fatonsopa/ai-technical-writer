@@ -61,6 +61,8 @@ Integrations must take document structure and reusable templates from this skill
 
 The Spec Driven Development document (SDD) owns WHAT; the High Level Document (HLD) and Low Level Design (LLD) explain design; the Implementation Plan (IP) explains HOW to deliver and verify it. “Spec Driven Development” is also the method's name; this document label/filename is the user's convention. Respect a project's different terminology. Link requirements and checks by stable IDs or exact sections; resolve conflicts explicitly.
 
+For a multi-task feature that uses `tasks.md`, resolve the Issues from the reviewed spec and plan before finalizing the list. A writing request ends at the checked handoff. Authorized implementation selects an Issue from the list. [Feature task flow](README.md#where-tasksmd-fits)
+
 ![Technical documentation workflow](examples/diagrams/documentation_workflow.svg)
 
 These are common handoffs, not a mandatory sequence. Work can start with an Issue, Product Requirements Document (PRD), or Spec Driven Development document (SDD); decisions and testing support the relevant work.
