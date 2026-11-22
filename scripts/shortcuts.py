@@ -19,6 +19,32 @@ HOSTS = {"codex": ".agents/skills", "claude-code": ".claude/skills"}
 INVOKE = {"codex": "$", "claude-code": "/"}
 
 
+# Catalog rows that link a docs/ guide rather than their contract's reference.
+CONTRACT_ROUTES = {"interview": "interview", "brief": "brief", "capability-map": "capability_map", "research": "research",
+                   "requirements-checklist": "requirements_checklist", "feature-map": "feature_map", "journeys": "journeys"}
+# OpenSpec artifacts: in a selected change the native schema owns their format and path.
+NATIVE = {"proposal": "proposal", "design": "design", "tasks": "tasks"}
+# Guidance-only entries with no contract of their own.
+GUIDANCE = {"epic": "references/user_story.md#epics"}
+
+
+def route(row, root=ROOT):
+    """What a catalog command resolves to: contract kinds, a native OpenSpec artifact or guidance only."""
+    name = row["command"]
+    if name in NATIVE:
+        return {"native": NATIVE[name]}
+    if name in GUIDANCE:
+        return {"guidance": GUIDANCE[name]}
+    documents = json.loads((Path(root) / "contracts/documents.json").read_text())["documents"]
+    if name in CONTRACT_ROUTES:
+        return {"kinds": [CONTRACT_ROUTES[name]]}
+    reference = row["guide"].split("#")[0]
+    kinds = sorted(kind for kind, value in documents.items() if value["reference"] == reference)
+    if not kinds:
+        raise ValueError(f"Catalog command {name} resolves to no contract, native artifact or guidance entry.")
+    return {"kinds": kinds}
+
+
 def catalog(root=ROOT):
     """Command names, document names and guide links from the README's supported-document table."""
     text = (Path(root) / "README.md").read_text()
@@ -78,7 +104,7 @@ def main():
     drop = sub.add_parser("remove"); drop.add_argument("--host", choices=sorted(HOSTS), required=True)
     args = parser.parse_args()
     try:
-        result = catalog() if args.action == "list" else install(args.host, args.names) if args.action == "install" else {"removed": remove(args.host)}
+        result = [{**row, **route(row)} for row in catalog()] if args.action == "list" else install(args.host, args.names) if args.action == "install" else {"removed": remove(args.host)}
         print(json.dumps(result, indent=2))
         return 0
     except (OSError, ValueError) as error:

@@ -22,6 +22,21 @@ class ShortcutTests(unittest.TestCase):
         self.assertTrue({"dr", "task", "tasks", "story", "us"} <= set(names))
         self.assertEqual(len(names), len(set(names)))
 
+    def test_every_catalog_command_resolves_to_its_contract_native_artifact_or_guidance(self):
+        """W58: each advertised kind and alias has its own route; guidance-only entries keep their role."""
+        import json
+        documents = json.loads((shortcuts.ROOT / "contracts/documents.json").read_text())["documents"]
+        routes = {row["command"]: shortcuts.route(row) for row in shortcuts.catalog()}
+        for name, target in routes.items():
+            with self.subTest(command=name):
+                self.assertTrue(set(target.get("kinds", [])) <= set(documents))
+        self.assertEqual(routes["dr"], {"kinds": ["decision"]})
+        self.assertEqual(routes["tut"], {"kinds": ["tutorial"]})
+        self.assertEqual(routes["brief"], {"kinds": ["brief"]})
+        self.assertEqual(routes["design"], {"native": "design"})
+        self.assertEqual(routes["epic"], {"guidance": "references/user_story.md#epics"})
+        self.assertEqual(routes["story"], routes["us"])
+
     def test_only_opted_in_names_are_created_and_reinstall_keeps_one_entry(self):
         self.assertFalse((self.home / ".claude/skills").exists())
         result = shortcuts.install("claude-code", ["dr", "task", "tasks"])
