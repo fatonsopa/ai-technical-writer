@@ -120,6 +120,12 @@ A progress message earns its place when it gives the reader a result, a decision
 
 For example, suppose a reviewer confirmed that only a manager may approve a refund and that the retry owner is still unknown. After checking the document, the writer could say, “The design records that only managers may approve refunds. Who may retry a failed refund?” If the document already answers the question, use that answer. A statement that the refund flow passed would require an observed check of that flow.
 
+## Session replies
+
+Write a session reply from where the owner is now. If they must do one thing themselves, such as opening a document only they can reach, give the starting location, the exact read action, what they should see when it worked, such as the document's title, and the safe next step if the known failure happens. For example: "In the shared drive, open Reviews › Q4 and choose View on `refund-design.md`. The document's title is "Refund approval design". If it says the file isn't available, send me the link you see instead; don't edit or move the file." If the owner already has the document and only asks what it says, answer from it directly. Don't add commands they don't need, guess a path or ask them to change anything.
+
+When the owner misunderstood a role in an earlier explanation, resolve it in the first sentence from the source. For example, if they ask whether they must write the reader's answers, and the plan says an independent reader answers: "No, the independent reader writes those answers; you decide whether the opening is clear enough to keep." Then use a different concrete example to show the decision that is still theirs. If the source leaves the role open, say that it's open and who can settle it. Don't repeat the original wording, give the owner new work or promise a check that hasn't run.
+
 ## Explain diagrams in the reader’s language
 
 Review diagram titles, subtitles, labels, legends and explanations. Use established notation terms. Repeat each complete visible number and label exactly in its table row, with relevant trigger, action, feedback and next path. “The system checks whether the signed-in user is an administrator. Yes permits the edit; No denies access.” Do not imply a confirmation modal. A lost response does not prove rollback. [Visual Guidance (VG)](visuals.md) owns the numbering and notation rules.

@@ -785,7 +785,7 @@ Candidate: the W28 commit on `implementation/ship-specdev`. `workflows/discover.
 
 Use the handoff to perform the necessary manual action and identify who answers the next question. [Story criteria](./specs/spec-driven-authoring/spec.md#s12--act-on-a-handoff-and-resolve-a-misunderstood-role)
 
-- [ ] 17.1 [W25](#w25--guide-the-owner-through-one-necessary-manual-action) (T022). Give the owner the exact read action and expected title for the necessary handoff. Answer directly when the document is already open.
+- [x] 17.1 [W25](#w25--guide-the-owner-through-one-necessary-manual-action) (T022). Give the owner the exact read action and expected title for the necessary handoff. Answer directly when the document is already open.
 
 ### W25 · Guide the owner through one necessary manual action
 
@@ -810,7 +810,14 @@ Style maintainer · R14/A14. [S12.1](./specs/spec-driven-authoring/spec.md#s12-1
 
 Ship one portable route and its usable example in one commit.
 
-- [ ] 17.2 [W26](#w26--clarify-who-acts-when-an-explanation-was-misunderstood) (T023). Clarify who supplies reader answers. Cite the source for an assigned role or preserve the choice when it is unsettled. After W25.
+#### Verdicts
+
+Candidate: the W25/W26 commit on `implementation/ship-specdev`. `references/writing_style.md` gains a "Session replies" section, linked from the `SKILL.md` entry. The performer was a fresh-context agent with supplied wiki facts. Reviewer: implementing agent, comparing each reply with those facts.
+
+- **W25.1 Met.** When the owner had to open a page only they could reach, the reply named the space and page path, the exact read action ("paste its section on retries"), the expected title "Bulk edit recovery design" and the safe step for "Page not found": search the space and don't recreate the page.
+- **W25.2 Met.** When the owner already had the page and only asked what it says, the reply answered directly from the supplied line, gave no commands, guessed no path and asked for no write. It stated the limits of what it had seen.
+
+- [x] 17.2 [W26](#w26--clarify-who-acts-when-an-explanation-was-misunderstood) (T023). Clarify who supplies reader answers. Cite the source for an assigned role or preserve the choice when it is unsettled. After W25.
 
 ### W26 · Clarify who acts when an explanation was misunderstood
 
@@ -834,6 +841,13 @@ Style maintainer · R14/A14. [S12.1](./specs/spec-driven-authoring/spec.md#s12-1
 [Style guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/writing_style.md) · [Mirai session guide](https://github.com/jetmirhaxhisefa/mirai/blob/ddd183a3728d3fdd9f776755de47d4d314c8925c/registry/skills/mirai-write/guides/session.md#L77-L111)
 
 Ship the repair example and its acceptance comparison. Reuse W25’s route.
+
+#### Verdicts
+
+Candidate: the W25/W26 commit on `implementation/ship-specdev`. The "Session replies" section includes the clarification rule and its example. The performer was a fresh-context agent. Reviewer: implementing agent.
+
+- **W26.1 Met.** Asked "do I have to write the reader answers myself?" with a plan naming an independent reader, the reply's first sentence was "No, the independent reader writes those answers, and you don't." It then used a different example, a reader answer that doesn't match the owner's meaning, to show the keep-or-revise decision that stays the owner's.
+- **W26.2 Met.** When the plan said only "A reader checks the approval opening", the reply quoted it, said who the reader is is still open and how the owner can settle it, and stated that no check had run. It didn't repeat the unexplained role or assign the owner work.
 
 <a id="s07--receive-the-right-next-action-and-a-checked-result"></a>
 
