@@ -554,6 +554,18 @@
         "-p",
         "test_record_retention.py"
       ]
+    },
+    "shortcuts": {
+      "argv": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_shortcuts.py"
+      ]
     }
   },
   "rules": [
@@ -1161,6 +1173,16 @@
       "tests": [
         "delivery",
         "discovery"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/shortcuts.py",
+        "scripts/test_shortcuts.py",
+        "README.md"
+      ],
+      "tests": [
+        "shortcuts"
       ]
     }
   ],

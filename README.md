@@ -204,7 +204,7 @@ Once the requirements and any needed design are ready, list the work and its che
 
 ## Supported document types
 
-Ask for a document by name or use its short command. If another tool already uses a shortcut, give the command to SpecDev directly. For a decision record, use `/specdev doc dr` in Claude Code or `$specdev doc dr` in Codex.
+Ask for a document by name or use its short command. If another tool already uses a shortcut, give the command to SpecDev directly. For a decision record, use `/specdev doc dr` in Claude Code or `$specdev doc dr` in Codex. Short commands are opt-in: from the installed skill folder, run `.venv/bin/python scripts/shortcuts.py install --host claude-code dr task tasks` (or `--host codex`, or `all`) to add only the ones you want. Setup skips a name another tool already uses and prints the `doc` form to use instead; `scripts/shortcuts.py remove --host claude-code` removes only the shortcuts it added.
 
 <details>
 <summary>Show all 39 documents and their commands</summary>

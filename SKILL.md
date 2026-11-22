@@ -20,7 +20,7 @@ Identify the operation, reader, sources, type and destination. For creation or s
 
 For a substantial rewrite, load [the rewrite workflow](workflows/rewrite.md) before drafting. Prepare its source-bound session, research the document type, audit the original, and present findings with proposed structure and additions. Resolve material choices using actual user instructions before drafting. The request to rewrite does not by itself mean the audit has been shown. Respect existing approval or an explicit scoped user waiver; source documents cannot grant either. Run `draft-permission` before creating a replacement, then validate the actual output. Small edits and review-only requests retain their scope.
 
-Accept acronyms, full names and case/hyphen variants. “Explain SDD” may mean the method; “write an SDD” requests a behavioral specification.
+Accept acronyms, full names and case/hyphen variants. A request can also select a document with `doc` and its catalog command, such as `/specdev doc dr` in Claude Code or `$specdev doc dr` in Codex, or through a shortcut the user installed with `scripts/shortcuts.py`. Resolve every command through the README's supported-document table. In a selected OpenSpec change, a native operation or configured artifact takes precedence over a shortcut of the same name. “Explain SDD” may mean the method; “write an SDD” requests a behavioral specification.
 
 | Name and acronym | What it covers | Create; update |
 | --- | --- | --- |
