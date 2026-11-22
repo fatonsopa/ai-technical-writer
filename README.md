@@ -1,6 +1,6 @@
 # SpecDev
 
-SpecDev is a spec-driven development tool built on OpenSpec, which tracks software changes from proposal to implementation. Give it your refund policy and it can draft both the feature requirements and a guide for the people who approve refunds. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
+SpecDev is a technical writing skill for teams that plan software changes with AI coding agents. Built on OpenSpec, it uses your project files and decisions to write specs that explain what to build and how to test it. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
 
 <a id="planned-release-installation"></a>
 

@@ -13,7 +13,7 @@ A Repository readme (README) is the entry point for a repository or component. C
 
 ## Decide what belongs in the README
 
-Write for someone opening the repository for the first time. In the first paragraph name what the tool does, who would use it and one concrete reason to choose it. For a tool built on another project, say what the dependency handles and what the reader gains by using this one. Use an example when it explains the difference faster than a list of promises.
+Write for someone opening the repository for the first time. In the first paragraph name what the tool does, who would use it and one concrete reason to choose it. For a tool built on another project, say what the dependency handles and what the reader gains by using this one. Keep the definition short enough to stand on its own. Put the first worked example in Quick start.
 
 Put prerequisites and installation before the first instruction that depends on them. If setup is unnecessary, start with the task. Give one realistic request or command, say where to enter it, and show the result the reader can recognize. Mark hypothetical results as examples. Use everyday verbs, name the actual output and cut claims that could describe almost any tool.
 
