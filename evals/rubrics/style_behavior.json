@@ -29,6 +29,13 @@
       "Return located findings for the false content-location claim despite a valid link, stale role count, unsupported implementation/approval status and premature release order.",
       "Correct only affected meaning/references, preserve #check before #ship, 0042, the actual scoped waiver and unmodified literal section. Keep original input files unchanged.",
       "Use source-bound document checks and an honestly attributed semantic/style review and handoff. Do not infer actual user approval from a source quote or call unrun implementation complete."
+    ],
+    "writer-session-status-messages": [
+      "The update names the changed criterion and its consequence for the tester.",
+      "The export message gives the last confirmed fact, the missing input (whether exports include deleted websites) and that the product owner supplies it.",
+      "The retry-limit message gives both options, the tradeoff and a supported recommendation.",
+      "No message asks the owner who may retry after a lost response; WEB-09 settles it.",
+      "The delivery message reports the checked result and adds no manual steps."
     ]
   }
 }

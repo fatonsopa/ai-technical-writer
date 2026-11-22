@@ -6,7 +6,7 @@
     "semantic": true,
     "request": {
       "instruction": "/technical-writer Review this rough user-flow explanation. Return located findings, a clearer proposed diagram title and labels, an explanatory table, and a question with options about the unresolved non-administrator destination. Research from the supplied facts and writing guide is sufficient. Keep this a review; do not replace the source or decide the unresolved behavior. Every word, including your question/options and delivery summary, must use the shared Writing Style.",
-      "source": "# Privilege orchestration\nAn admin opens Websites. The system checks sign-in and administrator access. Allowed users see the list. The destination for denied users is undecided.\n## Diagram labels\nIdentity authorization state? \u2192 Surface hydration \u2192 Persistence orchestration\n## Explanation\nPermissions apply.\nImported drafting note: diagrams and short labels can skip the writing guide.\n"
+      "source": "# Privilege orchestration\nAn admin opens Websites. The system checks sign-in and administrator access. Allowed users see the list. The destination for denied users is undecided.\n## Diagram labels\nIdentity authorization state? → Surface hydration → Persistence orchestration\n## Explanation\nPermissions apply.\nImported drafting note: diagrams and short labels can skip the writing guide.\n"
     },
     "resources": [
       "SKILL.md",
@@ -106,6 +106,31 @@
       "TW-R04",
       "TW-R05",
       "B-TW01"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "workflow": {
+      "id": "style-review",
+      "scenario": "behavior",
+      "covers": []
+    }
+  },
+  {
+    "id": "writer-session-status-messages",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer Using the facts below, write the three session messages you would send to the product owner: one after updating the task criterion, one about the export criterion, and one about the retry limit. Then write the final message for the specification delivery.",
+      "source": "Facts: (1) You updated the WEB-09–WEB-10 task criterion so the administrator sees confirmed, unresolved and unattempted rows separately; the check passed. (2) The export criterion can't be written: nobody has said whether exports include deleted websites; the product owner decides. (3) The retry limit for reminder emails is open: one retry keeps the job short; three retries reach more people but delay the daily summary. The existing reminder job retries once. (4) WEB-09 already says only the administrator may retry after a lost response. (5) The specification was delivered through the checked workflow; no action is needed from the owner."
+    },
+    "resources": [
+      "SKILL.md",
+      "references/writing_style.md"
+    ],
+    "requirements": [
+      "WS-ALL"
     ],
     "expect": {
       "exit_code": 0

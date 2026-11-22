@@ -855,7 +855,7 @@ Candidate: the W25/W26 commit on `implementation/ship-specdev`. The "Session rep
 
 Read the checked handoff and identify the result, blocker or decision. [Story criteria](./specs/spec-driven-authoring/spec.md#s07--receive-the-right-next-action-and-a-checked-result)
 
-- [ ] 18.1 [W14](#w14--write-progress-decision-and-blocker-messages-from-evidence) (T024). Write updates, blockers and decisions from their evidence. The reader can identify the consequence, missing input or actual choice. Reuse W22 where available.
+- [x] 18.1 [W14](#w14--write-progress-decision-and-blocker-messages-from-evidence) (T024). Write updates, blockers and decisions from their evidence. The reader can identify the consequence, missing input or actual choice. Reuse W22 where available.
 
 ### W14 · Write progress, decision and blocker messages from evidence
 
@@ -879,6 +879,13 @@ Style maintainer · R6/A6. [S07.1](./specs/spec-driven-authoring/spec.md#s07-1) 
 [references/writing_style.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/writing_style.md) · [evals/style_cases.json](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/evals/style_cases.json) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/SKILL.md)
 
 For example, given a checked draft and one open owner decision, “The draft is ready. You still need to decide who can retry a failed batch” is useful only if that choice really is open. For the supplied WEB-09 case the rule is already settled; asking again fails. Inspect the existing session cases first. Add only distinctions the cases cannot demonstrate; keep source-grounded review of wording.
+
+#### Verdicts
+
+Candidate: the W14 commit on `implementation/ship-specdev`. The existing session case covered only naming. "Report the result in the session" now contrasts confirmed-result, blocker, decision and routine-delivery messages and says not to ask about a choice the sources settle. The new behavioral case `writer-session-status-messages` keeps its rubric private. The performer was a fresh-context agent running that case's request and facts. Reviewer: implementing agent, comparing each message with the facts and the rubric.
+
+- **W14.1 Met.** The update named the changed criterion and its consequence for the tester. The blocker stated the missing input, whether exports include deleted websites, and that the product owner decides it. Its last confirmed fact is the task update reported just before, since the facts supplied no other progress.
+- **W14.2 Met.** The retry-limit message gave both options, their tradeoff and a recommendation grounded in the existing job's single retry. No message asked who may retry after a lost response, because WEB-09 settles it. The delivery message reported the checked delivery and added no manual steps.
 
 - [ ] 18.2 [W15](#w15--deliver-an-optional-reviewed-decision-with-a-verifiable-receipt) (T025). Verify a finalized decision sentence and link against reviewed bytes. Reject altered wording and validate the legacy receipt under its original format.
 

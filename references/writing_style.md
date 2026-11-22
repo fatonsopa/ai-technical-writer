@@ -120,6 +120,15 @@ A progress message earns its place when it gives the reader a result, a decision
 
 For example, suppose a reviewer confirmed that only a manager may approve a refund and that the retry owner is still unknown. After checking the document, the writer could say, “The design records that only managers may approve refunds. Who may retry a failed refund?” If the document already answers the question, use that answer. A statement that the refund flow passed would require an observed check of that flow.
 
+Match the message to the state:
+
+- A confirmed intermediate result names what changed and what it means: "The task now says the administrator sees confirmed, unresolved and unattempted rows separately, so the tester can check each count."
+- A blocker gives the last confirmed fact, the missing input and who can supply it: "The specification is drafted up to WEB-09. I can't write the export criterion until the product owner says whether exports include deleted websites."
+- A decision gives the supported options, the tradeoff and a recommendation: "Retry limit: one retry keeps the job short but may leave rows unresolved; three retries resolve more but delay the summary. I recommend one, as the reminder job already does."
+- A routine delivery that needs nothing from the reader ends with the checked result and adds no manual steps.
+
+Don't ask about a choice the sources already settle. In the Websites Review example, WEB-09 already says who may retry after a lost response, so asking the owner again would be wrong.
+
 ## Session replies
 
 Write a session reply from where the owner is now. If they must do one thing themselves, such as opening a document only they can reach, give the starting location, the exact read action, what they should see when it worked, such as the document's title, and the safe next step if the known failure happens. For example: "In the shared drive, open Reviews › Q4 and choose View on `refund-design.md`. The document's title is "Refund approval design". If it says the file isn't available, send me the link you see instead; don't edit or move the file." If the owner already has the document and only asks what it says, answer from it directly. Don't add commands they don't need, guess a path or ask them to change anything.
