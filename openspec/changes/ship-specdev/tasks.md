@@ -1634,7 +1634,7 @@ Candidate: `4324f1b` on `implementation/ship-specdev`. `SKILL.md` adds "Suggest 
   - **W40 refund case:** With the checked `tasks.md` in place, it reported the documentation complete, suggested no separate Task and said implementation needs its own authorization. Without the list, the same project gets the Task List (TL), as in the W-PACKET reply.
   - **Nothing extra:** No extra document was suggested in any case.
 
-- [ ] 30.2 [W39](#w39--continue-a-checked-document-handoff) (T043). Continue only the selected checked artifact. Recognize prior delivery and reopen affected readiness if its governing revision changes. After W38 and W15.
+- [x] 30.2 [W39](#w39--continue-a-checked-document-handoff) (T043). Continue only the selected checked artifact. Recognize prior delivery and reopen affected readiness if its governing revision changes. After W38 and W15.
 
 ### W39 · Continue a checked document handoff
 
@@ -1656,6 +1656,27 @@ Workflow maintainer · R20/A20. [S24.1](./specs/spec-driven-authoring/spec.md#s2
 - **W39.2** Change a governing revision before continuing. Re-evaluate affected readiness and keep unaffected evidence. A stale handoff or altered checked suggestion fails; when a suggestion cannot be bound to the receipt, keep exact finalization and offer guidance on request. <a id="w39-2"></a>
 
 [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/workflows/discover.md) · [contracts/delivery_message.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/delivery_message.json) · [scripts/validate_document.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/validate_document.py)
+
+#### Verdicts
+
+Candidate: `b57d6e0` on `implementation/ship-specdev`.
+- **Review record:** A review can add `delivery_successor` {document, reason, sources}.
+- **Finalization:** It binds the named sources' bytes and adds one "Suggested next document" line to the version 2 message.
+- **Stale suggestion:** `verify-message` fails an altered suggestion and reports it stale once a bound source changes.
+- **No suggestion:** The message is unchanged.
+- **Guidance:** `SKILL.md` covers continuing exactly the selected document and resuming without duplicating a delivered result.
+
+Reviewer: implementing agent.
+
+- **W39.1 Met.** On the refund change, with its proposal, spec and design done, Claude Code (`claude-opus-5-5`) ran "/specdev next …, then continue". It named the Task List (TL) as the only missing artifact and wrote exactly that native `tasks.md`. The list keeps the scenarios, the RR stories and the links to #81–#84, with their criteria left at their owners.
+  - **Resume:** After that delivery was committed (`fffbca4`), the same request reported the documentation complete, named the list and its commit and wrote nothing.
+  - **First attempt kept:** On the W-PACKET project, Claude judged that no new document was needed because the packet already sets the order.
+- **W39.2 Met.** `DecisionHandoffTests` covers this on the delivery mechanism:
+  - **Bound suggestion:** It reaches the message and verifies.
+  - **Altered text:** Changing the suggested document fails verification.
+  - **Changed revision:** Revising the governing source after delivery fails verification as stale and names the file. The guidance then has the writer re-check readiness against it, keeping unaffected evidence.
+  - **Unbound suggestion:** One without sources is rejected before delivery.
+  - **No suggestion:** Finalization stays exact.
 
 <a id="s25--guide-selection-of-a-specification-after-delivery"></a>
 
