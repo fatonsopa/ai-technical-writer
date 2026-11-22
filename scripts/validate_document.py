@@ -392,6 +392,7 @@ def finalize(session, draft, review_file, *, _close_records=True):
     content = draft.read_bytes()
     if digest(content) != checked["output_sha256"]:
         raise ValueError("Draft changed during validation.")
+    decision = reviewed_decision(record, content)
     target.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(dir=target.parent, delete=False) as stream:
         temporary = Path(stream.name)
@@ -400,7 +401,9 @@ def finalize(session, draft, review_file, *, _close_records=True):
         os.replace(temporary, target)
     finally:
         temporary.unlink(missing_ok=True)
-    state["delivery"] = {"destination": str(target), "output_sha256": checked["output_sha256"], "objective_sha256": state["objective_sha256"], "review": str(review_path), "reviewer": record["reviewer"], "document_status": state["frozen"]["request"]["context"].get("discovery", {}).get("status", "unspecified")}
+    state["delivery"] = {"destination": str(target), "output_sha256": checked["output_sha256"], "objective_sha256": state["objective_sha256"], "review": str(review_path), "reviewer": record["reviewer"], "document_status": state["frozen"]["request"]["context"].get("discovery", {}).get("status", "unspecified"), "message_version": 2}
+    if decision:
+        state["delivery"]["decision"] = decision
     # A deterministic handoff reports the actual validation only. Product facts
     # remain in the reviewed artifact rather than an unreviewed final summary.
     message = delivery_message_text(state['delivery'])
@@ -420,8 +423,29 @@ def delivery_message_text(receipt):
     template = load(ROOT / 'contracts/delivery_message.json')
     status = receipt['document_status']
     status_text = template['status'].format(status=status) if status != 'unspecified' else ''
+    decision = receipt.get('decision') if receipt.get('message_version', 1) >= 2 else None
+    if decision:
+        anchor = str(decision['anchor']).replace('>', '%3E').replace(')', '%29').replace(' ', '-')
+        status_text += template['decision'].format(sentence=decision['sentence'], destination=target, anchor=anchor)
     return template['message'].format(destination=target, status=status_text,
                                       reviewer=template['reviewers'][receipt['reviewer']['kind']])
+
+
+def reviewed_decision(record, content):
+    """An optional decision sentence for the handoff, taken verbatim from the reviewed bytes."""
+    decision = record.get("delivery_decision")
+    if decision is None:
+        return None
+    if not isinstance(decision, dict) or set(decision) != {"sentence", "anchor"} or not all(isinstance(v, str) and v.strip() for v in decision.values()):
+        raise ValueError("delivery_decision needs a reviewed sentence and its section anchor.")
+    text = content.decode("utf-8")
+    sentence = decision["sentence"].strip()
+    if "\n" in sentence or sentence not in text:
+        raise ValueError("The delivery decision must be one sentence copied verbatim from the reviewed document.")
+    anchors = {re.sub(r"[^\w\- ]", "", node["title"].lower()).replace(" ", "-") for node in headings(text)}
+    if decision["anchor"] not in anchors:
+        raise ValueError("The delivery decision's anchor is not a section of the reviewed document.")
+    return {"sentence": sentence, "anchor": decision["anchor"]}
 
 
 

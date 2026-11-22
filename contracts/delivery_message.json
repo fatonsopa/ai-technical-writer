@@ -7,5 +7,7 @@
     "current_host_review": "current-host review",
     "independent_model": "independent model review",
     "human": "human review"
-  }
+  },
+  "decision": "{sentence} [Read it in the document](<{destination}#{anchor}>).\n",
+  "decision_note": "Version 2 receipts may carry one reviewed sentence copied verbatim from the document and the anchor of its section. Receipts without message_version use the version 1 message unchanged."
 }

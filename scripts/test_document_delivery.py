@@ -247,3 +247,44 @@ class DocumentDeliveryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DecisionHandoffTests(unittest.TestCase):
+    """W15: an optional reviewed decision sentence in the checked handoff, with old receipts unchanged."""
+    setUp = DocumentDeliveryTests.setUp
+    tearDown = DocumentDeliveryTests.tearDown
+    prepare = DocumentDeliveryTests.prepare
+    judgment = DocumentDeliveryTests.judgment
+    SENTENCE = "The product owner still decides whether the Reason filter joins the first release."
+
+    def with_decision(self):
+        self.draft.write_text(sample("prd") + "\nIdentifier: 0042.\n\n## Decision needed\n\n" + self.SENTENCE + "\n")
+
+    def test_reviewed_decision_sentence_and_link_reach_the_message_and_altered_text_fails(self):
+        self.with_decision()
+        self.prepare()
+        result = self.judgment(delivery_decision={"sentence": self.SENTENCE, "anchor": "decision-needed"})
+        receipt = delivery.finalize(self.session, self.draft, result["review"])
+        self.assertIn(self.SENTENCE + " [Read it in the document](<" + receipt["destination"] + "#decision-needed>).", receipt["message"])
+        message = self.session / "message.md"
+        self.assertTrue(delivery.verify_message(self.session, message)["passed"])
+        message.write_text(receipt["message"].replace("still decides", "has approved"))
+        self.assertFalse(delivery.verify_message(self.session, message)["passed"])
+
+    def test_unreviewed_sentence_or_missing_section_is_rejected_before_delivery(self):
+        self.with_decision()
+        self.prepare()
+        for decision, error in (({"sentence": "The Reason filter is approved.", "anchor": "decision-needed"}, "verbatim"),
+                                ({"sentence": self.SENTENCE, "anchor": "approval"}, "anchor")):
+            with self.subTest(error=error):
+                result = self.judgment(delivery_decision=decision)
+                with self.assertRaisesRegex(ValueError, error):
+                    delivery.finalize(self.session, self.draft, result["review"])
+                self.assertFalse(self.target.exists())
+
+    def test_old_receipt_keeps_its_format_and_no_decision_adds_nothing(self):
+        self.prepare()
+        receipt = delivery.finalize(self.session, self.draft, self.judgment()["review"])
+        old = {k: v for k, v in receipt.items() if k not in {"message_version", "message", "message_sha256", "status"}}
+        self.assertEqual(delivery.delivery_message_text(old), receipt["message"])
+        self.assertNotIn("Read it in the document", receipt["message"])

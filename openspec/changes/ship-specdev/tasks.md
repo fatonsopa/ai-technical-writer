@@ -887,7 +887,7 @@ Candidate: the W14 commit on `implementation/ship-specdev`. The existing session
 - **W14.1 Met.** The update named the changed criterion and its consequence for the tester. The blocker stated the missing input, whether exports include deleted websites, and that the product owner decides it. Its last confirmed fact is the task update reported just before, since the facts supplied no other progress.
 - **W14.2 Met.** The retry-limit message gave both options, their tradeoff and a recommendation grounded in the existing job's single retry. No message asked who may retry after a lost response, because WEB-09 settles it. The delivery message reported the checked delivery and added no manual steps.
 
-- [ ] 18.2 [W15](#w15--deliver-an-optional-reviewed-decision-with-a-verifiable-receipt) (T025). Verify a finalized decision sentence and link against reviewed bytes. Reject altered wording and validate the legacy receipt under its original format.
+- [x] 18.2 [W15](#w15--deliver-an-optional-reviewed-decision-with-a-verifiable-receipt) (T025). Verify a finalized decision sentence and link against reviewed bytes. Reject altered wording and validate the legacy receipt under its original format.
 
 ### W15 · Deliver an optional reviewed decision with a verifiable receipt
 
@@ -911,6 +911,13 @@ Delivery maintainer · R6/A6. [S07.1](./specs/spec-driven-authoring/spec.md#s07-
 [contracts/delivery_message.json](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/contracts/delivery_message.json) · [scripts/validate_document.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/validate_document.py) · [scripts/test_document_delivery.py](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/test_document_delivery.py)
 
 Use one new handoff and one historical receipt. A renderer pass without the user-visible message is incomplete evidence.
+
+#### Verdicts
+
+Candidate: the W15 commit on `implementation/ship-specdev`. The message contract, renderer, `finalize` and verifier changed together. A review may name `delivery_decision`, a sentence copied verbatim from the reviewed bytes plus its section anchor. New receipts record `message_version: 2`, and receipts without a version keep the version 1 message. `workflows/validation_review.md` documents the field. Reviewer: implementing agent.
+
+- **W15.1 Met.** Finalizing a reviewed Product Requirements Document (PRD) with a pending Reason-filter choice produced the user-visible message with that exact sentence and a link to `#decision-needed`, and `verify-message` passed it. Changing "still decides" to "has approved" in the message failed verification. A sentence not in the reviewed bytes, or an anchor that isn't a section, was rejected before the destination was written. Regression: `DecisionHandoffTests`.
+- **W15.2 Met.** A real historical receipt, finalized by Technical Writer `4a8e7c9` during Builder T50 and carrying no `message_version`, re-renders with the new code to exactly its stored message and `message_sha256`. A delivery with no decision produces the unchanged version 1 text and adds no claim.
 
 <a id="s13--send-a-routine-update-with-the-appropriate-checks"></a>
 
