@@ -2,11 +2,11 @@
 
 A plan explains how to deliver agreed behavior within the actual system. Create it when work needs sequencing or coordination; update it when the approach, dependencies, risks, or verification change. Read the governing [Spec Driven Development document (SDD)](spec_driven_development.md), relevant [High Level Document (HLD)](high_level_document.md), and decision history before choosing the approach.
 
-For a multi-task feature, the reviewed plan and feature specification feed task breakdown. Keep approach, rollout and material ordering decisions in the plan. Reference each covered story and its criterion in the governing specification. Use the work sequence for milestones and material dependencies. Resolve or write the [Issues](issue.md) at task breakdown, then put their execution order and links in one `tasks.md`. Maintain full story and task criteria at their owning records. The implementing agent uses that list and the plan to select an Issue when implementation is authorized. [Feature task flow](../README.md#where-tasksmd-fits)
+For a multi-task feature, the reviewed plan and feature specification feed task breakdown. Keep approach, rollout and material ordering decisions in the plan. Reference each covered story and its criterion in the governing specification. Use the work sequence for milestones and material dependencies. Resolve or write the [Tasks](task.md) at task breakdown, then put their execution order and links in one `tasks.md`. Maintain full story and task criteria at their owning records. The implementing agent uses that list and the plan to select a Task when implementation is authorized. [Feature task flow](../README.md#where-tasksmd-fits)
 
 ## Principles
 
-- Explain the current problem and desired result, then identify the requirements that define success. If a small issue is the specification, link its exact expected behavior and acceptance criteria.
+- Explain the current problem and desired result, then identify the requirements that define success. If a small task is the specification, link its exact expected behavior and acceptance criteria.
 - Inspect relevant code, configuration, data, and tests. Mark proposed components and source-reported paths separately from inspected facts.
 - Explain the technical approach and meaningful alternatives. Link substantial internals to [Low Level Design (LLD)](low_level_design.md) and unresolved choices to [Decision Record (DR)](decision_record.md).
 - Order work by dependency. Each step needs a concrete result and a way to check it; avoid invented owners, dates, paths, or estimates.

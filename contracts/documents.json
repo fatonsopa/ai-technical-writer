@@ -2,7 +2,7 @@
   "schema_version": 1,
   "policy": "These are output contracts, not the headings of the reference guide. Full create/rewrite/edit documents use their complete contract; title/excerpt edits and reviews retain scope. Semantic review remains required. Approved aliases identify equivalent section roles; optional/conditional sections are explicit.",
   "profiles": {
-    "issue": {
+    "task": {
       "format": "document",
       "sections": [
         {
@@ -170,32 +170,32 @@
     }
   },
   "documents": {
-    "issue_chore": {
-      "reference": "references/issue.md",
+    "task_chore": {
+      "reference": "references/task.md",
       "task_type": "Chore",
-      "profile": "issue"
+      "profile": "task"
     },
-    "issue_decision": {
-      "reference": "references/issue.md",
+    "task_decision": {
+      "reference": "references/task.md",
       "task_type": "Decision",
-      "profile": "issue"
+      "profile": "task"
     },
-    "issue_feature": {
-      "reference": "references/issue.md",
+    "task_feature": {
+      "reference": "references/task.md",
       "task_type": "Feature",
-      "profile": "issue"
+      "profile": "task"
     },
-    "issue_improvement": {
-      "reference": "references/issue.md",
+    "task_improvement": {
+      "reference": "references/task.md",
       "task_type": "Improvement",
-      "profile": "issue"
+      "profile": "task"
     },
-    "issue_release": {
-      "reference": "references/issue.md",
+    "task_release": {
+      "reference": "references/task.md",
       "task_type": "Release",
-      "profile": "issue"
+      "profile": "task"
     },
-    "issue_bug": {
+    "task_bug": {
       "reference": "references/bug_report.md",
       "task_type": "Bug",
       "profile": "bug"

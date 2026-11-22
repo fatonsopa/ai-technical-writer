@@ -3,7 +3,7 @@
   "created": "2026-10-30",
   "target": "technical-writer/references/writing-style.md",
   "evaluation_status": "Not executed in independent model sessions.",
-  "instructions": "Give an evaluator the request, input, relevant context, and writing guide without the expected_properties. Review the returned prose against those properties and the source. Evaluate issue-specific structure separately when issue.md is written.",
+  "instructions": "Give an evaluator the request, input, relevant context, and writing guide without the expected_properties. Review the returned prose against those properties and the source. Evaluate task-specific structure separately when task.md is written.",
   "cases": [
     {
       "id": "meaning-unknown",
@@ -300,7 +300,7 @@
       "id": "literal-technical-name",
       "source": {
         "issue_id": "CG-474",
-        "file": "/Users/faton/Downloads/Clarigram › All issues (1).csv"
+        "file": "/Users/faton/Downloads/Clarigram › All tasks (1).csv"
       },
       "request": "Explain this to a new developer.",
       "input": "Call website_review_state(websites) to obtain the website review state.",
@@ -339,9 +339,9 @@
       "id": "source-CG-3031",
       "source": {
         "issue_id": "CG-3031",
-        "file": "/Users/faton/Downloads/Clarigram › All issues.csv"
+        "file": "/Users/faton/Downloads/Clarigram › All tasks.csv"
       },
-      "request": "Explain the observation and uncertainty in two or three natural sentences. Do not write an issue template.",
+      "request": "Explain the observation and uncertainty in two or three natural sentences. Do not write a task template.",
       "input": "The monitor sent nine notifications between 11:19 and 11:45 on 30 October 2026 while production was paused and the readings did not change. Increasing elapsed seconds was checked and ruled out as the explanation. The cause remains unknown.",
       "expected_properties": [
         "Preserves the nine notifications and paused environment",
@@ -358,7 +358,7 @@
       "id": "source-CG-3006",
       "source": {
         "issue_id": "CG-3006",
-        "file": "/Users/faton/Downloads/Clarigram › All issues.csv"
+        "file": "/Users/faton/Downloads/Clarigram › All tasks.csv"
       },
       "request": "Simplify this requirement without weakening it.",
       "input": "When a merge is rejected after a test group passes, a retry must reuse that result only if the group's relevant inputs have not changed. Groups whose inputs changed must run again.",
@@ -378,7 +378,7 @@
       "id": "source-CG-3029",
       "source": {
         "issue_id": "CG-3029",
-        "file": "/Users/faton/Downloads/Clarigram › All issues (1).csv"
+        "file": "/Users/faton/Downloads/Clarigram › All tasks (1).csv"
       },
       "request": "Explain this requirement to a developer.",
       "input": "When origin uses HTTPS, the design-system download must use HTTPS without requiring an SSH key. If DS_REPO is set, the download must continue using DS_REPO.",
@@ -397,7 +397,7 @@
       "id": "source-CG-3033",
       "source": {
         "issue_id": "CG-3033",
-        "file": "/Users/faton/Downloads/Clarigram › All issues (1).csv"
+        "file": "/Users/faton/Downloads/Clarigram › All tasks (1).csv"
       },
       "request": "Summarize the report's evidence without claiming an independent investigation.",
       "input": "The report says 1,716 answers are past their stage limit. For one awaiting_extract answer, it reports a total wait of 2,767,681 seconds against a 2,340-second limit, with 0 seconds of capacity wait and 106,585 seconds of processing pauses subtracted before judging the overrun. Why the oldest answers were not selected is not established.",
@@ -492,6 +492,6 @@
       ]
     }
   ],
-  "input_provenance": "Inputs are constructed examples or condensed source excerpts, not verbatim quotations. The source identifies the discussion or exported issue that motivates the case. Exported measurements have not been independently checked against the application.",
+  "input_provenance": "Inputs are constructed examples or condensed source excerpts, not verbatim quotations. The source identifies the discussion or exported task that motivates the case. Exported measurements have not been independently checked against the application.",
   "archive_note": "Historical case-design record. Current executable cases are in technical-writer/evals/cases/style_regressions.jsonl; actual results are in analysis/VALIDATION.md. Original target/status fields are retained as provenance."
 }

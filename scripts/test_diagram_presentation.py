@@ -192,5 +192,5 @@ class DiagramPresentationTests(unittest.TestCase):
         source = (diagram.ROOT / "examples/diagrams/documentation_workflow.mmd").read_text()
         labels = dict(re.findall(r'(\w+)@\{ shape: doc, label: "([^"]+)" \}', source))
         expected = {acro: by_acronym[acro] + " (" + acro + ")" for acro in ("PRD", "SDD", "HLD", "LLD", "DR", "IP", "TP", "TS", "TSR", "TCR")}
-        expected["WI"] = "Issue"
+        expected["WI"] = "Task"
         self.assertEqual({key: re.sub(r"^\d+\.\s+", "", value) for key,value in labels.items()}, expected)

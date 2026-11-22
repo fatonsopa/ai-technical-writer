@@ -104,7 +104,7 @@ class DecisionUnificationTests(unittest.TestCase):
         for name in ('architecture_decision_record.md', 'design_decision_record.md'):
             self.assertFalse((ROOT / 'references' / name).exists())
             self.assertFalse((ROOT / 'examples' / name).exists())
-        for name in ('SKILL.md', 'evals/catalog.json', 'evals/fixtures/routing.md', 'references/decision_record.md', 'references/high_level_document.md', 'references/low_level_design.md', 'references/issue.md'):
+        for name in ('SKILL.md', 'evals/catalog.json', 'evals/fixtures/routing.md', 'references/decision_record.md', 'references/high_level_document.md', 'references/low_level_design.md', 'references/task.md'):
             text = (ROOT / name).read_text()
             self.assertIsNone(re.search(r'\b(?:ADRs?|DDRs?)\b', text), name)
             self.assertNotIn('references/architecture_decision_record.md', text)

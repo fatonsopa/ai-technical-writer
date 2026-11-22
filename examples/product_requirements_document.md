@@ -2,7 +2,7 @@
 
 Status: Approved product baseline for the first release
 Audience: Product, administration, engineering, and QA
-Related work: [Feature](issue.md), [Spec Driven Development document (SDD)](spec_driven_development.md), [Implementation Plan (IP)](implementation_plan.md)
+Related work: [Feature](task.md), [Spec Driven Development document (SDD)](spec_driven_development.md), [Implementation Plan (IP)](implementation_plan.md)
 
 ## Problem and users
 

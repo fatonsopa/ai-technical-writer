@@ -1,0 +1,15 @@
+{
+  "output_kinds": [
+    "task_chore",
+    "task_decision",
+    "task_feature",
+    "task_improvement",
+    "task_release"
+  ],
+  "required_sections": [
+    "Description",
+    "Expected outcome",
+    "Acceptance criteria"
+  ],
+  "scope": "Complete tasks only; Bug reports use their specialized structure. Description/title-only requests remain narrow."
+}

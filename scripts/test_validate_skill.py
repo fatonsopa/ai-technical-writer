@@ -50,7 +50,7 @@ class IntegrityTests(unittest.TestCase):
         self.rejects('Broken local link')
 
     def test_broken_nested_link(self):
-        p = self.root / 'references/issue.md'
+        p = self.root / 'references/task.md'
         p.write_text(p.read_text() + '\n[Lost document](not_present.md)\n')
         self.rejects('Broken local link')
 
@@ -74,13 +74,13 @@ class IntegrityTests(unittest.TestCase):
 
     def test_stale_issue_link_label(self):
         p = self.root / 'SKILL.md'
-        p.write_text(p.read_text() + '\n[Work items](references/issue.md)\n')
-        self.rejects('Stale issue link label')
+        p.write_text(p.read_text() + '\n[Work items](references/task.md)\n')
+        self.rejects('Stale task link label')
 
     def test_issue_title_matches_canonical_name(self):
-        p = self.root / 'references/issue.md'
-        p.write_text(p.read_text().replace('# Issue', '# Work item', 1))
-        self.rejects('Canonical issue guide title')
+        p = self.root / 'references/task.md'
+        p.write_text(p.read_text().replace('# Task', '# Work item', 1))
+        self.rejects('Canonical task guide title')
 
     def test_bug_template_keeps_separate_results(self):
         p = self.root / 'references/bug_report.md'
@@ -93,9 +93,9 @@ class IntegrityTests(unittest.TestCase):
         self.rejects('Missing/empty Relevant files in bug example')
 
     def test_issue_uses_acceptance_criteria(self):
-        p = self.root / 'references/issue.md'
+        p = self.root / 'references/task.md'
         p.write_text(p.read_text().replace('## Acceptance criteria', '## Completion criteria', 1))
-        self.rejects('Missing/empty Acceptance criteria in issue template')
+        self.rejects('Missing/empty Acceptance criteria in task template')
 
     def test_shared_requirement_ids_do_not_drift(self):
         p = self.root / 'examples/test_specification.md'

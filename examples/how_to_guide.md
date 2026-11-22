@@ -41,7 +41,7 @@ Stop when the dialog reports partial or unresolved work. Earlier batches may alr
 
 If a response was lost, use the reconciliation view to read current values and relevant history. Retry only after reviewing that state; another administrator may have changed a category in the meantime. Do not repeat the original entire selection simply because its last request failed.
 
-If rows or counts remain inconsistent after refresh, preserve the operation details and report the problem. Do not clear categories as a way to repair a display issue.
+If rows or counts remain inconsistent after refresh, preserve the operation details and report the problem. Do not clear categories as a way to repair a display task.
 
 ### Operational escalation boundary
 

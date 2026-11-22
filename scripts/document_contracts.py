@@ -27,8 +27,15 @@ def load_contracts():
     return data
 
 
+def canonical_kind(data, kind):
+    """Use the stored contract first so frozen validation sessions keep their original identity."""
+    if isinstance(kind, str) and kind not in data["documents"] and kind.startswith("issue_"):
+        return "task_" + kind.removeprefix("issue_")
+    return kind
+
+
 def document_contract(data, kind):
-    document = data["documents"][kind]
+    document = data["documents"][canonical_kind(data, kind)]
     inherited = data.get("profiles", {}).get(document.get("profile"), {})
     return {**inherited, **document}
 
@@ -116,6 +123,7 @@ def section_errors(nodes, rules, context, ordered=False):
 def validate(text, kind, operation="create", scope="complete", context=None, contracts=None):
     context = context or {}
     data = contracts or load_contracts()
+    kind = canonical_kind(data, kind)
     if kind not in data["documents"]:
         raise ValueError(f"Unsupported document type: {kind}. Supported kinds: {", ".join(sorted(data["documents"]))}")
     if operation not in {"create", "rewrite", "edit", "review"} or scope not in {"complete", "excerpt", "title"}:
@@ -215,7 +223,7 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
                     prose.append(line)
             preamble = "\n".join(prose)
             if re.search(r"(?mi)^Type:\s*(?:Bug|Chore|Decision|Feature|Improvement|Release)\s*$", preamble):
-                errors.append("Keep issue type in tracker metadata, outside the issue text.")
+                errors.append("Keep task type in tracker metadata, outside the task text.")
         if kind == "decision":
             options = [(node, re.match(r"Option\s+([A-Za-z0-9]+)\s*:", node["title"], re.I)) for node in nodes]
             options = [(node, match) for node, match in options if match]
@@ -243,7 +251,7 @@ def validate(text, kind, operation="create", scope="complete", context=None, con
     if complete or scope == 'title':
         for node in nodes:
             if node['level'] == 1:
-                errors.extend(title_contract.title_errors(node['title'], task=bool(contract.get('task_type')) or kind in {'issue', 'bug_report', 'story'}))
+                errors.extend(title_contract.title_errors(node['title'], task=bool(contract.get('task_type')) or kind in {'task', 'bug_report', 'story'}))
     if "discovery" in context:
         errors.extend(check_discovery(text, context["discovery"]))
     for value in context.get("required_literals", []):

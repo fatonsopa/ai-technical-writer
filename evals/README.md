@@ -181,7 +181,7 @@ Mechanical controls are in `scripts/test_diagram_components.py`, `scripts/test_d
 
 ## Check both execution hosts
 
-`config/host_validation.json` declares Codex and Claude Code and68 tasks per host:13 critical workflow/style/retry/diagram cases,3 report-boundary tasks,1 host-readiness task, and51 document-output contexts. The latter include44 complete create/rewrite contexts across22 document types, plus the six Issue types and an individual requirement. These are case definitions, not recorded passes.
+`config/host_validation.json` declares Codex and Claude Code and68 tasks per host:13 critical workflow/style/retry/diagram cases,3 report-boundary tasks,1 host-readiness task, and51 document-output contexts. The latter include44 complete create/rewrite contexts across22 document types, plus the six Task types and an individual requirement. These are case definitions, not recorded passes.
 
 Freeze the matrix before execution:
 

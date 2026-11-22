@@ -4,7 +4,7 @@ Use this reference to define what a finished system or change must do. A specifi
 
 This package uses “SDD” for both the behavioral document and the development method; the document name is a local convention. Create it when behavior needs explicit agreement; update it when intended behavior changes. Use [Implementation Plan (IP)](implementation_plan.md) for delivery, [Product Requirements Document (PRD)](product_requirements_document.md) for product intent, and [User Story (US)](user_story.md) for a user-value summary. A specification can follow a work item or generate several items after planning. Small changes can keep their specification in explicit task requirements and acceptance criteria.
 
-For a multi-task feature, use [User Story (US)](user_story.md) in Scenarios. Give each story its outcome, an observable acceptance scenario and a stable reference. If a project already owns that story in a tracker or feature spec, link the exact record and criterion. The reviewed specification feeds the plan. The same feature’s specification and plan then feed the Issues and `tasks.md`. [Feature task flow](../README.md#where-tasksmd-fits)
+For a multi-task feature, use [User Story (US)](user_story.md) in Scenarios. Give each story its outcome, an observable acceptance scenario and a stable reference. If a project already owns that story in a tracker or feature spec, link the exact record and criterion. The reviewed specification feeds the plan. The same feature’s specification and plan then feed the Tasks and `tasks.md`. [Feature task flow](../README.md#where-tasksmd-fits)
 
 ## Principles
 
@@ -12,7 +12,7 @@ For a multi-task feature, use [User Story (US)](user_story.md) in Scenarios. Giv
 - Define scope and terms before relying on them. Include normal behavior, permissions, errors, boundary conditions, and business rules that affect the result.
 - Give requirements stable identifiers and verifiable acceptance conditions. Keep relevant units, limits, exceptions, and sources intact.
 - Separate agreed requirements from assumptions, proposals, and unanswered questions. Do not invent product decisions to make the document appear complete. An unconditional permission rule remains binding across entry points; missing interface details do not make enforcement optional.
-- Keep one maintained statement of intended behavior. Link downstream designs, plans, issues, and tests to it instead of maintaining competing copies.
+- Keep one maintained statement of intended behavior. Link downstream designs, plans, tasks, and tests to it instead of maintaining competing copies.
 - Change the spec explicitly when intended behavior changes. A plan or implementation cannot silently override it. Record the reason and update affected acceptance checks.
 
 ## Writing an individual requirement
@@ -51,7 +51,7 @@ Follow [discovery](../workflows/discover.md) before settling missing behavior. I
 # [Capability] specification
 
 Status: [Draft / agreed / changed, using the project's terms]
-Source: [Request, issue, or product decision]
+Source: [Request, task, or product decision]
 
 ## Purpose and scope
 [Users, need, included behavior, and important exclusions.]
@@ -72,13 +72,13 @@ Source: [Request, issue, or product decision]
 ## Acceptance criteria
 | Requirement | Check and expected result |
 | --- | --- |
-| REQ-01 | [Observable verification for a criterion this specification owns. If an existing Issue or story owns the same criterion, use its ID and link here. Leave its full acceptance scenario in its owning record.] |
+| REQ-01 | [Observable verification for a criterion this specification owns. If an existing Task or story owns the same criterion, use its ID and link here. Leave its full acceptance scenario in its owning record.] |
 
 ## Open decisions
 [Question, consequence, and responsible decision-maker when known.]
 
 ## Related design and work
-[Current architecture, proposed design, plan, and issues when available.]
+[Current architecture, proposed design, plan, and tasks when available.]
 ```
 
 ## Completed example

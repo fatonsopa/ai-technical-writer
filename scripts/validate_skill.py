@@ -45,9 +45,9 @@ def validate(root=ROOT):
         return [('template',template[0])] + [('example',example.read_text())] if template and example.exists() else []
     for old in ['reference.md','requirements.md','work_item.md','work_items.md','work-item.md','work-items.md','work item.md','test_execution_log.md']:
         if (root/'references'/old).exists():errors.append('Unexpected retired reference: '+old)
-    issue=root/'references/issue.md'
-    if issue.exists() and issue.read_text().splitlines()[:1]!=['# Issue']:
-        errors.append('Canonical issue guide title must be Issue')
+    task=root/'references/task.md'
+    if task.exists() and task.read_text().splitlines()[:1]!=['# Task']:
+        errors.append('Canonical task guide title must be Task')
     for p in runtime:
         s=p.read_text()
         if blocks(s)[1]:errors.append('Unclosed code fence: '+str(p.relative_to(root)))
@@ -58,8 +58,8 @@ def validate(root=ROOT):
             if not q.is_file() or not q.is_relative_to(root.resolve()):errors.append('Broken local link: '+str(p.relative_to(root))+' -> '+target)
             elif q.parent==(root/'references').resolve():reachable.add(q.name)
         for label,target in re.findall(r'\[([^\]]*)\]\(([^)]+)\)',s):
-            if Path(target).name=='issue.md' and re.search(r'\bwork[ _-]?items?\b',label,re.I):
-                errors.append('Stale issue link label: '+str(p.relative_to(root)))
+            if Path(target).name=='task.md' and re.search(r'\bwork[ _-]?items?\b',label,re.I):
+                errors.append('Stale task link label: '+str(p.relative_to(root)))
         for target in re.findall(T+r'((?:references|workflows)/[a-z_\-]+\.md)'+T,s):
             if not (root/target).is_file():errors.append('Broken runtime path: '+target)
         if p in refs and not re.fullmatch(r'[a-z]+(?:_[a-z]+)*\.md',p.name):errors.append('Invalid reference filename: '+p.name)
@@ -113,7 +113,7 @@ def validate(root=ROOT):
             if filename in checked or kind=='requirement':continue
             checked.add(filename)
             content=(root/'examples'/filename).read_text()
-            if filename=='issue.md':kind='issue_feature'
+            if filename=='task.md':kind='task_feature'
             if filename=='agents_and_skills.md':
                 snippets=[body for tag,body in blocks(content)[0] if tag=='md']
                 if len(snippets)!=3:errors.append('Expected three complete configuration examples')
@@ -136,12 +136,12 @@ def validate(root=ROOT):
             for heading in bug_contract['required_sections']:
                 m=re.search(r'^## '+re.escape(heading)+r'\s*\n(.*?)(?=^## |\Z)',doc,re.M|re.S)
                 if not m or not m[1].strip():errors.append('Missing/empty '+heading+' in bug '+label)
-        issue_contract=json.loads((root/'evals/rubrics/issue_structure.json').read_text())
-        issue_docs=documents('issue.md')
+        issue_contract=json.loads((root/'evals/rubrics/task_structure.json').read_text())
+        issue_docs=documents('task.md')
         for label,doc in issue_docs:
             for heading in issue_contract['required_sections']:
                 m=re.search(r'^## '+re.escape(heading)+r'\s*\n(.*?)(?=^## |\Z)',doc,re.M|re.S)
-                if not m or not m[1].strip():errors.append('Missing/empty '+heading+' in issue '+label)
+                if not m or not m[1].strip():errors.append('Missing/empty '+heading+' in task '+label)
         example_contract=json.loads((root/'evals/rubrics/example_requirements.json').read_text())
         test_spec=(root/'examples/test_specification.md').read_text()
         for case,requirement in example_contract['test_case_mapping'].items():

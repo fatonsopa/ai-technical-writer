@@ -6,7 +6,7 @@ Use this workflow when the user asks to audit or improve this skill's references
 
 Read the user's current requirements and supplied history. Record the intended behavior, scope, acceptance checks, and source versions before changing the library. Recheck source files that the user updates during the work. Current instructions take precedence over old proposals.
 
-Map each reference to the document it teaches. Decide which file owns shared writing guidance, issue content, bug additions, governance rules, and rewrite safeguards. Keep project workflow rules in the project.
+Map each reference to the document it teaches. Decide which file owns shared writing guidance, task content, bug additions, governance rules, and rewrite safeguards. Keep project workflow rules in the project.
 
 ## Work on one reference at a time
 

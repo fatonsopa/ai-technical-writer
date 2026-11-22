@@ -16,7 +16,7 @@ Explain compatibility for consumers, schema evolution, deprecation and migration
 
 ## Structure and template
 
-Use [discovery](../workflows/discover.md) to resolve material choices; the author must not invent an endpoint or retry policy. Small contracts can live in a design or issue, preserving the same information.
+Use [discovery](../workflows/discover.md) to resolve material choices; the author must not invent an endpoint or retry policy. Small contracts can live in a design or task, preserving the same information.
 
 ```md
 # [Boundary] contract

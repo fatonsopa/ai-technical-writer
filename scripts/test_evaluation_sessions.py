@@ -186,8 +186,8 @@ class EvaluationSessionTests(unittest.TestCase):
         self.assertEqual(budget.report()["cli_invocations"], 2)
 
     def test_authored_example_scores_use_the_same_strict_contract(self):
-        packet = audit_examples.make_packet([ROOT / "examples/issue.md"])
-        response = {"packet_sha256": packet["packet_sha256"], "reviewer": self.judgment()["reviewer"], "results": [{"id": "issue", "scores": [99] * 7, "critical_failures": [], "reasons": ["Invalid score control."]}]}
+        packet = audit_examples.make_packet([ROOT / "examples/task.md"])
+        response = {"packet_sha256": packet["packet_sha256"], "reviewer": self.judgment()["reviewer"], "results": [{"id": "task", "scores": [99] * 7, "critical_failures": [], "reasons": ["Invalid score control."]}]}
         with self.assertRaisesRegex(ValueError, "0–3"):
             audit_examples.assess_packet(packet, response)
         response["results"][0]["scores"] = [3] * 7

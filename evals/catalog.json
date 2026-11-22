@@ -1,10 +1,10 @@
 {
   "output_kinds": [
     {
-      "id": "issue_bug",
-      "acronym": "Bug issue",
-      "full_name": "Bug issue",
-      "reference": "references/issue.md",
+      "id": "task_bug",
+      "acronym": "Bug task",
+      "full_name": "Bug task",
+      "reference": "references/task.md",
       "operations": [
         "create",
         "edit",
@@ -13,10 +13,10 @@
       ]
     },
     {
-      "id": "issue_chore",
-      "acronym": "Chore issue",
-      "full_name": "Chore issue",
-      "reference": "references/issue.md",
+      "id": "task_chore",
+      "acronym": "Chore task",
+      "full_name": "Chore task",
+      "reference": "references/task.md",
       "operations": [
         "create",
         "edit",
@@ -25,10 +25,10 @@
       ]
     },
     {
-      "id": "issue_decision",
-      "acronym": "Decision issue",
-      "full_name": "Decision issue",
-      "reference": "references/issue.md",
+      "id": "task_decision",
+      "acronym": "Decision task",
+      "full_name": "Decision task",
+      "reference": "references/task.md",
       "operations": [
         "create",
         "edit",
@@ -37,10 +37,10 @@
       ]
     },
     {
-      "id": "issue_feature",
-      "acronym": "Feature issue",
-      "full_name": "Feature issue",
-      "reference": "references/issue.md",
+      "id": "task_feature",
+      "acronym": "Feature task",
+      "full_name": "Feature task",
+      "reference": "references/task.md",
       "operations": [
         "create",
         "edit",
@@ -49,10 +49,10 @@
       ]
     },
     {
-      "id": "issue_improvement",
-      "acronym": "Improvement issue",
-      "full_name": "Improvement issue",
-      "reference": "references/issue.md",
+      "id": "task_improvement",
+      "acronym": "Improvement task",
+      "full_name": "Improvement task",
+      "reference": "references/task.md",
       "operations": [
         "create",
         "edit",
@@ -61,10 +61,10 @@
       ]
     },
     {
-      "id": "issue_release",
-      "acronym": "Release issue",
-      "full_name": "Release issue",
-      "reference": "references/issue.md",
+      "id": "task_release",
+      "acronym": "Release task",
+      "full_name": "Release task",
+      "reference": "references/task.md",
       "operations": [
         "create",
         "edit",

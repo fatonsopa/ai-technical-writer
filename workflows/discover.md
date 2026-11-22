@@ -20,8 +20,8 @@ Start at the first unresolved material topic, then adapt the next question to th
 
 | Order | Establish | Typical owner |
 | --- | --- | --- |
-| 1 | Reader, problem, users, desired outcome, included and excluded scope | Product Requirements Document (PRD) or source issue |
-| 2 | Required behavior, roles, errors, business rules, acceptance | Spec Driven Development document (SDD) or a small issue's specification |
+| 1 | Reader, problem, users, desired outcome, included and excluded scope | Product Requirements Document (PRD) or source task |
+| 2 | Required behavior, roles, errors, business rules, acceptance | Spec Driven Development document (SDD) or a small task's specification |
 | 3 | Constraints, data ownership, quality targets, compatibility, risk | Spec Driven Development document (SDD) and existing architecture |
 | 4 | Unresolved architecture, component design, operational and delivery tradeoffs | High Level Document (HLD), Low Level Design (LLD), decision record, plan |
 | 5 | Whether a visual would clarify a difficult relationship or scenario | Owning reference with visual guidance |

@@ -22,7 +22,7 @@ def entry_for(filename):
 
 
 def kind_for(filename):
-    return 'issue_feature' if filename == 'issue.md' else entry_for(filename)['id']
+    return 'task_feature' if filename == 'task.md' else entry_for(filename)['id']
 
 
 def make_packet(paths):

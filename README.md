@@ -1,34 +1,191 @@
 # SpecDev
 
-The current installable skill is **Technical Writer** (`technical-writer`). **SpecDev** is its planned release name. This repository already uses OpenSpec for its own [implementation handoff](plan/README.md). The `/specdev` entry and automatic forwarding described below are acceptance requirements for that release.
+Use this skill to turn project notes into documents people can build from, or to review a draft against its sources. Today you install it as **Technical Writer** (`technical-writer`). **SpecDev** is the planned name for the release that will also run OpenSpec commands. [Install the current skill](#get-the-source) · [See the release plan](plan/README.md)
 
-Write, edit, review, and rewrite technical documents using shared language guidance and document-specific references. Supported outputs include issues, PRDs, behavioral specifications, architecture, implementation plans, decision records, governance, testing reports, tutorials, and READMEs.
+## Document flow
 
-The [catalog and workflow](SKILL.md) explain when to use each format. The skill preserves source facts, requirements, exceptions, exact values, and uncertainty. Complete documents are checked against [versioned output contracts](contracts/documents.json); accepted delivery also requires a source-grounded review of the actual draft.
+### Core document flow
+
+For a feature that changes product behavior and needs a design decision, OpenSpec uses four files. A proposal identifies the change. The specification and design can then be written in parallel. Both feed the task list.
+
+```mermaid
+flowchart TD
+    accTitle: Core document flow
+    accDescr: The proposal feeds the specification and design. Both feed the task list.
+    CP@{ shape: doc, label: "Change Proposal (CP)" }
+    SDD@{ shape: doc, label: "Behavioral Specification (SDD)" }
+    TD@{ shape: doc, label: "Technical Design (TD)" }
+    TL@{ shape: doc, label: "Task List (TL)" }
+    CP --> SDD
+    CP --> TD
+    SDD --> TL
+    TD --> TL
+    classDef document fill:#D2D2D2,stroke:#4B5563,color:#17212B
+    class CP,SDD,TD,TL document
+```
+
+### Expanded document flow
+
+Solid arrows show the same core flow. A dotted arrow means **optional** and points from a document to the work it informs. A story can live in the specification. A task can live in the task list, in its own `task.md`, or in a tracker. An independent fix can start and finish with one task.
+
+```mermaid
+flowchart LR
+    accTitle: Expanded document flow
+    accDescr: Solid arrows connect the four core documents. Dotted arrows link optional supporting documents to their consumers.
+    DIR@{ shape: doc, label: "Discovery Interview Record (DIR)" }
+    PB@{ shape: doc, label: "Product Brief (PB)" }
+    PRD@{ shape: doc, label: "Product Requirements Document (PRD)" }
+    CM@{ shape: doc, label: "Capability Map (CM)" }
+    CP@{ shape: doc, label: "Change Proposal (CP)" }
+    EPIC@{ shape: doc, label: "Epic (EPIC)" }
+    US@{ shape: doc, label: "User Story (US)" }
+    SDD@{ shape: doc, label: "Behavioral Specification (SDD)" }
+    TASK@{ shape: doc, label: "Task (TASK)" }
+    TD@{ shape: doc, label: "Technical Design (TD)" }
+    REQ@{ shape: doc, label: "Individual Requirement (REQ)" }
+    RR@{ shape: doc, label: "Research Record (RR)" }
+    DR@{ shape: doc, label: "Decision Record (DR)" }
+    HLD@{ shape: doc, label: "High-Level Design (HLD)" }
+    LLD@{ shape: doc, label: "Low-Level Design (LLD)" }
+    IC@{ shape: doc, label: "Interface Contract (IC)" }
+    TM@{ shape: doc, label: "Threat Model (TM)" }
+    SOD@{ shape: doc, label: "Service Objectives Document (SOD)" }
+    POL@{ shape: doc, label: "Policy (POL)" }
+    STD@{ shape: doc, label: "Technical Standard (STD)" }
+    RQC@{ shape: doc, label: "Requirements-Quality Checklist (RQC)" }
+    FM@{ shape: doc, label: "Feature Map (FM)" }
+    CJ@{ shape: doc, label: "Critical Journeys (CJ)" }
+    TS@{ shape: doc, label: "Test Specification (TS)" }
+    TP@{ shape: doc, label: "Test Plan (TP)" }
+    TL@{ shape: doc, label: "Task List (TL)" }
+    IP@{ shape: doc, label: "Implementation Plan (IP)" }
+    TSR@{ shape: doc, label: "Test Status Report (TSR)" }
+    TCR@{ shape: doc, label: "Test Completion Report (TCR)" }
+    BR@{ shape: doc, label: "Bug Report (BR)" }
+    IR@{ shape: doc, label: "Incident Report (IR)" }
+    README@{ shape: doc, label: "Repository Readme (README)" }
+    TUT@{ shape: doc, label: "Tutorial (TUT)" }
+    HTG@{ shape: doc, label: "How-to Guide (HTG)" }
+    EXP@{ shape: doc, label: "Explanation (EXP)" }
+    AI@{ shape: doc, label: "Agent Instructions (AI)" }
+    SKILL@{ shape: doc, label: "Reusable Skill (SKILL)" }
+    OS@{ shape: doc, label: "Claude Code Output Style (OS)" }
+    VIS@{ shape: doc, label: "Diagram (VIS)" }
+    DIR -.-> PB
+    PB -.-> PRD
+    PRD -.-> CM
+    PRD -.-> CP
+    CM -.-> EPIC
+    EPIC -.-> US
+    US -.-> SDD
+    US -.-> TASK
+    CP --> SDD
+    CP --> TD
+    REQ -.-> SDD
+    RR -.-> DR
+    DR -.-> TD
+    HLD -.-> LLD
+    LLD -.-> TD
+    IC -.-> TD
+    TM -.-> TD
+    SOD -.-> TD
+    POL -.-> STD
+    STD -.-> TD
+    SDD -.-> RQC
+    FM -.-> CJ
+    CJ -.-> TS
+    TP -.-> TS
+    TS -.-> TL
+    RQC -.-> TL
+    IP -.-> TL
+    TASK -.-> TL
+    SDD --> TL
+    TD --> TL
+    TL -.-> TSR
+    TSR -.-> TCR
+    BR -.-> TASK
+    IR -.-> TASK
+    TL -.-> README
+    TL -.-> TUT
+    TL -.-> HTG
+    TL -.-> EXP
+    TL -.-> AI
+    TL -.-> SKILL
+    TL -.-> OS
+    TL -.-> VIS
+    classDef document fill:#D2D2D2,stroke:#4B5563,color:#17212B
+    class DIR,PB,PRD,CM,CP,EPIC,US,SDD,TASK,TD,REQ,RR,DR,HLD,LLD,IC,TM,SOD,POL,STD,RQC,FM,CJ,TS,TP,TL,IP,TSR,TCR,BR,IR,README,TUT,HTG,EXP,AI,SKILL,OS,VIS document
+```
+
+Tutorials, runbooks, repository guidance, diagrams and assistant instructions can be deliverables in their own right. Write them when someone needs them. Verification reports describe results after the corresponding checks have run.
+
+## Supported document types
+
+Each command below is approved for the SpecDev release. Today, ask Technical Writer for a document by name. A host may offer a short command directly. If it is already taken, use the qualified document command, such as `/specdev doc dr` in Claude Code or `$specdev doc dr` in Codex. OpenSpec supplies the format when the selected project already defines the document.
+
+| Command | Document | What it answers and when you need it |
+| --- | --- | --- |
+| `/interview` | [Discovery Interview Record (DIR)](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s14-1) | Planned format. What did the owner confirm, and what is still open? Use when answers affect scope. |
+| `/brief` | [Product Brief (PB)](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s05-1) | Planned format. Is this problem worth solving? Use before committing to a product direction. |
+| `/prd` | [Product Requirements Document (PRD)](references/product_requirements_document.md) | Who needs what outcome? Use to agree on the product goal and scope. |
+| `/capability-map` | [Capability Map (CM)](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s15-1) | Planned format. Which capabilities can ship separately, and which depend on each other? |
+| `/epic` | [Epic (EPIC)](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s21-1) | Planned format. Which stories deliver one larger outcome? Use when they need coordination. |
+| `/proposal` | [Change Proposal (CP)](openspec/changes/ship-specdev/proposal.md) | Why make this OpenSpec change, and what does it cover? |
+| `/story`, `/us` | [User Story (US)](references/user_story.md) | What should one person be able to do, and what counts as success? |
+| `/sdd`, `/spec` | [Behavioral Specification (SDD)](references/spec_driven_development.md) | What must the software do? Use for rules, exceptions, and observable outcomes. |
+| `/requirement` | [Individual Requirement (REQ)](references/spec_driven_development.md#writing-an-individual-requirement) | Which single rule needs to be added or clarified? |
+| `/research` | [Research Record (RR)](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s16-1) | Planned format. What evidence settles a design question, and what remains unknown? |
+| `/dr` | [Decision Record (DR)](references/decision_record.md) | Which option did we choose and why? Use when the rationale needs to survive. |
+| `/hld` | [High-Level Design (HLD)](references/high_level_document.md) | Which parts of the system change, and how do they fit together? |
+| `/lld` | [Low-Level Design (LLD)](references/low_level_design.md) | How will one component handle its data, interfaces, and failures? |
+| `/ic` | [Interface Contract (IC)](references/interface_contract.md) | What do two components exchange, and how must each handle errors? |
+| `/tm` | [Threat Model (TM)](references/threat_model.md) | What could go wrong, and which safeguards address each risk? |
+| `/sod` | [Service Objectives Document (SOD)](references/service_objectives.md) | How reliable must the service be, and how will we measure it? |
+| `/pol` | [Policy (POL)](references/policy.md) | What may or must people do, and who can approve exceptions? |
+| `/std` | [Technical Standard (STD)](references/technical_standard.md) | Which technical rule applies, and how is compliance checked? |
+| `/design` | [Technical Design (TD)](openspec/changes/ship-specdev/design.md) | How will we build this change? Record choices, trade-offs, and risks. |
+| `/ip` | [Implementation Plan (IP)](references/implementation_plan.md) | How will we deliver and verify the work? Use the change design for one OpenSpec change or a separate plan for work coordinated across changes. |
+| `/requirements-checklist` | [Requirements-Quality Checklist (RQC)](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s19-1) | Planned format. Which requirements are ready to build, and which still need a decision? |
+| `/feature-map` | [Feature Map (FM)](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s17-1) | Planned format. Where can someone find a feature and check its behavior? |
+| `/journeys` | [Critical Journeys (CJ)](openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#s18-1) | Planned format. Which user paths matter most, and what outcome should each reach? |
+| `/tp` | [Test Plan (TP)](references/test_plan.md) | What will testing cover, and when can it finish? |
+| `/ts` | [Test Specification (TS)](references/test_specification.md) | What inputs, steps, and result will prove a requirement? |
+| `/tasks` | [Task List (TL)](openspec/changes/ship-specdev/tasks.md) | What can start, what must wait, and how will each item be checked? Use for a multi-task change. |
+| `/task` | [Task (TASK)](references/task.md) | What is this one assignment, and how will we know it is done? Use it for a bounded change or independently tracked work. |
+| `/tsr` | [Test Status Report (TSR)](references/test_status_report.md) | While testing is underway, what passed, failed, or is blocked? |
+| `/tcr` | [Test Completion Report (TCR)](references/test_completion_report.md) | When testing ends, what did it prove and what risks remain? |
+| `/br` | [Bug Report (BR)](references/bug_report.md) | What failed, what should have happened, and how can someone investigate? |
+| `/ir` | [Incident Report (IR)](references/incident_report.md) | Who was affected, how did the team recover, and what needs follow-up? |
+| `/readme` | [Repository Readme (README)](references/readme.md) | What is this project, how do I start, and where can I find help? |
+| `/tut` | [Tutorial (TUT)](references/tutorial.md) | How can a learner practice a skill and recognize a successful result? |
+| `/htg` | [How-to Guide (HTG)](references/how_to_guide.md) | How do I complete this task or recover if a step fails? |
+| `/exp` | [Explanation (EXP)](references/explanation.md) | How does this work, and why was it designed this way? |
+| `/agent` | [Agent Instructions (AI)](references/agents_and_skills.md#agent-format) | When should this agent act, what may it do, and what must it return? |
+| `/skill` | [Reusable Skill (SKILL)](references/agents_and_skills.md#skill-format) | How should an agent perform this repeatable task? |
+| `/output-style` | [Claude Code Output Style (OS)](references/agents_and_skills.md#output-style-format) | How should Claude Code word and format its session replies? |
+| `/diagram` | [Diagram (VIS)](references/visuals.md) | Which flow or relationship would a reader understand faster as a picture? |
+
+A standalone Markdown task uses `task.md`. OpenSpec’s ordered checklist uses `tasks.md`. Its other default change files are `proposal.md`, `specs/<capability>/spec.md` and `design.md`. [Where the task list fits](#where-tasksmd-fits)
 
 ## What SpecDev adds to OpenSpec
 
-Use one entry to write a standalone project document or work on a software change. A checkmark identifies the tool that supplies the feature. SpecDev will expose the checked OpenSpec features through that same entry. The table is a comparison, not a list of allowed commands.
+In the planned release you’ll be able to ask for a document or run an OpenSpec command in the same conversation. A checkmark shows which tool does the work.
 
 | Feature | OpenSpec | SpecDev |
 | --- | :---: | :---: |
-| Initialize a project and find its change or configured store | ✓ | |
-| Define a change’s proposal, capability specs, design and task list | ✓ | |
-| Report change status, apply authorized tasks, sync specs and archive a change | ✓ | |
-| Provide native commands, configured workflows, schemas, templates and structural validation | ✓ | |
-| [Install and refresh SpecDev’s own entry in the selected hosts](#planned-release-installation) | | ✓ |
-| Offer a single SpecDev entry in Claude Code and Codex and discover the matching upstream operation | | ✓ |
-| Write standalone project documents such as a PRD, runbook, incident report or shared contract when the active workflow has no owner for them | | ✓ |
-| Review wording against the supplied policy or source and preserve its exact permissions and exceptions | | ✓ |
-| Provide the optional PRD, LLD and task shortcuts and communicate checked writing results in the session | | ✓ |
+| Set up a project and find the change you want to work on | ✓ | |
+| Provide the [four files for a change](#core-document-flow) and check their structure | ✓ | |
+| Show progress, carry out approved tasks, update the project’s specs and archive a finished change | ✓ | |
+| Let a project choose its own workflow and document templates | ✓ | |
+| Write a [project document](#supported-document-types), such as a runbook or incident report | | ✓ |
+| Check that the wording preserves the rules, exceptions and open questions in your sources | | ✓ |
+| Offer a [document command](#supported-document-types) for each type of writing | | ✓ |
 
 ### How OpenSpec works behind SpecDev
 
-In the planned release, enter `/specdev` in Claude Code or `$specdev` in Codex. For example, `/specdev init` will run the pinned OpenSpec CLI in the selected project. For a fresh project using only SpecDev it requests `--tools none`. Project initialization creates the native workspace; it starts no feature and applies no code change.
+Ask SpecDev to “write a support runbook” and it will use the writing guide for that document. Ask it to “plan refund approvals” in an OpenSpec project and it will use that project’s proposal, specs, design and task list as needed. When the project already defines the document, SpecDev will edit that file.
 
-When you enter a command, SpecDev will check the installed OpenSpec CLI and available workflow instructions. If upstream supplies the operation, SpecDev will use it with the selected project, change and supported arguments. For example, `/specdev templates --schema spec-driven --json` will use the native template lookup without a separate SpecDev shortcut. **Every OpenSpec operation available in that installation and project is in scope**, including operations outside the table and types added by a custom schema. Native prerequisites and permissions still apply. If a workflow is disabled, SpecDev will report what it needs. If neither tool recognizes a command, it will report that without changing the project.
-
-For “write a support runbook,” SpecDev will use its writing guide unless the selected change schema already owns that document. For “plan refund approvals,” the agent will follow OpenSpec’s instructions and write the change’s native files. A later request to implement or archive uses the same change. The benefit is one conversation and one editable copy of each decision. [OpenSpec skills](https://openspec.dev/docs/skills) · [OpenSpec CLI](https://openspec.dev/docs/cli) · [Pinned dependency](tools/openspec/package.json)
+For commands, type `/specdev` in Claude Code or `$specdev` in Codex, followed by the OpenSpec command. For example, `/specdev init` will ask OpenSpec to set up the current project. SpecDev will check which commands the installed OpenSpec version provides, including commands added later. If a command is unavailable or needs setup, it will tell you. [OpenSpec commands](https://openspec.dev/docs/cli) · [Planned installation](#planned-release-installation)
 
 ## Requirements
 
@@ -124,7 +281,7 @@ For a change using OpenSpec’s default schema:
 
 1. State the reason and affected capabilities in `proposal.md`.
 2. Define observable behavior in `specs/<capability>/spec.md`. Record the delivery approach and decisions in `design.md` as the schema requires.
-3. Put ordered, independently verifiable steps in **one** `tasks.md`. Each row says what to change and how to check it. Link an Issue when it already owns an assignment or acceptance criterion.
+3. Put ordered, independently verifiable steps in **one** `tasks.md`. Each row says what to change and how to check it. Link a task when it already owns an assignment or acceptance criterion.
 4. On an authorized build, the agent reads OpenSpec’s apply context for the selected change, performs an eligible task, and updates that same checkbox after verifying the result.
 
 You can inspect the [SpecDev task list](openspec/changes/ship-specdev/tasks.md) in this checkout. A standalone writing request can finish with the requested document.
@@ -226,7 +383,7 @@ Routine validation includes necessary bounded retries without another approval f
 - **An input, guide, or evaluator changed:** preserve the old evidence and prepare a new versioned session.
 - **A result remains pending:** obtain the required review. A high aggregate score cannot waive critical failures or missing coverage.
 
-For support, [open an issue](https://github.com/fatonsopa/ai-technical-writer/issues) with the skill version, host, sanitized input, expected result, actual result, and reproduction steps. Keep credentials and private project data out of public reports.
+For support, [open a GitHub issue](https://github.com/fatonsopa/ai-technical-writer/issues) with the skill version, host, sanitized input, expected result, actual result, and reproduction steps. Keep credentials and private project data out of public reports.
 
 ## Development
 

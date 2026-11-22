@@ -2,7 +2,7 @@
 
 Write as an experienced developer explaining the subject to a colleague. Use natural English, precise technical terms, and enough context to make sense without the original conversation.
 
-Apply this guide to every authored text surface before it is sent or accepted. That includes documents, instructions, titles, headings, tables, templates, examples, references, diagram titles, labels, metadata, legends and explanations, questions and answer options, audit findings, recommendations, comments and delivery messages. No output type, length or workflow stage is exempt. The guide’s preservation rules govern exact literals, code, commands, identifiers, values and quotations; applying style must retain their required meaning and bytes. The document reference defines the structure and required information. For issue titles and descriptions, also use [Issue](issue.md).
+Apply this guide to every authored text surface before it is sent or accepted. That includes documents, instructions, titles, headings, tables, templates, examples, references, diagram titles, labels, metadata, legends and explanations, questions and answer options, audit findings, recommendations, comments and delivery messages. No output type, length or workflow stage is exempt. The guide’s preservation rules govern exact literals, code, commands, identifiers, values and quotations; applying style must retain their required meaning and bytes. The document reference defines the structure and required information. For task titles and descriptions, also use [Task](task.md).
 
 ## 1. Understand the subject before choosing words
 
@@ -58,7 +58,7 @@ Do not impose fixed sentence or paragraph lengths, or an actor at the start of e
 
 Document and diagram titles name the topic: “Website review workflow,” not “Save a category for selected websites.” Keep them short and specific. Put scope in a brief subtitle and details in the body.
 
-Use sentence case. Section headings may ask questions or give instructions. Task titles follow [Issue](issue.md).
+Use sentence case. Section headings may ask questions or give instructions. Task titles follow [Task](task.md).
 
 A visible subtitle states what the view covers; it must not narrate every internal step. Preserve source scope and certainty. Keep required technical identifiers and exact user-requested names literal.
 
@@ -152,7 +152,7 @@ These suggestions use the full descriptions in the supplied exports. They show h
 | CG-3029: Lint fails when the design-system download needs an SSH key this machine lacks | Lint fails to download the design system without a GitHub SSH key |
 | CG-3033: Answers wait weeks in the read stage past the declared limit | Some answers wait weeks for extraction despite the stage time limit |
 
-The IDs identify the source issues; they are not part of the suggested titles. These are wording examples, not complete issue rewrites. Keep the supporting facts, conditions, and unresolved questions in the description. Use [Issue](issue.md) for the detailed issue-writing conventions.
+The IDs identify the source issues; they are not part of the suggested titles. These are wording examples, not complete task rewrites. Keep the supporting facts, conditions, and unresolved questions in the description. Use [Task](task.md) for the detailed task-writing conventions.
 
 ## Review before delivery
 

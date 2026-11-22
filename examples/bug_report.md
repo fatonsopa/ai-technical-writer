@@ -8,7 +8,7 @@ The administration website list omits an active parked website when it has no ci
 
 ## Environment
 
-Isolated baseline database and administration build before the new queue contracts. Signed-in administrator; functional fixture revision WR-1. The issue concerns the current listing behavior, not production-wide impact.
+Isolated baseline database and administration build before the new queue contracts. Signed-in administrator; functional fixture revision WR-1. The task concerns the current listing behavior, not production-wide impact.
 
 ## Prerequisites
 

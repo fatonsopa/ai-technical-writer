@@ -1,26 +1,26 @@
-# Issue
+# Task
 
-Use this reference to write a unit of development work in Linear, GitHub Issues, Jira, or a Markdown document. An issue explains what needs attention, why it matters, and how acceptance will be checked. Apply `references/writing_style.md` to its language.
+Use this reference to write a unit of development work in Linear, GitHub Issues, Jira, or a Markdown document. Use `task.md` for one standalone Markdown task and `tasks.md` for the ordered list of work on a change. “Issue” and “work item” remain accepted request names. A task explains what needs attention, why it matters, and how acceptance will be checked. Apply `references/writing_style.md` to its language.
 
 Create a task when work needs tracking; update its scope, progress, and evidence as the work changes. The six types below are this package's convention, not a universal tracker schema. A task need not already exist, and writing a task does not authorize posting it or changing its status.
 
-An issue may trigger a specification, or a specification and plan may produce several issues. For a small change, the issue's expected behavior and acceptance criteria can be the specification. Larger work links to the governing spec and plan instead of copying them.
+A task may trigger a specification, or a specification and plan may produce several tasks. For a small change, the task's expected behavior and acceptance criteria can be the specification. Larger work links to the governing spec and plan instead of copying them.
 
-For a multi-task feature, each Issue identifies its governing story criterion and owns the task’s scope, acceptance criteria and required proof. Use the task’s section in `tasks.md` or reference the existing Markdown or tracker Issue from its row. An external tracker is optional. If the task proves an existing story criterion exactly, reference it and specify the task’s own scope, evidence and candidate. Give a new criterion ID only to a distinct task obligation. In a feature task list, use a checkbox, feature-local ID, story reference and link to the owning Issue. Add `[P]` only when the tasks can safely run together. The implementing agent opens the eligible Issue from that list. A standalone task can end with this Issue. Its filename follows the project convention. [Feature task flow](../README.md#where-tasksmd-fits)
+For a multi-task feature, each Task identifies its governing story criterion and owns the task’s scope, acceptance criteria and required proof. Use the task’s section in `tasks.md` or reference the existing Markdown or tracker Task from its row. An external tracker is optional. If the task proves an existing story criterion exactly, reference it and specify the task’s own scope, evidence and candidate. Give a new criterion ID only to a distinct task obligation. In a feature task list, use a checkbox, feature-local ID, story reference and link to the owning Task. Add `[P]` only when the tasks can safely run together. The implementing agent opens the eligible Task from that list. A standalone task can end with this Task. Its filename follows the project convention. [Feature task flow](../README.md#where-tasksmd-fits)
 
-When editing an existing excerpt, use the current request's task type and destination if an older draft contains conflicting drafting directions. Remove author-facing drafting instructions from finished issue prose. Keep meaningful headings within the edited excerpt clear without expanding it into a full task.
+When editing an existing excerpt, use the current request's task type and destination if an older draft contains conflicting drafting directions. Remove author-facing drafting instructions from finished task prose. Keep meaningful headings within the edited excerpt clear without expanding it into a full task.
 
 ## Principles
 
 - Understand the full description before writing the title. Keep the problem, requested outcome, current status, and unresolved decisions distinct.
 - Keep independently deliverable work separate. Retain related symptoms together when they describe one failure; link dependencies rather than adding unrelated tasks.
 - Explain the need before the implementation. Include technical instructions when they are confirmed constraints or useful investigation findings.
-- Define observable acceptance criteria. Identify which specification requirements or issue acceptance criteria the work satisfies.
+- Define observable acceptance criteria. Identify which specification requirements or task acceptance criteria the work satisfies.
 - Preserve existing scope, conditions, evidence, and uncertainty when editing. A title change does not authorize changing the work.
 - Leave status, assignment, priority, and release approvals to the project's task-management process.
-- Keep issue type in tracker metadata. In Linear, use the existing `Type` label group. Do not repeat a `Type: …` field in the title or description; preserve unrelated labels and native status fields.
+- Keep task type in tracker metadata. In Linear, use the existing `Type` label group. Do not repeat a `Type: …` field in the title or description; preserve unrelated labels and native status fields.
 
-## Issue types and titles
+## Task types and titles
 
 | Type | Title and description |
 | --- | --- |
@@ -31,11 +31,11 @@ When editing an existing excerpt, use the current request's task type and destin
 | Improvement | Name the change to existing behavior. Explain the current limitation and desired result; use measurements when available. |
 | Release | Name the release and destination when known. Link its contents, preparation, deployment procedure, verification, and recovery requirements. |
 
-A title should distinguish this issue in a list. Retain a useful technical term or condition when it makes the work identifiable. Avoid plan codes as the only context and generic titles shared by unrelated tests. Do not turn a bug into an instruction or claim a suspected cause is established.
+A title should distinguish this task in a list. Retain a useful technical term or condition when it makes the work identifiable. Avoid plan codes as the only context and generic titles shared by unrelated tests. Do not turn a bug into an instruction or claim a suspected cause is established.
 
 ## Document structure
 
-Include a title, description, expected outcome, and verifiable acceptance criteria. Record the issue type as tracker metadata, outside the issue text. For change work, identify the governing spec requirement or give the intended behavior and acceptance criteria inline. Add scope, evidence, dependencies, and relevant files when they help.
+Include a title, description, expected outcome, and verifiable acceptance criteria. Record the task type as tracker metadata, outside the task text. For change work, identify the governing spec requirement or give the intended behavior and acceptance criteria inline. Add scope, evidence, dependencies, and relevant files when they help.
 
 Relevant files must be verified or clearly attributed to a supplied source; distinguish a reported path from a file you inspected. Keep the current decision or status understandable without reproducing the whole conversation.
 
@@ -52,7 +52,7 @@ Tests and verification can be sections or comments in the task: use [Test Specif
 [Current problem or opportunity, who is affected, and why the work matters.]
 
 ## Expected outcome
-[What should be true when the issue is accepted.]
+[What should be true when the task is accepted.]
 
 ## Scope
 [Included work and important limits.]
@@ -71,11 +71,11 @@ Tests and verification can be sections or comments in the task: use [Test Specif
 [Useful evidence, dependencies, and open questions.]
 ```
 
-Adapt optional sections to the issue. One concise paragraph can be enough for a small task. Do not create empty sections or duplicate the bug template.
+Adapt optional sections to the task. One concise paragraph can be enough for a small task. Do not create empty sections or duplicate the bug template.
 
 ## Completed example
 
-Read the [complete Websites Review example](../examples/issue.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
+Read the [complete Websites Review example](../examples/task.md). It demonstrates this format's structure and depth within the shared initiative. Scale the result to the actual request; do not copy its project facts into another document.
 
 ## Quality check
 
@@ -83,7 +83,7 @@ Can a developer identify the work from the title, understand the need, find its 
 
 ## Sources
 
-- [Linear: issues as units of work](https://linear.app/docs/creating-issues)
+- [Linear’s guide to creating issues](https://linear.app/docs/creating-issues)
 - [Mozilla: clear bug summaries](https://bugzilla.mozilla.org/page.cgi?id=bug-writing.html)
 - [GitHub Spec Kit: specifications, plans, and tasks](https://github.com/github/spec-kit)
 

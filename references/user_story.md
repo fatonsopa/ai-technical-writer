@@ -1,18 +1,18 @@
 # User Story (US)
 
-A user story describes a small, useful outcome from a person's perspective. Create one to clarify or track a user need; update it when the need, scope, value, or acceptance criteria change. It can live in a Feature/Improvement [issue](issue.md) or a [Product Requirements Document (PRD)](product_requirements_document.md)/[Spec Driven Development document (SDD)](spec_driven_development.md) before tasks exist. Its reference filename does not require a standalone story file or a new tracker type.
+A user story describes a small, useful outcome from a person's perspective. Create one to clarify or track a user need; update it when the need, scope, value, or acceptance criteria change. It can live in a Feature/Improvement [task](task.md) or a [Product Requirements Document (PRD)](product_requirements_document.md)/[Spec Driven Development document (SDD)](spec_driven_development.md) before tasks exist. Its reference filename does not require a standalone story file or a new tracker type.
 
 ## Principles
 
 - Identify a meaningful role, the capability needed, and the benefit. Avoid invented personas and benefits that merely repeat the capability.
 - Keep a story focused on a user outcome. Technical implementation tasks can support it without pretending every database migration is itself a user story.
 - Treat the story as a starting point for discussion. Record unresolved product choices; the familiar sentence formula is optional.
-- Make acceptance observable and consistent with the governing behavior. Link detailed rules rather than copying a whole specification. For a small task, record the expected behavior and acceptance criteria in the issue.
+- Make acceptance observable and consistent with the governing behavior. Link detailed rules rather than copying a whole specification. For a small task, record the expected behavior and acceptance criteria in the task.
 - Preserve permissions, failure conditions, and limits when refining or splitting stories. Do not assign estimates or workflow status without a source.
 
 ## Structure
 
-Use a specific title, user/need/value statement, scope, acceptance criteria, and relevant requirement links or open questions. The [Spec Driven Development document (SDD)](spec_driven_development.md) owns detailed behavior; the [Implementation Plan (IP)](implementation_plan.md) owns delivery. For a multi-task feature, author the story and its acceptance scenarios in the governing specification, or link to the project’s existing authoritative story. The delivery plan references its outcome. Child tasks identify the story criterion they deliver. Common task metadata belongs to the issue containing the story.
+Use a specific title, user/need/value statement, scope, acceptance criteria, and relevant requirement links or open questions. The [Spec Driven Development document (SDD)](spec_driven_development.md) owns detailed behavior; the [Implementation Plan (IP)](implementation_plan.md) owns delivery. For a multi-task feature, author the story and its acceptance scenarios in the governing specification, or link to the project’s existing authoritative story. The delivery plan references its outcome. Child tasks identify the story criterion they deliver. Common task metadata belongs to the task containing the story.
 
 ## Template
 

@@ -1,6 +1,6 @@
 # Resolve one parked website without leaving Review
 
-Parent: [Websites Review Feature](issue.md)
+Parent: [Websites Review Feature](task.md)
 Task type when tracked: Feature
 
 ## User story

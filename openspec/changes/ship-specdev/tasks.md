@@ -2,11 +2,11 @@
 
 <a id="spec-writer-implementation-tasks"></a>
 
-The numbered checkboxes are the apply list for this change. Their links lead to the existing Issues that own detailed acceptance and evidence. Local T numbers preserve earlier references. [Behavioral baseline](./specs/spec-driven-authoring/spec.md) · [Delivery approach and shared Definition of Done](./design.md#requirement-coverage)
+The numbered checkboxes are the apply list for this change. Their links lead to the existing Tasks that own detailed acceptance and evidence. Local T numbers preserve earlier references. [Behavioral baseline](./specs/spec-driven-authoring/spec.md) · [Delivery approach and shared Definition of Done](./design.md#requirement-coverage)
 
 Writer implementation starts after the accepted Skill Builder candidate and commit are available. W01 and W03 can then start in parallel. W60 retains its accepted evidence. W55–W57 and W51.3 remain proposals without execution rows. W46’s live rename requires accepted B5/T50.
 
-Follow dependencies and stable Issue IDs. W46 and W47 establish the installed runtime before W40 proves its native consumer. During authorized implementation, open the eligible Issue and record each criterion’s verdict, candidate and evidence there. Mark its checkbox only after acceptance. Preserve failures and missing proof. Unproven criteria begin **Not demonstrated**. Ship the change with its affected guidance and direct consumer. A writing-only request ends at checked document delivery. [Read-only handoff test](../../../plan/test.md)
+Follow dependencies and stable Task IDs. W46 and W47 establish the installed runtime before W40 proves its native consumer. During authorized implementation, open the eligible Task and record each criterion’s verdict, candidate and evidence there. Mark its checkbox only after acceptance. Preserve failures and missing proof. Unproven criteria begin **Not demonstrated**. Ship the change with its affected guidance and direct consumer. A writing-only request ends at checked document delivery. [Read-only handoff test](../../../plan/test.md)
 
 <a id="s01--edit-a-mixed-passage-without-corrupting-its-fixture"></a>
 
@@ -82,7 +82,7 @@ A task can look ready even when nobody can say which story it supports.
 
 An ordinary request for a child task first resolves the story, its criterion and the feature or epic that owns its outcome.
 
-Teach the order at discovery and issue/story entry. Preserve stable independent IDs on reparenting. An expressly standalone task may establish scope inline.
+Teach the order at discovery and task/story entry. Preserve stable independent IDs on reparenting. An expressly standalone task may establish scope inline.
 
 Workflow maintainer · R2/R11/A2/A11. [S02.1](./specs/spec-driven-authoring/spec.md#s02-1) and [F2.1](./specs/spec-driven-authoring/spec.md#f2-1). Use [W03](#w03--resolve-coverage-in-both-directions)’s declared references.
 
@@ -91,7 +91,7 @@ Workflow maintainer · R2/R11/A2/A11. [S02.1](./specs/spec-driven-authoring/spec
 - **W20.1** Create a child story for an identified epic, then a task for one story criterion. The reader recovers both source revisions and the shared outcome. <a id="w20-1"></a>
 - **W20.2** With the story absent, the epic absent, or a stale or contradictory parent, locate the broken edge and withhold dependent readiness. An explicitly independent broken-link fix can proceed with its own source and expected destination. A missing child parent never silently becomes standalone. <a id="w20-2"></a>
 
-[workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md) · [references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md) · [references/issue.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/implementation_plan.md)
+[workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md) · [references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md) · [references/task.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/implementation_plan.md)
 
 Use the valid chain and mutations on that chain; test the standalone branch once. No external tracker write.
 
@@ -105,9 +105,9 @@ A list of closed tickets can hide an incomplete delivery.
 
 #### Expected outcome
 
-A planner can write a parent epic with linked stories, bounded child issues and its own integrated proof.
+A planner can write a parent epic with linked stories, bounded child tasks and its own integrated proof.
 
-Use the project’s governing outcome or link its existing User Story (US). In a native change, capture the observable behavior once in the capability requirement and scenarios. For an OpenSpec change, keep task scope and proof with the numbered checkbox. Link an existing Issue where it independently owns the criterion. Preserve related observations before assigning independent work.
+Use the project’s governing outcome or link its existing User Story (US). In a native change, capture the observable behavior once in the capability requirement and scenarios. For an OpenSpec change, keep task scope and proof with the numbered checkbox. Link an existing Task where it independently owns the criterion. Preserve related observations before assigning independent work.
 
 Story-guidance maintainer · R2/R11/A2/A11. [S02.1](./specs/spec-driven-authoring/spec.md#s02-1) and [F2.1](./specs/spec-driven-authoring/spec.md#f2-1). Use [W20](#w20--resolve-feature-story-and-task-ancestry-before-drafting) and a known feature outcome; use [W10](#w10--map-independent-capabilities-before-specifying-each-one) if scope spans capabilities.
 
@@ -116,7 +116,7 @@ Story-guidance maintainer · R2/R11/A2/A11. [S02.1](./specs/spec-driven-authorin
 - **W11.1** For an initiative with related reports, write a parent epic, a usable child story and a scoped task. The parent exposes non-goals, dependencies, integrated proof and ownership. Each child inherits the right criterion. <a id="w11-1"></a>
 - **W11.2** Close all child tasks while withholding the parent’s integrated observation. The epic stays unaccepted. A plausible common cause remains provisional; preserve both original observations. <a id="w11-2"></a>
 
-[references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md) · [references/issue.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/implementation_plan.md) · [examples/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md)
+[references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md) · [references/task.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [references/implementation_plan.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/implementation_plan.md) · [examples/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md)
 
 Use the same chain used in W20 when compatible. Check the parent outcome once rather than recreating each child test.
 
@@ -240,7 +240,7 @@ Product-guidance maintainer · R4/A4. [S04.1](./specs/spec-driven-authoring/spec
 
 [references/product_requirements_document.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/product_requirements_document.md) · [examples/product_requirements_document.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/product_requirements_document.md)
 
-Keep the opening and detailed baseline. No invented cost, budget or new executive summary for a routine issue.
+Keep the opening and detailed baseline. No invented cost, budget or new executive summary for a routine task.
 
 - [ ] 6.2 [W08](#w08--judge-the-readers-decision-against-the-owning-detail) (T009). Check the opening with an independent reader. Reject a wrong decision backed by a real quote and accept equivalent correct wording. After W07.
 
@@ -366,7 +366,7 @@ Trace the design choice to a source or an explicit research gap. [Story criteria
 
 #### Description
 
-An issue can paraphrase a retry rule and imply a cause its evidence never established.
+A task can paraphrase a retry rule and imply a cause its evidence never established.
 
 #### Expected outcome
 
@@ -521,22 +521,22 @@ Have a reader recover the visible outcome and permission from the revised work i
 
 #### Description
 
-The issue tells the implementer that uncertain writes are reported honestly. The source says what the administrator sees and who may choose a retry.
+The task tells the implementer that uncertain writes are reported honestly. The source says what the administrator sees and who may choose a retry.
 
 #### Expected outcome
 
-The published issue is usable on its own for this criterion. A writer can follow the before/after example in the issue guide when editing another story or task.
+The published task is usable on its own for this criterion. A writer can follow the before/after example in the task guide when editing another story or task.
 
 Correct the worked clause, keep the surrounding limit and count refresh, and add a short contrast to the owning guide. Keep source terms where a synonym would change an ID, permission or technical meaning. Offer one plain-language rendering without prescribing identical prose.
 
-Issue-guidance maintainer · R12/A12. [S10.1](./specs/spec-driven-authoring/spec.md#s10-1) and [F10.1](./specs/spec-driven-authoring/spec.md#f10-1). Requires WEB-09–WEB-10 and the existing task and story examples.
+Task-guidance maintainer · R12/A12. [S10.1](./specs/spec-driven-authoring/spec.md#s10-1) and [F10.1](./specs/spec-driven-authoring/spec.md#f10-1). Requires WEB-09–WEB-10 and the existing task and story examples.
 
 #### Acceptance criteria
 
-- **W22.1** Read the original clause and governing source. Edit the issue so the administrator can distinguish confirmed, uncertain and unattempted rows. It says when to stop and preserves the fresh read before offering an optional administrator retry. Save the changed passage with the source. <a id="w22-1"></a>
+- **W22.1** Read the original clause and governing source. Edit the task so the administrator can distinguish confirmed, uncertain and unattempted rows. It says when to stop and preserves the fresh read before offering an optional administrator retry. Save the changed passage with the source. <a id="w22-1"></a>
 - **W22.2** Compare the full edited criterion with its neighbors. The 500-ID bound, refresh of confirmed rows and counts and permission survive. A clear existing story about a site leaving Review remains understandable. No invented guarantee or forced stylistic change is needed. <a id="w22-2"></a>
 
-[Worked issue](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/issue.md#L19) · [Clear story](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md#L18) · [Issue guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Writing guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/writing_style.md)
+[Worked task](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/issue.md#L19) · [Clear story](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md#L18) · [Task guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Writing guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/writing_style.md)
 
 One usable example and its guidance ship in this commit. The first signal is whether the original phrase allows both an informative summary and a generic error. Reuse W21’s requirement evidence.
 
@@ -554,45 +554,49 @@ A reviewer can use a source-grounded reader question and a wrong paraphrase to a
 
 Ship the review guidance, an ordinary editing request and the grader’s private comparison. Use the existing evaluation route. Keep all valid wordings eligible.
 
-Evaluation maintainer · R12/A12. [S10.1](./specs/spec-driven-authoring/spec.md#s10-1) and [F10.1](./specs/spec-driven-authoring/spec.md#f10-1). Use the corrected [W22](#w22--replace-vague-acceptance-text-with-the-visible-result) issue and the actual upstream obligations.
+Evaluation maintainer · R12/A12. [S10.1](./specs/spec-driven-authoring/spec.md#s10-1) and [F10.1](./specs/spec-driven-authoring/spec.md#f10-1). Use the corrected [W22](#w22--replace-vague-acceptance-text-with-the-visible-result) task and the actual upstream obligations.
 
 #### Acceptance criteria
 
-- **W23.1** Give a reader only the edited issue. Ask what happens after a response is lost and who may retry. Compare the answer with A12 and cite the words carrying each obligation. Missing or incorrect answers identify the exact ambiguity to fix. <a id="w23-1"></a>
+- **W23.1** Give a reader only the edited task. Ask what happens after a response is lost and who may retry. Compare the answer with A12 and cite the words carrying each obligation. Missing or incorrect answers identify the exact ambiguity to fix. <a id="w23-1"></a>
 - **W23.2** Present two candidate passages with similar tone. One preserves the optional retry and the other requires it. The rubric accepts the first and identifies the changed obligation in the second. A different clear wording receives the same verdict. <a id="w23-2"></a>
 
 [Reference review workflow](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/improve_references.md) · [Existing style cases](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/evals/style_cases.json) · [Governing source](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/spec_driven_development.md#L118)
 
 Share the reader’s packet with W08 if both independently graded results can be observed without revealing either answer. Stop after a supported reader result and the wrong-meaning control. No style benchmark across the entire catalog.
 
-<a id="s11--follow-a-failed-save-from-story-to-child-issue"></a>
+<a id="s11--follow-a-failed-save-from-story-to-child-task"></a>
 
-## 15. S11 · Follow a failed save from story to child Issue
+<a id="15-s11--follow-a-failed-save-from-story-to-child-issue"></a>
 
-Follow the failed-save condition from the story to its child Issue. [Story criteria](./specs/spec-driven-authoring/spec.md#s11--follow-a-failed-save-from-story-to-child-issue)
+## 15. S11 · Follow a failed save from story to child Task
 
-- [ ] 15.1 [W24](#w24--publish-a-child-issue-for-the-storys-failed-save) (T020). Trace the child Issue to the failed-save story. Verify visible error, retained selection and absence of success, with bulk edits outside scope. After W20.
+Follow the failed-save condition from the story to its child Task. [Story criteria](./specs/spec-driven-authoring/spec.md#s11--follow-a-failed-save-from-story-to-child-task)
 
-### W24 · Publish a child Issue for the story’s failed save
+- [ ] 15.1 [W24](#w24--publish-a-child-task-for-the-storys-failed-save) (T020). Trace the child Task to the failed-save story. Verify visible error, retained selection and absence of success, with bulk edits outside scope. After W20.
+
+<a id="w24--publish-a-child-issue-for-the-storys-failed-save"></a>
+
+### W24 · Publish a child Task for the story’s failed save
 
 #### Description
 
-The existing Issue shows a whole Feature.
+The existing Task shows a whole Feature.
 
 #### Expected outcome
 
-The approved story and Issue references lead to a complete child for one criterion.
+The approved story and Task references lead to a complete child for one criterion.
 
-Add a worked child under the normal Issue route and link it from the relevant story and guide. Preserve the parent Feature and its incoming links.
+Add a worked child under the normal Task route and link it from the relevant story and guide. Preserve the parent Feature and its incoming links.
 
 Examples maintainer · R13/A13. [S11.1](./specs/spec-driven-authoring/spec.md#s11-1) and [F11.1](./specs/spec-driven-authoring/spec.md#f11-1). Use the worked single-site story, WEB-06 and the parent from [W20](#w20--resolve-feature-story-and-task-ancestry-before-drafting).
 
 #### Acceptance criteria
 
-- **W24.1** Follow the normal Issue guide to the child. It identifies the source story, the failed-save criterion and the visible error, retained selection and absence of a success message. The proof observes those effects. <a id="w24-1"></a>
+- **W24.1** Follow the normal Task guide to the child. It identifies the source story, the failed-save criterion and the visible error, retained selection and absence of a success message. The proof observes those effects. <a id="w24-1"></a>
 - **W24.2** Follow the child’s parent link and the story’s return link. Both resolve. Comparing scope with the story rejects assignment of bulk editing to the child. Retain the linked examples and reader observation. <a id="w24-2"></a>
 
-[Issue guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Worked story](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md) · [Parent Feature](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/issue.md)
+[Task guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Worked story](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md) · [Parent Feature](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/issue.md)
 
 Commit the connected example and links together. Reuse W20’s ancestry check for unchanged edges.
 
@@ -819,16 +823,16 @@ An improvement label alone cannot tell the writer whether a story owns the reque
 
 The writer can commission an independent improvement, an independent story or a contribution to an existing story without inventing a parent.
 
-Place the routing rules at the existing discovery entry. Link the existing Issue and story references. Preserve the declared-child checks and use the existing tracker format.
+Place the routing rules at the existing discovery entry. Link the existing Task and story references. Preserve the declared-child checks and use the existing tracker format.
 
 Workflow maintainer · R11/R17 and A11/A17. [S21.1](./specs/spec-driven-authoring/spec.md#s21-1) and [F21.1](./specs/spec-driven-authoring/spec.md#f21-1). Requires [W20](#w20--resolve-feature-story-and-task-ancestry-before-drafting)’s settled child-parent contract.
 
 #### Acceptance criteria
 
-- **W30.1** Given an authorized change to a single misleading label with its exact replacement, scope and proof, use one Issue. Given an independent request that an administrator can recover an unsaved selection, capture the actor, benefit, boundary and observable result in a story or an existing equivalent record. Neither case invents a parent. <a id="w30-1"></a>
+- **W30.1** Given an authorized change to a single misleading label with its exact replacement, scope and proof, use one Task. Given an independent request that an administrator can recover an unsaved selection, capture the actor, benefit, boundary and observable result in a story or an existing equivalent record. Neither case invents a parent. <a id="w30-1"></a>
 - **W30.2** When the same label correction is explicitly assigned to a story criterion, resolve that parent and criterion. A missing parent blocks readiness for the child. Retain the two outputs and the observation that distinguishes them. Reuse A11 for an already demonstrated missing-parent verdict. <a id="w30-2"></a>
 
-[Discovery](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md) · [Issue guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Story guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md)
+[Discovery](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md) · [Task guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Story guide](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/user_story.md)
 
 Ship the ordinary writing route, guidance and example in one commit.
 
@@ -863,7 +867,7 @@ Ship the completed decision table, normal route and contrasting examples togethe
 
 #### Description
 
-The ordinary writing route can distinguish a child task from an independent Issue. Its design guidance also needs to show which record supplies a component boundary, governing rule or acceptance criterion when no work-item parent applies.
+The ordinary writing route can distinguish a child task from an independent Task. Its design guidance also needs to show which record supplies a component boundary, governing rule or acceptance criterion when no work-item parent applies.
 
 #### Expected outcome
 
@@ -875,7 +879,7 @@ Parent: [S21](./specs/spec-driven-authoring/spec.md#s21--route-an-improvement-fr
 
 #### Acceptance criteria
 
-- **W62.1** Given the approved refund rule, a High Level Document (HLD) naming the authorization service and a worked story, child Issue and planned denial test, request the Low Level Design (LLD) through the ordinary writing entry. From its links, recover the manager-only rule and the owning component. In the worked records, follow the native parent link to the story’s employee-denial criterion and the planned test to the behavior it checks. One resolvable relationship passes without a manually maintained reverse link. A link to an unrelated service, a copied rule with altered permission, or a claim that the unrun test passed fails. Retain the source sections, output and reader’s observations on the candidate. <a id="w62-1"></a>
+- **W62.1** Given the approved refund rule, a High Level Document (HLD) naming the authorization service and a worked story, child Task and planned denial test, request the Low Level Design (LLD) through the ordinary writing entry. From its links, recover the manager-only rule and the owning component. In the worked records, follow the native parent link to the story’s employee-denial criterion and the planned test to the behavior it checks. One resolvable relationship passes without a manually maintained reverse link. A link to an unrelated service, a copied rule with altered permission, or a claim that the unrun test passed fails. Retain the source sections, output and reader’s observations on the candidate. <a id="w62-1"></a>
 - **W62.2** For the same Low Level Design (LLD) request, supply direct authorization and an approved contract that settles the rule and component boundary. Supply no High Level Document (HLD), story or epic and no project rule requiring one. The checked design cites the applicable contract and proceeds without creating or requesting a parent. For a declared child whose governing criterion is unresolved, withhold readiness for that child. Reuse W20’s missing-parent evidence where it covers that boundary. Keep the two dispositions and their reasons. <a id="w62-2"></a>
 
 `SKILL.md`, the owning references in `references/` for architecture, component design, contracts, work items, plans and tests, and the existing linked examples. Start with `references/high_level_document.md` and `references/low_level_design.md`.
@@ -950,16 +954,16 @@ A control for complete product documents alone leaves other formats exposed and 
 
 The other applicable authoring routes use the same readiness distinction at a scale appropriate to the requested work.
 
-Map applicability through the existing catalog for complete or substantial authoring, including low-level design, stories and issues. Keep a title edit or a section with no material decision lightweight. Use shared rules when they are sufficient.
+Map applicability through the existing catalog for complete or substantial authoring, including low-level design, stories and tasks. Keep a title edit or a section with no material decision lightweight. Use shared rules when they are sufficient.
 
 Document-contract maintainer · R18/A18. [S22.1](./specs/spec-driven-authoring/spec.md#s22-1) and [F22.1](./specs/spec-driven-authoring/spec.md#f22-1). Requires [W32](#w32--detect-an-omitted-material-permission) and [W33](#w33--ask-only-the-question-that-changes-the-requirement). Use the actual kind and operation mappings and historical receipt protections.
 
 #### Acceptance criteria
 
-- **W34.1** From actual routing, account for every supported document kind and scope. On the distinct story or Issue path exercise one material missing fact through to draft or owner answer. For a source-settled design reuse compatible route evidence. <a id="w34-1"></a>
+- **W34.1** From actual routing, account for every supported document kind and scope. On the distinct story or Task path exercise one material missing fact through to draft or owner answer. For a source-settled design reuse compatible route evidence. <a id="w34-1"></a>
 - **W34.2** A title-only edit with the same topic incurs no discovery questionnaire. Old receipts verify under their own version. Reuse A7/W17 for host differences, or add only the missing A18 observation to that handoff. <a id="w34-2"></a>
 
-[contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/contracts/documents.json) · [references/issue.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/issue.md) · [references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/user_story.md) · [references/low_level_design.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/low_level_design.md) · [scripts/test_guided_discovery.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/test_guided_discovery.py)
+[contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/contracts/documents.json) · [references/task.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/issue.md) · [references/user_story.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/user_story.md) · [references/low_level_design.md](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/references/low_level_design.md) · [scripts/test_guided_discovery.py](https://github.com/fatonsopa/ai-technical-writer/blob/1720c51efeb4f8557f7774222cf3c66ba7f66a61/scripts/test_guided_discovery.py)
 
 Ship the remaining route coverage and its representative checks. Do not multiply all document kinds by all host and question variants.
 
@@ -987,12 +991,12 @@ Documentation maintainer · R16/A16. [S20.2](./specs/spec-driven-authoring/spec.
 
 #### Acceptance criteria
 
-- **W42.1** Starting at the `README.md` title, before installation, a reader can identify the audience, what a spec settles before coding, what to supply and what the writer returns. The reader can choose among an unshaped idea, agreed feature behavior and one bounded fix from the need-to-output table. A small authorized fix must route straight to an Issue. From the repository-root `README.md`, locate the feature × OpenSpec / SpecDev checkmark table. Compare each row with its owning source and existing release evidence. Each feature has one owner, installed native operations retain precedence, and planned additions are clearly marked. Reuse existing feature evidence for this documentation check. <a id="w42-1"></a>
-- **W42.2** Follow one worked request through a named requirement, story criterion, a clearly labeled illustrative child Issue and its planned observable check. Preserve the source behavior on failure, keep the record types distinct and avoid claiming the check ran. Record the passage, link targets and reader answers on the candidate. One document read covers both criteria. <a id="w42-2"></a>
+- **W42.1** Starting at the `README.md` title, before installation, a reader can identify the audience, what a spec settles before coding, what to supply and what the writer returns. The reader can choose among an unshaped idea, agreed feature behavior and one bounded fix from the need-to-output table. A small authorized fix must route straight to a Task. From the repository-root `README.md`, locate the feature × OpenSpec / SpecDev checkmark table. Compare each row with its owning source and existing release evidence. Each feature has one owner, installed native operations retain precedence, and planned additions are clearly marked. Reuse existing feature evidence for this documentation check. <a id="w42-1"></a>
+- **W42.2** Follow one worked request through a named requirement, story criterion, a clearly labeled illustrative child Task and its planned observable check. Preserve the source behavior on failure, keep the record types distinct and avoid claiming the check ran. Record the passage, link targets and reader answers on the candidate. One document read covers both criteria. <a id="w42-2"></a>
 
 Repository root `README.md` and its Quick start; [WEB-06](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/spec_driven_development.md#L102-L104) · [the story criterion](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/user_story.md#L20) · [T10](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/test_specification.md#L49) · [historical reader-guide comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/README.md#choose-your-process) · [historical development-method comparison](https://github.com/github/spec-kit/blob/a4d571229e164e440f8950cac034607bae7b7518/README.md#spec-driven-development).
 
-Suggested opening in the project’s own voice: “SpecDev helps developers and AI agents agree on what a change must do before anyone builds it. Give it a request and the project sources. It turns the agreed behavior into specifications, stories and tasks that say how to check the result.” Example: “If saving a category fails, keep my selection.” WEB-06 requires retaining it. The story expects an error and the selection still in edit mode. An illustrative child Issue would implement that failure path. T10 defines its check, including the absence of a success message. Link the real examples and label the illustrative Issue. Ship the `README.md` edit in one commit. Use the shared Definition of Done.
+Suggested opening in the project’s own voice: “SpecDev helps developers and AI agents agree on what a change must do before anyone builds it. Give it a request and the project sources. It turns the agreed behavior into specifications, stories and tasks that say how to check the result.” Example: “If saving a category fails, keep my selection.” WEB-06 requires retaining it. The story expects an error and the selection still in edit mode. An illustrative child Task would implement that failure path. T10 defines its check, including the absence of a success message. Link the real examples and label the illustrative Task. Ship the `README.md` edit in one commit. Use the shared Definition of Done.
 
 <a id="s39--find-instructions-for-a-feature-or-document-type-from-the-index"></a>
 
@@ -1047,7 +1051,7 @@ Documentation maintainer · R16/A16. [S20.1](./specs/spec-driven-authoring/spec.
 
 #### Acceptance criteria
 
-- **W29.1** From the `README.md`, follow sourced intent through any needed discovery or product definition to the selected OpenSpec change’s proposal, capability requirements and scenarios, design, numbered tasks, then authorized apply and candidate evidence. Locate any independently owned Issue from its task. Explain where a writing-only request ends and why it creates no companion plan, task file or ticket. <a id="w29-1"></a>
+- **W29.1** From the `README.md`, follow sourced intent through any needed discovery or product definition to the selected OpenSpec change’s proposal, capability requirements and scenarios, design, numbered tasks, then authorized apply and candidate evidence. From a task-list entry, locate the separately owned Task if one exists. Explain where a writing-only request ends and why it creates no companion plan, task file or ticket. <a id="w29-1"></a>
 - **W29.2** Using the same section, route an independent broken-link fix directly, with inline scope and proof. Identify why an orphaned child must wait. Locate all seven conditional artifacts at their dependency points and distinguish planned proof from observed results. Retain the `README.md` file passage, resolved links and both reader answers. <a id="w29-2"></a>
 
 [Repository entry](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/README.md#L56) · [Relationship guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/SKILL.md#L116) · [Required production order](./specs/spec-driven-authoring/spec.md#production-order)
@@ -1060,9 +1064,11 @@ One commit ships the section, quick-start link and necessary cross-references. R
 
 Use the supported shortcut to reach the right format and its checked output. [Story criteria](./specs/spec-driven-authoring/spec.md#s23--write-the-intended-artifact-from-a-short-request)
 
-- [ ] 26.1 [W35](#w35--launch-three-document-types-in-claude-code) (T037). Offer the three opt-in Claude entries. Observe one checked result, resolve the other names and preserve a foreign command on collision.
+- [ ] 26.1 [W35](#w35--launch-three-document-types-in-claude-code) (T037). Offer a Claude entry for each released document in the catalog. Observe one checked result, resolve the other names and preserve a foreign command on collision.
 
-### W35 · Launch three document types in Claude Code
+<a id="w35--launch-three-document-types-in-claude-code"></a>
+
+### W35 · Start any supported document in Claude Code
 
 #### Description
 
@@ -1070,15 +1076,15 @@ A bare slash command needs host-level discovery.
 
 #### Expected outcome
 
-Claude Code can start a Product Requirements Document (PRD), Low Level Design (LLD) or single Issue directly.
+Claude Code users can select any released document through its catalog command.
 
-Offer only opt-in `/prd`, `/lld` and `/task` shortcuts. All three select a format through the same writer and contract catalog. Preserve explicit edit scope, user-owned commands, and qualified invocation. Other formats remain available by qualified selector or full name. A shortcut cannot override a native OpenSpec operation or configured artifact in the selected change.
+Generate opt-in document shortcuts from the README’s source catalog. For example, `/dr` selects a decision record, `/task` selects one assignment and `/tasks` selects the change’s task list. Preserve explicit edit scope, user-owned commands, and qualified invocation. Each document also resolves through its qualified selector or full name. A shortcut cannot override a native OpenSpec operation or configured artifact in the selected change.
 
 Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md#s23-1) and [F23.1](./specs/spec-driven-authoring/spec.md#f23-1). Use the installed skill, existing catalog and current installer.
 
 #### Acceptance criteria
 
-- **W35.1** In a real Claude Code session, dispatch an opted-in shortcut and inspect its brief, selected contract and checked output. Resolve the other two through the same mapping. Without opt-in the writer still accepts the full name and setup creates none of the shortcuts. <a id="w35-1"></a>
+- **W35.1** In a real Claude Code session, dispatch an opted-in shortcut and inspect its brief, selected contract and checked output. Resolve every other released document through the same mapping. Without opt-in the writer still accepts the full name and setup creates none of the shortcuts. <a id="w35-1"></a>
 - **W35.2** Supply an occupied name and repeat installation. Existing foreign content remains intact, a working qualified alternative is reported, and removal affects only owned entries. <a id="w35-2"></a>
 
 [scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json)
@@ -1093,15 +1099,15 @@ Codex has a different native skill invocation.
 
 #### Expected outcome
 
-Codex users can reach the same three optional writing shortcuts through the host’s supported invocation and can always use the qualified writer.
+Codex users can reach the same document catalog through the host’s supported invocation and can always use the qualified writer.
 
-Reuse W35’s mapping and writing entry. For Codex CLI document `$prd`, `$lld` and `$task` only where those optional aliases are installed and discovered. Verify the actual host spelling. Use the qualified selector or full document name for every other format.
+Reuse W35’s mapping and writing entry. Document short Codex spellings only where the host discovers them. Verify the actual host spelling. The qualified selector and full document name remain available for each format.
 
 Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md#s23-1) and [F23.1](./specs/spec-driven-authoring/spec.md#f23-1). Requires [W35](#w35--launch-three-document-types-in-claude-code)’s common mapping.
 
 #### Acceptance criteria
 
-- **W36.1** Capture a real Codex invocation and checked result for one of the three kinds. The brief retains its context and literals; the destination and format agree with the existing writer. <a id="w36-1"></a>
+- **W36.1** Capture a real Codex invocation and checked result for one catalog command. The brief retains its context and literals; the destination and format agree with the existing writer. <a id="w36-1"></a>
 - **W36.2** Resolve the other names, preserve the qualified fallback and verify the Codex-specific install/removal boundary. Reuse shared collision checks if their inputs and path are unchanged. <a id="w36-2"></a>
 
 [scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json)
@@ -1118,13 +1124,13 @@ A user needs to find which names are installed.
 
 A user can request every supported writing format by full name or through the qualified SpecDev selector.
 
-Generate catalog help and the three optional shortcut mappings from their common source. Additional formats and approved variants use the qualified entry without creating additional global shortcuts. Preserve full-name requests, aliases, reviews and literals.
+Generate catalog help and document commands from the same source. Expose each planned command as its owning format ships. Preserve full-name requests, aliases, reviews and literals.
 
 Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md#s23-1) and [F23.1](./specs/spec-driven-authoring/spec.md#f23-1). Use [W35](#w35--launch-three-document-types-in-claude-code)–[W36](#w36--launch-the-same-documents-in-codex) and the registered output contracts.
 
 #### Acceptance criteria
 
-- **W37.1** Resolve every supported authorable kind and approved variant by qualified selector or full name. Compare the active global writing aliases with W35’s three opt-ins, exercise an occupied alias via the qualified fallback, and verify each advertised host spelling against its installed handler. <a id="w37-1"></a>
+- **W37.1** Resolve every supported authorable kind and approved variant by qualified selector or full name. Compare the active global writing aliases with the documented opt-ins for released formats, exercise an occupied alias via the qualified fallback, and verify each advertised host spelling against its installed handler. <a id="w37-1"></a>
 - **W37.2** A settled behavior request selects the governing specification route. A standalone document request uses its own format. Review of an existing artifact preserves the original and returns the requested findings. Inspect the selected contract and output in each case. <a id="w37-2"></a>
 
 [scripts/install_skill.py](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/scripts/install_skill.py) · [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/contracts/documents.json) · [README.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/README.md)
@@ -1157,7 +1163,7 @@ Skill maintainer · R24/A24. [S28.1](./specs/spec-driven-authoring/spec.md#s28-1
 
 #### Acceptance criteria
 
-- **W46.1** On Codex and Claude Code, discover the new canonical skill and complete a checked writing request. On the existing-install path, invoke the former name and bind its result to the same writer. Keep one observed invocation per changed host path and reuse W17 when it proves that path. Inspect the release’s public names and link labels, including the existing source labels in `references/issue.md`, `references/implementation_plan.md` and `references/spec_driven_development.md`. Check the changed examples and session replies. The sole product name is SpecDev. Use OpenSpec as the technical name for the native change workflow. Retain the source links and required notices. <a id="w46-1"></a>
+- **W46.1** On Codex and Claude Code, discover the new canonical skill and complete a checked writing request. On the existing-install path, invoke the former name and bind its result to the same writer. Keep one observed invocation per changed host path and reuse W17 when it proves that path. Inspect the release’s public names and link labels, including the existing source labels in `references/task.md`, `references/implementation_plan.md` and `references/spec_driven_development.md`. Check the changed examples and session replies. The sole product name is SpecDev. Use OpenSpec as the technical name for the native change workflow. Retain the source links and required notices. <a id="w46-1"></a>
 - **W46.2** On a machine with an unrelated `specdev` installation, setup reports the collision and preserves it. Run one real Builder document validation against the renamed release with the accepted B5 resolver; retain the package revision and receipt. <a id="w46-2"></a>
 
 SKILL.md, README.md and scripts/install_skill.py; Skill Builder scripts/runtime/technical_writer.py. [Evidence](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/install_skill.py)
@@ -1199,9 +1205,9 @@ Skill maintainer · R25/A25. [S29.1](./specs/spec-driven-authoring/spec.md#s29-1
 
 ## 29. S23 · Write the intended artifact from a short request (continued)
 
-- [ ] 29.1 [W40](#w40--write-native-numbered-tasks-for-a-selected-change) (T040). Replace the competing template and per-row Issue rules. Inspect native task readback and check that the change produces one design and task list. Both refund status tasks can start together. The dashboard filter waits for the verified API filter. After W47, W35, W11 and W20.
+- [ ] 29.1 [W40](#w40--write-native-numbered-tasks-for-a-selected-change) (T040). Replace the competing template and per-row Task rules. Inspect native task readback and check that the change produces one design and task list. Both refund status tasks can start together. The dashboard filter waits for the verified API filter. After W47, W35, W11 and W20.
 
-<a id="w40--write-the-feature-task-list-and-its-linked-issues"></a>
+<a id="w40--write-the-feature-task-list-and-its-linked-tasks"></a>
 
 ### W40 · Write native numbered tasks for a selected change
 
@@ -1211,21 +1217,21 @@ An implementer needs to see the bounded work, its governing scenario and what es
 
 #### Expected outcome
 
-The change has one native `tasks.md` with usable, ordered numbered checkboxes. A standalone `/task` request can still end with one checked Issue.
+The change has one native `tasks.md` with usable, ordered numbered checkboxes. A standalone `/task` request can still end with one checked Task.
 
-Use the task artifact returned by the installed OpenSpec schema. Keep each item’s distinct scope, dependency and proof with its native number (for example, `1.1`). Reference an existing Markdown or tracker Issue only where it independently owns work or a criterion. Preserve its authority there. Make the first usable result, safe parallel work and each blocking dependency clear in ordinary prose.
+Use the task artifact returned by the installed OpenSpec schema. Keep each item’s distinct scope, dependency and proof with its native number (for example, `1.1`). Reference an existing Markdown or tracker Task only where it independently owns work or a criterion. Preserve its authority there. Make the first usable result, safe parallel work and each blocking dependency clear in ordinary prose.
 
-At the source, retire the two integration rules in `SKILL.md` that require all document structures to come from the writer and every task row to resolve a separate Issue. Update the relevant sections of `references/spec_driven_development.md`, `references/high_level_document.md`, `references/low_level_design.md`, `references/implementation_plan.md` and `references/issue.md`. Scope `contracts/documents.json` and its selection and validation in `scripts/document_contracts.py` and `scripts/validate_document.py` to the routes they still own. For a native change, OpenSpec supplies the governing behavior, design and task formats. Put relevant high-level or low-level detail in the one native design, or cite an independently owned source where needed. Retain the supported independent-document routes, legacy reads and historical receipt verification.
+At the source, retire the two integration rules in `SKILL.md` that require all document structures to come from the writer and every task row to resolve a separate Task. Update the relevant sections of `references/spec_driven_development.md`, `references/high_level_document.md`, `references/low_level_design.md`, `references/implementation_plan.md` and `references/task.md`. Scope `contracts/documents.json` and its selection and validation in `scripts/document_contracts.py` and `scripts/validate_document.py` to the routes they still own. For a native change, OpenSpec supplies the governing behavior, design and task formats. Put relevant high-level or low-level detail in the one native design, or cite an independently owned source where needed. Retain the supported independent-document routes, legacy reads and historical receipt verification.
 
 Integration maintainer · R19/A19. [S23.1](./specs/spec-driven-authoring/spec.md#s23-1) and [F23.1](./specs/spec-driven-authoring/spec.md#f23-1). Requires W47’s installed native CLI and selected change, W35’s selector, W11’s outcome and W20’s ancestry rules.
 
 #### Acceptance criteria
 
-- **W40.1** For an authorized change with a reviewed proposal, capability delta and applicable design, write the single native task artifact. Each numbered checkbox identifies the governing scenario and the evidence its implementer needs. Where the checkbox owns the work, it suffices on its own. Capture native apply-instructions readback recognizing the items. Do not dispatch implementation. On the release candidate, inspect the affected source rules and consumer selection against the W40 refund packet. Follow the ordinary entry to one native specification per affected capability, one design and one task list. An enforced companion specification, design, plan or Issue per checkbox fails. Reuse W62’s independent-design and W15’s original-format receipt evidence where bindings match. For a changed route, check only its missing proof. <a id="w40-1"></a>
-- **W40.2** A standalone bounded maintenance request can end with one Issue. A declared child with an unresolved governing criterion remains blocked. An unrequested Issue, mirror of a native artifact, blanket setup phase or invented test obligation fails. <a id="w40-2"></a>
-- **W40.3** Write the two refund stories using the supplied existing Issues #81–#84. In the first group, dashboard 1.1 and CLI 1.2 can proceed together against the settled read contract. Check the same refund on both surfaces before the filtering story ships. In the second group, API filter 2.1 precedes dashboard 2.2. Demonstrate the filter with mixed refund decisions. Link each independent Issue once from its task without copying its criterion. Retain the native list, references and candidate for W48. In the Markdown-only W-PACKET case, resolve the three existing Issues and keep their exact criteria with their owners. A new tracker, new file per task, missing source, or a duplicate editable definition fails. <a id="w40-3"></a>
+- **W40.1** For an authorized change with a reviewed proposal, capability delta and applicable design, write the single native task artifact. Each numbered checkbox identifies the governing scenario and the evidence its implementer needs. Where the checkbox owns the work, it suffices on its own. Capture native apply-instructions readback recognizing the items. Do not dispatch implementation. On the release candidate, inspect the affected source rules and consumer selection against the W40 refund packet. Follow the ordinary entry to one native specification per affected capability, one design and one task list. An enforced companion specification, design, plan or Task per checkbox fails. Reuse W62’s independent-design and W15’s original-format receipt evidence where bindings match. For a changed route, check only its missing proof. <a id="w40-1"></a>
+- **W40.2** A standalone bounded maintenance request can end with one Task. A declared child with an unresolved governing criterion remains blocked. An unrequested Task, mirror of a native artifact, blanket setup phase or invented test obligation fails. <a id="w40-2"></a>
+- **W40.3** Write the two refund stories using the supplied existing Tasks #81–#84. In the first group, dashboard 1.1 and CLI 1.2 can proceed together against the settled read contract. Check the same refund on both surfaces before the filtering story ships. In the second group, API filter 2.1 precedes dashboard 2.2. Demonstrate the filter with mixed refund decisions. Link each independent Task once from its task without copying its criterion. Retain the native list, references and candidate for W48. In the Markdown-only W-PACKET case, resolve the three existing Tasks and keep their exact criteria with their owners. A new tracker, new file per task, missing source, or a duplicate editable definition fails. <a id="w40-3"></a>
 
-`references/issue.md`, `references/implementation_plan.md`, the W47 CLI and its task consumer. [Native task template](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/schemas/spec-driven/templates/tasks.md) · [OpenSpec CLI reference](https://openspec.dev/docs/cli)
+`references/task.md`, `references/implementation_plan.md`, the W47 CLI and its task consumer. [Native task template](https://github.com/Fission-AI/OpenSpec/blob/v2.1.1/schemas/spec-driven/templates/tasks.md) · [OpenSpec CLI reference](https://openspec.dev/docs/cli)
 
 Reuse the same authoring output for [W-PACKET and W-CONSUME](../../../plan/test.md#cases).
 
@@ -1277,7 +1283,7 @@ Workflow maintainer · R20/A20. [S24.1](./specs/spec-driven-authoring/spec.md#s2
 #### Acceptance criteria
 
 - **W38.1** From a feature with a settled prerequisite, next names one eligible document and the specific benefit in one line; repeated next leaves the initiative unchanged. With two plausible initiatives ask which only if evidence cannot settle it. <a id="w38-1"></a>
-- **W38.2** For a blocked child name the missing prerequisite. For a standalone fix with sufficient acceptance say documentation is complete. Recommend no extra document in either case; reuse A17 and A18 evidence. Reuse W40’s refund case to check that next recommends `tasks.md` once its inputs exist and reports document delivery after the checked list. It must neither invent a singular document nor initiate implementation. <a id="w38-2"></a>
+- **W38.2** For a blocked child name the missing prerequisite. For a standalone fix with sufficient acceptance say documentation is complete. Recommend no extra document in either case; reuse A17 and A18 evidence. Reuse W40’s refund case to check that next recommends `tasks.md` once its inputs exist and reports document delivery after the checked list. A complete list ends the writing request. A separate task record is needed only when separately owned scope or evidence calls for it. Implementation requires its own authority. <a id="w38-2"></a>
 
 [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/SKILL.md) · [workflows/discover.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/workflows/discover.md) · [README.md](https://github.com/fatonsopa/ai-technical-writer/blob/4794ee27af5603785e8c3613e474452b01350700/README.md)
 
@@ -1333,19 +1339,23 @@ Skill maintainer · R21/A21. [S25.1](./specs/spec-driven-authoring/spec.md#s25-1
 
 [Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/spec_driven_development.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/workflows/discover.md)
 
-<a id="s26--resolve-constrained-fields-in-issue-handoffs"></a>
+<a id="s26--resolve-constrained-fields-in-task-handoffs"></a>
 
-## 32. S26 · Resolve constrained fields in Issue handoffs
+<a id="32-s26--resolve-constrained-fields-in-issue-handoffs"></a>
 
-Recover field-specific constraints from the Issue the implementer receives. [Story criteria](./specs/spec-driven-authoring/spec.md#s26--resolve-constrained-fields-in-issue-handoffs)
+## 32. S26 · Resolve constrained fields in Task handoffs
 
-- [ ] 32.1 [W44](#w44--resolve-constrained-fields-in-issue-handoffs) (T045). Link the requirement to `Return.code`. Reject a task citing `Order.code` and preserve the field’s required semantics. After W40 and W41.
+Recover field-specific constraints from the Task the implementer receives. [Story criteria](./specs/spec-driven-authoring/spec.md#s26--resolve-constrained-fields-in-task-handoffs)
 
-### W44 · Resolve constrained fields in Issue handoffs
+- [ ] 32.1 [W44](#w44--resolve-constrained-fields-in-task-handoffs) (T045). Link the requirement to `Return.code`. Reject a task citing `Order.code` and preserve the field’s required semantics. After W40 and W41.
+
+<a id="w44--resolve-constrained-fields-in-issue-handoffs"></a>
+
+### W44 · Resolve constrained fields in Task handoffs
 
 #### Description
 
-The Issue guide names requirement-level coverage. The Interface Contract (IC) already distinguishes absence, null and exact field names. The task handoff and its planned consistency review do not explicitly require the owner and field to resolve together when one requirement covers several similarly named fields. A document-level link alone can hide the wrong field.
+The Task guide names requirement-level coverage. The Interface Contract (IC) already distinguishes absence, null and exact field names. The task handoff and its planned consistency review do not explicitly require the owner and field to resolve together when one requirement covers several similarly named fields. A document-level link alone can hide the wrong field.
 
 #### Expected outcome
 
@@ -1357,8 +1367,8 @@ Skill maintainer · R22/A22. [S26.1](./specs/spec-driven-authoring/spec.md#s26-1
 
 #### Acceptance criteria
 
-- **W44.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Issue points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. <a id="w44-1"></a>
-- **W44.2** Review a variant citing Order.code for the return requirement. The review identifies the Issue, wrong field and missing coverage. An unrelated prose-only Issue requires no field citations. Retain the authored Issue, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available. <a id="w44-2"></a>
+- **W44.1** From a contract where Order.code is optional and Return.code is required, request the task for Return.code. The Task points to the exact Return.code definition and preserves the required behavior. An unambiguous existing field pointer is sufficient. <a id="w44-1"></a>
+- **W44.2** Review a variant citing Order.code for the return requirement. The review identifies the Task, wrong field and missing coverage. An unrelated prose-only Task requires no field citations. Retain the authored Task, read-only review excerpt and the unchanged source definitions. Use this same pair at W40/W41 if available. <a id="w44-2"></a>
 
 [Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/issue.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md)
 
@@ -1391,13 +1401,13 @@ Skill maintainer · R23/A23. [S27.1](./specs/spec-driven-authoring/spec.md#s27-1
 
 [Writing guidance](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/interface_contract.md) · [Affected handoff](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/interface_contract.md)
 
-<a id="s30--select-eligible-feature-work-and-recover-its-issue-criteria"></a>
+<a id="s30--select-eligible-feature-work-and-recover-its-task-criteria"></a>
 
 <a id="s30--select-eligible-numbered-work-from-a-change"></a>
 
 ## 34. S30 · Select eligible numbered work from a change
 
-Read native apply inputs, distinguish eligible and blocked tasks, and recover the criterion at its owner. [Story criteria](./specs/spec-driven-authoring/spec.md#s30--select-eligible-feature-work-and-recover-its-issue-criteria)
+Read native apply inputs, distinguish eligible and blocked tasks, and recover the criterion at its owner. [Story criteria](./specs/spec-driven-authoring/spec.md#s30--select-eligible-feature-work-and-recover-its-task-criteria)
 
 - [ ] 34.1 [W48](#w48--read-eligible-work-from-native-apply-instructions) (T049). Read the selected change’s native apply inputs. Hold the stale or sibling task and release refund task 2.2 only after 2.1 has candidate evidence. After W47, W40 and W44.
 
@@ -1413,17 +1423,17 @@ Native task progress alone cannot establish an unmet prerequisite, verify a cand
 
 The actual implementing agent can identify eligible numbered work in the selected change and recover the exact requirement, actor, scope, criterion and proof from its owner.
 
-Read native status and `openspec instructions apply --change <id> --json` from W47’s local CLI, then open the listed context files. Follow only the relevant numbered checkbox and its governing scenario, plus an independently owned Issue or reviewed input where linked. Inspect the change, source revisions, dependencies and existing evidence before selection. Reading the instructions is a read-only handoff.
+Read native status and `openspec instructions apply --change <id> --json` from W47’s local CLI, then open the listed context files. Follow only the relevant numbered checkbox and its governing scenario, plus an independently owned Task or reviewed input where linked. Inspect the change, source revisions, dependencies and existing evidence before selection. Reading the instructions is a read-only handoff.
 
-Skill maintainer · R26/A26. [S30.1](./specs/spec-driven-authoring/spec.md#s30-1) and [F30.1](./specs/spec-driven-authoring/spec.md#f30-1). Requires [W47](#w47--install-the-locked-openspec-cli-and-select-a-change), [W40](#w40--write-native-numbered-tasks-for-a-selected-change) and [W44](#w44--resolve-constrained-fields-in-issue-handoffs). Prove actual consumption before designing more document commands.
+Skill maintainer · R26/A26. [S30.1](./specs/spec-driven-authoring/spec.md#s30-1) and [F30.1](./specs/spec-driven-authoring/spec.md#f30-1). Requires [W47](#w47--install-the-locked-openspec-cli-and-select-a-change), [W40](#w40--write-native-numbered-tasks-for-a-selected-change) and [W44](#w44--resolve-constrained-fields-in-task-handoffs). Prove actual consumption before designing more document commands.
 
 #### Acceptance criteria
 
-- **W48.1** From the selected refund change, recover the manager-only rule and employee-denial criterion using the native context and the linked source. Observe what the actual consumer sees. A self-contained task resolves its own scope and proof without another Issue. <a id="w48-1"></a>
+- **W48.1** From the selected refund change, recover the manager-only rule and employee-denial criterion using the native context and the linked source. Observe what the actual consumer sees. A self-contained task resolves its own scope and proof without another Task. <a id="w48-1"></a>
 - **W48.2** Give a sibling change the same task number and revise a referenced criterion after the handoff. The consumer holds the stale task, identifies the selected root, change, task and affected revision, and preserves valid evidence. After reconciliation it uses the current owner. A sibling task or stale dispatch fails. <a id="w48-2"></a>
-- **W48.3** Without coaching, the consumer reads W40’s actual output and identifies 1.1 and 1.2 as eligible together. It explains their first usable result, selects 2.1 and holds 2.2 until the API filter works on the candidate. On that evidence it returns to the same list, selects 2.2 and recovers #84’s own criterion. Retain selection readback and prerequisite evidence. No concurrent workers or four new builds are required. In W-PACKET, follow the three existing Issues to their exact task and story criteria and show how W01 evidence releases W02. Keep this rehearsal read-only. <a id="w48-3"></a>
+- **W48.3** Without coaching, the consumer reads W40’s actual output and identifies 1.1 and 1.2 as eligible together. It explains their first usable result, selects 2.1 and holds 2.2 until the API filter works on the candidate. On that evidence it returns to the same list, selects 2.2 and recovers #84’s own criterion. Retain selection readback and prerequisite evidence. No concurrent workers or four new builds are required. In W-PACKET, follow the three existing Tasks to their exact task and story criteria and show how W01 evidence releases W02. Keep this rehearsal read-only. <a id="w48-3"></a>
 
-`references/issue.md`, the selected native `tasks.md`, and the context files and instructions returned by the installed CLI. [OpenSpec CLI reference](https://openspec.dev/docs/cli)
+`references/task.md`, the selected native `tasks.md`, and the context files and instructions returned by the installed CLI. [OpenSpec CLI reference](https://openspec.dev/docs/cli)
 
 Reuse W40’s actual outputs in [W-PACKET and W-CONSUME](../../../plan/test.md#cases).
 
@@ -1524,9 +1534,9 @@ A reported defect can support an observed symptom while leaving its cause uncert
 
 #### Expected outcome
 
-A defect reaches a source-grounded bug report or independent repair Issue with its expected observable check.
+A defect reaches a source-grounded bug report or independent repair Task with its expected observable check.
 
-Use the writer’s Bug Report (BR) or standalone repair Issue. Preserve the project’s established parent rules. Distinguish observation, expected behavior and suspected cause. Route an authorized change through OpenSpec when the user requests that separate action. A matching configured native artifact takes precedence in the selected change.
+Use the writer’s Bug Report (BR) or standalone repair Task. Preserve the project’s established parent rules. Distinguish observation, expected behavior and suspected cause. Route an authorized change through OpenSpec when the user requests that separate action. A matching configured native artifact takes precedence in the selected change.
 
 Skill maintainer · R28/A28. [S32.1](./specs/spec-driven-authoring/spec.md#s32-1) and [F32.1](./specs/spec-driven-authoring/spec.md#f32-1). Sequence after the connected W47–W50 path for this delivery and use W30–W31’s existing scope rules. A request to document a defect needs no initialized change.
 
@@ -1535,7 +1545,7 @@ Skill maintainer · R28/A28. [S32.1](./specs/spec-driven-authoring/spec.md#s32-1
 - **W52.1** Given one observed save failure with a known expected outcome, produce a repair record with the observation, the expected result and the smallest check that distinguishes them. <a id="w52-1"></a>
 - **W52.2** Given only a suspected cause, keep it provisional. A bounded independent repair needs no fabricated story or Product Requirements Document (PRD) and writing it cannot authorize execution. <a id="w52-2"></a>
 
-`references/bug_report.md` and `references/issue.md`.
+`references/bug_report.md` and `references/task.md`.
 
 <a id="s37--write-the-requested-document-and-pass-it-to-the-right-consumer"></a>
 
@@ -1559,7 +1569,7 @@ A user requesting an independent document needs its registered writing contract 
 
 The same SpecDev returns the requested document in its own format on either host, with or without a selected project.
 
-Resolve supported document names and aliases through the qualified selector or full name. SpecDev’s only added global writing shortcuts are W35’s three opt-ins. Preserve edit scope, discovery and checked delivery. A standalone Tutorial (TUT), Low Level Design (LLD) or Bug Report (BR) does not require creating or modifying a change. Where the installed schema or workflow supports the requested artifact or operation, use that native contract, including configured extra formats. Use the writer catalog for uncovered writing needs and complementary editorial review only.
+Resolve supported document names and aliases through the qualified selector or full name. Use W35’s document-command mapping and occupied-name fallback. Preserve edit scope, discovery and checked delivery. A standalone Tutorial (TUT), Low Level Design (LLD) or Bug Report (BR) does not require creating or modifying a change. Where the installed schema or workflow supports the requested artifact or operation, use that native contract, including configured extra formats. Use the writer catalog for uncovered writing needs and complementary editorial review only.
 
 Skill maintainer · R33/A33. [S37.1](./specs/spec-driven-authoring/spec.md#s37-1) and [F37.1](./specs/spec-driven-authoring/spec.md#f37-1). Requires the [W47](#w47--install-the-locked-openspec-cli-and-select-a-change) entry, [W35](#w35--launch-three-document-types-in-claude-code) routing, and the approved document routes whose coverage is being accepted. This increment can ship independently of [W59](#w59--carry-a-reviewed-document-into-a-dependent-task).
 
@@ -1612,7 +1622,7 @@ Skill maintainer · R33/A33b · [S37.2](./specs/spec-driven-authoring/spec.md#s3
 - **W63.1** Given the approved manager-only refund rule, use the ordinary authoring entry to draft a native task. From the saved row, a reader must be able to say what to build and who can approve. “Allow only managers to approve refunds” is one acceptable wording. Use the task number assigned in this change. Retain the source, final passage, candidate and native task readback showing its number and state. Inspect the common create/edit route for the four built-in artifact kinds and the configured Markdown kind from W58. <a id="w63-1"></a>
 - **W63.2** Request a wording edit to one native refund specification. Its source names the approver but leaves retry authority open. Compare the changed passage with the source and original file. A reader must recover both facts. The required heading, `SHALL`, scenario markers and unrelated text survive. Reject an invented retry owner, a weaker permission or an extra file. Keep the before/after passage and criterion verdict with the candidate. A prompt or structural validation alone cannot establish either wording result. <a id="w63-2"></a>
 
-Use the shared guide and the native authoring route established by W47/W58. Apply the [shared Definition of Done](./design.md#requirement-coverage). Record each verdict and the accepted commit in this Issue. Reuse W17’s host observations where they cover the same behavior.
+Use the shared guide and the native authoring route established by W47/W58. Apply the [shared Definition of Done](./design.md#requirement-coverage). Record each verdict and the accepted commit in this Task. Reuse W17’s host observations where they cover the same behavior.
 
 <a id="s33--distribute-and-safely-update-the-versioned-integration"></a>
 
@@ -1667,7 +1677,7 @@ Documentation maintainer · R35/A35. [S39.1](./specs/spec-driven-authoring/spec.
 
 #### Acceptance criteria
 
-- **W61.1** Compare every released user-facing feature and supported document type with the index. Check that each link opens at the intended instructions. For a chore Issue, a link to “Issue types and titles” can pass when it identifies the chore’s inputs and the Issue guide gives the expected result. An absent type or a link that leaves the reader searching fails. Retain the candidate, coverage differences and their disposition. <a id="w61-1"></a>
+- **W61.1** Compare the feature index and the document table in `README.md` with the released catalog and output contracts, grouping the six kinds of Task under one document. Show one requirement and a diagram as things a writer can add to a document. Require exactly three document columns: command, linked document title with its abbreviation in parentheses, and plain-language purpose and use. Confirm the core chart has only the four native documents and the expanded chart distinguishes optional paths. Every node must show just the table title and abbreviation. Identify native OpenSpec files and label unreleased formats. Check that each link opens at the intended instructions. For a chore Task, a link to “Task types and titles” can pass when it identifies the chore’s inputs and the Task guide gives the expected result. An absent type or a link that leaves the reader searching fails. Retain the candidate, coverage differences and their disposition. <a id="w61-1"></a>
 - **W61.2** Reuse W54’s focused-edit evidence and open the review entry on the same release. The review guidance returns located findings and preserves the reviewed document. Distinct, useful headings in one file pass. A broken heading or a link to the focused-edit instructions fails even when the file exists. Retain the observed destinations. Recheck only changed links or uncovered entries. <a id="w61-2"></a>
 
 `README.md`, `SKILL.md`, `contracts/documents.json`, the public index and the existing pages or sections it links to.
@@ -1737,9 +1747,9 @@ Stop at the frozen host/case selection. Reuse compatible observations. No full s
 
 A developer can install the release on a second computer, reach the skill from a selected host, and maintain it without disturbing an existing project. [Story acceptance](specs/spec-driven-authoring/spec.md#install-the-release-and-connect-a-host)
 
-- [ ] 42.1 [W64](#w64-issue) (T061). Install the GitHub release and connect the chosen host. After W46 and W47 on the identified candidate.
+- [ ] 42.1 [W64](#w64-task) (T061). Install the GitHub release and connect the chosen host. After W46 and W47 on the identified candidate.
 
-<a id="w64-issue"></a>
+<a id="w64-task"></a>
 
 ### W64 · Install the GitHub release and connect the chosen host
 
@@ -1766,11 +1776,11 @@ Release maintainer · [S40](specs/spec-driven-authoring/spec.md#install-the-rele
 
 #### Relevant files
 
-Current `scripts/install_skill.py`, `scripts/requirements-lock.txt`, root `README.md` and the candidate’s release entry. Record the candidate, each verdict and its evidence in this Issue. [Shared Definition of Done](design.md#requirement-coverage)
+Current `scripts/install_skill.py`, `scripts/requirements-lock.txt`, root `README.md` and the candidate’s release entry. Record the candidate, each verdict and its evidence in this Task. [Shared Definition of Done](design.md#requirement-coverage)
 
-- [ ] 42.2 [W65](#w65-issue) (T062). Install with npm and refresh the same skill. After W64 and its accepted payload plus W53 for update recovery.
+- [ ] 42.2 [W65](#w65-task) (T062). Install with npm and refresh the same skill. After W64 and its accepted payload plus W53 for update recovery.
 
-<a id="w65-issue"></a>
+<a id="w65-task"></a>
 
 ### W65 · Install with npm and refresh the same skill
 
@@ -1797,7 +1807,7 @@ Release maintainer · [S40](specs/spec-driven-authoring/spec.md#install-the-rele
 
 #### Relevant files
 
-Current `scripts/install_skill.py`, `scripts/requirements-lock.txt`, root `README.md` and the candidate’s release entry. Record the candidate, each verdict and its evidence in this Issue. [Shared Definition of Done](design.md#requirement-coverage)
+Current `scripts/install_skill.py`, `scripts/requirements-lock.txt`, root `README.md` and the candidate’s release entry. Record the candidate, each verdict and its evidence in this Task. [Shared Definition of Done](design.md#requirement-coverage)
 
 ## Finish the delivery
 

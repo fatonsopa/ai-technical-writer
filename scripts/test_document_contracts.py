@@ -48,22 +48,33 @@ class DocumentContractTests(unittest.TestCase):
         self.assertTrue(validate('# Project rules\n\nPreserve source evidence.', 'agent', context={'instruction_format':'project'})['passed'])
         self.assertFalse(validate('# Project rules', 'agent', context={'instruction_format':'subagent'})['passed'])
 
-    def test_issue_type_is_metadata_without_a_duplicate_text_field(self):
+    def test_legacy_issue_requests_use_the_matching_task_contract(self):
+        current = load_contracts()
+        for name in ("bug", "chore", "decision", "feature", "improvement", "release"):
+            legacy, kind = "issue_" + name, "task_" + name
+            with self.subTest(kind=kind):
+                self.assertEqual(document_contract(current, legacy), document_contract(current, kind))
+                self.assertTrue(validate(sample(kind), legacy)["passed"])
+
+        frozen = {"documents": {"issue_bug": {"reference": "references/issue.md"}}}
+        self.assertEqual(document_contract(frozen, "issue_bug")["reference"], "references/issue.md")
+
+    def test_task_type_is_metadata_without_a_duplicate_text_field(self):
         for name in ("Bug", "Chore", "Decision", "Feature", "Improvement", "Release"):
-            kind = "issue_" + name.lower()
+            kind = "task_" + name.lower()
             with self.subTest(kind=kind):
                 self.assertEqual(document_contract(load_contracts(), kind)["task_type"], name)
                 text = sample(kind)
                 self.assertTrue(validate(text, kind)["passed"])
                 duplicated = text.replace("# Example document\n", "# Example document\n\nType: " + name + "\n", 1)
-                self.assertIn("Keep issue type in tracker metadata, outside the issue text.", validate(duplicated, kind)["findings"])
+                self.assertIn("Keep task type in tracker metadata, outside the task text.", validate(duplicated, kind)["findings"])
 
-    def test_quoted_type_literals_are_preserved_as_issue_evidence(self):
-        original = sample("issue_bug")
+    def test_quoted_type_literals_are_preserved_as_task_evidence(self):
+        original = sample("task_bug")
         quoted = "```text\nType: Bug\n```\n"
         for text in (original + "\n" + quoted, original.replace("## Description", quoted + "\n## Description", 1)):
             with self.subTest(text=text):
-                self.assertTrue(validate(text, "issue_bug")["passed"])
+                self.assertTrue(validate(text, "task_bug")["passed"])
 
     def test_catalog_and_contracts_cover_the_same_outputs(self):
         catalog = json.loads((ROOT / "evals/catalog.json").read_text())

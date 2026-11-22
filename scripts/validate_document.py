@@ -12,7 +12,7 @@ import sys
 import tempfile
 import time
 
-from document_contracts import ROOT, digest, document_contract, headings, load_contracts, validate, validate_grade
+from document_contracts import ROOT, canonical_kind, digest, document_contract, headings, load_contracts, validate, validate_grade
 from planning_readiness import discovery_errors
 from visual_contracts import check_syntax, diagram_blocks, embedded_source_errors
 from render_diagram import check_svg
@@ -69,6 +69,7 @@ def prepare(request_file, session):
         raise ValueError("The request needs kind, sources and destination.")
     contracts = load_contracts()
     writing_style.load_guide(ROOT)
+    request["kind"] = canonical_kind(contracts, request["kind"])
     if request["kind"] not in contracts["documents"]:
         raise ValueError("Unknown document kind. Supported kinds: " + ", ".join(sorted(contracts["documents"])))
     request.setdefault("operation", "create")
@@ -155,8 +156,8 @@ def prepare(request_file, session):
             guide_names.add("workflows/diagram_rendering.md")
         if any(row["notation"] == "flowchart_svg" for row in context["visuals"]):
             guide_names.add("workflows/flowcharts.md")
-    if request["kind"].startswith("issue_") or request["kind"] == "bug_report":
-        guide_names.add("references/issue.md")
+    if request["kind"].startswith("task_") or request["kind"] == "bug_report":
+        guide_names.add("references/task.md")
     if any(row.get("path", "").endswith(".svg") and "data-diagram-type=" in row["text"] for row in captured):
         guide_names.update({"references/visuals.md", "workflows/diagram_rendering.md"})
     guidance = {}

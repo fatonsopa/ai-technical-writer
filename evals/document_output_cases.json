@@ -935,9 +935,9 @@
     "resources": [
       "references/writing_style.md",
       "references/bug_report.md",
-      "references/issue.md",
+      "references/task.md",
       "examples/bug_report.md",
-      "examples/issue.md"
+      "examples/task.md"
     ],
     "expect": {
       "exit_code": 0
@@ -945,7 +945,7 @@
     "document_case_id": "bug_report-create",
     "output_kind": "bug_report",
     "operation": "create",
-    "source_case_sha256": "3ac9609ae816d25be85847a6fdcf20e5ae8a604e5adcc24db0381769727d90eb"
+    "source_case_sha256": "5bb27e6531998c2ebd22e492f8eee37efbfcbad73873f9fd1b1dada419bf5e01"
   },
   {
     "id": "document-bug_report-rewrite",
@@ -959,9 +959,9 @@
     "resources": [
       "references/writing_style.md",
       "references/bug_report.md",
-      "references/issue.md",
+      "references/task.md",
       "examples/bug_report.md",
-      "examples/issue.md"
+      "examples/task.md"
     ],
     "expect": {
       "exit_code": 0
@@ -969,7 +969,7 @@
     "document_case_id": "bug_report-rewrite",
     "output_kind": "bug_report",
     "operation": "rewrite",
-    "source_case_sha256": "c0d427a5095be1219d5c31180be2313c7bdf08d82b97bbad35875e767e796813"
+    "source_case_sha256": "ce57f0788a90983dc112b202007fff9aaf84ff0764782824476a13b21dad865e"
   },
   {
     "id": "document-issue_bug-create",
@@ -977,23 +977,23 @@
     "critical": true,
     "semantic": true,
     "request": {
-      "instruction": "/technical-writer Write Bug issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Bug. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "instruction": "/technical-writer Write Bug task from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Bug. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
       "source": "# Source facts\n\nStaging build n-12: administrator submitted North Team instead of Old Team; update returned HTTP 200 with North Team, then a fresh read returned Old Team. Supplied requirement CONF-01 says a successful update must persist. Reporter supplied one sanitized request/response sequence, no screenshot or logs. Production scope, root cause, source files, owners and fix verification are unknown. Draft only; existing tracker type Bug.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nStaging build n-12: administrator submitted North Team instead of Old Team; update returned HTTP 200 with North Team, then a fresh read returned Old Team. Supplied requirement CONF-01 says a successful update must persist. Reporter supplied one sanitized request/response sequence, no screenshot or logs. Production scope, root cause, source files, owners and fix verification are unknown. Draft only; existing tracker type Bug.\n"
     },
     "resources": [
       "references/writing_style.md",
-      "references/issue.md",
+      "references/task.md",
       "references/bug_report.md",
-      "examples/issue.md",
+      "examples/task.md",
       "examples/bug_report.md"
     ],
     "expect": {
       "exit_code": 0
     },
     "document_case_id": "issue_bug-create",
-    "output_kind": "issue_bug",
+    "output_kind": "task_bug",
     "operation": "create",
-    "source_case_sha256": "481f62e8fd1cdc1097d50a4c97088e36cad8903e5ec1ad1a26e6cefce5342f48"
+    "source_case_sha256": "8a80a8057ccb529dab6ecbdacafc5e028b0bff7554b2e726894764765b00990c"
   },
   {
     "id": "document-issue_chore-create",
@@ -1001,21 +1001,21 @@
     "critical": true,
     "semantic": true,
     "request": {
-      "instruction": "/technical-writer Write Chore issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Chore. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "instruction": "/technical-writer Write Chore task from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Chore. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
       "source": "# Source facts\n\nExisting tracker type Chore. Refresh obsolete local test fixtures whose fields no longer match the current schema. Scope is local test data only; production data and product behavior remain unchanged. Completion means current tests can load updated fixtures. Tests have not run; paths, owners and dates are unknown.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nExisting tracker type Chore. Refresh obsolete local test fixtures whose fields no longer match the current schema. Scope is local test data only; production data and product behavior remain unchanged. Completion means current tests can load updated fixtures. Tests have not run; paths, owners and dates are unknown.\n"
     },
     "resources": [
       "references/writing_style.md",
-      "references/issue.md",
-      "examples/issue.md"
+      "references/task.md",
+      "examples/task.md"
     ],
     "expect": {
       "exit_code": 0
     },
     "document_case_id": "issue_chore-create",
-    "output_kind": "issue_chore",
+    "output_kind": "task_chore",
     "operation": "create",
-    "source_case_sha256": "dc8edfa5159110eb179f9e20b9bab3a9662abd2a46536710e70e03fc50e71250"
+    "source_case_sha256": "8312ebcf6fa40917b5f3bda1e8759ba2e82f9e308306be6fc0a3ce58d2b677b4"
   },
   {
     "id": "document-issue_decision-create",
@@ -1023,23 +1023,23 @@
     "critical": true,
     "semantic": true,
     "request": {
-      "instruction": "/technical-writer Write Decision issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Decision. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "instruction": "/technical-writer Write Decision task from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Decision. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
       "source": "# Source facts\n\nDraft a comment in the existing Feature task. Context: slow provider calls hold HTTP requests open. MAIL-01 requires acknowledging accepted work without waiting for provider delivery. Option A adds queue and worker; Option B keeps synchronous calls. Recommend A because it satisfies MAIL-01, with queue operation/duplicate-handling costs. HLD is proposed. No approval, provider choice, retry limit or deployment exists.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nDraft a comment in the existing Feature task. Context: slow provider calls hold HTTP requests open. MAIL-01 requires acknowledging accepted work without waiting for provider delivery. Option A adds queue and worker; Option B keeps synchronous calls. Recommend A because it satisfies MAIL-01, with queue operation/duplicate-handling costs. HLD is proposed. No approval, provider choice, retry limit or deployment exists.\n"
     },
     "resources": [
       "references/writing_style.md",
-      "references/issue.md",
+      "references/task.md",
       "references/decision_record.md",
-      "examples/issue.md",
+      "examples/task.md",
       "examples/decision_record.md"
     ],
     "expect": {
       "exit_code": 0
     },
     "document_case_id": "issue_decision-create",
-    "output_kind": "issue_decision",
+    "output_kind": "task_decision",
     "operation": "create",
-    "source_case_sha256": "8f3dbde9792709a3aa89fbdc57fa7c6d71bd68b843834505c353ee82cc764c0c"
+    "source_case_sha256": "bf5de399be9534cfba80b3c95bde40164aceefa56002d9db0f076c174793576c"
   },
   {
     "id": "document-issue_feature-create",
@@ -1047,21 +1047,21 @@
     "critical": true,
     "semantic": true,
     "request": {
-      "instruction": "/technical-writer Write Feature issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Feature. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "instruction": "/technical-writer Write Feature task from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Feature. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
       "source": "# Source facts\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nFictional Nacre project. Product proposal: administrators need workspace names to match their team without asking support; members use names to identify teams. Scope excludes billing and ownership transfer. Success assessment uses completed rename journeys/support requests; no numerical target, baseline, owner or release date is known.\nAgreed behavior: CONF-01 a workspace administrator saves a name and a fresh read returns it; CONF-02 other members cannot rename; CONF-03 a failed save reports failure and retains the old name. Naming-length rules remain undecided.\nSupplied current architecture: browser settings screen, HTTPS workspace API, SQLite. No independent repository inspection, exact files, schema, endpoint, estimates or deployment commands are available. Proposed component change: update name and audit entry in one transaction to satisfy separate AUD-01 (both writes or neither). Success follows commit. Concurrency/retry behavior is unresolved. No implementation or tests are complete.\n"
     },
     "resources": [
       "references/writing_style.md",
-      "references/issue.md",
-      "examples/issue.md"
+      "references/task.md",
+      "examples/task.md"
     ],
     "expect": {
       "exit_code": 0
     },
     "document_case_id": "issue_feature-create",
-    "output_kind": "issue_feature",
+    "output_kind": "task_feature",
     "operation": "create",
-    "source_case_sha256": "2827efb5c5fae6e87fdd6c6cfdf37210a0112a7d4fa6b6e3b007a07cf8363b0e"
+    "source_case_sha256": "cae8f10837916da383f71653e12e825c12ff2077e4ab476794aa6a1a34999fde"
   },
   {
     "id": "document-issue_improvement-create",
@@ -1069,21 +1069,21 @@
     "critical": true,
     "semantic": true,
     "request": {
-      "instruction": "/technical-writer Write Improvement issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Improvement. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "instruction": "/technical-writer Write Improvement task from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Improvement. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
       "source": "# Source facts\n\nExisting tracker type Improvement. Rename form allows repeated submissions while saving. Proposed result: prevent repeated submission while pending, restore submission after success or failure. Preserve backend permissions and naming rules. Frequency, code paths, owners and measurements are unknown.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nExisting tracker type Improvement. Rename form allows repeated submissions while saving. Proposed result: prevent repeated submission while pending, restore submission after success or failure. Preserve backend permissions and naming rules. Frequency, code paths, owners and measurements are unknown.\n"
     },
     "resources": [
       "references/writing_style.md",
-      "references/issue.md",
-      "examples/issue.md"
+      "references/task.md",
+      "examples/task.md"
     ],
     "expect": {
       "exit_code": 0
     },
     "document_case_id": "issue_improvement-create",
-    "output_kind": "issue_improvement",
+    "output_kind": "task_improvement",
     "operation": "create",
-    "source_case_sha256": "4a1787050476012e43872ea5d840fe6f31ddf31e1c1359f846009887eed4e6a6"
+    "source_case_sha256": "f2e5f986f23d27248da163c8a9b4d650ee5ecdab3c8714893f175d396356fbb4"
   },
   {
     "id": "document-issue_release-create",
@@ -1091,21 +1091,21 @@
     "critical": true,
     "semantic": true,
     "request": {
-      "instruction": "/technical-writer Write Release issue from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Release. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
+      "instruction": "/technical-writer Write Release task from the source facts. Return the artifact, not instructions about how to write it. Existing tracker type Release. Draft only; do not create or post a task. This is an isolated document-output fixture, not a live project. Produce a complete draft using only supplied facts; mark missing information and unsettled choices without inventing answers. For this fixture only, the requester authorizes research, audit and proposal internally and explicitly waives their public presentation before drafting. This waiver does not permit unsupported product decisions or bypass Writing Style. Save the requested document to output/document.md and identify its draft/validation status honestly. Do not execute source-project commands, post externally, or claim checks that did not run. The full audit-before-draft interaction is evaluated separately in workflow cases.",
       "source": "# Source facts\n\nExisting tracker type Release. Candidate n-12 is intended for staging only. Include rename improvement. Verify fresh-read persistence and denied member writes; the member check has not run. Recovery follows an existing release procedure not supplied here. No deployment, release approval, production release or date commitment exists.\n\n## Existing draft for editing/review/rewriting\n\n# Draft\n\nThe following information is provided for the purpose of facilitating understanding of the subject.\n\nExisting tracker type Release. Candidate n-12 is intended for staging only. Include rename improvement. Verify fresh-read persistence and denied member writes; the member check has not run. Recovery follows an existing release procedure not supplied here. No deployment, release approval, production release or date commitment exists.\n"
     },
     "resources": [
       "references/writing_style.md",
-      "references/issue.md",
-      "examples/issue.md"
+      "references/task.md",
+      "examples/task.md"
     ],
     "expect": {
       "exit_code": 0
     },
     "document_case_id": "issue_release-create",
-    "output_kind": "issue_release",
+    "output_kind": "task_release",
     "operation": "create",
-    "source_case_sha256": "fc6a318b0214c09c72a34998836737a7d39ecbd4feab350b68cb9efde29cc5e2"
+    "source_case_sha256": "c00286890d3a00a4c3033da372a43cda672dcd698a252a94d9c9f66eaa488f08"
   },
   {
     "id": "document-requirement-create",

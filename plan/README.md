@@ -27,13 +27,13 @@ openspec instructions apply --change ship-specdev --json
 
 The second command reads task and artifact context. Implementation still requires the starting prompt's authority and settled task prerequisites. A ready artifact means the file exists; the criterion and evidence determine delivery. For a local copy of the pinned CLI, run `npm ci --prefix tools/openspec` once and use `./tools/openspec/node_modules/.bin/openspec` for the commands above.
 
-The release install and host setup are in [W64 and W65](../openspec/changes/ship-specdev/tasks.md#w64-issue). Exercise packaged candidates in isolated locations. Keep the public release commands marked as planned until the corresponding release asset or registry package is verified.
+The release install and host setup are in [W64 and W65](../openspec/changes/ship-specdev/tasks.md#w64-task). Exercise packaged candidates in isolated locations. Keep the public release commands marked as planned until the corresponding release asset or registry package is verified.
 
 ## Execution rules
 
 1. Establish the required result and proof from the task before editing. Inspect the actual entry point. Resolve routine choices within scope and ask only about a material choice the project cannot settle.
 2. Reuse applicable checks and evidence. An extra check needs an unmet criterion, changed input or observed failure. Keep failures and their recovery evidence. Hold only work affected by a blocker.
-3. Record each criterion as Met, Failed or Not demonstrated against its exact candidate. Use the existing Issue and evidence links. Close a story when the usable outcome is demonstrated. Local integration is authorized. External publication and deployment have their own authority.
+3. Record each criterion as Met, Failed or Not demonstrated against its exact candidate. Use the existing Task and evidence links. Close a story when the usable outcome is demonstrated. Local integration is authorized. External publication and deployment have their own authority.
 4. Record a new out-of-scope finding once under [pending owner decisions](../openspec/changes/ship-specdev/design.md#pending-owner-decisions). Continue eligible work.
 
 <a id="limits-and-help"></a>
@@ -44,7 +44,7 @@ Use [test.md](test.md) for the handoff and connected refund cases. The [shared D
 
 ## Find your way around
 
-The [audit](audit.md) gives the evidence behind the change. The [specification](../openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md) owns story acceptance, the [plan](../openspec/changes/ship-specdev/design.md) owns delivery decisions, and [tasks.md](../openspec/changes/ship-specdev/tasks.md) owns this handoff’s ordered Issues. Use the criteria at their source.
+The [audit](audit.md) gives the evidence behind the change. The [specification](../openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md) owns story acceptance, the [plan](../openspec/changes/ship-specdev/design.md) owns delivery decisions, and [tasks.md](../openspec/changes/ship-specdev/tasks.md) owns this handoff’s ordered Tasks. Use the criteria at their source.
 
 ## JSON execution log
 
@@ -54,4 +54,4 @@ Use existing private run JSON first. For a decision or manual step the run does 
 
 ## Shortcuts and document handoffs
 
-Use `/specdev init` to set up the current project through the pinned OpenSpec CLI. Codex uses its native skill invocation, `$specdev init`. A standalone writing request needs no project initialization. Any other `/specdev <command>` can discover and run a matching installed OpenSpec operation without its own shortcut. Upstream wins on a name collision. The [production order](../openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#production-order) governs shortcuts and documents. The [dependency and ownership plan](../openspec/changes/ship-specdev/design.md#reuse-the-upstream-implementation) governs upstream operations. The [refund example](../openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#refund-status-and-filtering) shows the native file and its consumer.
+Use `/specdev init` to set up the current project through the pinned OpenSpec CLI. Codex uses its native skill invocation, `$specdev init`. A standalone writing request needs no project initialization. Any other `/specdev <command>` can discover and run a matching installed OpenSpec operation without its own shortcut. Upstream wins on a name collision. The [document catalog](../README.md#supported-document-types) gives each document a command. A single Markdown assignment uses `task.md`. The native change checklist uses `tasks.md`. The [production order](../openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#production-order) governs shortcuts and documents. The [dependency and ownership plan](../openspec/changes/ship-specdev/design.md#reuse-the-upstream-implementation) governs upstream operations. The [refund example](../openspec/changes/ship-specdev/specs/spec-driven-authoring/spec.md#refund-status-and-filtering) shows the native file and its consumer.

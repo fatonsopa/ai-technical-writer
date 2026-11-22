@@ -1,7 +1,7 @@
 ---
 name: technical-writer
 license: MIT
-description: Create, edit, review and rewrite technical documents and development issues. Route document acronyms/full names to format references and writing guidance. Read Writing Style (WS) before progress messages; use full document names with their acronyms.
+description: Create, edit, review and rewrite technical documents and development tasks. Route document acronyms/full names to format references and writing guidance. Read Writing Style (WS) before progress messages; use full document names with their acronyms.
 ---
 
 # Technical writer
@@ -10,7 +10,7 @@ Write for a colleague who has not seen the conversation. Follow project conventi
 
 Agents and skills author prose, examples, policy and semantic judgments; code executes parsing, bindings and delivery. Never over-engineer, over-test or over-validate. Choose the smallest sufficient review scope from the actual change and its affected references. Retain applicable accepted review with its original source, scope and date. Add a check or review round only for a named requirement, material risk or unresolved failure; stop when those criteria pass. Review the final actual text, including obligation strength, negation, conditions, exceptions and authority.
 
-Read [Writing Style (WS)](references/writing_style.md) before authoring any text, then use it to review that text before sending or accepting it. This applies to every document, title, heading, table, diagram title/label/metadata/legend, explanation, example, template, reference, question and answer option, audit finding, recommendation, comment and delivery message. Short text, visual formats and intermediate stages have the same obligation. Follow the guide’s rules for preserving exact code, commands, identifiers, values and quotations; they are part of the style review. A title-only issue edit also needs [Issue](references/issue.md); load specialized guides for their content or structure.
+Read [Writing Style (WS)](references/writing_style.md) before authoring any text, then use it to review that text before sending or accepting it. This applies to every document, title, heading, table, diagram title/label/metadata/legend, explanation, example, template, reference, question and answer option, audit finding, recommendation, comment and delivery message. Short text, visual formats and intermediate stages have the same obligation. Follow the guide’s rules for preserving exact code, commands, identifiers, values and quotations; they are part of the style review. A title-only task edit also needs [Task](references/task.md); load specialized guides for their content or structure.
 
 Before naming a document in a message, read the guide and use `scripts/writing_style_contract.py names` for its approved label. Keep the first progress update generic until that guidance is loaded. Run `scripts/writing_style_contract.py check FILE... --source SOURCE` on proposed messages and artifacts before sending them. The check catches explicit naming violations and selected unsupported absence claims; review meaning and source authority separately. A missing source does not prove that work or a document does not exist, and incomplete work is not the same as work that never started.
 
@@ -33,7 +33,7 @@ Accept acronyms, full names and case/hyphen variants. “Explain SDD” may mean
 | [Service Objectives Document (SOD)](references/service_objectives.md) | User-facing indicators, targets, windows and response ownership | Reliability objectives need agreement; journeys/measurement change |
 | [Decision Record (DR)](references/decision_record.md) | Context, options, recommendation and outcome for any choice | Choice needs discussion; evidence or outcome changes |
 | [Implementation Plan (IP)](references/implementation_plan.md); plan | Delivery work and verification | Work needs planning; approach/dependencies change |
-| [Issue](references/issue.md); task; WI / Work Item alias | One tracked unit of work | Tracking needed; scope/progress/evidence change |
+| [Task (TASK)](references/task.md); work item, WI, legacy “issue” | One tracked unit of work | Tracking needed; scope/progress/evidence change |
 | [User Story (US)](references/user_story.md) | User, need, value, acceptance | User-value slice needed; need/criteria change |
 | [Bug Report (BR)](references/bug_report.md); defect report | Failure and investigation evidence | Failure observed; evidence/fix status changes |
 | [Policy (POL)](references/policy.md) | Direction, obligations, accountability | Governance needed; approved policy changes |
@@ -61,15 +61,15 @@ Integrations must take document structure and reusable templates from this skill
 
 The Spec Driven Development document (SDD) owns WHAT; the High Level Document (HLD) and Low Level Design (LLD) explain design; the Implementation Plan (IP) explains HOW to deliver and verify it. “Spec Driven Development” is also the method's name; this document label/filename is the user's convention. Respect a project's different terminology. Link requirements and checks by stable IDs or exact sections; resolve conflicts explicitly.
 
-For a multi-task feature, put story outcomes and acceptance in the governing specification or link the project’s authoritative story there. The delivery plan explains the approach and references those stories. Use `tasks.md` for execution order. Each row resolves one bounded Issue and its governing criterion. Markdown and tracker Issues are both supported. When an existing criterion also proves a story or task, cite its ID at its owner. Put only the distinct contribution or verification method in the consuming record. A writing request ends at the checked handoff. Authorized implementation selects an Issue from the list. [Feature task flow](README.md#where-tasksmd-fits)
+For a multi-task feature, put story outcomes and acceptance in the governing specification or link the project’s authoritative story there. The delivery plan explains the approach and references those stories. Use `tasks.md` for execution order. Each row resolves one bounded Task and its governing criterion. Markdown and tracker Tasks are both supported. When an existing criterion also proves a story or task, cite its ID at its owner. Put only the distinct contribution or verification method in the consuming record. A writing request ends at the checked handoff. Authorized implementation selects a Task from the list. [Feature task flow](README.md#where-tasksmd-fits)
 
 ![Technical documentation workflow](examples/diagrams/documentation_workflow.svg)
 
-These are common handoffs, not a mandatory sequence. Work can start with an Issue, Product Requirements Document (PRD), or Spec Driven Development document (SDD); decisions and testing support the relevant work.
+These are common handoffs, not a mandatory sequence. Work can start with a Task, Product Requirements Document (PRD), or Spec Driven Development document (SDD); decisions and testing support the relevant work.
 
 | Component | Explanation |
 | --- | --- |
-| 1. Issue | A tracked task may start the work or be created later from the plan. Small tasks can include their own expected behavior and acceptance criteria. |
+| 1. Task | A tracked task may start the work or be created later from the plan. Small tasks can include their own expected behavior and acceptance criteria. |
 | 2. Product Requirements Document (PRD) | Define the product need, users, outcomes and scope when those decisions need agreement. |
 | 3. Spec Driven Development document (SDD) | Define expected behavior and testable requirements. This is the source of truth for what the finished system must do. |
 | 4. High Level Document (HLD) | Review the living architecture and describe significant system boundaries, responsibilities and interactions. Update it when verified implementation changes the architecture. |
@@ -92,8 +92,8 @@ These are common handoffs, not a mandatory sequence. Work can start with an Issu
 %% Subtitle: Requirements, design, delivery and testing documents and their relationships.
 flowchart TD
     accTitle: Development documentation workflow
-    accDescr: Work may start with an issue or specification. Design and planning lead to implementation, verification, and documentation updates. Decision Record (DR) entries and test documents support those activities as needed.
-    WI@{ shape: doc, label: "1. Issue" } --> SDD@{ shape: doc, label: "3. Spec Driven Development document (SDD)" }
+    accDescr: Work may start with a task or specification. Design and planning lead to implementation, verification, and documentation updates. Decision Record (DR) entries and test documents support those activities as needed.
+    WI@{ shape: doc, label: "1. Task" } --> SDD@{ shape: doc, label: "3. Spec Driven Development document (SDD)" }
     PRD@{ shape: doc, label: "2. Product Requirements Document (PRD)" } --> SDD
     SDD --> HLD@{ shape: doc, label: "4. High Level Document (HLD)" }
     HLD -. "Architectural choice" .-> DR@{ shape: doc, label: "5. Decision Record (DR)" }
@@ -117,7 +117,7 @@ class CODE,VERIFY,UPDATE process
 ```
 
 
-The Issue tracks Bug, Chore, Decision, Feature, Improvement or Release work. A Bug Report (BR) adds failure evidence; a User Story (US) is optional content. The Decision Record (DR) supports any material choice and can be a task comment. Policy (POL) sets direction; Technical Standard (STD) defines verifiable rules. Incident Report (IR) records impact, response and lessons; follow-ups may become issues. Tutorial (TUT), How-to Guide (HTG), Explanation (EXP), and Repository readme (README) use verified behavior. Writing Style (WS) and Visual Guidance (VG) apply across these outputs. Test logs are evidence, not a separate document type. Small requirements and test results can live in a task or comment.
+The Task tracks Bug, Chore, Decision, Feature, Improvement or Release work. A Bug Report (BR) adds failure evidence; a User Story (US) is optional content. The Decision Record (DR) supports any material choice and can be a task comment. Policy (POL) sets direction; Technical Standard (STD) defines verifiable rules. Incident Report (IR) records impact, response and lessons; follow-ups may become tasks. Tutorial (TUT), How-to Guide (HTG), Explanation (EXP), and Repository readme (README) use verified behavior. Writing Style (WS) and Visual Guidance (VG) apply across these outputs. Test logs are evidence, not a separate document type. Small requirements and test results can live in a task or comment.
 
 Threat Model (TM), Interface Contract (IC) and Service Objectives Document (SOD) capabilities are optional. Reuse project documents with the relevant content; a missing standalone document does not by itself establish a code defect. Record source/version, authority and unresolved conflicts when writing alignment guidance. Technical Writer's format references teach composition; actual project requirements and decisions define intent.
 

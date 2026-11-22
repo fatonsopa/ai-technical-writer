@@ -22,6 +22,8 @@ A self-message assigns responsibility to that participant. If the source require
 
 Use [visual selection](../workflows/visual_selection.md) to match the reader’s question to an established view and its owning document. It covers architecture levels, deployment, interactions, user flows, states, entities, data boundaries and evidence. Select only the views needed; inspect available facts before asking for unresolved choices.
 
+For a document-flow diagram embedded in a repository readme, GitHub can render Mermaid directly. When the reader requests title-only labels, use each document’s full title and abbreviation, keep questions and filenames in the surrounding text, and explain dotted optional paths in the caption. The shared command table supplies the document descriptions. Inspect the rendered chart before delivery.
+
 ## Start with an overview
 
 ![Website review workflow](../examples/diagrams/website_review_overview.svg)

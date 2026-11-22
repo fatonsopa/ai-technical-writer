@@ -23,7 +23,7 @@ Keep the same structure and choose detail according to what readers need to deci
 | Component design | Component role, interfaces, data structures, algorithms, transactions, failure behavior, concurrency and compatibility where relevant. Link the Low Level Design (LLD), requirements and verification implications. Attribute performance claims to measurements. |
 | Product, workflow, operations or another subject | The affected users or process, constraints and criteria, then the benefits, costs and follow-up work that distinguish the available choices. Link the relevant task, plan or other governing source. |
 
-Use the High Level Document (HLD) or Low Level Design (LLD) for the design itself and the implementation plan for delivery work. The record preserves why a choice was recommended or made and its consequences. It can arise inside a bug, feature, plan or another document. Common task metadata belongs in [Issue](issue.md).
+Use the High Level Document (HLD) or Low Level Design (LLD) for the design itself and the implementation plan for delivery work. The record preserves why a choice was recommended or made and its consequences. It can arise inside a bug, feature, plan or another document. Common task metadata belongs in [Task](task.md).
 
 ## Structure and template
 

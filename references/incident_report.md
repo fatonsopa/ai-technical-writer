@@ -10,7 +10,7 @@ An incident report records impact, events, response, recovery, and lessons. Crea
 - Explain detection, investigation, mitigation, recovery, and how recovery was checked.
 - Write without personal blame. Focus on conditions and decisions visible to responders at the time.
 - Give follow-up work observable acceptance criteria and an owner/link when assigned. Unknown ownership and dates remain open.
-- Preserve incident facts. Proposed preventive changes link to [issues](issue.md), decisions, and affected requirements rather than becoming binding policy inside the timeline.
+- Preserve incident facts. Proposed preventive changes link to [tasks](task.md), decisions, and affected requirements rather than becoming binding policy inside the timeline.
 
 ## Relationship to a Bug Report (BR)
 

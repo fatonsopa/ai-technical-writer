@@ -1,7 +1,7 @@
 {
   "output_kinds": [
     "bug_report",
-    "issue_bug"
+    "task_bug"
   ],
   "required_sections": [
     "Description",

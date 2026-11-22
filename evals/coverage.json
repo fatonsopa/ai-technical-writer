@@ -7,7 +7,7 @@
     "rewrite"
   ],
   "output_kinds": {
-    "issue_bug": {
+    "task_bug": {
       "create": [
         "issue_bug-create"
       ],
@@ -21,7 +21,7 @@
         "issue_bug-rewrite"
       ]
     },
-    "issue_chore": {
+    "task_chore": {
       "create": [
         "issue_chore-create"
       ],
@@ -35,7 +35,7 @@
         "issue_chore-rewrite"
       ]
     },
-    "issue_decision": {
+    "task_decision": {
       "create": [
         "issue_decision-create"
       ],
@@ -49,7 +49,7 @@
         "issue_decision-rewrite"
       ]
     },
-    "issue_feature": {
+    "task_feature": {
       "create": [
         "issue_feature-create"
       ],
@@ -63,7 +63,7 @@
         "issue_feature-rewrite"
       ]
     },
-    "issue_improvement": {
+    "task_improvement": {
       "create": [
         "issue_improvement-create"
       ],
@@ -77,7 +77,7 @@
         "issue_improvement-rewrite"
       ]
     },
-    "issue_release": {
+    "task_release": {
       "create": [
         "issue_release-create"
       ],
@@ -839,7 +839,7 @@
         "examples/how_to_guide.md",
         "examples/implementation_plan.md",
         "examples/incident_report.md",
-        "examples/issue.md",
+        "examples/task.md",
         "examples/low_level_design.md",
         "examples/policy.md",
         "examples/product_requirements_document.md",
@@ -1018,7 +1018,7 @@
     },
     "TW-006": {
       "files": [
-        "references/issue.md",
+        "references/task.md",
         "references/writing_style.md"
       ],
       "case_ids": [
@@ -1558,17 +1558,17 @@
         "accept-tiny-readme",
         "routing-alias-lifecycle"
       ],
-      "checks": "Issue-led/spec-led entry points, small-task specification, living architecture, no universal sequence."
+      "checks": "Task-led/spec-led entry points, small-task specification, living architecture, no universal sequence."
     },
     "TW-019": {
       "files": [
-        "references/issue.md"
+        "references/task.md"
       ],
       "case_ids": [
         "accept-small-chore",
         "routing-alias-lifecycle"
       ],
-      "checks": "Issue is a typed unit of work; no seventh type or automatic record/file creation."
+      "checks": "Task is a typed unit of work; no seventh type or automatic record/file creation."
     },
     "TW-020": {
       "files": [
@@ -2301,7 +2301,7 @@
       "case_ids": [
         "routing-alias-lifecycle"
       ],
-      "checks": "Canonical full-name underscore paths; issue.md retained by latest correction; no stale active routes."
+      "checks": "Canonical full-name underscore paths; task.md retained by latest correction; no stale active routes."
     },
     "TW-028": {
       "files": [
@@ -2375,7 +2375,7 @@
     "TW-031": {
       "files": [
         "references/user_story.md",
-        "references/issue.md"
+        "references/task.md"
       ],
       "case_ids": [
         "routing-alias-lifecycle",
@@ -2416,7 +2416,7 @@
     },
     "TW-033": {
       "files": [
-        "references/issue.md",
+        "references/task.md",
         "references/test_completion_report.md"
       ],
       "case_ids": [

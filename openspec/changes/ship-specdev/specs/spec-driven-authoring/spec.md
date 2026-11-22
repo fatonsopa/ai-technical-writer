@@ -170,7 +170,7 @@ SpecDev SHALL author all seven named artifacts through the normal skill entry on
 
 ### Requirement: R11 · Authority for child and independent work
 
-SpecDev SHALL resolve each declared child story or task to the outcome and criterion from which it derives authority. A native task may reference its governing capability requirement and scenario directly. Add a separate story only where independently needed or required by the project. An independent issue, including a bounded improvement, may carry its source, scope, observable outcome and proof inline. Never reclassify an orphaned child as standalone to bypass the missing parent.
+SpecDev SHALL resolve each declared child story or task to the outcome and criterion from which it derives authority. A native task may reference its governing capability requirement and scenario directly. Add a separate story only where independently needed or required by the project. An independent task, including a bounded improvement, may carry its source, scope, observable outcome and proof inline. Never reclassify an orphaned child as standalone to bypass the missing parent.
 
 #### Scenario: Resolve a declared child without manufacturing parents (A11)
 
@@ -185,18 +185,22 @@ SpecDev SHALL use reader-appropriate plain language across Markdown and session 
 
 <a id="f10--write-stories-and-tasks-that-a-reader-can-act-on"></a><a id="acceptance-criteria-18"></a><a id="f10-1"></a><a id="scope-and-sources-18"></a><a id="s10--read-a-work-item-without-guessing-what-success-means"></a><a id="acceptance-criteria-19"></a><a id="s10-1"></a><a id="scope-and-sources-19"></a>
 
-- **WHEN** a writer edits the WEB-09–WEB-10 partial-write Issue for an implementer and an owner and the supplied story sentence is already clear
+- **WHEN** a writer edits the WEB-09–WEB-10 partial-write Task for an implementer and an owner and the supplied story sentence is already clear
 - **THEN** a reader without the answer key recovers the three row states, stop condition, retry prerequisite and decision owner. The 500-ID limit, refreshing confirmed rows and counts, literal identifiers and the clear story meaning survive. An alternative wording can pass. A forced retry, invented guarantee or omitted limit fails. Retain the source, edited passage, reader response and located review reason.
 
-### Requirement: R13 · Worked child Issue for a failed save
+<a id="requirement-r13--worked-child-issue-for-a-failed-save"></a>
 
-SpecDev SHALL give writers a complete child Issue that can be reached from its story and the Issue guide. Preserve the distinct parent Feature example.
+### Requirement: R13 · Worked child Task for a failed save
 
-#### Scenario: Locate one worked child Issue (A13, F11.1, S11.1)
+SpecDev SHALL give writers a complete child Task that can be reached from its story and the Task guide. Preserve the distinct parent Feature example.
 
-<a id="f11--show-a-complete-child-task-for-one-story-criterion"></a><a id="acceptance-criteria-20"></a><a id="f11-1"></a><a id="scope-and-sources-20"></a><a id="s11--follow-a-failed-save-from-story-to-child-issue"></a><a id="acceptance-criteria-21"></a><a id="s11-1"></a><a id="scope-and-sources-21"></a>
+<a id="scenario-locate-one-worked-child-issue-a13-f111-s111"></a>
 
-- **WHEN** a reader follows the worked story and Issue guide to the child assigned the WEB-06 failed-save criterion
+#### Scenario: Locate one worked child Task (A13, F11.1, S11.1)
+
+<a id="f11--show-a-complete-child-task-for-one-story-criterion"></a><a id="acceptance-criteria-20"></a><a id="f11-1"></a><a id="scope-and-sources-20"></a><a id="s11--follow-a-failed-save-from-story-to-child-task"></a><a id="acceptance-criteria-21"></a><a id="s11-1"></a><a id="scope-and-sources-21"></a>
+
+- **WHEN** a reader follows the worked story and Task guide to the child assigned the WEB-06 failed-save criterion
 - **THEN** the child identifies the bounded failure condition, observable result, source and proof and links back to its parent. Assigning the broader Feature or bulk editing fails. The separate parent example remains available.
 
 ### Requirement: R14 · Actionable manual handoffs
@@ -230,7 +234,7 @@ SpecDev SHALL in the public `README.md`, show how a request becomes observable b
 <a id="f20--explain-the-document-sequence-in-the-readmemd-file"></a><a id="acceptance-criteria-38"></a><a id="f20-1"></a><a id="scope-and-sources-38"></a><a id="s20--choose-the-next-document-from-the-quick-start"></a><a id="acceptance-criteria-39"></a><a id="s20-1"></a><a id="scope-and-sources-39"></a><a id="production-order"></a>
 
 - **WHEN** a reader starts above setup in the repository’s `README.md` with an idea, an agreed project change, an ordinary writing request or a broken-link fix
-- **THEN** the reader can select the right entry, locate the governing scenario and required parents, design where applicable, task, the point where proof is defined and where it is observed. Conditional A10 formats are findable on request. A native change uses its own artifacts, an independent fix uses its own record, and a writing-only request ends at delivery. A missing declared parent blocks only dependent work.
+- **THEN** the reader can select the right entry, locate the governing scenario and required parents, design where applicable, task, the point where proof is defined and where it is observed. Conditional A10 formats are findable on request. A native change uses its own artifacts, an independent fix uses its own record, and a writing-only request ends at delivery. The core diagram shows the four native documents. The expanded diagram adds optional paths with dotted arrows. Both label nodes with only the document title and abbreviation. A missing declared parent blocks only dependent work. A standalone Markdown assignment can use `task.md`; `tasks.md` orders a change’s work. Link an existing task only when it owns separate criteria or evidence.
 
 #### Scenario: Trace an illustrative change to a check (F20.2, S20.2)
 
@@ -241,14 +245,14 @@ SpecDev SHALL in the public `README.md`, show how a request becomes observable b
 
 ### Requirement: R17 · Work ownership and a single design standard
 
-SpecDev SHALL use the smallest record that preserves scope, authority and proof under the project’s governance. Resolve declared parent criteria. An independently authorized fix may use one Issue. Use the same OpenSpec design structure for standalone and change designs. Add architecture, component, interface, migration or recovery detail only where a decision needs it. Link existing decisions and contracts at their owner.
+SpecDev SHALL use the smallest record that preserves scope, authority and proof under the project’s governance. Resolve declared parent criteria. An independently authorized fix may use one Task. Use the same OpenSpec design structure for standalone and change designs. Add architecture, component, interface, migration or recovery detail only where a decision needs it. Link existing decisions and contracts at their owner.
 
 #### Scenario: Choose the smallest record and coordinate only real dependencies (A17, F21.1, S21.1)
 
 <a id="f21--choose-how-much-planning-an-improvement-needs"></a><a id="acceptance-criteria-40"></a><a id="f21-1"></a><a id="scope-and-sources-40"></a><a id="s21--route-an-improvement-from-its-actual-scope"></a><a id="acceptance-criteria-41"></a><a id="s21-1"></a><a id="scope-and-sources-41"></a><a id="link-work-to-its-parent-and-designs-to-their-sources"></a><a id="refund-approval"></a>
 
 - **WHEN** the same improvement is independently authorized, assigned to an existing story, or itself an independently acceptable user outcome
-- **THEN** the first can use one Issue, the second resolves its parent and criterion, and the third can use its directly authorized story with value, boundary and proof. Grouping work or introducing a plan requires an actual dependency, governing rule or integrated outcome. A migration with coexisting readers identifies rollout order, compatibility proof and recovery. Keep routine steps inline.
+- **THEN** the first can use one Task, the second resolves its parent and criterion, and the third can use its directly authorized story with value, boundary and proof. Grouping work or introducing a plan requires an actual dependency, governing rule or integrated outcome. A migration with coexisting readers identifies rollout order, compatibility proof and recovery. Keep routine steps inline.
 
 #### Scenario: Use one design at the depth the refund change needs (A17b, F21.2, S21.2)
 
@@ -275,14 +279,14 @@ SpecDev SHALL use the document type and requested scope to identify material inf
 
 ### Requirement: R19 · Qualified document selection and optional shortcuts
 
-SpecDev SHALL use one qualified entry and select the installed upstream operation or schema first. Preserve the brief, requested operation, host handlers and qualified fallback. Offer three opt-in writing shortcuts and make every authorable format available by full name or qualified selector. Reference-only guides inform authoring.
+SpecDev SHALL use one qualified entry and select the installed upstream operation or schema first. Preserve the brief, requested operation, host handlers and qualified fallback. Give each document in the README catalog its own command. Resolve the same document by its full name or qualified selector. Offer a short host entry wherever it is available. Reference-only guides inform authoring.
 
 #### Scenario: Select a document or a review through its supported entry (A19, F23.1, S23.1)
 
 <a id="f23--start-documents-from-native-shortcuts"></a><a id="f23--select-a-document-from-the-supported-host"></a><a id="f23-1"></a><a id="s23--write-the-intended-artifact-from-a-short-request"></a><a id="s23-1"></a>
 
-- **WHEN** a user gives either host a document brief, enables `/prd`, `/lld` and `/task` or their supported host equivalents, or requests another authorable type by full name or qualified selector
-- **THEN** each route preserves the operation and original brief, reaches the same owning writer and yields the intended checked artifact. A review returns located findings. An occupied shortcut retains its original handler and the qualified entry remains usable. Repeated setup and owned-only removal preserve unrelated commands. Resolve the catalog once and observe an actual document per host. Only those three optional writing shortcuts are introduced; all other installed native capabilities remain available.
+- **WHEN** a user gives either host a document brief, uses a catalog command such as `/dr`, `/lld` or `/task`, or its supported host equivalent, or requests another authorable type by full name or qualified selector
+- **THEN** each route preserves the operation and original brief, reaches the same owning writer and yields the intended checked artifact. A review returns located findings. An occupied shortcut retains its original handler and the qualified entry remains usable. Repeated setup and owned-only removal preserve unrelated commands. Resolve the catalog once and observe an actual document per host. Each released document has a catalog command. The planned formats gain their handlers when they ship. Installed native operations retain precedence.
 
 ### Requirement: R20 · Guided continuation
 
@@ -293,7 +297,7 @@ SpecDev SHALL use OpenSpec’s discovery or next-artifact guidance where availab
 <a id="f24--guide-the-next-document-from-project-evidence"></a><a id="f24-1"></a><a id="s24--choose-and-continue-one-eligible-document"></a><a id="s24-1"></a>
 
 - **WHEN** the owner asks what comes next for a reviewed feature, a blocked decision or a completed standalone fix
-- **THEN** the reply gives one grounded recommendation and benefit, identifies the actual blocker, or reports completion. Native status and prerequisites drive change advice. The suggestion makes no edits. An authorized one-document continuation creates one attributable successor; resumption reuses it. A changed source reopens only affected work. A writing-only request stops and an independent task can stay in one Issue.
+- **THEN** the reply gives one grounded recommendation and benefit, identifies the actual blocker, or reports completion. Native status and prerequisites drive change advice. The suggestion makes no edits. An authorized one-document continuation creates one attributable successor; resumption reuses it. A changed source reopens only affected work. A writing-only request stops and an independent task can stay in one Task.
 
 ### Requirement: R21 · Maintained and historical specifications
 
@@ -308,11 +312,11 @@ For a change to a delivered feature, SpecDev SHALL identify the active source un
 
 ### Requirement: R22 · Field-level constraints
 
-For work on a constrained field, SpecDev SHALL link the exact field definition from the native task or its independently owned Issue. Check the receiving task for missing or misattributed constraints.
+For work on a constrained field, SpecDev SHALL link the exact field definition from the native task or its independently owned Task. Check the receiving task for missing or misattributed constraints.
 
 #### Scenario: Trace a constrained field to its precise owner (A22, F26.1, S26.1)
 
-<a id="f26--carry-exact-field-constraints-into-the-implementing-issue"></a><a id="f26-1"></a><a id="s26--resolve-constrained-fields-in-issue-handoffs"></a><a id="s26-1"></a>
+<a id="f26--carry-exact-field-constraints-into-the-implementing-task"></a><a id="f26-1"></a><a id="s26--resolve-constrained-fields-in-task-handoffs"></a><a id="s26-1"></a>
 
 - **WHEN** a task implements required `Return.code` in a contract where `Order.code` is optional, and a review variant points to `Order.code`
 - **THEN** the owning task references the correct field, and review locates the wrong reference, task and missing requirement. An unambiguous existing pointer suffices. An unrelated prose task needs no field reference. The two source definitions stay unchanged.
@@ -362,19 +366,19 @@ SpecDev SHALL use the privately locked `@fission-ai/openspec@2.1.1` runtime. Res
 
 ### Requirement: R26 · A single native task list
 
-SpecDev SHALL use the selected change’s native `tasks.md`. Each numbered checkbox describes bounded work and how to verify it. Resolve its governing scenario and any material design, dependency or existing Issue. A separate Issue is warranted for independently owned, externally assigned or project-required work. Maintain each criterion at one owner.
+SpecDev SHALL use the selected change’s native `tasks.md`. Each numbered checkbox describes bounded work and how to verify it. Resolve its governing scenario and any material design, dependency or existing Task. A separate Task is warranted for independently owned, externally assigned or project-required work. Maintain each criterion at one owner.
 
 #### Scenario: Select the verified refund task in the intended change (A26, F30.1, S30.1)
 
-<a id="f30--give-the-implementing-agent-the-complete-task-contract"></a><a id="f30--select-native-work-with-its-verification"></a><a id="f30-1"></a><a id="s30--select-eligible-feature-work-and-recover-its-issue-criteria"></a><a id="s30--read-the-eligible-row-and-its-source-in-the-selected-change"></a><a id="s30-1"></a><a id="feature-task-lists-and-issue-acceptance"></a><a id="native-tasks-and-separately-owned-issues"></a><a id="when-to-write-and-read-tasksmd"></a><a id="refund-status-and-filtering"></a><a id="related-design-and-work"></a>
+<a id="f30--give-the-implementing-agent-the-complete-task-contract"></a><a id="f30--select-native-work-with-its-verification"></a><a id="f30-1"></a><a id="s30--select-eligible-feature-work-and-recover-its-task-criteria"></a><a id="s30--read-the-eligible-row-and-its-source-in-the-selected-change"></a><a id="s30-1"></a><a id="feature-task-lists-and-task-acceptance"></a><a id="native-tasks-and-separately-owned-tasks"></a><a id="when-to-write-and-read-tasksmd"></a><a id="refund-status-and-filtering"></a><a id="related-design-and-work"></a>
 
 - **WHEN** two changes share a local task number and the selected refund change supplies a settled API read contract, independently editable dashboard and CLI, and a dependent filter
 - **THEN** the consumer resolves the selected change, its governing scenario, actor, permitted work and check. Rows 1.1 and 1.2 can independently verify the stored decision in the dashboard and CLI; both results demonstrate the first usable story. Row 2.1 requests denied refunds from mixed input and verifies every result is denied. Row 2.2 connects the dashboard and checks the filtered view only after 2.1 establishes that API behavior. A stale source blocks only its dependent work.
 
 #### Scenario: Keep one owner for a task and its proof
 
-- **WHEN** a bounded change task or a separately owned API Issue already provides its governing criterion
-- **THEN** the native numbered `- [ ]` checkbox states the action and how to verify completion. It resolves the relevant scenario, material design and true prerequisites. Ordinary substeps stay inline. An externally assigned or project-required Issue such as #83 keeps its own criterion, and the row verifies its applicable result by reference. Extra task files, per-row Issue exports and duplicate editable criteria are unnecessary. The actual implementer can select eligible work from the native list and its declared inputs. Verify through the live skill and Issue guidance that the former mandatory Issue-per-row rule has been removed.
+- **WHEN** a bounded change task or a separately owned API Task already provides its governing criterion
+- **THEN** the native numbered `- [ ]` checkbox states the action and how to verify completion. It resolves the relevant scenario, material design and true prerequisites. Ordinary substeps stay inline. An externally assigned or project-required Task such as #83 keeps its own criterion, and the row verifies its applicable result by reference. Extra task files, per-row Task exports and duplicate editable criteria are unnecessary. The actual implementer can select eligible work from the native list and its declared inputs. Verify through the live skill and Task guidance that the former mandatory Task-per-row rule has been removed.
 
 ### Requirement: R27 · Authorized implementation, verification and archive
 
@@ -445,7 +449,7 @@ SpecDev SHALL give procedures, references and session replies wording suited to 
 
 ### Requirement: R35 · Public feature ownership and instructions
 
-The repository’s `README.md` SHALL identify OpenSpec and SpecDev ownership feature by feature and distinguish shipped capabilities from planned ones. The public index SHALL lead directly to usable guidance for every released feature and supported document type. A named section may serve several variants; create a separate guide only for a distinct reader need.
+The root `README.md` SHALL show who supplies each feature and distinguish released features from planned ones. Link each released feature to usable guidance. List documents by the names users request, explain each in plain language and link its guide. One section may cover related variants. Add a separate guide only for a distinct reader need.
 
 #### Scenario: Identify the owner of each feature from the public `README.md` (A35, F39.1, S39.1)
 
@@ -456,8 +460,8 @@ The repository’s `README.md` SHALL identify OpenSpec and SpecDev ownership fea
 
 #### Scenario: Find each released capability and supported type
 
-- **WHEN** a new user follows the public index to focused editing, document review, an Issue variant or another released type or operation
-- **THEN** the destination is a usable page or named section explaining when to use it, inputs and expected result, including the needed action or recovery where applicable. The focused-edit entry preserves the selected scope; the review entry returns located findings. Shared destinations may serve variants they actually explain. An omission, empty stub, broken anchor or irrelevant overview fails. Compare the release catalog to the index; use representative actual destinations. Each changed feature ships its own usable guidance and link.
+- **WHEN** a new user follows the public index to focused editing, document review, a Task variant or another released type or operation
+- **THEN** the destination is a usable page or named section explaining when to use it, inputs and expected result, including the needed action or recovery where applicable. The focused-edit entry preserves the selected scope; the review entry returns located findings. Shared destinations may serve variants they actually explain. An omission, empty stub, broken anchor or irrelevant overview fails. Compare the release catalog to the index; use representative actual destinations. Each changed feature ships its own usable guidance and link. Use one document table with the command, the linked title in Full Name (ABBREVIATION) form, and a plain-language description of when to use it. Mark planned formats in the description.
 
 ### Requirement: R36 · Install SpecDev from a release
 
