@@ -2,21 +2,25 @@
 
 SpecDev helps product teams and developers agree on what to build before a coding agent starts work. Bring a feature idea, a bug, or a draft. The writer uses your project to answer what it can, works through the open decisions with you, and turns what you agree into requirements and tasks someone can check.
 
+You can use the writing tools on their own today. The planned SpecDev release will also use OpenSpec, an open-source tool that keeps a software change’s proposal, requirements, design and tasks together in your project. You’ll work with SpecDev to write and review those files. OpenSpec will track the tasks as your coding agent works through them, so the agent builds from the same requirements your team reviewed. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
+
 ## Quick start
 
-The writing tools are available today as **Technical Writer**. [Install for Codex or Claude Code](docs/installation.md). In Codex, try this request. In Claude Code, use `/technical-writer` for the same request.
+Install the writing skill under its current name, **Technical Writer**. [Setup for Codex and Claude Code](docs/installation.md). In Codex, try this request. In Claude Code, use `/technical-writer` for the same request.
 
 > $technical-writer We want support to refund duplicate charges. Read our refund policy and draft the requirements. Flag anything we still need to decide.
 
 If the policy says only managers may approve refunds, the draft keeps that rule. If the policy is silent on repeat requests, the writer asks, “What should happen if someone requests the same refund twice?” Your answer gives the developer and tester a rule they can both use.
 
-[Compare SpecDev and OpenSpec](#what-specdev-adds-to-openspec) · [Follow the document flow](#document-flow) · [Browse the documents](#supported-document-types)
+[See how SpecDev and OpenSpec work together](#how-specdev-and-openspec-work-together) · [Follow the document flow](#document-flow) · [Browse the documents](#supported-document-types)
 
-## What SpecDev adds to OpenSpec
+<a id="what-specdev-adds-to-openspec"></a>
 
-OpenSpec keeps track of a software change from proposal to completion. SpecDev helps you decide what belongs in the documents, write them for the people doing the work, and check them against what you agreed. With the planned integration you can ask SpecDev to write a document or run an OpenSpec change in the same conversation. If your project already defines the document, SpecDev writes there.
+## How SpecDev and OpenSpec work together
 
-A checkmark shows which tool provides each capability. You can use OpenSpec’s features in OpenSpec today. Entries marked **Planned** describe upcoming SpecDev features.
+For the refund example above, you could ask SpecDev for a support runbook and finish there. If you wanted to change how the product handles refunds, the planned integration would use the project’s OpenSpec files. SpecDev would write the agreed refund rule and how to check it. OpenSpec would keep that work with the change and show which tasks remain.
+
+A checkmark shows which tool does the work. **Planned** marks upcoming SpecDev features.
 
 | What you want to do | OpenSpec | SpecDev |
 | --- | :---: | :---: |
@@ -222,7 +226,7 @@ Today, ask for a document by name. Each row links to its guide or marks the form
 
 ### How OpenSpec works behind SpecDev
 
-In the planned release, ask for a support runbook and SpecDev writes it. Ask to plan a change to refund approvals and SpecDev uses the project’s OpenSpec proposal, requirements, design and tasks. You’ll be able to run the commands your installed OpenSpec supports through SpecDev, starting with `/specdev init` in Claude Code or `$specdev init` in Codex. [OpenSpec commands](https://openspec.dev/docs/cli)
+In the planned release, you’ll be able to run the commands your installed OpenSpec supports from the same conversation. For example, `/specdev init` in Claude Code or `$specdev init` in Codex will ask OpenSpec to set up the current project. [OpenSpec commands](https://openspec.dev/docs/cli)
 
 ### Planned release installation
 
