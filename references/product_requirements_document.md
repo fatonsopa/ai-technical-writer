@@ -18,6 +18,10 @@ When the document asks an owner to approve something, such as including a capabi
 
 Follow [discovery](../workflows/discover.md) to establish the problem and scope before discussing design. Use [Visual Guidance (VG)](visuals.md) for a journey map only when channels, time and user experience need explanation; link detailed user flows or wireflows from Spec Driven Development document (SDD). A short user scenario can be sufficient without a visual.
 
+### Write from project facts
+
+You can write a complete Product Requirements Document (PRD) for any project from its facts and decisions alone: user needs, outcomes, requirement IDs, exclusions, owners and open approvals. Keep the project's own terms, IDs and owners. If the project has an earlier document in another format, such as a template with an approval summary, read it as a source of facts and use the structure below. Mark an approval as open unless a source shows the owner gave it. For example: "/prd Write the product requirements for due dates from `facts.md`; save to `docs/prd.md`."
+
 ## Template
 
 ```md

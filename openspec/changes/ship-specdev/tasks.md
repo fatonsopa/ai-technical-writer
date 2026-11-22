@@ -336,7 +336,7 @@ Candidate: the W07/W08 commit on `implementation/ship-specdev`. `workflows/impro
 
 Follow an authored product requirement into the downstream specification. [Story criteria](./specs/spec-driven-authoring/spec.md#s09--create-a-projects-first-governed-documents-from-facts)
 
-- [ ] 7.1 [W18](#w18--author-a-complete-product-document-from-project-facts) (T010). Create complete product documents from two projects’ verified facts. Check each document’s scope, authority and sources against its own project.
+- [x] 7.1 [W18](#w18--author-a-complete-product-document-from-project-facts) (T010). Create complete product documents from two projects’ verified facts. Check each document’s scope, authority and sources against its own project.
 
 ### W18 · Author a complete product document from project facts
 
@@ -360,6 +360,13 @@ Product-guidance maintainer · R9/A9. [S09.1](./specs/spec-driven-authoring/spec
 [SKILL.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/SKILL.md) · [references/product_requirements_document.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/references/product_requirements_document.md) · [contracts/documents.json](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/contracts/documents.json) · [examples/product_requirements_document.md](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/examples/product_requirements_document.md)
 
 Two project inputs answer portability. Keep the first reviewed artifact for W19. Legacy forms may supply source facts only.
+
+#### Verdicts
+
+Candidate: the W18 commit on `implementation/ship-specdev`. The integration rule in `SKILL.md` and a new "Write from project facts" passage, with a worked `/prd` invocation, in `references/product_requirements_document.md` make authoring from facts the normal route; a project's own template is source evidence only. Performers were fresh-context agents following the installed skill. Reviewer: implementing agent.
+
+- **W18.1 Met.** From the Mirai due-dates PRD at `ddd183a`, read as facts only, the performer wrote a complete PRD into an empty destination. It passes the `prd` contract. FR-1 to FR-9 and their criteria, SM-1's 70% target with the baseline undecided, NG-1 to NG-4, A-1 and Q-1 are carried over, and owner `mirai-product-manager` is kept. The status line says approval is open and no source shows it was given; the "Decision needed" opening leaves inclusion pending. The reviewed bytes have SHA-256 `5f3b94e5…52e7` and are kept for W19.
+- **W18.2 Met.** Through the same route, the Nacre workspace-renaming facts produced their own PRD with CONF-01 to CONF-03 and AUD-01. It passes the contract and keeps naming length, concurrency, targets and approval open, with no Mirai content. The Mirai source's own front matter and "Summary for approval" layout did not block authoring.
 
 - [ ] 7.2 [W19](#w19--hand-an-authored-product-requirement-to-the-downstream-specification) (T011). Carry the product obligation, exclusion and unresolved decision into the governing behavior document. Locate an incompatible consumer field at its owner. After W18.
 
