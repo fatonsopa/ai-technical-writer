@@ -1944,7 +1944,7 @@ Skill maintainer · R28/A28. [S32.1](./specs/spec-driven-authoring/spec.md#s32-1
 
 `references/decision_record.md`, `workflows/discover.md` and the existing brief and interview routes.
 
-- [ ] 36.2 [W52](#w52--turn-a-reported-defect-into-one-bounded-repair) (T053). Document the observed save defect, expected result and smallest distinguishing check. Keep a suspected cause provisional and leave execution unstarted. After the connected W47–W50 path and W30–W31.
+- [x] 36.2 [W52](#w52--turn-a-reported-defect-into-one-bounded-repair) (T053). Document the observed save defect, expected result and smallest distinguishing check. Keep a suspected cause provisional and leave execution unstarted. After the connected W47–W50 path and W30–W31.
 
 ### W52 · Turn a reported defect into one bounded repair
 
@@ -1966,6 +1966,14 @@ Skill maintainer · R28/A28. [S32.1](./specs/spec-driven-authoring/spec.md#s32-1
 - **W52.2** Given only a suspected cause, keep it provisional. A bounded independent repair needs no fabricated story or Product Requirements Document (PRD) and writing it cannot authorize execution. <a id="w52-2"></a>
 
 `references/bug_report.md` and `references/task.md`.
+
+#### Verdicts
+
+Candidate: `4d81e5b` on `implementation/ship-specdev`. No guidance change was needed: the existing Bug Report (BR) route and the standalone repair rules handle both cases. Reviewer: implementing agent.
+
+- **W52.1 Met.** Support's report gave one observed save failure: an 89-character name shows "Saved" and reverts after reload on staging 4.12.0, while CAT-3 accepts up to 120 characters. Claude Code (`claude-opus-5-5`) produced a checked Bug Report (BR). It keeps the observation and the expected result from CAT-3 separate, gives a five-step reproduction that distinguishes them, and flags that the 80-character threshold is unconfirmed.
+  - **Note:** The request named `report.md`, and the report was saved there, replacing the support text. Its facts are carried into the report.
+- **W52.2 Met.** From a developer's suspicion only (`VARCHAR(80)`, never reproduced), the report keeps the cause provisional and records environment, impact and severity as unknown. It turns reproduction into a proposed boundary check at 80 and 81 or more characters, and quotes the original wording. It needed no story or Product Requirements Document (PRD) and executed nothing.
 
 <a id="s37--write-the-requested-document-and-pass-it-to-the-right-consumer"></a>
 
