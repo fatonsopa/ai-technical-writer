@@ -3,6 +3,8 @@ import argparse
 import json
 from pathlib import Path
 
+from repository_files import PRIVATE_DIRS
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -26,7 +28,8 @@ def check(root, policy=None):
             issue(name, "Internal records or a separate distribution are inside the skill.", "Archive internal records outside the repository; use the repository itself as the artifact.")
     for path in root.rglob("SKILL.md"):
         relative = path.relative_to(root)
-        if relative == Path("SKILL.md") or any(part in {".git", ".venv", "__pycache__"} for part in relative.parts):
+        # Local-only folders such as the installed OpenSpec node_modules are not package content.
+        if relative == Path("SKILL.md") or any(part in PRIVATE_DIRS for part in relative.parts):
             continue
         issue(relative.as_posix(), "Nested skill entry point can cause duplicate discovery.", "Keep one canonical root SKILL.md; move snapshots outside the repository.")
     claude = root / "CLAUDE.md"

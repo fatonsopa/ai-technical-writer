@@ -15,7 +15,7 @@ class IntegrityTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name) / 'skill'
-        shutil.copytree(HERE.parent, self.root, ignore=shutil.ignore_patterns('__pycache__', 'runs', '.git', '.venv'))
+        shutil.copytree(HERE.parent, self.root, ignore=shutil.ignore_patterns('__pycache__', 'runs', '.git', '.venv', 'node_modules'))
 
     def tearDown(self): self.temp.cleanup()
 
@@ -35,6 +35,12 @@ class IntegrityTests(unittest.TestCase):
         p.parent.mkdir(parents=True)
         p.write_text('# Archived skill\n')
         self.rejects('Nested skill')
+
+    def test_installed_dependency_skills_are_not_package_entry_points(self):
+        p = self.root / 'tools/openspec/node_modules/example/skills/demo/SKILL.md'
+        p.parent.mkdir(parents=True)
+        p.write_text('# Dependency skill\n')
+        self.assertTrue(validator.validate(self.root)['valid'])
 
     def test_dist_directory_is_rejected(self):
         (self.root / 'dist').mkdir()
