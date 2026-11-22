@@ -140,5 +140,30 @@
       "scenario": "behavior",
       "covers": []
     }
+  },
+  {
+    "id": "writer-routine-update",
+    "kind": "behavior",
+    "critical": true,
+    "semantic": true,
+    "request": {
+      "instruction": "/technical-writer You've finished reading the supplied bug report and you'll write the reproduction steps next. Send the user a one-sentence progress update now, then stop.",
+      "source": "Bug report: Saving a website category fails with a timeout when the Review tab has more than 200 rows. Reported by an administrator on 2026-11-19."
+    },
+    "resources": [
+      "SKILL.md",
+      "references/writing_style.md"
+    ],
+    "requirements": [
+      "WS-ALL"
+    ],
+    "expect": {
+      "exit_code": 0
+    },
+    "workflow": {
+      "id": "style-review",
+      "scenario": "behavior",
+      "covers": []
+    }
   }
 ]

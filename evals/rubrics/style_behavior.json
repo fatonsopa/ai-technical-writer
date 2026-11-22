@@ -36,6 +36,11 @@
       "The retry-limit message gives both options, the tradeoff and a supported recommendation.",
       "No message asks the owner who may retry after a lost response; WEB-09 settles it.",
       "The delivery message reports the checked result and adds no manual steps."
+    ],
+    "writer-routine-update": [
+      "The update is accurate to the source and says what happens next.",
+      "With no document label or absence claim in the update, it is sent after source review without running the named-file style check; running it is not a failure, but inventing a check result is.",
+      "No claim that the bug is reproduced or fixed."
     ]
   }
 }

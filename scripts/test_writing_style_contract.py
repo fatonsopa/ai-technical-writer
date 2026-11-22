@@ -147,7 +147,7 @@ class WritingStyleTests(unittest.TestCase):
     def test_style_behavior_cases_cover_non_document_text_and_rendered_delivery(self):
         cases = json.loads((ROOT / 'evals/style_cases.json').read_text())
         rubric = json.loads((ROOT / 'evals/rubrics/style_behavior.json').read_text())
-        self.assertEqual({row['id'] for row in cases}, {'style-audit-and-question', 'style-diagram-and-delivery', 'writer-message-convention-gate', 'writer-consistency-recovery-v2', 'writer-session-status-messages'})
+        self.assertEqual({row['id'] for row in cases}, {'style-audit-and-question', 'style-diagram-and-delivery', 'writer-message-convention-gate', 'writer-consistency-recovery-v2', 'writer-session-status-messages', 'writer-routine-update'})
         self.assertEqual(set(rubric['cases']), {row['id'] for row in cases})
         for case in cases:
             self.assertIn(style.REFERENCE, case['resources'])

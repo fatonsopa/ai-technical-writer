@@ -925,7 +925,7 @@ Candidate: the W15 commit on `implementation/ship-specdev`. The message contract
 
 Deliver a routine update with proof for the claims it makes. [Story criteria](./specs/spec-driven-authoring/spec.md#s13--send-a-routine-update-with-the-appropriate-checks)
 
-- [ ] 19.1 [W27](#w27--limit-routine-message-checks-to-applicable-claims) (T026). Deliver a routine update after source review and identify an applicable naming error through the selected check. Preserve document receipt obligations.
+- [x] 19.1 [W27](#w27--limit-routine-message-checks-to-applicable-claims) (T026). Deliver a routine update after source review and identify an applicable naming error through the selected check. Preserve document receipt obligations.
 
 ### W27 · Limit routine-message checks to applicable claims
 
@@ -949,6 +949,13 @@ Workflow maintainer · R15/A15. [S13.1](./specs/spec-driven-authoring/spec.md#s1
 [Entry](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/SKILL.md#L15) · [Style checker](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/scripts/writing_style_contract.py) · [Progress case](https://github.com/fatonsopa/ai-technical-writer/blob/4a8e7c92e20404f05e68708c1a3ea26c6961b178/evals/style_cases.json#L72)
 
 Ship the rule and affected evaluation in one commit. Claim observed operation only for the host exercised.
+
+#### Verdicts
+
+Candidate: the W27 commit on `implementation/ship-specdev`. The `SKILL.md` entry now requires the named-file check for artifacts, checked delivery messages and session messages that name a document type or claim absence. An ordinary update is sent after source review. The progress evaluation adds `writer-routine-update` with a private rubric. Reviewer: implementing agent.
+
+- **W27.1 Met (Claude Code only).** On Claude Code with `claude-opus-5-5`, running the candidate through a project skill link with user-level skills excluded, the routine-update request produced "I've read `bug.md`, and the reproduction steps are what I'll write next." The public trace shows a guide lookup and no `writing_style_contract.py` call. Codex was not exercised for this criterion.
+- **W27.2 Met.** The check still applies to a message with a wrong canonical label. The existing naming tests, including `test_correct_labels_pass_and_repeated_bare_names_do_not`, flag bare unambiguous acronyms and names, and they pass on this candidate. Artifact and checked-message checks are unchanged, and their current evidence is reused because no affected path changed.
 
 <a id="s08--follow-the-portable-entry-without-grader-hints"></a>
 
