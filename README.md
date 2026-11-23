@@ -1,22 +1,23 @@
 # SpecDev
 
-SpecDev helps you and your AI coding agent agree in writing on what to build before anyone builds it. It is a skill for Codex and Claude Code that writes a project's requirements, designs, tasks and test plans from what the project already says, and asks you about the rest.
+SpecDev is a skill for Codex and Claude Code that writes project documents such as requirements, designs, tasks and test plans. It bases them on your existing files and asks you about anything those files don't cover. The goal is for you and your AI coding agent to agree on what to build before the code is written.
 
 ## Why it exists
 
 An AI agent builds whatever you describe. When the description is vague, the agent fills the gaps with guesses, and you learn which guesses were wrong after the code is written. Spec-driven development avoids this by settling the decisions first: what the software must do, how it will be built, what work that takes and how you'll know it works. The agent then builds from those documents.
 
-An AI asked to write those documents guesses in the same way. A requirements document with invented details does more harm than a missing one, because it looks finished and people build from it. SpecDev exists to write these documents without the guessing.
+An AI asked to write those documents guesses in the same way. A requirements document with invented details does more harm than a missing one, because it looks finished and people build from it. SpecDev writes these documents using only what your project files and you have stated.
 
 ## How it works
 
-Say you ask for the requirements for letting customers cancel a paid order.
+When you ask for a document, for example the requirements for cancelling a paid order, SpecDev does the following:
 
-1. It reads first. SpecDev uses what your files, code and earlier documents already settle, and doesn't ask you to repeat it.
-2. It asks about what is missing. If two files disagree, or your policy is silent on orders that have shipped, it asks you before it writes. Decisions nobody has made yet are listed as open.
-3. It writes the document in a set structure and saves it as a new file. The files it read stay as they were.
-4. It checks the document against your sources and your request before you get it.
-5. It stops there. SpecDev builds a task only when you tell it to.
+1. Reads the files you name and the related code, policies and earlier documents in the project.
+2. Asks you about anything those sources don't answer or disagree on, such as whether an order that has already shipped can be cancelled. Decisions that are still undecided are listed in the document as open.
+3. Writes the document using the standard structure for its type and saves it as a new file. It doesn't change the files it read.
+4. Checks the document against your sources and your request before returning it.
+
+SpecDev doesn't write code unless you ask it to implement a task.
 
 ## The documents
 
@@ -34,20 +35,20 @@ Each document answers one question, and most projects need only a few of them. F
 | What went wrong? | [Bug Report (BR)](references/bug_report.md) and [Incident Report (IR)](references/incident_report.md) |
 | How do people use it? | [How-to Guide (HTG)](references/how_to_guide.md) and [Tutorial (TUT)](references/tutorial.md) |
 
-If you don't know which one you need, ask "what should I write next?". SpecDev looks at what exists and names the one document that fills the next gap. The [full list](#supported-document-types) has 37 types.
+If you don't know which document you need, ask "what should I write next?". SpecDev reviews the documents you already have and recommends the next one. The [full list](#supported-document-types) has 37 types.
 
 ## SpecDev and OpenSpec
 
-[OpenSpec](https://github.com/Fission-AI/OpenSpec) is an open-source tool for planning changes to a project. Each change gets a short plan that covers why it's needed, what will be different, how it will be done and the work involved. OpenSpec keeps that plan in one place and tracks progress until the change ships.
+[OpenSpec](https://github.com/Fission-AI/OpenSpec) is an open-source tool for planning changes to a software project before they are built. For each change, it records why the change is needed, what will be different, how it will be done and the tasks involved. It also tracks the tasks as they are completed.
 
-SpecDev comes with OpenSpec built in, so there is nothing extra to install. OpenSpec keeps the plan organized. SpecDev writes what goes into it, asks the questions and checks the result.
+SpecDev installs OpenSpec for you and uses it whenever you plan a change. OpenSpec manages the files for each change and the task tracking. SpecDev writes the content of those files, and it writes the documents OpenSpec doesn't cover, such as product requirements, test specifications and bug reports.
 
 | You want to | OpenSpec | SpecDev |
 | --- | :---: | :---: |
 | Keep a change's proposal, specifications, design and tasks together | ✓ | |
 | Use [your team's templates](https://openspec.dev/docs/customize-schemas) | ✓ | |
 | Track tasks and archive a finished change | ✓ | |
-| Be asked about the [decisions your files leave open](workflows/discover.md) | | ✓ |
+| Get [questions about decisions](workflows/discover.md) your files don't settle | | ✓ |
 | Write the documents around a change, from product briefs to test reports | | ✓ |
 | [Edit or rewrite](docs/writing.md) a document without changing what it requires | | ✓ |
 | Have a document [checked against its sources](docs/writing.md#review-a-document) before you receive it | | ✓ |
