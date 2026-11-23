@@ -2471,6 +2471,23 @@ On 2026-11-23 the owner asked for every change to be observed on both hosts. Eac
     - **`8a79c7f` and `94a7876`:** The reason for the choice now goes in the Task's scope and is the delivery decision sentence. Codex once replaced the receipt with its own summary, so `finalize` now leads its output with a `final_reply` instruction. Regression: `test_actual_prepare_finalize_and_legacy_evidence_preservation`.
     - **`5238f73`:** A Claude Code run reused the fixed path `/tmp/specdev-task-r1` and overwrote an earlier run's request. Each delivery session now gets a new `mktemp -d` folder.
     - **Result on `5238f73`:** Both hosts took R-1, saved `task.md` through checked delivery in a fresh temporary folder and replied with only the receipt and its R-1 decision sentence. `requirements.md` was unchanged.
+- **Final-version rerun (owner request, 2026-11-23):** The 25 cases were run on each host in turn, Codex first, then Claude Code: W27, W39 and its repeat, W43.1–W63.2, W49–W50 and the Task case. Every criterion was met on both hosts. The remaining differences were fixed and rerun:
+  - **`7560c6c`:** Codex invented an `openspec_task_list` kind to push a native `tasks.md` through checked delivery. Native artifacts now always use `openspec validate` plus the style check, never checked delivery or an added contract.
+  - **`e31ce99`:** Claude Code expanded the native-artifact reply. A passing `openspec validate` through the runtime now leads with `final_reply`, and every type gets a default filename (`task.md`, `bug-report.md`). A file named as the request's subject is a source, not the destination. Regression: `test_passing_validate_states_the_native_reply_rule_first`.
+  - **`79c8dba`:** With only a suspected cause, Codex asked and Claude Code wrote a suspected-only report. A Bug Report needs an observed failure, so SpecDev now asks and saves no file.
+  - **Fixture repair:** The W52 fixture had been reusing Bug Reports from an earlier run as its sources. It was restored to the original support and developer notes.
+  - **Same decisions on the final version:**
+    - **W43.2:** Both asked and wrote no file.
+    - **W43.1:** Both wrote a draft SDD with RF-2 kept and an open decision.
+    - **W52.1:** Both saved a new `bug-report.md`; the support note was unchanged.
+    - **W52.2:** Both asked what was observed and saved no file.
+    - **Native artifacts (W39, W58.1, W63.1, W63.2):** Both replied in the `final_reply` form.
+    - **W39 repeat:** Both reported the documentation complete and wrote nothing.
+    - **Task case:** Both saved `task.md` for R-1 through checked delivery.
+    - **W48.2 and W59.2:** Both held item 1.1.
+    - **W49.1:** Both stopped at the handoff.
+    - **W50:** Both verified the interrupted candidate and left 1.1 unticked.
+  - **Environment difference:** Codex's sandbox keeps `.git` read-only. In W49.2, its fix stays uncommitted and 1.1 unticked; Claude Code committed and ticked.
 
 ## Proposals awaiting owner approval
 
