@@ -2451,6 +2451,20 @@ On 2026-11-23 the owner asked for every change to be observed on both hosts. Eac
   - **W43.1:** Both hosts used the 30 days that the policy states supersedes the launch window.
   - **Interpreter:** W48.2 held item 1.1 on the r1 → r2 change. The Claude Code Skill Builder run used `.venv/bin/python`, and its structure and style checks passed.
 - **Limit:** In the W48.2 rerun, Claude Code's reply said it changed no files without running the style check, which SKILL.md asks for on that kind of message.
+- **Same behavior on both hosts:** The owner then required both hosts to behave the same way.
+  - **Where the hosts differed on `bb745b6`, because the guidance allowed a choice:**
+    - **W43.2:** Codex drafted; Claude Code asked.
+    - **W43.1, partial refunds against RF-2:** Codex declared supersession; Claude Code asked.
+    - **One Task from several requirements:** each host picked a different requirement.
+  - **`857b137` prescribes one behavior for each:**
+    - **Same rule, different values, nothing says which governs:** ask one question and write no file until it's answered.
+    - **A newer source adds behavior without saying it replaces an older rule:** keep both, list the interaction as an open decision, and write.
+    - **One Task requested, none named:** take the first requirement in source order that can be delivered and checked alone.
+  - **Verified one host at a time, Codex first, then Claude Code, on `857b137`:** Both hosts made the same decisions.
+    - **W43.2:** Each asked which window governs, and no file was written.
+    - **W43.1:** Each wrote a draft SDD with 30 days under POL-3, labeled 7 days historical, kept RF-2 as written and listed its interaction with partial refunds as an open decision.
+    - **Task:** Each wrote `task.md` for R-1 and said it was first in source order and checkable alone.
+    - **Sources:** In every run, the sources stayed unchanged.
 
 ## Proposals awaiting owner approval
 
