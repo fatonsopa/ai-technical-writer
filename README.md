@@ -1,6 +1,6 @@
 # SpecDev
 
-SpecDev helps developers and AI agents agree on what a change must do before anyone builds it. Give it a request and your project's sources. It turns the agreed behavior into specifications, stories and tasks that say how to check the result. It builds on OpenSpec’s workflow for planning and implementing changes, and it also writes and checks documentation for the rest of your project. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
+SpecDev helps developers and AI agents improve spec-driven development process by standardizing specifications and the flow between them. It builds on OpenSpec’s workflow for planning and implementing changes, and it also writes and checks documentation for the rest of your project. [About OpenSpec](https://github.com/Fission-AI/OpenSpec)
 
 <a id="planned-release-installation"></a>
 
@@ -34,7 +34,7 @@ If the policy says only managers may approve refunds, the draft keeps that rule.
 
 For a new idea, start with a [product brief](docs/choosing-documents.md#product-brief). For agreed behavior, [plan the change](docs/choosing-documents.md#plan-an-openspec-change). For a small fix, ask for [one task](references/task.md).
 
-### Follow one behavior to its check
+### Usecases
 
 Suppose an administrator says, "If saving a category fails, keep my selection." In the Websites Review example, requirement WEB-06 in the [behavior specification](examples/spec_driven_development.md#web-06-support-dependable-inline-assignment) already requires it. The [user story](examples/user_story.md#acceptance-criteria) turns it into a criterion: an error appears and the selected category stays in edit mode without a success message. The [illustrative child task](examples/task_failed_save.md) implements just that failure path. Check T10 in the [test specification](examples/test_specification.md) defines how to prove it: force the save to fail and confirm the error, the kept selection and the missing success message. T10 is planned proof; it says nothing about a run until someone runs it on a candidate.
 
