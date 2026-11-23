@@ -177,6 +177,7 @@ class WriterRecordIntegrationTests(unittest.TestCase):
         fixture.prepare();review=fixture.judgment()
         result=subprocess.run([sys.executable,str(Path(writer.__file__)),'finalize','--session',str(fixture.session),'--draft',str(fixture.draft),'--review',review['review']],capture_output=True,text=True)
         self.assertEqual(result.returncode,0,result.stderr)
+        out=json.loads(result.stdout);self.assertEqual(next(iter(out)),'final_reply');self.assertEqual(out['final_reply'],writer.FINAL_REPLY_RULE);self.assertTrue(out['message'].startswith('Saved the reviewed document'))
         meta=json.loads((fixture.session/records.MARKER).read_text())
         self.assertEqual(meta['fingerprint'],records._fingerprint(fixture.session,meta['children']))
         for pin in meta['pins']:records.release(fixture.session,pin,'Authored control retires its own temporary evidence.')

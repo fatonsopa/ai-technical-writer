@@ -376,6 +376,9 @@ def review(session, review_file):
     return {"accepted": accepted, "review": str(target), "output_sha256": identifier}
 
 
+FINAL_REPLY_RULE = "Send the `message` value as your entire final reply, unchanged. Add nothing before or after it; anything else the reader needs belongs in the document."
+
+
 def finalize(session, draft, review_file, *, _close_records=True):
     session, draft = Path(session), Path(draft)
     state = state_for(session, budget=False)
@@ -553,6 +556,9 @@ def main():
         if args.command == 'finalize' and (args.session / record_retention.MARKER).exists():
             record_retention.finish(args.session, resolved=True, pin='accepted_document:' + result['output_sha256'])
             record_retention.cleanup(args.session.parent, 'technical-writer')
+        if args.command == 'finalize' and isinstance(result.get('message'), str):
+            # Every host gets the same explicit delivery instruction with the receipt.
+            result = {'final_reply': FINAL_REPLY_RULE, **result}
         print(json.dumps(result, indent=2, ensure_ascii=False))
         return 1 if result.get("passed") is False or result.get("accepted") is False and args.command == "review" else 0
     except (OSError, ValueError, KeyError, TypeError) as error:
