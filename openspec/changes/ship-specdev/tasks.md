@@ -2429,9 +2429,28 @@ Accepted on 2026-11-23 against implementation HEAD `eac4eb8`, artifact SHA-256 `
   - **Implementation handoff:** W48–W50.
   - **Cross-host cases:** The neutral cases in W17. A pass on one host was never counted for the other.
 - **Limits:**
-  - **Interpreter:** A performer on the system `python3` (3.9) can't run the skill's scripts; this is in Pending owner decisions.
+  - **Interpreter:** Fixed in `bb745b6`; see Cross-host verification.
   - **Commits in the sandbox:** In W49–W50, Codex's sandbox keeps `.git` read-only, so candidates are identified by content hash.
-  - **Release:** Release assets are built and verified locally. Publishing them, merging to main and deploying are outside this delivery's authority.
+  - **Release:** Release assets are built and verified locally. Publishing and deploying are outside this delivery's authority. The owner asked on 2026-11-23 for the accepted work to be merged to `main`.
+
+### Cross-host verification
+
+On 2026-11-23 the owner asked for every change to be observed on both hosts. Each criterion first observed on one host was run on the other with the same packet and request, on accepted `bd5a413` and installed from an isolated home. Reviewer: implementing agent.
+
+- **Run on Codex** (`gpt-6.2-sol`, medium effort):
+  - **Met:** W27.1, W39.1, W44.1, W48.1, W48.3, W49.1, W52.1, W52.2, W58.2, W59.2 and W63.1.
+  - **Not met, then fixed:** W43.2 failed. Codex took the launch specification's "frozen" label and the policy's later date as settling which refund window governs, and wrote a ready SDD.
+- **Run on Claude Code** (`claude-opus-5-5`):
+  - **Met:** W43.1, W44.2, W45.1, W48.2, W48.4, W49.2, W50.1 (interrupted after its first commit, then resumed), W51.1, W51.2, W58.1, W59.1 and W63.2.
+  - **Gap found:** In W48.2 and a Skill Builder run, Claude Code used the system `python3` (3.9, no PyYAML), so the checks couldn't run.
+- **Fixes:**
+  - **`3acd9e1`:** A new document goes to its own file when no destination is named. Checked delivery refuses a destination that is one of the document's sources unless `context.destination_requested` records that the user asked for that file. This followed a Skill Builder run where a document was appended to its source. The test request turned out to be ambiguous, and it was rerun with clear wording; the rule stands. Regression: `test_a_new_document_is_not_written_into_its_own_source_unless_the_user_asked`.
+  - **`bb745b6`:** A "frozen" label or a later date isn't a statement of which source governs. SKILL.md also says to run every bundled script with the skill's `.venv`, create it when missing, and report a check that couldn't run while keeping the status at draft.
+- **Reruns on `bb745b6`, both hosts:**
+  - **W43.2:** Claude Code asked which window governs before writing. Codex saved a draft that lists both values and leaves the window open for the product owner.
+  - **W43.1:** Both hosts used the 30 days that the policy states supersedes the launch window.
+  - **Interpreter:** W48.2 held item 1.1 on the r1 → r2 change. The Claude Code Skill Builder run used `.venv/bin/python`, and its structure and style checks passed.
+- **Limit:** In the W48.2 rerun, Claude Code's reply said it changed no files without running the style check, which SKILL.md asks for on that kind of message.
 
 ## Proposals awaiting owner approval
 
