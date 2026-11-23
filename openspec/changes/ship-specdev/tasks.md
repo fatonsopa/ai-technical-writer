@@ -1996,7 +1996,7 @@ Skill maintainer · R28/A28. [S32.1](./specs/spec-driven-authoring/spec.md#s32-1
 #### Acceptance criteria
 
 - **W52.1** Given one observed save failure with a known expected outcome, produce a repair record with the observation, the expected result and the smallest check that distinguishes them. <a id="w52-1"></a>
-- **W52.2** Given only a suspected cause, keep it provisional. A bounded independent repair needs no fabricated story or Product Requirements Document (PRD) and writing it cannot authorize execution. <a id="w52-2"></a>
+- **W52.2** Given only a suspected cause, keep it provisional: write no Bug Report, and ask what was observed. A bounded independent repair needs no fabricated story or Product Requirements Document (PRD) and writing it cannot authorize execution. <a id="w52-2"></a>
 
 `references/bug_report.md` and `references/task.md`.
 

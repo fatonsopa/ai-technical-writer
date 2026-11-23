@@ -1,6 +1,6 @@
 # Bug Report (BR)
 
-A bug report records an observed failure so a developer can investigate it, reproduce it when possible, assess its impact, and verify a fix. Create it to record a failure; update it as investigation or verification progresses. Combine this guide with [Task](task.md). It can live in a Bug task.
+A bug report records an observed failure so a developer can investigate it, reproduce it when possible, assess its impact, and verify a fix. Create it to record a failure; update it as investigation or verification progresses. When the source gives only a suspected cause and nobody has observed the failure, write no Bug Report and save no file: say that no failure has been observed, and ask one question about what was seen, such as the input, the expected result and what actually happened. Combine this guide with [Task](task.md). It can live in a Bug task.
 
 ## Principles
 
