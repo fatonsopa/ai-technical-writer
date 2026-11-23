@@ -116,6 +116,10 @@ def installed(verb):
     return probe.returncode == 0 and probe.stdout.startswith("Usage: openspec " + verb)
 
 
+NATIVE_REPLY_RULE = ("If you wrote or edited a native artifact, your final reply is: \"Wrote ARTIFACT for CHANGE. `openspec validate` passed. Only ARTIFACT changed.\" "
+                     "(use Edited for an edit), then at most one sentence naming an open decision the artifact records. Add nothing else.")
+
+
 def run(verb, arguments, project):
     """Forward one native command; unknown verbs return a result without running anything."""
     runtime = ensure()
@@ -133,6 +137,10 @@ def run(verb, arguments, project):
         if not any(a == "--scope" or a.startswith("--scope=") for a in arguments):
             argv.append("--scope=project")
     result = subprocess.run(argv, cwd=project, capture_output=True, text=True, env=environment())
+    if verb == "validate" and result.returncode == 0:
+        # Every host gets the same reply rule for a native artifact with the passing validation.
+        return {"final_reply": NATIVE_REPLY_RULE, "status": "ok", "argv": argv[1:], "project": str(project), "exit_code": 0,
+                "stdout": result.stdout, "stderr": result.stderr, "openspec": runtime["version"]}
     return {"status": "ok" if result.returncode == 0 else "failed", "argv": argv[1:], "project": str(project), "exit_code": result.returncode,
             "stdout": result.stdout, "stderr": result.stderr, "openspec": runtime["version"]}
 

@@ -19,7 +19,7 @@ class RuntimeTests(unittest.TestCase):
         def fake(argv, **kwargs):
             self.calls.append((argv, kwargs.get("cwd")))
             return subprocess.CompletedProcess(argv, 0, "Usage: openspec templates" if "--help" in argv else "done", "")
-        for patcher in (patch.object(runtime, "ensure", return_value=RUNTIME), patch.object(runtime, "commands", return_value=["init", "list", "status"]),
+        for patcher in (patch.object(runtime, "ensure", return_value=RUNTIME), patch.object(runtime, "commands", return_value=["init", "list", "status", "validate"]),
                         patch.object(runtime.subprocess, "run", side_effect=fake)):
             patcher.start(); self.addCleanup(patcher.stop)
 
@@ -32,6 +32,12 @@ class RuntimeTests(unittest.TestCase):
         result = runtime.run("init", ["--tools", "claude", "--scope", "global"], self.project)
         self.assertEqual(result["argv"], ["init", "--tools", "claude", "--scope", "global"])
         self.assertEqual(runtime.run("status", ["--change", "refunds"], self.project)["argv"], ["status", "--change", "refunds"])
+
+    def test_passing_validate_states_the_native_reply_rule_first(self):
+        result = runtime.run("validate", ["refunds"], self.project)
+        self.assertEqual(next(iter(result)), "final_reply")
+        self.assertEqual(result["final_reply"], runtime.NATIVE_REPLY_RULE)
+        self.assertNotIn("final_reply", runtime.run("status", [], self.project))
 
     def test_unknown_verb_runs_nothing_in_the_project(self):
         with patch.object(runtime, "installed", return_value=False):
