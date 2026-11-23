@@ -41,7 +41,8 @@ When a delivered feature changes again, find which agreement governs before draf
 - For independent documents, follow the team's declared maintenance convention, such as a maintained specification that supersedes launch snapshots.
 - Once a source or that convention names the maintained rule, cite it. The superseded snapshot becomes a historical source: label its values as historical, and link it to its maintained successor. Leave both files unchanged.
 - A "frozen" status, a later date or a newer revision doesn't by itself say which source governs. Only an explicit statement does: a source that says it supersedes the other, or the team's declared convention.
-- If two sources give materially different values and nothing says which governs, keep both and ask one focused question, such as "Which refund window governs: 7 days in the launch specification or 30 days in the refund policy?" Don't commit to either value until it's answered. Sections the conflict doesn't touch can still be drafted.
+- If two sources give materially different values for the same rule and nothing says which governs, ask one focused question, such as "Which refund window governs: 7 days in the launch specification or 30 days in the refund policy?" Write no file until it's answered, unless the user asks for a draft with the question left open.
+- If a newer source adds behavior and doesn't say whether it replaces an older rule, keep both rules as written. Don't call either one superseded. List how they interact as an open decision for the owner, and write the document.
 
 ## Document structure
 
