@@ -2465,6 +2465,12 @@ On 2026-11-23 the owner asked for every change to be observed on both hosts. Eac
     - **W43.1:** Each wrote a draft SDD with 30 days under POL-3, labeled 7 days historical, kept RF-2 as written and listed its interaction with partial refunds as an open decision.
     - **Task:** Each wrote `task.md` for R-1 and said it was first in source order and checkable alone.
     - **Sources:** In every run, the sources stayed unchanged.
+  - **Through Skill Builder** (`/skill-builder`, `$skill-builder`), one host at a time, Codex first. The hosts differed four more times; each difference was fixed in SpecDev and rerun on both hosts.
+    - **`f03fe7e`:** Claude Code ran only the structure and style checks and wrote the file itself; Codex ran `prepare` → `finalize`. Checked delivery is now required for every saved document whenever code can run.
+    - **`bf058e5`:** Claude Code saved `tasks/<name>.md` and added text after the receipt; Codex saved `task.md` and sent the receipt alone. A standalone Task with no convention or destination now goes to `task.md`, and the final reply is the receipt alone.
+    - **`8a79c7f` and `94a7876`:** The reason for the choice now goes in the Task's scope and is the delivery decision sentence. Codex once replaced the receipt with its own summary, so `finalize` now leads its output with a `final_reply` instruction. Regression: `test_actual_prepare_finalize_and_legacy_evidence_preservation`.
+    - **`5238f73`:** A Claude Code run reused the fixed path `/tmp/specdev-task-r1` and overwrote an earlier run's request. Each delivery session now gets a new `mktemp -d` folder.
+    - **Result on `5238f73`:** Both hosts took R-1, saved `task.md` through checked delivery in a fresh temporary folder and replied with only the receipt and its R-1 decision sentence. `requirements.md` was unchanged.
 
 ## Proposals awaiting owner approval
 
