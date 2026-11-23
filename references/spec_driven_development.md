@@ -39,7 +39,8 @@ When a delivered feature changes again, find which agreement governs before draf
 
 - In OpenSpec, current behavior lives in `openspec/specs/<capability>/spec.md`. A selected change's deltas propose new behavior, and the archive keeps past changes and their decisions.
 - For independent documents, follow the team's declared maintenance convention, such as a maintained specification that supersedes launch snapshots.
-- Cite the maintained rule. A frozen delivery snapshot is a historical source: label its values as historical, and link it to its maintained successor or other approved source when known. Leave both files unchanged.
+- Once a source or that convention names the maintained rule, cite it. The superseded snapshot becomes a historical source: label its values as historical, and link it to its maintained successor. Leave both files unchanged.
+- A "frozen" status, a later date or a newer revision doesn't by itself say which source governs. Only an explicit statement does: a source that says it supersedes the other, or the team's declared convention.
 - If two sources give materially different values and nothing says which governs, keep both and ask one focused question, such as "Which refund window governs: 7 days in the launch specification or 30 days in the refund policy?" Don't commit to either value until it's answered. Sections the conflict doesn't touch can still be drafted.
 
 ## Document structure
