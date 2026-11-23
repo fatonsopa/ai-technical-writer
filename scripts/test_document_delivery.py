@@ -1,5 +1,6 @@
 """Exercise input → draft → checks → review → accepted delivery and failure paths."""
 import json
+import shutil
 from pathlib import Path
 import tempfile
 import unittest
@@ -203,11 +204,29 @@ class DocumentDeliveryTests(unittest.TestCase):
         self.target.write_text("Original product draft: 0042.")
         self.data["sources"] = [{"id": "request", "path": "accepted.md"}]
         self.data["operation"] = "rewrite"
+        self.data["context"]["destination_requested"] = True
         self.prepare()
         result = self.judgment()
         delivery.finalize(self.session, self.draft, result["review"])
         delivery.finalize(self.session, self.draft, result["review"])
         self.assertEqual(delivery.state_for(self.session)["frozen"]["request"]["sources"][0]["text"], "Original product draft: 0042.")
+
+    def test_a_new_document_is_not_written_into_its_own_source_unless_the_user_asked(self):
+        """A derived document goes to its own file; writing into a source needs the user's request."""
+        self.target.write_text("R-2: Trim surrounding spaces from names. Identifier 0042.\n")
+        self.data["sources"] = [{"id": "request", "path": "accepted.md"}]
+        for operation in ("edit", "rewrite"):
+            for flag in (None, False, "yes"):
+                with self.subTest(operation=operation, flag=flag):
+                    self.data["operation"] = operation
+                    self.data["context"].pop("destination_requested", None)
+                    if flag is not None:
+                        self.data["context"]["destination_requested"] = flag
+                    shutil.rmtree(self.session, ignore_errors=True)
+                    with self.assertRaisesRegex(ValueError, "destination_requested"):
+                        self.prepare()
+                    self.assertFalse(self.session.exists())
+                    self.assertEqual(self.target.read_text(), "R-2: Trim surrounding spaces from names. Identifier 0042.\n")
 
     def test_title_only_edit_cannot_replace_the_document_with_only_a_title(self):
         self.target.write_text("# Original title\n\nKeep identifier 0042 and this body.\n")

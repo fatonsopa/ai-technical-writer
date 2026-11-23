@@ -71,7 +71,7 @@ In the request JSON, supply:
 }
 ```
 
-Paths in this request are relative to the request file. Use real source requirements and literals; the values above illustrate the format. Inline source text can replace a source path. An edit of an existing excerpt also needs `context.edit_region: [START_LINE, END_LINE]` with its inclusive original line bounds. A title-only file edit may change only its H1; a review must not overwrite its source.
+Paths in this request are relative to the request file. Use real source requirements and literals; the values above illustrate the format. Inline source text can replace a source path. An edit of an existing excerpt also needs `context.edit_region: [START_LINE, END_LINE]` with its inclusive original line bounds. A title-only file edit may change only its H1; a review must not overwrite its source. Writing into a file that is also a source needs `context.destination_requested: true`, which records that the user asked for that file to change.
 
 Run the installed Python environment from the skill folder. Replace `WORK` with a separate task folder containing the request, source and draft:
 

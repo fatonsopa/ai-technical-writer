@@ -100,7 +100,7 @@ def prepare(request_file, session):
     if len({row["id"] for row in requirements}) != len(requirements):
         raise ValueError("Requirement IDs must be unique.")
     context = request.setdefault("context", {})
-    if not isinstance(context, dict) or set(context) - {"required_literals", "requirement_ids", "open_prerequisites", "decision_made", "edit_region", "discovery", "visuals", "instruction_format", "instruction_version", "rewrite_authorization", "coverage", "parents"}:
+    if not isinstance(context, dict) or set(context) - {"required_literals", "requirement_ids", "open_prerequisites", "decision_made", "edit_region", "discovery", "visuals", "instruction_format", "instruction_version", "rewrite_authorization", "coverage", "parents", "destination_requested"}:
         raise ValueError("Unsupported document context.")
     rewrite_workflow.authorization(context)
     if 'instruction_format' in context and (request['kind'] != 'agent' or context['instruction_format'] not in contracts['documents']['agent']['instruction_formats']):
@@ -144,6 +144,10 @@ def prepare(request_file, session):
         raise ValueError("Creation needs a new destination; use an explicit edit/rewrite for an existing file.")
     if request["operation"] == "review" and any(row.get("path") == str(destination) for row in captured):
         raise ValueError("A review must deliver findings separately from the reviewed source.")
+    if "destination_requested" in context and type(context["destination_requested"]) is not bool:
+        raise ValueError("destination_requested must be boolean.")
+    if any(row.get("path") == str(destination) for row in captured) and context.get("destination_requested") is not True:
+        raise ValueError("The destination is one of this document's sources. Save the new document as its own file, or set context.destination_requested to true only when the user asked to change that file.")
     region = context.get("edit_region")
     if region is not None and (not isinstance(region, list) or len(region) != 2 or any(type(value) is not int for value in region) or region[0] <= 0 or region[1] < region[0]):
         raise ValueError("edit_region needs the inclusive original start/end line numbers.")
